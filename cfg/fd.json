@@ -1,38 +1,4 @@
 {
-  "server": {
-    "port": 5000
-  },
-  "external": {
-    "contentrepository": {
-      "protocol": "http:",
-      "host": "docker01.dev.fd.fdmg.org",
-      "port": "8181",
-      "endpoint": "cxf/writer/commands",
-      "upload": "cxf/writer/images/upload"
-    },
-    "conceptbackend": {
-      "protocol": "http:",
-      "host": "docker01.dev.fd.fdmg.org",
-      "port": "3000",
-      "endpoint": "commands"
-    }
-  },
-  "newsItemTemplateUUID": "1142801",
-  "textTypes": [
-    {
-      "name": "paragraph",
-      "data": {
-        "type": "paragraph"
-      }
-    },
-    {
-      "name": "headline",
-      "data": {
-        "type": "headline"
-      }
-    }
-  ],
-  "main": {
     "plugins": [
       {
         "vendor": "infomaker.se",
@@ -272,5 +238,4 @@
         "enabled": false
       }
     ]
-  }
 }
