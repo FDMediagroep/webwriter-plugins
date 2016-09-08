@@ -1,276 +1,356 @@
 {
-  "server": {
-    "port": 5000
-  },
-  "external": {
-    "contentrepository": {
-      "protocol": "http:",
-      "host": "docker01.dev.fd.fdmg.org",
-      "port": "8181",
-      "endpoint": "cxf/writer/commands",
-      "upload": "cxf/writer/images/upload"
-    },
-    "conceptbackend": {
-      "protocol": "http:",
-      "host": "docker01.dev.fd.fdmg.org",
-      "port": "3000",
-      "endpoint": "commands"
-    }
-  },
-  "newsItemTemplateUUID": "1142801",
-  "textTypes": [
+   "plugins": [
     {
-      "name": "paragraph",
+      "vendor": "infomaker.se",
+      "name": "ximteaser",
+      "enabled": true,
       "data": {
-        "type": "paragraph"
+        "fields": [
+          "subject",
+          "text"
+        ]
       }
     },
     {
-      "name": "headline",
+      "vendor": "infomaker.se",
+      "name": "publish",
+      "enabled": true
+    },
+    {
+      "vendor": "infomaker.se",
+      "name": "youtube",
+      "enabled": true,
       "data": {
-        "type": "headline"
+        "urlMatchers": [
+          "^https?://youtu\\.be/.*",
+          "^https?://(www\\.)?youtube\\.com/watch\\?v=.*"
+        ]
       }
+    },
+    {
+      "vendor": "infomaker.se",
+      "name": "preamble",
+      "enabled": true
+    },
+    {
+      "vendor": "infomaker.se",
+      "name": "utils",
+      "enabled": true
+    },
+    {
+      "vendor": "nl.fdmg",
+      "name": "oembed",
+      "enabled": true,
+      "data": {
+        "urlMatchers": [
+          "^http(?:s)?://twitter\\.com/(?:#!)?[^#?/]+/status/.+$",
+
+          "^https?://(www\\.)?instagram\\.com/p/.*",
+          "^https?://(www\\.)?instagr\\.am/p/.*",
+
+          "^https?://(www\\.)?soundcloud\\.com/.*/.*",
+
+          "^https?://(www\\.)?vimeo\\.com/.*",
+          "^https?://player\\.vimeo.com/video/.*",
+
+          "^https://www\\.facebook\\.com/.*/posts/.*",
+          "^https://www\\.facebook\\.com/.*/activity/.*",
+          "^https://www\\.facebook\\.com/photo\\.php?fbid=.*",
+          "^https://www\\.facebook\\.com/photos/.*",
+          "^https://www\\.facebook\\.com/permalink\\.php\\?story_fbid=.*",
+          "^https://www\\.facebook\\.com/media/set\\?set=.*",
+          "^https://www\\.facebook\\.com/questions/.*",
+          "^https://www\\.facebook\\.com/notes/.*/.*/.*",
+
+          "^https://www\\.facebook\\.com/.*/videos/.*/",
+          "^https://www\\.facebook\\.com/video\\.php\\?id=.*",
+          "^https://www\\.facebook\\.com/video\\.php\\?v=.*"
+        ]
+      },
+      "source": {
+        "type": "git",
+        "pluginrepositoryId": "fdplugins",
+        "path": "webwriter-plugins/plugins/oembed"
+      }
+    },
+    {
+       "vendor": "infomaker.se",
+       "name": "ximimage",
+       "enabled": true,
+       "data": {
+           "enablesoftcrop": true,
+           "publishedmaxwidth": 2560,
+           "crops": {
+             "16:9": [16, 9],
+             "4:3": [4, 3],
+             "1:1": [1, 1]
+         },
+         "urlMatchers": [
+           "^.*\\.jpg",
+           "^.*\\.gif",
+           "^.*\\.png"
+         ]
+       }
+     },
+    {
+      "vendor": "infomaker.se",
+      "name": "author",
+      "enabled": false
+    },
+    {
+      "vendor": "infomaker.se",
+      "name": "tags",
+      "enabled": false
+    },
+    {
+      "vendor": "nl.fdmg",
+      "name": "validatable",
+      "enabled": true,
+      "source": {
+        "type":"git",
+        "pluginrepositoryId":"fdplugins",
+        "path":"webwriter-plugins/plugins/validatable"
+      }
+    },
+    {
+      "vendor": "nl.fdmg",
+      "name": "linkselector",
+      "enabled": true,
+      "source": {
+        "type":"git",
+        "pluginrepositoryId":"fdplugins",
+        "path":"webwriter-plugins/plugins/linkselector"
+      }
+    },
+    {
+      "vendor": "nl.fdmg",
+      "name": "articleoptions",
+      "enabled": true,
+      "source": {
+        "type":"git",
+        "pluginrepositoryId":"fdplugins",
+        "path":"webwriter-plugins/plugins/articleoptions"
+      }
+    },
+    {
+      "vendor": "nl.fdmg",
+      "name": "byline",
+      "enabled": false,
+      "data": {
+       "backendPath": "https://dev-api.fdmg.org/private/fd/articles/authors"
+      },
+      "source": {
+        "type":"git",
+        "pluginrepositoryId":"fdplugins",
+        "path":"webwriter-plugins/plugins/byline"
+      }
+    },
+    {
+      "vendor": "nl.fdmg",
+      "name": "defaultvalidation",
+      "enabled": false,
+      "data" : {
+        "mandatory" : [
+          {"type" : "fdmg/section", "name" : "section", "message" : "Geen sectie opgegeven"}
+        ]
+      },
+      "source": {
+        "type":"git",
+        "pluginrepositoryId":"fdplugins",
+        "path":"webwriter-plugins/plugins/defaultvalidation"
+      }
+    },
+    {
+      "vendor": "nl.fdmg",
+      "name": "genre",
+      "enabled": true,
+      "data" : {
+        "endpoint": "https://dev-api.fdmg.org/private/fd/articles/genres"
+      },
+      "source": {
+        "type":"git",
+        "pluginrepositoryId":"fdplugins",
+        "path":"webwriter-plugins/plugins/genre"
+      }
+    },
+    {
+      "vendor": "nl.fdmg",
+      "name": "rubric",
+      "enabled": true,
+      "data" : {
+        "endpoint": "https://dev-api.fdmg.org/private/fd/articles/rubrics"
+      },
+      "source": {
+        "type":"git",
+        "pluginrepositoryId":"fdplugins",
+        "path":"webwriter-plugins/plugins/rubric"
+      }
+    },
+    {
+      "vendor": "nl.fdmg",
+      "name": "section",
+      "enabled": true,
+      "data" : {
+        "endpoint": "https://dev-api.fdmg.org/private/fd/lists/sections/home/children"
+      },
+      "source": {
+        "type":"git",
+        "pluginrepositoryId":"fdplugins",
+        "path":"webwriter-plugins/plugins/section"
+      }
+    },
+    {
+      "vendor": "nl.fdmg",
+      "name": "articletype",
+      "enabled": true,
+      "data" : {
+        "endpoint": "https://dev-api.fdmg.org/private/fd/articles/types"
+      },
+      "source": {
+        "type":"git",
+        "pluginrepositoryId":"fdplugins",
+        "path":"webwriter-plugins/plugins/articletype"
+      }
+    },
+    {
+      "vendor": "nl.fdmg",
+      "name": "numberframe",
+      "enabled": true,
+      "source": {
+        "type":"git",
+        "pluginrepositoryId":"fdplugins",
+        "path":"webwriter-plugins/plugins/numberframe"
+      }
+    },
+    {
+      "vendor": "nl.fdmg",
+      "name": "quote",
+      "enabled": true,
+      "source": {
+        "type":"git",
+        "pluginrepositoryId":"fdplugins",
+        "path":"webwriter-plugins/plugins/quote"
+      }
+    },
+    {
+      "vendor": "infomaker.se",
+      "name": "link",
+      "enabled": true
+    },
+    {
+      "vendor": "nl.fdmg",
+      "name": "fdpersonal",
+      "enabled": true,
+      "source": {
+        "type":"git",
+        "pluginrepositoryId":"fdplugins",
+        "path":"webwriter-plugins/plugins/fdpersonal"
+      }
+    },
+    {
+      "vendor": "nl.fdmg",
+      "name": "relatedarticle",
+      "enabled": true,
+      "source": {
+        "type":"git",
+        "pluginrepositoryId":"fdplugins",
+        "path":"webwriter-plugins/plugins/relatedarticle"
+      }
+    },
+    {
+      "name": "htmlembed",
+      "vendor": "nl.fdmg",
+      "enabled": true,
+      "source": {
+        "type":"git",
+        "pluginrepositoryId":"fdplugins",
+        "path":"webwriter-plugins/plugins/htmlembed"
+      }
+    },
+    {
+      "vendor": "nl.fdmg",
+      "name": "nocomments",
+      "enabled": true,
+      "source": {
+        "type":"git",
+        "pluginrepositoryId":"fdplugins",
+        "path":"webwriter-plugins/plugins/nocomments"
+      }
+    },
+    {
+      "vendor": "nl.fdmg",
+      "name": "donotindex",
+      "enabled": true,
+      "source": {
+        "type":"git",
+        "pluginrepositoryId":"fdplugins",
+        "path":"webwriter-plugins/plugins/donotindex"
+      }
+    },
+    {
+      "vendor": "nl.fdmg",
+      "name": "breakingarticle",
+      "enabled": true,
+      "source": {
+        "type":"git",
+        "pluginrepositoryId":"fdplugins",
+        "path":"webwriter-plugins/plugins/breakingarticle"
+      }
+    },
+    {
+      "vendor": "nl.fdmg",
+      "name": "paywall",
+      "enabled": true,
+      "source": {
+        "type":"git",
+        "pluginrepositoryId":"fdplugins",
+        "path":"webwriter-plugins/plugins/paywall"
+      }
+    },
+    {
+      "vendor": "nl.fdmg",
+      "name": "shortarticle",
+      "enabled": true,
+      "source": {
+        "type":"git",
+        "pluginrepositoryId":"fdplugins",
+        "path":"webwriter-plugins/plugins/shortarticle"
+      }
+    },
+    {
+      "vendor": "nl.fdmg",
+      "name": "stackframe",
+      "enabled": true,
+      "source": {
+        "type":"git",
+        "pluginrepositoryId":"fdplugins",
+        "path":"webwriter-plugins/plugins/stackframe"
+      }
+    },
+    {
+      "vendor": "nl.fdmg",
+      "name": "relatedlink",
+      "enabled": true,
+      "source": {
+        "type":"git",
+        "pluginrepositoryId":"fdplugins",
+        "path":"webwriter-plugins/plugins/relatedlink"
+      }
+    },
+    {
+      "vendor": "nl.fdmg",
+      "name": "redirectlink",
+      "enabled": true,
+      "source": {
+        "type":"git",
+        "pluginrepositoryId":"fdplugins",
+        "path":"webwriter-plugins/plugins/redirectlink"
+      }
+    },
+    {
+      "vendor": "infomaker.se",
+      "name": "contentrelations",
+      "enabled": false
     }
-  ],
-  "main": {
-    "plugins": [
-      {
-        "vendor": "infomaker.se",
-        "name": "ximteaser",
-        "enabled": true,
-        "data": {
-          "fields": [
-            "subject",
-            "text"
-          ]
-        }
-      },
-      {
-        "vendor": "infomaker.se",
-        "name": "publish",
-        "enabled": true
-      },
-      {
-        "vendor": "infomaker.se",
-        "name": "youtube",
-        "enabled": true,
-        "data": {
-          "urlMatchers": [
-            "^https?://youtu\\.be/.*",
-            "^https?://(www\\.)?youtube\\.com/watch\\?v=.*"
-          ]
-        }
-      },
-      {
-        "vendor": "infomaker.se",
-        "name": "preamble",
-        "enabled": true
-      },
-      {
-        "vendor": "infomaker.se",
-        "name": "utils",
-        "enabled": true
-      },
-      {
-        "vendor": "nl.fdmg",
-        "name": "oembed",
-        "enabled": true,
-        "data": {
-          "urlMatchers": [
-            "^http(?:s)?://twitter\\.com/(?:#!)?[^#?/]+/status/.+$",
-
-            "^https?://(www\\.)?instagram\\.com/p/.*",
-            "^https?://(www\\.)?instagr\\.am/p/.*",
-
-            "^https?://(www\\.)?soundcloud\\.com/.*/.*",
-
-            "^https?://(www\\.)?vimeo\\.com/.*",
-            "^https?://player\\.vimeo.com/video/.*",
-
-            "^https://www\\.facebook\\.com/.*/posts/.*",
-            "^https://www\\.facebook\\.com/.*/activity/.*",
-            "^https://www\\.facebook\\.com/photo\\.php?fbid=.*",
-            "^https://www\\.facebook\\.com/photos/.*",
-            "^https://www\\.facebook\\.com/permalink\\.php\\?story_fbid=.*",
-            "^https://www\\.facebook\\.com/media/set\\?set=.*",
-            "^https://www\\.facebook\\.com/questions/.*",
-            "^https://www\\.facebook\\.com/notes/.*/.*/.*",
-
-            "^https://www\\.facebook\\.com/.*/videos/.*/",
-            "^https://www\\.facebook\\.com/video\\.php\\?id=.*",
-            "^https://www\\.facebook\\.com/video\\.php\\?v=.*"
-          ]
-        }
-      },
-      {
-         "vendor": "infomaker.se",
-         "name": "ximimage",
-         "enabled": true,
-         "data": {
-             "enablesoftcrop": true,
-             "publishedmaxwidth": 2560,
-             "crops": {
-               "16:9": [16, 9],
-               "4:3": [4, 3],
-               "1:1": [1, 1]
-           },
-           "urlMatchers": [
-             "^.*\\.jpg",
-             "^.*\\.gif",
-             "^.*\\.png"
-           ]
-         }
-       },
-      {
-        "vendor": "infomaker.se",
-        "name": "author",
-        "enabled": false
-      },
-      {
-        "vendor": "infomaker.se",
-        "name": "tags",
-        "enabled": false
-      },
-      {
-        "vendor": "nl.fdmg",
-        "name": "validatable",
-        "enabled": true
-      },
-      {
-        "vendor": "nl.fdmg",
-        "name": "linkselector",
-        "enabled": true
-      },
-      {
-        "vendor": "nl.fdmg",
-        "name": "articleoptions",
-        "enabled": true
-      },
-      {
-        "vendor": "nl.fdmg",
-        "name": "byline",
-        "enabled": false,
-        "data": {
-         "backendPath": "https://dev-api.fdmg.org/private/fd/articles/authors"
-        }
-      },
-      {
-        "vendor": "nl.fdmg",
-        "name": "defaultvalidation",
-        "enabled": false,
-        "data" : {
-          "mandatory" : [
-            {"type" : "fdmg/section", "name" : "section", "message" : "Geen sectie opgegeven"}
-          ]
-        }
-      },
-      {
-        "vendor": "nl.fdmg",
-        "name": "genre",
-        "enabled": true,
-        "data" : {
-          "endpoint": "https://dev-api.fdmg.org/private/fd/articles/genres"
-        }
-      },
-      {
-        "vendor": "nl.fdmg",
-        "name": "rubric",
-        "enabled": true,
-        "data" : {
-          "endpoint": "https://dev-api.fdmg.org/private/fd/articles/rubrics"
-        }
-      },
-      {
-        "vendor": "nl.fdmg",
-        "name": "section",
-        "enabled": true,
-        "data" : {
-          "endpoint": "https://dev-api.fdmg.org/private/fd/lists/sections/home/children"
-        }
-      },
-      {
-        "vendor": "nl.fdmg",
-        "name": "articletype",
-        "enabled": true,
-        "data" : {
-          "endpoint": "https://dev-api.fdmg.org/private/fd/articles/types"
-        }
-      },
-      {
-        "vendor": "nl.fdmg",
-        "name": "numberframe",
-        "enabled": true
-      },
-      {
-        "vendor": "nl.fdmg",
-        "name": "quote",
-        "enabled": true
-      },
-      {
-        "vendor": "infomaker.se",
-        "name": "link",
-        "enabled": true
-      },
-      {
-        "vendor": "nl.fdmg",
-        "name": "fdpersonal",
-        "enabled": true
-      },
-      {
-        "vendor": "nl.fdmg",
-        "name": "relatedarticle",
-        "enabled": true
-      },
-      {
-        "name": "htmlembed",
-        "vendor": "nl.fdmg",
-        "enabled": true
-      },
-      {
-        "vendor": "nl.fdmg",
-        "name": "nocomments",
-        "enabled": true
-      },
-      {
-        "vendor": "nl.fdmg",
-        "name": "donotindex",
-        "enabled": true
-      },
-      {
-        "vendor": "nl.fdmg",
-        "name": "breakingarticle",
-        "enabled": true
-      },
-      {
-        "vendor": "nl.fdmg",
-        "name": "paywall",
-        "enabled": true
-      },
-      {
-        "vendor": "nl.fdmg",
-        "name": "shortarticle",
-        "enabled": true
-      },
-      {
-        "vendor": "nl.fdmg",
-        "name": "stackframe",
-        "enabled": true
-      },
-      {
-        "vendor": "nl.fdmg",
-        "name": "relatedlink",
-        "enabled": true
-      },
-      {
-        "vendor": "nl.fdmg",
-        "name": "redirectlink",
-        "enabled": true
-      },   
-      {
-        "vendor": "infomaker.se",
-        "name": "contentrelations",
-        "enabled": false
-      }
-    ]
-  }
+  ]
 }
