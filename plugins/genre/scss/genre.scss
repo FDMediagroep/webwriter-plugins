@@ -1,0 +1,166 @@
+
+// FDMG editor plugins styling
+[contentEditable="true"]:empty:not(:focus):after{
+    content: attr(data-text);
+    opacity :0.5;
+}
+
+a.fdmg-box {
+    padding: 5px 10px 5px 15px;
+    color: rgba(0, 0, 0, 0.75);
+    margin-bottom: 20px;
+    display: block;
+    text-decoration: none;
+    color: #222;
+    cursor: default;
+    padding-left: 10px;
+    position: relative;
+    border-radius: 5px;
+    .sc-text-property {
+        cursor: text;
+    }
+    > div {
+        display:block;
+        width:100%;
+    }
+     &:hover {
+        background-color: #fefefe;
+        box-shadow: rgba(0, 0, 0, 0.498039) 0px 0px 1px 0px, rgba(0, 0, 0, 0.14902) 0px 1px 10px 0px;
+        div.header {
+            .remove-button { display: block; }
+            border-bottom: 1px solid #efefef;
+            opacity: 1;
+        }
+    }
+    .plugin-title {
+        float: left;
+        font-size: 0.9rem;
+        font-weight: 300;
+    }
+
+    .fa.plugin-icon {
+        display: inline-block;
+        float: left;
+        color: #444;
+        font-size: 0.8em;
+        padding-top: 8px;
+        padding-right: 15px;
+    }
+    
+    div.header {
+        opacity: 0.2;
+        display: block;
+        margin-bottom: 5px;
+        float: left;
+        width: 100%;
+        border-bottom: 1px solid #ffffff;
+        -webkit-transition: opacity 0.5s, border-bottom 0.5s;
+        transition: opacity 0.5s, border-bottom 0.5s;
+        &:hover {
+            cursor: move;
+        }
+        .remove-button {
+            display: none;
+            float: right;
+            color: #d9534f;
+            cursor: pointer;
+            font-size: 0.9rem;
+            line-height: 1;
+            padding: 5px 5px 5px 5px;
+            margin-right: -5px;
+        }
+
+        .edit-button {
+            position: absolute;
+            right: 25px;
+            top: -5px;
+            cursor: pointer;
+            color: #333;
+            &:hover { color: #000; }
+        }
+    }
+   
+}
+
+.fdmg-dialog {
+    padding: 0 15px;
+    textarea, input.input {
+        width: 100%;
+        border-radius: 3px;
+        border: 1px solid #ddd;
+    }
+    textarea { 
+        padding: 10px;
+        height: 120px;
+
+    }
+    input.input { 
+        padding-left: 10px;
+
+    }
+    h1 { font-size: 1em; }
+}
+
+// FDMG sidebar plugins styling
+
+.fdmg-sidebar {
+    hr {
+        margin-bottom: 0px;
+    }
+    .checkbox {
+        min-height: 27px;
+        padding-top: 7px;
+        margin-top: 0;
+        margin-bottom: 0;
+        position: relative;
+        font-size: 0.9em;
+        label {
+            min-height: 20px;
+            padding-left: 20px;
+            margin-bottom: 0;
+            font-weight: 400;
+            cursor: pointer;
+            display: inline-block;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+        input[type="checkbox"] {
+            position: absolute;
+            margin: -3px 0px 0px -20px;
+            box-sizing: border-box;
+        }
+    }
+    select, input[type="text"] {
+        width: 100%;
+        border: 1px solid #ccc;
+        border-radius: 0.25rem;
+        font-size: 0.9em;
+        padding-left: 5px;
+        line-height: 1.4;
+        height: 30px;
+    }
+    input[type="text"] {
+        border: 1px dashed #8a8a8a;
+        padding-left: 9px;
+    }
+
+    .header {
+        display: flex;
+        justify-content:space-between;
+    }
+
+    option:checked { font-weight:bold; }
+
+    .input-toggle {
+        font-size: 0.7em;
+        color: #111;
+        display: block;
+        text-align: right;
+        width: 100%;
+        padding: 10px 0.4em 5px 0px;
+        .fa {
+            color: #222;
+            margin: 0.1em 0 0 0.6em;
+        }
+    }
+}

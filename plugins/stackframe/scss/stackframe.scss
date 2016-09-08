@@ -1,0 +1,46 @@
+$im-embedhtml-border-color: #ddd;
+.fdmg-stackframe {
+	
+	.heading, .content {
+		font-style: italic;
+		display: inline-block;
+		padding: 0 25px 0 30px;
+	}
+	.heading {
+		font-size: 1em;
+		text-align: left;
+		padding-left: 30px;
+		font-weight: bold;
+		position: relative;
+		width: 100%;
+		&:before {
+			content:"\f1dc";
+			font-family: FontAwesome;
+			color: rgba(0, 0, 0, 0.5);
+			font-weight: normal;
+			font-style: normal;
+			display: inline-block;
+			text-decoration: inherit;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+    }
+	.content {
+		font-size: 0.9em;
+        line-height: 1.4;
+        position: relative;
+        &:before {
+			content:"\f036";
+			color: rgba(0, 0, 0, 0.5);
+			font-family: FontAwesome;
+			font-weight: normal;
+			font-style: normal;
+			display: inline-block;
+			text-decoration: inherit;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+	}
+}

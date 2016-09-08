@@ -1,0 +1,12 @@
+.articletype {
+	select[disabled="disabled"] {
+		opacity:0.4;
+		-webkit-transition: opacity 0.3s;
+    	transition: opacity 0.3s;
+	}
+	select {
+		opacity:1;
+		-webkit-transition: opacity 0.3s;
+    	transition: opacity 0.3s;
+	}
+}
