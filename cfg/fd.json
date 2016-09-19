@@ -1,12 +1,4 @@
 {
-   "external": {
-      "conceptbackend": {
-        "protocol": "http:",
-        "host": "services01.dev.fd.fdmg.org",
-        "port": "8383",
-        "endpoint": "search/commands"
-      }
-    },
    "plugins": [
     {
       "vendor": "infomaker.se",
@@ -20,7 +12,7 @@
       }
     },
     {
-      "vendor": "infomaker.se",
+      "vendor": "nl.fdmg",
       "name": "publish",
       "enabled": true
     },

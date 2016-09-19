@@ -11,9 +11,9 @@
       "upload": "cxf/writer/images/upload"
     },
     "conceptbackend": {
-      "protocol": "http:",
-      "host": "services01.dev.fd.fdmg.org",
-      "port": "8383",
+      "protocol": "https:",
+      "host": "dev-api.fdmg.org/private/fd/",
+      "port": "443",
       "endpoint": "search/commands"
     }
   },

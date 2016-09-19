@@ -1,0 +1,188 @@
+.sc-publish {
+    background-color: #fff;
+
+    .sc-publish__menu {
+        @include flex();
+    }
+
+    .publish__saving {
+        margin: auto -10px auto 10px;
+    }
+
+    .sc-publish__submenu {
+        margin-left:40px;
+        border-bottom:none;
+        li {
+            padding-left: 0;
+            padding-right: 10px;
+        }
+
+        .form-control {
+            line-height: 19px;
+        }
+        .form-control-label {
+            font-size: 0.9rem;
+        }
+        .btn {
+            margin-top:10px;
+        }
+    }
+
+    .togglebutton {
+        float:right;
+    }
+
+    .sc-publish__status {
+        flex: 6 1 auto;
+        padding: 10px 15px;
+        border-right: 1px solid #ddd;
+        -webkit-align-self: center;
+        align-self: center;
+
+        @media (max-width: 992px) {
+            text-align: center;
+            .btn-group {
+                width:100%;
+                button {
+                    width:30%;
+                }
+                :first-child {
+                    width:70%;
+                }
+            }
+        }
+
+        .btn-group {
+            display: inline-block;
+            float:right;
+            margin:0;
+            cursor: pointer;
+            color: #363636;
+            font-size: 1rem;
+        }
+
+        span.description {
+            color: #373a3c;
+            font-size: 1rem;
+            font-weight: normal;
+            display: inline-block;
+            line-height: 38px;
+            cursor: pointer;
+        }
+        .status__text {
+            display: none;
+            @media (min-width: 992px) {
+                display: inline;
+            }
+        }
+        .status__icon {
+            display:none;
+            @media (max-width: 992px) {
+                display: inline-block;
+            }
+        }
+    }
+
+    div#sc-publish__actions {
+
+        .btn-group-loose {
+            padding: 10px 20px 10px 20px;
+            background: #fafafa;
+            border-top: 1px solid #eee;
+            width: 100%;
+
+            button {
+                font-size: 0.9rem;
+                line-height: 2.4rem;
+                height: 2.4rem;
+                width: 2.5rem;
+                padding: 0;
+                background: #fff;
+                border-color: #bbb;
+                margin-right: 5px;
+
+                i {
+                    font-weight: bold;
+                    color: #333;
+                }
+
+                &:hover {
+                    background: #eee;
+                }
+            }
+        }
+
+        ul {
+            margin-bottom:0;
+            list-style: none;
+            padding:5px 0 0 0;
+
+            li {
+                padding-left:10px;
+                border-top: 1px solid #e5e5e5;
+
+                &:hover {
+                    .fa-check-circle-o {
+                        color: darken(#565656, 20%);
+                    }
+                    .fa-send {
+                        color: darken($green, 10%);
+                    }
+
+                    .fa-ban {
+                        color: darken($red, 10%);
+                    }
+                    .fa-retweet,
+                    .fa-clock-o {
+                        color: darken($blue, 10%);
+                    }
+                }
+
+                .fa {
+                    float:left;
+                    color: #c7c7c7;
+                    font-size: 1rem;
+                    padding:13px 10px;
+                }
+                .fa-check-circle-o {
+                    color: #565656;
+                }
+                .fa-send {
+                    color: $green;
+                }
+
+                .fa-ban {
+                    color: $red;
+                }
+                .fa-retweet,
+                .fa-clock-o {
+                    color: $blue;
+                }
+                .fa-spinner {
+                    color: #565656;
+                }
+
+                a {
+                    color: #79737f;
+                    margin-left:40px;
+                    display: block;
+                    padding: 8px 10px 10px 0;
+                    cursor: pointer;
+                    font-size: 0.95rem;
+
+                    &:hover {
+                        text-decoration: none;
+                        color: darken(#79737f, 20%);
+                    }
+                }
+
+            }
+
+            li:last-child {
+                a {
+                    border-bottom: none
+                }
+            }
+        }
+    }
+}
