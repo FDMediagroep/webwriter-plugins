@@ -134,15 +134,15 @@
     },
     {
       "vendor": "nl.fdmg",
-      "name": "byline",
-      "enabled": false,
+      "name": "author",
+      "enabled": true,
       "data": {
        "backendPath": "https://dev-api.fdmg.org/private/fd/articles/authors"
       },
       "source": {
         "type":"git",
         "pluginrepositoryId":"fdplugins",
-        "path":"webwriter-plugins/plugins/byline"
+        "path":"webwriter-plugins/plugins/author"
       }
     },
     {
