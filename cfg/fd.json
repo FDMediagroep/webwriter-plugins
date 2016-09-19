@@ -16,6 +16,7 @@
       "name": "publish",
       "enabled": true
     },
+    
     {
       "vendor": "infomaker.se",
       "name": "youtube",
