@@ -14,9 +14,14 @@
     {
       "vendor": "nl.fdmg",
       "name": "publish",
-      "enabled": true
+      "enabled": true,
+      "source": {
+        "type":"git",
+        "pluginrepositoryId":"fdplugins",
+        "path":"webwriter-plugins/plugins/publish"
+      }
     },
-    
+
     {
       "vendor": "infomaker.se",
       "name": "youtube",
