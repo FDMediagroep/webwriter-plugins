@@ -81,3 +81,17 @@
         }
     }
 }
+
+.authors, .tags {
+    ul#searchResult {
+        max-height: 300px;
+        li {
+            max-height: 90px;
+            line-height: 1.1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding: 0 5px;
+            font-size: 0.8em;
+        }
+    }
+}
