@@ -20,12 +20,12 @@ HtmlembedCommand.Prototype = function() {
 
         var data = {
             type: 'htmlembed',
-            contentType: 'x-im/htmlembed',
+            contentType: 'fdmg/htmlembed',
             text: text,
             format: 'html',
             data: {
-                type: 'x-im/htmlembed',
-                'data-type': 'x-im/htmlembed'
+                type: 'fdmg/htmlembed',
+                'data-type': 'fdmg/htmlembed'
             }
         };
 
