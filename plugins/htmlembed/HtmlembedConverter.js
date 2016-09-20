@@ -5,7 +5,7 @@ var HtmlembedConverter = {
     tagName: 'object',
 
     matchElement: function(el) {
-        return el.is('object') && el.attr('type') == 'x-im/htmlembed';
+        return el.is('object') && el.attr('type') == 'fdmg/htmlembed';
     },
 
     import: function(el, node, converter) { // jshint ignore:line
