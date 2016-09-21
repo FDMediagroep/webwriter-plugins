@@ -6,8 +6,10 @@
     padding: 0;
 }
 
-.author hr {
-    margin-bottom:0;
+.author  {
+    hr {
+        margin-bottom:0;
+    }
 }
 
 .authors__list-item {
@@ -22,16 +24,7 @@
     align-items: center;
     @include border-radius(0.25rem);
     margin-bottom: 0;
-    .avatar__container {
-        flex: 0 1 30px;
-        .avatar {
-            width: 18px;
-            height: 18px;
-        }
-    }
-    .meta {
-        font-size: 1.05rem;
-    }
+    
     &:hover {
         background-color: #f5f5f5;
     }
@@ -63,12 +56,12 @@
 
     .avatar__container {
         -webkit-flex: 0 1 40px;
-        flex: 0 1 40px;
+        flex: 0 1 30px;
         padding: 5px 5px;
     }
     .avatar {
-        width: 24px;
-        height: 24px;
+        width: 18px;
+        height: 18px;
         vertical-align: text-bottom;
         @include border-radius(12px);
     }
