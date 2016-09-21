@@ -98,10 +98,18 @@
          ]
        }
      },
-    {
-      "vendor": "infomaker.se",
+     {
+      "vendor": "nl.fdmg",
       "name": "author",
-      "enabled": false
+      "enabled": true,
+      "data": {
+       "backendPath": "https://dev-api.fdmg.org/private/fd/articles/authors"
+      },
+      "source": {
+        "type":"git",
+        "pluginrepositoryId":"fdplugins",
+        "path":"webwriter-plugins/plugins/author"
+      }
     },
     {
       "vendor": "nl.fdmg",
@@ -141,19 +149,6 @@
         "type":"git",
         "pluginrepositoryId":"fdplugins",
         "path":"webwriter-plugins/plugins/articleoptions"
-      }
-    },
-    {
-      "vendor": "nl.fdmg",
-      "name": "author",
-      "enabled": true,
-      "data": {
-       "backendPath": "https://dev-api.fdmg.org/private/fd/articles/authors"
-      },
-      "source": {
-        "type":"git",
-        "pluginrepositoryId":"fdplugins",
-        "path":"webwriter-plugins/plugins/author"
       }
     },
     {

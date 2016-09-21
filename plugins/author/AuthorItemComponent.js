@@ -48,7 +48,8 @@ AuthorItemComponent.Prototype = function () {
                 });
             }.bind(this), 1);
         } else {
-            this.ajaxRequest = this.context.api.router.ajax('GET', 'xml', '/api/newsitem/' + {imType: this.props.author.type});
+
+            this.ajaxRequest = this.context.api.router.ajax('GET', 'XML', '/api/newsitem/' + this.props.author.uuid, {imType: this.props.author.type});
             this.ajaxRequest
                 .done(function (data) {
                     var conceptXML = data.querySelector('concept');
