@@ -104,9 +104,14 @@
       "enabled": false
     },
     {
-      "vendor": "infomaker.se",
+      "vendor": "nl.fdmg",
       "name": "tags",
-      "enabled": false
+      "enabled": true,
+      "source": {
+        "type":"git",
+        "pluginrepositoryId":"fdplugins",
+        "path":"webwriter-plugins/plugins/tags"
+      }
     },
     {
       "vendor": "nl.fdmg",
