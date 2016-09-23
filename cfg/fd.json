@@ -197,7 +197,7 @@
       "name": "section",
       "enabled": true,
       "data" : {
-        "endpoint": "https://dev-api.fdmg.org/private/fd/lists/sections/home/children"
+        "endpoint": "https://webwriter-dev.fd.nl/fdmgapi/private/fd/lists/sections/home/children"
       },
       "source": {
         "type":"git",
