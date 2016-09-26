@@ -40,7 +40,6 @@ AuthorMainComponent.Prototype = function () {
     };
 
     this.render = function () {
-
         var el = $$('div').ref('authorContainer').addClass('authors').append($$('h2').append(this.context.i18n.t('Author')));
 
         var authorSearchUrl = this.context.api.router.getEndpoint();

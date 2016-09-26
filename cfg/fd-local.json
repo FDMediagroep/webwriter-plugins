@@ -2,6 +2,7 @@
   "server": {
     "port": 5000
   },
+  "pluginRepository": "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\",
   "external": {
     "contentrepository": {
       "protocol": "http:",
@@ -12,9 +13,9 @@
     },
     "conceptbackend": {
       "protocol": "https:",
-      "host": "dev-api.fdmg.org/private/fd/",
-      "port": "443",
-      "endpoint": "search/commands"
+      "host": "dev-api.fdmg.org",
+      "port": "",
+      "endpoint": "private/fd/search/commands"
     }
   },
   "i18nOverride": "../i18n/default-en.js",
@@ -59,9 +60,10 @@
         }
       },
       {
-        "vendor": "infomaker.se",
+        "vendor": "nl.fdmg",
         "name": "publish",
-        "enabled": true
+        "enabled": true,
+        "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\publish"
       },
       {
         "vendor": "infomaker.se",
@@ -144,7 +146,7 @@
       {
         "vendor": "nl.fdmg",
         "name": "tags",
-        "enabled": false,
+        "enabled": true,
         "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\tags"
       },
       {
@@ -283,7 +285,16 @@
         "name": "redirectlink",
         "enabled": true,
         "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\redirectlink"
-      },   
+      },
+      {
+        "vendor": "nl.fdmg",
+        "name": "epic",
+        "enabled": false,
+        "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\epic",
+        "data" : {
+          "endpoint": "https://dev-api.fdmg.org/private/fd/search/epic?q="
+        }
+      },  
       {
          "vendor": "nl.fdmg",
          "name": "stockticker",
