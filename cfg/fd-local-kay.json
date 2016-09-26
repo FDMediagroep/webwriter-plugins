@@ -1,0 +1,309 @@
+{
+  "server": {
+    "port": 5000
+  },
+  "pluginRepository": "/Users/kreuning/Developer/webwriter/plugins/plugins/",
+  "external": {
+    "contentrepository": {
+      "protocol": "http:",
+      "host": "52.208.118.32",
+      "port": "8181",
+      "endpoint": "cxf/writer/commands",
+      "upload": "cxf/writer/images/upload"
+    },
+    "conceptbackend": {
+      "protocol": "https:",
+      "host": "dev-api.fdmg.org",
+      "port": "",
+      "endpoint": "private/fd/search/commands"
+    }
+  },
+  "i18nOverride": "../i18n/default-en.js",
+  "newsItemTemplateUUID": "1142801",
+  "textTypes": [
+    {
+      "name": "paragraph",
+      "data": {
+        "type": "paragraph"
+      }
+    },
+    {
+      "name": "headline",
+      "data": {
+        "type": "headline"
+      }
+    },
+    {
+      "name": "preamble",
+      "data": {
+        "type": "preamble"
+      }
+    },
+    {
+      "name": "blockquote",
+      "data": {
+        "type": "blockquote"
+      }
+    }
+  ],
+  "main": {
+    "plugins": [
+      {
+        "vendor": "infomaker.se",
+        "name": "ximteaser",
+        "enabled": true,
+        "data": {
+          "fields": [
+            "subject",
+            "text"
+          ]
+        }
+      },
+      {
+        "vendor": "nl.fdmg",
+        "name": "publish",
+        "enabled": true,
+        "path" : "/Users/kreuning/Developer/webwriter/plugins/plugins/publish"
+      },
+      {
+        "vendor": "infomaker.se",
+        "name": "youtube",
+        "enabled": true,
+        "data": {
+          "urlMatchers": [
+            "^https?://youtu\\.be/.*",
+            "^https?://(www\\.)?youtube\\.com/watch\\?v=.*"
+          ]
+        }
+      },
+      {
+        "vendor": "infomaker.se",
+        "name": "preamble",
+        "enabled": true
+      },
+      {
+        "vendor": "infomaker.se",
+        "name": "utils",
+        "enabled": true
+      },
+      {
+        "vendor": "nl.fdmg",
+        "name": "oembed",
+        "enabled": true,
+        "path" : "/Users/kreuning/Developer/webwriter/plugins/plugins/oembed",
+        "data": {
+          "urlMatchers": [
+            "^http(?:s)?://twitter\\.com/(?:#!)?[^#?/]+/status/.+$",
+
+            "^https?://(www\\.)?instagram\\.com/p/.*",
+            "^https?://(www\\.)?instagr\\.am/p/.*",
+
+            "^https?://(www\\.)?soundcloud\\.com/.*/.*",
+
+            "^https?://(www\\.)?vimeo\\.com/.*",
+            "^https?://player\\.vimeo.com/video/.*",
+
+            "^https://www\\.facebook\\.com/.*/posts/.*",
+            "^https://www\\.facebook\\.com/.*/activity/.*",
+            "^https://www\\.facebook\\.com/photo\\.php?fbid=.*",
+            "^https://www\\.facebook\\.com/photos/.*",
+            "^https://www\\.facebook\\.com/permalink\\.php\\?story_fbid=.*",
+            "^https://www\\.facebook\\.com/media/set\\?set=.*",
+            "^https://www\\.facebook\\.com/questions/.*",
+            "^https://www\\.facebook\\.com/notes/.*/.*/.*",
+
+            "^https://www\\.facebook\\.com/.*/videos/.*/",
+            "^https://www\\.facebook\\.com/video\\.php\\?id=.*",
+            "^https://www\\.facebook\\.com/video\\.php\\?v=.*"
+          ]
+        }
+      },
+      {
+         "vendor": "infomaker.se",
+         "name": "ximimage",
+         "enabled": true,
+         "data": {
+             "enablesoftcrop": true,
+             "publishedmaxwidth": 2560,
+             "crops": {
+               "16:9": [16, 9],
+               "4:3": [4, 3],
+               "1:1": [1, 1]
+           },
+           "urlMatchers": [
+             "^.*\\.jpg",
+             "^.*\\.gif",
+             "^.*\\.png"
+           ]
+         }
+       },
+      {
+        "vendor": "nl.fdmg",
+        "name": "author",
+        "enabled": true,
+        "path" : "/Users/kreuning/Developer/webwriter/plugins/plugins/author"
+      },
+      {
+        "vendor": "nl.fdmg",
+        "name": "tags",
+        "enabled": true,
+        "path" : "/Users/kreuning/Developer/webwriter/plugins/plugins/tags"
+      },
+      {
+        "vendor": "nl.fdmg",
+        "name": "validatable",
+        "enabled": true,
+        "path" : "/Users/kreuning/Developer/webwriter/plugins/plugins/validatable"
+      },
+      {
+        "vendor": "nl.fdmg",
+        "name": "linkselector",
+        "enabled": true,
+        "path" : "/Users/kreuning/Developer/webwriter/plugins/plugins/linkselector"
+      },
+      {
+        "vendor": "nl.fdmg",
+        "name": "articleoptions",
+        "enabled": true,
+        "path" : "/Users/kreuning/Developer/webwriter/plugins/plugins/articleoptions"
+      },
+      {
+        "vendor": "nl.fdmg",
+        "name": "genre",
+        "enabled": true,
+        "path" : "/Users/kreuning/Developer/webwriter/plugins/plugins/genre",
+        "data" : {
+          "endpoint": "https://dev-api.fdmg.org/private/fd/articles/genres"
+        }
+      },
+      {
+        "vendor": "nl.fdmg",
+        "name": "rubric",
+        "enabled": true,
+        "path" : "/Users/kreuning/Developer/webwriter/plugins/plugins/rubric",
+        "data" : {
+          "endpoint": "https://dev-api.fdmg.org/private/fd/articles/rubrics"
+        }
+      },
+      {
+        "vendor": "nl.fdmg",
+        "name": "section",
+        "enabled": true,
+        "path" : "/Users/kreuning/Developer/webwriter/plugins/plugins/section",
+        "data" : {
+          "endpoint": "https://dev-api.fdmg.org/private/fd/lists/sections/home/children"
+        }
+      },
+      {
+        "vendor": "nl.fdmg",
+        "name": "articletype",
+        "enabled": true,
+        "path" : "/Users/kreuning/Developer/webwriter/plugins/plugins/articletype",
+        "data" : {
+          "endpoint": "https://dev-api.fdmg.org/private/fd/articles/types"
+        }
+      },
+      {
+        "vendor": "nl.fdmg",
+        "name": "numberframe",
+        "enabled": true,
+        "path" : "/Users/kreuning/Developer/webwriter/plugins/plugins/numberframe"
+      },
+      {
+        "vendor": "nl.fdmg",
+        "name": "quote",
+        "enabled": true,
+        "path" : "/Users/kreuning/Developer/webwriter/plugins/plugins/quote"
+      },
+      {
+        "vendor": "infomaker.se",
+        "name": "link",
+        "enabled": true
+      },
+      {
+        "vendor": "nl.fdmg",
+        "name": "fdpersonal",
+        "enabled": true,
+        "path" : "/Users/kreuning/Developer/webwriter/plugins/plugins/fdpersonal"
+      },
+      {
+        "vendor": "nl.fdmg",
+        "name": "relatedarticle",
+        "enabled": true,
+        "path" : "/Users/kreuning/Developer/webwriter/plugins/plugins/relatedarticle"
+      },
+      {
+        "name": "htmlembed",
+        "vendor": "nl.fdmg",
+        "enabled": true,
+        "path" : "/Users/kreuning/Developer/webwriter/plugins/plugins/htmlembed"
+      },
+      {
+        "vendor": "nl.fdmg",
+        "name": "nocomments",
+        "enabled": true,
+        "path" : "/Users/kreuning/Developer/webwriter/plugins/plugins/nocomments"
+      },
+      {
+        "vendor": "nl.fdmg",
+        "name": "donotindex",
+        "enabled": true,
+        "path" : "/Users/kreuning/Developer/webwriter/plugins/plugins/donotindex"
+      },
+      {
+        "vendor": "nl.fdmg",
+        "name": "breakingarticle",
+        "enabled": true,
+        "path" : "/Users/kreuning/Developer/webwriter/plugins/plugins/breakingarticle"
+      },
+      {
+        "vendor": "nl.fdmg",
+        "name": "paywall",
+        "enabled": true,
+        "path" : "/Users/kreuning/Developer/webwriter/plugins/plugins/paywall"
+      },
+      {
+        "vendor": "nl.fdmg",
+        "name": "shortarticle",
+        "enabled": true,
+        "path" : "/Users/kreuning/Developer/webwriter/plugins/plugins/shortarticle"
+      },
+      {
+        "vendor": "nl.fdmg",
+        "name": "stackframe",
+        "enabled": true,
+        "path" : "/Users/kreuning/Developer/webwriter/plugins/plugins/stackframe"
+      },
+      {
+        "vendor": "nl.fdmg",
+        "name": "relatedlink",
+        "enabled": true,
+        "path" : "/Users/kreuning/Developer/webwriter/plugins/plugins/relatedlink"
+      },
+      {
+        "vendor": "nl.fdmg",
+        "name": "redirectlink",
+        "enabled": true,
+        "path" : "/Users/kreuning/Developer/webwriter/plugins/plugins/redirectlink"
+      },
+      {
+        "vendor": "nl.fdmg",
+        "name": "epic",
+        "enabled": false,
+        "path" : "/Users/kreuning/Developer/webwriter/plugins/plugins/epic",
+        "data" : {
+          "endpoint": "https://dev-api.fdmg.org/private/fd/search/epic?q="
+        }
+      },
+      {
+         "vendor": "nl.fdmg",
+         "name": "stockticker",
+         "enabled": false,
+        "path" : "/Users/kreuning/Developer/webwriter/plugins/plugins/stockticker",
+         "data": {
+           "serviceurl": "http://beurs.fd.nl/webservices/fd/quicksearch?query="
+         }
+       }
+    ]
+  }
+}
