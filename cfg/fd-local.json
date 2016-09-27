@@ -294,16 +294,22 @@
         "data" : {
           "endpoint": "https://dev-api.fdmg.org/private/fd/search/epic?q="
         }
-      },  
+      },
       {
-         "vendor": "nl.fdmg",
-         "name": "stockticker",
-         "enabled": false,
+        "vendor": "nl.fdmg",
+        "name": "universalsearch",
+        "enabled": true,
+        "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\universalsearch"
+      },
+      {
+        "vendor": "nl.fdmg",
+        "name": "stockticker",
+        "enabled": true,
         "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\stockticker",
-         "data": {
-           "serviceurl": "http://beurs.fd.nl/webservices/fd/quicksearch?query="
-         }
-       }
+        "data": {
+          "serviceurl": "http://beurs.fd.nl/webservices/fd/quicksearch?query="
+        }
+      }
     ]
   }
 }

@@ -357,6 +357,20 @@
       "vendor": "infomaker.se",
       "name": "contentrelations",
       "enabled": false
+    },
+    {
+      "vendor": "nl.fdmg",
+      "name": "universalsearch",
+      "enabled": true
+    },
+    {
+      "vendor": "nl.fdmg",
+      "name": "stockticker",
+      "enabled": true,
+      "path" : "/Users/kreuning/Developer/webwriter/plugins/plugins/stockticker",
+      "data": {
+        "serviceurl": "http://beurs.fd.nl/webservices/fd/quicksearch?query="
+      }
     }
   ]
 }
