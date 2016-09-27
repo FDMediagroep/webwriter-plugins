@@ -19,17 +19,7 @@ GenreComponent.Prototype = function() {
             'heading': 'Genre'
         });
 
-        // var endpoint = this.context.api.getConfigValue('genre', 'endpoint');
-
-        var endpoint = this.context.api.call(
-            'fdservices',
-                {
-                   method: 'get',
-                   path: '/articles/genres',
-                   query: {"sortOrder":"ascending"}
-                }
-            );
-        console.log(endpoint);
+        var endpoint = this.context.api.getConfigValue('genre', 'endpoint');
 
         this.loadList(endpoint, function(items) {
             items = this

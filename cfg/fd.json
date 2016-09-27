@@ -103,7 +103,7 @@
       "name": "author",
       "enabled": true,
       "data": {
-       "backendPath": "https://dev-api.fdmg.org/private/fd/articles/authors"
+       "backendPath": "https://webwriter-dev.fd.nl/fdmgapi/private/fd/articles/authors"
       },
       "source": {
         "type":"git",
@@ -171,7 +171,7 @@
       "name": "genre",
       "enabled": true,
       "data" : {
-        "endpoint": "https://dev-api.fdmg.org/private/fd/articles/genres"
+        "endpoint": "https://webwriter-dev.fd.nl/fdmgapi/private/fd/articles/genres"
       },
       "source": {
         "type":"git",
@@ -184,7 +184,7 @@
       "name": "rubric",
       "enabled": true,
       "data" : {
-        "endpoint": "https://dev-api.fdmg.org/private/fd/articles/rubrics"
+        "endpoint": "https://webwriter-dev.fd.nl/fdmgapi/private/fd/articles/rubrics"
       },
       "source": {
         "type":"git",
@@ -210,7 +210,7 @@
       "name": "articletype",
       "enabled": true,
       "data" : {
-        "endpoint": "https://dev-api.fdmg.org/private/fd/articles/types"
+        "endpoint": "https://webwriter-dev.fd.nl/fdmgapi/private/fd/articles/types"
       },
       "source": {
         "type":"git",

@@ -10,12 +10,6 @@
       "port": "8181",
       "endpoint": "cxf/writer/commands",
       "upload": "cxf/writer/images/upload"
-    },
-    "conceptbackend": {
-      "protocol": "https:",
-      "host": "dev-api.fdmg.org",
-      "port": "",
-      "endpoint": "private/fd/search/commands"
     }
   },
   "i18nOverride": "../i18n/default-en.js",
@@ -173,7 +167,7 @@
         "enabled": true,
         "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\genre",
         "data" : {
-          "endpoint": "https://dev-api.fdmg.org/private/fd/articles/genres"
+          "endpoint": "https://webwriter-dev.fd.nl/fdmgapi/private/fd/articles/genres"
         }
       },
       {
@@ -182,7 +176,7 @@
         "enabled": true,
         "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\rubric",
         "data" : {
-          "endpoint": "https://dev-api.fdmg.org/private/fd/articles/rubrics"
+          "endpoint": "https://webwriter-dev.fd.nl/fdmgapi/private/fd/articles/rubrics"
         }
       },
       {
@@ -191,7 +185,7 @@
         "enabled": true,
         "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\section",
         "data" : {
-          "endpoint": "https://dev-api.fdmg.org/private/fd/lists/sections/home/children"
+          "endpoint": "https://webwriter-dev.fd.nl/fdmgapi/private/fd/lists/sections/home/children"
         }
       },
       {
@@ -200,7 +194,7 @@
         "enabled": true,
         "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\articletype",
         "data" : {
-          "endpoint": "https://dev-api.fdmg.org/private/fd/articles/types"
+          "endpoint": "https://webwriter-dev.fd.nl/fdmgapi/private/fd/articles/types"
         }
       },
       {
@@ -292,7 +286,7 @@
         "enabled": false,
         "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\epic",
         "data" : {
-          "endpoint": "https://dev-api.fdmg.org/private/fd/search/epic?q="
+          "endpoint": "https://webwriter-dev.fd.nl/fdmgapi/private/fd/search/epic?q="
         }
       },  
       {
