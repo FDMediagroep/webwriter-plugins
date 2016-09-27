@@ -2,7 +2,7 @@
   "server": {
     "port": 5000
   },
-  "pluginRepository": "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\",
+  "pluginRepository": "/Users/kreuning/Developer/webwriter/plugins/plugins/",
   "external": {
     "contentrepository": {
       "protocol": "http:",
@@ -10,6 +10,12 @@
       "port": "8181",
       "endpoint": "cxf/writer/commands",
       "upload": "cxf/writer/images/upload"
+    },
+    "conceptbackend": {
+      "protocol": "https:",
+      "host": "dev-api.fdmg.org",
+      "port": "",
+      "endpoint": "private/fd/search/commands"
     }
   },
   "i18nOverride": "../i18n/default-en.js",
@@ -57,7 +63,7 @@
         "vendor": "nl.fdmg",
         "name": "publish",
         "enabled": true,
-        "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\publish"
+        "path" : "/Users/kreuning/Developer/webwriter/plugins/plugins/publish"
       },
       {
         "vendor": "infomaker.se",
@@ -84,7 +90,7 @@
         "vendor": "nl.fdmg",
         "name": "oembed",
         "enabled": true,
-        "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\oembed",
+        "path" : "/Users/kreuning/Developer/webwriter/plugins/plugins/oembed",
         "data": {
           "urlMatchers": [
             "^http(?:s)?://twitter\\.com/(?:#!)?[^#?/]+/status/.+$",
@@ -135,79 +141,79 @@
         "vendor": "nl.fdmg",
         "name": "author",
         "enabled": true,
-        "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\author"
+        "path" : "/Users/kreuning/Developer/webwriter/plugins/plugins/author"
       },
       {
         "vendor": "nl.fdmg",
         "name": "tags",
         "enabled": true,
-        "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\tags"
+        "path" : "/Users/kreuning/Developer/webwriter/plugins/plugins/tags"
       },
       {
         "vendor": "nl.fdmg",
         "name": "validatable",
         "enabled": true,
-        "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\validatable"
+        "path" : "/Users/kreuning/Developer/webwriter/plugins/plugins/validatable"
       },
       {
         "vendor": "nl.fdmg",
         "name": "linkselector",
         "enabled": true,
-        "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\linkselector"
+        "path" : "/Users/kreuning/Developer/webwriter/plugins/plugins/linkselector"
       },
       {
         "vendor": "nl.fdmg",
         "name": "articleoptions",
         "enabled": true,
-        "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\articleoptions"
+        "path" : "/Users/kreuning/Developer/webwriter/plugins/plugins/articleoptions"
       },
       {
         "vendor": "nl.fdmg",
         "name": "genre",
         "enabled": true,
-        "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\genre",
+        "path" : "/Users/kreuning/Developer/webwriter/plugins/plugins/genre",
         "data" : {
-          "endpoint": "https://webwriter-dev.fd.nl/fdmgapi/private/fd/articles/genres"
+          "endpoint": "https://dev-api.fdmg.org/private/fd/articles/genres"
         }
       },
       {
         "vendor": "nl.fdmg",
         "name": "rubric",
         "enabled": true,
-        "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\rubric",
+        "path" : "/Users/kreuning/Developer/webwriter/plugins/plugins/rubric",
         "data" : {
-          "endpoint": "https://webwriter-dev.fd.nl/fdmgapi/private/fd/articles/rubrics"
+          "endpoint": "https://dev-api.fdmg.org/private/fd/articles/rubrics"
         }
       },
       {
         "vendor": "nl.fdmg",
         "name": "section",
         "enabled": true,
-        "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\section",
+        "path" : "/Users/kreuning/Developer/webwriter/plugins/plugins/section",
         "data" : {
-          "endpoint": "https://webwriter-dev.fd.nl/fdmgapi/private/fd/lists/sections/home/children"
+          "endpoint": "https://dev-api.fdmg.org/private/fd/lists/sections/home/children"
         }
       },
       {
         "vendor": "nl.fdmg",
         "name": "articletype",
         "enabled": true,
-        "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\articletype",
+        "path" : "/Users/kreuning/Developer/webwriter/plugins/plugins/articletype",
         "data" : {
-          "endpoint": "https://webwriter-dev.fd.nl/fdmgapi/private/fd/articles/types"
+          "endpoint": "https://dev-api.fdmg.org/private/fd/articles/types"
         }
       },
       {
         "vendor": "nl.fdmg",
         "name": "numberframe",
         "enabled": true,
-        "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\numberframe"
+        "path" : "/Users/kreuning/Developer/webwriter/plugins/plugins/numberframe"
       },
       {
         "vendor": "nl.fdmg",
         "name": "quote",
         "enabled": true,
-        "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\quote"
+        "path" : "/Users/kreuning/Developer/webwriter/plugins/plugins/quote"
       },
       {
         "vendor": "infomaker.se",
@@ -218,88 +224,88 @@
         "vendor": "nl.fdmg",
         "name": "fdpersonal",
         "enabled": true,
-        "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\fdpersonal"
+        "path" : "/Users/kreuning/Developer/webwriter/plugins/plugins/fdpersonal"
       },
       {
         "vendor": "nl.fdmg",
         "name": "relatedarticle",
         "enabled": true,
-        "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\relatedarticle"
+        "path" : "/Users/kreuning/Developer/webwriter/plugins/plugins/relatedarticle"
       },
       {
         "name": "htmlembed",
         "vendor": "nl.fdmg",
         "enabled": true,
-        "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\htmlembed"
+        "path" : "/Users/kreuning/Developer/webwriter/plugins/plugins/htmlembed"
       },
       {
         "vendor": "nl.fdmg",
         "name": "nocomments",
         "enabled": true,
-        "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\nocomments"
+        "path" : "/Users/kreuning/Developer/webwriter/plugins/plugins/nocomments"
       },
       {
         "vendor": "nl.fdmg",
         "name": "donotindex",
         "enabled": true,
-        "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\donotindex"
+        "path" : "/Users/kreuning/Developer/webwriter/plugins/plugins/donotindex"
       },
       {
         "vendor": "nl.fdmg",
         "name": "breakingarticle",
         "enabled": true,
-        "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\breakingarticle"
+        "path" : "/Users/kreuning/Developer/webwriter/plugins/plugins/breakingarticle"
       },
       {
         "vendor": "nl.fdmg",
         "name": "paywall",
         "enabled": true,
-        "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\paywall"
+        "path" : "/Users/kreuning/Developer/webwriter/plugins/plugins/paywall"
       },
       {
         "vendor": "nl.fdmg",
         "name": "shortarticle",
         "enabled": true,
-        "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\shortarticle"
+        "path" : "/Users/kreuning/Developer/webwriter/plugins/plugins/shortarticle"
       },
       {
         "vendor": "nl.fdmg",
         "name": "stackframe",
         "enabled": true,
-        "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\stackframe"
+        "path" : "/Users/kreuning/Developer/webwriter/plugins/plugins/stackframe"
       },
       {
         "vendor": "nl.fdmg",
         "name": "relatedlink",
         "enabled": true,
-        "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\relatedlink"
+        "path" : "/Users/kreuning/Developer/webwriter/plugins/plugins/relatedlink"
       },
       {
         "vendor": "nl.fdmg",
         "name": "redirectlink",
         "enabled": true,
-        "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\redirectlink"
+        "path" : "/Users/kreuning/Developer/webwriter/plugins/plugins/redirectlink"
       },
       {
         "vendor": "nl.fdmg",
         "name": "epic",
         "enabled": false,
-        "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\epic",
+        "path" : "/Users/kreuning/Developer/webwriter/plugins/plugins/epic",
         "data" : {
-          "endpoint": "https://webwriter-dev.fd.nl/fdmgapi/private/fd/search/epic?q="
+          "endpoint": "https://dev-api.fdmg.org/private/fd/search/epic?q="
         }
       },
       {
         "vendor": "nl.fdmg",
         "name": "universalsearch",
         "enabled": true,
-        "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\universalsearch"
+        "path" : "/Users/kreuning/Developer/webwriter/plugins/plugins/universalsearch"
       },
       {
         "vendor": "nl.fdmg",
         "name": "stockticker",
         "enabled": true,
-        "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\stockticker",
+        "path" : "/Users/kreuning/Developer/webwriter/plugins/plugins/stockticker",
         "data": {
           "serviceurl": "http://beurs.fd.nl/webservices/fd/quicksearch?query="
         }
