@@ -103,7 +103,7 @@
       "name": "author",
       "enabled": true,
       "data": {
-       "backendPath": "/fdmgapi/private/fd/articles/authors"
+       "endpoint": "/fdmgapi/private/fd/search/author?q="
       },
       "source": {
         "type":"git",
@@ -351,6 +351,16 @@
         "type":"git",
         "pluginrepositoryId":"fdplugins",
         "path":"webwriter-plugins/plugins/redirectlink"
+      }
+    },
+    {
+      "vendor": "nl.fdmg",
+      "name": "universalsearch",
+      "enabled": true,
+      "source": {
+        "type":"git",
+        "pluginrepositoryId":"fdplugins",
+        "path":"webwriter-plugins/plugins/universalsearch"
       }
     },
     {
