@@ -362,7 +362,11 @@
       "vendor": "nl.fdmg",
       "name": "stockticker",
       "enabled": true,
-      "path" : "webwriter-plugins/plugins/stockticker",
+      "source": {
+        "type":"git",
+        "pluginrepositoryId":"fdplugins",
+        "path":"webwriter-plugins/plugins/stockticker"
+      },
       "data": {
         "serviceurl": "http://beurs.fd.nl/webservices/fd/quicksearch?query="
       }
