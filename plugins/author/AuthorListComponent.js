@@ -27,7 +27,12 @@ AuthorListComponent.Prototype = function() {
     var authorList = $$('ul').addClass('authors__list');
 
     existingAuthors.forEach(function(author) {
-      authorList.append($$(AuthorItem, { author: author, removeAuthor: this.deleteAuthorAndReference.bind(this)}).ref(this.getIdForRef(author)));
+      authorList.append(
+        $$(AuthorItem, {
+          author: author,
+          removeAuthor: this.deleteAuthorAndReference.bind(this)
+        }).ref(this.getIdForRef(author))
+      );
     }.bind(this));
     return authorList;
   }

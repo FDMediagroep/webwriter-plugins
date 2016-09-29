@@ -21,28 +21,24 @@ AuthorMainComponent.Prototype = function() {
   }
 
   this.render = function() {
-    var el = $$('div').ref('authorContainer').addClass('authors').append($$('h2').append(this.context.i18n.t('Author')));
-
-    var authorSearchUrl = this.context.api.router.getEndpoint();
-
-    var searchComponent = $$(AuthorSearchComponent, {
-      existingItems: this.state.existingAuthors,
-      doSearch: this.searchAuthors.bind(this),
-      onSelect: this.addAuthor.bind(this),
-      onCreate: this.createAuthor.bind(this),
-      createAllowed: true,
-      placeholderText: "Add author"
-    }).ref('authorSearchComponent');
-
-    var existingAuthorsList = $$(AuthorListComponent, {
-      existingAuthors: this.state.existingAuthors,
-      removeAuthor: this.removeAuthor.bind(this)
-    }).ref('existingAuthorsList');
-
-    el.append(existingAuthorsList);
-    el.append(searchComponent);
-
-    return el;
+    return $$('div')
+      .ref('authorContainer')
+      .addClass('authors')
+      .append(
+        $$('h2').append(this.context.i18n.t('Author')),
+        $$(AuthorListComponent, {
+          existingAuthors: this.state.existingAuthors,
+          removeAuthor: this.removeAuthor.bind(this)
+        }).ref('existingAuthorsList'),
+        $$(AuthorSearchComponent, {
+          existingItems: this.state.existingAuthors,
+          doSearch: this.searchAuthors.bind(this),
+          onSelect: this.addAuthor.bind(this),
+          onCreate: this.createAuthor.bind(this),
+          createAllowed: true,
+          placeholderText: "Add author"
+        }).ref('authorSearchComponent')
+      );
   }
 
   this.reloadAuthors = function() {
@@ -58,12 +54,21 @@ AuthorMainComponent.Prototype = function() {
 
     jQuery.ajax(endpoint + q, { 'data': { 'dataType': 'json' } })
       .done(function(items) {
-        console.log('<>')
-        console.log(items)
 
-        cb(null, items)
+        var authors = items.map(function(item) {
+          return {
+            rel: 'author',
+            name: item.fullName,
+            title: item.fullName,
+            type: 'x-im/author',
+            uuid: item.id,
+            id: item.id
+          };
+        });
+
+        cb(null, authors);
       }.bind(this))
-      .fail(function(data, status, err) { console.error(err); cd(err, null)})
+      .fail(function(data, status, err) { console.error(err); cb(err, null); })
       .always(function() { this.extendState({ isSearching:  false }); }.bind(this));
   }
 

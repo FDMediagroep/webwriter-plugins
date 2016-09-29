@@ -22,7 +22,7 @@ AuthorItemComponent.Prototype = function() {
       .addClass('clearfix')
       .ref('authorItem');
 
-    var displayTitle = 'foo';
+    var displayTitle = author.title;
 
     var deleteButton = $$('button')
       .addClass('author__button--delete')
@@ -43,9 +43,15 @@ AuthorItemComponent.Prototype = function() {
     authorItem.append(
       $$('div')
         .addClass('avatar__container')
-        .append($$('img').attr('src', this.context.api.router.getEndpoint() + '/assets/dummy.svg').addClass('avatar')))
+        .append($$('img').attr('src', this.context.api.router.getEndpoint() + '/asset/dummy.svg').addClass('avatar')))
         .append($$('div').addClass('metadata__container').append($$('span').append(displayTitle).addClass('author__name notClickable meta')).attr('title', this.context.i18n.t('Not editable author')))
         .append($$('div').addClass('button__container').append(deleteButton));
+  }
+
+  this.removeAuthor = function(author) {
+    this.$el.first().fadeOut(300, function() {
+      this.props.removeAuthor(author);
+    }.bind(this));
   }
 
   this.showHover = function() {
@@ -58,3 +64,6 @@ AuthorItemComponent.Prototype = function() {
     delButton.removeClass('active');
   }
 }
+
+Component.extend(AuthorItemComponent);
+module.exports = AuthorItemComponent;
