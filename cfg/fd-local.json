@@ -185,7 +185,7 @@
         "enabled": true,
         "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\section",
         "data" : {
-          "endpoint": "https://webwriter-dev.fd.nl/fdmgapi/private/fd/lists/sections/home/children"
+          "endpoint": "https://webwriter-dev.fd.nl/fdmgapi/private/fd/lists/sections/ece_frontpage/children"
         }
       },
       {

@@ -128,7 +128,7 @@
       "enabled": true,
       "vendor": "nl.fdmg",
       "name": "section",
-      "data": { "endpoint": "/fdmgapi/private/fd/lists/sections/home/children" },
+      "data": { "endpoint": "fdmgapi/private/fd/lists/sections/ece_frontpage/children" },
       "source": { "path": "webwriter-plugins/plugins/section", "pluginrepositoryId": "fdplugins", "type": "git" }
     },
     {
