@@ -115,6 +115,9 @@
       "vendor": "nl.fdmg",
       "name": "tags",
       "enabled": true,
+      "data": {
+        "endpoint": "/fdmgapi/private/fd/search/tag?q="
+      },
       "source": {
         "type":"git",
         "pluginrepositoryId":"fdplugins",
@@ -379,15 +382,6 @@
       },
       "data": {
         "serviceurl": "http://beurs.fd.nl/webservices/fd/quicksearch?query="
-      }
-    },
-    {
-      "vendor": "nl.fdmg",
-      "name": "tags",
-      "enabled": true,
-      "path": "webwriter-plugins/plugins/stockticker",
-      "data": {
-        "endpoint": "/fdmgapi/private/fd/search/tag?q="
       }
     }
   ]
