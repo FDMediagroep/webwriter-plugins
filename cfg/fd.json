@@ -1,388 +1,227 @@
 {
-   "plugins": [
+  "plugins": [
     {
+      "enabled": true,
+      "vendor": "infomaker.se",
+      "name": "utils"
+    },
+    {
+      "enabled": true,
       "vendor": "infomaker.se",
       "name": "ximteaser",
+      "data": { "fields": [ "subject", "text" ] }
+    },
+    {
       "enabled": true,
+      "vendor": "infomaker.se",
+      "name": "preamble"
+    },
+    {
+      "enabled": true,
+      "vendor": "infomaker.se",
+      "name": "link"
+    },
+    {
+      "enabled": true,
+      "vendor": "infomaker.se",
+      "name": "ximimage",
       "data": {
-        "fields": [
-          "subject",
-          "text"
-        ]
+        "enablesoftcrop": true,
+        "publishedmaxwidth": 2560,
+        "crops": { "16:9": [16, 9], "4:3": [4, 3], "1:1": [1, 1] },
+        "urlMatchers": [ "^.*\\.jpg", "^.*\\.png", "^.*\\.gif" ]
       }
     },
     {
-      "vendor": "nl.fdmg",
-      "name": "publish",
       "enabled": true,
-      "source": {
-        "type":"git",
-        "pluginrepositoryId":"fdplugins",
-        "path":"webwriter-plugins/plugins/publish"
-      }
-    },
-
-    {
       "vendor": "infomaker.se",
       "name": "youtube",
+      "data": { "urlMatchers": [ "^https?://(www\\.)?youtube\\.com/watch\\?v=.*", "^https?://youtu\\.be/.*" ] }
+    },
+    {
       "enabled": true,
-      "data": {
-        "urlMatchers": [
-          "^https?://youtu\\.be/.*",
-          "^https?://(www\\.)?youtube\\.com/watch\\?v=.*"
-        ]
-      }
-    },
-    {
-      "vendor": "infomaker.se",
-      "name": "preamble",
-      "enabled": true
-    },
-    {
-      "vendor": "infomaker.se",
-      "name": "utils",
-      "enabled": true
-    },
-    {
       "vendor": "nl.fdmg",
       "name": "oembed",
-      "enabled": true,
       "data": {
         "urlMatchers": [
           "^http(?:s)?://twitter\\.com/(?:#!)?[^#?/]+/status/.+$",
-
           "^https?://(www\\.)?instagram\\.com/p/.*",
           "^https?://(www\\.)?instagr\\.am/p/.*",
-
           "^https?://(www\\.)?soundcloud\\.com/.*/.*",
-
           "^https?://(www\\.)?vimeo\\.com/.*",
           "^https?://player\\.vimeo.com/video/.*",
-
-          "^https://www\\.facebook\\.com/.*/posts/.*",
-          "^https://www\\.facebook\\.com/.*/activity/.*",
-          "^https://www\\.facebook\\.com/photo\\.php?fbid=.*",
-          "^https://www\\.facebook\\.com/photos/.*",
-          "^https://www\\.facebook\\.com/permalink\\.php\\?story_fbid=.*",
-          "^https://www\\.facebook\\.com/media/set\\?set=.*",
-          "^https://www\\.facebook\\.com/questions/.*",
-          "^https://www\\.facebook\\.com/notes/.*/.*/.*",
-
-          "^https://www\\.facebook\\.com/.*/videos/.*/",
-          "^https://www\\.facebook\\.com/video\\.php\\?id=.*",
-          "^https://www\\.facebook\\.com/video\\.php\\?v=.*"
+          "^https?://www\\.facebook\\.com/.*/posts/.*",
+          "^https?://www\\.facebook\\.com/.*/activity/.*",
+          "^https?://www\\.facebook\\.com/photo\\.php?fbid=.*",
+          "^https?://www\\.facebook\\.com/photos/.*",
+          "^https?://www\\.facebook\\.com/permalink\\.php\\?story_fbid=.*",
+          "^https?://www\\.facebook\\.com/media/set\\?set=.*",
+          "^https?://www\\.facebook\\.com/questions/.*",
+          "^https?://www\\.facebook\\.com/notes/.*/.*/.*",
+          "^https?://www\\.facebook\\.com/.*/videos/.*/",
+          "^https?://www\\.facebook\\.com/video\\.php\\?id=.*",
+          "^https/://www\\.facebook\\.com/video\\.php\\?v=.*"
         ]
       },
-      "source": {
-        "type": "git",
-        "pluginrepositoryId": "fdplugins",
-        "path": "webwriter-plugins/plugins/oembed"
-      }
+      "source": { "path": "webwriter-plugins/plugins/oembed", "pluginrepositoryId": "fdplugins", "type": "git" }
     },
     {
-       "vendor": "infomaker.se",
-       "name": "ximimage",
-       "enabled": true,
-       "data": {
-           "enablesoftcrop": true,
-           "publishedmaxwidth": 2560,
-           "crops": {
-             "16:9": [16, 9],
-             "4:3": [4, 3],
-             "1:1": [1, 1]
-         },
-         "urlMatchers": [
-           "^.*\\.jpg",
-           "^.*\\.gif",
-           "^.*\\.png"
-         ]
-       }
-     },
-     {
-      "vendor": "nl.fdmg",
-      "name": "author",
       "enabled": true,
-      "data": {
-       "endpoint": "/fdmgapi/private/fd/search/author?q="
-      },
-      "source": {
-        "type":"git",
-        "pluginrepositoryId":"fdplugins",
-        "path":"webwriter-plugins/plugins/author"
-      }
-    },
-    {
-      "vendor": "nl.fdmg",
-      "name": "tags",
-      "enabled": true,
-      "data": {
-        "endpoint": "/fdmgapi/private/fd/search/tag?q="
-      },
-      "source": {
-        "type":"git",
-        "pluginrepositoryId":"fdplugins",
-        "path":"webwriter-plugins/plugins/tags"
-      }
-    },
-    {
       "vendor": "nl.fdmg",
       "name": "validatable",
-      "enabled": true,
-      "source": {
-        "type":"git",
-        "pluginrepositoryId":"fdplugins",
-        "path":"webwriter-plugins/plugins/validatable"
-      }
+      "source": { "path": "webwriter-plugins/plugins/validatable", "pluginrepositoryId": "fdplugins", "type": "git" }
     },
     {
+      "enabled": true,
       "vendor": "nl.fdmg",
       "name": "linkselector",
-      "enabled": true,
-      "source": {
-        "type":"git",
-        "pluginrepositoryId":"fdplugins",
-        "path":"webwriter-plugins/plugins/linkselector"
-      }
+      "source": { "path": "webwriter-plugins/plugins/linkselector", "pluginrepositoryId": "fdplugins", "type": "git" }
     },
     {
+      "enabled": true,
       "vendor": "nl.fdmg",
       "name": "articleoptions",
+      "source": { "path": "webwriter-plugins/plugins/articleoptions", "pluginrepositoryId": "fdplugins", "type": "git" }
+    },
+    {
       "enabled": true,
-      "source": {
-        "type":"git",
-        "pluginrepositoryId":"fdplugins",
-        "path":"webwriter-plugins/plugins/articleoptions"
-      }
-    },
-    {
-      "vendor": "nl.fdmg",
-      "name": "defaultvalidation",
-      "enabled": false,
-      "data" : {
-        "mandatory" : [
-          {"type" : "fdmg/section", "name" : "section", "message" : "Geen sectie opgegeven"}
-        ]
-      },
-      "source": {
-        "type":"git",
-        "pluginrepositoryId":"fdplugins",
-        "path":"webwriter-plugins/plugins/defaultvalidation"
-      }
-    },
-    {
-      "vendor": "nl.fdmg",
-      "name": "genre",
-      "enabled": true,
-      "data" : {
-        "endpoint": "/fdmgapi/private/fd/articles/genres"
-      },
-      "source": {
-        "type":"git",
-        "pluginrepositoryId":"fdplugins",
-        "path":"webwriter-plugins/plugins/genre"
-      }
-    },
-    {
-      "vendor": "nl.fdmg",
-      "name": "rubric",
-      "enabled": true,
-      "data" : {
-        "endpoint": "/fdmgapi/private/fd/articles/rubrics"
-      },
-      "source": {
-        "type":"git",
-        "pluginrepositoryId":"fdplugins",
-        "path":"webwriter-plugins/plugins/rubric"
-      }
-    },
-    {
-      "vendor": "nl.fdmg",
-      "name": "section",
-      "enabled": true,
-      "data" : {
-        "endpoint": "/fdmgapi/private/fd/lists/sections/home/children"
-      },
-      "source": {
-        "type":"git",
-        "pluginrepositoryId":"fdplugins",
-        "path":"webwriter-plugins/plugins/section"
-      }
-    },
-    {
-      "vendor": "nl.fdmg",
-      "name": "articletype",
-      "enabled": true,
-      "data" : {
-        "endpoint": "/fdmgapi/private/fd/articles/types"
-      },
-      "source": {
-        "type":"git",
-        "pluginrepositoryId":"fdplugins",
-        "path":"webwriter-plugins/plugins/articletype"
-      }
-    },
-    {
-      "vendor": "nl.fdmg",
-      "name": "numberframe",
-      "enabled": true,
-      "source": {
-        "type":"git",
-        "pluginrepositoryId":"fdplugins",
-        "path":"webwriter-plugins/plugins/numberframe"
-      }
-    },
-    {
-      "vendor": "nl.fdmg",
-      "name": "quote",
-      "enabled": true,
-      "source": {
-        "type":"git",
-        "pluginrepositoryId":"fdplugins",
-        "path":"webwriter-plugins/plugins/quote"
-      }
-    },
-    {
-      "vendor": "infomaker.se",
-      "name": "link",
-      "enabled": true
-    },
-    {
-      "vendor": "nl.fdmg",
-      "name": "fdpersonal",
-      "enabled": true,
-      "source": {
-        "type":"git",
-        "pluginrepositoryId":"fdplugins",
-        "path":"webwriter-plugins/plugins/fdpersonal"
-      }
-    },
-    {
-      "vendor": "nl.fdmg",
-      "name": "relatedarticle",
-      "enabled": true,
-      "source": {
-        "type":"git",
-        "pluginrepositoryId":"fdplugins",
-        "path":"webwriter-plugins/plugins/relatedarticle"
-      }
-    },
-    {
-      "name": "htmlembed",
-      "vendor": "nl.fdmg",
-      "enabled": true,
-      "source": {
-        "type":"git",
-        "pluginrepositoryId":"fdplugins",
-        "path":"webwriter-plugins/plugins/htmlembed"
-      }
-    },
-    {
-      "vendor": "nl.fdmg",
-      "name": "nocomments",
-      "enabled": true,
-      "source": {
-        "type":"git",
-        "pluginrepositoryId":"fdplugins",
-        "path":"webwriter-plugins/plugins/nocomments"
-      }
-    },
-    {
-      "vendor": "nl.fdmg",
-      "name": "donotindex",
-      "enabled": true,
-      "source": {
-        "type":"git",
-        "pluginrepositoryId":"fdplugins",
-        "path":"webwriter-plugins/plugins/donotindex"
-      }
-    },
-    {
-      "vendor": "nl.fdmg",
-      "name": "breakingarticle",
-      "enabled": true,
-      "source": {
-        "type":"git",
-        "pluginrepositoryId":"fdplugins",
-        "path":"webwriter-plugins/plugins/breakingarticle"
-      }
-    },
-    {
-      "vendor": "nl.fdmg",
-      "name": "paywall",
-      "enabled": true,
-      "source": {
-        "type":"git",
-        "pluginrepositoryId":"fdplugins",
-        "path":"webwriter-plugins/plugins/paywall"
-      }
-    },
-    {
-      "vendor": "nl.fdmg",
-      "name": "shortarticle",
-      "enabled": true,
-      "source": {
-        "type":"git",
-        "pluginrepositoryId":"fdplugins",
-        "path":"webwriter-plugins/plugins/shortarticle"
-      }
-    },
-    {
-      "vendor": "nl.fdmg",
-      "name": "stackframe",
-      "enabled": true,
-      "source": {
-        "type":"git",
-        "pluginrepositoryId":"fdplugins",
-        "path":"webwriter-plugins/plugins/stackframe"
-      }
-    },
-    {
-      "vendor": "nl.fdmg",
-      "name": "relatedlink",
-      "enabled": true,
-      "source": {
-        "type":"git",
-        "pluginrepositoryId":"fdplugins",
-        "path":"webwriter-plugins/plugins/relatedlink"
-      }
-    },
-    {
-      "vendor": "nl.fdmg",
-      "name": "redirectlink",
-      "enabled": true,
-      "source": {
-        "type":"git",
-        "pluginrepositoryId":"fdplugins",
-        "path":"webwriter-plugins/plugins/redirectlink"
-      }
-    },
-    {
       "vendor": "nl.fdmg",
       "name": "universalsearch",
+      "source": { "path": "webwriter-plugins/plugins/universalsearch", "pluginrepositoryId": "fdplugins", "type": "git" }
+    },
+
+    {
       "enabled": true,
-      "source": {
-        "type":"git",
-        "pluginrepositoryId":"fdplugins",
-        "path":"webwriter-plugins/plugins/universalsearch"
-      }
+      "vendor": "nl.fdmg",
+      "name": "publish",
+      "source": { "path": "webwriter-plugins/plugins/publish", "pluginrepositoryId": "fdplugins", "type": "git" }
     },
     {
-      "vendor": "infomaker.se",
-      "name": "contentrelations",
-      "enabled": false
+      "enabled": true,
+      "vendor": "nl.fdmg",
+      "name": "author",
+      "data": { "endpoint": "/fdmgapi/private/fd/search/author?q=" },
+      "source": { "path": "webwriter-plugins/plugins/author", "pluginrepositoryId": "fdplugins", "type": "git" }
     },
     {
+      "enabled": true,
+      "vendor": "nl.fdmg",
+      "name": "tags",
+      "data": { "endpoint": "/fdmgapi/private/fd/search/tag?q=" },
+      "source": { "path": "webwriter-plugins/plugins/tags", "pluginrepositoryId": "fdplugins", "type": "git" }
+    },
+    {
+      "enabled": true,
+      "vendor": "nl.fdmg",
+      "name": "genre",
+      "data": { "endpoint": "/fdmgapi/private/fd/articles/genres" },
+      "source": { "path": "webwriter-plugins/plugins/genre", "pluginrepositoryId": "fdplugins", "type": "git" }
+    },
+    {
+      "enabled": true,
+      "vendor": "nl.fdmg",
+      "name": "rubric",
+      "data": { "endpoint": "/fdmgapi/private/fd/articles/rubrics" },
+      "source": { "path": "webwriter-plugins/plugins/rubric", "pluginrepositoryId": "fdplugins", "type": "git" }
+    },
+    {
+      "enabled": true,
+      "vendor": "nl.fdmg",
+      "name": "section",
+      "data": { "endpoint": "/fdmgapi/private/fd/lists/sections/home/children" },
+      "source": { "path": "webwriter-plugins/plugins/section", "pluginrepositoryId": "fdplugins", "type": "git" }
+    },
+    {
+      "enabled": true,
+      "vendor": "nl.fdmg",
+      "name": "articletype",
+      "data": { "endpoint": "/fdmgapi/private/fd/articles/types" },
+      "source": { "path": "webwriter-plugins/plugins/articletype", "pluginrepositoryId": "fdplugins", "type": "git" }
+    },
+    {
+      "enabled": true,
+      "vendor": "nl.fdmg",
+      "name": "redirectlink",
+      "source": { "path": "webwriter-plugins/plugins/redirectlink", "pluginrepositoryId": "fdplugins", "type": "git" }
+    },
+    {
+      "enabled": true,
+      "vendor": "nl.fdmg",
+      "name": "fdpersonal",
+      "source": { "path": "webwriter-plugins/plugins/fdpersonal", "pluginrepositoryId": "fdplugins", "type": "git" }
+    },
+    {
+      "enabled": true,
+      "vendor": "nl.fdmg",
+      "name": "relatedarticle",
+      "source": { "path": "webwriter-plugins/plugins/relatedarticle", "pluginrepositoryId": "fdplugins", "type": "git" }
+    },
+    {
+      "enabled": true,
+      "vendor": "nl.fdmg",
+      "name": "nocomments",
+      "source": { "path": "webwriter-plugins/plugins/nocomments", "pluginrepositoryId": "fdplugins", "type": "git" }
+    },
+    {
+      "enabled": true,
+      "vendor": "nl.fdmg",
+      "name": "donotindex",
+      "source": { "path": "webwriter-plugins/plugins/donotindex", "pluginrepositoryId": "fdplugins", "type": "git" }
+    },
+    {
+      "enabled": true,
+      "vendor": "nl.fdmg",
+      "name": "breakingarticle",
+      "source": { "path": "webwriter-plugins/plugins/breakingarticle", "pluginrepositoryId": "fdplugins", "type": "git" }
+    },
+    {
+      "enabled": true,
+      "vendor": "nl.fdmg",
+      "name": "paywall",
+      "source": { "path": "webwriter-plugins/plugins/paywall", "pluginrepositoryId": "fdplugins", "type": "git" }
+    },
+    {
+      "enabled": true,
+      "vendor": "nl.fdmg",
+      "name": "shortarticle",
+      "source": { "path": "webwriter-plugins/plugins/shortarticle", "pluginrepositoryId": "fdplugins", "type": "git" }
+    },
+    {
+      "enabled": true,
+      "vendor": "nl.fdmg",
+      "name": "relatedlink",
+      "source": { "path": "webwriter-plugins/plugins/relatedlink", "pluginrepositoryId": "fdplugins", "type": "git" }
+    },
+    {
+      "enabled": true,
+      "vendor": "nl.fdmg",
+      "name": "quote",
+      "source": { "path": "webwriter-plugins/plugins/quote", "pluginrepositoryId": "fdplugins", "type": "git" }
+    },
+    {
+      "enabled": true,
       "vendor": "nl.fdmg",
       "name": "stockticker",
+      "data": { "serviceurl": "http://beurs.fd.nl/webservices/fd/quicksearch?query=" },
+      "source": { "path": "webwriter-plugins/plugins/stockticker", "pluginrepositoryId": "fdplugins", "type": "git" }
+    },
+    {
       "enabled": true,
-      "source": {
-        "type":"git",
-        "pluginrepositoryId":"fdplugins",
-        "path":"webwriter-plugins/plugins/stockticker"
-      },
-      "data": {
-        "serviceurl": "http://beurs.fd.nl/webservices/fd/quicksearch?query="
-      }
+      "vendor": "nl.fdmg",
+      "name": "stackframe",
+      "source": { "path": "webwriter-plugins/plugins/stackframe", "pluginrepositoryId": "fdplugins", "type": "git" }
+    },
+    {
+      "enabled": true,
+      "vendor": "nl.fdmg",
+      "name": "numberframe",
+      "source": { "path": "webwriter-plugins/plugins/numberframe", "pluginrepositoryId": "fdplugins", "type": "git" }
+    },
+    {
+      "enabled": true,
+      "vendor": "nl.fdmg",
+      "name": "htmlembed",
+      "source": { "path": "webwriter-plugins/plugins/htmlembed", "pluginrepositoryId": "fdplugins", "type": "git" }
     }
   ]
 }
