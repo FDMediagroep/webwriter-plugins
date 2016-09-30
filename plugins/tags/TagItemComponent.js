@@ -18,7 +18,7 @@ TagItemComponent.Prototype = function() {
       .append(
         $$('span')
           .addClass('tag-item__title tag-item__title--no-avatar tag-item__title--notexisting')
-          .append('# ' + tag.title)
+          .append(tag.title)
           .attr('title', tag.title)
           .on('mouseenter', this.showHover)
           .on('mouseleave', this.hideHover),
