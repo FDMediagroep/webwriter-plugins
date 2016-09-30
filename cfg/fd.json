@@ -103,7 +103,7 @@
       "name": "author",
       "enabled": true,
       "data": {
-       "backendPath": "/fdmgapi/private/fd/articles/authors"
+       "endpoint": "/fdmgapi/private/fd/search/author?q="
       },
       "source": {
         "type":"git",
@@ -354,6 +354,16 @@
       }
     },
     {
+      "vendor": "nl.fdmg",
+      "name": "universalsearch",
+      "enabled": true,
+      "source": {
+        "type":"git",
+        "pluginrepositoryId":"fdplugins",
+        "path":"webwriter-plugins/plugins/universalsearch"
+      }
+    },
+    {
       "vendor": "infomaker.se",
       "name": "contentrelations",
       "enabled": false
@@ -362,7 +372,11 @@
       "vendor": "nl.fdmg",
       "name": "stockticker",
       "enabled": true,
-      "path" : "webwriter-plugins/plugins/stockticker",
+      "source": {
+        "type":"git",
+        "pluginrepositoryId":"fdplugins",
+        "path":"webwriter-plugins/plugins/stockticker"
+      },
       "data": {
         "serviceurl": "http://beurs.fd.nl/webservices/fd/quicksearch?query="
       }
