@@ -301,7 +301,7 @@
         "enabled": true,
         "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\stockticker",
         "data": {
-          "serviceurl": "http://beurs.fd.nl/webservices/fd/quicksearch?query="
+          "serviceurl": "https://beurs.fd.nl/webservices/fd/quicksearch?query="
         }
       }
     ]

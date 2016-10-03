@@ -46,7 +46,9 @@ LinkSelectorComponent.Prototype = function() {
         }
     }
 
-    this.generateUUID = function() {
+    this.generateUUID = function() {    
+    // @TODO: Why is this a function?
+    // Why not call genUUID() directly?
         return genUUID()
     }
 
