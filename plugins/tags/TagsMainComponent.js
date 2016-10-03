@@ -37,7 +37,8 @@ TagsMainComponent.Prototype = function() {
           onCreate: this.addTag.bind(this),
           createAllowed: true,
           placeholderText: "Add tag"
-        }).ref('tagSearchComponent')
+        }).ref('tagSearchComponent'),
+        $$('hr')
       );
   }
 

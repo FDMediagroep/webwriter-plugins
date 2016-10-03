@@ -1,11 +1,24 @@
 .sc-stockticker-inline-tool {
-    height: 140px;
+    height: 100%;
+    min-width: 300px;
+    padding: 0 5px;
     h2 {
         padding: 5px;
         font-size: 1.1rem;
         font-weight: normal;
         opacity: 0.9;
         text-align: center;
+    }
+    .search__container {
+        #searchResult  {
+            max-height: 300px;
+            li {
+                line-height: 1.1;
+            }
+            .item__name {
+                padding: 0;
+            }
+        }
     }
 }
 @mixin flex() {

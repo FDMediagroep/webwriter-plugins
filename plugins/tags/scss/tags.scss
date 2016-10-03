@@ -1,7 +1,17 @@
-
 .tag-edit {
     padding: 0 1rem;
 }
+.tags {
+    hr {
+        margin: 0;
+    }
+    .tag-list__item {
+        font-size: 0.9rem;
+        padding: 0.2rem 0.5rem 0.2rem 0;
+        line-height: 1.4;
+    }
+}
+
 
 .tag-edit-base {
     padding: 1rem;

@@ -37,7 +37,8 @@ AuthorMainComponent.Prototype = function() {
           onCreate: this.createAuthor.bind(this),
           createAllowed: true,
           placeholderText: "Add author"
-        }).ref('authorSearchComponent')
+        }).ref('authorSearchComponent'),
+        $$('hr')
       );
   }
 
