@@ -3,6 +3,7 @@
 var Component = require('substance/ui/Component');
 var $$ = Component.$$;
 var Icon = require('substance/ui/FontAwesomeIcon');
+var NilUUID = require('writer/utils/NilUUID');
 
 function AuthorItemComponent() {
   AuthorItemComponent.super.apply(this, arguments);
