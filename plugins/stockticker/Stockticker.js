@@ -1,6 +1,8 @@
 'use strict';
+
 function Stockticker() {
 }
+
 Stockticker.prototype.schema = {
   name: 'stockticker',
   vendor: 'nl.fdmg',
@@ -16,4 +18,5 @@ Stockticker.prototype.schema = {
     require('./StocktickerInlineCommand')
   ]
 };
+
 module.exports = Stockticker;
