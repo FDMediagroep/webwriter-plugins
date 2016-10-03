@@ -55,7 +55,9 @@ AuthorMainComponent.Prototype = function() {
     jQuery.ajax(endpoint + q, { 'data': { 'dataType': 'json' } })
       .done(function(items) {
 
-        var authors = items.map(function(item) {
+        console.log(">>", items.length);
+
+        var authors = items.slice(0, 100).map(function(item) {
           return {
             rel: 'author',
             name: item.fullName,
