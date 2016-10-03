@@ -52,6 +52,7 @@ UniversalSearchComponent.Prototype = function() {
       list.addClass('isSearching');
     }
     this.state.items.forEach(function(item, idx) {
+      //@TODO: Why is itemToSave needed?
       var itemToSave = _.clone(item);
       var name = item.name;
       var itemId = 'item-' + item.id;
@@ -101,6 +102,7 @@ UniversalSearchComponent.Prototype = function() {
     }
   }
   this.doAction = function(item) {
+    //@TODO: Change this function name
     if (item.exists) {
       return;
     }

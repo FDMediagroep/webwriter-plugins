@@ -55,8 +55,6 @@ AuthorMainComponent.Prototype = function() {
     jQuery.ajax(endpoint + q, { 'data': { 'dataType': 'json' } })
       .done(function(items) {
 
-        console.log(">>", items.length);
-
         var authors = items.slice(0, 100).map(function(item) {
           return {
             rel: 'author',
@@ -75,8 +73,10 @@ AuthorMainComponent.Prototype = function() {
   }
 
   this.addAuthor = function(author) {
+    console.log(author, "author");
+    console.log(this.context.api, 'api addauthor');
     try {
-      this.context.api.addAuthor(this.name, author);
+      this.context.api.addAuthor(this.name, author); 
       this.reloadAuthors();
     } catch (e) {
       console.log(e);
@@ -84,6 +84,7 @@ AuthorMainComponent.Prototype = function() {
   }
 
   this.createAuthor = function(authorTemp) {
+    console.log(authorTemp);
     this.context.api.addSimpleAuthor(this.name, authorTemp.inputValue);
     this.reloadAuthors();
   }
