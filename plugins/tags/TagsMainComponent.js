@@ -89,7 +89,7 @@ TagsMainComponent.Prototype = function() {
 
   this.removeTag = function(tag) {
     try {
-      this.context.api.removeAuthorByUUIDAndRel(this.name, tag.uuid, 'subject');
+      this.context.api.removeLinkByUUIDAndRel(this.name, tag.uuid, 'subject');
       this.reloadTags();
     } catch (e) {
       console.log(e);
