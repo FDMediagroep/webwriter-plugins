@@ -194,11 +194,11 @@ UniversalSearchComponent.Prototype = function() {
     var existingItemsMap = {};
     if (existingItems) {
       existingItems.forEach(function(item) {
-        existingItemsMap[item.id] = item.id;
+        existingItemsMap[item.title] = true;
       });
     }
     data.forEach(function(item) {
-      if (existingItemsMap[item.id]) {
+      if (existingItemsMap[item.title]) {
         item.exists = true;
       }
     });
