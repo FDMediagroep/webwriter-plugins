@@ -84,8 +84,7 @@ AuthorMainComponent.Prototype = function() {
   }
 
   this.createAuthor = function(authorTemp) {
-    console.log(authorTemp);
-    this.context.api.addSimpleAuthor(this.name, authorTemp.inputValue);
+    this.context.api.addSimpleAuthor(this.name, authorTemp.name);
     this.reloadAuthors();
   }
 

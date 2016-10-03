@@ -55,6 +55,11 @@ UniversalSearchComponent.Prototype = function() {
       //@TODO: Why is itemToSave needed?
       var itemToSave = _.clone(item);
       var name = item.name;
+
+      if (item.id == '__create-new') {
+        name = this.context.i18n.t('Create') + ': ' + name;
+      }
+
       var itemId = 'item-' + item.id;
       var itemEl = $$('li');
       if (item.exists === true) {
@@ -106,6 +111,7 @@ UniversalSearchComponent.Prototype = function() {
     if (item.exists) {
       return;
     }
+
     if (this.props.onCreate && this.props.createAllowed && item.id === '__create-new') {
       this.props.onCreate(item, itemAlreadyExists(this.state.items, item));
     } else {
@@ -208,7 +214,7 @@ UniversalSearchComponent.Prototype = function() {
   }
   this.getCreateNewItem = function() {
     return {
-      name: [this.context.i18n.t('Create') + ': ' + this.refs.searchInput.val()],
+      name: this.refs.searchInput.val(),
       id: '__create-new'
     };
   }
