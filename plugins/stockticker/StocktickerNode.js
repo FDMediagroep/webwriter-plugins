@@ -12,7 +12,9 @@ StocktickerNode.Prototype = function() {
     this.isin = isin;
     this.exchange = exchange;
 
-    this.emit('stocktickernode:changed');
+    if (isin !== '' && exchange !== '') {
+      this.emit('stocktickernode:changed');
+    }
   }
 }
 

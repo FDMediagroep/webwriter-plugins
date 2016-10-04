@@ -27,7 +27,11 @@ StocktickerCommand.Prototype = function() {
     var state = this.getCommandState();
 
     if (!state.disabled) {
-      this.context.api.insertInlineNode(this.name, { dataType: 'fdmg/stockticker' });
+      this.context.api.insertInlineNode(this.name, {
+        dataType: 'fdmg/stockticker',
+        isin: '',
+        exchange: ''
+      });
     }
   };
 };

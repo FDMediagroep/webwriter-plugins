@@ -11,6 +11,8 @@ function StocktickerComponent() {
   this.props.node.connect(this, {
     'stocktickernode:changed': this.onNodeChanged
   });
+
+  this.load(this.props.node.isin, this.props.node.exchange);
 }
 
 StocktickerComponent.Prototype = function() {
@@ -22,10 +24,6 @@ StocktickerComponent.Prototype = function() {
       price: '',
       difference: ''
     };
-  };
-
-  this.didMount = function() {
-    this.load(this.props.node.isin, this.props.node.exchange);
   };
 
   this.render = function() {
@@ -67,6 +65,11 @@ StocktickerComponent.Prototype = function() {
   };
 
   this.load = function(isin, exchange) {
+
+    if (isin === '' || exchange === '') {
+      return;
+    }
+
     var endpoint = this.context.api.router.getEndpoint();
     var proxyEndpoint = endpoint + '/api/proxy?url=';
     var serviceUrl = this.context.api.getConfigValue(this.name, 'serviceurl');
