@@ -1,8 +1,7 @@
 'use strict';
 
 var SurfaceTool = require('substance/ui/SurfaceTool');
-var Component = require('substance/ui/Component');
-var $$ = Component.$$;
+var $$ = require('substance/ui/Component').$$;
 
 function StocktickerTool() {
   StocktickerTool.super.apply(this, arguments);
@@ -11,18 +10,18 @@ function StocktickerTool() {
 StocktickerTool.Prototype = function() {
 
   this.render = function() {
-    return $$('button')
-      .addClass('se-tool')
-      .append(
-        $$('i').addClass('fa fa-line-chart')
-      ).on('click', this.insertStockticker);
-  }
+      return $$('button')
+        .addClass('se-tool')
+        .append($$('i').addClass('fa fa-line-chart'))
+        .on('click', this.onClick)
+  };
 
-  this.insertStockticker = function() {
-    var cmd = this.getCommand();
-    cmd.insertStockticker();
+  this.onClick = function() {
+    var command = this.getCommand();
+
+    command.insertStockticker();
   }
-}
+};
 
 SurfaceTool.extend(StocktickerTool);
 

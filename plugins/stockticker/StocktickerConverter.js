@@ -1,4 +1,3 @@
-
 'use strict';
 
 module.exports = {
@@ -10,20 +9,17 @@ module.exports = {
     return el.is('span[data-type="fdmg/stockticker"]');
   },
 
-  import: function(el, node, converter) {
-    node.symbol = el.text();
+  import: function(el, node) {
     node.dataType = el.attr('data-type');
-    node.tickerName = el.attr('data-ticker-name');
     node.isin = el.attr('data-isin-code');
+    node.exchange = el.attr('data-exchange');
   },
 
-  export: function(stockticker, el) {
-    el.html(stockticker.symbol);
-    el.removeAttr('data-id');
+  export: function(node, el) {
     el.attr({
-      'data-type': stockticker.dataType,
-      'data-ticker-name': stockticker.tickerName,
-      'data-isin-code': stockticker.isin
+      'data-type': node.dataType,
+      'data-isin-code': node.isin,
+      'data-exchange': node.exchange
     });
   }
-}
+};

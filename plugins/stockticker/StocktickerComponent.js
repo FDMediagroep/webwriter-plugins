@@ -2,11 +2,12 @@
 
 var AnnotationComponent = require('substance/ui/AnnotationComponent');
 var $$ = require('substance/ui/Component').$$;
-var _vwdutil = require('./VWDUtil');
-var VWDUtil = new _vwdutil();
+var VWDUtil = new (require('./VWDUtil'))();
 
 function StocktickerComponent() {
   StocktickerComponent.super.apply(this, arguments);
+  this.name = 'stockticker';
+
   this.props.node.connect(this, {
     'stocktickernode:changed': this.onNodeChanged
   });
@@ -14,76 +15,99 @@ function StocktickerComponent() {
 
 StocktickerComponent.Prototype = function() {
 
-  this.didMount = function() {
-    var node = this.props.node;
+  this.getInitialState = function() {
+    return {
+      symbol: '',
+      currency: '',
+      price: '',
+      difference: ''
+    };
+  };
 
-    this.loadQuote(node.isin, node.tickerName);
-  }
+  this.didMount = function() {
+    this.load(this.props.node.isin, this.props.node.exchange);
+  };
 
   this.render = function() {
-    var node = this.props.node;
+    var el = $$('span')
+      .addClass('sc-stockticker');
 
-    return $$('span')
-      .addClass('sc-stockticker')
-      .on('click', this.selectStockticker)
-      .append(
-        node.symbol,
+    if (this.state.symbol)
+    {
+      el.append(
+        this.state.symbol,
         $$('span')
-          .addClass(parseFloat(node.difference) >= 0 ? 'up' : 'down')
-          .append(node.currency, node.price, '(' + node.difference + ')')
+          .addClass(parseFloat(this.state.difference) >= 0 ? 'up' : 'down')
+          .append(
+            this.state.currency,
+            this.state.price,
+            ' ',
+            '(' + this.state.difference + ')'
+          )
       )
+      .on('click', this.onClick)
       .attr({
-        'data-type': node.dataType,
-        'data-symbol': node.symbol,
-        'data-isin-code': node.isin,
-        'data-ticker-name': node.tickerName,
-        'data-external': 1,
-        'contentEditable': false
+        'data-type': this.props.node.dataType,
+        'data-isin-code': this.props.node.isin,
+        'data-exchange': this.props.node.exchange
       });
-  }
+    }
 
-  this.loadQuote = function(isin, tickerName) {
-    var endpoint = this.context.api.router.getEndpoint() + '/api/proxy?url=';
-    var searchUrl = this.context.api.getConfigValue('stockticker', 'serviceurl');
+    return el;
+  };
 
-    VWDUtil.search(endpoint + encodeURIComponent(searchUrl) + isin, function(err, quotes) {
-      if (err !== null) {
-        console.log(err);
-      } else {
-        if (quotes.length === 1) {
-          this.props.node.update(quote);
-        } else {
-          quotes = quotes.filter(function(quote) {return quote.tickerName === tickerName; });
-
-          if (quotes.length !== 1) {
-            console.log('No definite stockticker data found for isin ' + isin + ' with ticker name "' + tickerName + '" (' + quotes.length + ' results)');
-          }
-
-          if (quotes.length >= 1) {
-            this.props.node.update(quotes[0]);
-          }
-        }
-      }
-    }.bind(this));
-  }
-
-  this.selectStockticker = function(e) {
+  this.onClick = function(e) {
     e.preventDefault();
     e.stopPropagation();
+
     var node = this.props.node;
     var surface = this.context.surface;
+
     surface.setSelection(node.getSelection());
-  }
+  };
+
+  this.load = function(isin, exchange) {
+    var endpoint = this.context.api.router.getEndpoint();
+    var proxyEndpoint = endpoint + '/api/proxy?url=';
+    var serviceUrl = this.context.api.getConfigValue(this.name, 'serviceurl');
+    var searchUrl = proxyEndpoint + encodeURIComponent(serviceUrl + isin);
+
+    VWDUtil.search(searchUrl, function(err, quotes) {
+      if (err !== null) {
+        console.log(err);
+        return;
+      }
+
+      quotes = quotes.filter(function(q) {
+        return q.exchange === exchange;
+      }.bind(this));
+
+      if (quotes.length === 1) {
+        var quote = quotes.pop();
+
+        this.extendState({
+          symbol: quote.symbol,
+          currency: quote.currency,
+          price: quote.price,
+          difference: quote.difference
+        });
+      } else {
+        console.log('No definite stockticker data found for isin ' + isin + ' with exchange "' + exchange + '" (' + quotes.length + ' results)');
+      }
+
+    }.bind(this));
+  };
 
   this.onNodeChanged = function() {
-    this.rerender();
+    this.load(this.props.node.isin, this.props.node.exchange);
   }
 
   this.dispose = function() {
     var doc = this.props.doc;
     doc.disconnect(this);
   }
-}
+};
 
 AnnotationComponent.extend(StocktickerComponent);
+
 module.exports = StocktickerComponent;

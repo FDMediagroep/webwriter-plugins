@@ -2,62 +2,60 @@
 
 var SurfaceTool = require('substance/ui/SurfaceTool');
 var $$ = require('substance/ui/Component').$$;
-var _vwdutil = require('./VWDUtil');
-var VWDUtil = new _vwdutil();
 var SearchComponent = require('vendor/nl.fdmg/universalsearch/UniversalSearchComponent');
+var VWDUtil = new (require('./VWDUtil'))();
 
 function StocktickerInlineTool() {
   StocktickerInlineTool.super.apply(this, arguments);
-
-  var node = this.getStocktickerNode();
-  if (!!node) {
-    node.connect(this, {
-      'stocktickernode:changed': this.onNodeChanged
-    });
-  }
+  this.name = 'stockticker';
 }
 
 StocktickerInlineTool.Prototype = function() {
 
   this.render = function() {
-    var node = this.getStocktickerNode();
-    if (!node) return $$('div');
-    return $$('div')
-      .addClass('se-tool')
-      .addClass('sc-stockticker-inline-tool')
-      .on('keydown', this.closeIfEscKeyPressed)
-      .append(
-        $$('h2').append(node.name ? node.name : 'search'),
-        $$(SearchComponent, {
-          doSearch: this.performSearch.bind(this),
-          onSelect: this.selectQuote.bind(this)
-        })
-      );
-  }
+    var node = this.getNode();
+    var el = $$('div');
 
-  this.getStocktickerNode = function() {
+    if (node) {
+      el
+        .addClass('se-tool sc-stockticker-inline-tool')
+        .append(
+          $$(SearchComponent, {
+            doSearch: this.performSearch.bind(this),
+            onSelect: this.onSelect.bind(this)
+          })
+        )
+        .on('keydown', this.onKeydown);
+    }
+
+    return el;
+  };
+
+  this.getNode = function() {
     var doc = this.context.doc;
-    if (this.props.annotationId) return doc.get(this.props.annotationId);
-  }
+    if (this.props.annotationId) {
+      return doc.get(this.props.annotationId);
+    }
+  };
 
-  this.closeIfEscKeyPressed = function(e) {
-    if (e.keyCode == 27 /* escape */) this.send('closeAnnotationTool');
+  this.onKeydown = function(e) {
+    if (e.keyCode === 27 /* escape */) {
+      this.send('closeAnnotationTool');
+    }
   }
 
   this.performSearch = function(query, callback) {
-    var endpoint = this.context.api.router.getEndpoint() + '/api/proxy?url=';
-    var searchUrl = this.context.api.getConfigValue('stockticker', 'serviceurl');
+    var endpoint = this.context.api.router.getEndpoint();
+    var proxyEndpoint = endpoint + '/api/proxy?url=';
+    var serviceUrl = this.context.api.getConfigValue(this.name, 'serviceurl');
+    var searchUrl = proxyEndpoint + encodeURIComponent(serviceUrl + query);
 
-    VWDUtil.search(endpoint + encodeURIComponent(searchUrl) + query, callback);
+    VWDUtil.search(searchUrl, callback);
   }
 
-  this.selectQuote = function(quote) {
-    this.getStocktickerNode().update(quote);
-    this.send('closeAnnotationTool'); // close tool when we have selected something
-  }
-
-  this.onNodeChanged = function() {
-    this.rerender();
+  this.onSelect = function(quote) {
+    this.getNode().update(quote.isin, quote.exchange);
+    this.send('closeAnnotationTool');
   }
 }
 
