@@ -16,7 +16,7 @@ TagsMainComponent.Prototype = function() {
 
   this.getInitialState = function() {
     return {
-      existingTags: this.context.api.getTags()
+      existingTags: this.getExistingTags()
     };
   }
 
@@ -44,7 +44,16 @@ TagsMainComponent.Prototype = function() {
 
   this.reloadTags = function() {
     this.extendState({
-      existingTags: this.context.api.getTags()
+      existingTags: this.getExistingTags()
+    });
+  }
+
+  this.getExistingTags = function() {
+    var tags = this.context.api.getTags();
+
+    return tags.map(function(tag) {
+      tag['name'] = tag.title;
+      return tag;
     });
   }
 

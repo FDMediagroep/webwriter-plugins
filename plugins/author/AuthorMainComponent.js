@@ -16,7 +16,7 @@ AuthorMainComponent.Prototype = function() {
 
   this.getInitialState = function() {
     return {
-      existingAuthors: this.context.api.getAuthors()
+      existingAuthors: this.getExistingAuthors()
     };
   }
 
@@ -44,7 +44,16 @@ AuthorMainComponent.Prototype = function() {
 
   this.reloadAuthors = function() {
     this.extendState({
-      existingAuthors: this.context.api.getAuthors()
+      existingAuthors: this.getExistingAuthors()
+    });
+  }
+
+  this.getExistingAuthors = function() {
+    var authors = this.context.api.getAuthors();
+
+    return authors.map(function(author) {
+      author['name'] = author.title;
+      return author;
     });
   }
 
@@ -77,7 +86,7 @@ AuthorMainComponent.Prototype = function() {
     console.log(author, "author");
     console.log(this.context.api, 'api addauthor');
     try {
-      this.context.api.addAuthor(this.name, author); 
+      this.context.api.addAuthor(this.name, author);
       this.reloadAuthors();
     } catch (e) {
       console.log(e);
