@@ -303,6 +303,19 @@
         "data": {
           "serviceurl": "https://beurs.fd.nl/webservices/fd/quicksearch?query="
         }
+      },
+      {
+        "vendor": "nl.fdmg",
+        "name": "localfocus",
+        "enabled": true,
+        "path": "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\localfocus",
+        "data":
+        {
+          "urlMatchers":
+          [
+            "https://localfocus2\\.appspot\\.com/.*"
+          ]
+        }
       }
     ]
   }

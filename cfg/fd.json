@@ -39,10 +39,11 @@
     { "enabled": true, "vendor": "nl.fdmg", "name": "shortarticle",                                                                                     "source": { "path": "webwriter-plugins/plugins/shortarticle",     "pluginrepositoryId": "fdplugins", "type": "git" } },
     { "enabled": true, "vendor": "nl.fdmg", "name": "relatedlink",                                                                                      "source": { "path": "webwriter-plugins/plugins/relatedlink",      "pluginrepositoryId": "fdplugins", "type": "git" } },
     { "enabled": true, "vendor": "nl.fdmg", "name": "quote",                                                                                            "source": { "path": "webwriter-plugins/plugins/quote",            "pluginrepositoryId": "fdplugins", "type": "git" } },
-    { "enabled": true, "vendor": "nl.fdmg", "name": "stockticker", "data": { "serviceurl": "https://beurs.fd.nl/webservices/fd/quicksearch?query=" },    "source": { "path": "webwriter-plugins/plugins/stockticker",      "pluginrepositoryId": "fdplugins", "type": "git" } },
+    { "enabled": true, "vendor": "nl.fdmg", "name": "stockticker", "data": { "serviceurl": "https://beurs.fd.nl/webservices/fd/quicksearch?query=" },   "source": { "path": "webwriter-plugins/plugins/stockticker",      "pluginrepositoryId": "fdplugins", "type": "git" } },
     { "enabled": true, "vendor": "nl.fdmg", "name": "stackframe",                                                                                       "source": { "path": "webwriter-plugins/plugins/stackframe",       "pluginrepositoryId": "fdplugins", "type": "git" } },
     { "enabled": true, "vendor": "nl.fdmg", "name": "numberframe",                                                                                      "source": { "path": "webwriter-plugins/plugins/numberframe",      "pluginrepositoryId": "fdplugins", "type": "git" } },
     { "enabled": true, "vendor": "nl.fdmg", "name": "htmlembed",                                                                                        "source": { "path": "webwriter-plugins/plugins/htmlembed",        "pluginrepositoryId": "fdplugins", "type": "git" } },
+    { "enabled": true, "vendor": "nl.fdmg", "name": "localfocus",  "data": { "urlMatchers": [ "https://localfocus2\\.appspot\\.com/.*" ] },             "source": { "path": "webwriter-plugins/plugins/localfocus",       "pluginrepositoryId": "fdplugins", "type": "git" } },
     { "enabled": true, "vendor": "nl.fdmg", "name": "oembed",
       "data": {
         "urlMatchers": [
