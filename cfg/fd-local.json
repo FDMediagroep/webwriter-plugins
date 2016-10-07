@@ -145,6 +145,15 @@
       },
       {
         "vendor": "nl.fdmg",
+        "name": "epic",
+        "enabled": false,
+        "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\epic",
+        "data" : {
+          "endpoint": "https://webwriter-dev.fd.nl/fdmgapi/private/fd/search/epic?q="
+        }
+      },
+      {
+        "vendor": "nl.fdmg",
         "name": "validatable",
         "enabled": true,
         "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\validatable"
@@ -279,15 +288,6 @@
         "name": "redirectlink",
         "enabled": true,
         "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\redirectlink"
-      },
-      {
-        "vendor": "nl.fdmg",
-        "name": "epic",
-        "enabled": false,
-        "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\epic",
-        "data" : {
-          "endpoint": "https://webwriter-dev.fd.nl/fdmgapi/private/fd/search/epic?q="
-        }
       },
       {
         "vendor": "nl.fdmg",

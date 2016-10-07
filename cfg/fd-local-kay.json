@@ -67,6 +67,7 @@
       { "enabled": true, "vendor": "nl.fdmg", "name": "publish",          "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/publish" },
       { "enabled": true, "vendor": "nl.fdmg", "name": "author",           "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/author",       "data": { "endpoint": "https://dev-api.fdmg.org/private/fd/search/author?q=" } },
       { "enabled": true, "vendor": "nl.fdmg", "name": "tags",             "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/tags",         "data": { "endpoint": "https://dev-api.fdmg.org/private/fd/search/tag?q=" } },
+      { "enabled": true, "vendor": "nl.fdmg", "name": "epic",             "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/epic",         "data": { "endpoint": "https://dev-api.fdmg.org/private/fd/search/epic?q=" } },
       { "enabled": true, "vendor": "nl.fdmg", "name": "genre",            "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/genre",        "data": { "endpoint": "https://dev-api.fdmg.org/private/fd/articles/genres" } },
       { "enabled": true, "vendor": "nl.fdmg", "name": "rubric",           "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/rubric",       "data": { "endpoint": "https://dev-api.fdmg.org/private/fd/articles/rubrics" } },
       { "enabled": true, "vendor": "nl.fdmg", "name": "section",          "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/section",      "data": { "endpoint": "https://dev-api.fdmg.org/private/fd/lists/sections/ece_frontpage/children" } },
@@ -117,7 +118,6 @@
             "^https://www\\.facebook\\.com/video\\.php\\?v=.*"
           ]
         }
-        { "enabled": false, "vendor": "nl.fdmg", "name": "epic", "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/epic", "data": { "endpoint": "https://dev-api.fdmg.org/private/fd/search/epic?q=" } }
       }
     ]
   }
