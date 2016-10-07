@@ -6,7 +6,7 @@ module.exports = {
   tagName: 'object',
 
   matchElement: function(el) {
-    el.is('object[type="fdmg/localfocus"]');
+    return el.is('object[type="fdmg/localfocus"]');
   },
 
   import: function(el, node) {
