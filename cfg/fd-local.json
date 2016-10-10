@@ -61,6 +61,21 @@
         "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\publish"
       },
       {
+        "vendor": "nl.fdmg",
+        "name": "textcount",
+        "enabled": true,
+        "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\textcount",
+        "data" : {
+        "marginPercentage" : 10,
+        "sizes" : {
+          "S" : 1810, 
+          "L" : 3600, 
+          "XL" : 6300, 
+          "XXL" : 8200 
+          }
+        }
+      },
+      {
         "vendor": "infomaker.se",
         "name": "youtube",
         "enabled": true,
@@ -307,21 +322,6 @@
         "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\stockticker",
         "data": {
           "serviceurl": "https://beurs.fd.nl/webservices/fd/quicksearch?query="
-        }
-      },
-      {
-        "vendor": "nl.fdmg",
-        "name": "textcount",
-        "enabled": true,
-        "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\textcount",
-        "data" : {
-        "marginPercentage" : 10,
-        "sizes" : {
-          "S" : 1810, 
-          "L" : 3600, 
-          "XL" : 6300, 
-          "XXL" : 8200 
-          }
         }
       },
       {

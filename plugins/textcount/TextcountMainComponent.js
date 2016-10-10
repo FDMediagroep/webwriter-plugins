@@ -22,8 +22,15 @@ TextcountMainComponent.Prototype = function () {
 
     // Get the word- and character count. This includes ALL nodes
     // for now. @TODO: exclude extra markup like quate, numberframe etc.
+    // Every node that has a text property with class content is being
+    // added to the count. We need to make this configurable in the count
+    // plugin.
     this.getCount = function () {
         var nodes = this.context.api.getDocumentNodes();
+        console.log('nodes: ', nodes);
+
+        // include paragraphs only and not all the nodes that 
+        // have a content class.
         var textContent = "";
         nodes.forEach(function (node) {
             if (node.content) {
