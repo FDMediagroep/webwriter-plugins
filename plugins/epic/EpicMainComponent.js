@@ -25,25 +25,33 @@ EpicMainComponent.Prototype = function() {
     var existingEpic = this.state.existingEpic;
     var epicEl = $$('span');
 
+    var epicSearchComponent = 
+      $$(SearchComponent, {
+        existingItems: existingEpic ? [existingEpic] : [],
+        doSearch: this.searchEpics.bind(this),
+        onSelect: this.setEpic.bind(this),
+        createAllowed: false,
+        placeholderText: "Set Epic"
+      }).ref('epicSearchComponent');
+
     if (existingEpic) {
-      epicEl = $$('div')
+
+      epicEl = $$('div').addClass('epic__item')
         .append(
           $$('div')
             .addClass('metadata__container')
             .append(
               $$('span')
               .addClass('epic__name notClickable meta')
-              .append(existingEpic.name)
-            ),
-          $$('div')
-            .addClass('button__container')
+              .append(existingEpic.name))
             .append(
               $$('button')
-              .addClass('author__button--delete')
               .append($$(Icon, { icon: 'fa-times' }))
               .on('click', function() { this.removeEpic(); }.bind(this))
             )
         );
+
+      epicSearchComponent.addClass('hidden');
     }
 
     return $$('div')
@@ -51,14 +59,7 @@ EpicMainComponent.Prototype = function() {
       .addClass('epic')
       .append(
         $$('h2').append(this.context.i18n.t('Epic')),
-        epicEl,
-        $$(SearchComponent, {
-          existingItems: existingEpic ? [existingEpic] : [],
-          doSearch: this.searchEpics.bind(this),
-          onSelect: this.setEpic.bind(this),
-          createAllowed: false,
-          placeholderText: "Set Epic"
-        }).ref('epicSearchComponent'),
+        epicEl, epicSearchComponent,
         $$('hr')
       );
   };
@@ -123,6 +124,8 @@ EpicMainComponent.Prototype = function() {
       .forEach(function(epic) {
         this.context.api.removeLinkByUUIDAndRel(this.name, epic['@uuid'], epic['@rel']);
       }.bind(this));
+
+    jQuery("epic search__container").removeClass('hidden');
 
     this.reloadEpic();
   };
