@@ -34,11 +34,11 @@ LocalfocusComponent.Prototype = function() {
 
     var content = $$('div')
         .attr('contenteditable', false)
-        .html('<iframe class="localfocusvisual" frameborder="0" style="width:600px;height:550px;overflow:hidden" src="' + this.props.node.url + '"></iframe>');
+        .html('<iframe class="localfocusvisual" frameborder="0" style="width:100%; height:500px; overflow:hidden" src="' + this.props.node.url + '"></iframe>');
 
     this.context.api.handleDrag(header, this.props.node);
 
-    return container.append(header, content)
+    return container.append(header.append(content));
   };
 
   this.remove = function() {
