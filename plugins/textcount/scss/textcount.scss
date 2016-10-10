@@ -1,0 +1,38 @@
+.textanalyzer {
+	.in-range {
+		color: green;
+	}
+
+	.over-range {
+		color: red;
+	}
+
+	.perfect-range {
+		color: gold;
+		position: relative;
+		&:before {
+			content: "\f118";
+			font-size: 1em;
+			font-family: FontAwesome;
+		}
+	}
+
+	.sc-information-panel { 
+		.number__container {
+			margin-top: 0;
+			display: flex;
+			justify-content: space-between;
+		}
+
+		.count-info {
+			select {
+				margin-bottom: 5px;
+			}
+			width: auto;
+			span {
+				min-height: 35px;
+				display: inline-block;
+			}
+		}
+	}
+}
