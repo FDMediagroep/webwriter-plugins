@@ -86,6 +86,7 @@
       { "enabled": true, "vendor": "nl.fdmg", "name": "stackframe",       "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/stackframe" },
       { "enabled": true, "vendor": "nl.fdmg", "name": "numberframe",      "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/numberframe" },
       { "enabled": true, "vendor": "nl.fdmg", "name": "htmlembed",        "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/htmlembed" },
+      { "enabled": true, "vendor": "nl.fdmg", "name": "textframe",        "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/textframe" },
       { "enabled": true, "vendor": "nl.fdmg", "name": "localfocus",       "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/localfocus",   "data": { "urlMatchers": [ "https://localfocus2\\.appspot\\.com/.*" ] } },
       {
         "enabled": true,
@@ -117,6 +118,21 @@
             "^https://www\\.facebook\\.com/video\\.php\\?id=.*",
             "^https://www\\.facebook\\.com/video\\.php\\?v=.*"
           ]
+        }
+      },
+      {
+        "enabled": true,
+        "vendor": "nl.fdmg",
+        "name": "textcount",
+        "path" : "/Users/kreuning/Developer/webwriter/plugins/plugins/textcount",
+        "data": {
+          "marginPercentage" : 10,
+          "sizes" : {
+            "S" : 1810,
+            "L" : 3600,
+            "XL" : 6300,
+            "XXL" : 8200
+          }
         }
       }
     ]
