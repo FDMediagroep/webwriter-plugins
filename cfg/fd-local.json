@@ -53,6 +53,7 @@
           ]
         }
       },
+      
       {
         "vendor": "nl.fdmg",
         "name": "publish",
@@ -135,22 +136,16 @@
         "vendor": "nl.fdmg",
         "name": "author",
         "enabled": true,
-        "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\author"
+        "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\author",
+        "data" : {
+          "endpoint" : "https://dev-api.fdmg.org/private/fd/search/author?q="
+        }
       },
       {
         "vendor": "nl.fdmg",
         "name": "tags",
         "enabled": true,
         "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\tags"
-      },
-      {
-        "vendor": "nl.fdmg",
-        "name": "epic",
-        "enabled": false,
-        "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\epic",
-        "data" : {
-          "endpoint": "https://webwriter-dev.fd.nl/fdmgapi/private/fd/search/epic?q="
-        }
       },
       {
         "vendor": "nl.fdmg",
@@ -176,7 +171,7 @@
         "enabled": true,
         "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\genre",
         "data" : {
-          "endpoint": "https://webwriter-dev.fd.nl/fdmgapi/private/fd/articles/genres"
+          "endpoint": "https://dev-api.fdmg.org/private/fd/articles/genres"
         }
       },
       {
@@ -185,7 +180,7 @@
         "enabled": true,
         "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\rubric",
         "data" : {
-          "endpoint": "https://webwriter-dev.fd.nl/fdmgapi/private/fd/articles/rubrics"
+          "endpoint": "https://dev-api.fdmg.org/private/fd/articles/rubrics"
         }
       },
       {
@@ -194,7 +189,7 @@
         "enabled": true,
         "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\section",
         "data" : {
-          "endpoint": "https://webwriter-dev.fd.nl/fdmgapi/private/fd/lists/sections/ece_frontpage/children"
+          "endpoint": "https://dev-api.fdmg.org/private/fd/lists/sections/ece_frontpage/children"
         }
       },
       {
@@ -203,7 +198,7 @@
         "enabled": true,
         "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\articletype",
         "data" : {
-          "endpoint": "https://webwriter-dev.fd.nl/fdmgapi/private/fd/articles/types"
+          "endpoint": "https://dev-api.fdmg.org/private/fd/articles/types"
         }
       },
       {
@@ -291,6 +286,15 @@
       },
       {
         "vendor": "nl.fdmg",
+        "name": "epic",
+        "enabled": true,
+        "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\epic",
+        "data" : {
+          "endpoint": "https://dev-api.fdmg.org/private/fd/search/epic?q="
+        }
+      },
+      {
+        "vendor": "nl.fdmg",
         "name": "universalsearch",
         "enabled": true,
         "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\universalsearch"
@@ -302,6 +306,21 @@
         "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\stockticker",
         "data": {
           "serviceurl": "https://beurs.fd.nl/webservices/fd/quicksearch?query="
+        }
+      },
+      {
+        "vendor": "nl.fdmg",
+        "name": "textcount",
+        "enabled": true,
+        "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\textcount",
+        "data" : {
+        "marginPercentage" : 10,
+        "sizes" : {
+          "S" : 1810, 
+          "L" : 3600, 
+          "XL" : 6300, 
+          "XXL" : 8200 
+          }
         }
       },
       {
