@@ -32,7 +32,7 @@
           "XL" : 6300,
           "XXL" : 8200
         },
-        "countedElements" : [ "paragraph", "headline" ]
+        "countedElements" : [ "paragraph" ]
       },
       "source": { "path": "webwriter-plugins/plugins/textcount", "pluginrepositoryId": "fdplugins", "type": "git" }
     },
