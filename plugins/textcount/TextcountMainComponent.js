@@ -51,15 +51,20 @@ TextcountMainComponent.Prototype = function () {
     this.getConfiguration = function () {
     	// Get plugins/nodes to count as defined in the configuration.
     	var countedElements = this.context.api.getConfigValue("textcount", "countedElements");
+        
         // Get the available sizes.
         var availableSizes = this.context.api.getConfigValue("textcount", "sizes");
+        
         // Set an extra value to work with when there is no link or config present.
         availableSizes["?"] = Number.MAX_VALUE;
+        
         // Get the character margin (in percentages).
         var marginPercentage = this.context.api.getConfigValue("textcount", "marginPercentage");
+        
         // get the defined size in the article's link (S, L, XL, XXL). If there is no link fall back
         // to "?" which represents MAX_VALUE.
         var links = this.context.api.getLinkByType("textcount", "fdmg/textcount");
+        
         // Get the corresponding character count from the plugin configuration.
         var documentSize = links.length > 0 ? links.pop()["@size"] : "?";
         var targetSize = availableSizes[documentSize];
@@ -85,6 +90,7 @@ TextcountMainComponent.Prototype = function () {
 
         var api = this.context.api;
         var name = "textcount"
+        
         // Remove all existing links.
         api.getLinkByType(name, "fdmg/textcount")
             .forEach(function(link) {
@@ -134,8 +140,8 @@ TextcountMainComponent.Prototype = function () {
             .append($$('h2').append(this.context.i18n.t('Text counter')));
 
         var numberContainer = $$('div').addClass('number__container clearfix fdmg-sidebar');
+        
         // Populate articleSizeSelect with key and value like: S (1810).
-
         var articleSizeSelect = $$('div').addClass('count-info form-group')
             .append(
                 $$('select')
@@ -179,6 +185,7 @@ TextcountMainComponent.Prototype = function () {
         return el;
 
         function calculateCountClass(){
+            
             // Keep track of article margin and return the
             // appropriate class to show the status.
             var targetSize = this.state.targetSize;
