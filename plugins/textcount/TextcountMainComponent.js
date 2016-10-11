@@ -20,23 +20,25 @@ TextcountMainComponent.Prototype = function () {
         this.context.api.off('wordcounter', 'document:changed');
     };
 
-    // Get the word- and character count. This includes ALL nodes
-    // for now. @TODO: exclude extra markup like quate, numberframe etc.
-    // Every node that has a text property with class content is being
-    // added to the count. We need to make this configurable in the count
-    // plugin.
+    // Get the word- and character count.
     this.getCount = function () {
         var nodes = this.context.api.getDocumentNodes();
-        console.log('nodes: ', nodes);
+        var config = this.getConfiguration();
+        var doCount = config.doCount;
 
-        // include paragraphs only and not all the nodes that 
-        // have a content class.
         var textContent = "";
+
         nodes.forEach(function (node) {
-            if (node.content) {
-                textContent += node.content.trim();
-            }
+
+        	if (doCount.some(function(c) { return node.isInstanceOf(c); })) {
+
+	            if (node.content) {
+	                textContent += node.content.trim();
+	            }
+        	}
+
         });
+
         var words = textContent.split(/\s+/);
         var textLength = textContent.length;
 
@@ -47,14 +49,16 @@ TextcountMainComponent.Prototype = function () {
     };
 
     this.getConfiguration = function () {
+    	// Get plugins/nodes to count as defined in the configuration.
+    	var doCount = this.context.api.getConfigValue("textcount", "doCount");
         // Get the available sizes.
         var availableSizes = this.context.api.getConfigValue("textcount", "sizes");
-        // Set an extra value to work with when there is no link or config present
+        // Set an extra value to work with when there is no link or config present.
         availableSizes["?"] = Number.MAX_VALUE;
         // Get the character margin (in percentages).
         var marginPercentage = this.context.api.getConfigValue("textcount", "marginPercentage");
         // get the defined size in the article's link (S, L, XL, XXL). If there is no link fall back
-        // to "?" which represents MAX_VALUE
+        // to "?" which represents MAX_VALUE.
         var links = this.context.api.getLinkByType("textcount", "fdmg/textcount");
         // Get the corresponding character count from the plugin configuration.
         var documentSize = links.length > 0 ? links.pop()["@size"] : "?";
@@ -63,7 +67,8 @@ TextcountMainComponent.Prototype = function () {
         return {
             availableSizes: availableSizes,
             marginPercentage: marginPercentage,
-            targetSize: targetSize
+            targetSize: targetSize,
+            doCount: doCount
         };
     }
 
@@ -86,11 +91,11 @@ TextcountMainComponent.Prototype = function () {
                 api.removeLinkByUUIDAndRel(name, link['@uuid'], link['@rel']);
             });
 
-        // What is the current selected size from the dropdown
+        // What is the current selected size from the dropdown.
         var selected = jQuery('.textcount select option:selected');
         var selectedSize = selected.data("id");
 
-        // Add a new link with a newly selected size
+        // Add a new link with a newly selected size.
         api.addLink(name, {
             '@rel': 'textcount',
             '@size': selectedSize,
@@ -108,15 +113,16 @@ TextcountMainComponent.Prototype = function () {
     };
 
     this.getInitialState = function () {
-        var count = this.getCount();
         var config = this.getConfiguration();
+        var count = this.getCount();
 
         return {
             textLength: count.textLength,
             words: count.words,
             availableSizes: config.availableSizes,
             marginPercentage: config.marginPercentage,
-            targetSize: config.targetSize
+            targetSize: config.targetSize,
+            doCount: config.doCount
         };
     };
 
@@ -168,7 +174,7 @@ TextcountMainComponent.Prototype = function () {
             textlengthEl,
             wordsEl
         ]);
-        el.append(numberContainer);
+        el.append(numberContainer, $$('hr'));
 
         return el;
 

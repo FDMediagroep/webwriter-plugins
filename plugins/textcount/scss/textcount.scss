@@ -1,4 +1,7 @@
 .textcount {
+	hr {
+		margin-bottom: 0px;
+	}
 	.in-range {
 		color: #05cc05;
 	}
@@ -25,10 +28,12 @@
 		}
 
 		.count-info {
+			width: auto;
+			margin-bottom: 0;
 			select {
 				margin-bottom: 5px;
 			}
-			width: auto;
+			
 			span {
 				min-height: 35px;
 				display: inline-block;

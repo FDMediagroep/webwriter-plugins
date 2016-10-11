@@ -72,7 +72,8 @@
           "L" : 3600, 
           "XL" : 6300, 
           "XXL" : 8200 
-          }
+          },
+        "countedElements" : [ "Paragraph", "Headline" ]
         }
       },
       {
