@@ -24,13 +24,13 @@ TextcountMainComponent.Prototype = function () {
     this.getCount = function () {
         var nodes = this.context.api.getDocumentNodes();
         var config = this.getConfiguration();
-        var doCount = config.doCount;
+        var countedElements = config.countedElements;
 
         var textContent = "";
 
         nodes.forEach(function (node) {
 
-        	if (doCount.some(function(c) { return node.isInstanceOf(c); })) {
+        	if (countedElements.some(function(c) { return node.isInstanceOf(c); })) {
 
 	            if (node.content) {
 	                textContent += node.content.trim();
@@ -50,7 +50,7 @@ TextcountMainComponent.Prototype = function () {
 
     this.getConfiguration = function () {
     	// Get plugins/nodes to count as defined in the configuration.
-    	var doCount = this.context.api.getConfigValue("textcount", "doCount");
+    	var countedElements = this.context.api.getConfigValue("textcount", "countedElements");
         // Get the available sizes.
         var availableSizes = this.context.api.getConfigValue("textcount", "sizes");
         // Set an extra value to work with when there is no link or config present.
@@ -68,7 +68,7 @@ TextcountMainComponent.Prototype = function () {
             availableSizes: availableSizes,
             marginPercentage: marginPercentage,
             targetSize: targetSize,
-            doCount: doCount
+            countedElements: countedElements
         };
     }
 
@@ -122,7 +122,7 @@ TextcountMainComponent.Prototype = function () {
             availableSizes: config.availableSizes,
             marginPercentage: config.marginPercentage,
             targetSize: config.targetSize,
-            doCount: config.doCount
+            countedElements: config.countedElements
         };
     };
 
