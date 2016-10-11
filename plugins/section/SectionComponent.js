@@ -34,8 +34,6 @@ SectionComponent.Prototype = function() {
     }
 
     this.loadList = function(sectionList, mapper) {
-        console.info('Loading items from "' + sectionList + '"');
-        console.log(sectionList, "sectionlist");
         var sectionList = this.setItems(mapper(sectionList));
         
         return sectionList;
@@ -50,10 +48,9 @@ SectionComponent.Prototype = function() {
             console.log('no initial ' + this.getState().pluginname);
         } else {
             var id = links.shift()[prop];
-            console.log(id);
+
             var label = this.getItemLabelById(id);
 
-            // console.log(id, 'id', label, 'label');
             console.log('initial ' + this.getState().pluginname + ' is ' + label);
 
             return { 'id': id, 'label': label };
@@ -61,8 +58,6 @@ SectionComponent.Prototype = function() {
     }
 
     this.getItemLabelById = function(id) {
-        console.log(id, "id @ getItemLabelById");
-        console.log(this.getState().items, "getstate items");
 
         var item = this.getState().items
             .filter(function(item) { return item.label === id; })
