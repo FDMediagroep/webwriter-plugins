@@ -41,7 +41,6 @@ SectionComponent.Prototype = function() {
 
     // Override this so that we can get the correct label
     this.getExistingLinkOrDefault = function(name, type, prop) {
-
         var links = this.context.api.getLinkByType(name, type);
 
         if (links.length == 0) {
@@ -58,7 +57,6 @@ SectionComponent.Prototype = function() {
     }
 
     this.getItemLabelById = function(id) {
-
         var item = this.getState().items
             .filter(function(item) { return item.label === id; })
             .pop();
