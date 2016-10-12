@@ -56,9 +56,9 @@
           { "name": "opinie", "title": "Opinie" },
           { "name": "profiel", "title": "Profiel" },
           { "name": "werk-geld", "title": "Werk & Geld" }
-        ],
-       "source": { "path": "webwriter-plugins/plugins/section", "pluginrepositoryId": "fdplugins", "type": "git" }
-      }
+        ]
+      },
+      "source": { "path": "webwriter-plugins/plugins/section", "pluginrepositoryId": "fdplugins", "type": "git" }
     },
     { "enabled": true, "vendor": "nl.fdmg", "name": "articletype", "data": { "endpoint": "/fdmgapi/private/fd/articles/types" },                        "source": { "path": "webwriter-plugins/plugins/articletype",      "pluginrepositoryId": "fdplugins", "type": "git" } },
     { "enabled": true, "vendor": "nl.fdmg", "name": "redirectlink",                                                                                     "source": { "path": "webwriter-plugins/plugins/redirectlink",     "pluginrepositoryId": "fdplugins", "type": "git" } },
