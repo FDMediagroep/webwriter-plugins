@@ -45,16 +45,6 @@ TextframeComponent.Prototype = function () {
         ])
             .addClass('textframe');
 
-        if (this.props.node.url || this.props.node.previewUrl) {
-          el.append(
-            $$(TextProperty, {
-              tagName: 'div',
-              path: [this.props.node.id, 'subject'],
-              doc: this.props.doc
-            }).ref('subject').addClass('textframe-subject')
-          );
-        }
-
         el.append(
             $$(TextProperty, {
                 tagName: 'div',
