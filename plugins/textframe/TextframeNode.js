@@ -115,6 +115,7 @@ BlockNode.extend(TextframeNode);
 TextframeNode.static.defineSchema({
     uuid: {type: 'string', optional: true},
     dataType: {type: 'string', optional: false},
+    contentType: { type: 'string', optional: false },
 
     title: {type: 'string', optional: false, default: ''},
     subject: {type: 'string', optional: false, default: ''},

@@ -70,7 +70,21 @@
       { "enabled": true, "vendor": "nl.fdmg", "name": "epic",             "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/epic",         "data": { "endpoint": "https://dev-api.fdmg.org/private/fd/search/epic?q=" } },
       { "enabled": true, "vendor": "nl.fdmg", "name": "genre",            "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/genre",        "data": { "endpoint": "https://dev-api.fdmg.org/private/fd/articles/genres" } },
       { "enabled": true, "vendor": "nl.fdmg", "name": "rubric",           "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/rubric",       "data": { "endpoint": "https://dev-api.fdmg.org/private/fd/articles/rubrics" } },
-      { "enabled": true, "vendor": "nl.fdmg", "name": "section",          "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/section",      "data": { "endpoint": "https://dev-api.fdmg.org/private/fd/lists/sections/ece_frontpage/children" } },
+      { "enabled": true, "vendor": "nl.fdmg", "name": "section",          "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/section",
+        "data" : {
+          "sectionlist" : [
+            { "name": "beursradar", "title": "Beurs" },
+            { "name": "blogs", "title": "Blogs" },
+            { "name": "economie-politiek", "title": "Economie & Politiek" },
+            { "name": "fd-persoonlijk", "title": "FD persoonlijk" },
+            { "name": "morgen", "title": "Morgen" },
+            { "name": "ondernemen", "title": "Ondernemen" },
+            { "name": "opinie", "title": "Opinie" },
+            { "name": "profiel", "title": "Profiel" },
+            { "name": "werk-geld", "title": "Werk & Geld" }
+          ]
+        }
+      },
       { "enabled": true, "vendor": "nl.fdmg", "name": "articletype",      "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/articletype",  "data": { "endpoint": "https://dev-api.fdmg.org/private/fd/articles/types" } },
       { "enabled": true, "vendor": "nl.fdmg", "name": "redirectlink",     "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/redirectlink" },
       { "enabled": true, "vendor": "nl.fdmg", "name": "fdpersonal",       "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/fdpersonal" },
