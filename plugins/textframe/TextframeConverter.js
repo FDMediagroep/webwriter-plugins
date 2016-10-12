@@ -12,7 +12,6 @@ var TextframeConverter = {
         // x-im/image attributes
         node.title = el.attr('title');
         node.dataType = el.attr('type');
-        node.contentType = el.attr('type');
 
         var linkEl = el.find('links>link');
         if (linkEl) {
