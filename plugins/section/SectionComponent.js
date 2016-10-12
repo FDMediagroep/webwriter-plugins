@@ -1,6 +1,7 @@
 'use strict';
 
 var SuperComponent = require('vendor/nl.fdmg/linkselector/LinkSelectorComponent');
+var jQuery = require('substance/util/jquery');
 
 var __section_state;
 
@@ -20,11 +21,10 @@ SectionComponent.Prototype = function() {
             'forcelistmode?': true
         });
 
-        var endpoint = this.context.api.getConfigValue('section', 'endpoint');
+        var sectionList = this.context.api.getConfigValue('section', 'sectionlist');
 
-        this.loadList(endpoint, function(items) {
-            items = this
-                .sortByAplhabet(items, 'title')
+        this.loadList(sectionList, function(items) {
+            items = sectionList
                 .map(function(item) { return { 'id': item.name, 'label': item.title } });
 
             items.unshift(this.getState().emptyitem);
@@ -33,21 +33,34 @@ SectionComponent.Prototype = function() {
         }.bind(this));
     }
 
+    this.loadList = function(sectionList, mapper) {
+        var sectionList = this.setItems(mapper(sectionList));
+        
+        return sectionList;
+    }
+
     // Override this so that we can get the correct label
     this.getExistingLinkOrDefault = function(name, type, prop) {
-
         var links = this.context.api.getLinkByType(name, type);
 
         if (links.length == 0) {
             console.log('no initial ' + this.getState().pluginname);
         } else {
             var id = links.shift()[prop];
+
             var label = this.getItemLabelById(id);
 
             console.log('initial ' + this.getState().pluginname + ' is ' + label);
 
             return { 'id': id, 'label': label };
         }
+    }
+
+    this.getItemLabelById = function(id) {
+        var item = this.getState().items
+            .filter(function(item) { return item.label === id; })
+            .pop();
+        return item ? item.label : -1;
     }
 
     this.setState = function(newstate) {

@@ -53,7 +53,6 @@
           ]
         }
       },
-      
       {
         "vendor": "nl.fdmg",
         "name": "publish",
@@ -68,12 +67,12 @@
         "data" : {
         "marginPercentage" : 10,
         "sizes" : {
-          "S" : 1810, 
-          "L" : 3600, 
-          "XL" : 6300, 
-          "XXL" : 8200 
+          "S" : 1810,
+          "L" : 3600,
+          "XL" : 6300,
+          "XXL" : 8200
           },
-        "countedElements" : [ "Paragraph", "Headline" ]
+        "countedElements" : [ "paragraph" ]
         }
       },
       {
@@ -214,6 +213,17 @@
         "enabled": true,
         "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\section",
         "data" : {
+          "sectionlist" : [
+            { "name": "beursradar", "title": "Beurs" },
+            { "name": "blogs", "title": "Blogs" },
+            { "name": "economie-politiek", "title": "Economie & Politiek" },
+            { "name": "fd-persoonlijk", "title": "FD persoonlijk" },
+            { "name": "morgen", "title": "Morgen" },
+            { "name": "ondernemen", "title": "Ondernemen" },
+            { "name": "opinie", "title": "Opinie" },
+            { "name": "profiel", "title": "Profiel" },
+            { "name": "werk-geld", "title": "Werk & Geld" }
+          ],
           "endpoint": "https://dev-api.fdmg.org/private/fd/lists/sections/ece_frontpage/children"
         }
       },
@@ -309,7 +319,6 @@
         "enabled": true,
         "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\redirectlink"
       },
-      
       {
         "vendor": "nl.fdmg",
         "name": "universalsearch",

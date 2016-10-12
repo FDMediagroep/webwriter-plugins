@@ -21,7 +21,7 @@
     -webkit-align-items: center;
     align-items: center;
     @include border-radius(0.25rem);
-    margin-bottom: 0;
+    margin-bottom: 5px; 
     .avatar__container {
         flex: 0 1 30px;
         .avatar {
