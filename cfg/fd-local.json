@@ -336,6 +336,12 @@
       },
       {
         "vendor": "nl.fdmg",
+        "name": "textframe",
+        "enabled": true,
+        "path": "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\textframe"
+      },
+      {
+        "vendor": "nl.fdmg",
         "name": "localfocus",
         "enabled": true,
         "path": "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\localfocus",
