@@ -17,7 +17,6 @@
         "urlMatchers": [ "^https?://(www\\.)?youtube\\.com/watch\\?v=.*", "^https?://youtu\\.be/.*" ]
       }
     },
-
     { "enabled": true, "vendor": "nl.fdmg", "name": "validatable",                                                                                      "source": { "path": "webwriter-plugins/plugins/validatable",      "pluginrepositoryId": "fdplugins", "type": "git" } },
     { "enabled": true, "vendor": "nl.fdmg", "name": "linkselector",                                                                                     "source": { "path": "webwriter-plugins/plugins/linkselector",     "pluginrepositoryId": "fdplugins", "type": "git" } },
     { "enabled": true, "vendor": "nl.fdmg", "name": "articleoptions",                                                                                   "source": { "path": "webwriter-plugins/plugins/articleoptions",   "pluginrepositoryId": "fdplugins", "type": "git" } },
@@ -41,10 +40,7 @@
     { "enabled": true, "vendor": "nl.fdmg", "name": "epic",        "data": { "endpoint": "/fdmgapi/private/fd/search/epic?q=" },                        "source": { "path": "webwriter-plugins/plugins/epic",             "pluginrepositoryId": "fdplugins", "type": "git" } },
     { "enabled": true, "vendor": "nl.fdmg", "name": "genre",       "data": { "endpoint": "/fdmgapi/private/fd/articles/genres" },                       "source": { "path": "webwriter-plugins/plugins/genre",            "pluginrepositoryId": "fdplugins", "type": "git" } },
     { "enabled": true, "vendor": "nl.fdmg", "name": "rubric",      "data": { "endpoint": "/fdmgapi/private/fd/articles/rubrics" },                      "source": { "path": "webwriter-plugins/plugins/rubric",           "pluginrepositoryId": "fdplugins", "type": "git" } },
-    {
-      "vendor": "nl.fdmg",
-      "name": "section",
-      "enabled": true,
+    { "enabled": true, "vendor": "nl.fdmg", "name": "section",
       "data" : {
         "sectionlist" : [
           { "name": "beursradar", "title": "Beurs" },
@@ -76,7 +72,6 @@
     { "enabled": true, "vendor": "nl.fdmg", "name": "numberframe",                                                                                      "source": { "path": "webwriter-plugins/plugins/numberframe",      "pluginrepositoryId": "fdplugins", "type": "git" } },
     { "enabled": true, "vendor": "nl.fdmg", "name": "htmlembed",                                                                                        "source": { "path": "webwriter-plugins/plugins/htmlembed",        "pluginrepositoryId": "fdplugins", "type": "git" } },
     { "enabled": true, "vendor": "nl.fdmg", "name": "localfocus",  "data": { "urlMatchers": [ "https://localfocus2\\.appspot\\.com/.*" ] },             "source": { "path": "webwriter-plugins/plugins/localfocus",       "pluginrepositoryId": "fdplugins", "type": "git" } },
-
     { "enabled": true, "vendor": "nl.fdmg", "name": "oembed",
       "data": {
         "urlMatchers": [
