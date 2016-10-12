@@ -42,7 +42,6 @@ LinkSelectorComponent.Prototype = function() {
 
             this.extendState({ 'selection': newselection });
 
-            console.info('assigned ' + name + ' "' + newselection.label + '" to document (id=' + newselection.id + ')');
         }
     }
 
@@ -61,12 +60,9 @@ LinkSelectorComponent.Prototype = function() {
         var links = this.context.api.getLinkByType(name, type);
 
         if (links.length == 0) {
-            console.log('no initial ' + this.getState().pluginname);
             return this.getState().emptyitem;
         } else {
             var label = links.shift()[prop];
-
-            console.log('initial ' + this.getState().pluginname + ' is ' + label);
 
             return { 'id': this.getItemIdByLabel(label), 'label': label };
         }
@@ -87,7 +83,6 @@ LinkSelectorComponent.Prototype = function() {
     }
 
     this.loadList = function(endpoint, mapper) {
-        console.info('Loading items from "' + endpoint + '"');
 
         return jQuery.ajax(endpoint, {
             'data': {

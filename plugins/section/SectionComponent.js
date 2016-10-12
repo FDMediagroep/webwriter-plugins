@@ -44,16 +44,27 @@ SectionComponent.Prototype = function() {
         var links = this.context.api.getLinkByType(name, type);
 
         if (links.length == 0) {
-            console.log('no initial ' + this.getState().pluginname);
+            return this.getState().emptyitem;
         } else {
             var id = links.shift()[prop];
-
             var label = this.getItemLabelById(id);
 
-            console.log('initial ' + this.getState().pluginname + ' is ' + label);
+            if (label == -1) {   
+                this.removeLink();
+                return  { 'id': "", 'label': "" };
+            }
 
             return { 'id': id, 'label': label };
         }
+    }
+
+    this.removeLink = function () {
+        var api = this.context.api;
+        // remove existing section (bcause it didn't map with existing list).
+        api.getLinkByType("section", "fdmg/section")
+        .forEach(function(link) {
+            api.removeLinkByUUIDAndRel(name, link['@uuid'], link['@rel']);
+        });
     }
 
     this.getItemLabelById = function(id) {
