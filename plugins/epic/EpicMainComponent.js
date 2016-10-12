@@ -30,7 +30,8 @@ EpicMainComponent.Prototype = function() {
         existingItems: existingEpic ? [existingEpic] : [],
         doSearch: this.searchEpics.bind(this),
         onSelect: this.setEpic.bind(this),
-        createAllowed: false,
+        onCreate: this.setEpic.bind(this),
+        createAllowed: true,
         placeholderText: "Set Epic"
       }).ref('epicSearchComponent');
 
@@ -108,13 +109,19 @@ EpicMainComponent.Prototype = function() {
   this.setEpic = function(epic) {
     this.removeEpic();
 
-    this.context.api.addLink(this.name, {
+    var data = {
       '@rel': this.name,
       '@type': 'fdmg/epic',
       '@id': epic.id,
       '@name': epic.name,
       '@uuid': genUUID()
-    });
+    };
+
+    if ( epic.id === "__create-new") {
+      delete data["@id"];
+    }
+
+    this.context.api.addLink(this.name, data);
 
     this.reloadEpic();
   };
