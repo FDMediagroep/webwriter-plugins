@@ -71,6 +71,7 @@
     { "enabled": true, "vendor": "nl.fdmg", "name": "stackframe",                                                                                       "source": { "path": "webwriter-plugins/plugins/stackframe",       "pluginrepositoryId": "fdplugins", "type": "git" } },
     { "enabled": true, "vendor": "nl.fdmg", "name": "numberframe",                                                                                      "source": { "path": "webwriter-plugins/plugins/numberframe",      "pluginrepositoryId": "fdplugins", "type": "git" } },
     { "enabled": true, "vendor": "nl.fdmg", "name": "htmlembed",                                                                                        "source": { "path": "webwriter-plugins/plugins/htmlembed",        "pluginrepositoryId": "fdplugins", "type": "git" } },
+    { "enabled": true, "vendor": "nl.fdmg", "name": "textframe",                                                                                        "source": { "path": "webwriter-plugins/plugins/textframe",        "pluginrepositoryId": "fdplugins", "type": "git" } },
     { "enabled": true, "vendor": "nl.fdmg", "name": "localfocus",  "data": { "urlMatchers": [ "https://localfocus2\\.appspot\\.com/.*" ] },             "source": { "path": "webwriter-plugins/plugins/localfocus",       "pluginrepositoryId": "fdplugins", "type": "git" } },
     { "enabled": true, "vendor": "nl.fdmg", "name": "oembed",
       "data": {
