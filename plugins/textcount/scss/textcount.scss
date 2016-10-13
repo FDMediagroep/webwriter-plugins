@@ -1,7 +1,8 @@
 .textcount {
 	hr {
-		margin-bottom: 0px;
+		margin: 0px;
 	}
+	padding: 0px 15px 10px 15px;
 	.in-range {
 		color: #05cc05;
 	}
@@ -19,25 +20,23 @@
 			font-family: FontAwesome;
 		}
 	}
+ 
+	.number__container {
+		margin-top: 0;
+		display: flex;
+		justify-content: space-between;
+	}
 
-	.sc-information-panel { 
-		.number__container {
-			margin-top: 0;
-			display: flex;
-			justify-content: space-between;
+	.count-info {
+		width: auto;
+		margin-bottom: 0;
+		select {
+			margin-bottom: 5px;
 		}
-
-		.count-info {
-			width: auto;
-			margin-bottom: 0;
-			select {
-				margin-bottom: 5px;
-			}
-			
-			span {
-				min-height: 35px;
-				display: inline-block;
-			}
+		
+		span {
+			min-height: 35px;
+			display: inline-block;
 		}
 	}
 }

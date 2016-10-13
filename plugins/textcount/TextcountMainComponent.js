@@ -136,8 +136,12 @@ TextcountMainComponent.Prototype = function () {
         var countClass = calculateCountClass.bind(this)();
         var availableSizes = this.state.availableSizes
 
-        var el = $$('div').addClass('sc-information-panel plugin')
-            .append($$('h2').append(this.context.i18n.t('Text counter')));
+        var el = $$('div').addClass('textcount plugin')
+            .append(
+                [
+                    $$('hr'),
+                    $$('h2').append(this.context.i18n.t('Text counter'))
+                ]);
 
         var numberContainer = $$('div').addClass('number__container clearfix fdmg-sidebar');
 
@@ -180,7 +184,7 @@ TextcountMainComponent.Prototype = function () {
             textlengthEl,
             wordsEl
         ]);
-        el.append(numberContainer, $$('hr'));
+        el.append(numberContainer);
 
         return el;
 

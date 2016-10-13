@@ -10,7 +10,7 @@ Textcount.prototype.schema = {
 
     uicomponents: {
         sidebar: {
-            main: [
+            top: [
                 require('./TextcountMainComponent')
             ]
         }
