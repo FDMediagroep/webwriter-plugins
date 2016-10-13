@@ -18,7 +18,8 @@ SectionComponent.Prototype = function() {
             'pluginname': 'section',
             'plugintype': 'fdmg/section',
             'heading': 'Sectie',
-            'forcelistmode?': true
+            'forcelistmode?': true,
+            'labelProp' : '@id'
         });
 
         var sectionList = this.context.api.getConfigValue('section', 'sectionlist');
@@ -69,7 +70,7 @@ SectionComponent.Prototype = function() {
 
     this.getItemLabelById = function(id) {
         var item = this.getState().items
-            .filter(function(item) { return item.label === id; })
+            .filter(function(item) { return item.id === id; })
             .pop();
         return item ? item.label : -1;
     }
