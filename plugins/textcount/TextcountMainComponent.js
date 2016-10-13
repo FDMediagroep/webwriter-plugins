@@ -133,9 +133,9 @@ TextcountMainComponent.Prototype = function () {
     };
 
     this.render = function () {
+        countClass = "";
         var countClass = calculateCountClass.bind(this)();
         var availableSizes = this.state.availableSizes
-        console.log(countClass);
 
         var el = $$('div').addClass('textcount plugin')
             .append(
@@ -170,8 +170,8 @@ TextcountMainComponent.Prototype = function () {
                     .append(this.context.i18n.t('Article size'))
             );
 
-        var textlengthEl = $$('div').addClass("count-info "+ countClass +"")
-            .append($$('span').append(this.state.textLength.toString()))
+        var textlengthEl = $$('div').addClass("count-info")
+            .append($$('span').addClass(countClass).append(this.state.textLength.toString()))
             .append($$('P').append(this.context.i18n.t('Characters')))
             .attr('title', this.context.i18n.t('Character count'));
 
