@@ -135,6 +135,7 @@ TextcountMainComponent.Prototype = function () {
     this.render = function () {
         var countClass = calculateCountClass.bind(this)();
         var availableSizes = this.state.availableSizes
+        console.log(countClass);
 
         var el = $$('div').addClass('textcount plugin')
             .append(
@@ -143,7 +144,7 @@ TextcountMainComponent.Prototype = function () {
                     $$('h2').append(this.context.i18n.t('Text counter'))
                 ]);
 
-        var numberContainer = $$('div').addClass('number__container clearfix fdmg-sidebar');
+        var numberContainer = $$('div').addClass('count__info-container fdmg-sidebar');
 
         // Populate articleSizeSelect with key and value like: S (1810).
         var articleSizeSelect = $$('div').addClass('count-info form-group')

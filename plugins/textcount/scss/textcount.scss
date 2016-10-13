@@ -1,8 +1,8 @@
 .textcount {
+	padding: 0px 15px 10px 15px;
 	hr {
 		margin: 0px;
 	}
-	padding: 0px 15px 10px 15px;
 	.in-range {
 		color: #05cc05;
 	}
@@ -21,7 +21,7 @@
 		}
 	}
  
-	.number__container {
+	.count__info-container {
 		margin-top: 0;
 		display: flex;
 		justify-content: space-between;
