@@ -102,7 +102,6 @@ TextframeComponent.Prototype = function () {
   };
 
   this.triggerFileUpload = function(ev) {
-    console.log('triggerFU')
     var surface = this.context.controller.getSurface('body');
     surface.executeCommand('textframe', {type:'file', data:ev.target.files, context:{nodeId: this.props.node.id}});
   };
