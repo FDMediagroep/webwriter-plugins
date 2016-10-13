@@ -87,6 +87,7 @@
       },
       { "enabled": true, "vendor": "nl.fdmg", "name": "articletype",      "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/articletype",  "data": { "endpoint": "https://dev-api.fdmg.org/private/fd/articles/types" } },
       { "enabled": true, "vendor": "nl.fdmg", "name": "redirectlink",     "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/redirectlink" },
+      { "enabled": true, "vendor": "nl.fdmg", "name": "linkedarticles",   "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/linkedarticles"},
       { "enabled": true, "vendor": "nl.fdmg", "name": "fdpersonal",       "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/fdpersonal" },
       { "enabled": true, "vendor": "nl.fdmg", "name": "relatedarticle",   "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/relatedarticle" },
       { "enabled": true, "vendor": "nl.fdmg", "name": "nocomments",       "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/nocomments" },
