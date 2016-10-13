@@ -1,7 +1,7 @@
 {
   "plugins": [
     { "enabled": true, "vendor": "infomaker.se", "name": "utils" },
-    { "enabled": true, "vendor": "infomaker.se", "name": "ximteaser", "data": { "fields": [ "subject", "text" ] } },
+    { "enabled": true, "vendor": "infomaker.se", "name": "ximteaser", "data": { "fields": [ "text" ] }, "teaserPosition": "top" },
     { "enabled": true, "vendor": "infomaker.se", "name": "preamble" },
     { "enabled": true, "vendor": "infomaker.se", "name": "link" },
     { "enabled": true, "vendor": "infomaker.se", "name": "ximimage",
