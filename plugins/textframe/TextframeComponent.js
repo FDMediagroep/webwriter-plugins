@@ -71,13 +71,7 @@ TextframeComponent.Prototype = function () {
           })
             .addClass('textframe-text')
             .attr({'contentEditable' : true, "data-text" : "Text"})
-            .ref('textframetext'),
-
-          $$('input')
-            .attr('type', 'file')
-            .attr('multiple', 'multiple')
-            .attr('id', 'textframe-fileupload')
-            .on('change', this.triggerFileUpload)
+            .ref('textframetext')
       ])
       .attr('contentEditable', false)
       .on('drop', function (evt) {
@@ -88,18 +82,27 @@ TextframeComponent.Prototype = function () {
 
     this.context.api.handleDrag(el, this.props.node);
 
-    return el;
+    // Cannot click an element when handleDrag is used
+    // Circumvent this by adding the `input` outside the `a`
+    var container = $$('div')
+      .append(
+        el,
+        $$('input')
+          .attr('type', 'file')
+          .attr('multiple', 'multiple')
+          .attr('id', 'textframe-fileupload')
+          .on('change', this.triggerFileUpload)
+      );
+
+    return container;
   };
 
   this.triggerFileDialog = function () {
-    console.log("you're clicking this man");
-    var test = $('#textframe-fileupload');
-    debugger;
-    console.log($('#textframe-fileupload').click());
     $('#textframe-fileupload').click();
   };
 
   this.triggerFileUpload = function(ev) {
+    console.log('triggerFU')
     var surface = this.context.controller.getSurface('body');
     surface.executeCommand('textframe', {type:'file', data:ev.target.files, context:{nodeId: this.props.node.id}});
   };

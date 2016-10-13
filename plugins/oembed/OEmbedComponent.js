@@ -41,7 +41,7 @@ OEmbedComponent.Prototype = function() {
         );
 
         if (this.state.hasLoadedContent) {
-            el.append($$('div)').attr('contenteditable', false).html(node.html));
+            el.append($$('div').attr('contenteditable', false).html(node.html));
         } else {
             el.append($$('div')
                 .append(this.context.i18n.t('Loading Embed'))
