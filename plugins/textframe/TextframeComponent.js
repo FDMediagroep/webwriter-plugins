@@ -4,6 +4,7 @@ var Component = require('substance/ui/Component');
 var TextProperty = require('substance/ui/TextPropertyComponent');
 var $$ = Component.$$;
 var Icon = require('substance/ui/FontAwesomeIcon');
+var $ = require('substance/util/jquery');
 
 function TextframeComponent() {
   TextframeComponent.super.apply(this, arguments);
@@ -35,13 +36,11 @@ TextframeComponent.Prototype = function () {
       .addClass('fdmg-box')
       .addClass('x-im-droppable')
       .append([
-        $$('span')
+        $$('div')
           .addClass('header')
+            .append(this.context.i18n.t('Textframe'))
+            .attr('contenteditable', 'false')
           .append([
-            $$('strong')
-              .append(this.context.i18n.t('Textframe'))
-              .attr('contenteditable', 'false'),
-
             $$('span').addClass('remove-button')
               .append($$(Icon, {icon: 'fa-remove'}))
               .attr('title', this.context.i18n.t('Remove from article'))
@@ -62,6 +61,7 @@ TextframeComponent.Prototype = function () {
             doc: this.props.doc
           })
             .addClass('textframe-title')
+            .attr({'contentEditable' : true, "data-text" : "Titel"})
             .ref('caption'),
 
           $$(TextProperty, {
@@ -70,6 +70,7 @@ TextframeComponent.Prototype = function () {
             doc: this.props.doc
           })
             .addClass('textframe-text')
+            .attr({'contentEditable' : true, "data-text" : "Text"})
             .ref('textframetext'),
 
           $$('input')
@@ -91,6 +92,10 @@ TextframeComponent.Prototype = function () {
   };
 
   this.triggerFileDialog = function () {
+    console.log("you're clicking this man");
+    var test = $('#textframe-fileupload');
+    debugger;
+    console.log($('#textframe-fileupload').click());
     $('#textframe-fileupload').click();
   };
 

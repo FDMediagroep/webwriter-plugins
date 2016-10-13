@@ -16,7 +16,7 @@ TextframeTool.Prototype = function () {
 
         el.append(
             $$('button').addClass('se-tool').append(
-                $$('i').addClass('fa fa-tree')
+                $$('i').addClass('fa fa-list-alt')
             )
             .on('click', this.triggerInsert.bind(this))
         );

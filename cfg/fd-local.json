@@ -240,12 +240,20 @@
         "vendor": "nl.fdmg",
         "name": "numberframe",
         "enabled": true,
+         "data" : {
+          "preventAutomaticLinkCreation": true,
+          "disableUseOfAnnotationTools": true 
+        },
         "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\numberframe"
       },
       {
         "vendor": "nl.fdmg",
         "name": "quote",
         "enabled": true,
+         "data" : {
+          "preventAutomaticLinkCreation": true,
+          "disableUseOfAnnotationTools": true 
+        },
         "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\quote"
       },
       {
@@ -305,6 +313,10 @@
         "vendor": "nl.fdmg",
         "name": "stackframe",
         "enabled": true,
+         "data" : {
+          "preventAutomaticLinkCreation": true,
+          "disableUseOfAnnotationTools": true 
+        },
         "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\stackframe"
       },
       {
@@ -338,6 +350,10 @@
         "vendor": "nl.fdmg",
         "name": "textframe",
         "enabled": true,
+        "data" : {
+          "preventAutomaticLinkCreation": false,
+          "disableUseOfAnnotationTools": false 
+        },
         "path": "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\textframe"
       },
       {

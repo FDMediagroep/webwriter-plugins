@@ -3,16 +3,30 @@
 }
 
 .textframe {
-    margin: 0 0 15px 0;
-    border: 1px solid #ddd;
-    padding: 7px 14px;
-
     &.x-im-dragover {
         opacity: 0.6;
         border-color: #288dd1;
     }
 
     .header {
+        font-size: 0.9em;
+        text-align: left;
+        padding-left: 30px;
+        font-weight: bold;
+        position: relative;
+        width: 100%;
+        &:before {
+            content: "\f022";
+            color: rgba(0, 0, 0, 0.5);
+            font-family: FontAwesome;
+            font-weight: normal;
+            font-style: normal;
+            display: inline-block;
+            text-decoration: inherit;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
         .remove-button {
             display: none;
             float:right;
@@ -42,7 +56,7 @@
     strong {
         &::before {
             font-family: FontAwesome;
-            content: "\f1bb"; // tree
+           
             font-weight: 300;
             margin-right: 5px
         }
