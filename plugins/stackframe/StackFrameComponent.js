@@ -18,18 +18,18 @@ StackFrameComponent.Prototype = function() {
                         tagName: 'div',
                         name: 'content',
                         path: [this.props.node.id, 'content']
-                    }).addClass('content').attr({'contentEditable' : true, "data-text" : "Tekst"}).ref('content');
+                    }).addClass('content').attr({'contentEditable' : true, "data-text" : this.context.i18n.t('Text')}).ref('content');
 
         var heading =  $$(TextProperty, {
                         tagName: 'div',
                         name: 'heading',
                         path: [this.props.node.id, 'heading']
-                    }).addClass('heading').attr({'contentEditable' : true, "data-text" : "Titel"}).ref('heading');
+                    }).addClass('heading').attr({'contentEditable' : true, "data-text" : this.context.i18n.t('Title')}).ref('heading');
 
         var el = $$('a').append([
                     $$('div').addClass('header').append([
                         $$(Icon, {icon: 'fa-bars'}).addClass('plugin-icon'),
-                        $$('div').addClass('plugin-title').append("Stapelkader"),
+                        $$('div').addClass('plugin-title').append(this.context.i18n.t("Stackframe")),
                         $$('span').addClass('remove-button').append(
                             $$(Icon, {icon: 'fa-remove'})
                         ).on('click', this.removeStackFrame)

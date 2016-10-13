@@ -8,7 +8,7 @@ RelatedarticleComponent.Prototype = function() {
 
     this.initialize = function() {
 
-        this.extendState({ 'text' : 'Gerelateerde artikelen niet tonen' });
+        this.extendState({ 'text' : this.context.i18n.t('Do not show related articles') });
     }
 
 }

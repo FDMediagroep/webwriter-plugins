@@ -16,7 +16,7 @@ RubricComponent.Prototype = function() {
             'initialized?': true,
             'pluginname': 'rubric',
             'plugintype': 'fdmg/rubric',
-            'heading': 'Rubriek'
+            'heading': this.context.i18n.t('Rubric')
         });
 
         var endpoint = this.context.api.getConfigValue('rubric', 'endpoint');

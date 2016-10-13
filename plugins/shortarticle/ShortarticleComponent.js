@@ -8,7 +8,7 @@ ShortarticleComponent.Prototype = function() {
 
     this.initialize = function() {
 
-        this.extendState({ 'text' : 'Kort artikel' });
+        this.extendState({ 'text' : this.context.i18n.t('Short article') });
     }
 
 }

@@ -18,18 +18,18 @@ NumberFrameComponent.Prototype = function() {
                         tagName: 'div',
                         name: 'content',
                         path: [this.props.node.id, 'content']
-                    }).addClass('content').attr({'contentEditable' : true, "data-text" : "Tekst"}).ref('content');
+                    }).addClass('content').attr({'contentEditable' : true, "data-text" : this.context.i18n.t("Text")}).ref('content');
 
         var heading =  $$(TextProperty, {
                         tagName: 'div',
                         name: 'heading',
                         path: [this.props.node.id, 'heading']
-                    }).addClass('heading').attr({'contentEditable' : true, "data-text" : "Aantal"}).ref('heading');
+                    }).addClass('heading').attr({'contentEditable' : true, "data-text" : this.context.i18n.t("Amount")}).ref('heading');
 
         var el = $$('a').append([
                     $$('div').addClass('header').append([
                         $$(Icon, {icon: 'fa-money'}).addClass('plugin-icon'),
-                        $$('div').addClass('plugin-title').append("Cijferkader"),
+                        $$('div').addClass('plugin-title').append(this.context.i18n.t("Numberframe")),
                         $$('span').addClass('remove-button').append(
                             $$(Icon, {icon: 'fa-remove'})
                         ).on('click', this.removeNumberFrame)

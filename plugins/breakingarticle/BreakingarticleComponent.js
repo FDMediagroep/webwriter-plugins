@@ -8,7 +8,7 @@ BreakingarticleComponent.Prototype = function() {
 
     this.initialize = function() {
 
-        this.extendState({ 'text' : 'Breaking artikel' });
+        this.extendState({ 'text' : this.context.i18n.t('Breaking article') });
     }
 
 }

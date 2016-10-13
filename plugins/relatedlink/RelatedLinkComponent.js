@@ -18,13 +18,13 @@ RelatedLinkComponent.Prototype = function() {
                         tagName: 'div',
                         name: 'prefix',
                         path: [this.props.node.id, 'prefix']
-                    }).addClass('prefix').attr({'contentEditable' : true, "data-text" : "Lees ook"}).ref('prefix');
+                    }).addClass('prefix').attr({'contentEditable' : true, "data-text" : this.context.i18n.t('Also read')}).ref('prefix');
 
         var leadText =  $$(TextProperty, {
                         tagName: 'div',
                         name: 'leadtext',
                         path: [this.props.node.id, 'leadtext']
-                    }).addClass('leadtext').attr({'contentEditable' : true, "data-text" : "Titel van artikel"}).ref('leadtext');
+                    }).addClass('leadtext').attr({'contentEditable' : true, "data-text" : this.context.i18n.t('Article title')}).ref('leadtext');
 
         var relatedUrl =  $$(TextProperty, {
                         tagName: 'div',
@@ -35,7 +35,7 @@ RelatedLinkComponent.Prototype = function() {
         var el = $$('a').append([
                     $$('div').addClass('header').append([
                         $$(Icon, {icon: 'fa-angle-right'}).addClass('plugin-icon'),
-                        $$('div').addClass('plugin-title').append("Uitstapmoment"),
+                        $$('div').addClass('plugin-title').append(this.context.i18n.t("Related article")),
                         $$('span').addClass('remove-button').append(
                             $$(Icon, {icon: 'fa-remove'})
                         ).on('click', this.removeRelatedLink)

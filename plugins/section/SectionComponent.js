@@ -17,7 +17,7 @@ SectionComponent.Prototype = function() {
             'initialized?': true,
             'pluginname': 'section',
             'plugintype': 'fdmg/section',
-            'heading': 'Sectie',
+            'heading': this.context.i18n.t('Section'),
             'forcelistmode?': true,
             'labelProp' : '@id'
         });

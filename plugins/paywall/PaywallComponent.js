@@ -8,7 +8,7 @@ PaywallComponent.Prototype = function() {
 
     this.initialize = function() {
 
-        this.extendState({ 'text' : 'Gratis artikel' });
+        this.extendState({ 'text' : this.context.i18n.t('Free article') });
     }
 
 }

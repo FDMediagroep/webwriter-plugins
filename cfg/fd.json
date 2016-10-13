@@ -14,7 +14,18 @@
         "enablesoftcrop": true,
         "publishedmaxwidth": 2560,
         "crops": { "16:9": [16, 9], "4:3": [4, 3], "1:1": [1, 1] },
-        "urlMatchers": [ "^.*\\.jpg", "^.*\\.png", "^.*\\.gif" ]
+        "urlMatchers": [ "^.*\\.jpg", "^.*\\.png", "^.*\\.gif" ],
+        "fields": [
+          { "name": "caption", "label": "Caption", "type": "text" },
+          { "name": "alttext", "label": "Alt text", "type": "text" },
+          { "name": "credit", "label": "Credit", "type": "text" },
+          { "name": "alignment", "label": "Alignment", "type": "option",
+            "options": [
+              { "name": "auto", "label": "Automatic", "icon": "fa-align-center" },
+              { "name": "left", "label": "Left", "icon": "fa-align-left" },
+              {  "name": "right", "label": "Right", "icon": "fa-align-right" } ]
+          }
+        ]
       }
     },
     { "enabled": true, "vendor": "infomaker.se", "name": "youtube",
@@ -69,7 +80,12 @@
     { "enabled": true, "vendor": "nl.fdmg", "name": "donotindex",                                                                                       "source": { "path": "webwriter-plugins/plugins/donotindex",       "pluginrepositoryId": "fdplugins", "type": "git" } },
     { "enabled": true, "vendor": "nl.fdmg", "name": "breakingarticle",                                                                                  "source": { "path": "webwriter-plugins/plugins/breakingarticle",  "pluginrepositoryId": "fdplugins", "type": "git" } },
     { "enabled": true, "vendor": "nl.fdmg", "name": "paywall",                                                                                          "source": { "path": "webwriter-plugins/plugins/paywall",          "pluginrepositoryId": "fdplugins", "type": "git" } },
-    { "enabled": true, "vendor": "nl.fdmg", "name": "shortarticle",                                                                                     "source": { "path": "webwriter-plugins/plugins/shortarticle",     "pluginrepositoryId": "fdplugins", "type": "git" } },
+    { "enabled": true, "vendor": "nl.fdmg", "name": "shortarticle",
+      "data" : {
+        "preventAutomaticLinkCreation": false,
+        "disableUseOfAnnotationTools": false 
+      },
+      "source": { "path": "webwriter-plugins/plugins/shortarticle",     "pluginrepositoryId": "fdplugins", "type": "git" } },
     { "enabled": true, "vendor": "nl.fdmg", "name": "relatedlink",                                                                                      "source": { "path": "webwriter-plugins/plugins/relatedlink",      "pluginrepositoryId": "fdplugins", "type": "git" } },
     { "enabled": true, "vendor": "nl.fdmg", "name": "quote",
       "data" : {

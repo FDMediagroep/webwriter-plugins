@@ -16,7 +16,7 @@ ArticletypeComponent.Prototype = function() {
             'initialized?': true,
             'pluginname': 'articletype',
             'plugintype': 'fdmg/articletype',
-            'heading': 'Artikel type',
+            'heading': this.context.i18n.t('Article type'),
             'forcelistmode?': true,
         });
 

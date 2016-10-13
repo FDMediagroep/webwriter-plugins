@@ -8,7 +8,7 @@ NocommentsComponent.Prototype = function() {
 
     this.initialize = function() {
 
-        this.extendState({ 'text' : 'Commentaar uitschakelen' });
+        this.extendState({ 'text' : this.context.i18n.t('Disable comments')  });
     }
 
 }

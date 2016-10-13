@@ -8,7 +8,7 @@ DonoitindexComponent.Prototype = function() {
 
     this.initialize = function() {
 
-        this.extendState({ 'text' : 'Artikel niet indexeren' });
+        this.extendState({ 'text' : this.context.i18n.t('Do not index') });
     }
 
 }

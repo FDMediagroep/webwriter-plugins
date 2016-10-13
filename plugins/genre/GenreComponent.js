@@ -16,7 +16,7 @@ GenreComponent.Prototype = function() {
             'initialized?': true,
             'pluginname': 'genre',
             'plugintype': 'fdmg/genre',
-            'heading': 'Genre'
+            'heading': this.context.i18n.t('Genre')
         });
 
         var endpoint = this.context.api.getConfigValue('genre', 'endpoint');

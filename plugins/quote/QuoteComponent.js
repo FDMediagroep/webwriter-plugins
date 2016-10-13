@@ -18,18 +18,18 @@ QuoteComponent.Prototype = function() {
                         tagName: 'div',
                         name: 'message',
                         path: [this.props.node.id, 'message']
-                    }).addClass('content').attr({'contentEditable' : true, "data-text" : "Quote"}).ref('message');
+                    }).addClass('content').attr({'contentEditable' : true, "data-text" : this.context.i18n.t("Quote")}).ref('message');
 
         var author =  $$(TextProperty, {
                         tagName: 'div',
                         name: 'author',
                         path: [this.props.node.id, 'author']
-                    }).addClass('heading').attr({'contentEditable' : true, "data-text" : "Bron"}).ref('author');
+                    }).addClass('heading').attr({'contentEditable' : true, "data-text" : this.context.i18n.t("Source")}).ref('author');
 
         var el = $$('a').append([
                     $$('div').addClass('header').append([
                         $$(Icon, {icon: 'fa-quote-left'}).addClass('plugin-icon'),
-                        $$('div').addClass('plugin-title').append("Quote"),
+                        $$('div').addClass('plugin-title').append(this.context.i18n.t("Quote")),
                         $$('span').addClass('remove-button').append(
                             $$(Icon, {icon: 'fa-remove'})
                         ).on('click', this.removeQuote)

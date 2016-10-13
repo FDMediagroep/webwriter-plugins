@@ -61,7 +61,7 @@ TextframeComponent.Prototype = function () {
             doc: this.props.doc
           })
             .addClass('textframe-title')
-            .attr({'contentEditable' : true, "data-text" : "Titel"})
+            .attr({'contentEditable' : true, "data-text" : this.context.i18n.t('Title')})
             .ref('caption'),
 
           $$(TextProperty, {
@@ -70,7 +70,7 @@ TextframeComponent.Prototype = function () {
             doc: this.props.doc
           })
             .addClass('textframe-text')
-            .attr({'contentEditable' : true, "data-text" : "Text"})
+            .attr({'contentEditable' : true, "data-text" : this.context.i18n.t('Text')})
             .ref('textframetext')
       ])
       .attr('contentEditable', false)
