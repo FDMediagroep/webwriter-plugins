@@ -8,10 +8,10 @@ RedirectLinkComponent.Prototype = function() {
 
     this.initialize = function() {
         this.extendState({
-        	'text' : 'Redirect artikel',
+        	'text' : this.context.i18n.t('Redirect article'),
         	'input' : true,
         	'value' : this.getDocumentRedirectLinkOrNull(),
-        	'placeholder' : 'URL naar artikel (verplicht)'
+        	'placeholder' : this.context.i18n.t('URL to article')
         });
     }
 
