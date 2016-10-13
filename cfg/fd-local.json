@@ -48,7 +48,6 @@
         "enabled": true,
         "data": {
           "fields": [
-            "subject",
             "text"
           ]
         }
