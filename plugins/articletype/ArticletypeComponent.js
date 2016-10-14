@@ -48,10 +48,14 @@ ArticletypeComponent.Prototype = function() {
      // Override this so that we can get the correct label
     this.getExistingLinkOrDefault = function(name, type, prop) {
         var links = this.context.api.getLinkByType(name, type);
-        var id = links.shift()[prop];
-        var label = this.getItemLabelById(id);
+        if (links.length < 1) {
+          return this.state.emptyitem;
+        } else {
+          var id = links.shift()[prop];
+          var label = this.getItemLabelById(id);
 
-        return { 'id': id, 'label': label };
+          return { 'id': id, 'label': label };
+        }
     }
 
     this.setState = function(newstate) {
