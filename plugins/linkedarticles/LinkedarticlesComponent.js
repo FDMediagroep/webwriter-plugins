@@ -20,11 +20,14 @@ LinkedarticlesComponent.Prototype = function() {
 
   this.render = function() {
     return $$('div')
+      .addClass('linkedarticles-container')
+      .addClass('form-group')
       .append(
         $$('h2').append(this.context.i18n.t('Linked Articles')),
         $$('div')
           .append(
             $$('input')
+              .addClass('form-control')
               .attr({ 'type': 'text', 'placeholder': this.context.i18n.t('Related Article 1') })
               .ref('link1')
               .setValue(this.state.link1)
@@ -39,6 +42,7 @@ LinkedarticlesComponent.Prototype = function() {
         $$('div')
           .append(
             $$('input')
+              .addClass('form-control')
               .attr({ 'type': 'text', 'placeholder': this.context.i18n.t('Related Article 2') })
               .ref('link2')
               .setValue(this.state.link2)
