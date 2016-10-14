@@ -241,7 +241,7 @@
         "enabled": true,
          "data" : {
           "preventAutomaticLinkCreation": true,
-          "disableUseOfAnnotationTools": true 
+          "disableUseOfAnnotationTools": true
         },
         "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\numberframe"
       },
@@ -251,7 +251,7 @@
         "enabled": true,
          "data" : {
           "preventAutomaticLinkCreation": true,
-          "disableUseOfAnnotationTools": true 
+          "disableUseOfAnnotationTools": true
         },
         "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\quote"
       },
@@ -268,9 +268,9 @@
       },
       {
         "vendor": "nl.fdmg",
-        "name": "relatedarticle",
+        "name": "showrelatedarticle",
         "enabled": true,
-        "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\relatedarticle"
+        "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\showrelatedarticle"
       },
       {
         "name": "htmlembed",
@@ -314,7 +314,7 @@
         "enabled": true,
          "data" : {
           "preventAutomaticLinkCreation": true,
-          "disableUseOfAnnotationTools": true 
+          "disableUseOfAnnotationTools": true
         },
         "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\stackframe"
       },
@@ -329,6 +329,12 @@
         "name": "redirectlink",
         "enabled": true,
         "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\redirectlink"
+      },
+      {
+        "vendor": "nl.fdmg",
+        "name": "relatedarticles",
+        "enabled": true,
+        "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\relatedarticles"
       },
       {
         "vendor": "nl.fdmg",
@@ -351,7 +357,7 @@
         "enabled": true,
         "data" : {
           "preventAutomaticLinkCreation": false,
-          "disableUseOfAnnotationTools": false 
+          "disableUseOfAnnotationTools": false
         },
         "path": "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\textframe"
       },
