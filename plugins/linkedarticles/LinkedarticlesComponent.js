@@ -2,6 +2,7 @@
 
 var Component = require('substance/ui/Component');
 var $$ = Component.$$;
+var Icon = require('substance/ui/FontAwesomeIcon');
 var $ = require('substance/util/jquery');
 var genUUID = require('writer/utils/IdGenerator');
 
@@ -21,21 +22,39 @@ LinkedarticlesComponent.Prototype = function() {
     return $$('div')
       .append(
         $$('h2').append(this.context.i18n.t('Linked Articles')),
-        $$('input')
-          .attr({ 'type': 'text', 'placeholder': this.context.i18n.t('Related Article 1') })
-          .ref('link1')
-          .setValue(this.state.link1)
-          .on('blur', this.flushLinks.bind(this)),
-        $$('input')
-          .attr({ 'type': 'text', 'placeholder': this.context.i18n.t('Related Article 2') })
-          .ref('link2')
-          .setValue(this.state.link2)
-          .on('blur', this.flushLinks.bind(this)),
+        $$('div')
+          .append(
+            $$('input')
+              .attr({ 'type': 'text', 'placeholder': this.context.i18n.t('Related Article 1') })
+              .ref('link1')
+              .setValue(this.state.link1)
+              .on('blur', this.flush.bind(this)),
+            $$('span')
+              .append($$(Icon, { icon: 'fa-times' }))
+              .on('click', function() {
+                this.refs.link1.setValue('');
+                this.flush()
+              }.bind(this))
+          ),
+        $$('div')
+          .append(
+            $$('input')
+              .attr({ 'type': 'text', 'placeholder': this.context.i18n.t('Related Article 2') })
+              .ref('link2')
+              .setValue(this.state.link2)
+              .on('blur', this.flush.bind(this)),
+            $$('span')
+              .append($$(Icon, { icon: 'fa-times' }))
+              .on('click', function() {
+                this.refs.links2.setValue('')
+                this.flush();
+              })
+          ),
         $$('hr')
       );
   };
 
-  this.flushLinks = function() {
+  this.flush = function() {
 
     if (this.outOfSync()) {
 
