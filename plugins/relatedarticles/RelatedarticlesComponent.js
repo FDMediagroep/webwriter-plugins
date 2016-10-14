@@ -19,9 +19,6 @@ RelatedarticlesComponent.Prototype = function() {
   };
 
   this.render = function() {
-
-    console.log('rend', this.state)
-
     return $$('div')
       .addClass('linkedarticles-container')
       .addClass('form-group')
