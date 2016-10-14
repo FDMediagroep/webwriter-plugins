@@ -190,9 +190,7 @@ TextframeComponent.Prototype = function () {
 
     imgcontainer
       .append([
-        this.renderImageRemoveButton(),
-        this.renderSoftcropIndication(),
-        this.renderToolbar()
+        this.renderImageRemoveButton()
       ])
       .attr('contenteditable', false)
       .ref('imgcontainer');
@@ -206,20 +204,6 @@ TextframeComponent.Prototype = function () {
   };
 
   /**
-   * Render soft crop indication
-   */
-  this.renderSoftcropIndication = function() {
-    if (this.props.node.crops && this.props.node.crops.original) {
-      return $$('a').append(
-        $$(Icon, {icon: "fa-crop"})
-      ).addClass('x-im-softcropindicator');
-    }
-    else {
-      return $$('span');
-    }
-  };
-
-  /**
    * Render remove icon
    */
   this.renderImageRemoveButton = function() {
@@ -227,32 +211,6 @@ TextframeComponent.Prototype = function () {
       .addClass('x-im-removeimage')
       .append($$(Icon, {icon: "fa-remove"}))
       .on('click', this.removeImage);
-  };
-
-  /**
-   * Render toolbar
-   */
-  this.renderToolbar = function () {
-    var toolbar = $$('div')
-      .addClass('textframe-toolbar')
-      .attr('contenteditable', false);
-
-    if (this.context.api.getConfigValue('textframe', 'enablesoftcrop')) {
-      toolbar.append(
-        $$('a')
-          .append($$(Icon, {icon: "fa-crop"}))
-          .on('click', this.openCropDialog)
-        );
-      }
-
-    toolbar
-      .append([
-        $$('a')
-          .append($$(Icon, {icon: "fa-image"}))
-          .on('click', this.openImageData)
-      ]);
-
-    return toolbar;
   };
 
   /**
@@ -282,73 +240,6 @@ TextframeComponent.Prototype = function () {
       .attr('max', 100)
       .text(progressValue)
       .ref('progressbar');
-  };
-
-  /**
-   * Open image Dialog
-   */
-  this.openImageData = function () {
-    this.context.api.router.get('/api/newsitem/' + this.props.node.uuid, {imType: 'x-im/image'})
-      .done(function (newsItem) {
-        this.context.api.showDialog(
-          require('writer/components/dialog-image/DialogImageComponent'),
-          {
-            url: this.props.node.url,
-            newsItem: newsItem
-          },
-          {
-            title: this.context.i18n.t('Image archive information'),
-            primary: this.context.i18n.t('Save'),
-            secondary: this.context.i18n.t('Close')
-          }
-        );
-      }.bind(this))
-      .error(function (error, xhr, text) {
-        // TODO: Display error message
-        console.error(error, xhr, text);
-      }.bind(this));
-  };
-
-  /**
-   * Open crop dialog
-   */
-  this.openCropDialog = function() {
-    var img = this.refs['img'].el;
-    if (!img) {
-      return;
-    }
-
-    var tertiary = false;
-    if (this.props.node.crops.original) {
-      tertiary = [{
-        caption: this.context.i18n.t('Remove'),
-        callback: function() {
-          this.props.node.setSoftcropData([]);
-          return true;
-        }.bind(this)
-      }];
-    }
-
-    this.context.api.showDialog(
-      require('./XimimageSoftcropComponent'),
-      {
-        src: img.src,
-        width: this.props.node.width,
-        height: this.props.node.height,
-        crops: this.props.node.crops,
-        callback: this.setSoftcropData.bind(this)
-      },
-      {
-        tertiary: tertiary
-      }
-    );
-  };
-
-  /**
-   * Set softcrop data in node
-   */
-  this.setSoftcropData = function(softcropData) {
-    this.props.node.setSoftcropData(softcropData);
   };
 };
 

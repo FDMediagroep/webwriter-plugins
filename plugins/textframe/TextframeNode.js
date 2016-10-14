@@ -89,11 +89,6 @@ TextframeNode.Prototype = function () {
         this.emit('textframe:changed');
     };
 
-    this.setSoftcropData = function(data) {
-        this.document.set([this.id, 'crops'], data);
-        this.emit('textframe:changed');
-    };
-
     this.removeImage = function () {
         this.progress = 0;
 
@@ -105,7 +100,7 @@ TextframeNode.Prototype = function () {
 
         this.document.set([this.id, 'previewUrl'], null);
 
-        this.setSoftcropData([]); // Will emit :changed
+        this.emit('textframe:changed');
     };
 };
 
