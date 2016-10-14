@@ -5,13 +5,13 @@ function Linkedarticles() {
 
 Linkedarticles.prototype.schema = {
 
-  name: 'linkedarticles',
+  name: 'relatedarticles',
   vendor: 'nl.fdmg',
 
   uicomponents: {
     sidebar: {
       main: [
-        require('./LinkedarticlesComponent')
+        require('./RelatedarticlesComponent')
       ]
     }
   }

@@ -6,11 +6,13 @@ var Icon = require('substance/ui/FontAwesomeIcon');
 var $ = require('substance/util/jquery');
 var genUUID = require('writer/utils/IdGenerator');
 
-function LinkedarticlesComponent() {
-  LinkedarticlesComponent.super.apply(this, arguments);
+function RelatedarticlesComponent() {
+  RelatedarticlesComponent.super.apply(this, arguments);
+  this.name = 'relatedarticles';
+  this.type = 'fdmg/relatedarticles';
 }
 
-LinkedarticlesComponent.Prototype = function() {
+RelatedarticlesComponent.Prototype = function() {
 
   this.getInitialState = function() {
     return this.getState();
@@ -53,7 +55,7 @@ LinkedarticlesComponent.Prototype = function() {
               .on('click', function() {
                 this.refs.links2.setValue('')
                 this.flush();
-              })
+              }.bind(this))
           ),
         $$('hr')
       );
@@ -65,9 +67,9 @@ LinkedarticlesComponent.Prototype = function() {
 
       // remove previous link
       this.context.api
-        .getLinkByType('relatedarticle', 'fdmg/relatedarticle')
+        .getLinkByType(this.name, this.type)
         .forEach(function(link) {
-          this.context.api.removeLinkByUUIDAndRel('relatedarticle', link['@uuid'], link['@rel'] );
+          this.context.api.removeLinkByUUIDAndRel(this.name, link['@uuid'], link['@rel'] );
         }.bind(this));
 
       var _1 = this.refs._1.val();
@@ -80,21 +82,21 @@ LinkedarticlesComponent.Prototype = function() {
       }
 
       if (_1) {
-        this.context.api.addLink('relatedarticle', {
+        this.context.api.addLink(this.name, {
           '@id': genUUID(),
           '@title': _1,
-          '@rel': 'relatedarticle',
-          '@type': 'fdmg/relatedarticle',
+          '@rel': this.name,
+          '@type': this.type,
           '@uuid': genUUID()
         });
       }
 
       if (_2) {
-        this.context.api.addLink('relatedarticle', {
+        this.context.api.addLink(this.name, {
           '@id': genUUID(),
           '@title': _2,
-          '@rel': 'relatedarticle',
-          '@type': 'fdmg/relatedarticle',
+          '@rel': this.name,
+          '@type': this.type,
           '@uuid': genUUID()
         });
       }
@@ -110,7 +112,7 @@ LinkedarticlesComponent.Prototype = function() {
     };
 
     this.context.api
-      .getLinkByType('relatedarticle', 'fdmg/relatedarticle')
+      .getLinkByType('relatedarticles', 'fdmg/relatedarticles')
       .forEach(function(link, idx) {
         state['_' + (idx + 1)] = link['@title'];
       });
@@ -127,5 +129,5 @@ LinkedarticlesComponent.Prototype = function() {
   };
 };
 
-Component.extend(LinkedarticlesComponent);
-module.exports = LinkedarticlesComponent;
+Component.extend(RelatedarticlesComponent);
+module.exports = RelatedarticlesComponent;
