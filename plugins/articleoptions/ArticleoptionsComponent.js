@@ -86,7 +86,7 @@ ArticleoptionsComponent.Prototype = function() {
                         .append(
                             $$('label').append(
                                 $$('input').attr({'type' : 'checkbox', 'checked' : state.checked}),
-                                state.text))
+                                $$('span').append(state.text)))
                         .on('change', function (){
                             this.updateLink(!state.checked);
                         }.bind(this));
@@ -116,7 +116,7 @@ ArticleoptionsComponent.Prototype = function() {
                     $$('div')
                         .addClass('header'),
                     body,
-                    $$('hr'));
+                    $$('hr').addClass('options-hr'));
             } else {
                 return $$('div')
                 .addClass('fdmg-sidebar')
@@ -124,7 +124,7 @@ ArticleoptionsComponent.Prototype = function() {
                     $$('div')
                         .addClass('header'),
                     body, input,
-                    $$('hr'));
+                    $$('hr').addClass('options-hr'));
             }
     }
 
