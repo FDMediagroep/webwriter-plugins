@@ -108,26 +108,37 @@ a.fdmg-box {
         margin-bottom: 0px;
     }
     .checkbox {
-        min-height: 27px;
-        padding-top: 7px;
-        margin-top: 0;
-        margin-bottom: 0;
-        position: relative;
+        // min-height: 27px;
+        // padding-top: 7px;
+        // margin-top: 0;
+        // margin-bottom: 0;
+        // position: relative;
         font-size: 0.9em;
         label {
-            min-height: 20px;
-            padding-left: 20px;
-            margin-bottom: 0;
-            font-weight: 400;
-            cursor: pointer;
-            display: inline-block;
-            max-width: 100%;
-            box-sizing: border-box;
+            // min-height: 20px;
+            // padding-left: 20px;
+            // margin-bottom: 0;
+            // font-weight: 400;
+            // cursor: pointer;
+            // display: inline-block;
+            // max-width: 100%;
+            // box-sizing: border-box;
+            display: block;
+            padding-left: 15px;
+            text-indent: -15px;
         }
         input[type="checkbox"] {
-            position: absolute;
-            margin: -3px 0px 0px -20px;
-            box-sizing: border-box;
+            // position: absolute;
+            // margin: -3px 0px 0px -20px;
+            // box-sizing: border-box;
+            width: 14px;
+            height: 14px;
+            padding: 0;
+            margin:0;
+            vertical-align: bottom;
+            position: relative;
+            top: 6px;
+            *overflow: hidden;
         }
     }
     select, input[type="text"] {
