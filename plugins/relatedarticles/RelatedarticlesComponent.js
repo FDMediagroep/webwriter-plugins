@@ -20,39 +20,39 @@ RelatedarticlesComponent.Prototype = function() {
 
   this.render = function() {
     return $$('div')
-      .addClass('linkedarticles-container')
+      .addClass('relatedarticles-container')
       .addClass('form-group')
       .append(
-        $$('h2').append(this.context.i18n.t('Linked Articles')),
+        $$('h2').append(this.context.i18n.t('Related articles')),
         $$('div')
           .append(
-            $$('input')
-              .addClass('form-control')
-              .attr({ 'type': 'text', 'placeholder': this.context.i18n.t('Related Article 1') })
-              .ref('_1')
-              .setValue(this.state._1)
-              .on('blur', this.flush.bind(this)),
             $$('span')
               .append($$(Icon, { icon: 'fa-times' }))
               .on('click', function() {
                 this.refs._1.setValue('');
                 this.flush()
-              }.bind(this))
+              }.bind(this)),
+            $$('input')
+              .addClass('form-control')
+              .attr({ 'type': 'text', 'placeholder': this.context.i18n.t('Related Article 1') })
+              .ref('_1')
+              .setValue(this.state._1)
+              .on('blur', this.flush.bind(this))            
           ),
         $$('div')
           .append(
-            $$('input')
-              .addClass('form-control')
-              .attr({ 'type': 'text', 'placeholder': this.context.i18n.t('Related Article 2') })
-              .ref('_2')
-              .setValue(this.state._2)
-              .on('blur', this.flush.bind(this)),
             $$('span')
               .append($$(Icon, { icon: 'fa-times' }))
               .on('click', function() {
                 this.refs.links2.setValue('')
                 this.flush();
-              }.bind(this))
+              }.bind(this)),
+            $$('input')
+              .addClass('form-control')
+              .attr({ 'type': 'text', 'placeholder': this.context.i18n.t('Related Article 2') })
+              .ref('_2')
+              .setValue(this.state._2)
+              .on('blur', this.flush.bind(this))
           ),
         $$('hr')
       );

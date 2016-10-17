@@ -47,6 +47,7 @@
         "name": "ximteaser",
         "enabled": true,
         "data": {
+          "teaserPosition": "top",
           "fields": [
             "text"
           ]
@@ -143,7 +144,46 @@
              "^.*\\.jpg",
              "^.*\\.gif",
              "^.*\\.png"
-           ]
+           ],
+           "fields": [
+            {
+              "name": "caption",
+              "label": "Caption",
+              "type": "text"
+            },
+            {
+              "name": "alttext",
+              "label": "Alt text",
+              "type": "text"
+            },
+            {
+              "name": "credit",
+              "label": "Credit",
+              "type": "text"
+            },
+            {
+              "name": "alignment",
+              "label": "Alignment",
+              "type": "option",
+              "options": [
+                {
+                  "name": "auto",
+                  "label": "Automatic",
+                  "icon": "fa-align-center"
+                },
+                {
+                  "name": "left",
+                  "label": "Left",
+                  "icon": "fa-align-left"
+                },
+                {
+                  "name": "right",
+                  "label": "Right",
+                  "icon": "fa-align-right"
+                }
+              ]
+            }
+          ]
          }
        },
       {
@@ -160,6 +200,12 @@
         "name": "tags",
         "enabled": true,
         "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\tags"
+      },
+      {
+        "vendor": "nl.fdmg",
+        "name": "relatedarticles",
+        "enabled": true,
+        "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\relatedarticles"
       },
       {
         "vendor": "nl.fdmg",
@@ -240,8 +286,8 @@
         "name": "numberframe",
         "enabled": true,
          "data" : {
-          "preventAutomaticLinkCreation": true,
-          "disableUseOfAnnotationTools": true
+          "preventAutomaticLinkCreation": false,
+          "disableUseOfAnnotationTools": false 
         },
         "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\numberframe"
       },
@@ -250,8 +296,8 @@
         "name": "quote",
         "enabled": true,
          "data" : {
-          "preventAutomaticLinkCreation": true,
-          "disableUseOfAnnotationTools": true
+          "preventAutomaticLinkCreation": false,
+          "disableUseOfAnnotationTools": false 
         },
         "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\quote"
       },
@@ -313,8 +359,8 @@
         "name": "stackframe",
         "enabled": true,
          "data" : {
-          "preventAutomaticLinkCreation": true,
-          "disableUseOfAnnotationTools": true
+          "preventAutomaticLinkCreation": false,
+          "disableUseOfAnnotationTools": false 
         },
         "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\stackframe"
       },
@@ -322,6 +368,10 @@
         "vendor": "nl.fdmg",
         "name": "relatedlink",
         "enabled": true,
+        "data" : {
+          "preventAutomaticLinkCreation": false,
+          "disableUseOfAnnotationTools": false 
+        },
         "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\relatedlink"
       },
       {
@@ -329,12 +379,6 @@
         "name": "redirectlink",
         "enabled": true,
         "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\redirectlink"
-      },
-      {
-        "vendor": "nl.fdmg",
-        "name": "relatedarticles",
-        "enabled": true,
-        "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\relatedarticles"
       },
       {
         "vendor": "nl.fdmg",
@@ -357,7 +401,7 @@
         "enabled": true,
         "data" : {
           "preventAutomaticLinkCreation": false,
-          "disableUseOfAnnotationTools": false
+          "disableUseOfAnnotationTools": false 
         },
         "path": "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\textframe"
       },
