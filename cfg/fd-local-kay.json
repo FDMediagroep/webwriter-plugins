@@ -29,13 +29,11 @@
   "main": {
     "plugins": [
       { "enabled": true, "vendor": "infomaker.se", "name": "utils" },
-      {
-        "enabled": true,
-        "vendor": "infomaker.se",
-        "name": "ximteaser",
+      { "enabled": true, "vendor": "infomaker.se", "name": "ximteaser",
         "data": {
           "enablesoftcrop": true,
-          "fields": [ "subject", "text" ]
+          "fields": [ "text" ],
+          "teaserPosition": "top"
         }
       },
       { "enabled": false, "vendor": "infomaker.se", "name": "history" },
