@@ -3,6 +3,7 @@
     { "enabled": true, "vendor": "infomaker.se", "name": "utils" },
     { "enabled": true, "vendor": "infomaker.se", "name": "ximteaser",
       "data": {
+        "enablesoftcrop": true,
         "fields": [ "text" ],
         "teaserPosition": "top"
       }
