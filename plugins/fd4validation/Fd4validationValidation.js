@@ -69,7 +69,14 @@ module.exports = {
       })
     }
 
-    // TODO Tags
+    // Tags+
+    const tags = newsItem.querySelectorAll('itemMeta>links link[type="x-im/category"]')
+    if (tags.length < 1) {
+      messages.push({
+        type: errorOnDraftAndPublish,
+        message: this.context.i18n.t('Missing author')
+      })
+    }
 
     return messages
   }
