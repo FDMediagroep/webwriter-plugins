@@ -33,19 +33,30 @@
         "enabled": true,
         "vendor": "infomaker.se",
         "name": "ximteaser",
-        "data": { "fields": [ "subject", "text" ] }
-      },
-      { "enabled": true, "vendor": "infomaker.se", "name": "preamble" },
-      { "enabled": true, "vendor": "infomaker.se", "name": "link" },
-      {
-        "enabled": true,
-        "vendor": "infomaker.se",
-        "name": "ximimage",
         "data": {
           "enablesoftcrop": true,
+          "fields": [ "subject", "text" ]
+        }
+      },
+      { "enabled": false, "vendor": "infomaker.se", "name": "history" },
+      { "enabled": true, "vendor": "infomaker.se", "name": "preamble" },
+      { "enabled": true, "vendor": "infomaker.se", "name": "link" },
+      { "enabled": true, "vendor": "infomaker.se", "name": "ximimage",
+        "data": {
+          "enablesoftcrop": false,
           "publishedmaxwidth": 2560,
           "crops": { "16:9": [16, 9], "4:3": [4, 3], "1:1": [1, 1] },
-          "urlMatchers": [ "^.*\\.jpg", "^.*\\.gif", "^.*\\.png" ]
+          "urlMatchers": [ "^.*\\.jpg", "^.*\\.png", "^.*\\.gif" ],
+          "fields": [
+            { "name": "caption", "label": "Caption", "type": "text" },
+            { "name": "credit", "label": "Credit", "type": "text" },
+            { "name": "alignment", "label": "Alignment", "type": "option",
+              "options": [
+                { "name": "block", "label": "Block", "icon": "fa-align-justify" },
+                { "name": "right", "label": "Right", "icon": "fa-align-right" }
+              ]
+            }
+          ]
         }
       },
       {
@@ -60,6 +71,7 @@
         }
       },
 
+      { "enabled": true, "vendor": "nl.fdmg", "name": "fd4validation",    "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/fd4validation" },
       { "enabled": true, "vendor": "nl.fdmg", "name": "validatable",      "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/validatable" },
       { "enabled": true, "vendor": "nl.fdmg", "name": "linkselector",     "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/linkselector" },
       { "enabled": true, "vendor": "nl.fdmg", "name": "articleoptions",   "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/articleoptions" },

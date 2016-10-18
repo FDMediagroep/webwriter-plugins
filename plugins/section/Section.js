@@ -29,9 +29,7 @@ Section.prototype.schema = {
                 require('./SectionComponent')
             ]
         }
-    },
-
-    validation: require('./SectionValidation')
+    }
 };
 
 module.exports = Section;
