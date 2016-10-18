@@ -1,6 +1,7 @@
 {
   "plugins": [
     { "enabled": true, "vendor": "infomaker.se", "name": "utils" },
+    { "enabled": true, "vendor": "infomaker.se", "name": "history" },
     { "enabled": true, "vendor": "infomaker.se", "name": "ximteaser",
       "data": {
         "enablesoftcrop": true,
