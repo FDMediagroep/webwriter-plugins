@@ -14,7 +14,7 @@
       "data": {
         "enablesoftcrop": true,
         "publishedmaxwidth": 2560,
-        "crops": { "16:9": [16, 9], "4:3": [4, 3], "1:1": [1, 1] },
+        "crops": { "16:9": [16, 9], "2.39:1": [2.39, 1], "1:1": [1, 1] },
         "urlMatchers": [ "^.*\\.jpg", "^.*\\.png", "^.*\\.gif" ],
         "fields": [
           { "name": "caption", "label": "Caption", "type": "text" },
