@@ -13,7 +13,9 @@ Author.prototype.schema = {
         require('./AuthorMainComponent')
       ]
     }
-  }
+  },
+
+  validation: require('./AuthorValidation')
 };
 
 module.exports = Author;
