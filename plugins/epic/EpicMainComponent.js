@@ -32,7 +32,7 @@ EpicMainComponent.Prototype = function() {
         onSelect: this.setEpic.bind(this),
         onCreate: this.setEpic.bind(this),
         createAllowed: true,
-        placeholderText: "Set Epic"
+        placeholderText: this.context.i18n.t('Set Epic')
       }).ref('epicSearchComponent');
 
     if (existingEpic) {

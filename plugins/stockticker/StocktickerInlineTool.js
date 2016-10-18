@@ -36,7 +36,14 @@ StocktickerInlineTool.Prototype = function() {
     if (this.props.annotationId) {
       return doc.get(this.props.annotationId);
     }
-  };
+  }
+
+  // Get focus on the input when the stockticker is inserted.
+  this.didMount = function() {
+        setTimeout(function() {
+            $('#formSearch').focus();
+        }, 50);
+    }
 
   this.onKeydown = function(e) {
     if (e.keyCode === 27 /* escape */) {
