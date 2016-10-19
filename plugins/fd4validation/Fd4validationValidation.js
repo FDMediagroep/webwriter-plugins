@@ -12,7 +12,7 @@ module.exports = {
     }
 
     const headline = newsItem.querySelectorAll('idf>group element[type="headline"]')
-    if (headline.length < 1) {
+    if (headline.length < 1 || headline[0].innerHTML.trim() == '') {
       accumulator.addAuto(this.context.i18n.t('Missing headline'), pubStatus)
     } else if (headline.length > 1) {
       accumulator.addError(this.context.i18n.t('Too many headlines'))
