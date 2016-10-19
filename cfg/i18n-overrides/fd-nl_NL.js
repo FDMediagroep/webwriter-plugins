@@ -68,7 +68,7 @@ const relatedlink = {
     'Also read' : 'Lees ook',
     'Article title' : 'Titel van artikel',
     'Title' : 'Titel',
-    'Text' : 'Tekst'    
+    'Text' : 'Tekst'
 };
 
 const quote = {
@@ -104,6 +104,17 @@ const redirectlink = {
     'Redirect article' : 'Redirect artikel',
     'URL to article' : 'URL naar artikel (verplicht)'
 };
+
+const fd4validation = {
+  'Missing author': 'Auteur is niet ingevuld',
+  'Missing headline': 'Headline is niet ingevuld',
+  'Too many headlines': 'Te veel headlines ingevuld',
+  'Missing teaser': 'Teaser mist',
+  'Missing teaser title': 'Teaser titel niet ingevuld',
+  'Missing teaser body': 'Teaser tekst niet ingevuld',
+  'Missing section': 'Sectie is niet ingevuld',
+  'Missing tags': 'Tags zijn niet opgegeven'
+}
 
 function merge() {
     var result = {};
