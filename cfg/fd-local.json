@@ -423,6 +423,13 @@
         "vendor": "infomaker.se",
         "name": "history",
         "enabled": true
+      },
+      { "enabled": true, "vendor": "nl.fdmg", "name": "fd4validation", "path": "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\fd4validation"},
+      {
+        "vendor": "nl.fdmg",
+        "name": "workinstructions",
+        "path": "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\workinstructions",
+        "enabled": false
       }
     ]
   }

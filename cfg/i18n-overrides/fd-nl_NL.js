@@ -64,6 +64,12 @@ const relatedlink = {
     'Text' : 'Tekst'
 };
 
+const relatedarticles = {
+    'Related articles' : 'Gerelateerde artikelen',
+    'Related Article 1' : 'Artikel 1 (url)',
+    'Related Article 2' : 'Artikel 2 (url)'
+};
+
 const quote = {
     'Source' : 'Bron',
     'Quote' : 'Quote'
@@ -75,15 +81,7 @@ const stackframe = {
     'Text' : 'Tekst'
 };
 
-
 const numberframe = {
-    'Numberframe' : 'Cijferkader',
-    'Amount' : 'Aantal',
-    'Title' : 'Titel',
-    'Text' : 'Tekst'
-};
-
-const redirectartcile = {
     'Numberframe' : 'Cijferkader',
     'Amount' : 'Aantal',
     'Title' : 'Titel',
@@ -94,6 +92,17 @@ const redirectlink = {
     'Redirect article' : 'Redirect artikel',
     'URL to article' : 'URL naar artikel (verplicht)'
 };
+
+const fd4validation = {
+  'Missing author': 'Auteur is niet ingevuld',
+  'Missing headline': 'Headline is niet ingevuld',
+  'Too many headlines': 'Artikel mag maximaal 1 titel bevatten',
+  'Missing teaser': 'Teaser mist',
+  'Missing teaser title': 'Teaser titel niet ingevuld',
+  'Missing teaser body': 'Teaser tekst niet ingevuld',
+  'Missing section': 'Sectie is niet ingevuld',
+  'Missing tags': 'Tags zijn niet opgegeven'
+}
 
 function merge() {
     var result = {};
@@ -123,5 +132,6 @@ module.exports = merge(
     quote,
     stackframe,
     numberframe,
-    redirectlink
+    redirectlink,
+    fd4validation
 );
