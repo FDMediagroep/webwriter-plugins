@@ -41,7 +41,7 @@ StocktickerInlineTool.Prototype = function() {
   // Get focus on the input when the stockticker is inserted.
   this.didMount = function() {
         setTimeout(function() {
-            $('#formSearch').focus();
+            $('.sc-stockticker-inline-tool #formSearch').focus();
         }, 50);
     }
 
