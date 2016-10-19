@@ -3,18 +3,25 @@
     { "enabled": true, "vendor": "infomaker.se", "name": "utils" },
     { "enabled": true, "vendor": "infomaker.se", "name": "ximteaser",
       "data": {
-        "enablesoftcrop": true,
+        "enablesoftcrop": false,
+        "publishedmaxwidth": 2560,
+        "crops": { "16:9": [16, 9], "1:1": [1, 1], "2.39:1": [2.39, 1] },
         "fields": [ "text" ],
         "teaserPosition": "top"
       }
     },
-    { "enabled": true, "vendor": "infomaker.se", "name": "preamble" },
+    { "enabled": true, "vendor": "infomaker.se", "name": "preamble",
+      "data" : {
+        "preventAutomaticLinkCreation": false,
+        "disableUseOfAnnotationTools": false
+      }
+    },
     { "enabled": true, "vendor": "infomaker.se", "name": "link" },
     { "enabled": true, "vendor": "infomaker.se", "name": "ximimage",
       "data": {
-        "enablesoftcrop": true,
+        "enablesoftcrop": false,
         "publishedmaxwidth": 2560,
-        "crops": { "16:9": [16, 9], "4:3": [4, 3], "1:1": [1, 1] },
+        "crops": { "16:9": [16, 9], "2.39:1": [2.39, 1], "1:1": [1, 1] },
         "urlMatchers": [ "^.*\\.jpg", "^.*\\.png", "^.*\\.gif" ],
         "fields": [
           { "name": "caption", "label": "Caption", "type": "text" },
@@ -141,6 +148,7 @@
         ]
       },
       "source": { "path": "webwriter-plugins/plugins/oembed", "pluginrepositoryId": "fdplugins", "type": "git" }
-    }
+    },
+    { "enabled": true, "vendor": "infomaker.se", "name": "history" }
   ]
 }

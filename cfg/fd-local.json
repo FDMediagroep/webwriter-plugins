@@ -424,6 +424,11 @@
             "https://localfocus2\\.appspot\\.com/.*"
           ]
         }
+      },
+      {
+        "vendor": "infomaker.se",
+        "name": "history",
+        "enabled": true
       }
     ]
   }

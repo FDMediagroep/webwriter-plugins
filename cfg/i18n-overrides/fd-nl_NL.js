@@ -1,7 +1,6 @@
 const general_translations = {
 };
 
-
 const textcount = {
     'Article size': 'Artikelgrootte',
     'Text counter': 'Tekstinformatie'
@@ -31,18 +30,12 @@ const paywall = {
     'Free article' : 'Gratis artikel'
 };
 
-const showrelatedarticles = {
+const relatedarticle = {
     'Do not show related articles' : 'Gerelateerde artikelen niet tonen'
 };
 
 const rubric = {
     'Rubric' : 'Rubriek'
-};
-
-const relatedarticles = {
-    'Related Article 1' : 'Gerelateerd artikel 1',
-    'Related Article 2' : 'Gerelateerd artikel 2',
-    'Related articles' : 'Gerelateerde artikelen'
 };
 
 const shortarticle = {
@@ -82,9 +75,6 @@ const stackframe = {
     'Text' : 'Tekst'
 };
 
-const textframe = {
-    'Textframe' : 'Tekstkader'
-};
 
 const numberframe = {
     'Numberframe' : 'Cijferkader',
@@ -134,7 +124,7 @@ module.exports = merge(
     donotindex,
     nocomments,
     paywall,
-    showrelatedarticles,
+    relatedarticle,
     rubric,
     shortarticle,
     section,
@@ -145,6 +135,5 @@ module.exports = merge(
     stackframe,
     numberframe,
     redirectlink,
-    relatedarticles,
-    showrelatedarticles
+    fd4validation
 );
