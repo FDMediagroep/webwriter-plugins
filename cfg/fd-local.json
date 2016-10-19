@@ -219,6 +219,12 @@
       },
       {
         "vendor": "nl.fdmg",
+        "name": "fd4validation",
+        "enabled": true,
+        "path": "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\fd4validation"
+      },
+      {
+        "vendor": "nl.fdmg",
         "name": "validatable",
         "enabled": true,
         "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\validatable"
