@@ -1,19 +1,25 @@
 {
   "plugins": [
     { "enabled": true, "vendor": "infomaker.se", "name": "utils" },
-    { "enabled": true, "vendor": "infomaker.se", "name": "history" },
     { "enabled": true, "vendor": "infomaker.se", "name": "ximteaser",
       "data": {
-        "enablesoftcrop": true,
+        "enablesoftcrop": false,
+        "publishedmaxwidth": 2560,
+        "crops": { "16:9": [16, 9], "1:1": [1, 1], "2.39:1": [2.39, 1] },
         "fields": [ "text" ],
         "teaserPosition": "top"
       }
     },
-    { "enabled": true, "vendor": "infomaker.se", "name": "preamble" },
+    { "enabled": true, "vendor": "infomaker.se", "name": "preamble",
+      "data" : {
+        "preventAutomaticLinkCreation": false,
+        "disableUseOfAnnotationTools": false
+      }
+    },
     { "enabled": true, "vendor": "infomaker.se", "name": "link" },
     { "enabled": true, "vendor": "infomaker.se", "name": "ximimage",
       "data": {
-        "enablesoftcrop": true,
+        "enablesoftcrop": false,
         "publishedmaxwidth": 2560,
         "crops": { "16:9": [16, 9], "2.39:1": [2.39, 1], "1:1": [1, 1] },
         "urlMatchers": [ "^.*\\.jpg", "^.*\\.png", "^.*\\.gif" ],
@@ -35,6 +41,7 @@
         "urlMatchers": [ "^https?://(www\\.)?youtube\\.com/watch\\?v=.*", "^https?://youtu\\.be/.*" ]
       }
     },
+    { "enabled": true, "vendor": "nl.fdmg", "name": "fd4validation",                                                                                    "source": { "path": "webwriter-plugins/plugins/fd4validation",    "pluginrepositoryId": "fdplugins", "type": "git" } },
     { "enabled": true, "vendor": "nl.fdmg", "name": "validatable",                                                                                      "source": { "path": "webwriter-plugins/plugins/validatable",      "pluginrepositoryId": "fdplugins", "type": "git" } },
     { "enabled": true, "vendor": "nl.fdmg", "name": "linkselector",                                                                                     "source": { "path": "webwriter-plugins/plugins/linkselector",     "pluginrepositoryId": "fdplugins", "type": "git" } },
     { "enabled": true, "vendor": "nl.fdmg", "name": "articleoptions",                                                                                   "source": { "path": "webwriter-plugins/plugins/articleoptions",   "pluginrepositoryId": "fdplugins", "type": "git" } },
@@ -141,6 +148,7 @@
         ]
       },
       "source": { "path": "webwriter-plugins/plugins/oembed", "pluginrepositoryId": "fdplugins", "type": "git" }
-    }
+    },
+    { "enabled": true, "vendor": "infomaker.se", "name": "history" }
   ]
 }
