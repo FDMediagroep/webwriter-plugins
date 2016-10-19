@@ -30,7 +30,6 @@ Section.prototype.schema = {
             ]
         }
     }
-
 };
 
 module.exports = Section;

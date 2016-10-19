@@ -95,6 +95,17 @@ const redirectlink = {
     'URL to article' : 'URL naar artikel (verplicht)'
 };
 
+const fd4validation = {
+  'Missing author': 'Auteur is niet ingevuld',
+  'Missing headline': 'Headline is niet ingevuld',
+  'Too many headlines': 'Te veel headlines ingevuld',
+  'Missing teaser': 'Teaser mist',
+  'Missing teaser title': 'Teaser titel niet ingevuld',
+  'Missing teaser body': 'Teaser tekst niet ingevuld',
+  'Missing section': 'Sectie is niet ingevuld',
+  'Missing tags': 'Tags zijn niet opgegeven'
+}
+
 function merge() {
     var result = {};
     for(var index in arguments){
@@ -123,5 +134,6 @@ module.exports = merge(
     quote,
     stackframe,
     numberframe,
-    redirectlink
+    redirectlink,
+    fd4validation
 );
