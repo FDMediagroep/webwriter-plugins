@@ -36,7 +36,7 @@
           "teaserPosition": "top"
         }
       },
-      { "enabled": false, "vendor": "infomaker.se", "name": "history" },
+      { "enabled": true, "vendor": "infomaker.se", "name": "history" },
       { "enabled": true, "vendor": "infomaker.se", "name": "preamble" },
       { "enabled": true, "vendor": "infomaker.se", "name": "link" },
       { "enabled": true, "vendor": "infomaker.se", "name": "ximimage",
@@ -69,12 +69,22 @@
         }
       },
 
-      { "enabled": true, "vendor": "nl.fdmg", "name": "fd4validation",    "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/fd4validation" },
       { "enabled": true, "vendor": "nl.fdmg", "name": "validatable",      "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/validatable" },
       { "enabled": true, "vendor": "nl.fdmg", "name": "linkselector",     "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/linkselector" },
       { "enabled": true, "vendor": "nl.fdmg", "name": "articleoptions",   "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/articleoptions" },
       { "enabled": true, "vendor": "nl.fdmg", "name": "universalsearch",  "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/universalsearch" },
+      { "enabled": true, "vendor": "nl.fdmg", "name": "fd4validation",    "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/fd4validation" },
       { "enabled": true, "vendor": "nl.fdmg", "name": "publish",          "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/publish" },
+      { "enabled": true, "vendor": "nl.fdmg", "name": "workflowstate",    "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/workflowstate",
+        "data": {
+          "options": [
+            { "label": "In voorbereiding", "color": "#cdcdcd" },
+            { "label": "In bewerking", "color": "#cbbb62" },
+            { "label": "Klaar voor eindredactie", "color": "#03c6c7" },
+            { "label": "Geredigeerd", "color": "#a207a2" }
+          ]
+        }
+      },
       { "enabled": true, "vendor": "nl.fdmg", "name": "author",           "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/author",       "data": { "endpoint": "https://dev-api.fdmg.org/private/fd/search/author?q=" } },
       { "enabled": true, "vendor": "nl.fdmg", "name": "tags",             "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/tags",         "data": { "endpoint": "https://dev-api.fdmg.org/private/fd/search/tag?q=" } },
       { "enabled": true, "vendor": "nl.fdmg", "name": "epic",             "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/epic",         "data": { "endpoint": "https://dev-api.fdmg.org/private/fd/search/epic?q=" } },
