@@ -7,7 +7,7 @@ const textcount = {
 };
 
 const epic = {
-    'Epic' : 'Epic'
+    'Epic' : 'Het complete verhaal'
 };
 
 const genre = {

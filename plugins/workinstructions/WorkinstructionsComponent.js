@@ -10,50 +10,55 @@ function WorkinstructionsComponent() {
 }
 
 WorkinstructionsComponent.Prototype = function() {
+
+    this.getInitialState = function () {
+        var workInstruction = this.context.api.getContentMetaObjectsByType('fdmg/workinstructions')
+                .map(function(workinstruction){
+                    return workinstruction.data.text;
+                }).pop() || '';
+
+        return {
+            workInstruction: workInstruction
+        };
+    };
+
     this.render = function() {
-        var el = $$('a').append([
-            $$('div').addClass('header').append([
-                $$('span').addClass('remove-button').append(
-                    $$(Icon, {icon: 'fa-remove'})
-                ).on('click', this.removeWorkinstructions).attr('title', this.context.i18n.t('Remove from article')),
-                $$('span').addClass('edit-button').append(
-                    $$(Icon, {icon: 'fa-pencil-square-o'})
-                ).on('click', this.editWorkinstructions).attr('title', this.context.i18n.t('Edit'))
-            ]),
-            $$(TextProperty, {
-                tagName: 'div',
-                path: [this.props.node.id, 'text']
-            })
-        ])
-        .addClass('im-embedhtml')
-        .attr('contentEditable', false);
 
-        this.context.api.handleDrag(
-            el,
-            this.props.node
-        );
+         var workinstructionsArea = $$('textarea')
+            .addClass('textarea')
+            .attr('spellcheck', false)
+            .setValue(this.state.workInstruction)
+            .ref('workinstructions') .on('click', this.editWorkinstruction);
 
-        return el;
+        return $$('div')
+            .addClass('fdmg-sidebar')
+            .append(
+                $$('div')
+                    .addClass('header')
+                    .append($$('h2')
+                        .append( this.context.i18n.t('Workinstructions')),
+                workinstructionsArea),
+                $$('hr'));
     };
 
-    this.removeWorkinstructions = function() {
-        this.context.api.deleteNode('workinstructions', this.props.node);
-    };
-
-    this.editWorkinstructions = function() {
+    // Passing the state each time we open the edit tool
+    this.editWorkinstruction = function() {
+        console.log( this.state.workInstruction, 'edit');
         this.context.api.showDialog(
             require('./WorkinstructionsEditTool'),
             {
-                text: this.props.node.text,
-                update: function(text) {
-                    this.props.doc.set([this.props.node.id, 'text'], text);
+                text: this.state.workInstruction,
+                 update: function(text) {
+                    this.extendState({ workInstruction : text })
                 }.bind(this)
             },
             {
-                title: "Embed HTML"
+                title: this.context.i18n.t('Workinstructions')
             }
         );
+
     };
+
 };
 
 Component.extend(WorkinstructionsComponent);

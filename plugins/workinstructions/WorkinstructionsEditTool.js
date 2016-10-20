@@ -1,10 +1,10 @@
 'use strict';
 
-
 var SurfaceTool = require('substance/ui/SurfaceTool');
 var Component = require('substance/ui/Component');
 var $$ = Component.$$;
 var Icon = require('substance/ui/FontAwesomeIcon');
+var idGen = require('writer/utils/IdGenerator');
 
 function WorkinstructionsEditComponent() {
     Component.apply(this, arguments);
@@ -12,30 +12,51 @@ function WorkinstructionsEditComponent() {
 
 WorkinstructionsEditComponent.Prototype = function() {
 
-    this.insertEmbed = function() {
-        this.getCommand().insertWorkinstructions(
-            this.refs.embedcode.val()
-        );
-
-        this.send('close');
-    };
-
     this.render = function() {
+
         var el = $$('div').addClass('embed-dialog');
-        var embed = $$('textarea')
+        var workinstruction = $$('textarea')
             .addClass('textarea')
             .attr('spellcheck', false)
-            .ref('embedcode');
-
+            .ref('workinstruction');
+            console.log(this.props.text);
         if (this.props.text) {
-            embed.append(this.props.text);
+            workinstruction.append(this.props.text);
         }
-        el.append(embed);
+        el.append(workinstruction);
         return el;
     };
 
     this.didMount = function() {
-        this.refs.embedcode.focus();
+        this.refs.workinstruction.focus();
+    };
+
+    this.saveWorkinstruction = function() {
+        // check for other workinstructions
+        this.deleteWorkinstruction();
+        var text = this.refs.workinstruction.val().trim();
+        console.log(text);
+        if (text !== '') {
+            console.log('if');
+            this.context.api.setContentMetaObject('workinstructions', {
+                 '@id': idGen(),
+                 '@type': "fdmg/workinstructions",
+                 '@name' : 'workinstructions',
+                 data: {
+                     text: text
+                 }
+            });
+        }
+        this.props.update(text);
+    }
+
+    this.deleteWorkinstruction = function () {
+        var api = this.context.api;
+
+        (api.getContentMetaObjectsByType('fdmg/workinstructions') || [])
+            .forEach(function(workinstruction) {
+                api.removeContentMetaObject('workinstructions', workinstruction['@id']);
+        });
     };
 
     /**
@@ -48,14 +69,7 @@ WorkinstructionsEditComponent.Prototype = function() {
             return;
         }
         else if (status === "save") {
-            if (typeof(this.props.text) !== 'undefined') {
-                this.props.update(
-                    this.refs.embedcode.val()
-                );
-            }
-            else {
-                this.insertEmbed();
-            }
+            this.saveWorkinstruction();
 
             return true;
         }
@@ -65,7 +79,7 @@ WorkinstructionsEditComponent.Prototype = function() {
 
 SurfaceTool.extend(WorkinstructionsEditComponent);
 
-WorkinstructionsEditComponent.static.name = 'workinstructionsedit';
-WorkinstructionsEditComponent.static.command = 'workinstructions';
+WorkinstructionsEditComponent.static.name = 'workinstructions';
+// WorkinstructionsEditComponent.static.command = 'workinstructions';
 
 module.exports = WorkinstructionsEditComponent;
