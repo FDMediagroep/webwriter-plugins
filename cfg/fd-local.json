@@ -62,6 +62,12 @@
       },
       {
         "vendor": "nl.fdmg",
+        "name": "workflowstate",
+        "enabled": true,
+        "path": "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\workflowstate"
+      },
+      {
+        "vendor": "nl.fdmg",
         "name": "textcount",
         "enabled": true,
         "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\textcount",

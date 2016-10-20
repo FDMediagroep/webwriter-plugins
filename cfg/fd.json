@@ -47,6 +47,7 @@
     { "enabled": true, "vendor": "nl.fdmg", "name": "articleoptions",                                                                                   "source": { "path": "webwriter-plugins/plugins/articleoptions",   "pluginrepositoryId": "fdplugins", "type": "git" } },
     { "enabled": true, "vendor": "nl.fdmg", "name": "universalsearch",                                                                                  "source": { "path": "webwriter-plugins/plugins/universalsearch",  "pluginrepositoryId": "fdplugins", "type": "git" } },
     { "enabled": true, "vendor": "nl.fdmg", "name": "publish",                                                                                          "source": { "path": "webwriter-plugins/plugins/publish",          "pluginrepositoryId": "fdplugins", "type": "git" } },
+    { "enabled": true, "vendor": "nl.fdmg", "name": "workflowstate",                                                                                    "source": { "path": "webwriter-plugins/plugins/workflowstate",    "pluginrepositoryId": "fdplugins", "type": "git" } },
     { "enabled": true, "vendor": "nl.fdmg", "name": "textcount",
       "data": {
         "marginPercentage" : 10,
