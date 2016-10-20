@@ -118,7 +118,7 @@ RelatedarticlesComponent.Prototype = function() {
   }
 
   this.extractId = function(url) {
-    const PAT = /^.+fd\.nl\/.+\/(\d+)\/.*$/
+    const PAT = /^.+\/(\d+)\/.*$/
     const res = PAT.exec(url)
 
     if (res && res.length == 2) return res[1]
