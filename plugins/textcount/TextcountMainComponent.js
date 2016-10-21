@@ -139,9 +139,9 @@ TextcountMainComponent.Prototype = function () {
 
         var el = $$('div').addClass('textcount plugin')
             .append(
-                [
-                    $$('hr'),
-                    $$('h2').append(this.context.i18n.t('Text counter'))
+                [   
+                    $$('h2'),
+                    $$('hr')
                 ]);
 
         var numberContainer = $$('div').addClass('count__info-container fdmg-sidebar');
@@ -167,7 +167,7 @@ TextcountMainComponent.Prototype = function () {
             })
             .append(
                 $$('p')
-                    .append(this.context.i18n.t('Article size'))
+                    .append(this.context.i18n.t('Size'))
             );
 
         var textlengthEl = $$('div').addClass("count-info")

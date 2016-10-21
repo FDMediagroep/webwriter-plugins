@@ -7,7 +7,7 @@ Workinstructions.prototype.schema = {
     vendor: "nl.fdmg",
     uicomponents: {
         sidebar: {
-            main: [
+            top: [
                 require('./WorkinstructionsComponent')
             ]
         }

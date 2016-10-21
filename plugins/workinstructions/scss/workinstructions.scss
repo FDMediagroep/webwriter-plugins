@@ -1,5 +1,6 @@
 .workinstructions {
-    .fdmg-sidebar {
+    padding: 0px 15px 0 15px;
+    hr {}
         .workinstructions-wrapper {
             width: 100%;
             position: relative;
@@ -25,8 +26,8 @@
                 width: 100%;
                 padding: 5px;
                 color: black;
-                max-height: 105px;
-                min-height: 105px;
+                max-height: 50px;
+                min-height: 50px;
                 resize: none;
                 position: relative;
                 overflow: hidden;
@@ -38,5 +39,4 @@
                 }
             }
         }
-    }
 }

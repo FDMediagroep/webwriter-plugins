@@ -2,7 +2,7 @@ const general_translations = {
 };
 
 const textcount = {
-    'Article size': 'Artikelgrootte',
+    'Size': 'Grootte',
     'Text counter': 'Tekstinformatie'
 };
 

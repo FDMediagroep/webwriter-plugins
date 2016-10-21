@@ -28,7 +28,7 @@ WorkflowstateComponent.Prototype = function() {
       .addClass('workflowstate plugin')
       .append(
         $$('hr'),
-        $$('h2').append(this.context.i18n.t('Workflow')),
+        $$('h2'),
         $$('div')
           .addClass('dropdown')
           .append(

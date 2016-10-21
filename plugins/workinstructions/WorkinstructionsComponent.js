@@ -34,9 +34,8 @@ WorkinstructionsComponent.Prototype = function() {
             .setValue(this.state.workInstruction)
             .ref('workinstructions')).on('click', this.editWorkinstruction);
 
-        return $$('div').addClass('fdmg-sidebar')
-                        .append($$('h2').append( this.context.i18n.t('Workinstructions')))
-                        .append(workinstructionsArea, $$('hr'));
+        return $$('div').addClass('plugin workinstructions')
+                        .append(workinstructionsArea);
     };
 
     this.editWorkinstruction = function() {
