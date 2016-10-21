@@ -65,7 +65,9 @@
       },
       "source": { "path": "webwriter-plugins/plugins/section", "pluginrepositoryId": "fdplugins", "type": "git" }
     },
-     { "enabled": true, "vendor": "nl.fdmg", "name": "genre",       "data": { "endpoint": "/fdmgapi/private/fd/articles/genres" },                       "source": { "path": "webwriter-plugins/plugins/genre",            "pluginrepositoryId": "fdplugins", "type": "git" } },
+    { "enabled": true, "vendor": "nl.fdmg", "name": "relatedarticles",                                                                                  "source": { "path": "webwriter-plugins/plugins/relatedarticles",      "pluginrepositoryId": "fdplugins", "type": "git" } },
+    { "enabled": true, "vendor": "nl.fdmg", "name": "epic",        "data": { "endpoint": "/fdmgapi/private/fd/search/epic?q=" },                        "source": { "path": "webwriter-plugins/plugins/epic",             "pluginrepositoryId": "fdplugins", "type": "git" } },
+    { "enabled": true, "vendor": "nl.fdmg", "name": "genre",       "data": { "endpoint": "/fdmgapi/private/fd/articles/genres" },                       "source": { "path": "webwriter-plugins/plugins/genre",            "pluginrepositoryId": "fdplugins", "type": "git" } },
     { "enabled": true, "vendor": "nl.fdmg", "name": "rubric",      "data": { "endpoint": "/fdmgapi/private/fd/articles/rubrics" },                      "source": { "path": "webwriter-plugins/plugins/rubric",           "pluginrepositoryId": "fdplugins", "type": "git" } },
     { "enabled": true, "vendor": "nl.fdmg", "name": "articletype", "data": { "endpoint": "/fdmgapi/private/fd/articles/types" },                        "source": { "path": "webwriter-plugins/plugins/articletype",          "pluginrepositoryId": "fdplugins", "type": "git" } },
     { "enabled": true, "vendor": "nl.fdmg", "name": "redirectlink",                                                                                     "source": { "path": "webwriter-plugins/plugins/redirectlink",         "pluginrepositoryId": "fdplugins", "type": "git" } },
@@ -81,8 +83,6 @@
         "disableUseOfAnnotationTools": false
       },
       "source": { "path": "webwriter-plugins/plugins/shortarticle",     "pluginrepositoryId": "fdplugins", "type": "git" } },
-    { "enabled": true, "vendor": "nl.fdmg", "name": "relatedarticles",                                                                                  "source": { "path": "webwriter-plugins/plugins/relatedarticles",      "pluginrepositoryId": "fdplugins", "type": "git" } },
-    { "enabled": true, "vendor": "nl.fdmg", "name": "epic",        "data": { "endpoint": "/fdmgapi/private/fd/search/epic?q=" },                        "source": { "path": "webwriter-plugins/plugins/epic",             "pluginrepositoryId": "fdplugins", "type": "git" } },
     { "enabled": true, "vendor": "nl.fdmg", "name": "relatedlink",                                                                                      "source": { "path": "webwriter-plugins/plugins/relatedlink",      "pluginrepositoryId": "fdplugins", "type": "git" } },
     { "enabled": true, "vendor": "nl.fdmg", "name": "quote",
       "data" : {
