@@ -122,6 +122,7 @@
       { "enabled": true, "vendor": "nl.fdmg", "name": "numberframe",          "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/numberframe" },
       { "enabled": true, "vendor": "nl.fdmg", "name": "htmlembed",            "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/htmlembed" },
       { "enabled": true, "vendor": "nl.fdmg", "name": "textframe",            "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/textframe" },
+      { "enabled": true, "vendor": "nl.fdmg", "name": "workinstructions",     "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/workinstructions" },
       { "enabled": true, "vendor": "nl.fdmg", "name": "localfocus",           "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/localfocus",   "data": { "urlMatchers": [ "https://localfocus2\\.appspot\\.com/.*" ] } },
       {
         "enabled": true,

@@ -7,7 +7,7 @@ const textcount = {
 };
 
 const epic = {
-    'Epic' : 'Epic'
+    'Epic' : 'Het complete verhaal'
 };
 
 const genre = {
@@ -33,6 +33,10 @@ const paywall = {
 const relatedarticle = {
     'Do not show related articles' : 'Gerelateerde artikelen niet tonen'
 };
+
+const Workinstruction = {
+   'Workinstruction placeholder' : 'Werkinstructies (b.v. Locatie etc.)' 
+}
 
 const rubric = {
     'Rubric' : 'Rubriek'
