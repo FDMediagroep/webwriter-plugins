@@ -108,6 +108,12 @@ const fd4validation = {
   'Missing tags': 'Tags zijn niet opgegeven'
 }
 
+const workinstructions = {
+    'Workinstructions' : 'Werkinstructies',
+    'Workinstruction placeholder' : 'b.v. locatie en opmerkingen',
+
+}
+
 function merge() {
     var result = {};
     for(var index in arguments){
@@ -137,5 +143,6 @@ module.exports = merge(
     stackframe,
     numberframe,
     redirectlink,
-    fd4validation
+    fd4validation,
+    workinstructions
 );
