@@ -17,9 +17,8 @@ WorkinstructionsEditComponent.Prototype = function() {
         var el = $$('div').addClass('embed-dialog');
         var workinstruction = $$('textarea')
             .addClass('textarea')
-            .attr('spellcheck', false)
+            .attr({'spellcheck' : false, 'placeholder' : this.context.i18n.t('Workinstruction placeholder') })
             .ref('workinstruction');
-            console.log(this.props.text);
         if (this.props.text) {
             workinstruction.append(this.props.text);
         }
@@ -35,9 +34,7 @@ WorkinstructionsEditComponent.Prototype = function() {
         // check for other workinstructions
         this.deleteWorkinstruction();
         var text = this.refs.workinstruction.val().trim();
-        console.log(text);
         if (text !== '') {
-            console.log('if');
             this.context.api.setContentMetaObject('workinstructions', {
                  '@id': idGen(),
                  '@type': "fdmg/workinstructions",

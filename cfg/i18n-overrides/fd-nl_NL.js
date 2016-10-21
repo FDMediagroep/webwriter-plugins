@@ -34,6 +34,10 @@ const relatedarticle = {
     'Do not show related articles' : 'Gerelateerde artikelen niet tonen'
 };
 
+const Workinstruction = {
+   'Workinstruction placeholder' : 'Werkinstructies (b.v. Locatie etc.)' 
+}
+
 const rubric = {
     'Rubric' : 'Rubriek'
 };

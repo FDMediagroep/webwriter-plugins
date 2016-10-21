@@ -12,48 +12,46 @@ function WorkinstructionsComponent() {
 WorkinstructionsComponent.Prototype = function() {
 
     this.getInitialState = function () {
-        var workInstruction = this.context.api.getContentMetaObjectsByType('fdmg/workinstructions')
-                .map(function(workinstruction){
-                    return workinstruction.data.text;
-                }).pop() || '';
 
-        return {
-            workInstruction: workInstruction
-        };
+        var workInstruction = this.context.api.getContentMetaObjectsByType('fdmg/workinstructions');
+
+        if (!workInstruction) {
+            return { workInstruction : ''}
+        } else {
+            return { workInstruction: workInstruction.map(function(workinstruction){
+                        return workinstruction.data.text;
+                    }).pop() }
+        }
+        
     };
 
     this.render = function() {
 
-         var workinstructionsArea = $$('textarea')
-            .addClass('textarea')
-            .attr('spellcheck', false)
+         var workinstructionsArea = $$('div').addClass('workinstructions-wrapper').append(
+            $$('textarea')
+            .addClass('workinstructions-textarea')
+            .attr({'spellcheck' : false, 'disabled' : 'disabled', 'placeholder' : this.context.i18n.t('Workinstruction placeholder') })
             .setValue(this.state.workInstruction)
-            .ref('workinstructions') .on('click', this.editWorkinstruction);
+            .ref('workinstructions')).on('click', this.editWorkinstruction);
 
-        return $$('div')
-            .addClass('fdmg-sidebar')
-            .append(
-                $$('div')
-                    .addClass('header')
-                    .append($$('h2')
-                        .append( this.context.i18n.t('Workinstructions')),
-                workinstructionsArea),
-                $$('hr'));
+        return $$('div').addClass('fdmg-sidebar')
+                        .append($$('h2').append( this.context.i18n.t('Workinstructions')))
+                        .append(workinstructionsArea, $$('hr'));
     };
 
-    // Passing the state each time we open the edit tool
     this.editWorkinstruction = function() {
-        console.log( this.state.workInstruction, 'edit');
         this.context.api.showDialog(
             require('./WorkinstructionsEditTool'),
             {
                 text: this.state.workInstruction,
                  update: function(text) {
                     this.extendState({ workInstruction : text })
-                }.bind(this)
+                }.bind(this)                
             },
             {
-                title: this.context.i18n.t('Workinstructions')
+                title: this.context.i18n.t('Workinstructions'),
+                // TODO: Make center true work (check docs search for dialog)
+                center: true
             }
         );
 
