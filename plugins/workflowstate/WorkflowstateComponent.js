@@ -33,12 +33,11 @@ WorkflowstateComponent.Prototype = function() {
           .addClass('dropdown')
           .append(
             $$('button')
-              .addClass('btn btn-default dropdown-toggle')
+              .addClass('btn btn-default')
               .attr({'type': 'button', 'data-toggle': 'dropdown'})
               .append(
                 $$(Icon, {icon: 'fa-circle'}).attr('style', 'color:' + this.state.selection.color),
-                this.state.selection.label,
-                $$('span').addClass('caret'),
+                this.state.selection.label
               ),
             $$('ul')
               .addClass('dropdown-menu')
