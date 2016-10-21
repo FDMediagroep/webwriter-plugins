@@ -8,6 +8,7 @@ const textcount = {
 
 const epic = {
     'Epic' : 'Het complete verhaal'
+    'Set epic' : 'Complete verhaal zoeken'
 };
 
 const genre = {
@@ -70,8 +71,7 @@ const relatedlink = {
 
 const relatedarticles = {
     'Related articles' : 'Gerelateerde artikelen',
-    'Related Article 1' : 'Artikel 1 (url)',
-    'Related Article 2' : 'Artikel 2 (url)'
+    'ARTICLE URL' : 'Artikel (url)'
 };
 
 const quote = {
@@ -111,6 +111,19 @@ const fd4validation = {
 const workinstructions = {
     'Workinstructions' : 'Werkinstructies',
     'Workinstruction placeholder' : 'b.v. locatie en opmerkingen',
+}
+
+const author = {
+    'Author' : 'Auteur',
+    'Add author' : 'Auteur toevoegen',
+    'Not editable author' : 'Deze auteur kan niet bewerkt worden',
+    'Remove from article' : 'Uit artikel verwijderen'
+}
+
+const tags = {
+    'Removed from article' : '',
+    'Tags' : 'Tags',
+    'Add tag' : 'Tag toevoegen'
 
 }
 
@@ -144,5 +157,7 @@ module.exports = merge(
     numberframe,
     redirectlink,
     fd4validation,
-    workinstructions
+    workinstructions,
+    author,
+    tags
 );

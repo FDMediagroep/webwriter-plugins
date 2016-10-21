@@ -36,7 +36,7 @@ TagsMainComponent.Prototype = function() {
           onSelect: this.addTag.bind(this),
           onCreate: this.addTag.bind(this),
           createAllowed: false,
-          placeholderText: "Add tag"
+          placeholderText: this.context.i18n.t('Add tag')
         }).ref('tagSearchComponent'),
         $$('hr')
       );

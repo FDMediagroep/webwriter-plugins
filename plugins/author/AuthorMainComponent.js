@@ -36,7 +36,7 @@ AuthorMainComponent.Prototype = function() {
           onSelect: this.addAuthor.bind(this),
           onCreate: this.createAuthor.bind(this),
           createAllowed: true,
-          placeholderText: "Add author"
+          placeholderText: this.context.i18n.t('Add author')
         }).ref('authorSearchComponent'),
         $$('hr')
       );
