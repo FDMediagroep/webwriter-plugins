@@ -50,8 +50,7 @@ WorkinstructionsComponent.Prototype = function() {
             },
             {
                 title: this.context.i18n.t('Workinstructions'),
-                // TODO: Make center true work (check docs search for dialog)
-                center: true
+                global: true
             }
         );
 
