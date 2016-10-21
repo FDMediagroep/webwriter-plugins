@@ -3,4 +3,42 @@
 	hr {
 		margin: 0px;
 	}
+	.dropdown {
+		button {
+			height: 30px;
+			width: 100%;
+			border: 1px solid #ccc;
+			border-radius: 0.25rem;
+			padding: 5px 0 5px 10px;
+			text-align: left;
+			position: relative;
+			i {
+				margin-right: 15px;
+			}
+			
+			&:after{
+				position: absolute;
+				right: 5px;
+				top: 12px;
+				font-size: 1.2em;
+			}
+			span {
+				
+			}
+		}
+		ul {
+			width: 100%;
+			li {
+				&:hover {
+					cursor: pointer;
+					background-color: #fafafa;
+				}
+
+				i {
+					margin-left: 10px;
+					margin-right: 15px;
+				}
+			}
+		}
+	}
 }
