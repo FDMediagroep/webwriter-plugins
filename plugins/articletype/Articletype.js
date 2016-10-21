@@ -25,7 +25,7 @@ Articletype.prototype.schema = {
     // Component renders node in text
     uicomponents: {
         sidebar: {
-            main: [
+            information: [
                 require('./ArticletypeComponent')
             ]
         }

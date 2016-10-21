@@ -16,7 +16,7 @@ RedirectLink.prototype.schema = {
 
     uicomponents: {
         sidebar: {
-            main: [
+            information: [
                 require('./RedirectLinkComponent')
             ]
         }

@@ -16,7 +16,7 @@ Fdpersonal.prototype.schema = {
 
     uicomponents: {
         sidebar: {
-            information: [
+            extra: [
                 require('./FdpersonalComponent')
             ]
         }

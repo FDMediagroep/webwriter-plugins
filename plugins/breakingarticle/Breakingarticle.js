@@ -16,7 +16,7 @@ Breakingarticle.prototype.schema = {
 
     uicomponents: {
         sidebar: {
-            information: [
+            extra: [
                 require('./BreakingarticleComponent')
             ]
         }

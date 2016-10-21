@@ -10,7 +10,7 @@ Epic.prototype.schema = {
 
   uicomponents: {
     sidebar: {
-      main: [
+      extra: [
         require('./EpicMainComponent')
       ]
     }

@@ -10,7 +10,7 @@ Linkedarticles.prototype.schema = {
 
   uicomponents: {
     sidebar: {
-      main: [
+      extra: [
         require('./RelatedarticlesComponent')
       ]
     }
