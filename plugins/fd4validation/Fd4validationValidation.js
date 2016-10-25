@@ -1,3 +1,14 @@
+/*
+
+ ,_,
+(0,0)
+(   )
+-"-"-
+
+*/
+
+const $ = require('substance/util/jquery');
+
 module.exports = {
 
   isValid: function(newsItem) {
@@ -54,6 +65,20 @@ module.exports = {
     const body = newsItem.querySelectorAll('idf>group element[type="body"]')
     if (body == null || (body.length == 1 && body[0].innerHTML.trim() == '')) {
       accumulator.addError(this.context.i18n.t('Missing body'))
+    }
+
+    const charCount = $('#fd4validation-character-count')
+    if (charCount.length == 1) {
+      const span = charCount[0]
+      if (span.classList.contains('over-range')) {
+        if (pubStatus == PUBLISH) {
+          accumulator.addWarning(this.context.i18n.t('Too many characters'))
+        }
+      } else if(span.classList.contains('under-range')) {
+        if (pubStatus == PUBLISH) {
+          accumulator.addWarning(this.context.i18n.t('Not enough characters'))
+        }
+      }
     }
 
     return accumulator.read()
