@@ -51,6 +51,11 @@ module.exports = {
       }
     }
 
+    const body = newsItem.querySelectorAll('idf>group element[type="body"]')
+    if (body == null || (body.length == 1 && body[0].innerHTML.trim() == '')) {
+      accumulator.addError(this.context.i18n.t('Missing body'))
+    }
+
     return accumulator.read()
   }
 }
