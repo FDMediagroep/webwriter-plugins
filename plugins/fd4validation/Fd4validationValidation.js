@@ -20,7 +20,9 @@ module.exports = {
 
     const teaser = newsItem.querySelectorAll('contentMeta>metadata object[type="x-im/teaser"]')
     if (teaser.length != 1) {
-      accumulator.addError(this.context.i18n.t('Missing teaser'))
+      if (pubStatus == PUBLISH) {
+        accumulator.addError(this.context.i18n.t('Missing teaser'))
+      }
     } else {
       const title = teaser[0].attributes.getNamedItem('title')
       if (title == null || title.value.trim() == '') {
@@ -80,12 +82,10 @@ function MessageAccumulator() {
     },
 
     addWarning: function(message) {
-      console.log('addwarning', message)
       messages.push({ message, type: 'warning' })
     },
 
     addError: function(message) {
-      console.log('adderror', message)
       messages.push({ message, type: 'error' })
     },
 
