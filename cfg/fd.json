@@ -19,18 +19,20 @@
     { "enabled": true, "vendor": "infomaker.se", "name": "link" },
     { "enabled": true, "vendor": "infomaker.se", "name": "ximimage",
       "data": {
+        "softcrop": false,
+        "bylinesearch": false,
+        "byline": false,
+        "imageinfo": false,
         "enablesoftcrop": false,
         "publishedmaxwidth": 2560,
         "crops": { "16:9": [16, 9], "2.39:1": [2.39, 1], "1:1": [1, 1] },
         "urlMatchers": [ "^.*\\.jpg", "^.*\\.png", "^.*\\.gif" ],
         "fields": [
           { "name": "caption", "label": "Caption", "type": "text" },
-          { "name": "alttext", "label": "Alt text", "type": "text" },
           { "name": "credit", "label": "Credit", "type": "text" },
           { "name": "alignment", "label": "Alignment", "type": "option",
             "options": [
-              { "name": "auto", "label": "Automatic", "icon": "fa-align-center" },
-              { "name": "left", "label": "Left", "icon": "fa-align-left" },
+              { "name": "auto", "label": "Block", "icon": "fa-align-justify" },
               {  "name": "right", "label": "Right", "icon": "fa-align-right" } ]
           }
         ]
