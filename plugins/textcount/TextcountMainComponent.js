@@ -1,3 +1,12 @@
+/*
+
+ ,_,
+(0,0)
+(   )
+-"-"-
+
+*/
+
 'use strict';
 
 var Component = require('substance/ui/Component');
@@ -139,7 +148,7 @@ TextcountMainComponent.Prototype = function () {
 
         var el = $$('div').addClass('textcount plugin')
             .append(
-                [   
+                [
                     $$('h2'),
                     $$('hr')
                 ]);
@@ -171,7 +180,7 @@ TextcountMainComponent.Prototype = function () {
             );
 
         var textlengthEl = $$('div').addClass("count-info")
-            .append($$('span').addClass(countClass).append(this.state.textLength.toString()))
+            .append($$('span').addClass(countClass).append(this.state.textLength.toString()).attr('id', 'fd4validation-character-count'))
             .append($$('P').append(this.context.i18n.t('Characters')))
             .attr('title', this.context.i18n.t('Character count'));
 
@@ -207,6 +216,10 @@ TextcountMainComponent.Prototype = function () {
                 return "perfect-range";
             } else if (textLength > minCharacters && textLength < maxCharacters || textLength == maxCharacters ) {
                 return "in-range";
+            } else if (textLength < minCharacters && targetSize != this.getConfiguration().availableSizes['?']) {
+              return "under-range";
+            } else {
+              return "";
             }
         }
     };

@@ -1,3 +1,14 @@
+/*
+
+ ,_,
+(0,0)
+(   )
+-"-"-
+
+*/
+
+const $ = require('substance/util/jquery');
+
 module.exports = {
 
   isValid: function(newsItem) {
@@ -20,7 +31,9 @@ module.exports = {
 
     const teaser = newsItem.querySelectorAll('contentMeta>metadata object[type="x-im/teaser"]')
     if (teaser.length != 1) {
-      accumulator.addError(this.context.i18n.t('Missing teaser'))
+      if (pubStatus == PUBLISH) {
+        accumulator.addError(this.context.i18n.t('Missing teaser'))
+      }
     } else {
       const title = teaser[0].attributes.getNamedItem('title')
       if (title == null || title.value.trim() == '') {
@@ -46,6 +59,25 @@ module.exports = {
     if (tags.length < 1) {
       if (pubStatus == PUBLISH) {
         accumulator.addError(this.context.i18n.t('Missing tags'))
+      }
+    }
+
+    const body = newsItem.querySelectorAll('idf>group element[type="body"]')
+    if (body == null || (body.length == 1 && body[0].innerHTML.trim() == '')) {
+      accumulator.addError(this.context.i18n.t('Missing body'))
+    }
+
+    const charCount = $('#fd4validation-character-count')
+    if (charCount.length == 1) {
+      const span = charCount[0]
+      if (span.classList.contains('over-range')) {
+        if (pubStatus == PUBLISH) {
+          accumulator.addWarning(this.context.i18n.t('Too many characters'))
+        }
+      } else if(span.classList.contains('under-range')) {
+        if (pubStatus == PUBLISH) {
+          accumulator.addWarning(this.context.i18n.t('Not enough characters'))
+        }
       }
     }
 
@@ -80,12 +112,10 @@ function MessageAccumulator() {
     },
 
     addWarning: function(message) {
-      console.log('addwarning', message)
       messages.push({ message, type: 'warning' })
     },
 
     addError: function(message) {
-      console.log('adderror', message)
       messages.push({ message, type: 'error' })
     },
 
