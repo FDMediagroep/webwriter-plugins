@@ -70,6 +70,16 @@
         }
       },
       {
+        "vendor": "infomaker.se",
+        "name": "ximpdf",
+        "enabled": true,
+        "data": {
+          "urlMatchers": [
+            "^.*\\.pdf"
+          ]
+        }
+      },
+      {
         "enabled": true,
         "vendor": "infomaker.se",
         "name": "youtube",
