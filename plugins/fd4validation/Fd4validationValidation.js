@@ -15,8 +15,6 @@ module.exports = {
     const pubStatus = getPubStatus(this.context.api.getPubStatus())
     const accumulator = MessageAccumulator()
 
-    // TODO text length maybe?
-
     const authors = newsItem.querySelectorAll('itemMeta>links link[type="x-im/author"]')
     if (authors.length < 1) {
       accumulator.addAuto(this.context.i18n.t('Missing author'), pubStatus)
