@@ -167,3 +167,17 @@ a.fdmg-box {
         }
     }
 }
+
+
+// Infomaker overrides
+
+.sc-tabbed-pane .se-tabs {
+    display: flex;
+    justify-content: space-between;
+    .se-tab {
+        flex-grow: 1;
+        padding: 0;
+        text-align: center;
+        float: none;
+    }
+}
