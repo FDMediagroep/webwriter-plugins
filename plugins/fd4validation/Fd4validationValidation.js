@@ -62,11 +62,6 @@ module.exports = {
       }
     }
 
-    const body = newsItem.querySelectorAll('idf>group element[type="body"]')
-    if (body == null || (body.length == 1 && body[0].innerHTML.trim() == '')) {
-      accumulator.addError(this.context.i18n.t('Missing body'))
-    }
-
     const charCount = $('#fd4validation-character-count')
     if (charCount.length == 1) {
       const span = charCount[0]
@@ -80,6 +75,8 @@ module.exports = {
         }
       }
     }
+
+    // TODO Related articles match /^.*fd\.nl\/.*(\d+).*$/i
 
     return accumulator.read()
   }
