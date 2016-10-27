@@ -38,6 +38,16 @@
         ]
       }
     },
+    {
+      "vendor": "infomaker.se",
+      "name": "ximpdf",
+      "enabled": true,
+      "data": {
+        "urlMatchers": [
+          "^.*\\.pdf"
+        ]
+      }
+    },
     { "enabled": true, "vendor": "infomaker.se", "name": "youtube",
       "data": {
         "urlMatchers": [ "^https?://(www\\.)?youtube\\.com/watch\\?v=.*", "^https?://youtu\\.be/.*" ]
@@ -148,7 +158,7 @@
             { "label": "Geredigeerd", "color": "#a207a2" }
           ]
         },
-      "source": { "path": "webwriter-plugins/plugins/workflowstate",    "pluginrepositoryId": "fdplugins", "type": "git" } 
+      "source": { "path": "webwriter-plugins/plugins/workflowstate",    "pluginrepositoryId": "fdplugins", "type": "git" }
     },
     { "enabled": true, "vendor": "nl.fdmg", "name": "workinstructions",   "source": { "path": "webwriter-plugins/plugins/workinstructions",         "pluginrepositoryId": "fdplugins", "type": "git" } },
     { "enabled": true, "vendor": "nl.fdmg", "name": "textcount",

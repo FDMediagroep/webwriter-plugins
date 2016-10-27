@@ -37,10 +37,22 @@
         }
       },
       { "enabled": true, "vendor": "infomaker.se", "name": "history" },
-      { "enabled": true, "vendor": "infomaker.se", "name": "preamble" },
+      {
+        "enabled": true,
+        "vendor": "infomaker.se",
+        "name": "preamble",
+        "data": {
+          "preventAutomaticLinkCreation": false,
+          "disableUseOfAnnotationTools": false
+        }
+      },
       { "enabled": true, "vendor": "infomaker.se", "name": "link" },
       { "enabled": true, "vendor": "infomaker.se", "name": "ximimage",
         "data": {
+          "softcrop": false,
+          "bylinesearch": false,
+          "byline": false,
+          "imageinfo": false,
           "enablesoftcrop": false,
           "publishedmaxwidth": 2560,
           "crops": { "16:9": [16, 9], "4:3": [4, 3], "1:1": [1, 1] },
@@ -50,10 +62,20 @@
             { "name": "credit", "label": "Credit", "type": "text" },
             { "name": "alignment", "label": "Alignment", "type": "option",
               "options": [
-                { "name": "block", "label": "Block", "icon": "fa-align-justify" },
+                { "name": "auto", "label": "Block", "icon": "fa-align-justify" },
                 { "name": "right", "label": "Right", "icon": "fa-align-right" }
               ]
             }
+          ]
+        }
+      },
+      {
+        "vendor": "infomaker.se",
+        "name": "ximpdf",
+        "enabled": true,
+        "data": {
+          "urlMatchers": [
+            "^.*\\.pdf"
           ]
         }
       },
@@ -75,7 +97,11 @@
       { "enabled": true, "vendor": "nl.fdmg", "name": "universalsearch",  "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/universalsearch" },
       { "enabled": true, "vendor": "nl.fdmg", "name": "fd4validation",    "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/fd4validation" },
       { "enabled": true, "vendor": "nl.fdmg", "name": "publish",          "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/publish" },
-      { "enabled": true, "vendor": "nl.fdmg", "name": "workflowstate",    "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/workflowstate",
+      {
+        "enabled": true,
+        "vendor": "nl.fdmg",
+        "name": "workflowstate",
+        "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/workflowstate",
         "data": {
           "options": [
             { "label": "In voorbereiding", "color": "#cdcdcd" },
@@ -90,7 +116,11 @@
       { "enabled": true, "vendor": "nl.fdmg", "name": "epic",             "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/epic",         "data": { "endpoint": "https://dev-api.fdmg.org/private/fd/search/epic?q=" } },
       { "enabled": true, "vendor": "nl.fdmg", "name": "genre",            "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/genre",        "data": { "endpoint": "https://dev-api.fdmg.org/private/fd/articles/genres" } },
       { "enabled": true, "vendor": "nl.fdmg", "name": "rubric",           "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/rubric",       "data": { "endpoint": "https://dev-api.fdmg.org/private/fd/articles/rubrics" } },
-      { "enabled": true, "vendor": "nl.fdmg", "name": "section",          "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/section",
+      {
+        "enabled": true,
+        "vendor": "nl.fdmg",
+        "name": "section",
+        "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/section",
         "data" : {
           "sectionlist" : [
             { "name": "beursradar", "title": "Beurs" },
@@ -114,21 +144,79 @@
       { "enabled": true, "vendor": "nl.fdmg", "name": "donotindex",           "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/donotindex" },
       { "enabled": true, "vendor": "nl.fdmg", "name": "breakingarticle",      "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/breakingarticle" },
       { "enabled": true, "vendor": "nl.fdmg", "name": "paywall",              "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/paywall" },
-      { "enabled": true, "vendor": "nl.fdmg", "name": "shortarticle",         "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/shortarticle" },
+      {
+        "enabled": true,
+        "vendor": "nl.fdmg",
+        "name": "shortarticle",
+        "data":
+        {
+          "preventAutomaticLinkCreation": false,
+          "disableUseOfAnnotationTools": false
+        },
+        "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/shortarticle"
+      },
       { "enabled": true, "vendor": "nl.fdmg", "name": "relatedlink",          "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/relatedlink" },
-      { "enabled": true, "vendor": "nl.fdmg", "name": "quote",                "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/quote" },
-      { "enabled": true, "vendor": "nl.fdmg", "name": "stockticker",          "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/stockticker",  "data": { "serviceurl": "http://beurs.fd.nl/webservices/fd/quicksearch?query=" } },
-      { "enabled": true, "vendor": "nl.fdmg", "name": "stackframe",           "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/stackframe" },
-      { "enabled": true, "vendor": "nl.fdmg", "name": "numberframe",          "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/numberframe" },
+      {
+        "enabled": true,
+        "vendor": "nl.fdmg",
+        "name": "quote",
+        "data":
+        {
+          "preventAutomaticLinkCreation": false,
+          "disableUseOfAnnotationTools": false
+        },
+        "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/quote"
+      },
+      {
+        "enabled": true,
+        "vendor": "nl.fdmg",
+        "name": "stockticker",
+        "data":
+        {
+          "serviceurl": "http://beurs.fd.nl/webservices/fd/quicksearch?query="
+        },
+        "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/stockticker"
+      },
+      {
+        "enabled": true,
+        "vendor": "nl.fdmg",
+        "name": "stackframe",
+        "data":
+        {
+          "preventAutomaticLinkCreation": false,
+          "disableUseOfAnnotationTools": false
+        },
+        "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/stackframe"
+      },
+      {
+        "enabled": true,
+        "vendor": "nl.fdmg",
+        "name": "numberframe",
+        "data":
+        {
+          "preventAutomaticLinkCreation": false,
+          "disableUseOfAnnotationTools": false
+        },
+        "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/numberframe"
+      },
       { "enabled": true, "vendor": "nl.fdmg", "name": "htmlembed",            "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/htmlembed" },
-      { "enabled": true, "vendor": "nl.fdmg", "name": "textframe",            "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/textframe" },
+      {
+        "enabled": true,
+        "vendor": "nl.fdmg",
+        "name": "textframe",
+        "data":
+        {
+          "preventAutomaticLinkCreation": false,
+          "disableUseOfAnnotationTools": false
+        },
+        "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/textframe"
+      },
       { "enabled": true, "vendor": "nl.fdmg", "name": "workinstructions",     "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/workinstructions" },
       { "enabled": true, "vendor": "nl.fdmg", "name": "localfocus",           "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/localfocus",   "data": { "urlMatchers": [ "https://localfocus2\\.appspot\\.com/.*" ] } },
       {
         "enabled": true,
         "vendor": "nl.fdmg",
         "name": "oembed",
-        "path" : "/Users/kreuning/Developer/webwriter/plugins/plugins/oembed",
         "data": {
           "urlMatchers": [
             "^http(?:s)?://twitter\\.com/(?:#!)?[^#?/]+/status/.+$",
@@ -154,13 +242,13 @@
             "^https://www\\.facebook\\.com/video\\.php\\?id=.*",
             "^https://www\\.facebook\\.com/video\\.php\\?v=.*"
           ]
-        }
+        },
+        "path" : "/Users/kreuning/Developer/webwriter/plugins/plugins/oembed"
       },
       {
         "enabled": true,
         "vendor": "nl.fdmg",
         "name": "textcount",
-        "path" : "/Users/kreuning/Developer/webwriter/plugins/plugins/textcount",
         "data": {
           "marginPercentage" : 10,
           "sizes" : {
@@ -170,7 +258,8 @@
             "XXL" : 8200
           },
           "countedElements" : [ "paragraph", "headline" ]
-        }
+        },
+        "path" : "/Users/kreuning/Developer/webwriter/plugins/plugins/textcount"
       }
     ]
   }

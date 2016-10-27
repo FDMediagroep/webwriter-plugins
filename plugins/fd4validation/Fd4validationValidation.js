@@ -62,11 +62,6 @@ module.exports = {
       }
     }
 
-    const body = newsItem.querySelectorAll('idf>group element[type="body"]')
-    if (body == null || (body.length == 1 && body[0].innerHTML.trim() == '')) {
-      accumulator.addError(this.context.i18n.t('Missing body'))
-    }
-
     const charCount = $('#fd4validation-character-count')
     if (charCount.length == 1) {
       const span = charCount[0]
@@ -79,6 +74,15 @@ module.exports = {
           accumulator.addWarning(this.context.i18n.t('Not enough characters'))
         }
       }
+    }
+
+    const relatedarticles = Array.from(newsItem.querySelectorAll('itemMeta>links link[type="fdmg/relatedarticle"]').values())
+    if (!relatedarticles
+      .map((l) => l.attributes.getNamedItem('url'))
+      .filter((x) => !!x)
+      .map((u) => u.value)
+      .every((u) => (/^.*fd\.nl\/.*(\d+).*$/i).test(u))) {
+      accumulator.addError(this.context.i18n.t('Related article containes invalid url'))
     }
 
     return accumulator.read()
