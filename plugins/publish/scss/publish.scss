@@ -15,6 +15,7 @@
         li {
             padding-left: 0;
             padding-right: 10px;
+            margin-bottom: 10px;
         }
 
         .form-control {
@@ -116,6 +117,9 @@
             margin-bottom:0;
             list-style: none;
             padding:5px 0 0 0;
+            &.sc-publish__submenu {
+                margin-bottom: 10px;
+            }
 
             li {
                 padding-left:10px;
@@ -150,7 +154,9 @@
                 .fa-send {
                     color: $green;
                 }
-
+                .fa-trash {
+                    color: $red;
+                }
                 .fa-ban {
                     color: $red;
                 }

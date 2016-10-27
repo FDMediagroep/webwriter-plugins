@@ -1,3 +1,14 @@
+/*
+
+ ,_,
+(0,0)
+(   )
+-"-"-
+
+*/
+
+const $ = require('substance/util/jquery');
+
 module.exports = {
 
   isValid: function(newsItem) {
@@ -20,7 +31,9 @@ module.exports = {
 
     const teaser = newsItem.querySelectorAll('contentMeta>metadata object[type="x-im/teaser"]')
     if (teaser.length != 1) {
-      accumulator.addError(this.context.i18n.t('Missing teaser'))
+      if (pubStatus == PUBLISH) {
+        accumulator.addError(this.context.i18n.t('Missing teaser'))
+      }
     } else {
       const title = teaser[0].attributes.getNamedItem('title')
       if (title == null || title.value.trim() == '') {
@@ -47,6 +60,29 @@ module.exports = {
       if (pubStatus == PUBLISH) {
         accumulator.addError(this.context.i18n.t('Missing tags'))
       }
+    }
+
+    const charCount = $('#fd4validation-character-count')
+    if (charCount.length == 1) {
+      const span = charCount[0]
+      if (span.classList.contains('over-range')) {
+        if (pubStatus == PUBLISH) {
+          accumulator.addWarning(this.context.i18n.t('Too many characters'))
+        }
+      } else if(span.classList.contains('under-range')) {
+        if (pubStatus == PUBLISH) {
+          accumulator.addWarning(this.context.i18n.t('Not enough characters'))
+        }
+      }
+    }
+
+    const relatedarticles = Array.from(newsItem.querySelectorAll('itemMeta>links link[type="fdmg/relatedarticle"]').values())
+    if (!relatedarticles
+      .map((l) => l.attributes.getNamedItem('url'))
+      .filter((x) => !!x)
+      .map((u) => u.value)
+      .every((u) => (/^.*fd\.nl\/.*(\d+).*$/i).test(u))) {
+      accumulator.addError(this.context.i18n.t('Related article containes invalid url'))
     }
 
     return accumulator.read()
@@ -80,12 +116,10 @@ function MessageAccumulator() {
     },
 
     addWarning: function(message) {
-      console.log('addwarning', message)
       messages.push({ message, type: 'warning' })
     },
 
     addError: function(message) {
-      console.log('adderror', message)
       messages.push({ message, type: 'error' })
     },
 
