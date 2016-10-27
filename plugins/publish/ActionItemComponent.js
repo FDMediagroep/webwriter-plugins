@@ -35,17 +35,12 @@ ActionItemComponent.Prototype = function () {
             var itemClass = this.props.isSaving && action.name !== this.props.status.name ? 'disabled' : '';
 
             var initialStartDate,
-                initialEndDate,
                 subList,
                 saveButton;
 
             if (action.newsItemValues && action.newsItemValues.pubStart) {
                 initialStartDate = moment(action.newsItemValues.pubStart.value).format('YYYY-MM-DDTHH:mm');
             }
-            if (action.newsItemValues && action.newsItemValues.pubStop) {
-                initialEndDate = moment(action.newsItemValues.pubStop.value).format('YYYY-MM-DDTHH:mm');
-            }
-
 
             if (action.actionMethod === 'schedule') {
 
@@ -69,14 +64,6 @@ ActionItemComponent.Prototype = function () {
                         validateDate: this.validateStartDate.bind(this)
                     }).ref('startDateComponent'));
 
-
-                var subListItemEndDate = $$('li').append($$(DateTimeLocal, {
-                    title: 'End',
-                    initialDate: initialEndDate,
-                    validateDate: this.validateEndDate.bind(this)
-                }).ref('endDateComponent'));
-
-
                 saveButton = $$('li').append(
                     $$('button')
                         .addClass('btn btn-secondary pull-right clearfix')
@@ -86,20 +73,13 @@ ActionItemComponent.Prototype = function () {
                                 action.newsItemValues.pubStart = {
                                     value: moment(this.refs.startDateComponent.refs.date.val()).format('YYYY-MM-DDTHH:mm:ssZ')
                                 };
-                                if (this.validateEndDate()) {
-                                    action.newsItemValues.pubStop = {
-                                        value: moment(this.refs.endDateComponent.refs.date.val()).format('YYYY-MM-DDTHH:mm:ssZ')
-                                    };
-                                } else {
-                                    action.newsItemValues.pubStop = null;
-                                }
+                                action.newsItemValues.pubStop = null;
                                 this.setState({isScheduling: true});
                                 this.props.changePublishStatus(action);
                             }
                         }.bind(this)));
 
                 subList.append(subListItemStartDate);
-                subList.append(subListItemEndDate);
                 subList.append(saveButton);
                 listItem.append(subList);
 
@@ -119,25 +99,12 @@ ActionItemComponent.Prototype = function () {
 
                 listItem.append($$('a').append(this.context.i18n.t('Published') + " " + moment(initialStartDate).format('D MMM -YY - HH:mm')).on('click', this.toggleScheduleOptions));
 
-                var subListItemPubStopDate = $$('li').append($$(DateTimeLocal, {
-                    title: 'End',
-                    initialDate: initialEndDate,
-                    validateDate: this.validateEndDate.bind(this)
-                }).ref('endDateComponent'));
-
 
                 saveButton = $$('li').append(
                     $$('button')
                         .addClass('btn btn-secondary pull-right clearfix')
                         .append(this.context.i18n.t('Save'))
                         .on('click', function () {
-                            if (this.validateEndDate()) {
-                                action.newsItemValues.pubStop = {
-                                    value: moment(this.refs.endDateComponent.refs.date.val()).format('YYYY-MM-DDTHH:mm:ssZ')
-                                };
-                            } else {
-                                action.newsItemValues.pubStop = undefined;
-                            }
                             action.newsItemValues.overridePubStop = true;
                             this.props.changePublishStatus(action);
                         }.bind(this)));
@@ -187,16 +154,6 @@ ActionItemComponent.Prototype = function () {
             this._addSuccessClass(startDateElement);
         }
         return true;
-    };
-    this.validateEndDate = function () {
-        var endDateElement = this.refs.endDateComponent.refs.date;
-        var endDate = moment(endDateElement.val());
-
-        if (endDate.isValid()) {
-            this._addSuccessClass(endDateElement);
-            return true;
-        }
-        return false;
     };
 
     this._addFailClass = function (element) {
