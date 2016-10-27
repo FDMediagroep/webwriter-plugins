@@ -211,6 +211,7 @@
         },
         "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/textframe"
       },
+      { "enabled": true, "vendor": "nl.fdmg", "name": "planneddate",         "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/planneddate" },
       { "enabled": true, "vendor": "nl.fdmg", "name": "workinstructions",     "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/workinstructions" },
       { "enabled": true, "vendor": "nl.fdmg", "name": "localfocus",           "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/localfocus",   "data": { "urlMatchers": [ "https://localfocus2\\.appspot\\.com/.*" ] } },
       {
