@@ -160,7 +160,7 @@
         },
       "source": { "path": "webwriter-plugins/plugins/workflowstate",    "pluginrepositoryId": "fdplugins", "type": "git" }
     },
-    { "enabled": true, "vendor": "nl.fdmg", "name": "planneddate", "source": { "path": "webwriter-plugins/plugins/planneddate",           "pluginrepositoryId": "fdplugins", "type": "git" } },
+    { "enabled": false, "vendor": "nl.fdmg", "name": "planneddate", "source": { "path": "webwriter-plugins/plugins/planneddate",           "pluginrepositoryId": "fdplugins", "type": "git" } },
     { "enabled": true, "vendor": "nl.fdmg", "name": "workinstructions",   "source": { "path": "webwriter-plugins/plugins/workinstructions",         "pluginrepositoryId": "fdplugins", "type": "git" } },
     { "enabled": true, "vendor": "nl.fdmg", "name": "textcount",
       "data": {
