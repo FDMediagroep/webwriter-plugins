@@ -129,7 +129,7 @@ const tags = {
 }
 
 const publish = {
-    'Ready for approval': 'Laatste nieuws (submitted)',
+    'Ready for approval': 'Laatste nieuws',
     'Delete article' : 'Artikel verwijderen',
     'Deleted' : 'Verwijderd',
     'The article has been deleted' : 'Het artikel is verwijderd'

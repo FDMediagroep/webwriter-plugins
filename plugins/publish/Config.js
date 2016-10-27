@@ -36,8 +36,8 @@ Config.prototype.actions = {
         actionText: 'Save',
         actionMessage: 'The article has been saved',
         availableActions: [
-            'done',
             'publish',
+            'done',
             'schedule',
             'deleted'
         ],
@@ -165,8 +165,8 @@ Config.prototype.actions = {
         actionMessage: 'The article has been saved and unpublished',
         actionMethod: 'save',
         availableActions: [
-            'done',
             'publish',
+            'done',
             'schedule',
             'deleted'
         ],
