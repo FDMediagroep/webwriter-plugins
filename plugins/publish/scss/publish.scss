@@ -16,6 +16,7 @@
             padding-left: 0;
             padding-right: 10px;
             margin-bottom: 10px;
+
         }
 
         .form-control {
@@ -124,7 +125,9 @@
             li {
                 padding-left:10px;
                 border-top: 1px solid #e5e5e5;
-
+                &:last-child {
+                    border-bottom: 1px solid #e5e5e5;
+                }
                 &:hover {
                     .fa-check-circle-o {
                         color: darken(#565656, 20%);

@@ -237,45 +237,6 @@ PublishComponent.Prototype = function () {
             }).ref('actionItemList')
         );
 
-        publishActions.append(
-            $$('div').addClass('btn-group-loose').append([
-                $$('button').addClass('btn btn-neutral').append(
-                    $$('span').addClass('status__text').append(
-                        $$(Icon, {icon: 'fa-file-o'})
-                    )
-                ).on('click', function () {
-                    this.context.api.article.clear();
-                }),
-                $$('button').addClass('btn btn-neutral').append(
-                    $$('span').addClass('status__text').append(
-                        $$(Icon, {icon: 'fa-copy'})
-                    )
-                ).on('click', function () {
-
-                    if (!this.state.unsavedChangesSymbol) {
-                        this.cancelNotification = true;
-                        this.changeStatus(this.config.getAction('draft'), false);
-                        this.context.api.article.copy();
-                    }
-                    else {
-                        this.context.api.showDialog(
-                            null,
-                            {
-                                message: this.i18n.t(
-                                    'Article must be saved in order to create a copy')
-                            },
-                            {
-                                type: 'error',
-                                primary: this.i18n.t('Close'),
-                                secondary: false
-                            }
-                        );
-                    }
-
-                })
-            ])
-        );
-
         el.append(publishActions);
         return el;
     };

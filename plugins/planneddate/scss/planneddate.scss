@@ -1,8 +1,14 @@
-.Planneddate {
+.planneddate {
 	padding: 0px 15px 10px 15px;
 	hr {
 		margin: 0px;
 	}
+	input {
+		&.form-control {
+			height: 30px;
+		}
+	}
+
 	.dropdown {
 		button {
 			height: 30px;
