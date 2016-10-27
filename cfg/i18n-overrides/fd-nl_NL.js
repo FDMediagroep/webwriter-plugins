@@ -6,6 +6,7 @@ const textcount = {
     'Text counter': 'Tekstinformatie'
 };
 
+
 const epic = {
     'Epic' : 'Het complete verhaal'
     'Set epic' : 'Complete verhaal zoeken'
@@ -127,6 +128,14 @@ const tags = {
 
 }
 
+const publish = {
+    'Ready for approval': 'Laatste nieuws (submitted)',
+    'Delete article' : 'Artikel verwijderen',
+    'Deleted' : 'Verwijderd',
+    'The article has been deleted' : 'Het artikel is verwijderd'
+
+};
+
 function merge() {
     var result = {};
     for(var index in arguments){
@@ -159,5 +168,6 @@ module.exports = merge(
     fd4validation,
     workinstructions,
     author,
-    tags
+    tags,
+    publish
 );

@@ -15,6 +15,8 @@ Config.prototype.getActionFromStatus = function(pubStatus) {
         return this.actions.publish;
     } else if('stat:canceled' === pubStatus) {
         return this.actions.draft;
+    } else if('stat:deleted' === pubStatus) {
+        return this.actions.deleted;
     }
 
 };
@@ -36,10 +38,27 @@ Config.prototype.actions = {
         availableActions: [
             'done',
             'publish',
-            'schedule'
+            'schedule',
+            'deleted'
         ],
         newsItemProperties: {
             qcode: 'imext:draft'
+        },
+        newsItemValues: {}
+    },
+    'deleted': {
+        id: 'deleted',
+        name: 'Delete article',
+        icon: 'fa-trash',
+        statusText: 'Deleted',
+        actionMessage: 'The article has been deleted',
+        actionMethod: 'update',
+        actionText: 'Save',
+        availableActions: [
+            'draft'
+        ],
+        newsItemProperties: {
+            qcode: 'stat:deleted'
         },
         newsItemValues: {}
     },
@@ -115,7 +134,7 @@ Config.prototype.actions = {
         newsItemProperties: {
             qcode: 'stat:withheld',
             pubStart: 'userdefined',
-            pubStop: 'userdefined'
+            pubStop: false
         },
         newsItemValues: {}
     },
@@ -148,7 +167,8 @@ Config.prototype.actions = {
         availableActions: [
             'done',
             'publish',
-            'schedule'
+            'schedule',
+            'deleted'
         ],
         newsItemProperties: {
             qcode: 'imext:draft'
