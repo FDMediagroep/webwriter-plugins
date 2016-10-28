@@ -185,3 +185,9 @@ a.fdmg-box {
         float: none;
     }
 }
+
+// teaser override
+
+div.x-im-teaser div.x-im-teaser-text::before {
+    content: '\f1dd';
+}
