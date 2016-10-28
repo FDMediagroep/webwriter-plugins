@@ -36,7 +36,11 @@
           "teaserPosition": "top"
         }
       },
-      { "enabled": true, "vendor": "infomaker.se", "name": "history" },
+      {
+        "enabled": false,
+        "vendor": "infomaker.se",
+        "name": "history"
+      },
       {
         "enabled": true,
         "vendor": "infomaker.se",
@@ -47,7 +51,10 @@
         }
       },
       { "enabled": true, "vendor": "infomaker.se", "name": "link" },
-      { "enabled": true, "vendor": "infomaker.se", "name": "ximimage",
+      {
+        "enabled": true,
+        "vendor": "infomaker.se",
+        "name": "ximimage",
         "data": {
           "softcrop": false,
           "bylinesearch": false,
@@ -58,26 +65,54 @@
           "crops": { "16:9": [16, 9], "4:3": [4, 3], "1:1": [1, 1] },
           "urlMatchers": [ "^.*\\.jpg", "^.*\\.png", "^.*\\.gif" ],
           "fields": [
-            { "name": "caption", "label": "Caption", "type": "text" },
-            { "name": "credit", "label": "Credit", "type": "text" },
-            { "name": "alignment", "label": "Alignment", "type": "option",
+            {
+              "name": "caption",
+              "label": "Caption",
+              "type": "text"
+            },
+            {
+              "name": "credit",
+              "label": "Credit",
+              "type": "text"
+            },
+            {
+              "name": "alignment",
+              "label": "Alignment",
+              "type": "option",
               "options": [
-                { "name": "auto", "label": "Block", "icon": "fa-align-justify" },
-                { "name": "right", "label": "Right", "icon": "fa-align-right" }
+                {
+                  "name": "auto",
+                  "label": "Block",
+                  "icon": "fa-align-justify"
+                },
+                {
+                  "name": "right",
+                  "label": "Right",
+                  "icon": "fa-align-right"
+                }
               ]
             }
           ]
         }
       },
       {
+        "enabled": true,
         "vendor": "infomaker.se",
         "name": "ximpdf",
-        "enabled": true,
         "data": {
           "urlMatchers": [
             "^.*\\.pdf"
           ]
         }
+      },
+      {
+        "enabled": true,
+        "vendor": "nl.fdmg",
+        "name": "imagesearch",
+        "data": {
+          "resultsPerPage": 20
+        },
+        "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/imagesearch"
       },
       {
         "enabled": true,
