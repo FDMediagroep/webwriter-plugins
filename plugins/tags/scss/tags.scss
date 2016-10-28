@@ -2,6 +2,9 @@
     padding: 0 1rem;
 }
 .tags {
+    .tag-list__item .tag-item__title.tag-item__title--notexisting {
+        color: rgba(0,0,0,0.6);
+    }
     hr {
         margin: 0;
     }
