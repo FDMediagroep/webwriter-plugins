@@ -1,5 +1,8 @@
-.sc-publish {
+.sc-news-writer .se-workspace .se-context-section .sc-scroll-pane { background-color:rgba(0, 0, 0, 0.02); }
+.se-sidebar-top {
     background-color: #fff;
+}
+.sc-publish {
 
     .sc-publish__menu {
         @include flex();

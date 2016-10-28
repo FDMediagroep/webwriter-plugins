@@ -28,13 +28,13 @@ PlanneddateComponent.Prototype = function() {
     var timeComponent = 
           $$('div').append(
             $$('input').attr({
-                type: 'datetime-local',
+                type: 'date',
                 id: 'plannedDate',
                 value: this.state.initialDate.value
             }).addClass('form-control').ref('plannedDateInput').on("blur", function (){ this.updateDate() })
           );
 
-    el.append([timeComponent]);
+    el.append(timeComponent);
 
     return el;
   }
@@ -44,7 +44,7 @@ PlanneddateComponent.Prototype = function() {
     this.deleteDate();
 
     var newPlannedDate = this.refs.plannedDateInput.val();
-
+    console.log(newPlannedDate);
     if (newPlannedDate !== '') {
         this.context.api.addLink('planneddate', {
              '@uuid': genUuid(),
