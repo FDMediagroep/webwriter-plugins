@@ -1,11 +1,24 @@
 .planneddate {
 	padding: 0px 15px 10px 15px;
+
 	hr {
 		margin: 0px;
 	}
 	input {
 		&.form-control {
 			height: 30px;
+			width: 100%;
+			padding-left: 35px;
+			position: relative;
+			&:after {
+				position: absolute;
+				content: "\f073";
+				font-family: FontAwesome;
+				left: 10px;
+				top: -2px;
+				color: #000;
+				opacity: 0.4;
+			}
 		}
 	}
 

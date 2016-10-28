@@ -109,8 +109,6 @@ ActionItemComponent.Prototype = function () {
                             this.props.changePublishStatus(action);
                         }.bind(this)));
 
-
-                subList.append(subListItemPubStopDate);
                 subList.append(saveButton);
                 listItem.append(subList);
 

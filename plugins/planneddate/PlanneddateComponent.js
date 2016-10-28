@@ -10,29 +10,33 @@ function PlanneddateComponent() {
 PlanneddateComponent.Prototype = function() {
   this.getInitialState = function() {
     
-    const initialDate = this.context.api
+    var initialDate = this.context.api
       .getLinkByType('planneddate', 'fdmg/planneddate');
 
-      if (!initialDate) {
-            return { initialDate : ''}
+      if (!initialDate || initialDate.length < 1) {
+            return { initialDate : { value : '' } }
         } else {
-            return { initialDate: initialDate.map(function(initialDate){
-                      return {value : initialDate['@value'], uuid : initialDate['@uuid'] };
-                  }).pop() }
+          return { initialDate: initialDate.map(function(initialDate){
+            return {value : initialDate['@value'], uuid : initialDate['@uuid'] };
+          }).pop()}
         }
   }
 
   this.render = function() {
+    var el = $$('div').addClass('planneddate');
 
-    var timeComponent = $$('div').addClass('planneddate').append(
+    var timeComponent = 
+          $$('div').append(
             $$('input').attr({
                 type: 'datetime-local',
                 id: 'plannedDate',
                 value: this.state.initialDate.value
-            }).addClass('form-control').ref('plannedDateInput').on("blur", function (){ this.updateDate(this) })
-        );
+            }).addClass('form-control').ref('plannedDateInput').on("blur", function (){ this.updateDate() })
+          );
 
-    return timeComponent;
+    el.append([timeComponent]);
+
+    return el;
   }
 
   this.updateDate = function() {
@@ -54,7 +58,7 @@ PlanneddateComponent.Prototype = function() {
   this.deleteDate = function () {
       var api = this.context.api;
 
-      api.getLinkByType('fdmg/planneddate', 'fdmg/planneddate')
+      api.getLinkByType('fdmg/planneddate')
           .forEach(function(planneddate) {
               api.removeLinkByUUID('planneddate', planneddate['@uuid']);
       });
