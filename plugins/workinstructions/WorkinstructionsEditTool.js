@@ -14,7 +14,7 @@ WorkinstructionsEditComponent.Prototype = function() {
 
     this.render = function() {
 
-        var el = $$('div').addClass('embed-dialog');
+        var el = $$('div').addClass('fdmg-dialog');
         var workinstruction = $$('textarea')
             .addClass('textarea')
             .attr({'spellcheck' : false, 'placeholder' : this.context.i18n.t('Workinstruction placeholder') })

@@ -13,6 +13,8 @@ HtmlembedComponent.Prototype = function() {
     this.render = function() {
         var el = $$('a').append([
             $$('div').addClass('header').append([
+                $$(Icon, {icon: 'fa-code'}).addClass('plugin-icon'),
+                $$('div').addClass('plugin-title').append(this.context.i18n.t("HTML embed")),
                 $$('span').addClass('remove-button').append(
                     $$(Icon, {icon: 'fa-remove'})
                 ).on('click', this.removeEmbedhtml).attr('title', this.context.i18n.t('Remove from article')),
@@ -23,9 +25,9 @@ HtmlembedComponent.Prototype = function() {
             $$(TextProperty, {
                 tagName: 'div',
                 path: [this.props.node.id, 'text']
-            })
+            }).addClass('content')
         ])
-        .addClass('im-embedhtml')
+        .addClass('fdmg-box fdmg-embed')
         .attr('contentEditable', false);
 
         this.context.api.handleDrag(

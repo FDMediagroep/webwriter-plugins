@@ -21,7 +21,7 @@ HtmlembedEditComponent.Prototype = function() {
     };
 
     this.render = function() {
-        var el = $$('div').addClass('embed-dialog');
+        var el = $$('div').addClass('fdmg-dialog');
         var embed = $$('textarea')
             .addClass('textarea')
             .attr('spellcheck', false)

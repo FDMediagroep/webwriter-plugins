@@ -28,7 +28,7 @@ PlanneddateComponent.Prototype = function() {
     var timeComponent = 
           $$('div').append(
             $$('input').attr({
-                type: 'date',
+                type: 'datetime-local',
                 id: 'plannedDate',
                 value: this.state.initialDate.value
             }).addClass('form-control').ref('plannedDateInput').on("blur", function (){ this.updateDate() })

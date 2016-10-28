@@ -28,6 +28,7 @@ a.fdmg-box {
         box-shadow: rgba(0, 0, 0, 0.498039) 0px 0px 1px 0px, rgba(0, 0, 0, 0.14902) 0px 1px 10px 0px;
         div.header {
             .remove-button { display: block; }
+            .edit-button { display: block; }
             border-bottom: 1px solid #efefef;
             opacity: 1;
         }
@@ -71,11 +72,14 @@ a.fdmg-box {
         }
 
         .edit-button {
-            position: absolute;
-            right: 25px;
-            top: -5px;
-            cursor: pointer;
+            display: none;
+            float: right;
             color: #333;
+            cursor: pointer;
+            font-size: 0.9rem;
+            line-height: 1;
+            padding: 5px 5px 5px 5px;
+            margin-right: -5px;
             &:hover { color: #000; }
         }
     }

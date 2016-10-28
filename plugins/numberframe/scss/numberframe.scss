@@ -27,11 +27,11 @@ $im-embedhtml-border-color: #ddd;
 		}
     }
 	.content {
-		font-size: 1em;
+		font-size: 0.9em;
         line-height:1.4;
         position:relative;
         &:before {
-			content:"\f036";
+			content:"\f1dd";
 			color:rgba(0, 0, 0, 0.5);
 			font-family: FontAwesome;
 			font-weight: normal;
