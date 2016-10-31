@@ -1,6 +1,6 @@
 'use strict';
 
-function Nocomments() {
+function Comments() {
 }
 
 /**
@@ -9,19 +9,19 @@ function Nocomments() {
  * @type {{name: string, vendor: string, node: *, converter: *, component: *, tool: *[], command: *[]}}
  */
 
-Nocomments.prototype.schema = {
+Comments.prototype.schema = {
     
-    name: 'nocomments',
+    name: 'comments',
     vendor: 'nl.fdmg',
 
     uicomponents: {
         sidebar: {
             extra: [
-                require('./NocommentsComponent')
+                require('./CommentsComponent')
             ]
         }
     }
 
 };
 
-module.exports = Nocomments;
+module.exports = Comments;

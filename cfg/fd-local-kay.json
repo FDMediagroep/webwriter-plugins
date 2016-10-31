@@ -140,7 +140,7 @@
       { "enabled": true, "vendor": "nl.fdmg", "name": "relatedarticles",       "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/relatedarticles"},
       { "enabled": true, "vendor": "nl.fdmg", "name": "fdpersonal",           "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/fdpersonal" },
       { "enabled": true, "vendor": "nl.fdmg", "name": "showrelatedarticles",  "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/showrelatedarticles" },
-      { "enabled": true, "vendor": "nl.fdmg", "name": "nocomments",           "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/nocomments" },
+      { "enabled": true, "vendor": "nl.fdmg", "name": "comments",           "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/comments" },
       { "enabled": true, "vendor": "nl.fdmg", "name": "donotindex",           "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/donotindex" },
       { "enabled": true, "vendor": "nl.fdmg", "name": "breakingarticle",      "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/breakingarticle" },
       { "enabled": true, "vendor": "nl.fdmg", "name": "paywall",              "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/paywall" },

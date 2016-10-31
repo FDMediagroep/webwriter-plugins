@@ -48,19 +48,10 @@
         "enabled": true,
         "data": {
           "enablesoftcrop": true,
+          "imageinfo": false,
           "teaserPosition": "top",
           "fields": [
             "text"
-          ]
-        }
-      },
-      {
-        "vendor": "infomaker.se",
-        "name": "ximpdf",
-        "enabled": true,
-        "data": {
-          "urlMatchers": [
-            "^.*\\.pdf"
           ]
         }
       },
@@ -70,22 +61,7 @@
         "enabled": true,
         "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\publish"
       },
-      {
-        "vendor": "nl.fdmg",
-        "name": "textcount",
-        "enabled": true,
-        "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\textcount",
-        "data" : {
-        "marginPercentage" : 10,
-        "sizes" : {
-          "S" : 1810,
-          "L" : 3600,
-          "XL" : 6300,
-          "XXL" : 8200
-          },
-        "countedElements" : [ "paragraph" ]
-        }
-      },
+      
       {
         "vendor": "infomaker.se",
         "name": "youtube",
@@ -140,11 +116,15 @@
         }
       },
       {
-         "vendor": "infomaker.se",
-         "name": "ximimage",
-         "enabled": true,
-         "data": {
-             "enablesoftcrop": true,
+        "vendor": "infomaker.se",
+        "name": "ximimage",
+        "enabled": true,
+        "data": {
+            "softcrop": false,
+            "bylinesearch": false,
+            "byline": false,
+            "imageinfo": false,
+             "enablesoftcrop": false,
              "publishedmaxwidth": 2560,
              "crops": {
                "16:9": [16, 9],
@@ -163,11 +143,6 @@
               "type": "text"
             },
             {
-              "name": "alttext",
-              "label": "Alt text",
-              "type": "text"
-            },
-            {
               "name": "credit",
               "label": "Credit",
               "type": "text"
@@ -179,13 +154,8 @@
               "options": [
                 {
                   "name": "auto",
-                  "label": "Automatic",
-                  "icon": "fa-align-center"
-                },
-                {
-                  "name": "left",
-                  "label": "Left",
-                  "icon": "fa-align-left"
+                  "label": "Block",
+                  "icon": "fa-align-justify"
                 },
                 {
                   "name": "right",
@@ -337,9 +307,9 @@
       },
       {
         "vendor": "nl.fdmg",
-        "name": "nocomments",
+        "name": "comments",
         "enabled": true,
-        "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\nocomments"
+        "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\comments"
       },
       {
         "vendor": "nl.fdmg",
@@ -432,15 +402,10 @@
       {
         "vendor": "infomaker.se",
         "name": "history",
-        "enabled": true
+        "enabled": false
       },
-      { "enabled": true, "vendor": "nl.fdmg", "name": "fd4validation", "path": "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\fd4validation"},
-      {
-        "vendor": "nl.fdmg",
-        "name": "workinstructions",
-        "path": "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\workinstructions",
-        "enabled": true
-      },
+      { "enabled": false, "vendor": "nl.fdmg", "name": "fd4validation", "path": "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\fd4validation"},
+
       {
         "vendor": "nl.fdmg",
         "name": "workflowstate",
@@ -453,6 +418,29 @@
             { "label": "Klaar voor eindredactie", "color": "#03c6c7" },
             { "label": "Geredigeerd", "color": "#a207a2" }
           ]
+        }
+      },
+      { "enabled": true, "vendor": "nl.fdmg", "name": "planneddate", "path": "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\planneddate"},
+      {
+        "vendor": "nl.fdmg",
+        "name": "workinstructions",
+        "path": "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\workinstructions",
+        "enabled": true
+      },
+      {
+        "vendor": "nl.fdmg",
+        "name": "textcount",
+        "enabled": true,
+        "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\textcount",
+        "data" : {
+        "marginPercentage" : 10,
+        "sizes" : {
+          "S" : 1810,
+          "L" : 3600,
+          "XL" : 6300,
+          "XXL" : 8200
+          },
+        "countedElements" : [ "paragraph" ]
         }
       }
     ]

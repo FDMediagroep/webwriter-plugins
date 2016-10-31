@@ -136,6 +136,11 @@ const publish = {
 
 };
 
+const nocomments = {
+    'Enable comments' : 'Commentaar inschakelen'
+
+};
+
 function merge() {
     var result = {};
     for(var index in arguments){
@@ -169,5 +174,6 @@ module.exports = merge(
     workinstructions,
     author,
     tags,
-    publish
+    publish,
+    nocomments
 );
