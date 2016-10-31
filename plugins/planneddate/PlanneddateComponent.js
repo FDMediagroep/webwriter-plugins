@@ -14,10 +14,10 @@ PlanneddateComponent.Prototype = function() {
       .getLinkByType('planneddate', 'fdmg/planneddate');
 
       if (!initialDate || initialDate.length < 1) {
-            return { initialDate : { value : '' } }
+            return { initialDate : { date : '', time : '' } }
         } else {
           return { initialDate: initialDate.map(function(initialDate){
-            return {value : initialDate['@value'], uuid : initialDate['@uuid'] };
+            return { date : initialDate['@date'], uuid : initialDate['@uuid'], time : initialDate['@time'] };
           }).pop()}
         }
   }
@@ -25,16 +25,24 @@ PlanneddateComponent.Prototype = function() {
   this.render = function() {
     var el = $$('div').addClass('planneddate');
 
-    var timeComponent = 
-          $$('div').append(
-            $$('input').attr({
-                type: 'datetime-local',
-                id: 'plannedDate',
-                value: this.state.initialDate.value
-            }).addClass('form-control').ref('plannedDateInput').on("blur", function (){ this.updateDate() })
-          );
+    var date = this.state.initialDate.date;
+    var time = this.state.initialDate.time;
 
-    el.append(timeComponent);
+    var dateComponent =
+            $$('input').attr({
+                type: 'date',
+                id: 'plannedDate',
+                value: date,
+            }).addClass('form-control date').ref('dateInput').on("blur", function (){ this.updateDate() });
+
+    var timeComponent =
+            $$('input').attr({
+                type: 'time',
+                id: 'plannedTime',
+                value: time,
+            }).addClass('form-control time').ref('timeInput').on("blur", function (){ this.updateDate() });
+
+    el.append(dateComponent, timeComponent);
 
     return el;
   }
@@ -43,15 +51,17 @@ PlanneddateComponent.Prototype = function() {
 
     this.deleteDate();
 
-    var newPlannedDate = this.refs.plannedDateInput.val();
-    console.log(newPlannedDate);
-    if (newPlannedDate !== '') {
-        this.context.api.addLink('planneddate', {
-             '@uuid': genUuid(),
-             '@type': "fdmg/planneddate",
-             '@name' : 'planneddate',
-             '@value' : newPlannedDate
-        });
+    var date = this.refs.dateInput.val();
+    var time = this.refs.timeInput.val();
+
+    if (date !== '') {
+      this.context.api.addLink('planneddate', {
+           '@uuid': genUuid(),
+           '@type': "fdmg/planneddate",
+           '@name' : 'planneddate',
+           '@date' : date,
+           '@time' : time
+      });
     }
   }
 
