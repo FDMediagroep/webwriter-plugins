@@ -79,7 +79,7 @@ module.exports = {
       .map((l) => l.attributes.getNamedItem('url'))
       .filter((x) => !!x)
       .map((u) => u.value)
-      .every((u) => (/^.*fd\.nl\/.*(\d+).*$/i).test(u))) {
+      .every((u) => (/^.*fd\.nl.*\/(\d+).*$/i).test(u))) {
       accumulator.addError(this.context.i18n.t('Related article containes invalid url'))
     }
 
