@@ -3,10 +3,9 @@
     { "enabled": true, "vendor": "infomaker.se", "name": "utils" },
     { "enabled": true, "vendor": "infomaker.se", "name": "ximteaser",
       "data": {
-        "softcrop": true,
-        "imageinfo": false,
         "enablesoftcrop": true,
         "publishedmaxwidth": 2560,
+        "disablebylinesearch": true,
         "crops": { "16:9": [16, 9], "1:1": [1, 1], "2.39:1": [2.39, 1] },
         "fields": [ "text" ],
         "teaserPosition": "top"
