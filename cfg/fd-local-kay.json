@@ -106,7 +106,7 @@
         }
       },
       {
-        "enabled": true,
+        "enabled": false,
         "vendor": "nl.fdmg",
         "name": "imagesearch",
         "data": {
