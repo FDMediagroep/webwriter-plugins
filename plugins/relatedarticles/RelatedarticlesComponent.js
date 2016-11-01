@@ -85,7 +85,7 @@ RelatedarticlesComponent.Prototype = function() {
       const firstId = this.extractId(firstUrl)
       const secondId = this.extractId(secondUrl)
 
-      // if (firstId) {
+      if (firstId) {
         this.context.api.addLink(this.name, {
           '@type': this.type,
           '@rel': this.name,
@@ -93,9 +93,9 @@ RelatedarticlesComponent.Prototype = function() {
           '@id': firstId,
           '@uuid': genUuid()
         })
-      // }
+      }
 
-      // if (secondId) {
+      if (secondId) {
         this.context.api.addLink(this.name, {
           '@type': this.type,
           '@rel': this.name,
@@ -103,7 +103,7 @@ RelatedarticlesComponent.Prototype = function() {
           '@id': secondId,
           '@uuid': genUuid()
         })
-      // }
+      }
 
       if (firstId || secondId) this.reloadState()
     }
@@ -129,7 +129,7 @@ RelatedarticlesComponent.Prototype = function() {
   }
 
   this.extractId = function(url) {
-    const res = (/^.*fd\.nl\/.*(\d+).*$/i).exec(url)
+    const res = (/^.*fd\.nl.*\/(\d+).*$/i).exec(url)
 
     if (res && res.length == 2) return res[1]
 

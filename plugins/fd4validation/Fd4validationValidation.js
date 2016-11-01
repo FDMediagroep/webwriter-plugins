@@ -15,8 +15,6 @@ module.exports = {
     const pubStatus = getPubStatus(this.context.api.getPubStatus())
     const accumulator = MessageAccumulator()
 
-    // TODO text length maybe?
-
     const authors = newsItem.querySelectorAll('itemMeta>links link[type="x-im/author"]')
     if (authors.length < 1) {
       accumulator.addAuto(this.context.i18n.t('Missing author'), pubStatus)
@@ -81,7 +79,7 @@ module.exports = {
       .map((l) => l.attributes.getNamedItem('url'))
       .filter((x) => !!x)
       .map((u) => u.value)
-      .every((u) => (/^.*fd\.nl\/.*(\d+).*$/i).test(u))) {
+      .every((u) => (/^.*fd\.nl.*\/(\d+).*$/i).test(u))) {
       accumulator.addError(this.context.i18n.t('Related article containes invalid url'))
     }
 
