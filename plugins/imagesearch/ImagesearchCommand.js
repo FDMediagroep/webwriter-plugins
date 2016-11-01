@@ -1,6 +1,7 @@
 'use strict'
 
 const BlockContentCommand = require('writer/commands/BlockContentCommand')
+const _ = require('lodash')
 
 function ImagesearchCommand() {
   ImagesearchCommand.super.apply(this, arguments)
@@ -8,10 +9,32 @@ function ImagesearchCommand() {
 
 ImagesearchCommand.Prototype = function() {
 
-  this.search = function(query, resultsPerPage, pageIndex, cb) {
+  this.handleFiles = function(files) {
+    if (!_.isArrayLike(files)) {
+      this.handleFile(files)
+    } else {
+      for (let i = 0; i < files.length; i++) {
+        this.handleFile(files[i])
+      }
+    }
+  }
 
-    console.log(`search: ${query} ${resultsPerPage} ${pageIndex}`)
+  this.handleId = function(imageId) {
+    console.log('cmd::handleId', imageId)
 
+    // TODO Insert url into document
+
+    this.getDownloadUrl(imageId, function(err, result) {
+      if (err != null) {
+        console.log(err)
+      } else {
+        console.log('~>', result)
+      }
+    })
+  }
+
+  this.searchImage = function(query, pageIndex, resultsPerPage, callback) {
+    console.log(`cmd::searchImage '${query}' pi=${pageIndex} rpp=${resultsPerPage}`)
 
     const genColor = function() {
       const val = Math.random() * 0xff | 0
@@ -22,31 +45,28 @@ ImagesearchCommand.Prototype = function() {
       const images = []
       for (let i = 0; i < n; i++) {
         images.push({
-          id: Math.random() * 0x7fffffff,
+          id: Math.round(Math.random() * 0x7fffffff),
           thumbnailUrl: `http://placehold.it/160/${genColor()}`
         })
       }
       return images
     }
 
-
-
-
-
     const TOTAL_RESULTS = 42
     const n = Math.min(resultsPerPage, TOTAL_RESULTS - (pageIndex) * resultsPerPage)
 
     setTimeout(() => {
-      cb(null, {
+      callback(null, {
         totalResults: TOTAL_RESULTS,
         images: genImages(n)
       })
     }, Math.random() * 1500 + 500)
+  }
 
+  this.getDownloadUrl = function(imageId, callback) {
 
-
-
-
+    // TODO Find actual download url
+    callback(null, "https://cdn-images-1.medium.com/max/800/0*eIftYj-G7GSiHZ_B.jpg")
   }
 }
 

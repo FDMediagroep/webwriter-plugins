@@ -55,12 +55,22 @@ ImagesearchDialog.Prototype = function() {
           .append($$(Icon, {icon: 'fa-search'}))
           .on('click', function() {
             this.loadResults(this.refs.searchfield.val(), 0)
-          }.bind(this))
+          }.bind(this)),
+        $$('button')
+          .append($$('i').addClass('fa fa-image'))
+          .on('click', this.triggerFileDialog),
+        $$('input')
+          .attr('type', 'file')
+          .attr('multiple', 'multiple')
+          .attr('id', 'imagesearch-fileupload')
+          .on('change', this.triggerFileUpload)
       )
 
     const images = this.state.images.map((i) => {
       return $$('img')
-        .attr('src', i.thumbnailUrl)
+        .attr({'src': i.thumbnailUrl})
+        .attr({'data-id': i.id})
+        .on('click', this.insertImageUrl.bind(this))
       })
 
     const spinner = $$(SpinnerComponent, {isSearching: this.state.isSearching})
@@ -87,8 +97,6 @@ ImagesearchDialog.Prototype = function() {
         }
       }.bind(this))
 
-    // setTimeout(this.didUpdate.bind(this), 250)
-
     return $$('div')
       .addClass('imagesearch')
       .append(
@@ -98,7 +106,7 @@ ImagesearchDialog.Prototype = function() {
   }
 
   this.didUpdate = function() {
-    console.log('LOAD', this.state.scrollOffset)
+    // console.log('LOAD', this.state.scrollOffset)
     $('#imagesearch-results-container').scrollTop(this.state.scrollOffset)
   }
 
@@ -111,14 +119,11 @@ ImagesearchDialog.Prototype = function() {
 
     this.extendState({isSearching: true})
 
-    this.getCommand().search(query, this.props.resultsPerPage, pageIndex, function(err, result) {
-
+    this.getCommand().searchImage(query, pageIndex, this.props.resultsPerPage, function(err, result) {
       if (err != null) {
-        console.log(err)
-
+        console.error(err)
         this.extendState(this.getInitialState())  // fallback to defaults
       } else {
-
         this.extendState({
           isSearching: false,
           currentQuery: query,
@@ -127,26 +132,59 @@ ImagesearchDialog.Prototype = function() {
           totalResults: result.totalResults,
           scrollOffset: $('#imagesearch-results-container').scrollTop()
         })
-
-
-        console.log('SAVE', $('#imagesearch-results-container').scrollTop(), this.state.scrollOffset)
-
-        // console.log(`${result.images.length} Loaded n=${this.state.images.length} T=${this.state.totalResults}`)
       }
-
     }.bind(this))
   }
 
-  this.onSelect = function() {
-    console.log('SEL')
+  this.triggerFileDialog = function() {
+    $('#imagesearch-fileupload').click()
+  }
 
+  this.triggerFileUpload = function(e) {
+
+    const surface = this.context.controller.getSurface('body')
+    this.context.api.handleDrop(surface, {
+      dataTransfer:{
+        files: e.target.files
+      }
+    })
+
+    this.send('close')
+  }
+
+  this.insertImageUrl = function(e) {
+    let imageId
+
+    try {
+      imageId = e.target.attributes.getNamedItem('data-id').value
+    } catch (e) {
+    }
+
+    if (imageId) {
+      this.getCommand().getDownloadUrl(imageId, function(err, result) {
+        if (err != null) {
+          console.error(err)
+        } else {
+          const surface = this.context.controller.getSurface('body')
+          this.context.api.handleUris([result], surface)
+
+          // this.context.api.handleDrop(surface, {
+          //   dataTransfer: {
+          //     files: [],
+          //     types: {
+          //       find: function() {return true}
+          //     },
+          //     getData: function(x) {return result}
+          //   }
+          // })
+        }
+      }.bind(this))
+    }
 
     this.send('close')
   }
 
   this.onClose = function(status) {
-    console.log('x', status)
-
     return true
   }
 }
