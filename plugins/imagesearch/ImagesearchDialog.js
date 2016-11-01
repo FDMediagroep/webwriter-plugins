@@ -57,7 +57,7 @@ ImagesearchDialog.Prototype = function() {
             this.loadResults(this.refs.searchfield.val(), 0)
           }.bind(this)),
         $$('button')
-          .append($$('i').addClass('fa fa-image'))
+          .append($$('i').addClass('fa fa-upload'))
           .on('click', this.triggerFileDialog),
         $$('input')
           .attr('type', 'file')
