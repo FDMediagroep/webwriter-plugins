@@ -139,10 +139,10 @@
         "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/workflowstate",
         "data": {
           "options": [
-            { "label": "In voorbereiding", "color": "#cdcdcd" },
-            { "label": "In bewerking", "color": "#cbbb62" },
-            { "label": "Klaar voor eindredactie", "color": "#03c6c7" },
-            { "label": "Geredigeerd", "color": "#a207a2" }
+            { "label": "PREPARE", "text": "In voorbereiding", "color": "#cdcdcd" },
+            { "label": "EDIT", "text": "In bewerking", "color": "#cbbb62" },
+            { "label": "VERIFY", "text": "Klaar voor eindredactie", "color": "#03c6c7" },
+            { "label": "READY", "text": "Geredigeerd", "color": "#a207a2" }
           ]
         }
       },
