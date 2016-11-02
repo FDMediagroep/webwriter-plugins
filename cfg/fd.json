@@ -175,6 +175,7 @@
         "countedElements" : [ "paragraph" ]
       },
       "source": { "path": "webwriter-plugins/plugins/textcount", "pluginrepositoryId": "fdplugins", "type": "git" }
-    }
+    },
+    { "enabled": true, "vendor": "nl.fdmg", "name": "topstory",                                                                                     "source": { "path": "webwriter-plugins/plugins/topstory",     "pluginrepositoryId": "fdplugins", "type": "git" } }
   ]
 }

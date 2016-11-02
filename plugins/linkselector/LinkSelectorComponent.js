@@ -192,7 +192,7 @@ LinkSelectorComponent.Prototype = function() {
             .append(
                 select
                     .setId(listId)
-                    .append('selection required')
+                    .append('selection')
                     .append(items.map(function(item) {
                         return $$('option')
                             .append(item.label)
@@ -218,7 +218,7 @@ LinkSelectorComponent.Prototype = function() {
             .append(
                 input
                     .setId(freeTextId)
-                    .addClass('form-control required')
+                    .addClass('form-control free-input')
                     .attr({
                         'value': (selection.label !== this.getState().emptyitem.label) ? selection.label : '',
                         'placeholder': 'Aangepaste invoer',
