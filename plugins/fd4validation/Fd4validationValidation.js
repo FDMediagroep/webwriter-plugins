@@ -86,11 +86,8 @@ module.exports = {
     //
     if (lessThanOne(tags) && publishing) acc.addError('Missings tags')
 
-    // TODO Check related articles by DOM id instead of NewsML
     if (atLeastOne(relatedarticles) && !relatedarticles.every(isValidFd4Url) && (drafting || submitting)) acc.addWarning('Invalid related article url')
     if (atLeastOne(relatedarticles) && !relatedarticles.every(isValidFd4Url) && publishing) acc.addWarning('Invalid related article url')
-
-    // TODO Redirect article valid url
 
     return acc.read()
   }
