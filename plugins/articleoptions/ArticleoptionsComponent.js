@@ -63,20 +63,15 @@ ArticleoptionsComponent.Prototype = function() {
                 api.removeLinkByUUIDAndRel(name, link['@uuid'], link['@rel']);
             });
 
-        if (inputValue !== "") {
-            // add with input value if input has value
-            input.removeClass('novalue');
-            api.addLink(name, {
-                '@rel': this.getName(),
-                '@checked': value,
-                '@value': inputValue,
-                '@type': this.getType(),
-                '@uuid': genUUID()
-            });
-        } else {
-            input.addClass('novalue');
-            return
-        }
+        // add with input value if input has value
+        input.removeClass('novalue');
+        api.addLink(name, {
+            '@rel': this.getName(),
+            '@checked': value,
+            '@value': inputValue,
+            '@type': this.getType(),
+            '@uuid': genUUID()
+        });
     }
 
     this.render = function (){

@@ -296,7 +296,8 @@
           "countedElements" : [ "paragraph", "headline" ]
         },
         "path" : "/Users/kreuning/Developer/webwriter/plugins/plugins/textcount"
-      }
+      },
+      { "enabled": true, "vendor": "nl.fdmg", "name": "topstory",         "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/topstory" }
     ]
   }
 }
