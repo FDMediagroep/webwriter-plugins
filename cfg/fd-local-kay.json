@@ -106,13 +106,15 @@
         }
       },
       {
-        "enabled": false,
+        "enabled": true,
         "vendor": "nl.fdmg",
-        "name": "imagesearch",
+        "name": "xfdimage",
         "data": {
-          "resultsPerPage": 20
+          "resultsPerPage": 20,
+          "reloadScrollThreshold": 100,
+          "endpoint": "https://images.fdmg.nl"
         },
-        "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/imagesearch"
+        "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/xfdimage"
       },
       {
         "enabled": true,

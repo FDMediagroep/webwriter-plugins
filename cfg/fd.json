@@ -48,6 +48,16 @@
         ]
       }
     },
+    {
+      "enabled": true,
+      "vendor": "nl.fdmg",
+      "name": "xfdimage",
+      "data": {
+        "resultsPerPage": 20,
+        "reloadScrollThreshold": 100,
+        "endpoint": "https://images.fdmg.nl"
+      }
+    },
     { "enabled": true, "vendor": "infomaker.se", "name": "youtube",
       "data": {
         "urlMatchers": [ "^https?://(www\\.)?youtube\\.com/watch\\?v=.*", "^https?://youtu\\.be/.*" ]
