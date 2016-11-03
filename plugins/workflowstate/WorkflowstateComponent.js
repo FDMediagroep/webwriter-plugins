@@ -10,15 +10,12 @@ function WorkflowstateComponent() {
 WorkflowstateComponent.Prototype = function() {
   this.getInitialState = function() {
     const api = this.context.api
-
     const options = api.getConfigValue('workflowstate', 'options')
-    const selection = api
+    const label = api
       .getLinkByType('workflowstate', 'fdmg/workflowstate')
-      .map((link) => {
-        return {label: link['@label'], color: link['@color']}
-      })
-      .pop()
-      || (options.length > 0 ? options[0] : {label:'', color:'#ffffff'})
+      .map((link) => link['@label'])
+      .pop() || options[0].label
+    const selection = options.find((option) => option.label == label)
 
     return {options, selection}
   }
@@ -36,27 +33,25 @@ WorkflowstateComponent.Prototype = function() {
               .attr({'type': 'button', 'data-toggle': 'dropdown'})
               .append(
                 $$(Icon, {icon: 'fa-circle'}).attr('style', 'color:' + this.state.selection.color),
-                this.state.selection.label
+                this.state.selection.text
               ),
             $$('ul')
               .addClass('dropdown-menu')
               .append(
-                this.state.options.map(function(opt) {
+                this.state.options.map(function(option) {
                   return $$('li')
                     .append(
-                      $$(Icon, {icon: 'fa-circle'}).attr('style', 'color:' + opt.color),
-                      opt.label
+                      $$(Icon, {icon: 'fa-circle'}).attr('style', 'color:' + option.color),
+                      option.text
                     )
-                    .on('click', function() {
-                      this.updateSelection(opt)
-                    }.bind(this))
+                    .on('click', function() {this.updateSelection(option)}.bind(this))
                 }.bind(this))
               ),
           )
       )
   }
 
-  this.updateSelection = function(option) {
+  this.updateSelection = function(newSelection) {
     const api = this.context.api
 
     api
@@ -66,12 +61,11 @@ WorkflowstateComponent.Prototype = function() {
     api.addLink('workflowstate', {
       '@rel': 'workflowstate',
       '@type': 'fdmg/workflowstate',
-      '@label': this.state.selection.label,
-      '@color': this.state.selection.color,
+      '@label': newSelection.label,
       '@uuid': genUuid(),
     })
 
-    this.extendState({selection: option})
+    this.extendState({selection: newSelection})
   }
 }
 

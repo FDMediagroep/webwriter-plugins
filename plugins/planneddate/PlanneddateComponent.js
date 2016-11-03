@@ -58,7 +58,7 @@ PlanneddateComponent.Prototype = function() {
       this.context.api.addLink('planneddate', {
            '@uuid': genUuid(),
            '@type': "fdmg/planneddate",
-           '@name' : 'planneddate',
+           '@rel' : 'planneddate',
            '@date' : date,
            '@time' : time
       });
@@ -67,11 +67,10 @@ PlanneddateComponent.Prototype = function() {
 
   this.deleteDate = function () {
       var api = this.context.api;
-
-      api.getLinkByType('fdmg/planneddate')
-          .forEach(function(planneddate) {
-              api.removeLinkByUUID('planneddate', planneddate['@uuid']);
-      });
+      api.getLinkByType("planneddate", "fdmg/planneddate")
+        .forEach(function(planneddate) {
+            api.removeLinkByUUIDAndRel("planneddate", planneddate['@uuid'], planneddate['@rel']);
+        });
 
   };
 }

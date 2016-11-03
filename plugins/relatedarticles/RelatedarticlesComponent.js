@@ -93,6 +93,8 @@ RelatedarticlesComponent.Prototype = function() {
           '@id': firstId,
           '@uuid': genUuid()
         })
+      } else {
+        this.refs.first.setValue('')
       }
 
       if (secondId) {
@@ -103,6 +105,8 @@ RelatedarticlesComponent.Prototype = function() {
           '@id': secondId,
           '@uuid': genUuid()
         })
+      } else {
+        this.refs.second.setValue('')
       }
 
       if (firstId || secondId) this.reloadState()
