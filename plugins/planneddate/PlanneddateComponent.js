@@ -67,10 +67,8 @@ PlanneddateComponent.Prototype = function() {
 
   this.deleteDate = function () {
       var api = this.context.api;
-      console.log('delete date')
       api.getLinkByType("planneddate", "fdmg/planneddate")
         .forEach(function(planneddate) {
-          console.log(planneddate)
             api.removeLinkByUUIDAndRel("planneddate", planneddate['@uuid'], planneddate['@rel']);
         });
 
