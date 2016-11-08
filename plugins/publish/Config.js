@@ -14,10 +14,8 @@ Config.prototype.getActionFromStatus = function(pubStatus) {
     } else if('stat:usable' === pubStatus) {
         return this.actions.publish;
     } else if('stat:canceled' === pubStatus) {
-        return this.actions.draft;
-    } else if('stat:deleted' === pubStatus) {
         return this.actions.deleted;
-    }
+    } 
 
 };
 
@@ -58,7 +56,7 @@ Config.prototype.actions = {
             'draft'
         ],
         newsItemProperties: {
-            qcode: 'stat:deleted'
+            qcode: 'stat:canceled'
         },
         newsItemValues: {}
     },

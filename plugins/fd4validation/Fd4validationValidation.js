@@ -18,6 +18,7 @@ const isUnderRange = (x) => x[0].classList.contains('under-range')
 const isOverRange = (x) => x[0].classList.contains('over-range')
 const atLeastOne = (x) => x.length >= 1
 const isValidFd4Url = (x) => (/^.*fd\.nl.*\/(\d+).*$/i).test(x)
+// const removeCdata = (x) => x.replace("<![CDATA[", "").replace("]]>", "")
 
 module.exports = {
   isValid: function(newsItem) {
@@ -43,6 +44,7 @@ module.exports = {
         case 'stat:usable':   return 'published'
         case 'stat:withheld': // fallthrough
         case 'imext:done':    return 'submitted'
+        case 'stat:canceled':    return 'deleted'
         default:
           console.log(`Unknown pubstatus qcode: ${pubStatus.qcode}`)
           return 'foobar'
@@ -68,6 +70,30 @@ module.exports = {
       .filter((x) => !!x)
       .map((x) => x.value)
 
+    // quote
+    // const quote = newsItem.querySelectorAll('contentSet>inlineXML>idf>group object[type="fdmg/quote"')
+    // const quoteauthor = quote.length > 0 ? quote[0].querySelectorAll('data>author') || [] : []
+    // const quotemessage = quote.length > 0 ? quote[0].querySelectorAll('data>message') : []
+
+    // // numberframe
+    // const numberframe = newsItem.querySelectorAll('contentSet>inlineXML>idf>group object[type="fdmg/numberframe"')
+    // const numberframeheading = numberframe.length > 0 ? numberframe[0].querySelectorAll('data>heading') || [] : []
+    // const numberframecontent = numberframe.length > 0 ? numberframe[0].querySelectorAll('data>content') : []
+
+    // // textframe TODO: textframe does not generate empty xml content and or title in <data>
+    // const textframe = newsItem.querySelectorAll('contentSet>inlineXML>idf>group object[type="fdmg/textframe"')
+    // const textframeauthor = textframe.length > 0 ? textframe[0].querySelectorAll('data>author') || [] : []
+    // const textframemessage = textframe.length > 0 ? textframe[0].querySelectorAll('data>message') : []
+
+    // htmlembed
+    // const html = newsItem.querySelectorAll('contentSet>inlineXML>idf>group object[type="fdmg/htmlembed"')
+    // const htmlembedcontent = html.length > 0 ? removeCdata(html[0].querySelectorAll('data>text')) || [] : []
+    // console.log(htmlembedcontent)
+    // // stackframe
+    // const quote = newsItem.querySelectorAll('contentSet>inlineXML>idf>group object[type="fdmg/quote"')
+    // const quoteauthor = quote.length > 0 ? quote[0].querySelectorAll('data>author') || [] : []
+    // const quotemessage = quote.length > 0 ? quote[0].querySelectorAll('data>message') : []
+
     if (emptyBody(headline) && (submitting || publishing)) acc.addError('Missing headline')
     if (moreThanOne(headline) && (submitting || publishing)) acc.addError('More than one headline')
 
@@ -88,6 +114,12 @@ module.exports = {
 
     if (atLeastOne(relatedarticles) && !relatedarticles.every(isValidFd4Url) && (drafting || submitting)) acc.addWarning('Invalid related article url')
     if (atLeastOne(relatedarticles) && !relatedarticles.every(isValidFd4Url) && publishing) acc.addWarning('Invalid related article url')
+
+    // if (emptyBody(quoteauthor) && (submitting || publishing)) acc.addError('Missing quote author')
+    // if (emptyBody(quotemessage) && (submitting || publishing)) acc.addError('Missing quote text')
+
+    // if (emptyBody(numberframeheading) && (submitting || publishing)) acc.addError('Missing numberframe heading')
+    // if (emptyBody(numberframecontent) && (submitting || publishing)) acc.addError('Missing numberframe content')
 
     return acc.read()
   }
