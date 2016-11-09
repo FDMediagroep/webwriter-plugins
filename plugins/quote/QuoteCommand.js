@@ -10,7 +10,6 @@ function QuoteCommand() {
 QuoteCommand.Prototype = function() {
 
     this.insertQuote = function (quoteMessage, quoteAuthor) {
-        console.log(quoteMessage, quoteAuthor, 'command stuff');
         var state = this.getCommandState();
         console.info('Added quote "' + quoteMessage + '" with author: "' + quoteAuthor + '" to document');
         if (state.disabled) {

@@ -18,7 +18,6 @@ const isUnderRange = (x) => x[0].classList.contains('under-range')
 const isOverRange = (x) => x[0].classList.contains('over-range')
 const atLeastOne = (x) => x.length >= 1
 const isValidFd4Url = (x) => (/^.*fd\.nl.*\/(\d+).*$/i).test(x)
-// const removeCdata = (x) => x.replace("<![CDATA[", "").replace("]]>", "")
 
 module.exports = {
   isValid: function(newsItem) {
@@ -63,36 +62,14 @@ module.exports = {
     const textcount = newsItem.querySelectorAll('itemMeta>links link[type="fdmg/textcount"]')
     const charcount = $('#fd4validation-character-count')
     const section = newsItem.querySelectorAll('itemMeta>links link[type="fdmg/section"]')
+    
+
     const tags = newsItem.querySelectorAll('itemMeta>links link[type="x-im/category"]')
 
     const relatedarticles = Array.from(newsItem.querySelectorAll('itemMeta>links link[type="fdmg/relatedarticle"]').values())
       .map((x) => x.attributes.getNamedItem('url'))
       .filter((x) => !!x)
       .map((x) => x.value)
-
-    // quote
-    // const quote = newsItem.querySelectorAll('contentSet>inlineXML>idf>group object[type="fdmg/quote"')
-    // const quoteauthor = quote.length > 0 ? quote[0].querySelectorAll('data>author') || [] : []
-    // const quotemessage = quote.length > 0 ? quote[0].querySelectorAll('data>message') : []
-
-    // // numberframe
-    // const numberframe = newsItem.querySelectorAll('contentSet>inlineXML>idf>group object[type="fdmg/numberframe"')
-    // const numberframeheading = numberframe.length > 0 ? numberframe[0].querySelectorAll('data>heading') || [] : []
-    // const numberframecontent = numberframe.length > 0 ? numberframe[0].querySelectorAll('data>content') : []
-
-    // // textframe TODO: textframe does not generate empty xml content and or title in <data>
-    // const textframe = newsItem.querySelectorAll('contentSet>inlineXML>idf>group object[type="fdmg/textframe"')
-    // const textframeauthor = textframe.length > 0 ? textframe[0].querySelectorAll('data>author') || [] : []
-    // const textframemessage = textframe.length > 0 ? textframe[0].querySelectorAll('data>message') : []
-
-    // htmlembed
-    // const html = newsItem.querySelectorAll('contentSet>inlineXML>idf>group object[type="fdmg/htmlembed"')
-    // const htmlembedcontent = html.length > 0 ? removeCdata(html[0].querySelectorAll('data>text')) || [] : []
-    // console.log(htmlembedcontent)
-    // // stackframe
-    // const quote = newsItem.querySelectorAll('contentSet>inlineXML>idf>group object[type="fdmg/quote"')
-    // const quoteauthor = quote.length > 0 ? quote[0].querySelectorAll('data>author') || [] : []
-    // const quotemessage = quote.length > 0 ? quote[0].querySelectorAll('data>message') : []
 
     if (emptyBody(headline) && (submitting || publishing)) acc.addError('Missing headline')
     if (moreThanOne(headline) && (submitting || publishing)) acc.addError('More than one headline')
@@ -107,19 +84,133 @@ module.exports = {
     if (!exactlyOne(textcount) && publishing) acc.addError('Missing text length')
     if (exactlyOne(textcount) && exactlyOne(charcount) && isUnderRange(charcount) && (submitting || publishing)) acc.addWarning('Not enough characters')
     if (exactlyOne(textcount) && exactlyOne(charcount) && isOverRange(charcount) && (submitting || publishing)) acc.addWarning('Too many characters')
-    //
+
     if (!exactlyOne(section)) acc.addError('Missing section')
-    //
+
     if (lessThanOne(tags) && publishing) acc.addError('Missings tags')
 
     if (atLeastOne(relatedarticles) && !relatedarticles.every(isValidFd4Url) && (drafting || submitting)) acc.addWarning('Invalid related article url')
     if (atLeastOne(relatedarticles) && !relatedarticles.every(isValidFd4Url) && publishing) acc.addWarning('Invalid related article url')
 
-    // if (emptyBody(quoteauthor) && (submitting || publishing)) acc.addError('Missing quote author')
-    // if (emptyBody(quotemessage) && (submitting || publishing)) acc.addError('Missing quote text')
 
-    // if (emptyBody(numberframeheading) && (submitting || publishing)) acc.addError('Missing numberframe heading')
-    // if (emptyBody(numberframecontent) && (submitting || publishing)) acc.addError('Missing numberframe content')
+    // Validate HTML Embed
+    const htmlEmbed = newsItem.querySelectorAll('object[type="fdmg/htmlembed"]');
+    if ((submitting || publishing) && htmlEmbed.length) {
+
+      // HTML Embed text
+      let htmlEmbedNodes = Array.from(newsItem.querySelectorAll('object[type="fdmg/htmlembed"] text'));
+      let emptyHtmlEmbeds = htmlEmbedNodes.map((x)=>x.innerHTML.trim()).filter((x) => !x || x == "<![CDATA[]]>");
+      if (emptyHtmlEmbeds.length || htmlEmbed.length !== htmlEmbedNodes.length) acc.addError("There are one or more empty HTML-embeds");
+
+    }
+    
+    // Validate Topstory
+    const topstory = Array.from(newsItem.querySelectorAll('itemMeta>links link[type="fdmg/topstory"]').values())
+      .map((x) => x.attributes.getNamedItem('checked'))
+      .filter((x) => !!x)
+      .map((x) => x.value)
+
+    if ((drafting || submitting || publishing) && topstory == 'true') {
+      const topstoryInputValue = $('#topstory').val();
+      if (topstoryInputValue == "" ) acc.addError("Topstory input value is empty")
+    }
+
+    // Validate Quote
+    const quotes = newsItem.querySelectorAll('object[type="fdmg/quote"]');
+    if ((submitting || publishing) && quotes.length) {
+
+      // Quote text
+      let quoteMessageNodes = Array.from(newsItem.querySelectorAll('object[type="fdmg/quote"] message'));
+      let emptyQuoteMessages = quoteMessageNodes.map((x)=>x.innerHTML.trim()).filter((x) => !x);
+      if (emptyQuoteMessages.length || quotes.length !== quoteMessageNodes.length) acc.addError("Missing one or more quote messages");
+
+      // Quote text
+      let quoteAuthorNodes = Array.from(newsItem.querySelectorAll('object[type="fdmg/quote"] author'));
+      let emptyQuoteAuthors = quoteAuthorNodes.map((x)=>x.innerHTML.trim()).filter((x) => !x);
+      if (emptyQuoteAuthors.length || quotes.length !== quoteAuthorNodes.length) acc.addError("Missing one or more quote sources");
+
+    }
+
+    // Validate Textframe
+    const textFrames = newsItem.querySelectorAll('object[type="fdmg/textframe"]');
+    if ((submitting || publishing) && textFrames.length) {
+
+      // Textframe title
+      let emptyTextFrameTitle = Array.from(textFrames).map((x)=>x.attributes.getNamedItem('title')).filter((x) => !x);
+      if (emptyTextFrameTitle.length && (submitting || publishing)) acc.addError("No textframe title");
+
+      // TextFrame text
+      let textFrameTextNodes = Array.from(newsItem.querySelectorAll('object[type="fdmg/textframe"] text'));
+      let emptyTextFrameText = textFrameTextNodes.map((x)=>x.innerHTML.trim()).filter((x) => !x);
+      if (emptyTextFrameText.length || textFrames.length !== textFrameTextNodes.length) acc.addError("No textframe content");
+
+      // Textframe image
+
+      const textFrameImage = Array.from(newsItem.querySelectorAll('object[type="fdmg/textframe"] link[type="x-im/image"]')).map((x)=>x).filter((x) => !x);
+      if (textFrameImage.length || textFrames.length !== textFrameTextNodes.length) acc.addError("No textframe image");
+
+    }
+
+    // Validate Stackframe
+    const stackFrames = newsItem.querySelectorAll('object[type="fdmg/stackframe"]');
+    if ((submitting || publishing) && stackFrames.length) {
+
+      // Textframe title
+      let stackFrameHeadingNodes = Array.from(newsItem.querySelectorAll('object[type="fdmg/stackframe"] heading'));
+      let emptyStackFrameText = stackFrameHeadingNodes.map((x)=>x.innerHTML.trim()).filter((x) => !x);
+      if (emptyStackFrameText.length || stackFrames.length !== stackFrameHeadingNodes.length) acc.addError("No stackframe heading");
+
+      // StackFrame text
+      let stackFrameContentNodes = Array.from(newsItem.querySelectorAll('object[type="fdmg/stackframe"] content'));
+      let emptyStackFrameContent = stackFrameContentNodes.map((x)=>x.innerHTML.trim()).filter((x) => !x);
+      if (emptyStackFrameContent.length || stackFrames.length !== stackFrameContentNodes.length) acc.addError("No stackframe content");
+    }
+
+    // Validate Numberframe
+    const numberFrames = newsItem.querySelectorAll('object[type="fdmg/numberframe"]');
+    if ((submitting || publishing) && numberFrames.length) {
+
+      // Textframe title
+      let numberFrameHeadingNodes = Array.from(newsItem.querySelectorAll('object[type="fdmg/numberframe"] heading'));
+      let emptyNumberFrameHeading = numberFrameHeadingNodes.map((x)=>x.innerHTML.trim()).filter((x) => !x);
+      if (emptyNumberFrameHeading.length || numberFrames.length !== numberFrameHeadingNodes.length) acc.addError("No numberframe heading");
+
+      // StackFrame text
+      let numberFrameContentNodes = Array.from(newsItem.querySelectorAll('object[type="fdmg/numberframe"] content'));
+      let emptyStackFrameContent = numberFrameContentNodes.map((x)=>x.innerHTML.trim()).filter((x) => !x);
+      if (emptyStackFrameContent.length || numberFrames.length !== numberFrameContentNodes.length) acc.addError("No numberframe content");
+    }
+
+    // Validate Related link (uitstapmoment)
+    const relatedLinks = newsItem.querySelectorAll('object[type="fdmg/relatedlink"]');
+    if ((submitting || publishing) && relatedLinks.length ) {
+
+      // Related link prefix
+      let relatedLinksPrefixNodes = Array.from(newsItem.querySelectorAll('object[type="fdmg/relatedlink"] prefix'));
+      let emptyRelatedLinksPrefix = relatedLinksPrefixNodes.map((x)=>x.innerHTML.trim()).filter((x) => !x);
+      if (emptyRelatedLinksPrefix.length || relatedLinks.length !== relatedLinksPrefixNodes.length) acc.addError("No relatedlink prefix");
+
+      // Related link leadtext
+      let relatedLinksLeadTextNodes = Array.from(newsItem.querySelectorAll('object[type="fdmg/relatedlink"] leadtext'));
+      let emptyRelatedLinksLeadTexts = relatedLinksLeadTextNodes.map((x)=>x.innerHTML.trim()).filter((x) => !x);
+      if (emptyRelatedLinksLeadTexts.length || relatedLinks.length !== relatedLinksLeadTextNodes.length) acc.addError("No relatedlink leadtext");
+
+      // Related link related url
+      let relatedLinksRelatedUrlNodes = Array.from(newsItem.querySelectorAll('object[type="fdmg/relatedlink"] relatedurl'));
+      let emptyRelatedLinksRelatedUrls = relatedLinksRelatedUrlNodes.map((x)=>x.innerHTML.trim()).filter((x) => !x);
+      if (emptyRelatedLinksRelatedUrls.length || relatedLinks.length !== relatedLinksRelatedUrlNodes.length) acc.addError("No relatedlink relatedurl");
+    }
+
+    // Validate Images
+    const images = newsItem.querySelectorAll('object[type="x-im/image"]');
+    if ((submitting || publishing) && images.length) {
+
+      // Image Credit
+      let imageCreditsNodes = Array.from(newsItem.querySelectorAll('object[type="x-im/image"] links>link> credit'));
+      let emptyImageCaptions = imageCreditsNodes.map((x)=>x.innerHTML.trim()).filter((x) => !x);
+      if (emptyImageCaptions.length || images.length !== imageCreditsNodes.length) acc.addError("Missing one or more image credits");
+
+    }
 
     return acc.read()
   }
