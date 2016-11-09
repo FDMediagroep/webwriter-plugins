@@ -72,7 +72,7 @@ const relatedlink = {
 
 const relatedarticles = {
     'Related articles' : 'Gerelateerde artikelen',
-    'ARTICLE URL' : 'Artikel (url)'
+    'Article URL' : 'Artikel url'
 };
 
 const quote = {
@@ -99,14 +99,34 @@ const redirectlink = {
 };
 
 const fd4validation = {
-  'Missing author': 'Auteur is niet ingevuld',
-  'Missing headline': 'Headline is niet ingevuld',
-  'Too many headlines': 'Artikel mag maximaal 1 titel bevatten',
-  'Missing teaser': 'Teaser mist',
-  'Missing teaser title': 'Teaser titel niet ingevuld',
-  'Missing teaser body': 'Teaser tekst niet ingevuld',
-  'Missing section': 'Sectie is niet ingevuld',
-  'Missing tags': 'Tags zijn niet opgegeven'
+  'Missing headline' : 'Geen titel ingevuld',
+  'More than one headline' : 'Artikel mag maximaal 1 titel bevatten',
+  'Missing author' : 'Auteur is niet ingevuld',
+  'Missing teaser block' : 'Teaser mist',
+  'Too many teaser blocks' : 'Teveel teasers aanwezig',
+  'Missing teaser title' : 'Teaser titel niet ingevuld',
+  'Missing teaser body' : 'Teaser tekst niet ingevuld',
+  'Missing text length' : 'Artikel heeft geen tekstlengte',
+  'Not enough characters' : 'Artikel bevat te weinig tekens',
+  'Too many characters' : 'Artikel bevat teveel tekens',
+  'Missing section' : 'Sectie is niet opgegeven',
+  'Missings tags' : 'Geen tags ingevuld',
+  'Invalid related article url' : 'Gerelateerd artikel url niet valide',
+  'Topstory input value is empty' : 'Topstory staat aan maar er is geen tekst ingevuld',
+  'There are one or more empty HTML-embeds' : 'Artikel bevat een lege HTML-embed',
+  'Missing one or more quote messages' : 'Een of meerdere quotes bevat geen tekst',
+  'Missing one or more quote sources' : 'Een of meerdere quotes bevat geen bron',
+  'No textframe title' : 'Een of meerdere tekstkaders heeft geen titel',
+  'No textframe content' : 'Een of meerdere tekstkaders heeft geen tekst',
+  'No textframe image' : 'Een of meerdere tekstkaders heeft geen afbeelding',
+  'No stackframe heading' : 'Een of meerdere stapelkaders heeft geen titel',
+  'No stackframe content' : 'Een of meerdere stapelkaders heeft geen tekst',
+  'No numberframe heading' : 'Een of meerdere cijferkaders heeft geen titel',
+  'No numberframe content' : 'Een of meerdere cijferkaders heeft geen tekst',
+  'No relatedlink prefix' : 'Een of meerdere uitstapmomenten heeft geen voorvoegsel',
+  'No relatedlink leadtext' : 'Een of meerdere uitstapmomenten heeft geen tekst',
+  'No relatedlink relatedurl' : 'Een of meerdere uitstapmomenten heeft geen gerelateerde url',
+  'Missing one or more image credits' : 'Een of meerdere afbeeldingen heeft geen credits '
 }
 
 const workinstructions = {
