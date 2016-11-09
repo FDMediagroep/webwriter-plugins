@@ -28,7 +28,7 @@ QuoteComponent.Prototype = function() {
 
         var el = $$('a').append([
                     $$('div').addClass('header').append([
-                        $$(Icon, {icon: 'fa-quote'}).addClass('plugin-icon'),
+                        $$(Icon, {icon: 'fa-quote-left'}).addClass('plugin-icon'),
                         $$('div').addClass('plugin-title').append(this.context.i18n.t("Quote")),
                         $$('span').addClass('remove-button').append(
                             $$(Icon, {icon: 'fa-remove'})
