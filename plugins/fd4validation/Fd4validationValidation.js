@@ -63,7 +63,6 @@ module.exports = {
     const charcount = $('#fd4validation-character-count')
     const section = newsItem.querySelectorAll('itemMeta>links link[type="fdmg/section"]')
     
-
     const tags = newsItem.querySelectorAll('itemMeta>links link[type="x-im/category"]')
 
     const relatedarticles = Array.from(newsItem.querySelectorAll('itemMeta>links link[type="fdmg/relatedarticle"]').values())
@@ -71,26 +70,26 @@ module.exports = {
       .filter((x) => !!x)
       .map((x) => x.value)
 
-    if (emptyBody(headline) && (submitting || publishing)) acc.addError('Missing headline')
-    if (moreThanOne(headline) && (submitting || publishing)) acc.addError('More than one headline')
+    if (emptyBody(headline) && (submitting || publishing)) acc.addError(this.context.i18n.t('Missing headline'))
+    if (moreThanOne(headline) && (submitting || publishing)) acc.addError(this.context.i18n.t('More than one headline'))
 
-    if (lessThanOne(author)) acc.addError('Missing author')
+    if (lessThanOne(author)) acc.addError(this.context.i18n.t('Missing author'))
 
-    if (!exactlyOne(teaser)) acc.addError('Missing teaser block')
-    if (moreThanOne(teaser)) acc.addError('Too many teaser blocks')
-    if (exactlyOne(teaser) && emptyTitle(teasertitle) && publishing) acc.addError('Missing teaser title')
-    if (exactlyOne(teaser) && emptyBody(teaserbody) && publishing) acc.addError('Missing teaser body')
+    if (!exactlyOne(teaser)) acc.addError(this.context.i18n.t('Missing teaser block'))
+    if (moreThanOne(teaser)) acc.addError(this.context.i18n.t('Too many teaser blocks'))
+    if (exactlyOne(teaser) && emptyTitle(teasertitle) && publishing) acc.addError(this.context.i18n.t('Missing teaser title'))
+    if (exactlyOne(teaser) && emptyBody(teaserbody) && publishing) acc.addError(this.context.i18n.t('Missing teaser body'))
 
-    if (!exactlyOne(textcount) && publishing) acc.addError('Missing text length')
-    if (exactlyOne(textcount) && exactlyOne(charcount) && isUnderRange(charcount) && (submitting || publishing)) acc.addWarning('Not enough characters')
-    if (exactlyOne(textcount) && exactlyOne(charcount) && isOverRange(charcount) && (submitting || publishing)) acc.addWarning('Too many characters')
+    if (!exactlyOne(textcount) && publishing) acc.addError(this.context.i18n.t('Missing text length'))
+    if (exactlyOne(textcount) && exactlyOne(charcount) && isUnderRange(charcount) && (submitting || publishing)) acc.addWarning(this.context.i18n.t('Not enough characters'))
+    if (exactlyOne(textcount) && exactlyOne(charcount) && isOverRange(charcount) && (submitting || publishing)) acc.addWarning(this.context.i18n.t('Too many characters'))
 
-    if (!exactlyOne(section)) acc.addError('Missing section')
+    if (!exactlyOne(section)) acc.addError(this.context.i18n.t('Missing section'))
 
-    if (lessThanOne(tags) && publishing) acc.addError('Missings tags')
+    if (lessThanOne(tags) && publishing) acc.addError(this.context.i18n.t('Missings tags'))
 
-    if (atLeastOne(relatedarticles) && !relatedarticles.every(isValidFd4Url) && (drafting || submitting)) acc.addWarning('Invalid related article url')
-    if (atLeastOne(relatedarticles) && !relatedarticles.every(isValidFd4Url) && publishing) acc.addWarning('Invalid related article url')
+    if (atLeastOne(relatedarticles) && !relatedarticles.every(isValidFd4Url) && (drafting || submitting)) acc.addWarning(this.context.i18n.t('Invalid related article url'))
+    if (atLeastOne(relatedarticles) && !relatedarticles.every(isValidFd4Url) && publishing) acc.addWarning(this.context.i18n.t('Invalid related article url'))
 
 
     // Validate HTML Embed
@@ -100,7 +99,7 @@ module.exports = {
       // HTML Embed text
       let htmlEmbedNodes = Array.from(newsItem.querySelectorAll('object[type="fdmg/htmlembed"] text'));
       let emptyHtmlEmbeds = htmlEmbedNodes.map((x)=>x.innerHTML.trim()).filter((x) => !x || x == "<![CDATA[]]>");
-      if (emptyHtmlEmbeds.length || htmlEmbed.length !== htmlEmbedNodes.length) acc.addError("There are one or more empty HTML-embeds");
+      if (emptyHtmlEmbeds.length || htmlEmbed.length !== htmlEmbedNodes.length) acc.addError(this.context.i18n.t("There are one or more empty HTML-embeds"));
 
     }
     
@@ -112,7 +111,7 @@ module.exports = {
 
     if ((drafting || submitting || publishing) && topstory == 'true') {
       const topstoryInputValue = $('#topstory').val();
-      if (topstoryInputValue == "" ) acc.addError("Topstory input value is empty")
+      if (topstoryInputValue == "" ) acc.addError(this.context.i18n.t("Topstory input value is empty"))
     }
 
     // Validate Quote
@@ -122,12 +121,12 @@ module.exports = {
       // Quote text
       let quoteMessageNodes = Array.from(newsItem.querySelectorAll('object[type="fdmg/quote"] message'));
       let emptyQuoteMessages = quoteMessageNodes.map((x)=>x.innerHTML.trim()).filter((x) => !x);
-      if (emptyQuoteMessages.length || quotes.length !== quoteMessageNodes.length) acc.addError("Missing one or more quote messages");
+      if (emptyQuoteMessages.length || quotes.length !== quoteMessageNodes.length) acc.addError(this.context.i18n.t("Missing one or more quote messages"));
 
       // Quote text
       let quoteAuthorNodes = Array.from(newsItem.querySelectorAll('object[type="fdmg/quote"] author'));
       let emptyQuoteAuthors = quoteAuthorNodes.map((x)=>x.innerHTML.trim()).filter((x) => !x);
-      if (emptyQuoteAuthors.length || quotes.length !== quoteAuthorNodes.length) acc.addError("Missing one or more quote sources");
+      if (emptyQuoteAuthors.length || quotes.length !== quoteAuthorNodes.length) acc.addError(this.context.i18n.t("Missing one or more quote sources"));
 
     }
 
@@ -137,17 +136,17 @@ module.exports = {
 
       // Textframe title
       let emptyTextFrameTitle = Array.from(textFrames).map((x)=>x.attributes.getNamedItem('title')).filter((x) => !x);
-      if (emptyTextFrameTitle.length && (submitting || publishing)) acc.addError("No textframe title");
+      if (emptyTextFrameTitle.length && (submitting || publishing)) acc.addError(this.context.i18n.t("No textframe title"));
 
       // TextFrame text
       let textFrameTextNodes = Array.from(newsItem.querySelectorAll('object[type="fdmg/textframe"] text'));
       let emptyTextFrameText = textFrameTextNodes.map((x)=>x.innerHTML.trim()).filter((x) => !x);
-      if (emptyTextFrameText.length || textFrames.length !== textFrameTextNodes.length) acc.addError("No textframe content");
+      if (emptyTextFrameText.length || textFrames.length !== textFrameTextNodes.length) acc.addError(this.context.i18n.t("No textframe content"));
 
       // Textframe image
 
       const textFrameImage = Array.from(newsItem.querySelectorAll('object[type="fdmg/textframe"] link[type="x-im/image"]')).map((x)=>x).filter((x) => !x);
-      if (textFrameImage.length || textFrames.length !== textFrameTextNodes.length) acc.addError("No textframe image");
+      if (textFrameImage.length || textFrames.length !== textFrameTextNodes.length) acc.addError(this.context.i18n.t("No textframe image"));
 
     }
 
@@ -158,12 +157,12 @@ module.exports = {
       // Textframe title
       let stackFrameHeadingNodes = Array.from(newsItem.querySelectorAll('object[type="fdmg/stackframe"] heading'));
       let emptyStackFrameText = stackFrameHeadingNodes.map((x)=>x.innerHTML.trim()).filter((x) => !x);
-      if (emptyStackFrameText.length || stackFrames.length !== stackFrameHeadingNodes.length) acc.addError("No stackframe heading");
+      if (emptyStackFrameText.length || stackFrames.length !== stackFrameHeadingNodes.length) acc.addError(this.context.i18n.t("No stackframe heading"));
 
       // StackFrame text
       let stackFrameContentNodes = Array.from(newsItem.querySelectorAll('object[type="fdmg/stackframe"] content'));
       let emptyStackFrameContent = stackFrameContentNodes.map((x)=>x.innerHTML.trim()).filter((x) => !x);
-      if (emptyStackFrameContent.length || stackFrames.length !== stackFrameContentNodes.length) acc.addError("No stackframe content");
+      if (emptyStackFrameContent.length || stackFrames.length !== stackFrameContentNodes.length) acc.addError(this.context.i18n.t("No stackframe content"));
     }
 
     // Validate Numberframe
@@ -173,12 +172,12 @@ module.exports = {
       // Textframe title
       let numberFrameHeadingNodes = Array.from(newsItem.querySelectorAll('object[type="fdmg/numberframe"] heading'));
       let emptyNumberFrameHeading = numberFrameHeadingNodes.map((x)=>x.innerHTML.trim()).filter((x) => !x);
-      if (emptyNumberFrameHeading.length || numberFrames.length !== numberFrameHeadingNodes.length) acc.addError("No numberframe heading");
+      if (emptyNumberFrameHeading.length || numberFrames.length !== numberFrameHeadingNodes.length) acc.addError(this.context.i18n.t("No numberframe heading"));
 
       // StackFrame text
       let numberFrameContentNodes = Array.from(newsItem.querySelectorAll('object[type="fdmg/numberframe"] content'));
       let emptyStackFrameContent = numberFrameContentNodes.map((x)=>x.innerHTML.trim()).filter((x) => !x);
-      if (emptyStackFrameContent.length || numberFrames.length !== numberFrameContentNodes.length) acc.addError("No numberframe content");
+      if (emptyStackFrameContent.length || numberFrames.length !== numberFrameContentNodes.length) acc.addError(this.context.i18n.t("No numberframe content"));
     }
 
     // Validate Related link (uitstapmoment)
@@ -188,17 +187,17 @@ module.exports = {
       // Related link prefix
       let relatedLinksPrefixNodes = Array.from(newsItem.querySelectorAll('object[type="fdmg/relatedlink"] prefix'));
       let emptyRelatedLinksPrefix = relatedLinksPrefixNodes.map((x)=>x.innerHTML.trim()).filter((x) => !x);
-      if (emptyRelatedLinksPrefix.length || relatedLinks.length !== relatedLinksPrefixNodes.length) acc.addError("No relatedlink prefix");
+      if (emptyRelatedLinksPrefix.length || relatedLinks.length !== relatedLinksPrefixNodes.length) acc.addError(this.context.i18n.t("No relatedlink prefix"));
 
       // Related link leadtext
       let relatedLinksLeadTextNodes = Array.from(newsItem.querySelectorAll('object[type="fdmg/relatedlink"] leadtext'));
       let emptyRelatedLinksLeadTexts = relatedLinksLeadTextNodes.map((x)=>x.innerHTML.trim()).filter((x) => !x);
-      if (emptyRelatedLinksLeadTexts.length || relatedLinks.length !== relatedLinksLeadTextNodes.length) acc.addError("No relatedlink leadtext");
+      if (emptyRelatedLinksLeadTexts.length || relatedLinks.length !== relatedLinksLeadTextNodes.length) acc.addError(this.context.i18n.t("No relatedlink leadtext"));
 
       // Related link related url
       let relatedLinksRelatedUrlNodes = Array.from(newsItem.querySelectorAll('object[type="fdmg/relatedlink"] relatedurl'));
       let emptyRelatedLinksRelatedUrls = relatedLinksRelatedUrlNodes.map((x)=>x.innerHTML.trim()).filter((x) => !x);
-      if (emptyRelatedLinksRelatedUrls.length || relatedLinks.length !== relatedLinksRelatedUrlNodes.length) acc.addError("No relatedlink relatedurl");
+      if (emptyRelatedLinksRelatedUrls.length || relatedLinks.length !== relatedLinksRelatedUrlNodes.length) acc.addError(this.context.i18n.t("No relatedlink relatedurl"));
     }
 
     // Validate Images
@@ -208,7 +207,7 @@ module.exports = {
       // Image Credit
       let imageCreditsNodes = Array.from(newsItem.querySelectorAll('object[type="x-im/image"] links>link> credit'));
       let emptyImageCaptions = imageCreditsNodes.map((x)=>x.innerHTML.trim()).filter((x) => !x);
-      if (emptyImageCaptions.length || images.length !== imageCreditsNodes.length) acc.addError("Missing one or more image credits");
+      if (emptyImageCaptions.length || images.length !== imageCreditsNodes.length) acc.addError(this.context.i18n.t("Missing one or more image credits"));
 
     }
 
