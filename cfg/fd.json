@@ -4,7 +4,8 @@
     { "enabled": true, "vendor": "infomaker.se", "name": "ximteaser",
       "data": {
         "softcrop": true,
-        "bylinesearch": false,
+        "bylinesearch": true,
+        "enablesoftcrop": true,
         "imageinfo": true,
         "disablebylinesearch": true,
         "crops": { "16:9": [16, 9], "1:1": [1, 1], "2.39:1": [2.39, 1] },
