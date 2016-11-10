@@ -47,12 +47,13 @@
         "name": "ximteaser",
         "enabled": true,
         "data": {
-          "enablesoftcrop": true,
+          "softcrop": true,
+          "bylinesearch": false,
           "imageinfo": false,
-          "teaserPosition": "top",
-          "fields": [
-            "text"
-          ]
+          "disablebylinesearch": true,
+          "crops": { "16:9": [16, 9], "1:1": [1, 1], "2.39:1": [2.39, 1] },
+          "fields": [ "text" ],
+          "teaserPosition": "top"
         }
       },
       {
@@ -61,7 +62,7 @@
         "enabled": true,
         "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\publish"
       },
-
+      
       {
         "vendor": "infomaker.se",
         "name": "youtube",
@@ -182,6 +183,7 @@
         "enabled": true,
         "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\tags"
       },
+      
       {
         "vendor": "nl.fdmg",
         "name": "relatedarticles",
@@ -381,6 +383,13 @@
         "name": "textframe",
         "enabled": true,
         "data" : {
+          "softcrop": true,
+          "enablesoftcrop": true,
+          "crops": {
+             "16:9": [16, 9],
+             "4:3": [4, 3],
+             "1:1": [1, 1]
+           },
           "preventAutomaticLinkCreation": false,
           "disableUseOfAnnotationTools": false
         },
@@ -399,12 +408,8 @@
           ]
         }
       },
-      {
-        "vendor": "infomaker.se",
-        "name": "history",
-        "enabled": false
-      },
-      { "enabled": false, "vendor": "nl.fdmg", "name": "fd4validation", "path": "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\fd4validation"},
+     
+      { "enabled": true, "vendor": "nl.fdmg", "name": "fd4validation", "path": "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\fd4validation"},
 
       {
         "vendor": "nl.fdmg",
@@ -442,6 +447,22 @@
           },
         "countedElements" : [ "paragraph" ]
         }
+      },
+      {
+        "vendor": "nl.fdmg",
+        "name": "topstory",
+        "enabled": true,
+        "data" : {
+          "lengths" : {
+            "maxLength" : "90",
+            "optimalLength" : "60"
+          }
+        },
+        "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\topstory"
+      }, {
+        "vendor": "infomaker.se",
+        "name": "history",
+        "enabled": false
       }
     ]
   }
