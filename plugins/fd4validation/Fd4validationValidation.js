@@ -207,7 +207,6 @@ module.exports = {
       // Image Credit
       let imageCreditsNodes = Array.from(newsItem.querySelectorAll('object[type="x-im/image"] credit'));
       let emptyImageCaptions = imageCreditsNodes.map((x)=>x.innerHTML.trim()).filter((x) => !x);
-      console.log(emptyImageCaptions)
       if (emptyImageCaptions.length || images.length !== imageCreditsNodes.length) acc.addError(this.context.i18n.t("Missing one or more image credits"));
 
     }
