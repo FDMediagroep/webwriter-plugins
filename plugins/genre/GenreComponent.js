@@ -1,43 +1,129 @@
-'use strict';
+'use strict'
 
-var SuperComponent = require('vendor/nl.fdmg/linkselector/LinkSelectorComponent');
+const Component = require('substance/ui/Component')
+const Dropdown = require('vendor/nl.fdmg/dropdown/DropdownComponent')
+const $$ = Component.$$
+const $ = require('substance/util/jquery')
+const genUuid = require('writer/utils/IdGenerator')
 
-var __genre_state;
+let _genreItems
 
-function GenreComponent() { GenreComponent.super.apply(this, arguments); }
-
-GenreComponent.Prototype = function() {
-    this.getInitialState = function() { return __genre_state || SuperComponent.prototype.getInitialState.call(this); }
-
-    this.initialize = function() {
-        if (this.getState()['initialized?']) return;
-
-        this.extendState({
-            'initialized?': true,
-            'pluginname': 'genre',
-            'plugintype': 'fdmg/genre',
-            'heading': this.context.i18n.t('Genre')
-        });
-
-        var endpoint = this.context.api.getConfigValue('genre', 'endpoint');
-
-        this.loadList(endpoint, function(items) {
-            items = this
-                .sortByAplhabet(items, 'genre')
-                .map(function(item) { return { 'id': item.id, 'label': item.genre } });
-
-            items.unshift(this.getState().emptyitem);
-
-            return items
-        }.bind(this));
-    }
-
-    this.setState = function(newstate) {
-        __genre_state = newstate;
-        SuperComponent.prototype.setState.call(this, newstate);
-    }
+function GenreComponent() {
+  GenreComponent.super.apply(this, arguments)
 }
 
-SuperComponent.extend(GenreComponent);
+GenreComponent.Prototype = function() {
 
-module.exports = GenreComponent;
+  this.getInitialState = function() {
+    return {items: []}
+  }
+
+  this.didMount = function() {
+    if (_genreItems) {
+      this.extendState({items: _genreItems})
+    } else {
+      const endpoint = this.context.api.getConfigValue('genre', 'endpoint')
+
+      $.ajax(endpoint, {
+        data: {
+          dataType: 'json',
+          contentType: 'application/json; charset=utf-8'
+        }
+      })
+      .done(function(result) {
+        _genreItems = result.map((r) => {
+          return {id: r.id, label: r.genre}
+        })
+
+        this.extendState({items: _genreItems})
+      }.bind(this))
+      .error((err, xhr, text) => console.error(err, xhr, text))
+    }
+  }
+
+  this.render = function() {
+    const name = `genre`
+    const type = `fdmg/${name}`
+
+    const api = this.context.api
+
+    const initialSelection = api
+      .getLinkByType(name, type)
+      .map((link) => {return {id: link['@id'], label: link['@title']}})
+      .pop()
+
+    return $$('div')
+      .addClass('fdmg-sidebar')
+      .append(
+        $$(Dropdown, {
+          onSelect: (item) => {
+            api
+              .getLinkByType(name, type)
+              .forEach((link) => api.removeLinkByUUIDAndRel(name, link['@uuid'], link['@rel']))
+
+            api.addLink(name, {
+              '@rel': name,
+              '@type': type,
+              '@id': item.id,
+              '@title': item.label,
+              '@uuid': genUuid()
+            })
+          },
+          header: this.context.i18n.t('Genre'),
+          items: this.state.items,
+          allowFreeInput: true,
+          allowEmptySelection: true,
+          initialSelection: initialSelection
+        }),
+        $$('hr')
+      )
+  }
+}
+
+Component.extend(GenreComponent)
+module.exports = GenreComponent
+
+
+// 'use strict';
+//
+// var SuperComponent = require('vendor/nl.fdmg/linkselector/LinkSelectorComponent');
+//
+// var __genre_state;
+//
+// function GenreComponent() { GenreComponent.super.apply(this, arguments); }
+//
+// GenreComponent.Prototype = function() {
+//     this.getInitialState = function() { return __genre_state || SuperComponent.prototype.getInitialState.call(this); }
+//
+//     this.initialize = function() {
+//         if (this.getState()['initialized?']) return;
+//
+//         this.extendState({
+//             'initialized?': true,
+//             'pluginname': 'genre',
+//             'plugintype': 'fdmg/genre',
+//             'heading': this.context.i18n.t('Genre')
+//         });
+//
+//         var endpoint = this.context.api.getConfigValue('genre', 'endpoint');
+//
+//         this.loadList(endpoint, function(items) {
+//             items = this
+//                 .sortByAplhabet(items, 'genre')
+//                 .map(function(item) { return { 'id': item.id, 'label': item.genre } });
+//
+//             items.unshift(this.getState().emptyitem);
+//
+//             return items
+//         }.bind(this));
+//     }
+//
+//     this.setState = function(newstate) {
+//         __genre_state = newstate;
+//         SuperComponent.prototype.setState.call(this, newstate);
+//     }
+// }
+//
+// SuperComponent.extend(GenreComponent);
+//
+// module.exports = GenreComponent;
