@@ -299,7 +299,24 @@
         },
         "path" : "/Users/kreuning/Developer/webwriter/plugins/plugins/textcount"
       },
-      { "enabled": true, "vendor": "nl.fdmg", "name": "topstory",         "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/topstory" }
+      {
+        "enabled": true,
+        "vendor": "nl.fdmg",
+        "name": "topstory",
+        "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/topstory"
+      },
+      {
+        "enabled": true,
+        "vendor": "nl.fdmg",
+        "name": "dropdown",
+        "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/dropdown"
+      },
+      {
+        "enabled": false,
+        "vendor": "nl.fdmg",
+        "name": "testy",
+        "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/testy"
+      }
     ]
   }
 }
