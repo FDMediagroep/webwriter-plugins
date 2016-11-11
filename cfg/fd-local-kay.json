@@ -128,8 +128,6 @@
         }
       },
 
-      { "enabled": true, "vendor": "nl.fdmg", "name": "validatable",      "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/validatable" },
-      { "enabled": true, "vendor": "nl.fdmg", "name": "linkselector",     "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/linkselector" },
       { "enabled": true, "vendor": "nl.fdmg", "name": "articleoptions",   "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/articleoptions" },
       { "enabled": true, "vendor": "nl.fdmg", "name": "universalsearch",  "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/universalsearch" },
       { "enabled": true, "vendor": "nl.fdmg", "name": "fd4validation",    "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/fd4validation" },
