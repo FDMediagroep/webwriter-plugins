@@ -66,8 +66,16 @@
       }
     },
     { "enabled": true, "vendor": "nl.fdmg", "name": "fd4validation",                                                                                    "source": { "path": "webwriter-plugins/plugins/fd4validation",    "pluginrepositoryId": "fdplugins", "type": "git" } },
-    { "enabled": true, "vendor": "nl.fdmg", "name": "validatable",                                                                                      "source": { "path": "webwriter-plugins/plugins/validatable",      "pluginrepositoryId": "fdplugins", "type": "git" } },
-    { "enabled": true, "vendor": "nl.fdmg", "name": "linkselector",                                                                                     "source": { "path": "webwriter-plugins/plugins/linkselector",     "pluginrepositoryId": "fdplugins", "type": "git" } },
+    {
+      "enabled": true,
+      "vendor": "nl.fdmg",
+      "name": "dropdown",
+      "source": {
+        "path": "webwriter-plugins/plugins/articleoptions",
+        "pluginrepositoryId": "fdplugins",
+        "type": "git"
+      }
+    },
     { "enabled": true, "vendor": "nl.fdmg", "name": "articleoptions",                                                                                   "source": { "path": "webwriter-plugins/plugins/articleoptions",   "pluginrepositoryId": "fdplugins", "type": "git" } },
     { "enabled": true, "vendor": "nl.fdmg", "name": "universalsearch",                                                                                  "source": { "path": "webwriter-plugins/plugins/universalsearch",  "pluginrepositoryId": "fdplugins", "type": "git" } },
     { "enabled": true, "vendor": "nl.fdmg", "name": "publish",                                                                                          "source": { "path": "webwriter-plugins/plugins/publish",          "pluginrepositoryId": "fdplugins", "type": "git" } },
