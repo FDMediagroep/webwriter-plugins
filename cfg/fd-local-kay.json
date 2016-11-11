@@ -128,6 +128,12 @@
         }
       },
 
+      {
+        "enabled": true,
+        "vendor": "nl.fdmg",
+        "name": "dropdown",
+        "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/dropdown"
+      },
       { "enabled": true, "vendor": "nl.fdmg", "name": "articleoptions",   "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/articleoptions" },
       { "enabled": true, "vendor": "nl.fdmg", "name": "universalsearch",  "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/universalsearch" },
       { "enabled": true, "vendor": "nl.fdmg", "name": "fd4validation",    "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/fd4validation" },
@@ -302,12 +308,6 @@
         "vendor": "nl.fdmg",
         "name": "topstory",
         "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/topstory"
-      },
-      {
-        "enabled": true,
-        "vendor": "nl.fdmg",
-        "name": "dropdown",
-        "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/dropdown"
       },
       {
         "enabled": false,

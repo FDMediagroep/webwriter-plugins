@@ -62,7 +62,7 @@
         "enabled": true,
         "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\publish"
       },
-      
+
       {
         "vendor": "infomaker.se",
         "name": "youtube",
@@ -183,7 +183,7 @@
         "enabled": true,
         "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\tags"
       },
-      
+
       {
         "vendor": "nl.fdmg",
         "name": "relatedarticles",
@@ -200,16 +200,10 @@
         }
       },
       {
-        "vendor": "nl.fdmg",
-        "name": "validatable",
         "enabled": true,
-        "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\validatable"
-      },
-      {
         "vendor": "nl.fdmg",
-        "name": "linkselector",
-        "enabled": true,
-        "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\linkselector"
+        "name": "dropdown",
+        "path": "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\dropdown"
       },
       {
         "vendor": "nl.fdmg",
@@ -408,7 +402,7 @@
           ]
         }
       },
-     
+
       { "enabled": true, "vendor": "nl.fdmg", "name": "fd4validation", "path": "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\fd4validation"},
 
       {
