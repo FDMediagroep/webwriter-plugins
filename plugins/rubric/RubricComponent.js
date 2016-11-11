@@ -1,43 +1,130 @@
-'use strict';
+'use strict'
 
-var SuperComponent = require('vendor/nl.fdmg/linkselector/LinkSelectorComponent');
+const Component = require('substance/ui/Component')
+const Dropdown = require('vendor/nl.fdmg/dropdown/DropdownComponent')
+const $$ = Component.$$
+const $ = require('substance/util/jquery')
+const genUuid = require('writer/utils/IdGenerator')
 
-var __rubric_state;
+let _rubricItems
 
-function RubricComponent() { SuperComponent.super.apply(this, arguments); }
-
-RubricComponent.Prototype = function() {
-    this.getInitialState = function() { return __rubric_state || SuperComponent.prototype.getInitialState.call(this); }
-
-    this.initialize = function() {
-        if (this.getState()['initialized?']) return;
-
-        this.extendState({
-            'initialized?': true,
-            'pluginname': 'rubric',
-            'plugintype': 'fdmg/rubric',
-            'heading': this.context.i18n.t('Rubric')
-        });
-
-        var endpoint = this.context.api.getConfigValue('rubric', 'endpoint');
-
-        this.loadList(endpoint, function(items) {
-            items = this
-                .sortByAplhabet(items, 'rubric')
-                .map(function(item) { return { 'id': item.id, 'label': item.rubric }});
-
-            items.unshift(this.getState().emptyitem);
-
-            return items
-        }.bind(this));
-    }
-
-    this.setState = function(newstate) {
-        __rubric_state = newstate;
-        SuperComponent.prototype.setState.call(this, newstate);
-    }
+function RubricComponent() {
+  RubricComponent.super.apply(this, arguments)
 }
 
-SuperComponent.extend(RubricComponent);
+RubricComponent.Prototype = function() {
 
-module.exports = RubricComponent;
+  this.getInitialState = function() {
+    return {items: []}
+  }
+
+  this.didMount = function() {
+    if (_rubricItems) {
+      this.extendState({items: _rubricItems})
+    } else {
+      const endpoint = this.context.api.getConfigValue('rubric', 'endpoint')
+
+      $.ajax(endpoint, {
+        data: {
+          dataType: 'json',
+          contentType: 'application/json; charset=utf-8'
+        }
+      })
+      .done(function(result) {
+        _rubricItems = result.map((r) => {
+          return {id: r.id, label: r.rubric}
+        })
+
+        this.extendState({items: _rubricItems})
+      }.bind(this))
+      .error((err, xhr, text) => console.error(err, xhr, text))
+    }
+  }
+
+  this.render = function() {
+    const name = `rubric`
+    const type = `fdmg/${name}`
+
+    const api = this.context.api
+
+    const initialSelection = api
+      .getLinkByType(name, type)
+      .map((link) => {return {id: link['@id'], label: link['@title']}})
+      .pop()
+
+    return $$('div')
+      .addClass('fdmg-sidebar')
+      .append(
+        $$(Dropdown, {
+          onSelect: (item) => {
+            api
+              .getLinkByType(name, type)
+              .forEach((link) => api.removeLinkByUUIDAndRel(name, link['@uuid'], link['@rel']))
+
+            api.addLink(name, {
+              '@rel': name,
+              '@type': type,
+              '@id': item.id,
+              '@title': item.label,
+              '@uuid': genUuid(),
+            })
+          },
+          header: this.context.i18n.t('Rubric'),
+          items: this.state.items,
+          allowFreeInput: true,
+          allowEmptySelection: true,
+          initialSelection: initialSelection
+        }),
+        $$('hr')
+      )
+  }
+}
+
+Component.extend(RubricComponent)
+module.exports = RubricComponent
+
+
+
+// 'use strict';
+//
+// var SuperComponent = require('vendor/nl.fdmg/linkselector/LinkSelectorComponent');
+//
+// var __rubric_state;
+//
+// function RubricComponent() { SuperComponent.super.apply(this, arguments); }
+//
+// RubricComponent.Prototype = function() {
+//     this.getInitialState = function() { return __rubric_state || SuperComponent.prototype.getInitialState.call(this); }
+//
+//     this.initialize = function() {
+//         if (this.getState()['initialized?']) return;
+//
+//         this.extendState({
+//             'initialized?': true,
+//             'pluginname': 'rubric',
+//             'plugintype': 'fdmg/rubric',
+//             'heading': this.context.i18n.t('Rubric')
+//         });
+//
+//         var endpoint = this.context.api.getConfigValue('rubric', 'endpoint');
+//
+//         this.loadList(endpoint, function(items) {
+//             items = this
+//                 .sortByAplhabet(items, 'rubric')
+//                 .map(function(item) { return { 'id': item.id, 'label': item.rubric }});
+//
+//             items.unshift(this.getState().emptyitem);
+//
+//             return items
+//         }.bind(this));
+//     }
+//
+//     this.setState = function(newstate) {
+//         __rubric_state = newstate;
+//         SuperComponent.prototype.setState.call(this, newstate);
+//     }
+// }
+//
+// SuperComponent.extend(RubricComponent);
+//
+// module.exports = RubricComponent;
