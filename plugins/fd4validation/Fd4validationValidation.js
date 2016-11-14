@@ -63,8 +63,6 @@ module.exports = {
     const charcount = $('#fd4validation-character-count')
     const section = newsItem.querySelectorAll('itemMeta>links link[type="fdmg/section"]')
 
-    const tags = newsItem.querySelectorAll('itemMeta>links link[type="x-im/category"]')
-
     const relatedarticles = Array.from(newsItem.querySelectorAll('itemMeta>links link[type="fdmg/relatedarticle"]').values())
       .map((x) => x.attributes.getNamedItem('url'))
       .filter((x) => !!x)
@@ -85,8 +83,6 @@ module.exports = {
     if (exactlyOne(textcount) && exactlyOne(charcount) && isOverRange(charcount) && (submitting || publishing)) acc.addWarning(this.context.i18n.t('Too many characters'))
 
     if (!exactlyOne(section)) acc.addError(this.context.i18n.t('Missing section'))
-
-    if (lessThanOne(tags) && publishing) acc.addError(this.context.i18n.t('Missings tags'))
 
     if (atLeastOne(relatedarticles) && !relatedarticles.every(isValidFd4Url) && (drafting || submitting)) acc.addWarning(this.context.i18n.t('Invalid related article url'))
     if (atLeastOne(relatedarticles) && !relatedarticles.every(isValidFd4Url) && publishing) acc.addWarning(this.context.i18n.t('Invalid related article url'))
