@@ -53,6 +53,12 @@
       { "enabled": true, "vendor": "infomaker.se", "name": "link" },
       {
         "enabled": true,
+        "vendor": "nl.fdmg",
+        "name": "ximimagestub",
+        "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/ximimagestub"
+      },
+      {
+        "enabled": true,
         "vendor": "infomaker.se",
         "name": "ximimage",
         "data": {

@@ -9,10 +9,10 @@ module.exports = {
     const submitted = (qcode == 'stat:withheld' || qcode == 'imext:done')
     const published = (qcode == 'stat:usable')
 
-    if (submitted || published) {
+    const messages = []
 
+    if (submitted || published) {
       const textframes = Array.from(newsItem.querySelectorAll('object[type="fdmg/textframe"]'))
-      const messages = []
 
       textframes.forEach((tf, i) => {
 
@@ -27,8 +27,7 @@ module.exports = {
           messages.push({message: `${i18n.t('Textframe is missing text')} ${i + 1}`, type: 'error'})
         }
       })
-
-      return messages
     }
+    return messages
   }
 }
