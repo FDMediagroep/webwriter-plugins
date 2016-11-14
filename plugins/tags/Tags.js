@@ -13,7 +13,9 @@ Tags.prototype.schema = {
         require('./TagsMainComponent')
       ]
     }
-  }
+  },
+
+  validation: require('./TagsValidation')
 };
 
 module.exports = Tags;
