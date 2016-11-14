@@ -62,7 +62,7 @@ module.exports = {
     const textcount = newsItem.querySelectorAll('itemMeta>links link[type="fdmg/textcount"]')
     const charcount = $('#fd4validation-character-count')
     const section = newsItem.querySelectorAll('itemMeta>links link[type="fdmg/section"]')
-    
+
     const tags = newsItem.querySelectorAll('itemMeta>links link[type="x-im/category"]')
 
     const relatedarticles = Array.from(newsItem.querySelectorAll('itemMeta>links link[type="fdmg/relatedarticle"]').values())
@@ -102,7 +102,7 @@ module.exports = {
       if (emptyHtmlEmbeds.length || htmlEmbed.length !== htmlEmbedNodes.length) acc.addError(this.context.i18n.t("There are one or more empty HTML-embeds"));
 
     }
-    
+
     // Validate Topstory
     const topstory = Array.from(newsItem.querySelectorAll('itemMeta>links link[type="fdmg/topstory"]').values())
       .map((x) => x.attributes.getNamedItem('checked'))
@@ -127,26 +127,6 @@ module.exports = {
       let quoteAuthorNodes = Array.from(newsItem.querySelectorAll('object[type="fdmg/quote"] author'));
       let emptyQuoteAuthors = quoteAuthorNodes.map((x)=>x.innerHTML.trim()).filter((x) => !x);
       if (emptyQuoteAuthors.length || quotes.length !== quoteAuthorNodes.length) acc.addError(this.context.i18n.t("Missing one or more quote sources"));
-
-    }
-
-    // Validate Textframe
-    const textFrames = newsItem.querySelectorAll('object[type="fdmg/textframe"]');
-    if ((submitting || publishing) && textFrames.length) {
-
-      // Textframe title
-      let emptyTextFrameTitle = Array.from(textFrames).map((x)=>x.attributes.getNamedItem('title')).filter((x) => !x);
-      if (emptyTextFrameTitle.length && (submitting || publishing)) acc.addError(this.context.i18n.t("No textframe title"));
-
-      // TextFrame text
-      let textFrameTextNodes = Array.from(newsItem.querySelectorAll('object[type="fdmg/textframe"] text'));
-      let emptyTextFrameText = textFrameTextNodes.map((x)=>x.innerHTML.trim()).filter((x) => !x);
-      if (emptyTextFrameText.length || textFrames.length !== textFrameTextNodes.length) acc.addError(this.context.i18n.t("No textframe content"));
-
-      // Textframe image
-
-      const textFrameImage = Array.from(newsItem.querySelectorAll('object[type="fdmg/textframe"] link[type="x-im/image"]')).map((x)=>x).filter((x) => !x);
-      if (textFrameImage.length || textFrames.length !== textFrameTextNodes.length) acc.addError(this.context.i18n.t("No textframe image"));
 
     }
 
