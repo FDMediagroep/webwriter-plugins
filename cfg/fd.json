@@ -86,7 +86,7 @@
       "vendor": "nl.fdmg",
       "name": "dropdown",
       "source": {
-        "path": "webwriter-plugins/plugins/articleoptions",
+        "path": "webwriter-plugins/plugins/dropdown",
         "pluginrepositoryId": "fdplugins",
         "type": "git"
       }
