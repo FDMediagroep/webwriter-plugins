@@ -33,7 +33,7 @@ SectionComponent.Prototype = function() {
         } else {
           label = item.label
         }
-        
+
         return {id: item.id, label: label}
       })
       .pop()
