@@ -55,7 +55,7 @@ DropdownComponent.Prototype = function() {
             .attr({
               'data-id': item.id,
               disabled: item.disabled,
-              selected: item.disabled || (this.state.selection.id == item.id)
+              selected: item.disabled || (this.state.selection.label == item.label)
             })
         )
 
