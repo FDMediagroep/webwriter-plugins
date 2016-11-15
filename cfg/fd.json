@@ -51,6 +51,16 @@
       }
     },
     {
+      "enabled": true,
+      "vendor": "nl.fdmg",
+      "name": "ximimagestandin",
+      "source": {
+        "path": "webwriter-plugins/plugins/ximimagestandin",
+        "pluginrepositoryId": "fdplugins",
+        "type": "git"
+      }
+    },
+    {
       "enabled": false,
       "vendor": "nl.fdmg",
       "name": "xfdimage",
@@ -58,6 +68,11 @@
         "resultsPerPage": 20,
         "reloadScrollThreshold": 100,
         "endpoint": "https://images.fdmg.nl"
+      },
+      "source": {
+        "path": "webwriter-plugins/plugins/xfdimage",
+        "pluginrepositoryId": "fdplugins",
+        "type": "git"
       }
     },
     { "enabled": true, "vendor": "infomaker.se", "name": "youtube",
