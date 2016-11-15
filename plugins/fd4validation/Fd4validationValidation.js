@@ -78,16 +78,19 @@ module.exports = {
     if (exactlyOne(teaser) && emptyTitle(teasertitle) && publishing) acc.addError(this.context.i18n.t('Missing teaser title'))
     if (exactlyOne(teaser) && emptyBody(teaserbody) && publishing) acc.addError(this.context.i18n.t('Missing teaser body'))
 
+    // TODO Extract to textcount/TextcountValidation.js
     if (!exactlyOne(textcount) && publishing) acc.addError(this.context.i18n.t('Missing text length'))
     if (exactlyOne(textcount) && exactlyOne(charcount) && isUnderRange(charcount) && (submitting || publishing)) acc.addWarning(this.context.i18n.t('Not enough characters'))
     if (exactlyOne(textcount) && exactlyOne(charcount) && isOverRange(charcount) && (submitting || publishing)) acc.addWarning(this.context.i18n.t('Too many characters'))
 
+    // TODO Extract to section/SectionValidation.js
     if (!exactlyOne(section)) acc.addError(this.context.i18n.t('Missing section'))
 
+    // TODO Extract to relatedarticles/RelatedarticlesValidation.js
     if (atLeastOne(relatedarticles) && !relatedarticles.every(isValidFd4Url) && (drafting || submitting)) acc.addWarning(this.context.i18n.t('Invalid related article url'))
     if (atLeastOne(relatedarticles) && !relatedarticles.every(isValidFd4Url) && publishing) acc.addWarning(this.context.i18n.t('Invalid related article url'))
 
-
+    // TODO Extract to htmlembed/HtmlembedValidation.js
     // Validate HTML Embed
     const htmlEmbed = newsItem.querySelectorAll('object[type="fdmg/htmlembed"]');
     if ((submitting || publishing) && htmlEmbed.length) {
@@ -99,6 +102,7 @@ module.exports = {
 
     }
 
+    // TODO Extract to topstory/TopstoryValidation.js
     // Validate Topstory
     const topstory = Array.from(newsItem.querySelectorAll('itemMeta>links link[type="fdmg/topstory"]').values())
       .map((x) => x.attributes.getNamedItem('checked'))
@@ -110,6 +114,7 @@ module.exports = {
       if (topstoryInputValue == "" ) acc.addError(this.context.i18n.t("Topstory input value is empty"))
     }
 
+    // TODO Extract to quote/QuoteValidation.js
     // Validate Quote
     const quotes = newsItem.querySelectorAll('object[type="fdmg/quote"]');
     if ((submitting || publishing) && quotes.length) {
@@ -126,6 +131,7 @@ module.exports = {
 
     }
 
+    // TODO Extract to stackframe/StackframeValidation.js
     // Validate Stackframe
     const stackFrames = newsItem.querySelectorAll('object[type="fdmg/stackframe"]');
     if ((submitting || publishing) && stackFrames.length) {
@@ -141,6 +147,7 @@ module.exports = {
       if (emptyStackFrameContent.length || stackFrames.length !== stackFrameContentNodes.length) acc.addError(this.context.i18n.t("No stackframe content"));
     }
 
+    // TODO Extract to numberframe/NumberframeValidation.js
     // Validate Numberframe
     const numberFrames = newsItem.querySelectorAll('object[type="fdmg/numberframe"]');
     if ((submitting || publishing) && numberFrames.length) {
@@ -156,6 +163,7 @@ module.exports = {
       if (emptyStackFrameContent.length || numberFrames.length !== numberFrameContentNodes.length) acc.addError(this.context.i18n.t("No numberframe content"));
     }
 
+    // Extract to relatedarticles/RelatedarticlesValidation.js
     // Validate Related link (uitstapmoment)
     const relatedLinks = newsItem.querySelectorAll('object[type="fdmg/relatedlink"]');
     if ((submitting || publishing) && relatedLinks.length ) {
