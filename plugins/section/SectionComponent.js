@@ -24,7 +24,22 @@ SectionComponent.Prototype = function() {
     const initialSelection = api
       .getLinkByType(name, type)
       .map((link) => {return {id: link['@id'], label: link['@title']}})
+      .map((item) => {
+        const match = items.find((i) => item.id == i.id)
+
+        let label
+        if (match != undefined) {
+          label = match.label
+        } else {
+          label = item.label
+        }
+        
+        return {id: item.id, label: label}
+      })
       .pop()
+
+    console.log(items)
+    console.log(initialSelection)
 
     return $$('div')
       .addClass('fdmg-sidebar')
