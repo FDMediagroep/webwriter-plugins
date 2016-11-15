@@ -20,9 +20,12 @@ DropdownComponent.Prototype = function() {
   */
 
   this.getInitialState = function() {
+    const selection = this.props.initialSelection || {id: 'default', label: ''}
+    const listmode = !(this.props.allowFreeInput && !this.props.items.some((item) => selection.label == item.label))
+
     return {
-      listmode: true,
-      selection: this.props.initialSelection || {id: 'default', label: ''}
+      listmode,
+      selection
     }
   }
 
