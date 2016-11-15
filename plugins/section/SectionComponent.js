@@ -38,9 +38,6 @@ SectionComponent.Prototype = function() {
       })
       .pop()
 
-    console.log(items)
-    console.log(initialSelection)
-
     return $$('div')
       .addClass('fdmg-sidebar')
       .append(
