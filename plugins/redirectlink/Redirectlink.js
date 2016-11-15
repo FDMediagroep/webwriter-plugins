@@ -3,14 +3,7 @@
 function RedirectLink() {
 }
 
-/**
- * Stockticker plugin schema definition
- *
- * @type {{name: string, vendor: string, node: *, converter: *, component: *, tool: *[], command: *[]}}
- */
-
 RedirectLink.prototype.schema = {
-    
     name: 'redirectlink',
     vendor: 'nl.fdmg',
 
@@ -20,8 +13,8 @@ RedirectLink.prototype.schema = {
                 require('./RedirectLinkComponent')
             ]
         }
-    }
-
+    },
+    validation: require('./RedirectlinkValidation')
 };
 
 module.exports = RedirectLink;
