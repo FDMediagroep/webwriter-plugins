@@ -14,7 +14,9 @@ Linkedarticles.prototype.schema = {
         require('./RelatedarticlesComponent')
       ]
     }
-  }
+  },
+
+  validation: require('./RelatedarticlesValidation')
 };
 
 module.exports = Linkedarticles;

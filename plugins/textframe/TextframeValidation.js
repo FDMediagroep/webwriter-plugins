@@ -19,12 +19,12 @@ module.exports = {
         const title = tf.attributes.getNamedItem('title')
         const text = tf.querySelector('data>text')
 
-        if (!title || title.toString().trim() == '') {
-          messages.push({message: `${i18n.t('Textframe is missing title')} ${i + 1}`, type: 'error'})
+        if (!title || title.value.trim() == '') {
+          messages.push({message: `${i18n.t('Textframe is missing title')} (${i + 1})`, type: 'error'})
         }
 
         if (!text || text.innerHTML.trim() == '') {
-          messages.push({message: `${i18n.t('Textframe is missing text')} ${i + 1}`, type: 'error'})
+          messages.push({message: `${i18n.t('Textframe is missing text')} (${i + 1})`, type: 'error'})
         }
       })
     }
