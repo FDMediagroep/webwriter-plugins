@@ -61,13 +61,15 @@ GenreComponent.Prototype = function() {
               .getLinkByType(name, type)
               .forEach((link) => api.removeLinkByUUIDAndRel(name, link['@uuid'], link['@rel']))
 
-            api.addLink(name, {
-              '@rel': name,
-              '@type': type,
-              '@id': item.id,
-              '@title': item.label,
-              '@uuid': genUuid()
-            })
+            if (item.id != 'none') {
+              api.addLink(name, {
+                '@rel': name,
+                '@type': type,
+                '@id': item.id,
+                '@title': item.label,
+                '@uuid': genUuid()
+              })
+            }
           },
           header: this.context.i18n.t('Genre'),
           items: this.state.items,
