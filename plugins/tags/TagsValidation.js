@@ -9,18 +9,19 @@ module.exports = {
     const submitted = (qcode == 'stat:withheld' || qcode == 'imext:done')
     const published = (qcode == 'stat:usable')
 
+    const messages = []
+
     if (published) {
 
       const tags = Array.from(newsItem.querySelectorAll('itemMeta > links link[type="x-im/category"]'))
 
       if (tags.length <= 0) {
-        return [{
+        messages.push({
           message: i18n.t('Missing tags'),
           type: 'warning'
-        }]
+        })
       }
-
-      return []
     }
+    return messages
   }
 }
