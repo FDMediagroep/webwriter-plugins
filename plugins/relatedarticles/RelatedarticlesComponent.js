@@ -1,12 +1,3 @@
-/*
-
- ,_,
-(0,0)
-(   )
--"-"-
-
-*/
-
 'use strict'
 
 const Component = require('substance/ui/Component')
@@ -82,34 +73,27 @@ RelatedarticlesComponent.Prototype = function() {
       // if firstUrl is empty, swap values
       if (!firstUrl) firstUrl, secondUrl = secondUrl, firstUrl
 
-      const firstId = this.extractId(firstUrl)
-      const secondId = this.extractId(secondUrl)
-
-      if (firstId) {
+      if (firstUrl) {
         this.context.api.addLink(this.name, {
           '@type': this.type,
           '@rel': this.name,
           '@url': firstUrl,
-          '@id': firstId,
+          '@id': this.extractId(firstUrl),
           '@uuid': genUuid()
         })
-      } else {
-        this.refs.first.setValue('')
       }
 
-      if (secondId) {
+      if (secondUrl) {
         this.context.api.addLink(this.name, {
           '@type': this.type,
           '@rel': this.name,
           '@url': secondUrl,
-          '@id': secondId,
+          '@id': this.extractId(secondUrl),
           '@uuid': genUuid()
         })
-      } else {
-        this.refs.second.setValue('')
       }
 
-      if (firstId || secondId) this.reloadState()
+      this.reloadState()
     }
   }
 
@@ -137,7 +121,7 @@ RelatedarticlesComponent.Prototype = function() {
 
     if (res && res.length == 2) return res[1]
 
-    return null
+    return ''
   }
 }
 
