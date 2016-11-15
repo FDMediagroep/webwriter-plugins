@@ -24,10 +24,6 @@ const donotindex = {
     'Do not index' : 'Artikel niet indexeren'
 };
 
-const nocomments = {
-    'Disable comments' : 'Commentaar uitschakelen'
-};
-
 const paywall = {
     'Free article' : 'Gratis artikel'
 };
@@ -38,7 +34,7 @@ const relatedarticle = {
 
 const Workinstruction = {
    'Workinstruction placeholder' : 'Werkinstructies (b.v. Locatie etc.)' 
-}
+};
 
 const rubric = {
     'Rubric' : 'Rubriek'
@@ -127,36 +123,34 @@ const fd4validation = {
   'No relatedlink leadtext' : 'Een of meerdere uitstapmomenten heeft geen tekst',
   'No relatedlink relatedurl' : 'Een of meerdere uitstapmomenten heeft geen gerelateerde url',
   'Missing one or more image credits' : 'Een of meerdere afbeeldingen heeft geen credits '
-}
+};
 
 const workinstructions = {
     'Workinstructions' : 'Werkinstructies',
     'Workinstruction placeholder' : 'b.v. locatie en opmerkingen',
-}
+};
 
 const author = {
     'Author' : 'Auteur',
     'Add author' : 'Auteur toevoegen',
     'Not editable author' : 'Deze auteur kan niet bewerkt worden',
     'Remove from article' : 'Uit artikel verwijderen'
-}
+};
 
 const tags = {
     'Removed from article' : '',
     'Tags' : 'Tags',
     'Add tag' : 'Tag toevoegen'
-
-}
+};
 
 const publish = {
     'Ready for approval': 'Laatste nieuws',
     'Delete article' : 'Artikel verwijderen',
     'Deleted' : 'Verwijderd',
     'The article has been deleted' : 'Het artikel is verwijderd'
-
 };
 
-const nocomments = {
+const comments = {
     'Enable comments' : 'Commentaar inschakelen'
 
 };
@@ -168,7 +162,7 @@ function merge() {
         for(var key in input) result[key]=input[key];
     }
     return result;
-}
+};
 
 module.exports = merge(
     general_translations,
@@ -177,7 +171,7 @@ module.exports = merge(
     genre,
     breakingarticle,
     donotindex,
-    nocomments,
+    comments,
     paywall,
     relatedarticle,
     rubric,
@@ -194,6 +188,5 @@ module.exports = merge(
     workinstructions,
     author,
     tags,
-    publish,
-    nocomments
+    publish
 );
