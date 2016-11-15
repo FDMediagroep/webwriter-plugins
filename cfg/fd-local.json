@@ -62,7 +62,7 @@
         "enabled": true,
         "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\publish"
       },
-      
+
       {
         "vendor": "infomaker.se",
         "name": "youtube",
@@ -168,6 +168,12 @@
           ]
          }
        },
+       {
+         "enabled": true,
+         "vendor": "nl.fdmg",
+         "name": "ximimagestandin",
+         "path": "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\ximimagestandin"
+       },
       {
         "vendor": "nl.fdmg",
         "name": "author",
@@ -183,7 +189,7 @@
         "enabled": true,
         "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\tags"
       },
-      
+
       {
         "vendor": "nl.fdmg",
         "name": "relatedarticles",
@@ -408,7 +414,7 @@
           ]
         }
       },
-     
+
       { "enabled": true, "vendor": "nl.fdmg", "name": "fd4validation", "path": "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\fd4validation"},
 
       {
