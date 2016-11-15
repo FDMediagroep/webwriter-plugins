@@ -35,7 +35,9 @@ Textframe.prototype.schema = {
                  itemClasses: ['ninat:picture']
              }
          ]
-    }
+    },
+
+    validation: require('./TextframeValidation')
 };
 
 module.exports = Textframe;

@@ -168,6 +168,12 @@
           ]
          }
        },
+       {
+         "enabled": true,
+         "vendor": "nl.fdmg",
+         "name": "ximimagestandin",
+         "path": "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\ximimagestandin"
+       },
       {
         "vendor": "nl.fdmg",
         "name": "author",
