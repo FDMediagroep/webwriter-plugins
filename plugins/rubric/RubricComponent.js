@@ -61,7 +61,7 @@ RubricComponent.Prototype = function() {
               .getLinkByType(name, type)
               .forEach((link) => api.removeLinkByUUIDAndRel(name, link['@uuid'], link['@rel']))
 
-            if (item.id != 'none') {
+            if (item.id != 'none' && item.label.trim() != '') {
               api.addLink(name, {
                 '@rel': name,
                 '@type': type,
