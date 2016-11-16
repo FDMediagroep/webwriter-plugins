@@ -4,7 +4,7 @@ var Component = require('substance/ui/Component');
 var $$ = Component.$$;
 var TagSearchComponent = require('vendor/nl.fdmg/universalsearch/UniversalSearchComponent');
 var TagListComponent = require('./TagListComponent');
-var jQuery = require('substance/util/jquery');
+var $ = require('substance/util/jquery');
 var genUUID = require('writer/utils/IdGenerator');
 
 function TagsMainComponent() {
@@ -42,12 +42,6 @@ TagsMainComponent.Prototype = function() {
       );
   }
 
-  this.reloadTags = function() {
-    this.extendState({
-      existingTags: this.getExistingTags()
-    });
-  }
-
   this.getExistingTags = function() {
     var tags = this.context.api.getTags();
 
@@ -62,7 +56,7 @@ TagsMainComponent.Prototype = function() {
 
     this.extendState({ isSearching: true });
 
-    jQuery.ajax(endpoint + q, { 'data': { 'dataType': 'json' } })
+    $.ajax(endpoint + q, { 'data': { 'dataType': 'json' } })
       .done(function(items) {
 
         var tags = items.map(function(item) {
@@ -104,6 +98,30 @@ TagsMainComponent.Prototype = function() {
     } catch (e) {
       console.log(e);
     }
+  }
+
+  this.reloadTags = function() {
+    this.extendState({
+      existingTags: this.getExistingTags()
+    });
+
+    this.saveTagList()
+  }
+
+  this.saveTagList = function() {
+    const endpoint = this.context.api.getConfigValue(this.name, 'updateEndpoint')
+
+    let id = this.context.api.getIdForArticle()
+    if (id.indexOf('-') > -1) id = id.substring(id.indexOf('-') + 1)
+
+    $.ajax({
+      url: endpoint + id,
+      method: 'PUT',
+      data: JSON.stringify(this.state.existingTags.map((tag) => tag.name)),
+      contentType: 'application/json',
+      dataType: 'json'
+    })
+      .fail((data, status, err) => { console.error(err) })
   }
 }
 
