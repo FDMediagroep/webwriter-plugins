@@ -46,22 +46,32 @@ XfdimageCommand.Prototype = function() {
   }
 
   this.__generateDummyImages = function(index, rpp, totalResults = 42) {
-    const colorize = function() {
-      const v = Math.random() * 0xff | 0
-      return ((v << 16) | (v << 8) | v).toString(16)
-    }
 
-    const generateImages = function() {
-      const images = []
-      const n = Math.min(rpp, totalResults - (index * rpp))
-      for (let i = 0; i < n; i++) {
-        images.push({
-          id: Math.round(Math.random() * 0x7fffffff),
-          thumbnailUrl: `http://placehold.it/160/${colorize()}`
+    const colors = [
+      '212529',
+      'c92a2a',
+      'a61e4d',
+      '862e9c',
+      '5f3dc4',
+      '364fc7',
+      '1862ab',
+      '0b7285',
+      '087f5b',
+      '2b8e3e',
+      '5c940d',
+      'e67700',
+      'd9480f'
+    ]
+
+    const generateImages = () =>
+      Array(Math.min(rpp, totalResults - (index * rpp)))
+        .fill(undefined)
+        .map(() => {
+          return {
+            id: Math.round(Math.random() * 0x7fffffff),
+            thumbnailUrl: 'http://placehold.it/160/' + colors[Math.floor(Math.random() * colors.length)]
+          }
         })
-      }
-      return images
-    }
 
     return {
       totalResults: totalResults,

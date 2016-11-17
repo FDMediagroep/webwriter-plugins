@@ -121,10 +121,10 @@ XfdimageDialog.Prototype = function() {
           this.extendState(this.getInitialState())
         }.bind(this))
     }
+  }
 
-    this.onClose = function(status) {
-      return true
-    }
+  this.onClose = function(status) {
+    return true
   }
 }
 
