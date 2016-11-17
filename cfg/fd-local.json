@@ -187,7 +187,11 @@
         "vendor": "nl.fdmg",
         "name": "tags",
         "enabled": true,
-        "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\tags"
+        "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\tags",
+        "data": {
+          "updateEndpoint": "https://dev-api.fdmg.org/private/fd/articles/tags/",
+          "endpoint": "https://dev-api.fdmg.org/private/fd/search/tag?q="
+        }
       },
 
       {

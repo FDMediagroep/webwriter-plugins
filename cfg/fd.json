@@ -95,7 +95,7 @@
     { "enabled": true, "vendor": "nl.fdmg", "name": "universalsearch",                                                                                  "source": { "path": "webwriter-plugins/plugins/universalsearch",  "pluginrepositoryId": "fdplugins", "type": "git" } },
     { "enabled": true, "vendor": "nl.fdmg", "name": "publish",                                                                                          "source": { "path": "webwriter-plugins/plugins/publish",          "pluginrepositoryId": "fdplugins", "type": "git" } },
     { "enabled": true, "vendor": "nl.fdmg", "name": "author",      "data": { "endpoint": "/fdmgapi/private/fd/search/author?q=" },                      "source": { "path": "webwriter-plugins/plugins/author",           "pluginrepositoryId": "fdplugins", "type": "git" } },
-    { "enabled": true, "vendor": "nl.fdmg", "name": "tags",        "data": { "endpoint": "/fdmgapi/private/fd/search/tag?q=" },                         "source": { "path": "webwriter-plugins/plugins/tags",             "pluginrepositoryId": "fdplugins", "type": "git" } },
+    { "enabled": true, "vendor": "nl.fdmg", "name": "tags",        "data": { "updateEndpoint": "fdmgapi/private/fd/articles/tags/", "endpoint": "/fdmgapi/private/fd/search/tag?q=" },                         "source": { "path": "webwriter-plugins/plugins/tags",             "pluginrepositoryId": "fdplugins", "type": "git" } },
     { "enabled": true, "vendor": "nl.fdmg", "name": "section",
       "data" : {
         "sectionlist" : [

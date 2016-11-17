@@ -159,7 +159,16 @@
         }
       },
       { "enabled": true, "vendor": "nl.fdmg", "name": "author",           "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/author",       "data": { "endpoint": "https://dev-api.fdmg.org/private/fd/search/author?q=" } },
-      { "enabled": true, "vendor": "nl.fdmg", "name": "tags",             "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/tags",         "data": { "endpoint": "https://dev-api.fdmg.org/private/fd/search/tag?q=" } },
+      {
+        "enabled": true,
+        "vendor": "nl.fdmg",
+        "name": "tags",
+        "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/tags",
+        "data": {
+          "updateEndpoint": "https://dev-api.fdmg.org/private/fd/articles/tags/",
+          "endpoint": "https://dev-api.fdmg.org/private/fd/search/tag?q="
+        }
+      },
       { "enabled": true, "vendor": "nl.fdmg", "name": "epic",             "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/epic",         "data": { "endpoint": "https://dev-api.fdmg.org/private/fd/search/epic?q=" } },
       { "enabled": true, "vendor": "nl.fdmg", "name": "genre",            "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/genre",        "data": { "endpoint": "https://dev-api.fdmg.org/private/fd/articles/genres" } },
       { "enabled": true, "vendor": "nl.fdmg", "name": "rubric",           "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/rubric",       "data": { "endpoint": "https://dev-api.fdmg.org/private/fd/articles/rubrics" } },
