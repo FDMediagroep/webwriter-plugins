@@ -62,7 +62,17 @@
         "enabled": true,
         "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\publish"
       },
-
+      {
+        "enabled": true,
+        "vendor": "nl.fdmg",
+        "name": "xfdimage",
+        "data": {
+          "resultsPerPage": 20,
+          "reloadScrollThreshold": 100,
+          "endpoint": "https://images.fdmg.nl"
+        },
+        "path": "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\xfdimage"
+      },
       {
         "vendor": "infomaker.se",
         "name": "youtube",
