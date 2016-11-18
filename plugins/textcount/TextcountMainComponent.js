@@ -1,12 +1,3 @@
-/*
-
- ,_,
-(0,0)
-(   )
--"-"-
-
-*/
-
 'use strict';
 
 var Component = require('substance/ui/Component');
@@ -65,7 +56,7 @@ TextcountMainComponent.Prototype = function () {
         var availableSizes = this.context.api.getConfigValue("textcount", "sizes");
 
         // Set an extra value to work with when there is no link or config present.
-        availableSizes["?"] = Number.MAX_VALUE;
+        availableSizes["vrije length"] = Number.MAX_VALUE;
 
         // Get the character margin (in percentages).
         var marginPercentage = this.context.api.getConfigValue("textcount", "marginPercentage");
@@ -75,7 +66,7 @@ TextcountMainComponent.Prototype = function () {
         var links = this.context.api.getLinkByType("textcount", "fdmg/textcount");
 
         // Get the corresponding character count from the plugin configuration.
-        var documentSize = links.length > 0 ? links.pop()["@size"] : "?";
+        var documentSize = links.length > 0 ? links.pop()["@size"] : "vrije length";
         var targetSize = availableSizes[documentSize];
 
         return {
@@ -163,11 +154,10 @@ TextcountMainComponent.Prototype = function () {
                         var value = availableSizes[key];
 
                         return $$('option')
-                            .append(key + " " + (key == '?' ? '' : value))
+                            .append(key + " " + (key == 'vrije length' ? '' : value))
                             .attr({
                                 "data-id" : key,
-                                "selected" : this.state.targetSize == value,
-                                "disabled": (key == '?')
+                                "selected" : this.state.targetSize == value
                             })
                     }.bind(this)))
                 )
@@ -181,7 +171,7 @@ TextcountMainComponent.Prototype = function () {
 
         var textlengthEl = $$('div').addClass("count-info")
             .append($$('span').addClass(countClass).append(this.state.textLength.toString()).attr('id', 'fd4validation-character-count'))
-            .append($$('P').append(this.context.i18n.t('Characters')))
+            .append($$('p').append(this.context.i18n.t('Characters')))
             .attr('title', this.context.i18n.t('Character count'));
 
         var wordsEl = $$('div').addClass("count-info")
@@ -216,7 +206,7 @@ TextcountMainComponent.Prototype = function () {
                 return "perfect-range";
             } else if (textLength > minCharacters && textLength < maxCharacters || textLength == maxCharacters ) {
                 return "in-range";
-            } else if (textLength < minCharacters && targetSize != this.getConfiguration().availableSizes['?']) {
+            } else if (textLength < minCharacters && targetSize != this.getConfiguration().availableSizes['vrije length']) {
               return "under-range";
             } else {
               return "";
