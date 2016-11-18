@@ -7,7 +7,7 @@ var channels = [
         icon: 'fa-twitter',
         color: '#479ae9',
         isApplicableTo: function(url) { return ~url.indexOf('twitter.com'); },
-        endPoint: 'https://publish.twitter.com/oembed?url='
+        endPoint: 'https://publish.twitter.com/oembed?width=320&url='
     },
     {
         name: 'Instagram',
@@ -15,7 +15,7 @@ var channels = [
         icon: 'fa-instagram',
         color: '#000',
         isApplicableTo: function(url) { return (~url.indexOf('instagram.com') || ~url.indexOf('instagr.am')); },
-        endPoint: 'https://api.instagram.com/oembed?url='
+        endPoint: 'https://api.instagram.com/oembed?maxwidth=320&url='
     },
     {
         name: 'Soundcloud',
@@ -23,7 +23,7 @@ var channels = [
         icon: 'fa-soundcloud',
         color: '#fb3d08',
         isApplicableTo: function(url) { return ~url.indexOf('soundcloud.com'); },
-        endPoint: 'https://soundcloud.com/oembed?format=json&url='
+        endPoint: 'https://soundcloud.com/oembed?maxwidth=320&format=json&url='
     },
     {
         name: 'Vimeo',
@@ -31,7 +31,7 @@ var channels = [
         icon: 'fa-vimeo',
         'color': '#121d23',
         isApplicableTo: function(url) { return ~url.indexOf('vimeo.com'); },
-        endPoint: 'https://vimeo.com/api/oembed.json?url='
+        endPoint: 'https://vimeo.com/api/oembed.json?maxwidth=320&url='
     },
     {
         name: 'Facebook Post',
