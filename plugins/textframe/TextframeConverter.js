@@ -24,6 +24,7 @@ var TextframeConverter = {
         // Import data
         var dataEl = el.find('data');
         node.crops = {};
+        node.alignment = '';
 
         if (dataEl) {
             dataEl.children.forEach(function(child) {
@@ -37,6 +38,10 @@ var TextframeConverter = {
 
                 if (child.tagName == 'width') {
                     node.width = parseInt(child.text());
+                }
+
+                if (child.tagName == 'alignment') {
+                    node.alignment = child.text();
                 }
 
                 if (child.tagName == 'height') {
@@ -108,6 +113,24 @@ var TextframeConverter = {
             ));
         }
 
+        var fields = converter.pluginManager.api.getConfigValue('textframe', 'fields');
+        fields.forEach(obj => {
+            let name = (obj.name == 'caption' ? 'text' : obj.name)
+
+            if (obj.type == 'option') {
+                data.append(
+                    $$(name).append(node[obj.name])
+                );
+            }
+            else {
+                data.append(
+                    $$(name).append(
+                        converter.annotatedText([node.id, obj.name])
+                    )
+                );
+            }
+        });
+
         // Add crops to data
         var crops = [];
         if (node.crops && node.crops.original) {
@@ -155,8 +178,6 @@ var TextframeConverter = {
             data.append(crops);
         }
 
-        el.append(data);
-
         // Links
         if (node.uuid !== '' && node.uri) {
             var link = $$('link').attr({
@@ -168,6 +189,8 @@ var TextframeConverter = {
 
             el.append($$('links').append(link));
         }
+
+        el.append(data);
 
     }
 };

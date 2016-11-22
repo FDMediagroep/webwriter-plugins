@@ -25,6 +25,10 @@ TextframeNode.Prototype = function () {
         this.url = url;
     };
 
+    this.setAlignment = function(alignment) {
+        this.document.set([this.id, 'alignment'], alignment);
+    };
+
     this.updateMetaData = function (values) {
         if (values.uuid) {
             this.document.set([this.id, 'uuid'], values.uuid);
@@ -65,6 +69,8 @@ TextframeNode.Prototype = function () {
         this.document.set([this.id, 'text'], '');
 
         this.document.set([this.id, 'crops'], {});
+
+        this.document.set([this.id, 'alignment'], "");
 
         this.emit('textframe:changed');
     };
@@ -114,6 +120,7 @@ TextframeNode.static.defineSchema({
     title: {type: 'string', optional: false, default: ''},
     subject: {type: 'string', optional: false, default: ''},
     text: {type: 'string', optional: false, default: ''},
+    alignment: { type: 'string', optional: true },
 
     previewUrl: {type: 'string', optional: true},
     imageType: {type: 'string', optional: true},

@@ -28,7 +28,6 @@ TextframeComponent.Prototype = function () {
   this.render = function () {
     if (!this.props.node.url && this.props.node.uuid) {
       this.fetchUrl();
-      return $$('a');
     }
 
     var el = $$('a')
@@ -79,6 +78,21 @@ TextframeComponent.Prototype = function () {
         evt.preventDefault();
         this.handleDrop(evt);
       }.bind(this));
+
+      // Add configurable fields
+      var fields = this.context.api.getConfigValue('textframe', 'fields');
+      fields.forEach(obj => {
+          if (obj.type == 'option') {
+              el.append(
+                  this.renderOptionField(obj)
+              );
+          }
+          else {
+              el.append(
+                  this.renderTextField(obj)
+              )
+          }
+      });
 
     this.context.api.handleDrag(el, this.props.node);
 
@@ -201,6 +215,45 @@ TextframeComponent.Prototype = function () {
     }
 
     return imgcontainer;
+  };
+
+  this.renderOptionField = function(obj) {
+    var options = [],
+        currentOption = null;
+
+    if (!this.props.node.alignment) {
+        currentOption = obj.options[0].name;
+        this.props.node.setAlignment(currentOption);
+    }
+    else {
+        currentOption = this.props.node.alignment;
+    }
+
+    obj.options.forEach(option => {
+      let selectedClass = (currentOption == option.name) ? ' selected' : '';
+
+      options.push(
+        $$('em')
+          .addClass('fa ' + option.icon + selectedClass)
+          .attr({
+            'contenteditable': 'false',
+            'title': option.label
+          })
+          .on('click', () => {
+            if (option.name != this.props.node.alignment) {
+              this.props.node.setAlignment(option.name);
+              this.rerender();
+            }
+            return false;
+          })
+        );
+    });
+    return $$('div')
+        .addClass('x-im-image-dynamic x-im-image-alignment')
+        .attr({
+            'contenteditable': 'false'
+        })
+        .append(options);
   };
 
   /**
