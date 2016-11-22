@@ -200,12 +200,13 @@
     { "enabled": true, "vendor": "nl.fdmg", "name": "textcount",
       "data": {
         "marginPercentage" : 10,
-        "sizes" : {
-          "S" : 1810,
-          "L" : 3600,
-          "XL" : 6300,
-          "XXL" : 8200
-        },
+        "sizes" : [
+          {"size": "S", "charCount": 1810},
+          {"size": "L", "charCount": 3600},
+          {"size": "XL", "charCount": 6300},
+          {"size": "XXL", "charCount": 8200},
+          {"size": "Vrij", "charCount": "Inf"}
+        ],
         "countedElements" : [ "paragraph" ]
       },
       "source": { "path": "webwriter-plugins/plugins/textcount", "pluginrepositoryId": "fdplugins", "type": "git" }
