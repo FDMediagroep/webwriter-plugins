@@ -14,8 +14,9 @@ Textcount.prototype.schema = {
                 require('./TextcountMainComponent')
             ]
         }
-    }
+    },
 
+    validation: require('./TextcountValidation')
 };
 
 module.exports = Textcount;

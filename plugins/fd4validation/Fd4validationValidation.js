@@ -5,8 +5,6 @@ const emptyTitle = (x) => x.length == 0 || !x[0] || x[0].value.trim() == ''
 const moreThanOne = (x) => x.length > 1
 const lessThanOne = (x) => x.length < 1
 const exactlyOne = (x) => x.length == 1
-const isUnderRange = (x) => x[0].classList.contains('under-range')
-const isOverRange = (x) => x[0].classList.contains('over-range')
 const atLeastOne = (x) => x.length >= 1
 
 module.exports = {
@@ -50,7 +48,6 @@ module.exports = {
     const teasertitle = teaser.length > 0 ? [teaser[0].attributes.getNamedItem('title')] || [] : []
     const teaserbody = teaser.length > 0 ? teaser[0].querySelectorAll('data>text') : []
     const textcount = newsItem.querySelectorAll('itemMeta>links link[type="fdmg/textcount"]')
-    const charcount = $('#fd4validation-character-count')
     const section = newsItem.querySelectorAll('itemMeta>links link[type="fdmg/section"]')
 
     if (emptyBody(headline) && (submitting || publishing)) acc.addError(this.context.i18n.t('Missing headline'))
@@ -62,11 +59,6 @@ module.exports = {
     if (moreThanOne(teaser)) acc.addError(this.context.i18n.t('Too many teaser blocks'))
     if (exactlyOne(teaser) && emptyTitle(teasertitle) && publishing) acc.addError(this.context.i18n.t('Missing teaser title'))
     if (exactlyOne(teaser) && emptyBody(teaserbody) && publishing) acc.addError(this.context.i18n.t('Missing teaser body'))
-
-    // TODO Extract to textcount/TextcountValidation.js
-    if (!exactlyOne(textcount) && publishing) acc.addError(this.context.i18n.t('Missing text length'))
-    if (exactlyOne(textcount) && exactlyOne(charcount) && isUnderRange(charcount) && (submitting || publishing)) acc.addWarning(this.context.i18n.t('Not enough characters'))
-    if (exactlyOne(textcount) && exactlyOne(charcount) && isOverRange(charcount) && (submitting || publishing)) acc.addWarning(this.context.i18n.t('Too many characters'))
 
     // TODO Extract to section/SectionValidation.js
     if (!exactlyOne(section)) acc.addError(this.context.i18n.t('Missing section'))

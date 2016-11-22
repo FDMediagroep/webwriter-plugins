@@ -33,6 +33,7 @@ TextcountMainComponent.Prototype = function() {
 
   this.didMount = function() {
     this.updateCount();
+    this.updateDocumentSize(this.state.documentSize)
   }
 
   this.render = function() {
@@ -71,7 +72,10 @@ TextcountMainComponent.Prototype = function() {
               .addClass('count-info')
               .attr({title: this.context.i18n.t('Character count')})
               .append(
-                $$('span').addClass(this.getCharCountModifier()).append('' + this.state.charCount),
+                $$('span')
+                  .setId('textcount-validatable')
+                  .addClass(this.getCharCountClass())
+                  .append('' + this.state.charCount),
                 $$('p').append(this.context.i18n.t('Characters'))
               ),
             $$('div')
@@ -143,7 +147,7 @@ TextcountMainComponent.Prototype = function() {
     }
   }
 
-  this.getCharCountModifier = function() {
+  this.getCharCountClass = function() {
     const target = this.getDocumentTargetCharCount()
     const actual = this.state.charCount
     const margin = target / 100 * parseFloat(this.state.margin)
