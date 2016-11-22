@@ -28,6 +28,7 @@ TextframeComponent.Prototype = function () {
   this.render = function () {
     if (!this.props.node.url && this.props.node.uuid) {
       this.fetchUrl();
+      return $$('div');
     }
 
     var el = $$('a')
