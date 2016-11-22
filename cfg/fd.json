@@ -153,6 +153,13 @@
     { "enabled": true, "vendor": "nl.fdmg", "name": "htmlembed",                                                                                        "source": { "path": "webwriter-plugins/plugins/htmlembed",        "pluginrepositoryId": "fdplugins", "type": "git" } },
     { "enabled": true, "vendor": "nl.fdmg", "name": "textframe",
       "data" : {
+        "fields": [
+          { "name": "alignment", "label": "Alignment", "type": "option",
+            "options": [
+              { "name": "auto", "label": "Block", "icon": "fa-align-justify" },
+              {  "name": "right", "label": "Right", "icon": "fa-align-right" } ]
+          }
+        ],
         "preventAutomaticLinkCreation": false,
         "disableUseOfAnnotationTools": false
       },

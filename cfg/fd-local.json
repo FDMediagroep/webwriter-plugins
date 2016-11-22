@@ -62,17 +62,7 @@
         "enabled": true,
         "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\publish"
       },
-      {
-        "enabled": true,
-        "vendor": "nl.fdmg",
-        "name": "xfdimage",
-        "data": {
-          "resultsPerPage": 20,
-          "reloadScrollThreshold": 100,
-          "endpoint": "https://images.fdmg.nl"
-        },
-        "path": "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\xfdimage"
-      },
+
       {
         "vendor": "infomaker.se",
         "name": "youtube",
@@ -164,25 +154,19 @@
               "type": "option",
               "options": [
                 {
-                  "name": "auto",
-                  "label": "Block",
-                  "icon": "fa-align-justify"
-                },
-                {
                   "name": "right",
                   "label": "Right",
                   "icon": "fa-align-right"
+                },
+                {
+                  "name": "auto",
+                  "label": "Block",
+                  "icon": "fa-align-justify"
                 }
               ]
             }
           ]
          }
-       },
-       {
-         "enabled": true,
-         "vendor": "nl.fdmg",
-         "name": "ximimagestandin",
-         "path": "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\ximimagestandin"
        },
       {
         "vendor": "nl.fdmg",
@@ -197,11 +181,7 @@
         "vendor": "nl.fdmg",
         "name": "tags",
         "enabled": true,
-        "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\tags",
-        "data": {
-          "updateEndpoint": "https://dev-api.fdmg.org/private/fd/articles/tags/",
-          "endpoint": "https://dev-api.fdmg.org/private/fd/search/tag?q="
-        }
+        "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\tags"
       },
 
       {
@@ -397,6 +377,25 @@
         "name": "textframe",
         "enabled": true,
         "data" : {
+          "fields": [
+            {
+              "name": "alignment",
+              "label": "Alignment",
+              "type": "option",
+              "options": [
+                {
+                  "name": "right",
+                  "label": "Right",
+                  "icon": "fa-align-right"
+                },
+                {
+                  "name": "auto",
+                  "label": "Block",
+                  "icon": "fa-align-justify"
+                }
+              ]
+            }
+          ],
           "softcrop": true,
           "enablesoftcrop": true,
           "crops": {
