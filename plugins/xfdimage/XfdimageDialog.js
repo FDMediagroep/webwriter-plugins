@@ -103,18 +103,29 @@ XfdimageDialog.Prototype = function() {
 
   this.performSearch = function(query, pageIndex = 0) {
     if (!this.allResultsLoaded()) {
-      this.extendState({isSearching: true})
+      this.extendState({
+        isSearching: true,
+        scrollOffset: $('#xfdimage-results').scrollTop()
+      })
 
       this.getCommand().performSearch(query, pageIndex)
         .then(function(result) {
-          this.extendState({
-            isSearching: false,
-            lastQuery: query,
-            pageIndex: pageIndex,
-            images: this.state.images.concat(result.images),
-            totalResults: result.totalResults,
-            scrollOffset: $('#xfdimage-results').scrollTop()
-          })
+
+          setTimeout(function() { // TODO Remove timeout eventually
+
+
+            this.extendState({
+              isSearching: false,
+              lastQuery: query,
+              pageIndex: pageIndex,
+              images: this.state.images.concat(result.images),
+              totalResults: result.totalResults,
+              scrollOffset: $('#xfdimage-results').scrollTop()
+            })
+
+          }.bind(this), 1000)
+
+
         }.bind(this))
         .catch(function(err) {
           console.error(err)
