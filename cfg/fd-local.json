@@ -423,7 +423,15 @@
       },
 
       { "enabled": true, "vendor": "nl.fdmg", "name": "fd4validation", "path": "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\fd4validation"},
-
+      {
+        "enabled": true,
+        "vendor": "nl.fdmg",
+        "name": "preview",
+        "data": {
+          "previewBaseUrl": "//preview.fd.nl/"
+        },
+        "path": "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\preview"
+      },
       {
         "vendor": "nl.fdmg",
         "name": "workflowstate",

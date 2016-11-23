@@ -191,6 +191,19 @@
       "source": { "path": "webwriter-plugins/plugins/oembed", "pluginrepositoryId": "fdplugins", "type": "git" }
     },
     { "enabled": true, "vendor": "infomaker.se", "name": "history" },
+    {
+      "enabled": true,
+      "vendor": "nl.fdmg",
+      "name": "preview",
+      "data": {
+        "previewBaseUrl": "//preview.fd.nl/"
+      },
+      "source": {
+        "path": "webwriter-plugins/plugins/preview",
+        "pluginrepositoryId": "fdplugins",
+        "type": "git"
+      }
+    },
     { "enabled": true, "vendor": "nl.fdmg", "name": "workflowstate",
       "data": {
           "options": [

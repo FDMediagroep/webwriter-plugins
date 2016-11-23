@@ -147,6 +147,15 @@
       {
         "enabled": true,
         "vendor": "nl.fdmg",
+        "name": "preview",
+        "data": {
+          "previewBaseUrl": "//preview.fd.nl/"
+        },
+        "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/preview"
+      },
+      {
+        "enabled": true,
+        "vendor": "nl.fdmg",
         "name": "workflowstate",
         "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/workflowstate",
         "data": {
@@ -261,7 +270,7 @@
         "vendor": "nl.fdmg",
         "name": "textframe",
         "data": {
-          "fields": [ { 
+          "fields": [ {
             "name": "alignment", "label": "Alignment", "type": "option",
             "options": [
               { "name": "auto", "label": "Block", "icon": "fa-align-justify" },
