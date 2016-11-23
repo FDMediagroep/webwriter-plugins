@@ -87,7 +87,7 @@
               "type": "option",
               "options": [
                 {
-                  "name": "auto",
+                  "name": "block",
                   "label": "Block",
                   "icon": "fa-align-justify"
                 },
@@ -264,7 +264,7 @@
           "fields": [ { 
             "name": "alignment", "label": "Alignment", "type": "option",
             "options": [
-              { "name": "auto", "label": "Block", "icon": "fa-align-justify" },
+              { "name": "block", "label": "Block", "icon": "fa-align-justify" },
               {  "name": "right", "label": "Right", "icon": "fa-align-right" } ]
           }
         ],

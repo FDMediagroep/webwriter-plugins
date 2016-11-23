@@ -3,6 +3,7 @@
 const SurfaceTool = require('substance/ui/SurfaceTool')
 const $$ = require('substance/ui/Component').$$
 const Dialog = require('./XfdimageDialog')
+const $ = require('substance/util/jquery')
 
 function XfdimageTool() {
   XfdimageTool.super.apply(this, arguments)
@@ -29,7 +30,7 @@ XfdimageTool.Prototype = function() {
         center: true,
         title: this.context.i18n.t('Image search')
       }
-    )
+    );
   }
 }
 

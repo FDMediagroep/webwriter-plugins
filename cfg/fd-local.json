@@ -159,7 +159,7 @@
                   "icon": "fa-align-right"
                 },
                 {
-                  "name": "auto",
+                  "name": "block",
                   "label": "Block",
                   "icon": "fa-align-justify"
                 }
@@ -389,7 +389,7 @@
                   "icon": "fa-align-right"
                 },
                 {
-                  "name": "auto",
+                  "name": "block",
                   "label": "Block",
                   "icon": "fa-align-justify"
                 }
@@ -472,10 +472,22 @@
           }
         },
         "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\topstory"
-      }, {
+      }, 
+      {
         "vendor": "infomaker.se",
         "name": "history",
         "enabled": false
+      },
+      {
+        "enabled": true,
+        "vendor": "nl.fdmg",
+        "name": "xfdimage",
+        "data": {
+          "resultsPerPage": 30,
+          "reloadScrollThreshold": 50,
+          "endpoint": "https://images.fdmg.nl"
+        },
+        "path": "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\xfdimage"
       }
     ]
   }

@@ -63,13 +63,22 @@ XfdimageCommand.Prototype = function() {
       'd9480f'
     ]
 
+    const sizes = [
+      [320, 180],
+      [180, 320],
+      [200, 200]
+    ]
+
     const generateImages = () =>
       Array(Math.min(rpp, totalResults - (index * rpp)))
         .fill(undefined)
         .map(() => {
+          const color = colors[Math.floor(Math.random() * colors.length)]
+          const size = sizes[Math.floor(Math.random() * sizes.length)].join('x')
+
           return {
             id: Math.round(Math.random() * 0x7fffffff),
-            thumbnailUrl: 'http://placehold.it/160/' + colors[Math.floor(Math.random() * colors.length)]
+            thumbnailUrl: `http://placehold.it/${size}/${color}` 
           }
         })
 
