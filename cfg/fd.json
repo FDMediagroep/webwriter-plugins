@@ -34,8 +34,9 @@
           { "name": "credit", "label": "Credit", "type": "text" },
           { "name": "alignment", "label": "Alignment", "type": "option",
             "options": [
-              { "name": "block", "label": "Block", "icon": "fa-align-justify" },
-              {  "name": "right", "label": "Right", "icon": "fa-align-right" } ]
+              {  "name": "right", "label": "Right", "icon": "fa-align-right" },
+              { "name": "block", "label": "Block", "icon": "fa-align-justify" }
+            ]
           }
         ]
       }
@@ -156,8 +157,9 @@
         "fields": [
           { "name": "alignment", "label": "Alignment", "type": "option",
             "options": [
-              { "name": "block", "label": "Block", "icon": "fa-align-justify" },
-              {  "name": "right", "label": "Right", "icon": "fa-align-right" }
+              {  "name": "right", "label": "Right", "icon": "fa-align-right" },
+              { "name": "block", "label": "Block", "icon": "fa-align-justify" }
+              
             ]
           }
         ],
