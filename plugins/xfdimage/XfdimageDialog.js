@@ -2,7 +2,6 @@
 
 const SurfaceTool = require('substance/ui/SurfaceTool')
 const Icon = require('substance/ui/FontAwesomeIcon')
-const Spinner = require('./SpinnerComponent')
 const $$ = require('substance/ui/Component').$$
 const $ = require('substance/util/jquery')
 
@@ -27,10 +26,12 @@ XfdimageDialog.Prototype = function() {
 
   this.didMount = function() {
     this.refs.searchfield.focus()
+    //TODO: remove this when writer allows to control dialogs
+    $('.xfdimage').parents('.modal-dialog').addClass('xfd-dialog');
   }
 
   this.didUpdate = function() {
-    $('#xfdimage-results').scrollTop(this.state.scrollOffset)
+    $('.xfdimage-results').scrollTop(this.state.scrollOffset)
   }
 
   this.render = function() {
@@ -40,16 +41,27 @@ XfdimageDialog.Prototype = function() {
         $$('div')
           .addClass('xfdimage-searchbar')
           .append(
-            $$('span')
+            $$('div').addClass('form-group')
               .append(
+               
                 $$('input')
-                  .attr('placeholder', this.context.i18n.t('Search query'))
+                  .attr({
+                    'placeholder' : this.context.i18n.t('Search query'),
+                    'class' : 'form-control form__search'
+                  })
                   .setValue(this.state.lastQuery)
                   .ref('searchfield')
                   .on('keydown', this.handleSearchfieldKeyDown.bind(this)),
                 $$('button')
-                  .attr('title', this.context.i18n.t('Search'))
-                  .append($$(Icon, {icon: 'fa-search'}))
+                  .attr({
+                    'title' : this.context.i18n.t('Search'),
+                    'class' : 'btn btn-neutral'
+                  })
+                  .append(
+                    $$(Icon, {icon: 'fa-search'}),
+                    $$(Icon, {icon: 'fa-spinner fa-spin'})
+                    .addClass(this.state.isSearching ? 'active': '')
+                  )
                   .on('click', function() {
                     this.performSearch(this.refs.searchfield.val())
                   }.bind(this))
@@ -61,15 +73,17 @@ XfdimageDialog.Prototype = function() {
           .attr({id: 'xfdimage-results'})
           .append(
             this.state.images.map((image) => {
-              return $$('img')
-                .attr({src: image.thumbnailUrl})
-                .on('click', function() {
-                  this.send('close')
-                  this.getCommand().insertImageById(image.id)
-                }.bind(this))
+              return $$('div')
+                .append(
+                  $$('img')
+                    .attr({src: image.thumbnailUrl})
+                    .on('click', function() {
+                      this.send('close')
+                      this.getCommand().insertImageById(image.id)
+                    }.bind(this))
+                )
             })
           )
-          .append($$(Spinner, {isSearching: this.state.isSearching}))
           .on('DOMNodeInserted', this.didUpdate.bind(this))
           .on('scroll', this.handleScroll.bind(this))
       )
@@ -108,6 +122,9 @@ XfdimageDialog.Prototype = function() {
         scrollOffset: $('#xfdimage-results').scrollTop()
       })
 
+      //TODO: remove this when writer allows to control dialogs
+      $('.xfdimage').parents('.modal-dialog').addClass('xfd-dialog-expand');
+
       this.getCommand().performSearch(query, pageIndex)
         .then(function(result) {
 
@@ -123,7 +140,7 @@ XfdimageDialog.Prototype = function() {
               scrollOffset: $('#xfdimage-results').scrollTop()
             })
 
-          }.bind(this), 1000)
+          }.bind(this), 500)
 
 
         }.bind(this))
