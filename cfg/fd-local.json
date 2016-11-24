@@ -225,9 +225,33 @@
         "name": "rubric",
         "enabled": true,
         "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\rubric",
-        "data" : {
-          "endpoint": "https://dev-api.fdmg.org/private/fd/articles/rubrics"
-        }
+        "data": {
+          "rubriclist": [
+            {"id": "Bartjens", "label": "Bartjens"},
+            {"id": "Boardroom", "label": "Boardroom"},
+            {"id": "Gazellen", "label": "Gazellen"},
+            {"id": "Het Raderwerk", "label": "Het Raderwerk"},
+            {"id": "Kantelpunt", "label": "Kantelpunt"},
+            {"id": "Marktmeesters", "label": "Marktmeesters"},
+            {"id": "Nieuws in beeld", "label": "Nieuws in beeld"},
+            {"id": "Black Book", "label": "Black Book"},
+            {"id": "Droomweekend", "label": "Droomweekend"},
+            {"id": "Eten & Drinken", "label": "Eten & Drinken"},
+            {"id": "Go!", "label": "Go!"},
+            {"id": "Huis te koop", "label": "Huis te koop"},
+            {"id": "Man van de wereld", "label": "Man van de wereld"},
+            {"id": "Oog voor…", "label": "Oog voor…"},
+            {"id": "Eyeopeners", "label": "Eyeopeners"},
+            {"id": "Nieuw Bronnen", "label": "Nieuw Bronnen"},
+            {"id": "Oude bronnen", "label": "Oude bronnen"},
+            {"id": "Start-up Insights", "label": "Start-up Insights"},
+            {"id": "Start-up Kitchen", "label": "Start-up Kitchen"},
+            {"id": "Slimme Stekken", "label": "Slimme Stekken"},
+            {"id": "TechTeam", "label": "TechTeam"},
+            {"id": "Eerste baas", "label": "Eerste baas"},
+            {"id": "Zakenauto", "label": "Zakenauto"}
+          ]
+        },
       },
       {
         "vendor": "nl.fdmg",

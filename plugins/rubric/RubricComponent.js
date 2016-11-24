@@ -6,8 +6,6 @@ const $$ = Component.$$
 const $ = require('substance/util/jquery')
 const genUuid = require('writer/utils/IdGenerator')
 
-let _rubricItems
-
 function RubricComponent() {
   RubricComponent.super.apply(this, arguments)
 }
@@ -15,29 +13,8 @@ function RubricComponent() {
 RubricComponent.Prototype = function() {
 
   this.getInitialState = function() {
-    return {items: []}
-  }
-
-  this.didMount = function() {
-    if (_rubricItems) {
-      this.extendState({items: _rubricItems})
-    } else {
-      const endpoint = this.context.api.getConfigValue('rubric', 'endpoint')
-
-      $.ajax(endpoint, {
-        data: {
-          dataType: 'json',
-          contentType: 'application/json; charset=utf-8'
-        }
-      })
-      .done(function(result) {
-        _rubricItems = result.map((r) => {
-          return {id: r.id, label: r.rubric}
-        })
-
-        this.extendState({items: _rubricItems})
-      }.bind(this))
-      .error((err, xhr, text) => console.error(err, xhr, text))
+    return {
+      items: this.context.api.getConfigValue('rubric', 'rubriclist')
     }
   }
 
@@ -51,6 +28,8 @@ RubricComponent.Prototype = function() {
       .getLinkByType(name, type)
       .map((link) => {return {id: link['@id'], label: link['@title']}})
       .pop()
+
+    console.log(this.state)
 
     return $$('div')
       .addClass('fdmg-sidebar')

@@ -180,12 +180,43 @@
       },
       { "enabled": true, "vendor": "nl.fdmg", "name": "epic",             "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/epic",         "data": { "endpoint": "https://dev-api.fdmg.org/private/fd/search/epic?q=" } },
       { "enabled": true, "vendor": "nl.fdmg", "name": "genre",            "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/genre",        "data": { "endpoint": "https://dev-api.fdmg.org/private/fd/articles/genres" } },
-      { "enabled": true, "vendor": "nl.fdmg", "name": "rubric",           "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/rubric",       "data": { "endpoint": "https://dev-api.fdmg.org/private/fd/articles/rubrics" } },
+      {
+        "enabled": true,
+        "vendor": "nl.fdmg",
+        "name": "rubric",
+        "data": {
+          "rubriclist": [
+            {"id": "Bartjens", "label": "Bartjens"},
+            {"id": "Boardroom", "label": "Boardroom"},
+            {"id": "Gazellen", "label": "Gazellen"},
+            {"id": "Het Raderwerk", "label": "Het Raderwerk"},
+            {"id": "Kantelpunt", "label": "Kantelpunt"},
+            {"id": "Marktmeesters", "label": "Marktmeesters"},
+            {"id": "Nieuws in beeld", "label": "Nieuws in beeld"},
+            {"id": "Black Book", "label": "Black Book"},
+            {"id": "Droomweekend", "label": "Droomweekend"},
+            {"id": "Eten & Drinken", "label": "Eten & Drinken"},
+            {"id": "Go!", "label": "Go!"},
+            {"id": "Huis te koop", "label": "Huis te koop"},
+            {"id": "Man van de wereld", "label": "Man van de wereld"},
+            {"id": "Oog voor…", "label": "Oog voor…"},
+            {"id": "Eyeopeners", "label": "Eyeopeners"},
+            {"id": "Nieuw Bronnen", "label": "Nieuw Bronnen"},
+            {"id": "Oude bronnen", "label": "Oude bronnen"},
+            {"id": "Start-up Insights", "label": "Start-up Insights"},
+            {"id": "Start-up Kitchen", "label": "Start-up Kitchen"},
+            {"id": "Slimme Stekken", "label": "Slimme Stekken"},
+            {"id": "TechTeam", "label": "TechTeam"},
+            {"id": "Eerste baas", "label": "Eerste baas"},
+            {"id": "Zakenauto", "label": "Zakenauto"}
+          ]
+        },
+        "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/rubric"
+      },
       {
         "enabled": true,
         "vendor": "nl.fdmg",
         "name": "section",
-        "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/section",
         "data" : {
           "sectionlist" : [
             { "name": "beursradar", "title": "Beurs" },
@@ -195,10 +226,10 @@
             { "name": "morgen", "title": "Morgen" },
             { "name": "ondernemen", "title": "Ondernemen" },
             { "name": "opinie", "title": "Opinie" },
-            { "name": "profiel", "title": "Profiel" },
-            { "name": "werk-geld", "title": "Werk & Geld" }
+            { "name": "profiel", "title": "Profiel" }
           ]
-        }
+        },
+        "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/section"
       },
       { "enabled": true, "vendor": "nl.fdmg", "name": "articletype",          "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/articletype",  "data": { "endpoint": "https://dev-api.fdmg.org/private/fd/articles/types" } },
       { "enabled": true, "vendor": "nl.fdmg", "name": "redirectlink",         "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/redirectlink" },
