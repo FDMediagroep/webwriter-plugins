@@ -179,7 +179,27 @@
         }
       },
       { "enabled": true, "vendor": "nl.fdmg", "name": "epic",             "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/epic",         "data": { "endpoint": "https://dev-api.fdmg.org/private/fd/search/epic?q=" } },
-      { "enabled": true, "vendor": "nl.fdmg", "name": "genre",            "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/genre",        "data": { "endpoint": "https://dev-api.fdmg.org/private/fd/articles/genres" } },
+      {
+        "enabled": true,
+        "vendor": "nl.fdmg",
+        "name": "genre",
+        "data": {
+          "genrelist": [
+            {"id": "Achtergrond", "label": "Achtergrond"},
+            {"id": "Bartjens", "label": "Bartjens"},
+            {"id": "Beursverslag", "label": "Beursverslag"},
+            {"id": "Blog", "label": "Blog"},
+            {"id": "Column", "label": "Column"},
+            {"id": "Commentaar", "label": "Commentaar"},
+            {"id": "Het Raderwerk", "label": "Het Raderwerk"},
+            {"id": "Interview", "label": "Interview"},
+            {"id": "Liveblog", "label": "Liveblog"},
+            {"id": "Opinie", "label": "Opinie"},
+            {"id": "Profiel", "label": "Profiel"}
+          ]
+        },
+        "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/genre"
+      },
       {
         "enabled": true,
         "vendor": "nl.fdmg",

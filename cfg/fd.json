@@ -115,7 +115,30 @@
     },
     { "enabled": true, "vendor": "nl.fdmg", "name": "relatedarticles",                                                                                  "source": { "path": "webwriter-plugins/plugins/relatedarticles",      "pluginrepositoryId": "fdplugins", "type": "git" } },
     { "enabled": true, "vendor": "nl.fdmg", "name": "epic",        "data": { "endpoint": "/fdmgapi/private/fd/search/epic?q=" },                        "source": { "path": "webwriter-plugins/plugins/epic",             "pluginrepositoryId": "fdplugins", "type": "git" } },
-    { "enabled": true, "vendor": "nl.fdmg", "name": "genre",       "data": { "endpoint": "/fdmgapi/private/fd/articles/genres" },                       "source": { "path": "webwriter-plugins/plugins/genre",            "pluginrepositoryId": "fdplugins", "type": "git" } },
+    { "enabled": true,
+      "vendor": "nl.fdmg",
+      "name": "genre",
+      "data": {
+        "genrelist": [
+          {"id": "Achtergrond", "label": "Achtergrond"},
+          {"id": "Bartjens", "label": "Bartjens"},
+          {"id": "Beursverslag", "label": "Beursverslag"},
+          {"id": "Blog", "label": "Blog"},
+          {"id": "Column", "label": "Column"},
+          {"id": "Commentaar", "label": "Commentaar"},
+          {"id": "Het Raderwerk", "label": "Het Raderwerk"},
+          {"id": "Interview", "label": "Interview"},
+          {"id": "Liveblog", "label": "Liveblog"},
+          {"id": "Opinie", "label": "Opinie"},
+          {"id": "Profiel", "label": "Profiel"}
+        ]
+      },
+      "source": {
+        "path": "webwriter-plugins/plugins/genre",
+        "pluginrepositoryId": "fdplugins",
+        "type": "git"
+        }
+      },
     {
       "enabled": true,
       "vendor": "nl.fdmg",

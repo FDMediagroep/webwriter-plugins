@@ -6,8 +6,6 @@ const $$ = Component.$$
 const $ = require('substance/util/jquery')
 const genUuid = require('writer/utils/IdGenerator')
 
-let _genreItems
-
 function GenreComponent() {
   GenreComponent.super.apply(this, arguments)
 }
@@ -15,29 +13,8 @@ function GenreComponent() {
 GenreComponent.Prototype = function() {
 
   this.getInitialState = function() {
-    return {items: []}
-  }
-
-  this.didMount = function() {
-    if (_genreItems) {
-      this.extendState({items: _genreItems})
-    } else {
-      const endpoint = this.context.api.getConfigValue('genre', 'endpoint')
-
-      $.ajax(endpoint, {
-        data: {
-          dataType: 'json',
-          contentType: 'application/json; charset=utf-8'
-        }
-      })
-      .done(function(result) {
-        _genreItems = result.map((r) => {
-          return {id: r.id, label: r.genre}
-        })
-
-        this.extendState({items: _genreItems})
-      }.bind(this))
-      .error((err, xhr, text) => console.error(err, xhr, text))
+    return {
+      items: this.context.api.getConfigValue('genre', 'genrelist')
     }
   }
 

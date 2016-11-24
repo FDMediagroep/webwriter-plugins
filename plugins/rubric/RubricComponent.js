@@ -29,8 +29,6 @@ RubricComponent.Prototype = function() {
       .map((link) => {return {id: link['@id'], label: link['@title']}})
       .pop()
 
-    console.log(this.state)
-
     return $$('div')
       .addClass('fdmg-sidebar')
       .append(
