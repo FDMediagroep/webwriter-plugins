@@ -428,7 +428,7 @@
         "vendor": "nl.fdmg",
         "name": "preview",
         "data": {
-          "previewBaseUrl": "//preview.fd.nl/"
+          "previewBaseUrl": "//preview.fd.nl/_/${id}/_"
         },
         "path": "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\preview"
       },
@@ -481,7 +481,7 @@
           }
         },
         "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\topstory"
-      }, 
+      },
       {
         "vendor": "infomaker.se",
         "name": "history",

@@ -44,7 +44,7 @@ PreviewComponent.Prototype = function() {
 
     const previewBaseUrl = this.context.api.getConfigValue('preview', 'previewBaseUrl')
 
-    return previewBaseUrl + id
+    return previewBaseUrl.replace('${id}', id)
   }
 }
 
