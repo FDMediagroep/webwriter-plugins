@@ -9,7 +9,7 @@ const textcount = {
 
 const epic = {
     'Epic' : 'Het complete verhaal'
-    'Set epic' : 'Complete verhaal zoeken'
+    'Set Epic' : 'Complete verhaal zoeken'
 };
 
 const genre = {
@@ -45,7 +45,8 @@ const shortarticle = {
 };
 
 const section = {
-    'Section' : 'Sectie'
+    'Section' : 'Sectie',
+    '- no selection -' : '- geen -'
 };
 
 const articletype = {
