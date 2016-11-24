@@ -240,7 +240,6 @@
         "data" : {
           "sectionlist" : [
             { "name": "beursradar", "title": "Beurs" },
-            { "name": "blogs", "title": "Blogs" },
             { "name": "economie-politiek", "title": "Economie & Politiek" },
             { "name": "fd-persoonlijk", "title": "FD persoonlijk" },
             { "name": "morgen", "title": "Morgen" },
