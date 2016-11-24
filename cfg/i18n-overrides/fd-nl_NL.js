@@ -2,6 +2,7 @@ const general_translations = {
 };
 
 const textcount = {
+    'UNLIMITED': 'Vrij',
     'Size': 'Grootte',
     'Text counter': 'Tekstinformatie'
 };
@@ -33,7 +34,7 @@ const relatedarticle = {
 };
 
 const Workinstruction = {
-   'Workinstruction placeholder' : 'Werkinstructies (b.v. Locatie etc.)' 
+   'Workinstruction placeholder' : 'Werkinstructies (b.v. Locatie etc.)'
 };
 
 const rubric = {
