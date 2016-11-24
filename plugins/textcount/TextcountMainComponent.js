@@ -50,7 +50,7 @@ TextcountMainComponent.Prototype = function() {
                 $$('select')
                   .ref('select')
                   .append(
-                    this.state.availableSizes.map((size) => {
+                    this.state.availableSizes.map(function(size) {
                       const label = size.size
                       const charCount = (size.charCount == 'Inf' ? '∞' : size.charCount)
                       return $$('option')
@@ -59,8 +59,8 @@ TextcountMainComponent.Prototype = function() {
                           disabled: size.disabled,
                           selected: size.disabled || this.state.documentSize == label
                         })
-                        .append(size.charCount != '?' ? `${label} ( ${charCount} )` : label)
-                    })
+                        .append(size.charCount != '?' ? `${this.context.i18n.t(label)} ( ${charCount} )` : label)
+                    }.bind(this))
                   )
                   .on('change', function(e) {
                     const size = this.refs.select.$el.find('option:selected').data('id')
