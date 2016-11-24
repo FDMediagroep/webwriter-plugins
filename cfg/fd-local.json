@@ -465,7 +465,7 @@
           {"size": "L", "charCount": 3600},
           {"size": "XL", "charCount": 6300},
           {"size": "XXL", "charCount": 8200},
-          {"size": "Vrij", "charCount": "Inf"}
+          {"size": "UNLIMITED", "charCount": "Inf"}
         ],
         "countedElements" : [ "paragraph" ]
         }
