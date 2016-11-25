@@ -14,11 +14,13 @@ module.exports = {
 
     const availableSizes = this.context.api.getConfigValue('textcount', 'sizes', [])
 
+    debugger
+
     if (!textcount) {
       messages.push({message: i18n.t('Missing text length'), type: 'error'})
     } else {
       const size = textcount.attributes['size'].value
-      if (!!size || !availableSizes.some((s) => size == s.size)) {
+      if (!size || !availableSizes.some((s) => size == s.size)) {
         messages.push({message: i18n.t('Missing text length'), type: 'error'})
       }
     }
