@@ -27,8 +27,8 @@ function OEmbedNode() {
                 html: '',
             };
         }
-    }
 
+    }
     this.loadOEmbed(data);
 }
 
@@ -40,7 +40,6 @@ OEmbedNode.Prototype = function() {
     }
 
     this.loadOEmbed = function(data) {
-
         if (typeof(data) === 'undefined') data = {
             'endPoint': this.endPoint,
             'url': this.url
@@ -53,14 +52,18 @@ OEmbedNode.Prototype = function() {
             url: endPoint,
             dataType: 'json'
         }).done(function(json) {
-            this.updateNode(json);
+            this.updateNode(json, data);
         }.bind(this)).fail(function(xhr, err) {
             console.error('Failed to load oembed:', err)
         });
     };
 
-    this.updateNode = function(oembedInformation) {
+    this.updateNode = function(oembedInformation, data) {
         this.html = oembedInformation.html;
+        this.oembedColor = data.color;
+        this.oembedIcon = data.icon;
+        this.oembedTitle = data.title;
+
         this.emit('oembednode:changed');
     };
 

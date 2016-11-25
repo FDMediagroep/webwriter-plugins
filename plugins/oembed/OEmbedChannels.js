@@ -7,7 +7,7 @@ var channels = [
         icon: 'fa-twitter',
         color: '#479ae9',
         isApplicableTo: function(url) { return ~url.indexOf('twitter.com'); },
-        endPoint: 'https://publish.twitter.com/oembed?maxwidth=320&url=' 
+        endPoint: 'https://publish.twitter.com/oembed?width=320&url='
     },
     {
         name: 'Instagram',
@@ -23,7 +23,7 @@ var channels = [
         icon: 'fa-soundcloud',
         color: '#fb3d08',
         isApplicableTo: function(url) { return ~url.indexOf('soundcloud.com'); },
-        endPoint: 'https://soundcloud.com/oembed?maxwidth=320&maxheight=200&format=json&url='
+        endPoint: 'https://soundcloud.com/oembed?maxwidth=320&format=json&url='
     },
     {
         name: 'Vimeo',

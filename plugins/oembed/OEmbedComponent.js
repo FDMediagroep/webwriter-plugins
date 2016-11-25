@@ -27,8 +27,8 @@ OEmbedComponent.Prototype = function() {
 
         el.append(
             $$('div').append(
-                $$(Icon, { icon: node.icon }).attr({ 'style': 'width: 18px; display: inline-block; color:' + node.color + ';' }),
-                $$('strong').append(node.title).attr('contenteditable', false),
+                $$(Icon, { icon: node.oembedIcon }).attr({ 'style': 'width: 18px; display: inline-block; color:' + node.oembedColor + ';' }),
+                $$('strong').append(node.oembedTitle).attr('contenteditable', false),
                 $$('span')
                     .addClass('remove-button')
                     .append($$(Icon, { icon: 'fa-remove' }))

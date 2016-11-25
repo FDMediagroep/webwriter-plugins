@@ -17,7 +17,6 @@ OEmbedCommand.Prototype = function() {
 
     this.createNode = function(url) {
         var channel = channels.find(url);
-
         if (channel) {
             var data = {
                 type: 'oembed',
