@@ -69,7 +69,6 @@
     &>div {
         position: relative;
         overflow: hidden;
-
         img {
             max-width: 100%;
             vertical-align: bottom;
@@ -77,18 +76,21 @@
             transition-property: opacity;
             transition-duration: .2s;
             transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+            display: block;
+            margin: 0 auto;
+            max-height: 460px;
+        }
 
-            &.textframe-preview {
-                opacity: 0.5;
-            }
+        &.textframe-preview {
+            opacity: 0.5;
+        }
 
-            &.textframe-orig {
-                position: absolute;
-                top: 0;
-                left: 0;
-                bottom: 0;
-                right: 0;
-            }
+        &.textframe-orig {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
         }
 
         a.x-im-removeimage {

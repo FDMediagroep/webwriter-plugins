@@ -188,6 +188,18 @@ a.fdmg-box {
     }
 }
 
+div {
+    &.x-im-teaser, &.x-im-image {
+        > div {
+            img {
+                max-height: 460px;
+                display: block;
+                margin: 0 auto;
+            }
+        }
+    }
+}
+
 // teaser override
 
 div.x-im-teaser div.x-im-teaser-text::before {
