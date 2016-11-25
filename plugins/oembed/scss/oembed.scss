@@ -7,7 +7,7 @@
 
     &>a {
         display: inline-block;
-        width: 100%;
+        // width: 100%;
         padding: 4px 8px 28px 8px;
         margin: -5px 9px -28px -9px;
         border-radius: 3px;
@@ -56,9 +56,9 @@
             }
         }
 
-        iframe {
-            width: 100%;
-        }
+        // iframe {
+        //     width: 100%;
+        // }
     }
 
     .meta__container {
