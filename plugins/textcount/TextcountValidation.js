@@ -14,8 +14,6 @@ module.exports = {
 
     const availableSizes = this.context.api.getConfigValue('textcount', 'sizes', [])
 
-    debugger
-
     if (!textcount) {
       messages.push({message: i18n.t('Missing text length'), type: 'error'})
     } else {
