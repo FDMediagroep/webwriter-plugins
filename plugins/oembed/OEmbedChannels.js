@@ -7,7 +7,7 @@ var channels = [
         icon: 'fa-twitter',
         color: '#479ae9',
         isApplicableTo: function(url) { return ~url.indexOf('twitter.com'); },
-        endPoint: 'https://publish.twitter.com/oembed?maxwidth=320&url='
+        endPoint: 'https://publish.twitter.com/oembed?maxwidth=320&url=' 
     },
     {
         name: 'Instagram',
