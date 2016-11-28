@@ -23,7 +23,7 @@ var channels = [
         icon: 'fa-soundcloud',
         color: '#fb3d08',
         isApplicableTo: function(url) { return ~url.indexOf('soundcloud.com'); },
-        endPoint: 'https://soundcloud.com/oembed?maxwidth=320&format=json&url='
+        endPoint: 'https://soundcloud.com/oembed?maxwidth=320&maxheight=150&format=json&url='
     },
     {
         name: 'Vimeo',

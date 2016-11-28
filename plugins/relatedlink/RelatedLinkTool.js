@@ -22,7 +22,7 @@ RelatedLinkTool.Prototype = function () {
 
     this.render = function () {
         var el = $$('button').addClass('se-tool').append(
-            $$('i').addClass('fa fa-angle-right')
+            $$('i').addClass('fa fa-external-link-square')
         ).on('click', this.triggerInsert);
         return el;
     };
