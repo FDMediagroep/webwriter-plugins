@@ -272,15 +272,15 @@
         "path" : "C:\\Projects\\Writer-plugins\\webwriter-plugins\\plugins\\section",
         "data" : {
           "sectionlist" : [
-            { "name": "beursradar", "title": "Beurs" },
-            { "name": "economie-politiek", "title": "Economie & Politiek" },
-            { "name": "fd-persoonlijk", "title": "FD persoonlijk" },
-            { "name": "morgen", "title": "Morgen" },
-            { "name": "ondernemen", "title": "Ondernemen" },
-            { "name": "opinie", "title": "Opinie" },
-            { "name": "profiel", "title": "Profiel" },
-            { "name": "werk-geld", "title": "Werk & Geld" }
-          ],
+              { "name": "beursradar", "title": "Beurs" },
+              { "name": "economie-politiek", "title": "Economie & Politiek" },
+              { "name": "fd-persoonlijk", "title": "FD persoonlijk" },
+              { "name": "morgen", "title": "Morgen" },
+              { "name": "ondernemen", "title": "Ondernemen" },
+              { "name": "opinie", "title": "Opinie" },
+              { "name": "profiel", "title": "Profiel" },
+              { "name": "werk-geld", "title": "Werk & Geld" }
+            ],
           "endpoint": "https://dev-api.fdmg.org/private/fd/lists/sections/ece_frontpage/children"
         }
       },
