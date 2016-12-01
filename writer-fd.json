@@ -53,6 +53,13 @@
             "mandatory": true
         },
         {
+            "id": "nl.fdmg.shortarticle",
+            "name": "shortarticle",
+            "url": "http://localhost:3000/index.js",
+            "enabled": true,
+            "mandatory": true
+        },
+        {
             "id": "nl.fdmg.section",
             "name": "section",
             "url": "http://localhost:3000/index.js",

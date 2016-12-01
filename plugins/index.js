@@ -5,6 +5,7 @@ import Paywall from './nl.fdmg.paywall/index'
 import Topstory from './nl.fdmg.topstory/index'
 import Comments from './nl.fdmg.comments/index'
 import Breakingarticle from './nl.fdmg.breakingarticle/index'
+import Shortarticle from './nl.fdmg.shortarticle/index'
 
 import Section from './nl.fdmg.section/index'
 import Genre from './nl.fdmg.genre/index'
@@ -20,6 +21,7 @@ import ArticleType from './nl.fdmg.articletype/index'
   Topstory()
   Comments()
   Breakingarticle()
+  Shortarticle()
 
   Section()
   Genre()
