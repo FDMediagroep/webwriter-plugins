@@ -1,6 +1,7 @@
 'use strict'
 
 const BlockContentCommand = require('writer/commands/BlockContentCommand')
+const $ = require('substance/util/jquery')
 
 function XfdimageCommand() {
   XfdimageCommand.super.apply(this, arguments)
@@ -10,22 +11,77 @@ XfdimageCommand.Prototype = function() {
 
   this.performSearch = function(query, pageIndex) {
     const resultsPerPage = this.context.api.getConfigValue('xfdimage', 'resultsPerPage', 25)
-    const endpoint = this.context.api.getConfigValue('xfdimage', 'endpoint')
+    const searchEndpoint = this.context.api.getConfigValue('xfdimage', 'searchEndpoint')
+    const oAuthToken = this.context.api.getConfigValue('xfdimage', 'token')
 
-    console.log(`search q='${query}'`)
+    const url = `${searchEndpoint}?q=${query}&page=${pageIndex + 1}`
 
-    // TODO Search actual image endpoint
+    const proxy = this.context.api.router.getEndpoint() + '/api/proxy?url=';
 
-    const images = this.__generateDummyImages(pageIndex, resultsPerPage)
+    return new Promise(function(resolve, reject) {
+        $.ajax({
+            // url: proxy + encodeURIComponent(url),
+            url: url,
+            method: 'GET',
+            contentType: 'application/json',
+            dataType: 'json',
+            beforeSend: function(request) {
+                request.setRequestHeader('Authorization', oAuthToken)
+            }
+        }).done((result) => {
+            const response = {
+                totalResults: result.info.totalresults,
+                images: result.result.map((img) => {
+                    return {id: img.id, thumbnailUrl: img.thumbnail_url}
+                })
+            }
+            resolve(response)
+        }).fail((err) => {
+            console.error(err)
+            reject(err)
+        })
+    })
 
-    return Promise.resolve(images)
+    // return Promise.resolve(
+    // this.__generateDummyImages(pageIndex, resultsPerPage)
+    // )
   }
 
   this.retrieveDownloadUrl = function(imageId) {
-    console.log(`retrieveDownloadUrl id='${imageId}'`)
 
-    // TODO Find actual download url
-    return Promise.resolve('http://www.w3schools.com/css/img_fjords.jpg')
+      const downloadEndpoint = this.context.api.getConfigValue('xfdimage', 'downloadEndpoint')
+      const oAuthToken = this.context.api.getConfigValue('xfdimage', 'token')
+
+      const url = `${downloadEndpoint}?id=${imageId}`
+
+      const proxy = this.context.api.router.getEndpoint() + '/api/proxy?url=';
+
+      console.log(url)
+
+      return new Promise(function(resolve, reject) {
+          $.ajax({
+              //   url: proxy + encodeURIComponent(url),
+              url: url,
+              method: 'GET',
+              contentType: 'application/json',
+              beforeSend: function(request) {
+                  request.setRequestHeader('Authorization', oAuthToken)
+              }
+          }).done((result) => {
+              console.log(result)
+
+
+              resolve(result.url)
+            //   resolve('http://www.w3schools.com/css/img_fjords.jpg')
+          }).fail((err) => {
+              console.error(err)
+              reject(err);
+          })
+      })
+
+
+
+    // return Promise.resolve('http://www.w3schools.com/css/img_fjords.jpg')
   }
 
   this.insertImageById = function(imageId) {
@@ -78,7 +134,7 @@ XfdimageCommand.Prototype = function() {
 
           return {
             id: Math.round(Math.random() * 0x7fffffff),
-            thumbnailUrl: `http://placehold.it/${size}/${color}` 
+            thumbnailUrl: `http://placehold.it/${size}/${color}`
           }
         })
 

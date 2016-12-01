@@ -43,7 +43,7 @@ XfdimageDialog.Prototype = function() {
           .append(
             $$('div').addClass('form-group')
               .append(
-               
+
                 $$('input')
                   .attr({
                     'placeholder' : this.context.i18n.t('Search query'),
@@ -128,8 +128,8 @@ XfdimageDialog.Prototype = function() {
       this.getCommand().performSearch(query, pageIndex)
         .then(function(result) {
 
-          setTimeout(function() { // TODO Remove timeout eventually
-
+            console.log('$$')
+            console.log(result)
 
             this.extendState({
               isSearching: false,
@@ -139,8 +139,6 @@ XfdimageDialog.Prototype = function() {
               totalResults: result.totalResults,
               scrollOffset: $('#xfdimage-results').scrollTop()
             })
-
-          }.bind(this), 500)
 
 
         }.bind(this))
