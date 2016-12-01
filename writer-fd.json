@@ -269,6 +269,41 @@
                     }
                 ]
             }
+        },
+        {
+            "id": "nl.fdmg.articletype",
+            "name": "articletype",
+            "url": "http://localhost:3000/index.js",
+            "enabled": true,
+            "mandatory": true,
+            "data": {
+                "articletypes": [
+                    {
+                        "id": "ARTICLE",
+                        "label": "Artikel"
+                    },
+                    {
+                        "id": "FREE_HTML",
+                        "label": "Vrije HTML"
+                    },
+                    {
+                        "id": "PHOTO_SERIES",
+                        "label": "Fotoserie"
+                    },
+                    {
+                        "id": "SERVICE",
+                        "label": "Service pagina"
+                    },
+                    {
+                        "id": "PARTNER_PAGE",
+                        "label": "Advertorial/partner pagina"
+                    },
+                    {
+                        "id": "EVENT",
+                        "label": "Event"
+                    }
+                ]
+            }
         }
     ]
 }
