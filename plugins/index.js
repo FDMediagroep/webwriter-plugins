@@ -10,6 +10,8 @@ import Section from './nl.fdmg.section/index'
 import Genre from './nl.fdmg.genre/index'
 import Rubric from './nl.fdmg.rubric/index'
 
+import ArticleType from './nl.fdmg.articletype/index'
+
 (() => {
   DoNotIndex()
   FDPersonal()
@@ -22,4 +24,6 @@ import Rubric from './nl.fdmg.rubric/index'
   Section()
   Genre()
   Rubric()
+
+  ArticleType()
 })()
