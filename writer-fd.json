@@ -39,6 +39,13 @@
             "mandatory": true
         },
         {
+            "id": "nl.fdmg.comments",
+            "name": "comments",
+            "url": "http://localhost:3000/index.js",
+            "enabled": true,
+            "mandatory": true
+        },
+        {
             "id": "nl.fdmg.section",
             "name": "section",
             "url": "http://localhost:3000/index.js",
