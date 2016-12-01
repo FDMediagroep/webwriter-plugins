@@ -23,6 +23,13 @@
             "url": "http://localhost:3000/index.js",
             "enabled": true,
             "mandatory": true
+        },
+        {
+            "id": "nl.fdmg.paywall",
+            "name": "paywall",
+            "url": "http://localhost:3000/index.js",
+            "enabled": true,
+            "mandatory": true
         }
     ]
 }
