@@ -16,6 +16,13 @@
             "url": "http://localhost:3000/index.js",
             "enabled": true,
             "mandatory": true
+        },
+        {
+            "id": "nl.fdmg.showrelatedarticles",
+            "name": "showrelatedarticles",
+            "url": "http://localhost:3000/index.js",
+            "enabled": true,
+            "mandatory": true
         }
     ]
 }
