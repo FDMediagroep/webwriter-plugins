@@ -4,6 +4,7 @@ import ShowRelatedArticles from './nl.fdmg.showrelatedarticles/index'
 import Paywall from './nl.fdmg.paywall/index'
 
 import Section from './nl.fdmg.section/index'
+import Genre from './nl.fdmg.genre/index'
 
 (() => {
   DoNotIndex()
@@ -12,4 +13,5 @@ import Section from './nl.fdmg.section/index'
   Paywall()
 
   Section()
+  Genre()
 })()

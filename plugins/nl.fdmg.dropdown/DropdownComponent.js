@@ -1,6 +1,15 @@
 const {Component, FontAwesomeIcon} = substance
 const _ = writer.lodash
 
+/*
+  onSelect
+  header
+  items
+  allowEmptySelection
+  allowFreeInput
+  disabled
+  selection
+*/
 class DropdownComponent extends Component {
 
   getInitialState() {
@@ -18,14 +27,19 @@ class DropdownComponent extends Component {
       .addClass('input-toggle')
       .append(
         $$(FontAwesomeIcon, {icon: this.state.listmode ? 'fa-pencil' : 'fa-list-ul'})
-      ).on('click', this.toggle.bind())
+      ).on('click', this.toggle.bind(this))
 
     const items = this.props.items.slice()
-    items.unshift({
+
+    const empty = {
       id: 'none',
       label: this.getLabel('- no selection -'),
-      disabled: !this.props.allowEmptySelection
-    })
+    }
+    if (!this.props.allowEmptySelection) {
+      empty.disabled = 'disabled'
+    }
+
+    items.unshift(empty)
 
     const listselect = $$('select')
       .attr(this.props.disabled ? {disabled: 'disabled'} : {})
@@ -106,7 +120,7 @@ class DropdownComponent extends Component {
   }
 
   findIdForLabel(label, orElse = -1) {
-    const item = this.props.item.find(i => i.label === label)
+    const item = this.props.items.find(i => i.label === label)
     if (item !== undefined) {
       return item.id
     }
