@@ -5,6 +5,7 @@ import Paywall from './nl.fdmg.paywall/index'
 
 import Section from './nl.fdmg.section/index'
 import Genre from './nl.fdmg.genre/index'
+import Rubric from './nl.fdmg.rubric/index'
 
 (() => {
   DoNotIndex()
@@ -14,4 +15,5 @@ import Genre from './nl.fdmg.genre/index'
 
   Section()
   Genre()
+  Rubric()
 })()
