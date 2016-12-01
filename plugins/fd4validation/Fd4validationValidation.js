@@ -57,7 +57,7 @@ module.exports = {
 
     if (!exactlyOne(teaser)) acc.addError(this.context.i18n.t('Missing teaser block'))
     if (moreThanOne(teaser)) acc.addError(this.context.i18n.t('Too many teaser blocks'))
-    if (exactlyOne(teaser) && emptyTitle(teasertitle) && publishing) acc.addError(this.context.i18n.t('Missing teaser title'))
+    // if (exactlyOne(teaser) && emptyTitle(teasertitle) && publishing) acc.addError(this.context.i18n.t('Missing teaser title'))
     if (exactlyOne(teaser) && emptyBody(teaserbody) && publishing) acc.addError(this.context.i18n.t('Missing teaser body'))
 
     // TODO Extract to section/SectionValidation.js
