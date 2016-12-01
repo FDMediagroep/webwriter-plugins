@@ -1,0 +1,21 @@
+{
+    "newsItemTemplateId": "30eae1c0-c640-4053-b114-05c64e28bbe7",
+    "language": "nl_NL",
+    "labelLanguage": "nl",
+    "plugins": [
+        {
+            "id": "nl.fdmg.donotindex",
+            "name": "donotindex",
+            "url": "http://localhost:3000/index.js",
+            "enabled": true,
+            "mandatory": true
+        },
+        {
+            "id": "nl.fdmg.fdpersonal",
+            "name": "fdpersonal",
+            "url": "http://localhost:3000/index.js",
+            "enabled": true,
+            "mandatory": true
+        }
+    ]
+}
