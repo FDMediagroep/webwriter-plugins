@@ -30,6 +30,49 @@
             "url": "http://localhost:3000/index.js",
             "enabled": true,
             "mandatory": true
+        },
+        {
+            "id": "nl.fdmg.section",
+            "name": "section",
+            "url": "http://localhost:3000/index.js",
+            "enabled": true,
+            "mandatory": true,
+            "data": {
+                "sections": [
+                    {
+                        "id": "beursradar",
+                        "label": "Beurs"
+                    },
+                    {
+                        "id": "economie-politiek",
+                        "label": "Economie & Politiek"
+                    },
+                    {
+                        "id": "fd-persoonlijk",
+                        "label": "FD persoonlijk"
+                    },
+                    {
+                        "id": "morgen",
+                        "label": "Morgen"
+                    },
+                    {
+                        "id": "ondernemen",
+                        "label": "Ondernemen"
+                    },
+                    {
+                        "id": "opinie",
+                        "label": "Opinie"
+                    },
+                    {
+                        "id": "profiel",
+                        "label": "Profiel"
+                    },
+                    {
+                        "id": "werk-geld",
+                        "label": "Werk & Geld"
+                    }
+                ]
+            }
         }
     ]
 }
