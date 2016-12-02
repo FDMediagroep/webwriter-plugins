@@ -50,6 +50,13 @@
             "mandatory": true
         },
         {
+            "id": "nl.fdmg.textanalyzer",
+            "name": "textanalyzer",
+            "url": "http://localhost:3000/index.js",
+            "enabled": true,
+            "mandatory": true
+        },
+        {
             "id": "nl.fdmg.donotindex",
             "name": "donotindex",
             "url": "http://localhost:3000/index.js",

@@ -1,3 +1,5 @@
+import TextAnalyzer from './nl.fdmg.textanalyzer/index'
+
 import DoNotIndex from './nl.fdmg.donotindex/index'
 import FDPersonal from './nl.fdmg.fdpersonal/index'
 import ShowRelatedArticles from './nl.fdmg.showrelatedarticles/index'
@@ -16,6 +18,8 @@ import Rubric from './nl.fdmg.rubric/index'
 import ArticleType from './nl.fdmg.articletype/index'
 
 (() => {
+  TextAnalyzer()
+
   DoNotIndex()
   FDPersonal()
   ShowRelatedArticles()
