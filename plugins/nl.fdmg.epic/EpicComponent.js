@@ -38,7 +38,7 @@ class EpicComponent extends Component {
           $$('div')
             .addClass('metadata__container')
             .append(
-              $$('span').addClass('epic__name notClickable meta').append(epic.name),
+              $$('span').addClass('epic__name notClickable meta').append(epic.label),
               $$('button').append($$(FontAwesomeIcon, {icon: 'fa-times'})).on('click', this.removeEpic)
             )
         )
@@ -61,7 +61,7 @@ class EpicComponent extends Component {
     if (epic) {
       return {
         id: epic['@id'],
-        name: epic['@name']
+        label: epic['@name']
       }
     }
 
@@ -69,24 +69,11 @@ class EpicComponent extends Component {
   }
 
   searchEpic(query) {
-
-    return Promise.resolve([
-      {id:0, name: 'Foo'},
-      {id:1, name: 'Bar'},
-      {id:2, name: 'Baz'}
-    ])
-
-    // const endpoint = api.getConfigValue(pluginId, 'endpoint')
-    // return api.router.get('/api/resourceproxy/', {url: endpoint + query})
-    //   .then(response => this.context.api.router.checkForOKStatus(response))
-    //   .then(response => this.context.api.router.toJson(response))
-    //   .then(response => {
-    //
-    //     // FIXME Transform response into [{id,name}*] for searchfield
-    //
-    //     console.log(response)
-    //     return response
-    //   })
+    const endpoint = api.getConfigValue(pluginId, 'endpoint')
+    return api.router.get('/api/resourceproxy/', {url: endpoint + query})
+      .then(response => this.context.api.router.checkForOKStatus(response))
+      .then(response => this.context.api.router.toJson(response))
+      .then(response => response.map(r => {return {id: r.id, label: r.title}}))
   }
 
   setEpic(epic) {
@@ -96,7 +83,7 @@ class EpicComponent extends Component {
       '@rel': this.name,
       '@type': this.type,
       '@id': epic.id,
-      '@name': epic.name,
+      '@name': epic.label,
       '@uuid': idGenerator()
     }
 

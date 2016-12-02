@@ -60,9 +60,9 @@ class SearchFieldComponent extends Component {
 
     this.state.items.forEach((item, idx) => {
       const itemToSave = clone(item)
-      let name = item.name
+      let label = item.label
       if (item.id === '__create-new') {
-        name = `${this.getLabel('Create')} : ${name}`
+        label = `${this.getLabel('Create')} : ${label}`
       }
 
       const itemId = 'item-' + item.id
@@ -74,7 +74,7 @@ class SearchFieldComponent extends Component {
       }
 
       itemEl
-        .append($$('span').append(name).addClass('item__name'))
+        .append($$('span').append(label).addClass('item__name'))
         .attr({id: itemId})
         .on('click', () => {
           this.select(itemToSave)
@@ -156,7 +156,7 @@ class SearchFieldComponent extends Component {
 
     function itemAlreadyExists(items, item) {
       for (let i = 0; i < items.length; i++) {
-        if (items[i].id !== '__create-new' && items[i].name.toLowerCase() === item.name.toLowerCase()) return true
+        if (items[i].id !== '__create-new' && items[i].label.toLowerCase() === item.label.toLowerCase()) return true
       }
     }
     return false
@@ -233,12 +233,12 @@ class SearchFieldComponent extends Component {
     const existingItemsMap = {};
     if (existingItems) {
       existingItems.forEach(function(item) {
-        existingItemsMap[item.name] = true;
+        existingItemsMap[item.label] = true;
       });
     }
 
     items.forEach(function(item) {
-      if (existingItemsMap[item.name]) {
+      if (existingItemsMap[item.label]) {
         item.exists = true;
       }
     })
