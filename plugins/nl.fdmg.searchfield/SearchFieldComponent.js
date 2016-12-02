@@ -21,6 +21,8 @@ class SearchFieldComponent extends Component {
     if (this.props.createAllowed && !this.props.onCreate) {
       console.warn('Creation of items is allowed but onCreate method is missing')
     }
+
+    this.debouncedSearch = debounce(this._search, 300)
   }
 
   getInitialState() {
@@ -121,7 +123,7 @@ class SearchFieldComponent extends Component {
   }
 
   get search() {
-    return debounce(this._search, 300)
+    return this.debouncedSearch
   }
 
   _search(query) {
@@ -129,6 +131,8 @@ class SearchFieldComponent extends Component {
       this.hide()
       return
     }
+
+    console.log('>>', query)
 
     if (query.length < 2) return
 
