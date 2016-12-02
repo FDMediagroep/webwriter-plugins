@@ -4,6 +4,44 @@
     "labelLanguage": "nl",
     "plugins": [
         {
+            "id": "se.infomaker.ximimage",
+            "name": "ximimage",
+            "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/index.js",
+            "mandatory": false,
+            "enabled": true,
+            "data": {
+                "fields": [
+                    {
+                        "name": "caption",
+                        "label": "Caption",
+                        "type": "text"
+                    },
+                    {
+                        "name": "credit",
+                        "label": "Credit",
+                        "type": "text"
+                    },
+                    {
+                        "name": "alignment",
+                        "label": "Alignment",
+                        "type": "option",
+                        "options": [
+                            {
+                                "name": "right",
+                                "label": "Right",
+                                "icon": "fa-align-right"
+                            },
+                            {
+                                "name": "block",
+                                "label": "Block",
+                                "icon": "fa-align-justify"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
             "id": "se.infomaker.publishflow",
             "name": "publishflow",
             "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/index.js",
