@@ -378,6 +378,16 @@
                     }
                 ]
             }
+        },
+        {
+            "id": "nl.fdmg.epic",
+            "name": "epic",
+            "url": "http://localhost:3000/index.js",
+            "enabled": true,
+            "mandatory": true,
+            "data": {
+                "endpoint": "https://dev-api.fdmg.org/private/fd/search/epic?q="
+            }
         }
     ]
 }

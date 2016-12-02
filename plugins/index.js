@@ -16,6 +16,7 @@ import Genre from './nl.fdmg.genre/index'
 import Rubric from './nl.fdmg.rubric/index'
 
 import ArticleType from './nl.fdmg.articletype/index'
+import Epic from './nl.fdmg.epic/index'
 
 (() => {
   TextAnalyzer()
@@ -36,4 +37,5 @@ import ArticleType from './nl.fdmg.articletype/index'
   RelatedArticles()
 
   ArticleType()
+  Epic()
 })()
