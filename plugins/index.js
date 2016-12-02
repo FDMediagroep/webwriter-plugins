@@ -7,6 +7,8 @@ import Comments from './nl.fdmg.comments/index'
 import Breakingarticle from './nl.fdmg.breakingarticle/index'
 import Shortarticle from './nl.fdmg.shortarticle/index'
 
+import RelatedArticles from './nl.fdmg.relatedarticles/index'
+
 import Section from './nl.fdmg.section/index'
 import Genre from './nl.fdmg.genre/index'
 import Rubric from './nl.fdmg.rubric/index'
@@ -26,6 +28,8 @@ import ArticleType from './nl.fdmg.articletype/index'
   Section()
   Genre()
   Rubric()
+
+  RelatedArticles()
 
   ArticleType()
 })()

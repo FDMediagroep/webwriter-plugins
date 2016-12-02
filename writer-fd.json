@@ -4,6 +4,14 @@
     "labelLanguage": "nl",
     "plugins": [
         {
+            "id": "se.infomaker.publishflow",
+            "name": "publishflow",
+            "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/index.js",
+            "style": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/style.css",
+            "enabled": true,
+            "mandatory": true
+        },
+        {
             "id": "nl.fdmg.donotindex",
             "name": "donotindex",
             "url": "http://localhost:3000/index.js",
@@ -55,6 +63,13 @@
         {
             "id": "nl.fdmg.shortarticle",
             "name": "shortarticle",
+            "url": "http://localhost:3000/index.js",
+            "enabled": true,
+            "mandatory": true
+        },
+        {
+            "id": "nl.fdmg.relatedarticles",
+            "name": "relatedarticles",
             "url": "http://localhost:3000/index.js",
             "enabled": true,
             "mandatory": true
