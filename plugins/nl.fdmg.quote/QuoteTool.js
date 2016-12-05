@@ -1,6 +1,6 @@
-import {jQuery, Toolbox} from 'substance';
+import {jQuery, Tool} from 'substance';
 
-export default class QuoteTool extends Toolbox {
+export default class QuoteTool extends Tool {
   triggerInsert() {
     this.getCommand().insertQuote("", "");
     // removing breaks in order to show the plugin's placeholder
