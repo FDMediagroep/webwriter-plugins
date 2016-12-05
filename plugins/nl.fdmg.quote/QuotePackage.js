@@ -11,10 +11,10 @@ export default {
     config.addNode(QuoteNode);
     config.addConverter('newsml', QuoteConverter);
     config.addComponent('quote', QuoteComponent);
-    config.addCommand('quote', QuoteCommand, {nodeType: 'quote'})
-    config.addTool('add-quote', QuoteTool);
-    config.addIcon('add-quote', { 'fontawesome': 'fa-quote-left' });
-    config.addLabel('add-quote', {
+    config.addCommand('quote', QuoteCommand, {nodeType: 'quote'});
+    config.addContentMenuTopTool('quote', QuoteTool);
+    config.addIcon('quote', { 'fontawesome': 'fa-quote-left' });
+    config.addLabel('quote', {
       en: 'Add quote',
       nl: 'Quote toevoegen'
     });
