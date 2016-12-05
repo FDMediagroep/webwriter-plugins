@@ -1,3 +1,5 @@
+# Getting started guide
+
 1. Clone `NPWriter`: `https://github.com/Infomaker/NPWriter.git`
 1. Clone FDMediagroep `webwriter-plugins` A.K.A. `NPWriterDevKit`: `https://github.com/FDMediagroep/webwriter-plugins`
 1. Use branch `writer3` on `webwriter-plugins`
@@ -15,5 +17,6 @@
 1. Open `localhost:5000` in a browser
 
 In other sessions you only need to:
+
 1. start Webwriter by calling `CONFIG_FILE=writer-fd-dev.json npm run dev` in `NPWriter/`
 1. and run `npm run dev` to start the `NPWriterDevKit`/`webwriter-plugins` for plugin development and enable change watch
