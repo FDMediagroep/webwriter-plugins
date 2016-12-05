@@ -132,8 +132,6 @@ class SearchFieldComponent extends Component {
       return
     }
 
-    console.log('>>', query)
-
     if (query.length < 2) return
 
     this.extendState({isSearching: true})
