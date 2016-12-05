@@ -62,6 +62,9 @@ class SearchFieldComponent extends Component {
 
     this.state.items.forEach((item, idx) => {
       const itemToSave = clone(item)
+
+      console.log(item)
+
       let label = item.label
       if (item.id === '__create-new') {
         label = `${this.getLabel('Create')} : ${label}`
@@ -227,7 +230,7 @@ class SearchFieldComponent extends Component {
 
     if (this.props.onCreate && this.props.createAllowed) {
       items.push({
-        name: this.refs.searchInput.val(),
+        label: this.refs.searchInput.val(),
         id: '__create-new'
       });
     }
