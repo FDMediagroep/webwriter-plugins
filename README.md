@@ -31,7 +31,7 @@ In other sessions you only need to:
 1. Replace `this.context.i18n.t` by `this.getLabel` 
 1. Register the plugin in the `index.js` in the plugin root directory of `webwriter-plugins/plugins`
 1. Add plugin entry in `webwriter-fd-dev.json`
-```
+```json
         {
             "id": "nl.fdmg.<plugin>",
             "name": "<plugin>",

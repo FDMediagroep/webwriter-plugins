@@ -1,3 +1,4 @@
+import QuoteCommand from './QuoteCommand';
 import QuoteComponent from './QuoteComponent';
 import QuoteConverter from './QuoteConverter';
 import QuoteNode from './QuoteNode';
@@ -10,6 +11,7 @@ export default {
     config.addNode(QuoteNode);
     config.addConverter('newsml', QuoteConverter);
     config.addComponent('quote', QuoteComponent);
+    config.addCommand('quote', QuoteCommand, {nodeType: 'quote'})
     config.addTool('add-quote', QuoteTool);
     config.addIcon('add-quote', { 'fontawesome': 'fa-quote-left' });
     config.addLabel('add-quote', {
