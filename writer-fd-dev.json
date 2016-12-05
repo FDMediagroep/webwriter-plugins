@@ -54,7 +54,11 @@
             "name": "author",
             "url": "http://localhost:3000/index.js",
             "enabled": true,
-            "mandatory": true
+            "mandatory": true,
+            "data": {
+              "endpoint": "https://dev-api.fdmg.org/private/fd/search/author?q=",
+              "token": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiI3NTQ5ODQzMzcxNzQxNjc2NTA4Iiwic3ViIjoiZmV3ZmV3Zndmd2VmZXdjZXdjZXdjZXdkcXdkIiwicm9sZSI6IlVTRVIifQ.RCn3YIFB7LmVzJrf9B-F_xyDAtZ4Zpod_CwOFHEWbJISDu_EaYh0-eseWACxrBS2BP3XT9DH-tBJTIyzj3lZ3A"
+            }
         },
         {
             "id": "nl.fdmg.textanalyzer",
@@ -393,7 +397,8 @@
             "enabled": true,
             "mandatory": true,
             "data": {
-                "endpoint": "https://dev-api.fdmg.org/private/fd/search/epic?q="
+                "endpoint": "https://dev-api.fdmg.org/private/fd/search/epic?q=",
+                "token": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiI3NTQ5ODQzMzcxNzQxNjc2NTA4Iiwic3ViIjoiZmV3ZmV3Zndmd2VmZXdjZXdjZXdjZXdkcXdkIiwicm9sZSI6IlVTRVIifQ.RCn3YIFB7LmVzJrf9B-F_xyDAtZ4Zpod_CwOFHEWbJISDu_EaYh0-eseWACxrBS2BP3XT9DH-tBJTIyzj3lZ3A"
             }
         },
         {
