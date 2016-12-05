@@ -17,6 +17,7 @@ import Rubric from './nl.fdmg.rubric/index'
 
 import ArticleType from './nl.fdmg.articletype/index'
 import Epic from './nl.fdmg.epic/index'
+import Quote from './nl.fdmg.quote/index'
 
 (() => {
   TextAnalyzer()
@@ -38,4 +39,5 @@ import Epic from './nl.fdmg.epic/index'
 
   ArticleType()
   Epic()
+  Quote()
 })()

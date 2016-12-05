@@ -388,6 +388,13 @@
             "data": {
                 "endpoint": "https://dev-api.fdmg.org/private/fd/search/epic?q="
             }
+        },
+        {
+            "id": "nl.fdmg.quote",
+            "name": "quote",
+            "url": "http://localhost:3000/index.js",
+            "enabled": true,
+            "mandatory": true
         }
     ]
 }
