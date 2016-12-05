@@ -23,7 +23,6 @@ class StocktickerNode extends InlineNode {
      * @type {number}
      */
 
-    let maxresults = 100;
 
     const serviceUrl = api.getConfigValue('nl.fdmg.stockticker', 'serviceurl');
     const searchUrl = encodeURIComponent(serviceUrl + this.isin);
@@ -50,7 +49,7 @@ class StocktickerNode extends InlineNode {
     });
   }
 
-  search(query, callback, maxresult) {
+  search(query, callback) {
 
     const serviceUrl = api.getConfigValue('nl.fdmg.stockticker', 'serviceurl');
     const searchUrl = encodeURIComponent(serviceUrl + query);

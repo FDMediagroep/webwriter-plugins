@@ -1,5 +1,4 @@
 import {InsertInlineNodeCommand} from 'substance'
-import {api} from 'writer'
 
 class StocktickerCommand extends InsertInlineNodeCommand {
   getCommandState(params) {
@@ -18,7 +17,7 @@ class StocktickerCommand extends InsertInlineNodeCommand {
     return newState;
   }
 
-  createNodeData(params) {
+  createNodeData() {
     return {
       attributes: {'data-isin-code': 'US0378331005'},
       targets: [],
