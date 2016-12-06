@@ -1,4 +1,5 @@
 import TopstoryComponent from './TopstoryComponent'
+import TopstoryValidator from './TopstoryValidator'
 
 export default {
   id: 'nl.fdmg.topstory',
@@ -7,8 +8,18 @@ export default {
     // config.addSidebarTab(this.id, 'Related')
     config.addComponentToSidebarWithTabId(this.id, 'main', TopstoryComponent)
 
+    config.addValidator(TopstoryValidator)
+
+    config.addLabel('Topstory', {
+      'nl': 'Topstory'
+    })
+
     config.addLabel('Topstory text', {
       'nl': 'Topstory'
+    })
+
+    config.addLabel('Topstory is missing a value', {
+      'nl': 'Topstory mist een waarde'
     })
   }
 }

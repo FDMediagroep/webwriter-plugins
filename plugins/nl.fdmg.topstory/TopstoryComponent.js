@@ -2,7 +2,7 @@ import ArticleOptionComponent from '../nl.fdmg.articleoption/ArticleOptionCompon
 
 class TopstoryComponent extends ArticleOptionComponent {
   constructor(...args) {
-    super('topstory', 'fdmg/topstory', 'Topstory', ...args)
+    super('topstory', 'fdmg/topstory', 'Topstory', '', 'Topstory text', ...args)
   }
 }
 
