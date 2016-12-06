@@ -2,11 +2,11 @@ export default {
   type: 'quote',
   tagName: 'object',
 
-  matchElement: function(el) {
+  matchElement: function (el) {
     return el.is('object') && el.attr('type') === 'fdmg/quote';
   },
 
-  import: function(el, node) { // jshint ignore:line
+  import: function (el, node) { // jshint ignore:line
     if (el.attr('uuid')) {
       node.uuid = el.attr('uuid');
     }
@@ -16,7 +16,7 @@ export default {
     node.contentType = el.attr('type');
 
     var dataEl = el.find('data');
-    dataEl.children.forEach(function(child) {
+    dataEl.children.forEach(function (child) {
       if (child.tagName === 'message') {
         node.message = child.text();
       }
@@ -27,7 +27,7 @@ export default {
     });
   },
 
-  export: function(node, el, converter) {
+  export: function (node, el, converter) {
     if (node.uuid) {
       el.attr('uuid', node.uuid);
     }

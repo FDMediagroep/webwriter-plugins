@@ -1,6 +1,7 @@
 import {BlockNode} from 'substance';
 
-export default class QuoteNode extends BlockNode {}
+export default class QuoteNode extends BlockNode {
+}
 
 QuoteNode.define({
   type: 'quote',

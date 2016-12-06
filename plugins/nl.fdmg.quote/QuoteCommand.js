@@ -7,23 +7,23 @@ export default class QuoteCommand extends Command {
     };
   }
 
-  execute(quoteMessage, quoteAuthor) {
+  execute(params, context) {
     var state = this.getCommandState();
-    console.info('Added quote "' + quoteMessage + '" with author: "' + quoteAuthor + '" to document');
+    console.info('Added quote "' + params.quoteMessage + '" with author: "' + params.quoteAuthor + '" to document', arguments);
     if (state.disabled) {
       return;
     }
     var data = {
       type: 'quote',
       contentType: 'fdmg/quote',
-      message: quoteMessage,
-      author: quoteAuthor,
+      message: params.quoteMessage,
+      author: params.quoteAuthor,
       data: {
         type: 'quote',
         'data-type': 'quote'
       }
     };
-    return this.context.api.insertBlockNode(data.type, data);
+    return context.api.document.insertBlockNode(data.type, data);
   }
 
 }
