@@ -83,8 +83,7 @@ class AuthorComponent extends Component {
         $$(AuthorList, {
           existingAuthors: this.state.existingAuthors,
           removeAuthor: this.removeAuthor.bind(this)
-        })
-        .ref('authorList'),
+        }),
         $$(SearchField, {
           existingItems: this.state.existingAuthors,
           doSearch: this.searchAuthors.bind(this),
@@ -92,11 +91,9 @@ class AuthorComponent extends Component {
           onCreate: this.createAuthor.bind(this),
           createAllowed: true,
           placeholderText: this.getLabel('Add author')
-        })
-        .ref('authorSearch'),
+        }),
         $$('h2')
       )
-      .ref('authorContainer')
   }
 
   _getExistingAuthors() {

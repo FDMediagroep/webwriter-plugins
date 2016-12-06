@@ -22,7 +22,7 @@ export default {
     })
 
     config.addLabel('Missing author', {
-      'nl': 'Auteur is leeg'
+      'nl': 'Geen auteur opgegeven'
     })
   }
 }

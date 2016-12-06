@@ -63,8 +63,6 @@ class SearchFieldComponent extends Component {
     this.state.items.forEach((item, idx) => {
       const itemToSave = clone(item)
 
-      console.log(item)
-
       let label = item.label
       if (item.id === '__create-new') {
         label = `${this.getLabel('Create')} : ${label}`
