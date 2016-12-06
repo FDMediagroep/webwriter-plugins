@@ -2,7 +2,7 @@ import ArticleOptionComponent from '../nl.fdmg.articleoption/ArticleOptionCompon
 
 class FDPersonalComponent extends ArticleOptionComponent {
   constructor(...args) {
-    super('fdpersonal', 'fdmg/fdpersonal', 'FD Personal', ...args)
+    super('fdpersonal', 'fdmg/fdpersonal', 'FD Personal', false, '' , '', ...args)
   }
 }
 

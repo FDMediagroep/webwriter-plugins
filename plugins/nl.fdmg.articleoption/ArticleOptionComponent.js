@@ -2,12 +2,12 @@ const {Component} = substance
 const {api, idGenerator} = writer
 
 class ArticleOptionComponent extends Component {
-  constructor(name, type, label, inputText, inputPlaceholder, ...args) {
+  constructor(name, type, label, hasinput, inputText, inputPlaceholder, ...args) {
     super(...args)
     this.name = name
     this.type = type
     this.label = label
-    this.hasinput = (typeof this.inputText !== undefined)
+    this.hasinput = hasinput
     this.value = inputText
     this.placeholder = inputPlaceholder
   }

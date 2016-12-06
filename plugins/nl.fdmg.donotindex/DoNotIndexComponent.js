@@ -2,7 +2,7 @@ import ArticleOptionComponent from '../nl.fdmg.articleoption/ArticleOptionCompon
 
 class DoNotIndexComponent extends ArticleOptionComponent {
   constructor(...args) {
-    super('donotindex', 'fdmg/donotindex', 'Do not index', ...args)
+    super('donotindex', 'fdmg/donotindex', 'Do not index', false, '' , '', ...args)
   }
 }
 
