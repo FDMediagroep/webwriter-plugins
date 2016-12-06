@@ -77,7 +77,46 @@
             "name": "textanalyzer",
             "url": "http://localhost:3000/index.js",
             "enabled": true,
-            "mandatory": true
+            "mandatory": true,
+            "data": {
+              "counting": [
+                "paragraph"
+              ],
+              "marginPct": 10,
+              "sizes": [
+                {
+                  "size": "?",
+                  "label": "?",
+                  "count": -1,
+                  "disabled": true
+                },
+                {
+                  "size": "S",
+                  "label": "1810",
+                  "count": 1810
+                },
+                {
+                  "size": "L",
+                  "label": "3600",
+                  "count": 3600
+                },
+                {
+                  "size": "XL",
+                  "label": "6300",
+                  "count": 6300
+                },
+                {
+                  "size": "XXL",
+                  "label": "8200",
+                  "count": 8200
+                },
+                {
+                  "size": "UNLIMITED",
+                  "label": "∞",
+                  "count": -1
+                }
+              ]
+            }
         },
         {
             "id": "nl.fdmg.donotindex",

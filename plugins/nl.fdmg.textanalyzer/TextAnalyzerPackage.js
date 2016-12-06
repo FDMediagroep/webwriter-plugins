@@ -26,6 +26,10 @@ export default {
       'nl': 'Woorden'
     })
 
+    config.addLabel('Document', {
+      'nl': 'Document'
+    })
+
     config.addLabel('Not enough characters', {
       'nl': 'Niet genoeg karakters'
     })
