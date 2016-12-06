@@ -61,6 +61,18 @@
             }
         },
         {
+            "id": "nl.fdmg.tags",
+            "name": "tags",
+            "url": "http://localhost:3000/index.js",
+            "enabled": true,
+            "mandatory": true,
+            "data": {
+              "searchEndpoint": "https://dev-api.fdmg.org/private/fd/search/tag?q=",
+              "updateEndpoint": "https://dev-api.fdmg.org/private/fd/articles/tags/",
+              "token": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiI3NTQ5ODQzMzcxNzQxNjc2NTA4Iiwic3ViIjoiZmV3ZmV3Zndmd2VmZXdjZXdjZXdjZXdkcXdkIiwicm9sZSI6IlVTRVIifQ.RCn3YIFB7LmVzJrf9B-F_xyDAtZ4Zpod_CwOFHEWbJISDu_EaYh0-eseWACxrBS2BP3XT9DH-tBJTIyzj3lZ3A"
+            }
+        },
+        {
             "id": "nl.fdmg.textanalyzer",
             "name": "textanalyzer",
             "url": "http://localhost:3000/index.js",

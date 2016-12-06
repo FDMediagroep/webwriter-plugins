@@ -1,6 +1,7 @@
 import TextAnalyzer from './nl.fdmg.textanalyzer/index';
 
 import Author from './nl.fdmg.author/index'
+import Tags from './nl.fdmg.tags/index'
 
 import DoNotIndex from './nl.fdmg.donotindex/index'
 import FDPersonal from './nl.fdmg.fdpersonal/index'
@@ -27,6 +28,7 @@ import Stockticker from './nl.fdmg.stockticker/index';
   TextAnalyzer()
 
   Author()
+  Tags()
 
   DoNotIndex()
   FDPersonal()
