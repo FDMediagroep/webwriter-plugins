@@ -87,23 +87,27 @@ EpicMainComponent.Prototype = function() {
 
   this.searchEpics = function(q, cb) {
     var endpoint = this.context.api.getConfigValue(this.name, 'endpoint');
-
+    var token = this.context.api.getConfigValue(this.name, 'token');
     this.extendState({ isSearching: true });
 
-    jQuery.ajax(endpoint + q, { data: { dataType: 'json' } })
-      .done(function(items) {
-
-        var epics = items.slice(0, 100).map(function(epic) {
-          return {
-            name: epic.title,
-            id: epic.id
-          }
-        });
-
-        cb(null, epics);
-      }.bind(this))
-      .fail(function(data, status, err) { console.error(err); cb(err, null); })
-      .always(function() { this.extendState({ isSearching: false }); }.bind(this));
+    this.context.api.router.get(endpoint + q, {
+      headers: {
+        'X-Auth-Token' : token
+      }
+    }).done(function(items) {
+      var epics = items.slice(0, 100).map(function(epic) {
+        return {
+          name: epic.title,
+          id: epic.id
+        }
+      });
+      cb(null, epics);
+    }.bind(this))
+      .error(function(error, xhr, text) {
+      // TODO: Display error message
+      console.error(error, xhr, text);
+    }.bind(this)
+    ).always(function() { this.extendState({ isSearching: false }); }.bind(this));
   };
 
   this.setEpic = function(epic) {

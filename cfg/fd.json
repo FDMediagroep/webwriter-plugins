@@ -113,7 +113,17 @@
       "source": { "path": "webwriter-plugins/plugins/section", "pluginrepositoryId": "fdplugins", "type": "git" }
     },
     { "enabled": true, "vendor": "nl.fdmg", "name": "relatedarticles",                                                                                  "source": { "path": "webwriter-plugins/plugins/relatedarticles",      "pluginrepositoryId": "fdplugins", "type": "git" } },
-    { "enabled": true, "vendor": "nl.fdmg", "name": "epic",        "data": { "endpoint": "/fdmgapi/private/fd/search/epic?q=" },                        "source": { "path": "webwriter-plugins/plugins/epic",             "pluginrepositoryId": "fdplugins", "type": "git" } },
+    { "enabled": true, "vendor": "nl.fdmg", "name": "epic",        
+        "data": 
+          { 
+            "endpoint": "/fdmgapi/private/fd/search/epic?q=",
+            "token" : "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIzNDgyNjg0ODcwNTk3OTExNDkiLCJzdWIiOiJJTkZPTUFLRVItS0VZIiwicm9sZSI6IlVTRVIifQ.3YHXOenozEKzAdUWelwIkykn4D5yMKeOi0vec3JiN-R7cEBr7YLX7Kcaf4k7FsaQVXdFq5z-nf4cfneimYpj4g"
+          }, 
+        "source": { 
+          "path": "webwriter-plugins/plugins/epic",
+          "pluginrepositoryId": "fdplugins", "type": "git" 
+        } 
+    },
     { "enabled": true,
       "vendor": "nl.fdmg",
       "name": "genre",
