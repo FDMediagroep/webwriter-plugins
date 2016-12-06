@@ -18,11 +18,13 @@ import Section from './nl.fdmg.section/index';
 import Genre from './nl.fdmg.genre/index';
 import Rubric from './nl.fdmg.rubric/index';
 
-import ArticleType from './nl.fdmg.articletype/index';
-import Epic from './nl.fdmg.epic/index';
-import NumberFrame from './nl.fdmg.numberframe/index';
-import Quote from './nl.fdmg.quote/index';
-import Stockticker from './nl.fdmg.stockticker/index';
+import ArticleType from './nl.fdmg.articletype/index'
+import Epic from './nl.fdmg.epic/index'
+
+import TextcountSelector from './nl.fdmg.textcountselector/index'
+
+import Quote from './nl.fdmg.quote/index'
+import Stockticker from './nl.fdmg.stockticker/index'
 
 (() => {
   TextAnalyzer()
@@ -47,6 +49,9 @@ import Stockticker from './nl.fdmg.stockticker/index';
 
   ArticleType()
   Epic()
+
+  TextcountSelector()
+
   Quote()
   Stockticker()
 })()

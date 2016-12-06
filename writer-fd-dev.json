@@ -453,8 +453,8 @@
             }
         },
         {
-            "id": "nl.fdmg.numberframe",
-            "name": "numberframe",
+            "id": "nl.fdmg.textcountselector",
+            "name": "textcountselector",
             "url": "http://localhost:3000/index.js",
             "enabled": true,
             "mandatory": true
@@ -465,6 +465,23 @@
             "url": "http://localhost:3000/index.js",
             "enabled": true,
             "mandatory": true
+        },
+        {
+            "id": "nl.fdmg.numberframe",
+            "name": "numberframe",
+            "url": "http://localhost:3000/index.js",
+            "enabled": false,
+            "mandatory": false
+        },
+        {
+            "id": "nl.fdmg.stockticker",
+            "name": "stockticker",
+            "url": "http://localhost:3000/index.js",
+            "enabled": false,
+            "mandatory": false,
+            "data": {
+              "serviceurl": "https://beurs.fd.nl/webservices/fd/quicksearch?query="
+            }
         }
     ]
 }
