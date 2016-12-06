@@ -21,7 +21,8 @@ In other sessions you only need to:
 1. start Webwriter by calling `CONFIG_FILE=writer-fd-dev.json npm run dev` in `NPWriter/`
 1. and run `npm run dev` to start the `NPWriterDevKit`/`webwriter-plugins` for plugin development and enable change watch
 
-# Rewrite plugin from Writer to Writer 3
+# Rewrite `Tool` plugin from Writer to Writer 3
+1. Set your IntelliJ (or any other poison of your choice) editor settings indentation to exactly 2 spaces (no tab).
 1. Update status in `https://docs.google.com/spreadsheets/d/1DWcKYwYq8LVKjwDNPUj8BGUef2ykQKXon6lM1FDxoRI/edit?ts=58412e69#gid=0`
 1. Create folder with the following naming convention: `nl.fdmg.<plugin name>`
 1. Create the necessary file: `index.js`
@@ -29,6 +30,7 @@ In other sessions you only need to:
 1. `this.render` property becomes the function `render($$)`
 1. Replace `Icon` by `FontAwesomeIcon` i.e: `$$(Icon, {icon: 'fa-quote-left'})` becomes `$$(FontAwesomeIcon, {icon: 'fa-quote-left'})`
 1. Replace `this.context.i18n.t` by `this.getLabel` 
+1. Replace `this.context.api.on` by `this.context.api.events.on`
 1. Register the plugin in the `index.js` in the plugin root directory of `webwriter-plugins/plugins`
 1. Add plugin entry in `webwriter-fd-dev.json`
 ```json
