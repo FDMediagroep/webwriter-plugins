@@ -28,7 +28,7 @@ export default class QuoteComponent extends Component {
         $$('div').addClass('plugin-title').append(this.getLabel("Quote")),
         $$('span').addClass('remove-button').append(
           $$(FontAwesomeIcon, {icon: 'fa-remove'})
-        ).on('click', () => this.removeQuote() ).attr('title', this.getLabel('Verwijderen uit artikel'))
+        ).on('click', () => { this.removeQuote(); } ).attr('title', this.getLabel('Verwijderen uit artikel'))
       ]),
       message,
       author

@@ -9,7 +9,7 @@ export default class QuoteCommand extends Command {
 
   execute(params, context) {
     var state = this.getCommandState();
-    console.info('Added quote "' + params.quoteMessage + '" with author: "' + params.quoteAuthor + '" to document', arguments);
+    console.info('Added quote "' + params.quoteMessage + '" with author: "' + params.quoteAuthor + '" to document');
     if (state.disabled) {
       return;
     }
