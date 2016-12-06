@@ -75,7 +75,7 @@ class EpicComponent extends Component {
     return api.router.get('/api/resourceproxy', {
       url: endpoint + query,
       headers: {
-        'Authorization': `Bearer ${token}`
+        'x-access-token': `Bearer ${token}`
       }
     })
       .then(response => api.router.checkForOKStatus(response))

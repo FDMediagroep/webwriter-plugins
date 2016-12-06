@@ -31,7 +31,7 @@ class TagsComponent extends Component {
     return api.router.get('/api/resourceproxy', {
       url: endpoint + query,
       headers: {
-        'Authorization': `Bearer ${token}`
+        'x-access-token': `Bearer ${token}`
       }
     })
       .then(response => api.router.checkForOKStatus(response))
@@ -111,7 +111,7 @@ class TagsComponent extends Component {
       url: url,
       body: JSON.stringify(this.state.existingTags.map(tag => tag.name)).toString(),
       headers: {
-        'Authorization': `Bearer ${token}`,
+        'x-access-token': `Bearer ${token}`,
         'Content-Type': 'application/json'
       }
     })
