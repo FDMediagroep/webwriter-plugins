@@ -91,8 +91,8 @@ EpicMainComponent.Prototype = function() {
     this.extendState({ isSearching: true });
 
     this.context.api.router.get(endpoint + q, {
-      headers: {
-        'X-Auth-Token' : token
+      headers : {
+        "x-access-token" : token
       }
     }).done(function(items) {
       var epics = items.slice(0, 100).map(function(epic) {
@@ -105,9 +105,8 @@ EpicMainComponent.Prototype = function() {
     }.bind(this))
       .error(function(error, xhr, text) {
       // TODO: Display error message
-      console.error(error, xhr, text);
-    }.bind(this)
-    ).always(function() { this.extendState({ isSearching: false }); }.bind(this));
+      console.error(error, xhr, text);}.bind(this))
+    .always(function() { this.extendState({ isSearching: false }); }.bind(this));
   };
 
   this.setEpic = function(epic) {
