@@ -42,5 +42,6 @@ In other sessions you only need to:
             "mandatory": true
         }
 ```
+## Rinse and repeat
 1. Copy `webwriter-plugins/writer-fd-dev.json` to `NPWriter/server/config`
 1. Restart `Webwriter` and `NPWriterDevKit`/`webwriter-plugins`
