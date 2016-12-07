@@ -27,18 +27,57 @@ In other sessions you only need to:
 
 ## Rewrite a `ContentItem` plugin
 1. Create folder with the following naming convention: `nl.fdmg.<plugin name>`
-1. Create the necessary file: `index.js`
-1. Create <PackageName>Package.js and import this in the `index.js`
-1. `this.render` property becomes the function `render($$)`
-1. Replace `Icon` by `FontAwesomeIcon` i.e: `$$(Icon, {icon: 'fa-quote-left'})` becomes `$$(FontAwesomeIcon, {icon: 'fa-quote-left'})`
-1. Replace `this.context.i18n.t` by `this.getLabel` 
-1. Replace `this.context.api.on` by `this.context.api.events.on`
-1. Replace `TextPropertyComponent` by `TextPropertyEditor`
+1. Create the necessary file: `index.js` (See: figure 1)
+1. Rewrite `<Plugin name>.js` to `<Plugin name>Package.js` (imported in the `index.js`)
+1. Rewrite the remaining files.
+    1. `this.render` property becomes the function `render($$)`
+    1. Replace `Icon` by `FontAwesomeIcon` i.e: `$$(Icon, {icon: 'fa-quote-left'})` becomes `$$(FontAwesomeIcon, {icon: 'fa-quote-left'})`
+    1. Replace `this.context.i18n.t` by `this.getLabel`
+    1. Replace `this.context.api.on` by `this.context.api.events.on`
+    1. Replace `TextPropertyComponent` by `TextPropertyEditor`
 1. Register the plugin in the `index.js` in the plugin root directory of `webwriter-plugins/plugins`
-1. Add plugin entry in `webwriter-fd-dev.json`
+1. Add plugin entry in `webwriter-fd-dev.json` (See: figure 3)
 1. Copy `webwriter-plugins/writer-fd-dev.json` to `NPWriter/server/config`
-1. Restart `Webwriter` and `NPWriterDevKit`/`webwriter-plugins`
+1. Restart `Webwriter` and `webwriter-plugins` A.K.A. `NPWriterDevKit`
 1. Rinse and repeat
+```javascript
+import <Plugin name>Package from './<Plugin name>Package';
+import {registerPlugin} from 'writer';
+
+export default () => {
+  if (registerPlugin) {
+    registerPlugin(<Plugin name>Package)
+  } else {
+    console.error("Register method not yet available: <Plugin name>Package");
+  }
+}
+```
+<sup>Figure 1: index.js</sup>
+```
+import <Plugin name>Command from './<Plugin name>Command';
+import <Plugin name>Component from './<Plugin name>Component';
+import <Plugin name>Converter from './<Plugin name>Converter';
+import <Plugin name>Node from './<Plugin name>Node';
+import <Plugin name>Tool from './<Plugin name>Tool';
+
+export default {
+  id: 'nl.fdmg.<plugin name>',
+  name: '<plugin name>',
+  configure: function (config) {
+    config.addNode(<Plugin name>Node);
+    config.addConverter('newsml', <Plugin name>Converter);
+    config.addComponent('quote', <Plugin name>Component);
+    config.addCommand('quote', <Plugin name>Command, {nodeType: '<plugin name>'});
+    config.addContentMenuTopTool('<plugin name>', <Plugin name>Tool);
+    config.addIcon('<plugin name>', {'fontawesome': '<fontawesome icon name>'});
+    config.addLabel('<plugin name>', {
+      en: 'Add <plugin name>',
+      nl: '<Plugin name> toevoegen'
+    });
+  }
+}
+```
+<sup>Figure 2: <Plugin name>Package.js</sup>
 ```json
 {
     "id": "nl.fdmg.<plugin>",
@@ -48,7 +87,7 @@ In other sessions you only need to:
     "mandatory": true
 }
 ```
-<sup>Figure: webwriter-fd-dev.json</sup>
+<sup>Figure 3: webwriter-fd-dev.json</sup>
 
 ## Rewrite a `ContextItem` plugin
 ### TODO...
