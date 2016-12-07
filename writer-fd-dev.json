@@ -557,6 +557,45 @@
             "style": "http://localhost:3000/style.css",
             "enabled": true,
             "mandatory": true
+        },
+        {
+          "id": "nl.fdmg.textframe",
+          "name": "textframe",
+          "url": "http://localhost:3000/index.js",
+          "style": "http://localhost:3000/style.css",
+          "enabled": true,
+          "mandatory": true,
+          "data": {
+            "fields": [
+              {
+                "name": "alignment",
+                "label": "Alignment",
+                "type": "option",
+                "options": [
+                  {
+                    "name": "right",
+                    "label": "Right",
+                    "icon": "fa-align-right"
+                  },
+                  {
+                    "name": "block",
+                    "label": "Block",
+                    "icon": "fa-align-justify"
+                  }
+                ]
+              }
+            ],
+            "softcrop": true,
+            "enablesoftcrop": true,
+            "crops": {
+              "16:9": [16, 9],
+              "4:3": [4, 3],
+              "1:1": [1, 1]
+            },
+            "preventAutomaticLinkCreation": false,
+            "disableUseOfAnnotationTools": false
+          }
         }
+
     ]
 }

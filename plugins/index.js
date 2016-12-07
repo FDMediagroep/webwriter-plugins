@@ -30,7 +30,7 @@ import Quote from './nl.fdmg.quote/index';
 import NumberFrame from './nl.fdmg.numberframe/index';
 import StackFrame from './nl.fdmg.stackframe/index';
 import RelatedLink from './nl.fdmg.relatedlink/index';
-
+import TextFrame from './nl.fdmg.textframe/index';
 //import Stockticker from './nl.fdmg.stockticker/index';
 
 (() => {
@@ -66,6 +66,7 @@ import RelatedLink from './nl.fdmg.relatedlink/index';
   NumberFrame();
   StackFrame();
   RelatedLink();
+  TextFrame();
 
-  // Stockticker()
+  //Stockticker();
 })()
