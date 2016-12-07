@@ -54,9 +54,6 @@ class TextcountSelectorComponent extends Component {
   }
 
   updateDocumentSize(size) {
-
-    console.log('>>', size)
-
     api.newsItem
       .getLinkByType('textcount', 'fdmg/textcount')
       .forEach(link => api.newsItem.removeLinkByUUIDAndRel('textcount', link['@uuid'], link['@rel']))
