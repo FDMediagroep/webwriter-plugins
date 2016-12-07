@@ -142,3 +142,9 @@ api.editorSession.executeCommand('ximimage-insert-image-url', {
   imageUrl: imageURL
 });
 ```
+
+## Resources
+* https://infomaker.github.io/NPWriterDevelopers/getting-started/
+* https://github.com/Infomaker
+* https://infomaker.github.io/NPWriterDevelopers/api-reference/
+* http://substance.io/docs/beta5/util/Configurator.html
