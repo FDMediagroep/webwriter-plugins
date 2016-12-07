@@ -15,9 +15,8 @@ export default {
     config.addCommand('relatedlink', RelatedLinkCommand, {nodeType: 'relatedlink'});
     config.addContentMenuTopTool('relatedlink', RelatedLinkTool);
     config.addIcon('relatedlink', {'fontawesome': 'fa-angle-right'});
-    config.addLabel('relatedlink', {
-      en: 'Add related link',
-      nl: 'Gerelateerd link toevoegen'
-    });
+    config.addLabel('Related article', { nl: 'Uitstapmoment' });
+    config.addLabel('Also read', { nl: 'Lees ook' });
+    config.addLabel('Article title', { nl: 'Titel van artikel' });
   }
 }
