@@ -119,8 +119,8 @@ export default class <Plugin name>Node extends BlockNode {
 <sub id="figure5">Figure 5: webwriter-fd-dev.json</sub>
 ```json
 {
-    "id": "nl.fdmg.<plugin>",
-    "name": "<plugin>",
+    "id": "nl.fdmg.<plugin name>",
+    "name": "<plugin name>",
     "url": "http://localhost:3000/index.js",
     "enabled": true,
     "mandatory": true
