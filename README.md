@@ -27,7 +27,7 @@ In other sessions you only need to:
 
 ## Rewrite a `ContentItem` plugin
 1. Create folder with the following naming convention: `nl.fdmg.<plugin name>`
-1. Create the necessary file: `index.js` (See: [figure 1](#figure1))
+1. Create the necessary file: `index.js` (see: [figure 1](#figure1))
 1. Rewrite `<Plugin name>.js` to `<Plugin name>Package.js` (imported in the `index.js`, see: [figure 2](#figure2))
     1. Import SCSS file `import './scss/<Plugin name>.scss'`
 1. Rewrite `<Plugin name>Node.js` (see: [figure 3](#figure3))
@@ -41,13 +41,13 @@ In other sessions you only need to:
 1. Rewrite `<Plugin name>Tool.js`.
     1. `<Plugin name>Tool.js` click handler is now being replaced by `api.editorSession.executeCommand(...);`
 1. Rewrite `<Plugin name>Command.js`.
-    1. Now needs an implementation of `getCommandState` (See: [figure 4](#figure4))
+    1. Now needs an implementation of `getCommandState` (see: [figure 4](#figure4))
     1. Now needs an implementation of `execute(params, context)` because of the rewrite to `executeCommand` call in `<Plugin name>Tool.js`
     1. `return this.context.api.insertBlockNode(data.type, data);` becomes `return context.api.document.insertBlockNode(data.type, data);`
 1. Rewrite `<Plugin name>Converter.js`
     1. `var NumberFrameConverter = {` becomes `export default {`
 1. Register the plugin in the `index.js` in the plugin root directory of `webwriter-plugins/plugins`
-1. Add plugin entry in `webwriter-fd-dev.json` (See: [figure 5](#figure5))
+1. Add plugin entry in `webwriter-fd-dev.json` (see: [figure 5](#figure5))
 1. Copy `webwriter-plugins/writer-fd-dev.json` to `NPWriter/server/config`
 1. Restart `Webwriter` and `webwriter-plugins` A.K.A. `NPWriterDevKit`
 1. Rinse and repeat
@@ -134,6 +134,7 @@ export default class <Plugin name>Node extends BlockNode {
 ### TODO...
 
 # Miscellaneous
+<sub>Insert image from URL</sub>
 ```javascript
 const imageURL = 'https://www.stevensegallery.com/284/196';
 
