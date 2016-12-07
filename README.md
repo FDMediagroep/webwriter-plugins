@@ -36,6 +36,7 @@ In other sessions you only need to:
     1. Replace `this.context.i18n.t` by `this.getLabel`
     1. Replace `this.context.api.on` by `this.context.api.events.on`
     1. Replace `TextProperty` by `TextPropertyEditor`
+    1. Replace `this.context.api.deleteNode('numberframe', this.props.node);` by `api.document.deleteNode('numberframe', this.props.node);`
 1. Rewrite `<Plugin name>Tool.js`.
     1. `<Plugin name>Tool.js` click handler is now being replaced by `api.editorSession.executeCommand(...);`
 1. Rewrite `<Plugin name>Command.js`.
