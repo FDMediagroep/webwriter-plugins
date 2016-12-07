@@ -4,7 +4,7 @@ import QuoteComponent from './QuoteComponent';
 import QuoteConverter from './QuoteConverter';
 import QuoteNode from './QuoteNode';
 import QuoteTool from './QuoteTool';
-import QuoteValidator from '../fd4validation/QuoteValidator.js';
+import QuoteValidator from './QuoteValidator.js';
 
 export default {
   id: 'nl.fdmg.quote',
