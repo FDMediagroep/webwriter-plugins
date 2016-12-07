@@ -511,18 +511,8 @@
             "name": "numberframe",
             "url": "http://localhost:3000/index.js",
             "style": "http://localhost:3000/style.css",
-            "enabled": false,
-            "mandatory": false
-        },
-        {
-            "id": "nl.fdmg.stockticker",
-            "name": "stockticker",
-            "url": "http://localhost:3000/index.js",
-            "enabled": false,
-            "mandatory": false,
-            "data": {
-                "serviceurl": "https://beurs.fd.nl/webservices/fd/quicksearch?query="
-            }
+            "enabled": true,
+            "mandatory": true
         }
     ]
 }
