@@ -31,8 +31,7 @@ class ArticleOptionComponent extends Component {
               .on('change', () => {
                 this.setOptionChecked(!this.state.checked)
               }),
-              // $$('span').append(this.getLabel(this.label))
-              $$('span').append(this.label)
+              $$('span').append(this.getLabel(this.label))
           )
       )
 
@@ -43,7 +42,7 @@ class ArticleOptionComponent extends Component {
             'type': 'text',
             'value': this.state.value,
             'id': this.name,
-            'placeholder': this.placeholder || ''
+            'placeholder': this.getLabel(this.placeholder) || ''
           })
           .on('blur', () => {
             this.setOptionChecked(true)

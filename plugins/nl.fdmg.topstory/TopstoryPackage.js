@@ -15,7 +15,7 @@ export default {
     })
 
     config.addLabel('Topstory text', {
-      'nl': 'Topstory'
+      'nl': 'Topstory (verplicht)'
     })
 
     config.addLabel('Topstory is missing a value', {
