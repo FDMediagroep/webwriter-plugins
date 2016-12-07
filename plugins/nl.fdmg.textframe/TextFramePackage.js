@@ -4,7 +4,7 @@ import TextFrameComponent from './TextFrameComponent';
 import TextFrameConverter from './TextFrameConverter';
 import TextFrameNode from './TextFrameNode';
 import TextFrameTool from './TextFrameTool';
-import TextFrameValidation from './TextFrameValidation';
+import Fd4validation from '../fd4validation/Fd4validation.js';
 
 export default {
   id: 'nl.fdmg.textframe',
@@ -35,7 +35,7 @@ export default {
         }
       ]
     });
-    config.addValidator(TextFrameValidation);
+    config.addValidator(Fd4validation);
     config.addContentMenuTopTool('textframe', TextFrameTool);
     config.addIcon('textframe', {'fontawesome': 'fa-bars'});
     config.addLabel('Textframe', { nl: 'Tekstkader' });
