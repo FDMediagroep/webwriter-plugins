@@ -77,7 +77,7 @@ export default {
   }
 }
 ```
-<sup>Figure 2: <Plugin name>Package.js</sup>
+<sup>Figure 2: \<Plugin name\>Package.js</sup>
 ```json
 {
     "id": "nl.fdmg.<plugin>",
