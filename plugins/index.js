@@ -1,3 +1,5 @@
+import LocalFocus from './nl.fdmg.localfocus/index'
+
 import TextAnalyzer from './nl.fdmg.textanalyzer/index';
 
 import Author from './nl.fdmg.author/index';
@@ -12,11 +14,11 @@ import Comments from './nl.fdmg.comments/index';
 import Breakingarticle from './nl.fdmg.breakingarticle/index';
 import Shortarticle from './nl.fdmg.shortarticle/index';
 
-import RelatedArticles from './nl.fdmg.relatedarticles/index';
-
 import Section from './nl.fdmg.section/index';
 import Genre from './nl.fdmg.genre/index';
 import Rubric from './nl.fdmg.rubric/index';
+
+import RelatedArticles from './nl.fdmg.relatedarticles/index';
 
 import ArticleType from './nl.fdmg.articletype/index';
 import RedirectLink from './nl.fdmg.redirectlink/index';
@@ -28,9 +30,12 @@ import Quote from './nl.fdmg.quote/index';
 import NumberFrame from './nl.fdmg.numberframe/index';
 import StackFrame from './nl.fdmg.stackframe/index';
 import RelatedLink from './nl.fdmg.relatedlink/index';
+
 //import Stockticker from './nl.fdmg.stockticker/index';
 
 (() => {
+  LocalFocus()
+
   TextAnalyzer();
 
   Author();
@@ -57,9 +62,10 @@ import RelatedLink from './nl.fdmg.relatedlink/index';
 
   TextcountSelector();
 
-  NumberFrame();
   Quote();
+  NumberFrame();
   StackFrame();
   RelatedLink();
-  //Stockticker();
+
+  // Stockticker()
 })()

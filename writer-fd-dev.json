@@ -4,11 +4,32 @@
     "labelLanguage": "nl",
     "plugins": [
         {
+            "id": "se.infomaker.youtubeembed",
+            "name": "youtubeembed",
+            "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/index.js",
+            "enabled": true,
+            "mandatory": true
+        },
+        {
+            "id": "se.infomaker.socialembed",
+            "name": "socialembed",
+            "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/index.js",
+            "enabled": true,
+            "mandatory": true
+        },
+        {
+            "id": "nl.fdmg.localfocus",
+            "name": "localfocus",
+            "url": "http://localhost:3000/index.js",
+            "enabled": true,
+            "mandatory": true
+        },
+        {
             "id": "se.infomaker.ximimage",
             "name": "ximimage",
             "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/index.js",
+            "enabled": false,
             "mandatory": false,
-            "enabled": true,
             "data": {
                 "fields": [
                     {
@@ -40,6 +61,13 @@
                     }
                 ]
             }
+        },
+        {
+            "id": "se.infomaker.ximpdf",
+            "name": "ximpdf",
+            "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/index.js",
+            "enabled": false,
+            "mandatory": false
         },
         {
             "id": "se.infomaker.ximteaser",
@@ -79,29 +107,6 @@
             "style": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/style.css",
             "enabled": true,
             "mandatory": true
-        },
-        {
-            "id": "nl.fdmg.author",
-            "name": "author",
-            "url": "http://localhost:3000/index.js",
-            "enabled": true,
-            "mandatory": true,
-            "data": {
-                "endpoint": "https://dev-api.fdmg.org/private/fd/search/author?q=",
-                "token": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiI3NTQ5ODQzMzcxNzQxNjc2NTA4Iiwic3ViIjoiZmV3ZmV3Zndmd2VmZXdjZXdjZXdjZXdkcXdkIiwicm9sZSI6IlVTRVIifQ.RCn3YIFB7LmVzJrf9B-F_xyDAtZ4Zpod_CwOFHEWbJISDu_EaYh0-eseWACxrBS2BP3XT9DH-tBJTIyzj3lZ3A"
-            }
-        },
-        {
-            "id": "nl.fdmg.tags",
-            "name": "tags",
-            "url": "http://localhost:3000/index.js",
-            "enabled": true,
-            "mandatory": true,
-            "data": {
-                "searchEndpoint": "https://dev-api.fdmg.org/private/fd/search/tag?q=",
-                "updateEndpoint": "https://dev-api.fdmg.org/private/fd/articles/tags/",
-                "token": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiI3NTQ5ODQzMzcxNzQxNjc2NTA4Iiwic3ViIjoiZmV3ZmV3Zndmd2VmZXdjZXdjZXdjZXdkcXdkIiwicm9sZSI6IlVTRVIifQ.RCn3YIFB7LmVzJrf9B-F_xyDAtZ4Zpod_CwOFHEWbJISDu_EaYh0-eseWACxrBS2BP3XT9DH-tBJTIyzj3lZ3A"
-            }
         },
         {
             "id": "nl.fdmg.textanalyzer",
@@ -147,6 +152,29 @@
                         "count": -1
                     }
                 ]
+            }
+        },
+        {
+            "id": "nl.fdmg.author",
+            "name": "author",
+            "url": "http://localhost:3000/index.js",
+            "enabled": true,
+            "mandatory": true,
+            "data": {
+                "endpoint": "https://dev-api.fdmg.org/private/fd/search/author?q=",
+                "token": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiI3NTQ5ODQzMzcxNzQxNjc2NTA4Iiwic3ViIjoiZmV3ZmV3Zndmd2VmZXdjZXdjZXdjZXdkcXdkIiwicm9sZSI6IlVTRVIifQ.RCn3YIFB7LmVzJrf9B-F_xyDAtZ4Zpod_CwOFHEWbJISDu_EaYh0-eseWACxrBS2BP3XT9DH-tBJTIyzj3lZ3A"
+            }
+        },
+        {
+            "id": "nl.fdmg.tags",
+            "name": "tags",
+            "url": "http://localhost:3000/index.js",
+            "enabled": true,
+            "mandatory": true,
+            "data": {
+                "searchEndpoint": "https://dev-api.fdmg.org/private/fd/search/tag?q=",
+                "updateEndpoint": "https://dev-api.fdmg.org/private/fd/articles/tags/",
+                "token": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiI3NTQ5ODQzMzcxNzQxNjc2NTA4Iiwic3ViIjoiZmV3ZmV3Zndmd2VmZXdjZXdjZXdjZXdkcXdkIiwicm9sZSI6IlVTRVIifQ.RCn3YIFB7LmVzJrf9B-F_xyDAtZ4Zpod_CwOFHEWbJISDu_EaYh0-eseWACxrBS2BP3XT9DH-tBJTIyzj3lZ3A"
             }
         },
         {
