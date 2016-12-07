@@ -390,21 +390,18 @@
             }
         },
         {
-            "id": "nl.fdmg.quote",
-            "name": "quote",
+            "id": "nl.fdmg.numberframe",
+            "name": "numberframe",
             "url": "http://localhost:3000/index.js",
             "enabled": true,
             "mandatory": true
         },
         {
-            "id": "nl.fdmg.stockticker",
-            "name": "stockticker",
+            "id": "nl.fdmg.quote",
+            "name": "quote",
             "url": "http://localhost:3000/index.js",
             "enabled": true,
-            "mandatory": true,
-            "data": {
-              "serviceurl": "https://beurs.fd.nl/webservices/fd/quicksearch?query="
-            }
+            "mandatory": true
         }
     ]
 }
