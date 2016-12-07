@@ -3,7 +3,13 @@ import {api} from 'writer'
 
 class RedirectLinkComponent extends ArticleOption {
   constructor(...args) {
-    super('redirectlink', 'fdmg/redirectlink', 'Redirect article', true, '', 'URL to article', ...args)
+    super({
+      name: "redirectlink",
+      type: "fdmg/redirectlink",
+      label: "Redirect article",
+      hasInput: false,
+      placeholder: 'URL to article'
+    }, ...args)
   }
 
   render($$) {

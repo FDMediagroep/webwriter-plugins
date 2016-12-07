@@ -1,15 +1,23 @@
+import DropdownComponent from '../nl.fdmg.dropdown/DropdownComponent'
+
 const {Component} = substance
 const {api, idGenerator} = writer
 
 class ArticleOptionComponent extends Component {
-  constructor(name, type, label, hasinput, inputText, inputPlaceholder, ...args) {
+  constructor(plugin, ...args) {
     super(...args)
-    this.name = name
-    this.type = type
-    this.label = label
-    this.hasinput = hasinput
-    this.value = inputText
-    this.placeholder = inputPlaceholder
+
+    this.name = plugin.name
+    this.type = plugin.type
+    this.label = plugin.label
+    this.hasinput = plugin.hasinput
+    this.value = plugin.inputText
+    this.placeholder = plugin.inputPlaceholder
+    this.pluginId = plugin.pluginId
+    this.items = plugin.items
+    this.hasSelect = plugin.hasSelect
+
+    console.log(this.label, 'getlablel');
   }
 
   getInitialState() {
@@ -48,6 +56,21 @@ class ArticleOptionComponent extends Component {
             this.setOptionChecked(true)
           })
           .ref('input')
+      )
+    }
+
+    if (this.hasSelect && this.state.checked) {
+      console.log('hasselect');
+      el.append(
+        $$(DropdownComponent, {
+          onSelect: this.update.bind(this),
+          header: this.getLabel('Article type'),
+          // items: items,
+          allowFreeInput: false,
+          allowEmptySelection: false,
+          // selection: selection,
+          disabled: !this.state.enabled
+        })
       )
     }
 

@@ -2,7 +2,12 @@ import ArticleOptionComponent from '../nl.fdmg.articleoption/ArticleOptionCompon
 
 class BreakingarticleComponent extends ArticleOptionComponent {
   constructor(...args) {
-    super('breakingarticle', 'fdmg/breakingarticle', 'Breaking article', false, '' , '', ...args)
+    super({
+      name: "breakingarticle",
+      type: "fdmg/breakingarticle",
+      label: "Breaking article",
+      hasInput: false
+    }, ...args)
   }
 }
 

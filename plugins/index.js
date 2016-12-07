@@ -20,6 +20,7 @@ import Rubric from './nl.fdmg.rubric/index';
 
 import ArticleType from './nl.fdmg.articletype/index';
 import RedirectLink from './nl.fdmg.redirectlink/index';
+import Advertorial from './nl.fdmg.advertorial/index';
 import Epic from './nl.fdmg.epic/index';
 
 import TextcountSelector from './nl.fdmg.textcountselector/index';
@@ -53,6 +54,7 @@ import RelatedLink from './nl.fdmg.relatedlink/index';
 
   ArticleType();
   RedirectLink();
+  Advertorial();
   Epic();
 
   TextcountSelector();
