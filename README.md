@@ -53,7 +53,7 @@ export default () => {
 }
 ```
 <sup>Figure 1: index.js</sup>
-```
+```javascript
 import <Plugin name>Command from './<Plugin name>Command';
 import <Plugin name>Component from './<Plugin name>Component';
 import <Plugin name>Converter from './<Plugin name>Converter';
