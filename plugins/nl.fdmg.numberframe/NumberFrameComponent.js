@@ -1,5 +1,4 @@
 import {Component, FontAwesomeIcon, TextPropertyEditor} from 'substance';
-import {api} from 'writer';
 
 export default class NumberFrameComponent extends Component {
   render($$) {
@@ -18,11 +17,7 @@ export default class NumberFrameComponent extends Component {
     let el = $$('a').append([
       $$('div').addClass('header').append([
         $$(FontAwesomeIcon, {icon: 'fa-money'}).addClass('plugin-icon'),
-        $$('div').addClass('plugin-title').append(this.getLabel("Numberframe")),
-        $$('span').addClass('remove-button').append(
-          $$(FontAwesomeIcon, {icon: 'fa-remove'})
-        ).on('click', this.removeNumberFrame)
-        .attr('title', this.getLabel('Verwijderen uit artikel'))
+        $$('div').addClass('plugin-title').append(this.getLabel("Numberframe"))
       ]),
       heading,
       content
@@ -39,9 +34,13 @@ export default class NumberFrameComponent extends Component {
     }
   }
 
-  removeNumberFrame() {
+  /*removeNumberFrame() {
     api.document.deleteNode('numberframe', this.props.node);
-  }
+    api.editorSession.transaction((tx) => {
+      const node = this.props.node
+      tx.delete(node.id)
+    })
+  }*/
 
   updateProps() {
     this.props.doc.set([this.props.node, 'content'], this.props.node.content);

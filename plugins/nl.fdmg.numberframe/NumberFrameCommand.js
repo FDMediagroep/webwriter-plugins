@@ -19,8 +19,8 @@ export default class NumberFrameCommand extends Command {
       heading: params.heading,
       content: params.content,
       data: {
-        type: 'fdmg/numberframe',
-        'data-type': 'fdmg/numberframe'
+        type: 'numberframe',
+        'data-type': 'numberframe'
       }
     };
 
