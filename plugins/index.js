@@ -27,6 +27,7 @@ import TextcountSelector from './nl.fdmg.textcountselector/index';
 import Quote from './nl.fdmg.quote/index';
 import NumberFrame from './nl.fdmg.numberframe/index';
 import StackFrame from './nl.fdmg.stackframe/index';
+import RelatedLink from './nl.fdmg.relatedlink/index';
 //import Stockticker from './nl.fdmg.stockticker/index';
 
 (() => {
@@ -59,5 +60,6 @@ import StackFrame from './nl.fdmg.stackframe/index';
   NumberFrame();
   Quote();
   StackFrame();
+  RelatedLink();
   //Stockticker();
 })()

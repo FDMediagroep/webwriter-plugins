@@ -521,6 +521,14 @@
             "style": "http://localhost:3000/style.css",
             "enabled": true,
             "mandatory": true
+        },
+        {
+            "id": "nl.fdmg.relatedlink",
+            "name": "relatedlink",
+            "url": "http://localhost:3000/index.js",
+            "style": "http://localhost:3000/style.css",
+            "enabled": true,
+            "mandatory": true
         }
     ]
 }
