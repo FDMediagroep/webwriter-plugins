@@ -1,6 +1,6 @@
 import FDValidator from '../nl.fdmg.fdvalidator/FDValidator'
 
-export default class StackFrameValidator extends FDValidator {
+export default class QuoteValidator extends FDValidator {
   validate() {
     // Validate Quote
     const quotes = this.newsItem.querySelectorAll('object[type="fdmg/quote"]');
