@@ -34,18 +34,19 @@ In other sessions you only need to:
 1. Replace `TextPropertyComponent` by `TextPropertyEditor`
 1. Register the plugin in the `index.js` in the plugin root directory of `webwriter-plugins/plugins`
 1. Add plugin entry in `webwriter-fd-dev.json`
-```json
-        {
-            "id": "nl.fdmg.<plugin>",
-            "name": "<plugin>",
-            "url": "http://localhost:3000/index.js",
-            "enabled": true,
-            "mandatory": true
-        }
-```
-## Rinse and repeat
 1. Copy `webwriter-plugins/writer-fd-dev.json` to `NPWriter/server/config`
 1. Restart `Webwriter` and `NPWriterDevKit`/`webwriter-plugins`
+1. Rinse and repeat
+```json
+{
+    "id": "nl.fdmg.<plugin>",
+    "name": "<plugin>",
+    "url": "http://localhost:3000/index.js",
+    "enabled": true,
+    "mandatory": true
+}
+```
+<sup>Figure: webwriter-fd-dev.json</sup>
 
 # Rewrite `ContextItem` plugin from Writer to Writer 3
 ### TODO...
