@@ -27,10 +27,10 @@ In other sessions you only need to:
 
 ## Rewrite a `ContentItem` plugin
 1. Create folder with the following naming convention: `nl.fdmg.<plugin name>`
-1. Create the necessary file: `index.js` (See: figure 1)
-1. Rewrite `<Plugin name>.js` to `<Plugin name>Package.js` (imported in the `index.js`, see: figure 2)
+1. Create the necessary file: `index.js` (See: [figure 1](#figure1))
+1. Rewrite `<Plugin name>.js` to `<Plugin name>Package.js` (imported in the `index.js`, see: [figure 2](#figure2))
     1. Import SCSS file `import './scss/<Plugin name>.scss'`
-1. Rewrite `<Plugin name>Node.js` (see: figure 3)
+1. Rewrite `<Plugin name>Node.js` (see: [figure 3](#figure3))
 1. Rewrite `<Plugin name>Component.js`.
     1. `this.render` property becomes the function `render($$)`
     1. Replace `Icon` by `FontAwesomeIcon` i.e: `$$(Icon, {icon: 'fa-quote-left'})` becomes `$$(FontAwesomeIcon, {icon: 'fa-quote-left'})`
@@ -41,16 +41,18 @@ In other sessions you only need to:
 1. Rewrite `<Plugin name>Tool.js`.
     1. `<Plugin name>Tool.js` click handler is now being replaced by `api.editorSession.executeCommand(...);`
 1. Rewrite `<Plugin name>Command.js`.
-    1. Now needs an implementation of `getCommandState` (See: figure 4)
+    1. Now needs an implementation of `getCommandState` (See: [figure 4](#figure4))
     1. Now needs an implementation of `execute(params, context)` because of the rewrite to `executeCommand` call in `<Plugin name>Tool.js`
     1. `return this.context.api.insertBlockNode(data.type, data);` becomes `return context.api.document.insertBlockNode(data.type, data);`
 1. Rewrite `<Plugin name>Converter.js`
     1. `var NumberFrameConverter = {` becomes `export default {`
 1. Register the plugin in the `index.js` in the plugin root directory of `webwriter-plugins/plugins`
-1. Add plugin entry in `webwriter-fd-dev.json` (See: figure 5)
+1. Add plugin entry in `webwriter-fd-dev.json` (See: [figure 5](#figure5))
 1. Copy `webwriter-plugins/writer-fd-dev.json` to `NPWriter/server/config`
 1. Restart `Webwriter` and `webwriter-plugins` A.K.A. `NPWriterDevKit`
 1. Rinse and repeat
+
+<sub id="figure1">Figure 1: index.js</sub>
 ```javascript
 import <Plugin name>Package from './<Plugin name>Package';
 import {registerPlugin} from 'writer';
@@ -63,8 +65,8 @@ export default () => {
   }
 }
 ```
-<sup>Figure 1: index.js</sup>
 
+<sub id="figure2">Figure 2: \<Plugin name\>Package.js</sub>
 ```javascript
 import <Plugin name>Command from './<Plugin name>Command';
 import <Plugin name>Component from './<Plugin name>Component';
@@ -89,8 +91,8 @@ export default {
   }
 }
 ```
-<sup>Figure 2: \<Plugin name\>Package.js</sup>
 
+<sub id="figure3">Figure 3: \<Plugin name\>Node.js</sub>
 ```javascript
 import {BlockNode} from 'substance';
 
@@ -104,8 +106,8 @@ export default class <Plugin name>Node extends BlockNode {
   author: 'string'
 });
 ```
-<sup>Figure 3: \<Plugin name\>Node.js</sup>
 
+<sub id="figure4">Figure 4: \<Plugin name\>Command.js: getCommandState</sub>
 ```javascript
   getCommandState() {
     return {
@@ -113,8 +115,8 @@ export default class <Plugin name>Node extends BlockNode {
     };
   }
 ```
-<sup>Figure 4: \<Plugin name\>Command.js: getCommandState</sup>
 
+<sub id="figure5">Figure 5: webwriter-fd-dev.json</sub>
 ```json
 {
     "id": "nl.fdmg.<plugin>",
@@ -124,7 +126,6 @@ export default class <Plugin name>Node extends BlockNode {
     "mandatory": true
 }
 ```
-<sup>Figure 5: webwriter-fd-dev.json</sup>
 
 ## Rewrite a `ContextItem` plugin
 ### TODO...
