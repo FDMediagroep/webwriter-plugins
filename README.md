@@ -84,9 +84,9 @@ export default {
     config.addCommand('quote', <Plugin name>Command, {nodeType: '<plugin name>'});
     config.addContentMenuTopTool('<plugin name>', <Plugin name>Tool);
     config.addIcon('<plugin name>', {'fontawesome': '<fontawesome icon name>'});
-    config.addLabel('<plugin name>', {
-      en: 'Add <plugin name>',
-      nl: '<Plugin name> toevoegen'
+    config.addLabel('<original text>', {
+      en: '<english translation>',
+      nl: '<dutch translation>'
     });
   }
 }
