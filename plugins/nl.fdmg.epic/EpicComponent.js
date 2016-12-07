@@ -70,10 +70,19 @@ class EpicComponent extends Component {
 
   searchEpic(query) {
     const endpoint = api.getConfigValue(pluginId, 'endpoint')
-    return api.router.get('/api/resourceproxy/', {url: endpoint + query})
-      .then(response => this.context.api.router.checkForOKStatus(response))
-      .then(response => this.context.api.router.toJson(response))
-      .then(response => response.map(r => {return {id: r.id, label: r.title}}))
+    const token = api.getConfigValue(pluginId, 'token')
+
+    return api.router.get('/api/resourceproxy', {
+      url: endpoint + query,
+      headers: {
+        'x-access-token': `Bearer ${token}`
+      }
+    })
+      .then(response => api.router.checkForOKStatus(response))
+      .then(response => api.router.toJson(response))
+      .then(response => response.map(epic => {
+        return {id: epic.id, label: epic.title}
+      }))
   }
 
   setEpic(epic) {

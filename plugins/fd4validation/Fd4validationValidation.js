@@ -75,18 +75,6 @@ module.exports = {
 
     }
 
-    // TODO Extract to topstory/TopstoryValidation.js
-    // Validate Topstory
-    const topstory = Array.from(newsItem.querySelectorAll('itemMeta>links link[type="fdmg/topstory"]').values())
-      .map((x) => x.attributes.getNamedItem('checked'))
-      .filter((x) => !!x)
-      .map((x) => x.value)
-
-    if ((drafting || submitting || publishing) && topstory == 'true') {
-      const topstoryInputValue = $('#topstory').val();
-      if (topstoryInputValue == "" ) acc.addError(this.context.i18n.t("Topstory input value is empty"))
-    }
-
     // TODO Extract to quote/QuoteValidation.js
     // Validate Quote
     const quotes = newsItem.querySelectorAll('object[type="fdmg/quote"]');

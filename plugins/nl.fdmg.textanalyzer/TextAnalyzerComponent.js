@@ -1,9 +1,12 @@
 import {Component} from 'substance'
-import {api, event} from 'writer'
+import {api, event, lodash} from 'writer'
+const pluginId = 'nl.fdmg.textanalyzer'
 
 class TextAnalyzerComponent extends Component {
   constructor(...args) {
     super(...args)
+    this.name = 'textanalyzer'
+    this.type = 'fdmg/textanalyzer'
     api.events.on('textanalyzer', event.DOCUMENT_CHANGED, () => {
       this.calculateText()
       this.updateStatus()
@@ -18,12 +21,15 @@ class TextAnalyzerComponent extends Component {
     const count = this.getCount()
     return {
       textLength: count.textLength,
-      words: count.words
+      words: count.words,
+      availableSizes: api.getConfigValue(pluginId, 'sizes')
     }
   }
 
   render($$) {
     this.virtualElement = $$  // Hack to use $$ for later use with updateStatus
+
+    const documentSize = this.readDocumentSize()
 
     return $$('div')
       .addClass('textanalyzer plugin')
@@ -31,6 +37,11 @@ class TextAnalyzerComponent extends Component {
         $$('div')
           .addClass('number__container clearfix')
           .append(
+            $$('div')
+              .addClass('count-info')
+              .append($$('span').append(documentSize.label))
+              .append($$('p').append(this.getLabel('Document')))
+              .attr({title: this.getLabel('Document')}),
             $$('div')
               .addClass('count-info')
               .append($$('span').append(this.state.textLength.toString()))
@@ -55,20 +66,18 @@ class TextAnalyzerComponent extends Component {
 
   getCount() {
     const nodes = api.document.getDocumentNodes()
+    const counting = api.getConfigValue(pluginId, 'counting')
 
-    let textContent = ''
-    nodes.forEach(node => {
-      if (node.content) {
-        textContent += node.content.trim()
-      }
-    })
+    const words = lodash(nodes)
+      .filter(node => counting.some(el => node.isInstanceOf(el)))
+      .filter(node => Boolean(node.content))
+      .flatMap(node => node.content.trim().split(/\s+/))
 
-    const textLength = textContent.length
-    const words = textContent.split(/\s+/)
+    const textLength = words.reduce((acc, word) => acc + word.length, 0)
 
     return {
-      textLength: textLength,
-      words: words.length
+      words: words.size(),
+      textLength: textLength
     }
   }
 
@@ -86,13 +95,39 @@ class TextAnalyzerComponent extends Component {
       const el = $$('span')
         .setStyle('font-weight', 'bold')
         .append(
-          $$('span').setStyle('color', '#F00').append(textLength.toString()),
+          $$('span').setStyle('color', this.getStatusColor()).append(textLength.toString()),
           $$('span').append(' ' + this.getLabel('characters'))
         )
       this.props.popover.setStatusText(el)
     } else {
       this.props.popover.setStatusText(`${textLength} ${this.getLabel('characters')}`)
     }
+  }
+
+  readDocumentSize() {
+    const documentSize = api.newsItem
+      .getLinkByType(this.name, this.type)
+      .map(link => link['@size'])
+      .pop() || this.state.availableSizes[0]['size']
+
+    // match against available sizes
+    return this.state.availableSizes.find(size =>
+      size.size === documentSize
+    ) || this.state.availableSizes[0]
+  }
+
+  getStatusColor() {
+    const target = parseInt(this.readDocumentSize().count, 10)
+    const actual = this.state.textLength
+    const margin = target / 100 * parseInt(api.getConfigValue(pluginId, 'marginPct'), 10)
+    const min = target - margin
+    const max = target + margin
+
+    if (target < 0) return '#000'
+    else if (actual === target) return '#FF0'
+    else if (actual < min) return '#000'
+    else if (actual > max) return '#F00'
+    else return '#0F0'
   }
 
   dispose() {

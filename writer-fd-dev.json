@@ -42,6 +42,37 @@
             }
         },
         {
+            "id": "se.infomaker.ximteaser",
+            "name": "ximteaser",
+            "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/index.js",
+            "enabled": true,
+            "mandatory": true,
+            "data": {
+                "softcrop": true,
+                "bylinesearch": false,
+                "imageinfo": false,
+                "disablebylinesearch": true,
+                "crops": {
+                    "16:9": [
+                        16,
+                        9
+                    ],
+                    "1:1": [
+                        1,
+                        1
+                    ],
+                    "2.39:1": [
+                        2.39,
+                        1
+                    ]
+                },
+                "fields": [
+                    "text"
+                ],
+                "teaserPosition": "top"
+            }
+        },
+        {
             "id": "se.infomaker.publishflow",
             "name": "publishflow",
             "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/index.js",
@@ -50,11 +81,73 @@
             "mandatory": true
         },
         {
+            "id": "nl.fdmg.author",
+            "name": "author",
+            "url": "http://localhost:3000/index.js",
+            "enabled": true,
+            "mandatory": true,
+            "data": {
+                "endpoint": "https://dev-api.fdmg.org/private/fd/search/author?q=",
+                "token": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiI3NTQ5ODQzMzcxNzQxNjc2NTA4Iiwic3ViIjoiZmV3ZmV3Zndmd2VmZXdjZXdjZXdjZXdkcXdkIiwicm9sZSI6IlVTRVIifQ.RCn3YIFB7LmVzJrf9B-F_xyDAtZ4Zpod_CwOFHEWbJISDu_EaYh0-eseWACxrBS2BP3XT9DH-tBJTIyzj3lZ3A"
+            }
+        },
+        {
+            "id": "nl.fdmg.tags",
+            "name": "tags",
+            "url": "http://localhost:3000/index.js",
+            "enabled": true,
+            "mandatory": true,
+            "data": {
+                "searchEndpoint": "https://dev-api.fdmg.org/private/fd/search/tag?q=",
+                "updateEndpoint": "https://dev-api.fdmg.org/private/fd/articles/tags/",
+                "token": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiI3NTQ5ODQzMzcxNzQxNjc2NTA4Iiwic3ViIjoiZmV3ZmV3Zndmd2VmZXdjZXdjZXdjZXdkcXdkIiwicm9sZSI6IlVTRVIifQ.RCn3YIFB7LmVzJrf9B-F_xyDAtZ4Zpod_CwOFHEWbJISDu_EaYh0-eseWACxrBS2BP3XT9DH-tBJTIyzj3lZ3A"
+            }
+        },
+        {
             "id": "nl.fdmg.textanalyzer",
             "name": "textanalyzer",
             "url": "http://localhost:3000/index.js",
             "enabled": true,
-            "mandatory": true
+            "mandatory": true,
+            "data": {
+                "counting": [
+                    "paragraph"
+                ],
+                "marginPct": 10,
+                "sizes": [
+                    {
+                        "size": "?",
+                        "label": "?",
+                        "count": -1,
+                        "disabled": true
+                    },
+                    {
+                        "size": "S",
+                        "label": "1810",
+                        "count": 1810
+                    },
+                    {
+                        "size": "L",
+                        "label": "3600",
+                        "count": 3600
+                    },
+                    {
+                        "size": "XL",
+                        "label": "6300",
+                        "count": 6300
+                    },
+                    {
+                        "size": "XXL",
+                        "label": "8200",
+                        "count": 8200
+                    },
+                    {
+                        "size": "UNLIMITED",
+                        "label": "∞",
+                        "count": -1
+                    }
+                ]
+            }
         },
         {
             "id": "nl.fdmg.donotindex",
@@ -380,18 +473,26 @@
             }
         },
         {
+            "id": "nl.fdmg.redirectlink",
+            "name": "redirectlink",
+            "url": "http://localhost:3000/index.js",
+            "enabled": true,
+            "mandatory": true
+        },
+        {
             "id": "nl.fdmg.epic",
             "name": "epic",
             "url": "http://localhost:3000/index.js",
             "enabled": true,
             "mandatory": true,
             "data": {
-                "endpoint": "https://dev-api.fdmg.org/private/fd/search/epic?q="
+                "endpoint": "https://dev-api.fdmg.org/private/fd/search/epic?q=",
+                "token": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiI3NTQ5ODQzMzcxNzQxNjc2NTA4Iiwic3ViIjoiZmV3ZmV3Zndmd2VmZXdjZXdjZXdjZXdkcXdkIiwicm9sZSI6IlVTRVIifQ.RCn3YIFB7LmVzJrf9B-F_xyDAtZ4Zpod_CwOFHEWbJISDu_EaYh0-eseWACxrBS2BP3XT9DH-tBJTIyzj3lZ3A"
             }
         },
         {
-            "id": "nl.fdmg.numberframe",
-            "name": "numberframe",
+            "id": "nl.fdmg.textcountselector",
+            "name": "textcountselector",
             "url": "http://localhost:3000/index.js",
             "style": "http://localhost:3000/style.css",
             "enabled": true,
@@ -404,6 +505,23 @@
             "style": "http://localhost:3000/style.css",
             "enabled": true,
             "mandatory": true
+        },
+        {
+            "id": "nl.fdmg.numberframe",
+            "name": "numberframe",
+            "url": "http://localhost:3000/index.js",
+            "enabled": false,
+            "mandatory": false
+        },
+        {
+            "id": "nl.fdmg.stockticker",
+            "name": "stockticker",
+            "url": "http://localhost:3000/index.js",
+            "enabled": false,
+            "mandatory": false,
+            "data": {
+                "serviceurl": "https://beurs.fd.nl/webservices/fd/quicksearch?query="
+            }
         }
     ]
 }

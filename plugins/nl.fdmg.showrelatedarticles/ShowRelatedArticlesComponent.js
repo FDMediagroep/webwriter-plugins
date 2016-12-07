@@ -2,7 +2,7 @@ import ArticleOptionComponent from '../nl.fdmg.articleoption/ArticleOptionCompon
 
 class ShowRelatedArticlesComponent extends ArticleOptionComponent {
   constructor(...args) {
-    super('showrelatedarticles', 'fdmg/showrelatedarticles', 'Show related articles', ...args)
+    super('showrelatedarticles', 'fdmg/showrelatedarticles', 'Show related articles', false, '' , '', ...args)
   }
 }
 

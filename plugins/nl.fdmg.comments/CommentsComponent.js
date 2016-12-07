@@ -2,7 +2,7 @@ import ArticleOptionComponent from '../nl.fdmg.articleoption/ArticleOptionCompon
 
 class CommentsComponent extends ArticleOptionComponent {
   constructor(...args) {
-    super('comments', 'fdmg/comments', 'Enable comments', ...args)
+    super('comments', 'fdmg/comments', 'Enable comments', false, '' , '', ...args)
   }
 }
 
