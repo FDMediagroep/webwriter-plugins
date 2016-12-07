@@ -510,6 +510,7 @@
             "id": "nl.fdmg.numberframe",
             "name": "numberframe",
             "url": "http://localhost:3000/index.js",
+            "style": "http://localhost:3000/style.css",
             "enabled": false,
             "mandatory": false
         },
