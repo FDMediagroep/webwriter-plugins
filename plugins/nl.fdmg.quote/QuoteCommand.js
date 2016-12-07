@@ -19,8 +19,8 @@ export default class QuoteCommand extends Command {
       message: params.quoteMessage,
       author: params.quoteAuthor,
       data: {
-        type: 'quote',
-        'data-type': 'quote'
+        type: 'fdmg/quote',
+        'data-type': 'fdmg/quote'
       }
     };
     return context.api.document.insertBlockNode(data.type, data);
