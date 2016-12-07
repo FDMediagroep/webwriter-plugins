@@ -35,14 +35,9 @@ ArticletypeComponent.Prototype = function() {
     } else {
       const endpoint = this.context.api.getConfigValue('articletype', 'endpoint');
       const token = this.context.api.getConfigValue('articletype', 'token');
-      var hostUrl = "";
-
-      if (window.location.href.indexOf("webwriter") > -1) {
-        var hostUrl = window.location.href;
-      }
 
       $.ajax({
-        url: this.context.api.router.getEndpoint() + "/api/resourceproxy?url=" + hostUrl + encodeURI(endpoint),
+        url: this.context.api.router.getEndpoint() + "/api/resourceproxy?url=" + encodeURI(endpoint),
         method: "GET",
         dataType: "json",
         headers: {

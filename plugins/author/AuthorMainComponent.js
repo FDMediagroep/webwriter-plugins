@@ -60,17 +60,12 @@ AuthorMainComponent.Prototype = function() {
   this.searchAuthors = function(q, cb) {
     var endpoint = this.context.api.getConfigValue(this.name, 'endpoint');
     var token = this.context.api.getConfigValue(this.name, 'token');
-    var hostUrl = "";
-
-    if (window.location.href.indexOf("webwriter") > -1) {
-      var hostUrl = window.location.href;
-    }
 
     this.extendState({ isSearching: true });
     $.ajax({
         method: "GET",
         dataType: "json",
-        url: this.context.api.router.getEndpoint() + "/api/resourceproxy?url=" + hostUrl + encodeURI(endpoint + q),
+        url: this.context.api.router.getEndpoint() + "/api/resourceproxy?url=" + encodeURI(endpoint + q),
         headers: {
             "Content-Type" : "application/json",
             "x-access-token" : token
