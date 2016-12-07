@@ -1,7 +1,7 @@
 import {Tool} from 'substance';
 import {api} from 'writer';
 
-export default class QuoteTool extends Tool {
+export default class NumberFrameTool extends Tool {
 
   render($$) {
     var el = $$('button').addClass('se-tool').append(
