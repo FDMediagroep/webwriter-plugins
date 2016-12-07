@@ -13,8 +13,6 @@ class TextcountSelectorComponent extends Component {
   }
 
   render($$) {
-    console.log(this.state)
-
     return $$('div')
       .addClass('count-info form-group')
       .append(
@@ -43,7 +41,7 @@ class TextcountSelectorComponent extends Component {
 
   readDocumentSize(availableSizes) {
     const documentSize = api.newsItem
-      .getLinkByType(this.name, this.type)
+      .getLinkByType('textcount', 'fdmg/textcount')
       .map(link => link['@size'])
       .pop() || availableSizes[0]['size']
 
@@ -66,7 +64,7 @@ class TextcountSelectorComponent extends Component {
     })
 
     this.extendState({
-      documentSize: size
+      documentSize: this.readDocumentSize()
     })
   }
 }

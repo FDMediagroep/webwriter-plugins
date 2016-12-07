@@ -39,7 +39,7 @@ class TextAnalyzerComponent extends Component {
           .append(
             $$('div')
               .addClass('count-info')
-              .append($$('span').append(documentSize.label))
+              .append($$('span').append(documentSize.size))
               .append($$('p').append(this.getLabel('Document')))
               .attr({title: this.getLabel('Document')}),
             $$('div')
@@ -106,7 +106,7 @@ class TextAnalyzerComponent extends Component {
 
   readDocumentSize() {
     const documentSize = api.newsItem
-      .getLinkByType(this.name, this.type)
+      .getLinkByType('textcount', 'fdmg/textcount')
       .map(link => link['@size'])
       .pop() || this.state.availableSizes[0]['size']
 
