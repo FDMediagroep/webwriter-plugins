@@ -1,3 +1,4 @@
+import './scss/quote.scss'
 import QuoteCommand from './QuoteCommand';
 import QuoteComponent from './QuoteComponent';
 import QuoteConverter from './QuoteConverter';
