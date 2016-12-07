@@ -1,6 +1,5 @@
 import {Tool} from 'substance';
 import {api} from 'writer';
-//import {$} from 'substance';
 
 export default class QuoteTool extends Tool {
 
