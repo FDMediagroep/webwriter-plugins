@@ -19,7 +19,7 @@
 In other sessions you only need to:
 
 1. start Webwriter by calling `CONFIG_FILE=writer-fd-dev.json npm run dev` in `NPWriter/`
-1. and run `npm run dev` to start the `NPWriterDevKit`/`webwriter-plugins` for plugin development and enable change watch
+1. and run `npm run dev` to start the `webwriter-plugins` A.K.A. `NPWriterDevKit` for plugin development and enable change watch
 
 # Rewrite plugin from Writer to Writer 3
 1. Set your IntelliJ (or any other poison of your choice) editor settings indentation to exactly 2 spaces (no tab).
