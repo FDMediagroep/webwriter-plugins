@@ -29,6 +29,7 @@ In other sessions you only need to:
 1. Create folder with the following naming convention: `nl.fdmg.<plugin name>`
 1. Create the necessary file: `index.js` (See: figure 1)
 1. Rewrite `<Plugin name>.js` to `<Plugin name>Package.js` (imported in the `index.js`, see: figure 2)
+    1. Import SCSS file `import './scss/<Plugin name>.scss'`
 1. Rewrite `<Plugin name>Node.js` (see: figure 3)
 1. Rewrite `<Plugin name>Component.js`.
     1. `this.render` property becomes the function `render($$)`
