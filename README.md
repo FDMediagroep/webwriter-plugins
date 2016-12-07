@@ -132,3 +132,12 @@ export default class <Plugin name>Node extends BlockNode {
 
 ## Rewrite a `Meta` plugin
 ### TODO...
+
+# Miscellaneous
+```javascript
+const imageURL = 'https://www.stevensegallery.com/284/196';
+
+api.editorSession.executeCommand('ximimage-insert-image-url', {
+  imageUrl: imageURL
+});
+```
