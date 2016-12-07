@@ -25,7 +25,7 @@ EpicMainComponent.Prototype = function() {
     var existingEpic = this.state.existingEpic;
     var epicEl = $$('span');
 
-    var epicSearchComponent = 
+    var epicSearchComponent =
       $$(SearchComponent, {
         existingItems: existingEpic ? [existingEpic] : [],
         doSearch: this.searchEpics.bind(this),
@@ -88,13 +88,18 @@ EpicMainComponent.Prototype = function() {
   this.searchEpics = function(q, cb) {
     var endpoint = this.context.api.getConfigValue(this.name, 'endpoint');
     var token = this.context.api.getConfigValue(this.name, 'token');
-    this.extendState({ isSearching: true });
 
-    this.context.api.router.get(endpoint + q, {
-      headers : {
-        "x-access-token" : token
-      }
-    }).done(function(items) {
+    this.extendState({ isSearching: true });
+    $.ajax({
+        method: "GET",
+        dataType: "json",
+        url: this.context.api.router.getEndpoint() + "/api/resourceproxy?url=" + encodeURI(endpoint + q),
+        headers: {
+            "Content-Type" : "application/json",
+            "x-access-token" : token
+        }
+    })
+    .done(function(items) {
       var epics = items.slice(0, 100).map(function(epic) {
         return {
           name: epic.title,

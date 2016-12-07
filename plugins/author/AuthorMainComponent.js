@@ -59,28 +59,36 @@ AuthorMainComponent.Prototype = function() {
 
   this.searchAuthors = function(q, cb) {
     var endpoint = this.context.api.getConfigValue(this.name, 'endpoint');
+    var token = this.context.api.getConfigValue(this.name, 'token');
 
     this.extendState({ isSearching: true });
-
-    jQuery.ajax(endpoint + q, { 'data': { 'dataType': 'json' } })
-      .done(function(items) {
-
-        var authors = items.slice(0, 100).map(function(item) {
-          return {
-            rel: 'author',
-            name: item.fullName,
-            title: item.fullName,
-            type: 'x-im/author',
-            uuid: item.id,
-            id: item.id
-          };
-        });
-
-        cb(null, authors);
-      }.bind(this))
-      .fail(function(data, status, err) { console.error(err); cb(err, null); })
-      .always(function() { this.extendState({ isSearching:  false }); }.bind(this));
-  }
+    $.ajax({
+        method: "GET",
+        dataType: "json",
+        url: this.context.api.router.getEndpoint() + "/api/resourceproxy?url=" + encodeURI(endpoint + q),
+        headers: {
+            "Content-Type" : "application/json",
+            "x-access-token" : token
+        }
+    })
+    .done(function(items) {
+      var authors = items.slice(0, 100).map(function(item) {
+        return {
+          rel: 'author',
+          name: item.fullName,
+          title: item.fullName,
+          type: 'x-im/author',
+          uuid: item.id,
+          id: item.id
+        };
+      });
+      cb(null, authors);
+    }.bind(this))
+      .error(function(error, xhr, text) {
+      // TODO: Display error message
+      console.error(error, xhr, text);}.bind(this))
+    .always(function() { this.extendState({ isSearching: false }); }.bind(this));
+  };
 
   this.addAuthor = function(author) {
     console.log(author, "author");

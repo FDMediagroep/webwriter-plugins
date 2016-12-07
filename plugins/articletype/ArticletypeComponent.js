@@ -33,24 +33,27 @@ ArticletypeComponent.Prototype = function() {
     if (_articletypeItems) {
       this.extendState({items: _articletypeItems})
     } else {
-      const endpoint = this.context.api.getConfigValue('articletype', 'endpoint')
+      const endpoint = this.context.api.getConfigValue('articletype', 'endpoint');
+      const token = this.context.api.getConfigValue('articletype', 'token');
 
-      $.ajax(endpoint, {
-        data: {
-          dataType: 'json',
-          contentType: 'application/json; charset=utf-8'
+      $.ajax({
+        url: this.context.api.router.getEndpoint() + "/api/resourceproxy?url=" + encodeURI(endpoint),
+        method: "GET",
+        dataType: "json",
+        headers: {
+            "Content-Type" : "application/json",
+            "x-access-token" : token
         }
       })
       .done(function(result) {
         _articletypeItems = result.map((r) => {
           return {id: r.name, label: r.title}
         })
-
         this.extendState({items: _articletypeItems})
       }.bind(this))
-      .error((err, xhr, text) => console.error(err, xhr, text))
+      .error((err, xhr, text) => console.error(err, xhr, text));
     }
-  }
+  };
 
   this.render = function() {
     const name = `articletype`
