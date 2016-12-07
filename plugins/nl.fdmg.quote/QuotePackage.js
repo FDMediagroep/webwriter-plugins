@@ -4,7 +4,7 @@ import QuoteComponent from './QuoteComponent';
 import QuoteConverter from './QuoteConverter';
 import QuoteNode from './QuoteNode';
 import QuoteTool from './QuoteTool';
-import Fd4validation from '../fd4validation/Fd4validation.js';
+import QuoteValidator from '../fd4validation/QuoteValidator.js';
 
 export default {
   id: 'nl.fdmg.quote',
@@ -14,7 +14,7 @@ export default {
     config.addConverter('newsml', QuoteConverter);
     config.addComponent('quote', QuoteComponent);
     config.addCommand('quote', QuoteCommand, {nodeType: 'quote'});
-    config.addValidator(Fd4validation);
+    config.addValidator(QuoteValidator);
     config.addContentMenuTopTool('quote', QuoteTool);
     config.addIcon('quote', {'fontawesome': 'fa-quote-left'});
     config.addLabel('Quote', { nl: 'Quote' });

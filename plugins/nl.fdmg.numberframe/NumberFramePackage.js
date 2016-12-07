@@ -4,7 +4,7 @@ import NumberFrameComponent from './NumberFrameComponent';
 import NumberFrameConverter from './NumberFrameConverter';
 import NumberFrameNode from './NumberFrameNode';
 import NumberFrameTool from './NumberFrameTool';
-import Fd4validation from '../fd4validation/Fd4validation.js';
+import NumberFrameValidator from './NumberFrameValidator.js';
 
 export default {
   id: 'nl.fdmg.numberframe',
@@ -14,7 +14,7 @@ export default {
     config.addConverter('newsml', NumberFrameConverter);
     config.addComponent('numberframe', NumberFrameComponent);
     config.addCommand('numberframe', NumberFrameCommand, {nodeType: 'numberframe'});
-    config.addValidator(Fd4validation);
+    config.addValidator(NumberFrameValidator);
     config.addContentMenuTopTool('numberframe', NumberFrameTool);
     config.addIcon('numberframe', {'fontawesome': 'fa-money'});
     config.addLabel('Numberframe', { nl: 'Cijferkader' });

@@ -4,7 +4,7 @@ import StackFrameComponent from './StackFrameComponent';
 import StackFrameConverter from './StackFrameConverter';
 import StackFrameNode from './StackFrameNode';
 import StackFrameTool from './StackFrameTool';
-import Fd4validation from '../fd4validation/Fd4validation.js';
+import StackFrameValidator from './StackFrameValidator.js';
 
 export default {
   id: 'nl.fdmg.stackframe',
@@ -14,7 +14,7 @@ export default {
     config.addConverter('newsml', StackFrameConverter);
     config.addComponent('stackframe', StackFrameComponent);
     config.addCommand('stackframe', StackFrameCommand, {nodeType: 'stackframe'});
-    config.addValidator(Fd4validation);
+    config.addValidator(StackFrameValidator);
     config.addContentMenuTopTool('stackframe', StackFrameTool);
     config.addIcon('stackframe', {'fontawesome': 'fa-bars'});
     config.addLabel('Stackframe', { nl: 'Stapelkader' });
