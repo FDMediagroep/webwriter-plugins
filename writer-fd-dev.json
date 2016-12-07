@@ -473,6 +473,13 @@
             }
         },
         {
+            "id": "nl.fdmg.redirectlink",
+            "name": "redirectlink",
+            "url": "http://localhost:3000/index.js",
+            "enabled": true,
+            "mandatory": true
+        },
+        {
             "id": "nl.fdmg.epic",
             "name": "epic",
             "url": "http://localhost:3000/index.js",

@@ -19,6 +19,7 @@ import Genre from './nl.fdmg.genre/index';
 import Rubric from './nl.fdmg.rubric/index';
 
 import ArticleType from './nl.fdmg.articletype/index'
+import RedirectLink from './nl.fdmg.redirectlink/index'
 import Epic from './nl.fdmg.epic/index'
 
 import TextcountSelector from './nl.fdmg.textcountselector/index'
@@ -48,6 +49,7 @@ import Stockticker from './nl.fdmg.stockticker/index'
   RelatedArticles()
 
   ArticleType()
+  RedirectLink()
   Epic()
 
   TextcountSelector()
