@@ -15,9 +15,8 @@ export default {
     config.addCommand('numberframe', NumberFrameCommand, {nodeType: 'numberframe'});
     config.addContentMenuTopTool('numberframe', NumberFrameTool);
     config.addIcon('numberframe', {'fontawesome': 'fa-money'});
-    config.addLabel('numberframe', {
-      en: 'Add number frame',
-      nl: 'Number frame toevoegen'
-    });
+    config.addLabel('Numberframe', { nl: 'Cijferkader' });
+    config.addLabel('Text', { nl: 'Tekst' });
+    config.addLabel('Amount', { nl: 'Aantal' });
   }
 }

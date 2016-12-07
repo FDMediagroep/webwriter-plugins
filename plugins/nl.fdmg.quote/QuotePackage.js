@@ -15,9 +15,7 @@ export default {
     config.addCommand('quote', QuoteCommand, {nodeType: 'quote'});
     config.addContentMenuTopTool('quote', QuoteTool);
     config.addIcon('quote', {'fontawesome': 'fa-quote-left'});
-    config.addLabel('quote', {
-      en: 'Add quote',
-      nl: 'Quote toevoegen'
-    });
+    config.addLabel('Quote', { nl: 'Quote' });
+    config.addLabel('Source', { nl: 'Bron' });
   }
 }

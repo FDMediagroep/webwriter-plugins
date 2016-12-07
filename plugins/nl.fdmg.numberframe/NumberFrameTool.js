@@ -7,7 +7,7 @@ export default class NumberFrameTool extends Tool {
     var el = $$('button').addClass('se-tool').append(
       $$('i').addClass('fa fa-money')
     ).on('click', () => {
-      api.editorSession.executeCommand('numberframe', {heading: 'Heading', content: 'Content'});
+      api.editorSession.executeCommand('numberframe', {heading: this.getLabel('Amount'), content: this.getLabel('Text')});
     });
     return el;
   }

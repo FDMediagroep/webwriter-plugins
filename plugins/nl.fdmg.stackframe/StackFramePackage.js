@@ -15,9 +15,8 @@ export default {
     config.addCommand('stackframe', StackFrameCommand, {nodeType: 'stackframe'});
     config.addContentMenuTopTool('stackframe', StackFrameTool);
     config.addIcon('stackframe', {'fontawesome': 'fa-bars'});
-    config.addLabel('stackframe', {
-      en: 'Add stack frame',
-      nl: 'Stapel kader toevoegen'
-    });
+    config.addLabel('Stackframe', { nl: 'Stapelkader' });
+    config.addLabel('Title', { nl: 'Titel' });
+    config.addLabel('Text', { nl: 'Tekst' });
   }
 }

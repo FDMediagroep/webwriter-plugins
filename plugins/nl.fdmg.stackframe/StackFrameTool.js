@@ -7,7 +7,7 @@ export default class StackFrameTool extends Tool {
     var el = $$('button').addClass('se-tool').append(
       $$('i').addClass('fa fa-bars')
     ).on('click', () => {
-      api.editorSession.executeCommand('stackframe', {heading: 'Heading', content: 'Content'});
+      api.editorSession.executeCommand('stackframe', {heading: this.getLabel('Title'), content: this.getLabel('Text')});
     });
     return el;
   }
