@@ -28,7 +28,7 @@ In other sessions you only need to:
 ## Rewrite a `ContentItem` plugin
 1. Create folder with the following naming convention: `nl.fdmg.<plugin name>`
 1. Create the necessary file: `index.js` (See: figure 1)
-1. Rewrite `<Plugin name>.js` to `<Plugin name>Package.js` (imported in the `index.js`)
+1. Rewrite `<Plugin name>.js` to `<Plugin name>Package.js` (imported in the `index.js`, see: figure 2)
 1. Rewrite the remaining files.
     1. `this.render` property becomes the function `render($$)`
     1. Replace `Icon` by `FontAwesomeIcon` i.e: `$$(Icon, {icon: 'fa-quote-left'})` becomes `$$(FontAwesomeIcon, {icon: 'fa-quote-left'})`
