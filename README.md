@@ -21,9 +21,11 @@ In other sessions you only need to:
 1. start Webwriter by calling `CONFIG_FILE=writer-fd-dev.json npm run dev` in `NPWriter/`
 1. and run `npm run dev` to start the `NPWriterDevKit`/`webwriter-plugins` for plugin development and enable change watch
 
-# Rewrite `ContentItem` plugin from Writer to Writer 3
+# Rewrite plugin from Writer to Writer 3
 1. Set your IntelliJ (or any other poison of your choice) editor settings indentation to exactly 2 spaces (no tab).
 1. Update status in `https://docs.google.com/spreadsheets/d/1DWcKYwYq8LVKjwDNPUj8BGUef2ykQKXon6lM1FDxoRI/edit?ts=58412e69#gid=0`
+
+## Rewrite a `ContentItem` plugin
 1. Create folder with the following naming convention: `nl.fdmg.<plugin name>`
 1. Create the necessary file: `index.js`
 1. Create <PackageName>Package.js and import this in the `index.js`
@@ -48,8 +50,8 @@ In other sessions you only need to:
 ```
 <sup>Figure: webwriter-fd-dev.json</sup>
 
-# Rewrite `ContextItem` plugin from Writer to Writer 3
+## Rewrite a `ContextItem` plugin
 ### TODO...
 
-# Rewrite `Meta` plugin from Writer to Writer 3
+## Rewrite a `Meta` plugin
 ### TODO...
