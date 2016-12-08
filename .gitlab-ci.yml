@@ -1,0 +1,17 @@
+image: mkenney/npm:debian
+
+cache:
+  paths:
+    - node_modules/
+
+build:
+  script:
+    - export
+    - echo Installing yarn
+    - npm install yarn
+    - echo Installing dependencies
+    - yarn install
+    - echo Running build for production
+    - npm run build
+    - echo Uploading dist
+    - node s3Upload.js

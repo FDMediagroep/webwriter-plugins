@@ -1,0 +1,63 @@
+$im-embedhtml-border-color: #ddd;
+.fdmg-relatedlink {
+	
+	.prefix, .leadtext, .relatedurl {
+		font-style: italic;
+		display: inline-block;
+		padding: 0 25px 0 30px;
+	}
+	.prefix {
+		font-size: 1em;
+		text-align: left;
+		padding-left: 30px;
+		font-weight: bold;
+		position: relative;
+		width: 100%;
+		&:before {
+			content:"\f105";
+			font-family: FontAwesome;
+			color: rgba(0, 0, 0, 0.5);
+			font-weight: normal;
+			font-style: normal;
+			display: inline-block;
+			text-decoration: inherit;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+    }
+	.leadtext {
+		font-size: 0.9em;
+        line-height: 1.4;
+        position: relative;
+        &:before {
+			content:"\f1dc";
+			color: rgba(0, 0, 0, 0.5);
+			font-family: FontAwesome;
+			font-weight: normal;
+			font-style: normal;
+			display: inline-block;
+			text-decoration: inherit;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+	}
+	.relatedurl {
+		font-size: 0.9em;
+        line-height: 1.4;
+        position: relative;
+        &:before {
+			content:"\f0c1";
+			color: rgba(0, 0, 0, 0.5);
+			font-family: FontAwesome;
+			font-weight: normal;
+			font-style: normal;
+			display: inline-block;
+			text-decoration: inherit;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+	}
+}
