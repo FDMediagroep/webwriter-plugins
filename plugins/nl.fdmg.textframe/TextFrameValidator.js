@@ -1,9 +1,10 @@
 import FDValidator from '../nl.fdmg.fdvalidator/FDValidator'
+import {api} from 'writer';
 
 export default class TextFrameValidator extends FDValidator {
   validate() {
-    const i18n = this.getLabel;
-    if (FDValidator.submitted() || FDValidator.published()) {
+    const i18n = api.getLabel;
+    if (this.submitted || this.published) {
       const textframes = Array.from(this.newsItem.querySelectorAll('object[type="fdmg/textframe"]'));
 
       textframes.forEach((tf, i) => {
