@@ -10,7 +10,7 @@ build:
     - npm install yarn
     - echo Installing dependencies
     - yarn install
-    - Running build for production
+    - echo Running build for production
     - npm run build
-    - Uploading dist
+    - echo Uploading dist
     - AWS_ACCESS_KEY_ID=$AWS_ACCES_KEY_ID  AWS_SECRET_ACCESS_KEY=$AWS_SECRET_KEY AWS_S3_BUCKET_NAME=$AWS_S3_BUCKET_NAME node s3Upload.js
