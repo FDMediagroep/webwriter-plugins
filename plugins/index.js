@@ -30,11 +30,12 @@ import Quote from './nl.fdmg.quote/index';
 import NumberFrame from './nl.fdmg.numberframe/index';
 import StackFrame from './nl.fdmg.stackframe/index';
 import RelatedLink from './nl.fdmg.relatedlink/index';
+import ImageSearch from './nl.fdmg.imagesearch/index';
 
 //import Stockticker from './nl.fdmg.stockticker/index';
 
 (() => {
-  LocalFocus()
+  LocalFocus();
 
   TextAnalyzer();
 
@@ -66,6 +67,7 @@ import RelatedLink from './nl.fdmg.relatedlink/index';
   NumberFrame();
   StackFrame();
   RelatedLink();
+  ImageSearch();
 
   // Stockticker()
 })()
