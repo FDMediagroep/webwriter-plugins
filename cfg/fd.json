@@ -95,8 +95,24 @@
     { "enabled": true, "vendor": "nl.fdmg", "name": "articleoptions",                                                                                   "source": { "path": "webwriter-plugins/plugins/articleoptions",   "pluginrepositoryId": "fdplugins", "type": "git" } },
     { "enabled": true, "vendor": "nl.fdmg", "name": "universalsearch",                                                                                  "source": { "path": "webwriter-plugins/plugins/universalsearch",  "pluginrepositoryId": "fdplugins", "type": "git" } },
     { "enabled": true, "vendor": "nl.fdmg", "name": "publish",                                                                                          "source": { "path": "webwriter-plugins/plugins/publish",          "pluginrepositoryId": "fdplugins", "type": "git" } },
-    { "enabled": true, "vendor": "nl.fdmg", "name": "author",      "data": { "endpoint": "/fdmgapi/private/fd/search/author?q=" },                      "source": { "path": "webwriter-plugins/plugins/author",           "pluginrepositoryId": "fdplugins", "type": "git" } },
-    { "enabled": true, "vendor": "nl.fdmg", "name": "tags",        "data": { "updateEndpoint": "fdmgapi/private/fd/articles/tags/", "endpoint": "/fdmgapi/private/fd/search/tag?q=" },                         "source": { "path": "webwriter-plugins/plugins/tags",             "pluginrepositoryId": "fdplugins", "type": "git" } },
+    { "enabled": true, "vendor": "nl.fdmg", "name": "author",
+      "data": {
+        "endpoint": "https://dev-api.fdmg.org/private/fd/search/author?q=",
+        "token" : "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIzNDgyNjg0ODcwNTk3OTExNDkiLCJzdWIiOiJJTkZPTUFLRVItS0VZIiwicm9sZSI6IlVTRVIifQ.3YHXOenozEKzAdUWelwIkykn4D5yMKeOi0vec3JiN-R7cEBr7YLX7Kcaf4k7FsaQVXdFq5z-nf4cfneimYpj4g"
+        },
+      "source": {
+        "path": "webwriter-plugins/plugins/author", "pluginrepositoryId": "fdplugins", "type": "git"
+      }
+    },
+    { "enabled": true, "vendor": "nl.fdmg", "name": "tags",
+      "data": {
+        "updateEndpoint": "https://dev-api.fdmg.org/private/fd/articles/tags/",
+        "endpoint": "https://dev-api.fdmg.org/private/fd/search/tag?q=",
+        "token" : "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIzNDgyNjg0ODcwNTk3OTExNDkiLCJzdWIiOiJJTkZPTUFLRVItS0VZIiwicm9sZSI6IlVTRVIifQ.3YHXOenozEKzAdUWelwIkykn4D5yMKeOi0vec3JiN-R7cEBr7YLX7Kcaf4k7FsaQVXdFq5z-nf4cfneimYpj4g"
+       },
+       "source": { "path": "webwriter-plugins/plugins/tags",             "pluginrepositoryId": "fdplugins", "type": "git"
+       }
+    },
     { "enabled": true, "vendor": "nl.fdmg", "name": "section",
       "data" : {
         "sectionlist" : [
@@ -113,7 +129,17 @@
       "source": { "path": "webwriter-plugins/plugins/section", "pluginrepositoryId": "fdplugins", "type": "git" }
     },
     { "enabled": true, "vendor": "nl.fdmg", "name": "relatedarticles",                                                                                  "source": { "path": "webwriter-plugins/plugins/relatedarticles",      "pluginrepositoryId": "fdplugins", "type": "git" } },
-    { "enabled": true, "vendor": "nl.fdmg", "name": "epic",        "data": { "endpoint": "/fdmgapi/private/fd/search/epic?q=" },                        "source": { "path": "webwriter-plugins/plugins/epic",             "pluginrepositoryId": "fdplugins", "type": "git" } },
+    { "enabled": true, "vendor": "nl.fdmg", "name": "epic",
+        "data":
+          {
+            "endpoint": "https://dev-api.fdmg.org/private/fd/search/epic?q=",
+            "token" : "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIzNDgyNjg0ODcwNTk3OTExNDkiLCJzdWIiOiJJTkZPTUFLRVItS0VZIiwicm9sZSI6IlVTRVIifQ.3YHXOenozEKzAdUWelwIkykn4D5yMKeOi0vec3JiN-R7cEBr7YLX7Kcaf4k7FsaQVXdFq5z-nf4cfneimYpj4g"
+          },
+        "source": {
+          "path": "webwriter-plugins/plugins/epic",
+          "pluginrepositoryId": "fdplugins", "type": "git"
+        }
+    },
     { "enabled": true,
       "vendor": "nl.fdmg",
       "name": "genre",
@@ -181,7 +207,13 @@
         "type": "git"
       }
     },
-    { "enabled": true, "vendor": "nl.fdmg", "name": "articletype", "data": { "endpoint": "/fdmgapi/private/fd/articles/types" },                        "source": { "path": "webwriter-plugins/plugins/articletype",          "pluginrepositoryId": "fdplugins", "type": "git" } },
+    { "enabled": true, "vendor": "nl.fdmg", "name": "articletype",
+      "data": {
+        "endpoint": "https://dev-api.fdmg.org/private/fd/articles/types",
+        "token": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIxMjMiLCJzdWIiOiJzdmVuIiwicm9sZSI6InVzZXIifQ.omGBEdLl3e_bxNFq83bsTUZnO5HU_c0gltDuTFWM_KlLJWtlZzDo1F7jGD6zPD54XmimTAWmD5XKIlhMQVmChQ"
+      },
+      "source": { "path": "webwriter-plugins/plugins/articletype",          "pluginrepositoryId": "fdplugins", "type": "git" }
+    },
     { "enabled": true, "vendor": "nl.fdmg", "name": "redirectlink",                                                                                     "source": { "path": "webwriter-plugins/plugins/redirectlink",         "pluginrepositoryId": "fdplugins", "type": "git" } },
     { "enabled": true, "vendor": "nl.fdmg", "name": "fdpersonal",                                                                                       "source": { "path": "webwriter-plugins/plugins/fdpersonal",           "pluginrepositoryId": "fdplugins", "type": "git" } },
     { "enabled": true, "vendor": "nl.fdmg", "name": "showrelatedarticles",                                                                              "source": { "path": "webwriter-plugins/plugins/showrelatedarticles",  "pluginrepositoryId": "fdplugins", "type": "git" } },
