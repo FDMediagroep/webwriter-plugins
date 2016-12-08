@@ -1,4 +1,5 @@
 import ArticleOptionComponent from '../nl.fdmg.articleoption/ArticleOptionComponent'
+import './scss/topstory.scss'
 
 class TopstoryComponent extends ArticleOptionComponent {
   constructor(...args) {

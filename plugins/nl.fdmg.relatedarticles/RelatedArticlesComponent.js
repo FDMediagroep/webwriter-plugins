@@ -1,5 +1,6 @@
 import {Component, FontAwesomeIcon} from 'substance'
 import {api, idGenerator} from 'writer'
+import './scss/relatedarticles.scss'
 
 class RelatedArticlesComponent extends Component {
   constructor(...args) {

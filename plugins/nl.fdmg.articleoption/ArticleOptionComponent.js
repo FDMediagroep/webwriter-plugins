@@ -10,14 +10,13 @@ class ArticleOptionComponent extends Component {
     this.name = plugin.name
     this.type = plugin.type
     this.label = plugin.label
-    this.hasinput = plugin.hasinput
+    this.hasinput = plugin.hasInput
     this.value = plugin.inputText
     this.placeholder = plugin.inputPlaceholder
     this.pluginId = plugin.pluginId
     this.items = plugin.items
     this.hasSelect = plugin.hasSelect
 
-    console.log(this.label, 'getlablel');
   }
 
   getInitialState() {
@@ -29,6 +28,8 @@ class ArticleOptionComponent extends Component {
 
   render($$) {
     const el = $$('div')
+    .addClass('fdmg-sidebar').append(
+      $$('div')
       .addClass('checkbox form-group')
       .append(
         $$('label')
@@ -41,7 +42,9 @@ class ArticleOptionComponent extends Component {
               }),
               $$('span').append(this.getLabel(this.label))
           )
-      )
+      ),
+      $$('hr').addClass('options-hr')
+    )
 
     if (this.hasinput && this.state.checked) {
       el.append(
@@ -60,7 +63,6 @@ class ArticleOptionComponent extends Component {
     }
 
     if (this.hasSelect && this.state.checked) {
-      console.log('hasselect');
       el.append(
         $$(DropdownComponent, {
           onSelect: this.update.bind(this),

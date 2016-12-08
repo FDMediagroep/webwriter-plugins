@@ -20,7 +20,6 @@ class AdvertorialComponent extends ArticleOption {
       name: "advertorial",
       type: "fdmg/advertorial",
       label: "Advertorial",
-      hasInput: false,
       placeholder: 'URL to article',
       hasSelect: true,
       pluginId: 'nl.fdmg.advertorial'

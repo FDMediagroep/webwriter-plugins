@@ -1,4 +1,5 @@
 import {Component, FontAwesomeIcon, TextPropertyEditor} from 'substance';
+import './scss/numberframe.scss'
 
 export default class NumberFrameComponent extends Component {
   render($$) {

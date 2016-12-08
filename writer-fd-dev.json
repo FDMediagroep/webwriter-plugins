@@ -7,6 +7,7 @@
             "id": "se.infomaker.ximimage",
             "name": "ximimage",
             "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/index.js",
+            "style": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/im-writer.css",
             "mandatory": false,
             "enabled": true,
             "data": {
@@ -76,7 +77,6 @@
             "id": "se.infomaker.publishflow",
             "name": "publishflow",
             "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/index.js",
-            "style": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/style.css",
             "enabled": true,
             "mandatory": true
         },
@@ -84,6 +84,7 @@
             "id": "nl.fdmg.author",
             "name": "author",
             "url": "http://localhost:3000/index.js",
+            "style": "http://localhost:3000/style.css",
             "enabled": true,
             "mandatory": true,
             "data": {
@@ -95,6 +96,7 @@
             "id": "nl.fdmg.tags",
             "name": "tags",
             "url": "http://localhost:3000/index.js",
+            "style": "http://localhost:3000/style.css",
             "enabled": true,
             "mandatory": true,
             "data": {
@@ -107,6 +109,7 @@
             "id": "nl.fdmg.textanalyzer",
             "name": "textanalyzer",
             "url": "http://localhost:3000/index.js",
+            "style": "http://localhost:3000/style.css",
             "enabled": true,
             "mandatory": true,
             "data": {
@@ -181,6 +184,7 @@
             "id": "nl.fdmg.topstory",
             "name": "topstory",
             "url": "http://localhost:3000/index.js",
+            "style": "http://localhost:3000/style.css",
             "enabled": true,
             "mandatory": true
         },
@@ -259,6 +263,7 @@
             "id": "nl.fdmg.genre",
             "name": "genre",
             "url": "http://localhost:3000/index.js",
+            "style" : "http://localhost:3000/style.css",
             "enabled": true,
             "mandatory": true,
             "data": {
@@ -441,6 +446,7 @@
             "id": "nl.fdmg.articletype",
             "name": "articletype",
             "url": "http://localhost:3000/index.js",
+            "style": "http://localhost:3000/style.css",
             "enabled": true,
             "mandatory": true,
             "data": {
@@ -476,6 +482,7 @@
             "id": "nl.fdmg.redirectlink",
             "name": "redirectlink",
             "url": "http://localhost:3000/index.js",
+            "style": "http://localhost:3000/style.css",
             "enabled": true,
             "mandatory": true
         },
@@ -490,6 +497,7 @@
             "id": "nl.fdmg.epic",
             "name": "epic",
             "url": "http://localhost:3000/index.js",
+            "style": "http://localhost:3000/style.css",
             "enabled": true,
             "mandatory": true,
             "data": {

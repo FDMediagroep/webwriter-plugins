@@ -27,9 +27,9 @@ class AuthorItemComponent extends Component {
     authorItem.append(
       $$('div')
         .addClass('avatar__container')
-        .append($$(FontAwesomeIcon, {icon: 'fa-user'}))
-        .append($$('div').addClass('metadata__container').append($$('span').addClass('author__name notClickable meta').append(displayTitle)))
-        .append($$('div').addClass('button__container').append(deleteButton))
+        .append($$(FontAwesomeIcon, {icon: 'fa-user'})),
+        $$('div').addClass('metadata__container').append($$('span').addClass('author__name notClickable meta').append(displayTitle)),
+        $$('div').addClass('button__container').append(deleteButton)
     )
   }
 

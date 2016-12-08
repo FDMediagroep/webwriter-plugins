@@ -1,4 +1,5 @@
 import DropdownComponent from '../nl.fdmg.dropdown/DropdownComponent'
+import './scss/articletype.scss'
 
 const {Component} = substance
 const {api, idGenerator} = writer

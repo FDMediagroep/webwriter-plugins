@@ -1,6 +1,7 @@
 import {Component, FontAwesomeIcon} from 'substance'
 import {api, idGenerator} from 'writer'
 import SearchFieldComponent from '../nl.fdmg.searchfield/SearchFieldComponent'
+import './scss/epic.scss'
 
 const pluginId = 'nl.fdmg.epic'
 

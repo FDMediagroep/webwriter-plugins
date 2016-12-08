@@ -1,5 +1,6 @@
 import ArticleOption from '../nl.fdmg.articleoption/ArticleOptionComponent'
 import {api} from 'writer'
+import './scss/redirectlink.scss'
 
 class RedirectLinkComponent extends ArticleOption {
   constructor(...args) {
@@ -7,7 +8,7 @@ class RedirectLinkComponent extends ArticleOption {
       name: "redirectlink",
       type: "fdmg/redirectlink",
       label: "Redirect article",
-      hasInput: false,
+      hasInput: true,
       placeholder: 'URL to article'
     }, ...args)
   }

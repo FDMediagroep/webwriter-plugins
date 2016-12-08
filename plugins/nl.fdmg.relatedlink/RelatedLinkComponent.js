@@ -1,4 +1,5 @@
 import {Component, FontAwesomeIcon, TextPropertyEditor} from 'substance';
+import './scss/relatedlink.scss'
 
 export default class RelatedLinkComponent extends Component {
 

@@ -1,4 +1,5 @@
 import {AnnotationComponent} from 'substance'
+import './scss/stockticker.scss'
 
 // var VWDUtil = new (require('./VWDUtil'))();
 
@@ -76,4 +77,3 @@ class StocktickerComponent extends AnnotationComponent {
 }
 
 export default StocktickerComponent
-

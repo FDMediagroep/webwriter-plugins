@@ -1,5 +1,6 @@
 import {Component} from 'substance'
 import {api, event, lodash} from 'writer'
+import './scss/textanalyzer.scss'
 const pluginId = 'nl.fdmg.textanalyzer'
 
 class TextAnalyzerComponent extends Component {

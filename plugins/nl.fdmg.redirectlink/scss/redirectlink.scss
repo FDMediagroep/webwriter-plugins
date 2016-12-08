@@ -1,0 +1,9 @@
+.plugin-nl-fdmg-redirectlink {
+	input[type="text"] {
+		border:1px solid #ccc;
+		&.novalue {
+			border: 1px solid rgba(255, 0, 0, 0.4);
+		}
+	}
+
+}

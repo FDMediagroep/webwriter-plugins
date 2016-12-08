@@ -1,4 +1,5 @@
 import {Component, FontAwesomeIcon, TextPropertyEditor} from 'substance';
+import './scss/stackframe.scss'
 
 export default class StackFrameComponent extends Component {
   render($$) {

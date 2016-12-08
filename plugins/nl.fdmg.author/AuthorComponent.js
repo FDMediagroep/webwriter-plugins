@@ -2,6 +2,7 @@ import {Component} from 'substance'
 import {api, NilUUID, idGenerator} from 'writer'
 import AuthorList from './AuthorListComponent'
 import SearchField from '../nl.fdmg.searchfield/SearchFieldComponent'
+import './scss/author.scss'
 const pluginId = 'nl.fdmg.author'
 
 class AuthorComponent extends Component {
@@ -92,7 +93,7 @@ class AuthorComponent extends Component {
           createAllowed: true,
           placeholderText: this.getLabel('Add author')
         }),
-        $$('h2')
+        $$('hr')
       )
   }
 

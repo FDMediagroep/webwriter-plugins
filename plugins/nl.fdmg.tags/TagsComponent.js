@@ -2,6 +2,7 @@ import {Component} from 'substance'
 import {api} from 'writer'
 import TagsList from './TagsListComponent'
 import SearchField from '../nl.fdmg.searchfield/SearchFieldComponent'
+import './scss/tags.scss'
 const pluginId = 'nl.fdmg.tags'
 
 class TagsComponent extends Component {
