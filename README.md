@@ -19,7 +19,7 @@
 In other sessions you only need to:
 
 1. start Webwriter by calling `CONFIG_FILE=writer-fd-dev.json npm run dev` in `NPWriter/`
-1. and run `npm run dev` to start the `NPWriterDevKit`/`webwriter-plugins` for plugin development and enable change watch
+1. and run `npm run dev` to start the `webwriter-plugins` A.K.A. `NPWriterDevKit` for plugin development and enable change watch
 
 # Rewrite plugin from Writer to Writer 3
 1. Set your IntelliJ (or any other poison of your choice) editor settings indentation to exactly 2 spaces (no tab).
@@ -84,9 +84,9 @@ export default {
     config.addCommand('quote', <Plugin name>Command, {nodeType: '<plugin name>'});
     config.addContentMenuTopTool('<plugin name>', <Plugin name>Tool);
     config.addIcon('<plugin name>', {'fontawesome': '<fontawesome icon name>'});
-    config.addLabel('<plugin name>', {
-      en: 'Add <plugin name>',
-      nl: '<Plugin name> toevoegen'
+    config.addLabel('<original text>', {
+      en: '<english translation>',
+      nl: '<dutch translation>'
     });
   }
 }
@@ -119,8 +119,8 @@ export default class <Plugin name>Node extends BlockNode {
 <sub id="figure5">Figure 5: webwriter-fd-dev.json</sub>
 ```json
 {
-    "id": "nl.fdmg.<plugin>",
-    "name": "<plugin>",
+    "id": "nl.fdmg.<plugin name>",
+    "name": "<plugin name>",
     "url": "http://localhost:3000/index.js",
     "enabled": true,
     "mandatory": true
@@ -142,3 +142,9 @@ api.editorSession.executeCommand('ximimage-insert-image-url', {
   imageUrl: imageURL
 });
 ```
+
+## Resources
+* https://infomaker.github.io/NPWriterDevelopers/getting-started/
+* https://github.com/Infomaker
+* https://infomaker.github.io/NPWriterDevelopers/api-reference/
+* http://substance.io/docs/beta5/util/Configurator.html

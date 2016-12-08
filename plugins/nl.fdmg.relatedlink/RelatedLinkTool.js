@@ -7,7 +7,7 @@ export default class RelatedLinkTool extends Tool {
     var el = $$('button').addClass('se-tool').append(
       $$('i').addClass('fa fa-external-link-square')
     ).on('click', () => {
-      api.editorSession.executeCommand('relatedlink', {prefix: 'Prefix', leadtext: 'Leadtext', relatedurl: 'Related url'});
+      api.editorSession.executeCommand('relatedlink', {prefix: this.getLabel('Also read'), leadtext: this.getLabel('Article title'), relatedurl: 'https://www.fd.nl'});
     });
     return el;
   }

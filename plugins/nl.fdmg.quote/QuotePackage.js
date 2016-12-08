@@ -4,6 +4,7 @@ import QuoteComponent from './QuoteComponent';
 import QuoteConverter from './QuoteConverter';
 import QuoteNode from './QuoteNode';
 import QuoteTool from './QuoteTool';
+import QuoteValidator from './QuoteValidator.js';
 
 export default {
   id: 'nl.fdmg.quote',
@@ -13,11 +14,14 @@ export default {
     config.addConverter('newsml', QuoteConverter);
     config.addComponent('quote', QuoteComponent);
     config.addCommand('quote', QuoteCommand, {nodeType: 'quote'});
+    config.addValidator(QuoteValidator);
     config.addContentMenuTopTool('quote', QuoteTool);
     config.addIcon('quote', {'fontawesome': 'fa-quote-left'});
-    config.addLabel('quote', {
-      en: 'Add quote',
-      nl: 'Quote toevoegen'
-    });
+    config.addLabel('Quote', { nl: 'Quote' });
+    config.addLabel('Source', { nl: 'Bron' });
+
+    config.addLabel('Missing one or more quote messages', { nl: 'Een of meerdere quotes bevat geen tekst' });
+    config.addLabel('Missing one or more quote sources', { nl: 'Een of meerdere quotes bevat geen bron' });
+
   }
 }
