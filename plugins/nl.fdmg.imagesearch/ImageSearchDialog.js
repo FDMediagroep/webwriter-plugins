@@ -194,10 +194,7 @@ class ImageSearchDialog extends Component {
     })
       .then(response => api.router.checkForOKStatus(response))
       .then(response => api.router.toJson(response))
-      .then(response => {
-        return response.url
-      })
-      .then(response => { console.log(response) })
+      .then(response => response.url)
   }
 }
 
