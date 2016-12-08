@@ -33,10 +33,13 @@ import NumberFrame from './nl.fdmg.numberframe/index';
 import StackFrame from './nl.fdmg.stackframe/index';
 import RelatedLink from './nl.fdmg.relatedlink/index';
 import TextFrame from './nl.fdmg.textframe/index';
+
+import ImageSearch from './nl.fdmg.imagesearch/index';
+
 //import Stockticker from './nl.fdmg.stockticker/index';
 
 (() => {
-  LocalFocus()
+  LocalFocus();
 
   TextAnalyzer();
 
@@ -72,5 +75,6 @@ import TextFrame from './nl.fdmg.textframe/index';
   RelatedLink();
   TextFrame();
 
+  ImageSearch();
   //Stockticker();
 })()

@@ -122,7 +122,6 @@
             }
         },
         {
-
             "id": "nl.fdmg.textanalyzer",
             "name": "textanalyzer",
             "url": "http://localhost:3000/index.js",
@@ -291,7 +290,7 @@
             "id": "nl.fdmg.genre",
             "name": "genre",
             "url": "http://localhost:3000/index.js",
-            "style" : "http://localhost:3000/style.css",
+            "style": "http://localhost:3000/style.css",
             "enabled": true,
             "mandatory": true,
             "data": {
@@ -541,7 +540,7 @@
             "enabled": true,
             "mandatory": true,
             "data": {
-              "previewBaseUrl": "//preview.fd.nl/_/${id}/_"
+                "previewBaseUrl": "//preview.fd.nl/_/${id}/_"
             }
         },
         {
@@ -585,43 +584,66 @@
             "mandatory": true
         },
         {
-          "id": "nl.fdmg.textframe",
-          "name": "textframe",
-          "url": "http://localhost:3000/index.js",
-          "style": "http://localhost:3000/style.css",
-          "enabled": true,
-          "mandatory": true,
-          "data": {
-            "fields": [
-              {
-                "name": "alignment",
-                "label": "Alignment",
-                "type": "option",
-                "options": [
-                  {
-                    "name": "right",
-                    "label": "Right",
-                    "icon": "fa-align-right"
-                  },
-                  {
-                    "name": "block",
-                    "label": "Block",
-                    "icon": "fa-align-justify"
-                  }
-                ]
-              }
-            ],
-            "softcrop": true,
-            "enablesoftcrop": true,
-            "crops": {
-              "16:9": [16, 9],
-              "4:3": [4, 3],
-              "1:1": [1, 1]
-            },
-            "preventAutomaticLinkCreation": false,
-            "disableUseOfAnnotationTools": false
-          }
+            "id": "nl.fdmg.textframe",
+            "name": "textframe",
+            "url": "http://localhost:3000/index.js",
+            "style": "http://localhost:3000/style.css",
+            "enabled": true,
+            "mandatory": true,
+            "data": {
+                "fields": [
+                    {
+                        "name": "alignment",
+                        "label": "Alignment",
+                        "type": "option",
+                        "options": [
+                            {
+                                "name": "right",
+                                "label": "Right",
+                                "icon": "fa-align-right"
+                            },
+                            {
+                                "name": "block",
+                                "label": "Block",
+                                "icon": "fa-align-justify"
+                            }
+                        ]
+                    }
+                ],
+                "softcrop": true,
+                "enablesoftcrop": true,
+                "crops": {
+                    "16:9": [
+                        16,
+                        9
+                    ],
+                    "4:3": [
+                        4,
+                        3
+                    ],
+                    "1:1": [
+                        1,
+                        1
+                    ]
+                },
+                "preventAutomaticLinkCreation": false,
+                "disableUseOfAnnotationTools": false
+            }
+        },
+        {
+            "id": "nl.fdmg.imagesearch",
+            "name": "imagesearch",
+            "url": "http://localhost:3000/index.js",
+            "style": "http://localhost:3000/style.css",
+            "enabled": true,
+            "mandatory": true,
+            "data": {
+                "loadNextScrollThreshold": 100,
+                "resultsPerPage": 25,
+                "searchEndpoint": "https://apigateway-dev.fdmg.nl/image/search/v1.0/hollandse-hoogte",
+                "fetchEndpoint": "https://apigateway-dev.fdmg.nl/image/download",
+                "token": "63401c89-63e9-35f9-9daa-a55ef26c3042"
+            }
         }
-
     ]
 }
