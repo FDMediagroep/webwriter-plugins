@@ -1,8 +1,13 @@
-image: mkenny/npm:debian
+image: mkenney/npm:debian
 
 before_script:
   - apt-get update
 
-build_dist:
+build:
   script:
-    - build.sh $AWS_ACCESS_KEY_ID $AWS_SECRET_ACCESS_KEY $AWS_BUCKET_NAME
+    - echo Installing dependencies
+    - npm install
+    - Running build for production
+    - npm run build
+    - Uploading dist
+    - AWS_ACCESS_KEY_ID=$AWS_ACCES_KEY_ID  AWS_SECRET_ACCESS_KEY=$AWS_SECRET_KEY AWS_S3_BUCKET_NAME=$AWS_S3_BUCKET_NAME node s3Upload.js
