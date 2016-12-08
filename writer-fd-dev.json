@@ -519,6 +519,17 @@
             }
         },
         {
+            "id": "nl.fdmg.preview",
+            "name": "preview",
+            "url": "http://localhost:3000/index.js",
+            "style": "http://localhost:3000/style.css",
+            "enabled": true,
+            "mandatory": true,
+            "data": {
+              "previewBaseUrl": "//preview.fd.nl/_/${id}/_"
+            }
+        },
+        {
             "id": "nl.fdmg.textcountselector",
             "name": "textcountselector",
             "url": "http://localhost:3000/index.js",

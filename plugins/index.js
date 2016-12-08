@@ -23,6 +23,7 @@ import RelatedArticles from './nl.fdmg.relatedarticles/index';
 import ArticleType from './nl.fdmg.articletype/index';
 import RedirectLink from './nl.fdmg.redirectlink/index';
 import Epic from './nl.fdmg.epic/index';
+import Preview from './nl.fdmg.preview/index';
 
 import TextcountSelector from './nl.fdmg.textcountselector/index';
 
@@ -59,6 +60,7 @@ import TextFrame from './nl.fdmg.textframe/index';
   ArticleType();
   RedirectLink();
   Epic();
+  Preview();
 
   TextcountSelector();
 
