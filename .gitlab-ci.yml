@@ -4,13 +4,12 @@ cache:
   paths:
     - node_modules/
 
-before_script:
-  - apt-get update
-
 build:
   script:
+    - echo Installing yarn
+    - npm install yarn
     - echo Installing dependencies
-    - npm install
+    - yarn install
     - Running build for production
     - npm run dev
     - Uploading dist
