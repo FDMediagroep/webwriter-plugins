@@ -118,7 +118,9 @@
         "data": {
           "resultsPerPage": 20,
           "reloadScrollThreshold": 100,
-          "endpoint": "https://images.fdmg.nl"
+          "searchEndpoint": "https://apigateway-dev.fdmg.nl/image/search/hollandse-hoogte",
+          "downloadEndpoint": "https://apigateway-dev.fdmg.nl/image/download",
+          "token": "Bearer 63401c89-63e9-35f9-9daa-a55ef26c3042"
         },
         "path": "/Users/kreuning/Developer/webwriter/plugins/plugins/xfdimage"
       },
