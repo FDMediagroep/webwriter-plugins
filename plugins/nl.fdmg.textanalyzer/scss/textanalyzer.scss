@@ -1,4 +1,4 @@
-.plugin-nl-fdmg-textanalyzer {
+.textanalyzer {
 	padding: 0px 15px 10px 15px;
 	hr {
 		margin-top: 0px;
@@ -21,7 +21,7 @@
 		}
 	}
 
-	.count__info-container {
+	.number__container {
 		margin-top: 0;
 		display: flex;
 		justify-content: space-between;
@@ -34,6 +34,8 @@
 		flex-grow: 1;
 		p {
 			font-size: 0.8em;
+			margin: 0 10px;
+			line-height: 1.4;
 		}
 		select {
 			margin-bottom: 5px;

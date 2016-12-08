@@ -2,31 +2,40 @@ import ArticleOption from '../nl.fdmg.articleoption/ArticleOptionComponent'
 import {api} from 'writer'
 
 class AdvertorialComponent extends ArticleOption {
-  //items should be items
-  // const items = this.endpoint
 
-  // const selection = api.newsItem
-  //   .getLinkByType(this.name, this.type)
-  //   .map(l => {return {id: l['@id'], label: l['@title']}})
-  //   .map(i => {
-  //     const match = items.find(item => item.id === i.id)
-  //     const label = (match !== undefined) ? match.label : i.label
-  //     return {id: i.id, label: label}
-  //   })
-  //   .pop()
+  getItems(){
+    const endpoint = api.getConfigValue("nl.fdmg.advertorial", 'endpoint')
+    const token = api.getConfigValue("nl.fdmg.advertorial", 'token')
+    console.log(endpoint, token);
+    
+    return api.router.get('/api/resourceproxy', {
+      url: endpoint,
+      headers: {
+        'x-access-token': `Bearer ${token}`
+      }
+    })
+  }
+
+  // getSelection(){
+  //
+  // }
 
   constructor(...args) {
+
     super({
       name: "advertorial",
       type: "fdmg/advertorial",
       label: "Advertorial",
       placeholder: 'URL to article',
       hasSelect: true,
-      pluginId: 'nl.fdmg.advertorial'
+      pluginId: 'nl.fdmg.advertorial',
+      // items: items,
+      // selection: selection
     }, ...args)
   }
 
   render($$) {
+    this.getItems();
     const eventState = this.state.checked ? 'disabled' : 'enabled'
     api.events.triggerEvent('', `advertorial:${eventState}`)
     return super.render($$)
