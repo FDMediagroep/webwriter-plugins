@@ -20,5 +20,9 @@ export default {
     config.addLabel('Related article', { nl: 'Uitstapmoment' });
     config.addLabel('Also read', { nl: 'Lees ook' });
     config.addLabel('Article title', { nl: 'Titel van artikel' });
+
+    config.addLabel('No relatedlink prefix', { nl: 'Een of meerdere uitstapmomenten heeft geen voorvoegsel' });
+    config.addLabel('No relatedlink leadtext', { nl: 'Een of meerdere uitstapmomenten heeft geen tekst' });
+    config.addLabel('No relatedlink relatedurl', { nl: 'Gerelateerd artikel url niet valide' });
   }
 }

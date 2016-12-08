@@ -41,6 +41,9 @@ export default {
     config.addLabel('Textframe', { nl: 'Tekstkader' });
     config.addLabel('Title', { nl: 'Titel' });
     config.addLabel('Text', { nl: 'Tekst' });
+
+    config.addLabel('Textframe is missing title', { nl: 'Een of meerdere tekstkaders heeft geen titel' });
+
   }
 
 }

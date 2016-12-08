@@ -20,5 +20,8 @@ export default {
     config.addLabel('Stackframe', { nl: 'Stapelkader' });
     config.addLabel('Title', { nl: 'Titel' });
     config.addLabel('Text', { nl: 'Tekst' });
+
+    config.addLabel('No stackframe heading', { nl: 'Een of meerdere stapelkaders heeft geen titel' });
+    config.addLabel('No stackframe content', { nl: 'Een of meerdere stapelkaders heeft geen tekst' });
   }
 }
