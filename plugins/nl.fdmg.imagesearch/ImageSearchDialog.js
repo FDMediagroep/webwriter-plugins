@@ -157,8 +157,14 @@ class ImageSearchDialog extends Component {
     const endpoint = api.getConfigValue(pluginId, 'searchEndpoint')
     const token = api.getConfigValue(pluginId, 'token')
 
-    return api.router.get('/api/resourceproxy', {
-      url: `${endpoint}?q=${query}&page=${pageIndex + 1}&result=${resultsPerPage}`,
+    // return api.router.get('/api/resourceproxy', {
+    //   url: `${endpoint}?q=${query}&page=${pageIndex + 1}&result=${resultsPerPage}`,
+    //   headers: {
+    //     'Authorization': `Bearer ${token}`
+    //   }
+    // })
+    return fetch(`${endpoint}?q=${query}&page=${pageIndex + 1}&result=${resultsPerPage}`, {
+      method: 'GET',
       headers: {
         'Authorization': `Bearer ${token}`
       }
