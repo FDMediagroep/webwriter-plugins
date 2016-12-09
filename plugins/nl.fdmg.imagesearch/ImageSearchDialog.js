@@ -160,7 +160,7 @@ class ImageSearchDialog extends Component {
     return api.router.get('/api/resourceproxy', {
       url: `${endpoint}?q=${query}&page=${pageIndex + 1}&result=${resultsPerPage}`,
       headers: {
-        'Authorization': `Bearer ${token}`
+        'X-apigateway-token': `Bearer ${token}`
       }
     })
       .then(response => api.router.checkForOKStatus(response))
@@ -189,7 +189,7 @@ class ImageSearchDialog extends Component {
     return api.router.get('/api/resourceproxy', {
       url: `${endpoint}?id=${imageId}`,
       headers: {
-        'Authorization': `Bearer ${token}`
+        'X-apigateway-token': `Bearer ${token}`
       }
     })
       .then(response => api.router.checkForOKStatus(response))
