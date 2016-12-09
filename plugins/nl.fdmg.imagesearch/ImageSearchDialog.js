@@ -155,12 +155,13 @@ class ImageSearchDialog extends Component {
   _performSearch(query, pageIndex) {
     const resultsPerPage = api.getConfigValue(pluginId, 'resultsPerPage', 25)
     const endpoint = api.getConfigValue(pluginId, 'searchEndpoint')
+    const url = `${endpoint}?q=${query}&page=${pageIndex + 1}&result=${resultsPerPage}`
     const token = api.getConfigValue(pluginId, 'token')
 
-    return api.router.get('/api/resourceproxy', {
-      url: `${endpoint}?q=${query}&page=${pageIndex + 1}&result=${resultsPerPage}`,
+    return fetch(url, {
+      method: 'GET',
       headers: {
-        'X-apigateway-token': `Bearer ${token}`
+        'Authorization': `Bearer ${token}`
       }
     })
       .then(response => api.router.checkForOKStatus(response))
@@ -184,12 +185,13 @@ class ImageSearchDialog extends Component {
 
   _retrieveDownloadUrl(imageId) {
     const endpoint = api.getConfigValue(pluginId, 'fetchEndpoint')
+    const url = `${endpoint}?id=${imageId}`
     const token = api.getConfigValue(pluginId, 'token')
 
-    return api.router.get('/api/resourceproxy', {
-      url: `${endpoint}?id=${imageId}`,
+    return fetch(url, {
+      method: 'GET',
       headers: {
-        'X-apigateway-token': `Bearer ${token}`
+        'Authorization': `Bearer ${token}`
       }
     })
       .then(response => api.router.checkForOKStatus(response))

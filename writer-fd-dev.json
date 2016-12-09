@@ -613,6 +613,13 @@
             "mandatory": true
         },
         {
+            "id": "nl.fdmg.htmlembed",
+            "name": "htmlembed",
+            "url": "http://localhost:3000/index.js",
+            "enabled": false,
+            "mandatory": true
+        },
+        {
             "id": "nl.fdmg.imagesearch",
             "name": "imagesearch",
             "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
@@ -622,8 +629,8 @@
             "data": {
                 "loadNextScrollThreshold": 100,
                 "resultsPerPage": 25,
-                "searchEndpoint": "https://webwriter-dev.fd.nl/wso2api/image/search/v1.0/hollandse-hoogte",
-                "fetchEndpoint": "https://webwriter-dev.fd.nl/wso2api/image/download",
+                "searchEndpoint": " https://apigateway-dev.fdmg.nl/image/search/v1.0/hollandse-hoogte",
+                "fetchEndpoint": " https://apigateway-dev.fdmg.nl/image/download",
                 "token": "63401c89-63e9-35f9-9daa-a55ef26c3042"
             }
         }
