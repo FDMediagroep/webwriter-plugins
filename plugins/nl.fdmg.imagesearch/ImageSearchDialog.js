@@ -158,10 +158,10 @@ class ImageSearchDialog extends Component {
     const token = api.getConfigValue(pluginId, 'token')
 
     return api.router.get('/api/resourceproxy', {
-      url: `${endpoint}?q=${query}&page=${pageIndex + 1}&result=${resultsPerPage}`,
+      url: `${endpoint}?q=${query}&page=${pageIndex + 1}&result=${resultsPerPage}`/*,
       headers: {
         'Authorization': `Bearer ${token}`
-      }
+      }*/
     })
       .then(response => api.router.checkForOKStatus(response))
       .then(response => api.router.toJson(response))
