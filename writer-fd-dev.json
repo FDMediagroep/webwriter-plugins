@@ -82,7 +82,7 @@
           "id": "se.infomaker.ximimage",
           "name": "ximimage",
           "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/index.js",
-          "style": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/im-writer.css",
+          "style": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/fd.css",
           "enabled": true,
           "mandatory": true,
           "data": {
