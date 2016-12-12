@@ -54,6 +54,7 @@ class ImageSearchDialog extends Component {
                   $$(FontAwesomeIcon, {icon: 'fa-spinner fa-pulse'}).addClass(this.state.isSearching ? 'active' : '')
                 )
                 .on('click', () => {
+                  this.extendState(this.getInitialState())
                   this.search(this.refs.searchfield.val())
                 })
               // TODO Add upload button
@@ -83,6 +84,7 @@ class ImageSearchDialog extends Component {
   onKeydown(e) {
     switch(e.keyCode) {
       case 13:  // Enter
+        this.extendState(this.getInitialState())
         this.search(this.refs.searchfield.val())
         break
       case 27:  // Escape
@@ -109,6 +111,7 @@ class ImageSearchDialog extends Component {
   }
 
   search(query, pageIndex = 0) {
+
     if (!this.allResultsLoaded) {
       this.extendState({
         isSearching: true,
