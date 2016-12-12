@@ -3,25 +3,29 @@ import {api} from 'writer'
 
 class AdvertorialComponent extends ArticleOption {
 
-  getItems(){
+  didMount(){
+    api.events.on(this.name, 'advertorial:enabled', this.enable.bind(this))
+    api.events.on(this.name, 'advertorial:disabled', this.disable.bind(this))
+
     const endpoint = api.getConfigValue("nl.fdmg.advertorial", 'endpoint')
     const token = api.getConfigValue("nl.fdmg.advertorial", 'token')
-    console.log(endpoint, token);
-    
-    return api.router.get('/api/resourceproxy', {
+
+    api.router.get('/api/resourceproxy', {
       url: endpoint,
       headers: {
         'x-access-token': `Bearer ${token}`
       }
     })
+      .then(response => api.router.checkForOKStatus(response))
+      .then(response => api.router.toJson(response))
+      .then(response => response.map(x => {return {id: x, label: x}}))
+      .then(response => {
+        this.extendState({items: response})
+      }
+    )
   }
 
-  // getSelection(){
-  //
-  // }
-
   constructor(...args) {
-
     super({
       name: "advertorial",
       type: "fdmg/advertorial",
@@ -29,16 +33,21 @@ class AdvertorialComponent extends ArticleOption {
       placeholder: 'URL to article',
       hasSelect: true,
       pluginId: 'nl.fdmg.advertorial',
-      // items: items,
-      // selection: selection
+      items: [],
     }, ...args)
   }
 
-  render($$) {
-    this.getItems();
+  setOptionChecked(checked) {
+    super.setOptionChecked(checked)
+
     const eventState = this.state.checked ? 'disabled' : 'enabled'
-    api.events.triggerEvent('', `advertorial:${eventState}`)
-    return super.render($$)
+    api.events.triggerEvent('', `articletype:${eventState}`)
+    api.events.triggerEvent('', `redirectlink:${eventState}`)
+  }
+
+  dispose() {
+    api.events.off(this.name, 'advertorial:enabled')
+    api.events.off(this.name, 'advertorial:disabled')
   }
 }
 

@@ -1,4 +1,5 @@
 import DropdownComponent from '../nl.fdmg.dropdown/DropdownComponent'
+import './scss/articleoption.scss'
 
 const {Component} = substance
 const {api, idGenerator} = writer
@@ -22,11 +23,13 @@ class ArticleOptionComponent extends Component {
   getInitialState() {
     return {
       checked: this.getOptionChecked(),
-      value: this.value
+      value: this.value,
+      enabled: true
     }
   }
 
   render($$) {
+    console.log(this.state.enabled, this.name)
     const el = $$('div')
     .addClass('fdmg-sidebar').append(
       $$('div')
@@ -36,6 +39,7 @@ class ArticleOptionComponent extends Component {
           .append(
             $$('input')
               .attr('type', 'checkbox')
+              .attr(!this.state.enabled ? {'disabled': 'disabled'} : {})
               .attr(this.state.checked ? {'checked': 'checked'} : {})
               .on('change', () => {
                 this.setOptionChecked(!this.state.checked)
@@ -63,20 +67,46 @@ class ArticleOptionComponent extends Component {
     }
 
     if (this.hasSelect && this.state.checked) {
+      const selection = api.newsItem
+        .getLinkByType(this.name, this.type)
+        .map(l => {return {id: l['@id'], label: l['@title']}})
+        .map(i => {
+          const match = this.state.items.find(item => item.id === i.id)
+          const label = (match !== undefined) ? match.label : i.label
+          return {id: i.id, label: label}
+        })
+        .pop()
+
       el.append(
+
         $$(DropdownComponent, {
           onSelect: this.update.bind(this),
-          header: this.getLabel('Article type'),
-          // items: items,
+          items: this.state.items,
           allowFreeInput: false,
           allowEmptySelection: false,
-          // selection: selection,
-          disabled: !this.state.enabled
+          selection: selection
         })
       )
     }
 
     return el
+  }
+
+  update(item) {
+    api.newsItem
+      .getLinkByType(this.name, this.type)
+      .forEach(l => {
+        api.newsItem.removeLinkByUUIDAndRel(this.name, l['@uuid'], l['@rel'])
+      })
+
+    if (item.id !== 'none' && item.label.trim() !== '') {
+      api.newsItem.addLink(this.name, {
+        '@rel': this.name,
+        '@type': this.type,
+        '@value': item.id,
+        '@uuid': idGenerator()
+      })
+    }
   }
 
   getOptionChecked() {
@@ -113,6 +143,14 @@ class ArticleOptionComponent extends Component {
       checked: checked,
       value: value
     })
+  }
+
+  enable() {
+    this.extendState({enabled: true})
+  }
+
+  disable() {
+    this.extendState({enabled: false})
   }
 }
 

@@ -13,10 +13,22 @@ class RedirectLinkComponent extends ArticleOption {
     }, ...args)
   }
 
-  render($$) {
+  didMount(){
+    api.events.on(this.name, 'redirectlink:enabled', this.enable.bind(this))
+    api.events.on(this.name, 'redirectlink:disabled', this.disable.bind(this))
+  }
+
+  setOptionChecked(checked) {
+    super.setOptionChecked(checked)
+
     const eventState = this.state.checked ? 'disabled' : 'enabled'
     api.events.triggerEvent('', `articletype:${eventState}`)
-    return super.render($$)
+    api.events.triggerEvent('', `advertorial:${eventState}`)
+  }
+
+  dispose() {
+    api.events.off(this.name, 'redirectlink:enabled')
+    api.events.off(this.name, 'redirectlink:disabled')
   }
 }
 
