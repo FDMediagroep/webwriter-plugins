@@ -563,10 +563,6 @@
                     "label": "Service pagina"
                 },
                 {
-                    "id": "PARTNER_PAGE",
-                    "label": "Advertorial/partner pagina"
-                },
-                {
                     "id": "EVENT",
                     "label": "Event"
                 }
@@ -586,7 +582,11 @@
           "name": "advertorial",
           "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
           "enabled": true,
-          "mandatory": true
+          "mandatory": true,
+          "data": {
+              "endpoint": "https://dev-api.fdmg.org/private/fd/articles/section/fd4.advertorial/children",
+              "token": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIxMjMiLCJzdWIiOiJzdmVuIiwicm9sZSI6InVzZXIifQ.omGBEdLl3e_bxNFq83bsTUZnO5HU_c0gltDuTFWM_KlLJWtlZzDo1F7jGD6zPD54XmimTAWmD5XKIlhMQVmChQ"
+            }
         },
         {
           "id": "nl.fdmg.epic",
