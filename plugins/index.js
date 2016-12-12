@@ -34,7 +34,7 @@ import StackFrame from './nl.fdmg.stackframe/index';
 import RelatedLink from './nl.fdmg.relatedlink/index';
 import TextFrame from './nl.fdmg.textframe/index';
 
-import HtmlEmbed from './nl.fdmg.htmlembed/index';
+// import HtmlEmbed from './nl.fdmg.htmlembed/index';
 import ImageSearch from './nl.fdmg.imagesearch/index';
 
 //import Stockticker from './nl.fdmg.stockticker/index';
@@ -76,7 +76,7 @@ import ImageSearch from './nl.fdmg.imagesearch/index';
   RelatedLink();
   TextFrame();
 
-  HtmlEmbed();
+  // HtmlEmbed();
   ImageSearch();
 
   ImageSearch();
