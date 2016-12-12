@@ -29,7 +29,6 @@ class ArticleOptionComponent extends Component {
   }
 
   render($$) {
-    console.log(this.state.enabled, this.name)
     const el = $$('div')
     .addClass('fdmg-sidebar').append(
       $$('div')

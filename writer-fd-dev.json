@@ -355,84 +355,84 @@
           }
         },
         {
-            "id": "nl.fdmg.genre",
-            "name": "genre",
-            "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
-            "style": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/style.css",
-            "enabled": true,
-            "mandatory": true,
-            "data": {
-                "genres": [
-                    {
-                        "id": "Achtergrond",
-                        "label": "Achtergrond"
-                    },
-                    {
-                        "id": "Analyse",
-                        "label": "Analyse"
-                    },
-                    {
-                        "id": "Audio",
-                        "label": "Audio"
-                    },
-                    {
-                        "id": "Beursverslag",
-                        "label": "Beursverslag"
-                    },
-                    {
-                        "id": "Blog",
-                        "label": "Blog"
-                    },
-                    {
-                        "id": "Column",
-                        "label": "Column"
-                    },
-                    {
-                        "id": "Commentaar",
-                        "label": "Commentaar"
-                    },
-                    {
-                        "id": "Fotoserie",
-                        "label": "Fotoserie"
-                    },
-                    {
-                        "id": "Het Raderwerk",
-                        "label": "Het Raderwerk"
-                    },
-                    {
-                        "id": "Fotoserie",
-                        "label": "Fotoserie"
-                    },
-                    {
-                        "id": "Interview",
-                        "label": "Interview"
-                    },
-                    {
-                        "id": "Liveblog",
-                        "label": "Liveblog"
-                    },
-                    {
-                        "id": "Opinie",
-                        "label": "Opinie"
-                    },
-                    {
-                        "id": "Opnieuw relevant",
-                        "label": "Opnieuw relevant"
-                    },
-                    {
-                        "id": "Uitgelicht",
-                        "label": "Uitgelicht"
-                    },
-                    {
-                        "id": "Update",
-                        "label": "Update"
-                    },
-                    {
-                        "id": "Video",
-                        "label": "Video"
-                    }
-                ]
-            }
+          "id": "nl.fdmg.genre",
+          "name": "genre",
+          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
+          "style": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/style.css",
+          "enabled": true,
+          "mandatory": true,
+          "data": {
+              "genres": [
+                  {
+                      "id": "Achtergrond",
+                      "label": "Achtergrond"
+                  },
+                  {
+                      "id": "Analyse",
+                      "label": "Analyse"
+                  },
+                  {
+                      "id": "Audio",
+                      "label": "Audio"
+                  },
+                  {
+                      "id": "Beursverslag",
+                      "label": "Beursverslag"
+                  },
+                  {
+                      "id": "Blog",
+                      "label": "Blog"
+                  },
+                  {
+                      "id": "Column",
+                      "label": "Column"
+                  },
+                  {
+                      "id": "Commentaar",
+                      "label": "Commentaar"
+                  },
+                  {
+                      "id": "Fotoserie",
+                      "label": "Fotoserie"
+                  },
+                  {
+                      "id": "Het Raderwerk",
+                      "label": "Het Raderwerk"
+                  },
+                  {
+                      "id": "Fotoserie",
+                      "label": "Fotoserie"
+                  },
+                  {
+                      "id": "Interview",
+                      "label": "Interview"
+                  },
+                  {
+                      "id": "Liveblog",
+                      "label": "Liveblog"
+                  },
+                  {
+                      "id": "Opinie",
+                      "label": "Opinie"
+                  },
+                  {
+                      "id": "Opnieuw relevant",
+                      "label": "Opnieuw relevant"
+                  },
+                  {
+                      "id": "Uitgelicht",
+                      "label": "Uitgelicht"
+                  },
+                  {
+                      "id": "Update",
+                      "label": "Update"
+                  },
+                  {
+                      "id": "Video",
+                      "label": "Video"
+                  }
+              ]
+          }
         },
         {
           "id": "nl.fdmg.rubric",
