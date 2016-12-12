@@ -27,8 +27,14 @@ class AuthorComponent extends Component {
     const endpoint = api.getConfigValue(pluginId, 'endpoint')
     const token = api.getConfigValue(pluginId, 'token')
 
-    return api.router.get('/api/resourceproxy', {
-      url: endpoint + query,
+    // return api.router.get('/api/resourceproxy', {
+    //   url: endpoint + query,
+    //   headers: {
+    //     'x-access-token': `Bearer ${token}`
+    //   }
+    // })
+    return fetch(endpoint + query, {
+      method: 'GET',
       headers: {
         'x-access-token': `Bearer ${token}`
       }
