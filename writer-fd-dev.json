@@ -695,14 +695,56 @@
               },
               "preventAutomaticLinkCreation": false,
               "disableUseOfAnnotationTools": false
-          },
+          }
+        },
+        {
+            "id": "nl.fdmg.textcountselector",
+            "name": "textcountselector",
+            "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
+            "style": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/style.css",
+            "enabled": true,
+            "mandatory": true
+        },
+        {
+            "id": "nl.fdmg.quote",
+            "name": "quote",
+            "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
+            "style": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/style.css",
+            "enabled": true,
+            "mandatory": true
+        },
+        {
+            "id": "nl.fdmg.numberframe",
+            "name": "numberframe",
+            "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
+            "style": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/style.css",
+            "enabled": true,
+            "mandatory": true
+        },
+        {
+            "id": "nl.fdmg.stackframe",
+            "name": "stackframe",
+            "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
+            "style": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/style.css",
+            "enabled": true,
+            "mandatory": true
+        },
+        {
+            "id": "nl.fdmg.relatedlink",
+            "name": "relatedlink",
+            "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
+            "style": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/style.css",
+            "enabled": true,
+            "mandatory": true
+        },
+        {
             "id": "nl.fdmg.htmlembed",
             "name": "htmlembed",
             "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
             "enabled": false,
             "mandatory": true
-          },
-          {
+        },
+        {
             "id": "nl.fdmg.imagesearch",
             "name": "imagesearch",
             "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
