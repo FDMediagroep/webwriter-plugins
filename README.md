@@ -143,6 +143,37 @@ api.editorSession.executeCommand('ximimage-insert-image-url', {
 });
 ```
 
+## Add tabs and assign a plugin to a tab
+1. Add a tab to a plugin in <pluginname>Package.js
+  1. Add the following line to the config method in the package.js `config.addSidebarTab('myId', 'name')`
+  1. Then add a panel (plugin) to a tab with `config.addComponentToSidebarWithTabId('myPanel', 'tabId' ComponentClass)`
+  1. Example:
+
+```javascript
+import AdvertorialComponent from './AdvertorialComponent'
+import AdvertorialValidator from './AdvertorialValidator'
+
+export default {
+  id: 'nl.fdmg.advertorial',
+  name: 'advertorial',
+
+  configure: function(config) {
+    config.addComponentToSidebarWithTabId(this.id, 'main', AdvertorialComponent)
+
+    config.addValidator(AdvertorialValidator)
+
+    config.addLabel('Advertorial', {nl: 'Advertorial'})
+
+    // Example config method in advertorial plugin
+    // arguments: tabId, name
+    config.addSidebarTab('advancedTab', 'name')
+    // arguments: name, tabId, componentname (e.g. AdvertorialComponent)
+    config.addComponentToSidebarWithTabId('name', 'advancedTab', AdvertorialComponent)
+
+  }
+}
+```
+
 ## Resources
 * https://infomaker.github.io/NPWriterDevelopers/getting-started/
 * https://github.com/Infomaker

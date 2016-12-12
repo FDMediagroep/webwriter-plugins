@@ -12,5 +12,8 @@ export default {
 
     config.addLabel('Advertorial', {nl: 'Advertorial'})
 
+    config.addSidebarTab('myId', 'name')
+    config.addComponentToSidebarWithTabId('name', 'myId', AdvertorialComponent)
+
   }
 }
