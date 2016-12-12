@@ -163,6 +163,13 @@
           "mandatory": true
         },
         {
+          "id": "nl.fdmg.sidebartabs",
+          "name": "sidebartabs",
+          "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/index.js",
+          "enabled": true,
+          "mandatory": true
+        },
+        {
           "id": "nl.fdmg.tags",
           "name": "tags",
           "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/index.js",

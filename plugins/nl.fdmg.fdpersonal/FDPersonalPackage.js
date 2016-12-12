@@ -4,8 +4,7 @@ export default {
   id: 'nl.fdmg.fdpersonal',
   name: 'fdpersonal',
   configure: function(config) {
-    // config.addSidebarTab(this.id, 'Related')
-    config.addComponentToSidebarWithTabId(this.id, 'main', FDPersonalComponent)
+    config.addComponentToSidebarWithTabId(this.id, 'adminTab', FDPersonalComponent)
 
     config.addLabel('FD Personal', {
       'nl': 'FD Persoonlijk'

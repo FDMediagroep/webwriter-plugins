@@ -4,9 +4,9 @@ import RelatedArticlesValidator from './RelatedArticlesValidator'
 export default {
   id: 'nl.fdmg.relatedarticles',
   name: 'relatedarticles',
-  
+
   configure: function(config) {
-    config.addComponentToSidebarWithTabId(this.id, 'main', RelatedArticlesComponent)
+    config.addComponentToSidebarWithTabId(this.id, 'advancedTab', RelatedArticlesComponent)
 
     config.addValidator(RelatedArticlesValidator)
 

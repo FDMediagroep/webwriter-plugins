@@ -4,8 +4,7 @@ export default {
   id: 'nl.fdmg.paywall',
   name: 'paywall',
   configure: function(config) {
-    // config.addSidebarTab(this.id, 'Related')
-    config.addComponentToSidebarWithTabId(this.id, 'main', PaywallComponent)
+    config.addComponentToSidebarWithTabId(this.id, 'adminTab', PaywallComponent)
 
     config.addLabel('Free article', {
       'nl': 'Gratis artikel'

@@ -4,7 +4,7 @@ export default {
   id: 'nl.fdmg.tags',
   name: 'tags',
   configure: function(config) {
-    config.addComponentToSidebarWithTabId(this.id, 'main', TagsComponent)
+    config.addComponentToSidebarWithTabId(this.id, 'advancedTab', TagsComponent)
 
     config.addLabel('Tags', {
       'nl': 'Tags'

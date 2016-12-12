@@ -1,3 +1,5 @@
+import SidebarTabs from './nl.fdmg.sidebartabs/index';
+
 import LocalFocus from './nl.fdmg.localfocus/index'
 
 import TextAnalyzer from './nl.fdmg.textanalyzer/index';
@@ -40,6 +42,7 @@ import ImageSearch from './nl.fdmg.imagesearch/index';
 //import Stockticker from './nl.fdmg.stockticker/index';
 
 (() => {
+  SidebarTabs();
   LocalFocus();
 
   TextAnalyzer();

@@ -6,7 +6,7 @@ export default {
   name: 'redirectlink',
 
   configure: function(config) {
-    config.addComponentToSidebarWithTabId(this.id, 'main', RedirectLinkComponent)
+    config.addComponentToSidebarWithTabId(this.id, 'adminTab', RedirectLinkComponent)
 
     config.addValidator(RedirectLinkValidator)
 

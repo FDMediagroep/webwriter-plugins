@@ -14,8 +14,9 @@ class TextcountSelectorComponent extends Component {
 
   render($$) {
     return $$('div')
-      .addClass('count-info form-group')
+    .addClass('form-group')
       .append(
+        $$('h2').append(this.getLabel('Textcount size')),
         $$('select')
           .append(
             this.state.availableSizes.map(size => {
@@ -35,7 +36,8 @@ class TextcountSelectorComponent extends Component {
             const size = this.state.availableSizes.find(size => size.size === id)
 
             this.updateDocumentSize(size)
-          })
+          }),
+          $$('hr')
       )
   }
 
