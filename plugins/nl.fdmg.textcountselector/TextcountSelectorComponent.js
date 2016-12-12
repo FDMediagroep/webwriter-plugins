@@ -14,9 +14,11 @@ class TextcountSelectorComponent extends Component {
 
   render($$) {
     return $$('div')
-    .addClass('form-group')
+    .addClass('fdmg-sidebar')
       .append(
         $$('h2').append(this.getLabel('Textcount size')),
+        $$('div').addClass('form-group')
+        .append(
         $$('select')
           .append(
             this.state.availableSizes.map(size => {
@@ -39,6 +41,7 @@ class TextcountSelectorComponent extends Component {
           }),
           $$('hr')
       )
+    )
   }
 
   readDocumentSize(availableSizes) {
