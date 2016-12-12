@@ -12,8 +12,11 @@ export default {
 
     config.addLabel('Advertorial', {nl: 'Advertorial'})
 
-    config.addSidebarTab('myId', 'name')
-    config.addComponentToSidebarWithTabId('name', 'myId', AdvertorialComponent)
+    // Example config method in advertorial plugin
+    // arguments: tabId, name
+    config.addSidebarTab('advancedTab', 'name')
+    // arguments: name, tabId, componentname (e.g. AdvertorialComponent)
+    config.addComponentToSidebarWithTabId('name', 'advancedTab', AdvertorialComponent)
 
   }
 }
