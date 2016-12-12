@@ -6,7 +6,6 @@ cache:
 
 build:
   script:
-    - export
     - echo Installing yarn
     - npm install yarn
     - echo Installing dependencies

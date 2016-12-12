@@ -94,7 +94,7 @@ class TagsComponent extends Component {
   }
 
   _getExistingTags() {
-    const tags = api.newsItem.getTags()
+    const tags = api.newsItem.getTags(["x-im/category"])
 
     return tags.map(tag => {
       tag['name'] = tag.title

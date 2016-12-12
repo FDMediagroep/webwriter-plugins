@@ -1,296 +1,364 @@
 {
-    "newsItemTemplateId": "30eae1c0-c640-4053-b114-05c64e28bbe7",
+    "newsItemTemplateId": "1156201",
     "language": "nl_NL",
     "labelLanguage": "nl",
     "plugins": [
         {
-            "id": "se.infomaker.youtubeembed",
-            "name": "youtubeembed",
-            "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/index.js",
-            "enabled": true,
-            "mandatory": true
+          "id": "se.infomaker.history",
+          "name": "history",
+          "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/fd.js",
+          "style": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/fd.css",
+          "enabled": true,
+          "mandatory": false
         },
         {
-            "id": "se.infomaker.socialembed",
-            "name": "socialembed",
-            "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/index.js",
-            "enabled": true,
-            "mandatory": true
+          "id": "se.infomaker.headline",
+          "name": "headline",
+          "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/fd.js",
+          "enabled": true,
+          "mandatory": true
         },
         {
-            "id": "nl.fdmg.localfocus",
-            "name": "localfocus",
-            "url": "http://localhost:3000/index.js",
-            "enabled": true,
-            "mandatory": true
+          "id": "se.infomaker.subheadline",
+          "name": "subheadline",
+          "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/fd.js",
+          "enabled": true,
+          "mandatory": true
         },
         {
-            "id": "se.infomaker.ximimage",
-            "name": "ximimage",
-            "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/index.js",
-            "style": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/im-writer.css",
-            "enabled": false,
-            "mandatory": false,
-            "data": {
-                "fields": [
-                    {
-                        "name": "caption",
-                        "label": "Caption",
-                        "type": "text"
-                    },
-                    {
-                        "name": "credit",
-                        "label": "Credit",
-                        "type": "text"
-                    },
-                    {
-                        "name": "alignment",
-                        "label": "Alignment",
-                        "type": "option",
-                        "options": [
-                            {
-                                "name": "right",
-                                "label": "Right",
-                                "icon": "fa-align-right"
-                            },
-                            {
-                                "name": "block",
-                                "label": "Block",
-                                "icon": "fa-align-justify"
-                            }
-                        ]
-                    }
-                ]
-            }
+          "id": "se.infomaker.paragraph",
+          "name": "paragraph",
+          "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/fd.js",
+          "enabled": true,
+          "mandatory": true
         },
         {
-            "id": "se.infomaker.ximpdf",
-            "name": "ximpdf",
-            "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/index.js",
-            "enabled": false,
-            "mandatory": false
+          "id": "se.infomaker.headereditor",
+          "name": "headereditor",
+          "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/fd.js",
+          "mandatory": false,
+          "enabled": true,
+          "data": {"elements": [
+              "headline",
+              "leadin"
+          ]}
         },
         {
-            "id": "se.infomaker.ximteaser",
-            "name": "ximteaser",
-            "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/index.js",
-            "enabled": true,
-            "mandatory": true,
-            "data": {
-                "softcrop": true,
-                "bylinesearch": false,
-                "imageinfo": false,
-                "disablebylinesearch": true,
-                "crops": {
-                    "16:9": [
-                        16,
-                        9
-                    ],
-                    "1:1": [
-                        1,
-                        1
-                    ],
-                    "2.39:1": [
-                        2.39,
-                        1
-                    ]
-                },
-                "fields": [
-                    "text"
-                ],
-                "teaserPosition": "top"
-            }
+          "id": "se.infomaker.youtubeembed",
+          "name": "youtubeembed",
+          "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/index.js",
+          "enabled": true,
+          "mandatory": true
         },
         {
-            "id": "se.infomaker.publishflow",
-            "name": "publishflow",
-            "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/index.js",
-            "enabled": true,
-            "mandatory": true
+          "id": "se.infomaker.socialembed",
+          "name": "socialembed",
+          "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/index.js",
+          "enabled": true,
+          "mandatory": true
         },
         {
-            "id": "nl.fdmg.tags",
-            "name": "tags",
-            "url": "http://localhost:3000/index.js",
-            "style": "http://localhost:3000/style.css",
-            "enabled": true,
-            "mandatory": true,
-            "data": {
-                "searchEndpoint": "https://dev-api.fdmg.org/private/fd/search/tag?q=",
-                "updateEndpoint": "https://dev-api.fdmg.org/private/fd/articles/tags/",
-                "token": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiI3NTQ5ODQzMzcxNzQxNjc2NTA4Iiwic3ViIjoiZmV3ZmV3Zndmd2VmZXdjZXdjZXdjZXdkcXdkIiwicm9sZSI6IlVTRVIifQ.RCn3YIFB7LmVzJrf9B-F_xyDAtZ4Zpod_CwOFHEWbJISDu_EaYh0-eseWACxrBS2BP3XT9DH-tBJTIyzj3lZ3A"
-            }
+          "id": "nl.fdmg.localfocus",
+          "name": "localfocus",
+          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
+          "enabled": true,
+          "mandatory": true
         },
         {
-            "id": "nl.fdmg.textanalyzer",
-            "name": "textanalyzer",
-            "url": "http://localhost:3000/index.js",
-            "style": "http://localhost:3000/style.css",
-            "enabled": true,
-            "mandatory": true,
-            "data": {
-                "counting": [
-                    "paragraph"
-                ],
-                "marginPct": 10,
-                "sizes": [
-                    {
-                        "size": "?",
-                        "label": "?",
-                        "count": -1,
-                        "disabled": true
-                    },
-                    {
-                        "size": "S",
-                        "label": "1810",
-                        "count": 1810
-                    },
-                    {
-                        "size": "L",
-                        "label": "3600",
-                        "count": 3600
-                    },
-                    {
-                        "size": "XL",
-                        "label": "6300",
-                        "count": 6300
-                    },
-                    {
-                        "size": "XXL",
-                        "label": "8200",
-                        "count": 8200
-                    },
-                    {
-                        "size": "UNLIMITED",
-                        "label": "∞",
-                        "count": -1
-                    }
-                ]
-            }
+          "id": "se.infomaker.ximteaser",
+          "name": "ximteaser",
+          "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/fd.js",
+          "mandatory": false,
+          "enabled": true,
+          "data": {
+              "teaserPosition": "top",
+              "fields": [
+                  "subject",
+                  "text"
+              ]
+          }
         },
         {
-            "id": "nl.fdmg.author",
-            "name": "author",
-            "url": "http://localhost:3000/index.js",
-            "enabled": true,
-            "mandatory": true,
-            "data": {
-                "endpoint": "https://dev-api.fdmg.org/private/fd/search/author?q=",
-                "token": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiI3NTQ5ODQzMzcxNzQxNjc2NTA4Iiwic3ViIjoiZmV3ZmV3Zndmd2VmZXdjZXdjZXdjZXdkcXdkIiwicm9sZSI6IlVTRVIifQ.RCn3YIFB7LmVzJrf9B-F_xyDAtZ4Zpod_CwOFHEWbJISDu_EaYh0-eseWACxrBS2BP3XT9DH-tBJTIyzj3lZ3A"
-            }
+          "id": "se.infomaker.ximimage",
+          "name": "ximimage",
+          "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/index.js",
+          "style": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/im-writer.css",
+          "enabled": true,
+          "mandatory": true,
+          "data": {
+              "fields": [
+                  {
+                      "name": "caption",
+                      "label": "Caption",
+                      "type": "text"
+                  },
+                  {
+                      "name": "credit",
+                      "label": "Credit",
+                      "type": "text"
+                  },
+                  {
+                      "name": "alignment",
+                      "label": "Alignment",
+                      "type": "option",
+                      "options": [
+                          {
+                              "name": "right",
+                              "label": "Right",
+                              "icon": "fa-align-right"
+                          },
+                          {
+                              "name": "block",
+                              "label": "Block",
+                              "icon": "fa-align-justify"
+                          }
+                      ]
+                  }
+              ]
+          }
         },
         {
-            "id": "nl.fdmg.donotindex",
-            "name": "donotindex",
-            "url": "http://localhost:3000/index.js",
-            "enabled": true,
-            "mandatory": true
+          "id": "se.infomaker.ximpdf",
+          "name": "ximpdf",
+          "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/index.js",
+          "enabled": true,
+          "mandatory": false
         },
         {
-            "id": "nl.fdmg.fdpersonal",
-            "name": "fdpersonal",
-            "url": "http://localhost:3000/index.js",
-            "enabled": true,
-            "mandatory": true
+          "id": "se.infomaker.ximteaser",
+          "name": "ximteaser",
+          "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/index.js",
+          "enabled": true,
+          "mandatory": true,
+          "data": {
+              "softcrop": true,
+              "bylinesearch": false,
+              "imageinfo": false,
+              "disablebylinesearch": true,
+              "crops": {
+                  "16:9": [
+                      16,
+                      9
+                  ],
+                  "1:1": [
+                      1,
+                      1
+                  ],
+                  "2.39:1": [
+                      2.39,
+                      1
+                  ]
+              },
+              "fields": [
+                  "text"
+              ],
+              "teaserPosition": "top"
+          }
         },
         {
-            "id": "nl.fdmg.showrelatedarticles",
-            "name": "showrelatedarticles",
-            "url": "http://localhost:3000/index.js",
-            "enabled": true,
-            "mandatory": true
+          "id": "se.infomaker.publishflow",
+          "name": "publishflow",
+          "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/index.js",
+          "enabled": true,
+          "mandatory": true
         },
         {
-            "id": "nl.fdmg.paywall",
-            "name": "paywall",
-            "url": "http://localhost:3000/index.js",
-            "enabled": true,
-            "mandatory": true
+          "id": "nl.fdmg.tags",
+          "name": "tags",
+          "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/index.js",
+          "style": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/style.css",
+          "enabled": true,
+          "mandatory": true,
+          "data": {
+              "searchEndpoint": "https://dev-api.fdmg.org/private/fd/search/tag?q=",
+              "updateEndpoint": "https://dev-api.fdmg.org/private/fd/articles/tags/",
+              "token": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiI3NTQ5ODQzMzcxNzQxNjc2NTA4Iiwic3ViIjoiZmV3ZmV3Zndmd2VmZXdjZXdjZXdjZXdkcXdkIiwicm9sZSI6IlVTRVIifQ.RCn3YIFB7LmVzJrf9B-F_xyDAtZ4Zpod_CwOFHEWbJISDu_EaYh0-eseWACxrBS2BP3XT9DH-tBJTIyzj3lZ3A"
+          }
         },
         {
-            "id": "nl.fdmg.topstory",
-            "name": "topstory",
-            "url": "http://localhost:3000/index.js",
-            "style": "http://localhost:3000/style.css",
-            "enabled": true,
-            "mandatory": true
+          "id": "nl.fdmg.textanalyzer",
+          "name": "textanalyzer",
+          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
+          "style": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/style.css",
+          "enabled": true,
+          "mandatory": true,
+          "data": {
+              "counting": [
+                  "paragraph"
+              ],
+              "marginPct": 10,
+              "sizes": [
+                  {
+                      "size": "?",
+                      "label": "?",
+                      "count": -1,
+                      "disabled": true
+                  },
+                  {
+                      "size": "S",
+                      "label": "1810",
+                      "count": 1810
+                  },
+                  {
+                      "size": "L",
+                      "label": "3600",
+                      "count": 3600
+                  },
+                  {
+                      "size": "XL",
+                      "label": "6300",
+                      "count": 6300
+                  },
+                  {
+                      "size": "XXL",
+                      "label": "8200",
+                      "count": 8200
+                  },
+                  {
+                      "size": "UNLIMITED",
+                      "label": "∞",
+                      "count": -1
+                  }
+              ]
+          }
         },
         {
-            "id": "nl.fdmg.comments",
-            "name": "comments",
-            "url": "http://localhost:3000/index.js",
-            "enabled": true,
-            "mandatory": true
+          "id": "nl.fdmg.author",
+          "name": "author",
+          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
+          "style": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/style.css",
+          "enabled": true,
+          "mandatory": true,
+          "data": {
+              "endpoint": "https://dev-api.fdmg.org/private/fd/search/author?q=",
+              "token": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiI3NTQ5ODQzMzcxNzQxNjc2NTA4Iiwic3ViIjoiZmV3ZmV3Zndmd2VmZXdjZXdjZXdjZXdkcXdkIiwicm9sZSI6IlVTRVIifQ.RCn3YIFB7LmVzJrf9B-F_xyDAtZ4Zpod_CwOFHEWbJISDu_EaYh0-eseWACxrBS2BP3XT9DH-tBJTIyzj3lZ3A"
+          }
         },
         {
-            "id": "nl.fdmg.breakingarticle",
-            "name": "breakingarticle",
-            "url": "http://localhost:3000/index.js",
-            "enabled": true,
-            "mandatory": true
+          "id": "nl.fdmg.tags",
+          "name": "tags",
+          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
+          "style": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/style.css",
+          "enabled": true,
+          "mandatory": true,
+          "data": {
+              "searchEndpoint": "https://dev-api.fdmg.org/private/fd/search/tag?q=",
+              "updateEndpoint": "https://dev-api.fdmg.org/private/fd/articles/tags/",
+              "token": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiI3NTQ5ODQzMzcxNzQxNjc2NTA4Iiwic3ViIjoiZmV3ZmV3Zndmd2VmZXdjZXdjZXdjZXdkcXdkIiwicm9sZSI6IlVTRVIifQ.RCn3YIFB7LmVzJrf9B-F_xyDAtZ4Zpod_CwOFHEWbJISDu_EaYh0-eseWACxrBS2BP3XT9DH-tBJTIyzj3lZ3A"
+          }
         },
         {
-            "id": "nl.fdmg.shortarticle",
-            "name": "shortarticle",
-            "url": "http://localhost:3000/index.js",
-            "enabled": true,
-            "mandatory": true
+          "id": "nl.fdmg.donotindex",
+          "name": "donotindex",
+          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
+          "enabled": true,
+          "mandatory": true
         },
         {
-            "id": "nl.fdmg.relatedarticles",
-            "name": "relatedarticles",
-            "url": "http://localhost:3000/index.js",
-            "enabled": true,
-            "mandatory": true
+          "id": "nl.fdmg.fdpersonal",
+          "name": "fdpersonal",
+          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
+          "enabled": true,
+          "mandatory": true
         },
         {
-            "id": "nl.fdmg.section",
-            "name": "section",
-            "url": "http://localhost:3000/index.js",
-            "enabled": true,
-            "mandatory": true,
-            "data": {
-                "sections": [
-                    {
-                        "id": "beursradar",
-                        "label": "Beurs"
-                    },
-                    {
-                        "id": "economie-politiek",
-                        "label": "Economie & Politiek"
-                    },
-                    {
-                        "id": "fd-persoonlijk",
-                        "label": "FD persoonlijk"
-                    },
-                    {
-                        "id": "morgen",
-                        "label": "Morgen"
-                    },
-                    {
-                        "id": "ondernemen",
-                        "label": "Ondernemen"
-                    },
-                    {
-                        "id": "opinie",
-                        "label": "Opinie"
-                    },
-                    {
-                        "id": "profiel",
-                        "label": "Profiel"
-                    },
-                    {
-                        "id": "werk-geld",
-                        "label": "Werk & Geld"
-                    }
-                ]
-            }
+          "id": "nl.fdmg.showrelatedarticles",
+          "name": "showrelatedarticles",
+          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
+          "enabled": true,
+          "mandatory": true
+        },
+        {
+          "id": "nl.fdmg.paywall",
+          "name": "paywall",
+          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
+          "enabled": true,
+          "mandatory": true
+        },
+        {
+          "id": "nl.fdmg.topstory",
+          "name": "topstory",
+          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
+          "enabled": true,
+          "mandatory": true
+        },
+        {
+          "id": "nl.fdmg.comments",
+          "name": "comments",
+          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
+          "enabled": true,
+          "mandatory": true
+        },
+        {
+          "id": "nl.fdmg.breakingarticle",
+          "name": "breakingarticle",
+          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
+          "enabled": true,
+          "mandatory": true
+        },
+        {
+          "id": "nl.fdmg.shortarticle",
+          "name": "shortarticle",
+          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
+          "enabled": true,
+          "mandatory": true
+        },
+        {
+          "id": "nl.fdmg.relatedarticles",
+          "name": "relatedarticles",
+          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
+          "style": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/style.css",
+          "enabled": true,
+          "mandatory": true
+        },
+        {
+          "id": "nl.fdmg.section",
+          "name": "section",
+          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
+          "enabled": true,
+          "mandatory": true,
+          "data": {
+              "sections": [
+                  {
+                      "id": "beursradar",
+                      "label": "Beurs"
+                  },
+                  {
+                      "id": "economie-politiek",
+                      "label": "Economie & Politiek"
+                  },
+                  {
+                      "id": "fd-persoonlijk",
+                      "label": "FD persoonlijk"
+                  },
+                  {
+                      "id": "morgen",
+                      "label": "Morgen"
+                  },
+                  {
+                      "id": "ondernemen",
+                      "label": "Ondernemen"
+                  },
+                  {
+                      "id": "opinie",
+                      "label": "Opinie"
+                  },
+                  {
+                      "id": "profiel",
+                      "label": "Profiel"
+                  },
+                  {
+                      "id": "werk-geld",
+                      "label": "Werk & Geld"
+                  }
+              ]
+          }
         },
         {
             "id": "nl.fdmg.genre",
             "name": "genre",
-            "url": "http://localhost:3000/index.js",
-            "style": "http://localhost:3000/style.css",
+            "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
+            "style": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/style.css",
             "enabled": true,
             "mandatory": true,
             "data": {
@@ -367,281 +435,285 @@
             }
         },
         {
-            "id": "nl.fdmg.rubric",
-            "name": "rubric",
-            "url": "http://localhost:3000/index.js",
-            "enabled": true,
-            "mandatory": true,
-            "data": {
-                "rubrics": [
-                    {
-                        "id": "Bartjens",
-                        "label": "Bartjens"
-                    },
-                    {
-                        "id": "Boardroom",
-                        "label": "Boardroom"
-                    },
-                    {
-                        "id": "Gazellen",
-                        "label": "Gazellen"
-                    },
-                    {
-                        "id": "Het Raderwerk",
-                        "label": "Het Raderwerk"
-                    },
-                    {
-                        "id": "Kantelpunt",
-                        "label": "Kantelpunt"
-                    },
-                    {
-                        "id": "Marktmeesters",
-                        "label": "Marktmeesters"
-                    },
-                    {
-                        "id": "Nieuws in beeld",
-                        "label": "Nieuws in beeld"
-                    },
-                    {
-                        "id": "Black Book",
-                        "label": "Black Book"
-                    },
-                    {
-                        "id": "Droomweekend",
-                        "label": "Droomweekend"
-                    },
-                    {
-                        "id": "Eten & Drinken",
-                        "label": "Eten & Drinken"
-                    },
-                    {
-                        "id": "Go!",
-                        "label": "Go!"
-                    },
-                    {
-                        "id": "Huis te koop",
-                        "label": "Huis te koop"
-                    },
-                    {
-                        "id": "Man van de wereld",
-                        "label": "Man van de wereld"
-                    },
-                    {
-                        "id": "Oog voor…",
-                        "label": "Oog voor…"
-                    },
-                    {
-                        "id": "Eyeopeners",
-                        "label": "Eyeopeners"
-                    },
-                    {
-                        "id": "Nieuw Bronnen",
-                        "label": "Nieuw Bronnen"
-                    },
-                    {
-                        "id": "Oude bronnen",
-                        "label": "Oude bronnen"
-                    },
-                    {
-                        "id": "Start-up Insights",
-                        "label": "Start-up Insights"
-                    },
-                    {
-                        "id": "Start-up Kitchen",
-                        "label": "Start-up Kitchen"
-                    },
-                    {
-                        "id": "Slimme Stekken",
-                        "label": "Slimme Stekken"
-                    },
-                    {
-                        "id": "TechTeam",
-                        "label": "TechTeam"
-                    },
-                    {
-                        "id": "Eerste baas",
-                        "label": "Eerste baas"
-                    },
-                    {
-                        "id": "Zakenauto",
-                        "label": "Zakenauto"
-                    }
-                ]
-            }
+          "id": "nl.fdmg.rubric",
+          "name": "rubric",
+          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
+          "enabled": true,
+          "mandatory": true,
+          "data": {
+              "rubrics": [
+                  {
+                      "id": "Bartjens",
+                      "label": "Bartjens"
+                  },
+                  {
+                      "id": "Boardroom",
+                      "label": "Boardroom"
+                  },
+                  {
+                      "id": "Gazellen",
+                      "label": "Gazellen"
+                  },
+                  {
+                      "id": "Het Raderwerk",
+                      "label": "Het Raderwerk"
+                  },
+                  {
+                      "id": "Kantelpunt",
+                      "label": "Kantelpunt"
+                  },
+                  {
+                      "id": "Marktmeesters",
+                      "label": "Marktmeesters"
+                  },
+                  {
+                      "id": "Nieuws in beeld",
+                      "label": "Nieuws in beeld"
+                  },
+                  {
+                      "id": "Black Book",
+                      "label": "Black Book"
+                  },
+                  {
+                      "id": "Droomweekend",
+                      "label": "Droomweekend"
+                  },
+                  {
+                      "id": "Eten & Drinken",
+                      "label": "Eten & Drinken"
+                  },
+                  {
+                      "id": "Go!",
+                      "label": "Go!"
+                  },
+                  {
+                      "id": "Huis te koop",
+                      "label": "Huis te koop"
+                  },
+                  {
+                      "id": "Man van de wereld",
+                      "label": "Man van de wereld"
+                  },
+                  {
+                      "id": "Oog voor…",
+                      "label": "Oog voor…"
+                  },
+                  {
+                      "id": "Eyeopeners",
+                      "label": "Eyeopeners"
+                  },
+                  {
+                      "id": "Nieuw Bronnen",
+                      "label": "Nieuw Bronnen"
+                  },
+                  {
+                      "id": "Oude bronnen",
+                      "label": "Oude bronnen"
+                  },
+                  {
+                      "id": "Start-up Insights",
+                      "label": "Start-up Insights"
+                  },
+                  {
+                      "id": "Start-up Kitchen",
+                      "label": "Start-up Kitchen"
+                  },
+                  {
+                      "id": "Slimme Stekken",
+                      "label": "Slimme Stekken"
+                  },
+                  {
+                      "id": "TechTeam",
+                      "label": "TechTeam"
+                  },
+                  {
+                      "id": "Eerste baas",
+                      "label": "Eerste baas"
+                  },
+                  {
+                      "id": "Zakenauto",
+                      "label": "Zakenauto"
+                  }
+              ]
+          }
         },
         {
-            "id": "nl.fdmg.articletype",
-            "name": "articletype",
-            "url": "http://localhost:3000/index.js",
-            "style": "http://localhost:3000/style.css",
-            "enabled": true,
-            "mandatory": true,
-            "data": {
-                "articletypes": [
-                    {
-                        "id": "ARTICLE",
-                        "label": "Artikel"
-                    },
-                    {
-                        "id": "FREE_HTML",
-                        "label": "Vrije HTML"
-                    },
-                    {
-                        "id": "PHOTO_SERIES",
-                        "label": "Fotoserie"
-                    },
-                    {
-                        "id": "SERVICE",
-                        "label": "Service pagina"
-                    },
-                    {
-                        "id": "PARTNER_PAGE",
-                        "label": "Advertorial/partner pagina"
-                    },
-                    {
-                        "id": "EVENT",
-                        "label": "Event"
-                    }
-                ]
-            }
-        },
-        {
-            "id": "nl.fdmg.redirectlink",
-            "name": "redirectlink",
-            "url": "http://localhost:3000/index.js",
-            "style": "http://localhost:3000/style.css",
-            "enabled": true,
-            "mandatory": true
-        },
-        {
-            "id": "nl.fdmg.advertorial",
-            "name": "advertorial",
-            "url": "http://localhost:3000/index.js",
-            "enabled": true,
-            "mandatory": true
-        },
-        {
-            "id": "nl.fdmg.epic",
-            "name": "epic",
-            "url": "http://localhost:3000/index.js",
-            "style": "http://localhost:3000/style.css",
-            "enabled": true,
-            "mandatory": true,
-            "data": {
-                "endpoint": "https://dev-api.fdmg.org/private/fd/search/epic?q=",
-                "token": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiI3NTQ5ODQzMzcxNzQxNjc2NTA4Iiwic3ViIjoiZmV3ZmV3Zndmd2VmZXdjZXdjZXdjZXdkcXdkIiwicm9sZSI6IlVTRVIifQ.RCn3YIFB7LmVzJrf9B-F_xyDAtZ4Zpod_CwOFHEWbJISDu_EaYh0-eseWACxrBS2BP3XT9DH-tBJTIyzj3lZ3A"
-            }
-        },
-        {
-            "id": "nl.fdmg.preview",
-            "name": "preview",
-            "url": "http://localhost:3000/index.js",
-            "style": "http://localhost:3000/style.css",
-            "enabled": true,
-            "mandatory": true,
-            "data": {
-                "previewBaseUrl": "//preview.fd.nl/_/${id}/_"
-            }
-        },
-        {
-            "id": "nl.fdmg.textcountselector",
-            "name": "textcountselector",
-            "url": "http://localhost:3000/index.js",
-            "style": "http://localhost:3000/style.css",
-            "enabled": true,
-            "mandatory": true
-        },
-        {
-            "id": "nl.fdmg.quote",
-            "name": "quote",
-            "url": "http://localhost:3000/index.js",
-            "style": "http://localhost:3000/style.css",
-            "enabled": true,
-            "mandatory": true
-        },
-        {
-            "id": "nl.fdmg.numberframe",
-            "name": "numberframe",
-            "url": "http://localhost:3000/index.js",
-            "style": "http://localhost:3000/style.css",
-            "enabled": true,
-            "mandatory": true
-        },
-        {
-            "id": "nl.fdmg.stackframe",
-            "name": "stackframe",
-            "url": "http://localhost:3000/index.js",
-            "style": "http://localhost:3000/style.css",
-            "enabled": true,
-            "mandatory": true
-        },
-        {
-            "id": "nl.fdmg.relatedlink",
-            "name": "relatedlink",
-            "url": "http://localhost:3000/index.js",
-            "style": "http://localhost:3000/style.css",
-            "enabled": true,
-            "mandatory": true
-        },
-        {
-            "id": "nl.fdmg.textframe",
-            "name": "textframe",
-            "url": "http://localhost:3000/index.js",
-            "style": "http://localhost:3000/style.css",
-            "enabled": true,
-            "mandatory": true,
-            "data": {
-                "fields": [
-                    {
-                        "name": "alignment",
-                        "label": "Alignment",
-                        "type": "option",
-                        "options": [
-                            {
-                                "name": "right",
-                                "label": "Right",
-                                "icon": "fa-align-right"
-                            },
-                            {
-                                "name": "block",
-                                "label": "Block",
-                                "icon": "fa-align-justify"
-                            }
-                        ]
-                    }
-                ],
-                "softcrop": true,
-                "enablesoftcrop": true,
-                "crops": {
-                    "16:9": [
-                        16,
-                        9
-                    ],
-                    "4:3": [
-                        4,
-                        3
-                    ],
-                    "1:1": [
-                        1,
-                        1
-                    ]
+          "id": "nl.fdmg.articletype",
+          "name": "articletype",
+          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
+          "style": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/style.css",
+          "enabled": true,
+          "mandatory": true,
+          "data": {
+            "articletypes": [
+                {
+                    "id": "ARTICLE",
+                    "label": "Artikel"
                 },
-                "preventAutomaticLinkCreation": false,
-                "disableUseOfAnnotationTools": false
+                {
+                    "id": "FREE_HTML",
+                    "label": "Vrije HTML"
+                },
+                {
+                    "id": "PHOTO_SERIES",
+                    "label": "Fotoserie"
+                },
+                {
+                    "id": "SERVICE",
+                    "label": "Service pagina"
+                },
+                {
+                    "id": "PARTNER_PAGE",
+                    "label": "Advertorial/partner pagina"
+                },
+                {
+                    "id": "EVENT",
+                    "label": "Event"
+                }
+              ]
             }
         },
         {
+          "id": "nl.fdmg.redirectlink",
+          "name": "redirectlink",
+          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
+          "style": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/style.css",
+          "enabled": true,
+          "mandatory": true
+        },
+        {
+          "id": "nl.fdmg.advertorial",
+          "name": "advertorial",
+          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
+          "enabled": true,
+          "mandatory": true
+        },
+        {
+          "id": "nl.fdmg.epic",
+          "name": "epic",
+          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
+          "enabled": true,
+          "mandatory": true,
+          "data": {
+              "endpoint": "https://dev-api.fdmg.org/private/fd/search/epic?q=",
+              "token": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiI3NTQ5ODQzMzcxNzQxNjc2NTA4Iiwic3ViIjoiZmV3ZmV3Zndmd2VmZXdjZXdjZXdjZXdkcXdkIiwicm9sZSI6IlVTRVIifQ.RCn3YIFB7LmVzJrf9B-F_xyDAtZ4Zpod_CwOFHEWbJISDu_EaYh0-eseWACxrBS2BP3XT9DH-tBJTIyzj3lZ3A"
+          }
+        },
+        {
+          "id": "nl.fdmg.preview",
+          "name": "preview",
+          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
+          "style": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/style.css",
+          "enabled": true,
+          "mandatory": true,
+          "data": {
+              "previewBaseUrl": "//preview.fd.nl/_/${id}/_"
+          }
+        },
+        {
+          "id": "nl.fdmg.textcountselector",
+          "name": "textcountselector",
+          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
+          "style": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/style.css",
+          "enabled": true,
+          "mandatory": true
+        },
+        {
+          "id": "nl.fdmg.quote",
+          "name": "quote",
+          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
+          "style": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/style.css",
+          "enabled": true,
+          "mandatory": true
+        },
+        {
+          "id": "nl.fdmg.numberframe",
+          "name": "numberframe",
+          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
+          "style": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/style.css",
+          "enabled": true,
+          "mandatory": true
+        },
+        {
+          "id": "nl.fdmg.stackframe",
+          "name": "stackframe",
+          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
+          "style": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/style.css",
+          "enabled": true,
+          "mandatory": true
+        },
+        {
+          "id": "nl.fdmg.relatedlink",
+          "name": "relatedlink",
+          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
+          "style": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/style.css",
+          "enabled": true,
+          "mandatory": true
+        },
+        {
+          "id": "nl.fdmg.textframe",
+          "name": "textframe",
+          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
+          "style": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/style.css",
+          "enabled": true,
+          "mandatory": true,
+          "data": {
+              "fields": [
+                  {
+                      "name": "alignment",
+                      "label": "Alignment",
+                      "type": "option",
+                      "options": [
+                          {
+                              "name": "right",
+                              "label": "Right",
+                              "icon": "fa-align-right"
+                          },
+                          {
+                              "name": "block",
+                              "label": "Block",
+                              "icon": "fa-align-justify"
+                          }
+                      ]
+                  }
+              ],
+              "softcrop": true,
+              "enablesoftcrop": true,
+              "crops": {
+                  "16:9": [
+                      16,
+                      9
+                  ],
+                  "4:3": [
+                      4,
+                      3
+                  ],
+                  "1:1": [
+                      1,
+                      1
+                  ]
+              },
+              "preventAutomaticLinkCreation": false,
+              "disableUseOfAnnotationTools": false
+          },
+            "id": "nl.fdmg.htmlembed",
+            "name": "htmlembed",
+            "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
+            "enabled": false,
+            "mandatory": true
+          },
+          {
             "id": "nl.fdmg.imagesearch",
             "name": "imagesearch",
-            "url": "http://localhost:3000/index.js",
-            "style": "http://localhost:3000/style.css",
+            "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
+            "style": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/style.css",
             "enabled": true,
             "mandatory": true,
             "data": {
                 "loadNextScrollThreshold": 100,
                 "resultsPerPage": 25,
-                "searchEndpoint": "https://apigateway-dev.fdmg.nl/image/search/v1.0/hollandse-hoogte",
-                "fetchEndpoint": "https://apigateway-dev.fdmg.nl/image/download",
+                "searchEndpoint": " https://apigateway-dev.fdmg.nl/image/search/v1.0/hollandse-hoogte",
+                "fetchEndpoint": " https://apigateway-dev.fdmg.nl/image/download",
                 "token": "63401c89-63e9-35f9-9daa-a55ef26c3042"
             }
         }
