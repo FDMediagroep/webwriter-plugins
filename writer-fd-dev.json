@@ -170,6 +170,14 @@
           "mandatory": true
         },
         {
+          "id": "nl.fdmg.textcountselector",
+          "name": "textcountselector",
+          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
+          "style": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/style.css",
+          "enabled": true,
+          "mandatory": true
+        },
+        {
           "id": "nl.fdmg.tags",
           "name": "tags",
           "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/index.js",
@@ -616,14 +624,6 @@
           "data": {
               "previewBaseUrl": "//preview.fd.nl/_/${id}/_"
           }
-        },
-        {
-          "id": "nl.fdmg.textcountselector",
-          "name": "textcountselector",
-          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
-          "style": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/style.css",
-          "enabled": true,
-          "mandatory": true
         },
         {
           "id": "nl.fdmg.quote",
