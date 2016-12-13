@@ -33,11 +33,8 @@ class HtmlEmbedEditTool extends Tool {
       } else {
         this.insertEmbed()
       }
-
       return true
     }
-
-    return false
   }
 
   resize() {
