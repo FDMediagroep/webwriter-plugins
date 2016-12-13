@@ -4,6 +4,7 @@ import HtmlEmbedEditCommand from './HtmlEmbedEditCommand'
 import HtmlEmbedNode from './HtmlEmbedNode'
 import HtmlEmbedComponent from './HtmlEmbedComponent'
 import HtmlEmbedConverter from './HtmlEmbedConverter'
+import HtmlembedValidator from './HtmlEmbedValidator'
 import {platform} from 'substance'
 import './scss/htmlembed.scss'
 
@@ -24,6 +25,8 @@ export default {
     config.addConverter('newsml', HtmlEmbedConverter)
 
     config.addLabel('Edit embed code', {nl: 'Invoeg code aanpassed'})
+
+    config.addValidator(HtmlembedValidator)
 
     if (platform.isMac) {
       config.addKeyboardShortcut('cmd+alt+h', {command: 'htmlembed'})

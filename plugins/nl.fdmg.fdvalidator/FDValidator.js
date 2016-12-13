@@ -16,6 +16,10 @@ class FDValidor extends Validator {
   get published() {
     return this.qcode === 'stat:usable'
   }
+
+  getLabel(label) {
+    return api.getLabel(label)
+  }
 }
 
 export default FDValidor
