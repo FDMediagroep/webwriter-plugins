@@ -65,20 +65,6 @@
           "mandatory": true
         },
         {
-          "id": "se.infomaker.ximteaser",
-          "name": "ximteaser",
-          "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/fd.js",
-          "mandatory": false,
-          "enabled": true,
-          "data": {
-              "teaserPosition": "top",
-              "fields": [
-                  "subject",
-                  "text"
-              ]
-          }
-        },
-        {
           "id": "se.infomaker.ximimage",
           "name": "ximimage",
           "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/index.js",
