@@ -5,6 +5,7 @@ import HtmlEmbedNode from './HtmlEmbedNode'
 import HtmlEmbedComponent from './HtmlEmbedComponent'
 import HtmlEmbedConverter from './HtmlEmbedConverter'
 import {platform} from 'substance'
+import './scss/htmlembed.scss'
 
 export default {
   id: 'nl.fdmg.htmlembed',
