@@ -35,10 +35,12 @@ import NumberFrame from './nl.fdmg.numberframe/index';
 import StackFrame from './nl.fdmg.stackframe/index';
 import RelatedLink from './nl.fdmg.relatedlink/index';
 import TextFrame from './nl.fdmg.textframe/index';
+import HtmlEmbed from './nl.fdmg.htmlembed/index';
 
 import Planneddate from './nl.fdmg.planneddate/index';
 
 // import HtmlEmbed from './nl.fdmg.htmlembed/index';
+
 import ImageSearch from './nl.fdmg.imagesearch/index';
 
 //import Stockticker from './nl.fdmg.stockticker/index';
@@ -80,12 +82,11 @@ import ImageSearch from './nl.fdmg.imagesearch/index';
   StackFrame();
   RelatedLink();
   TextFrame();
+  HtmlEmbed();
 
   Planneddate();
 
-  // HtmlEmbed();
   ImageSearch();
 
-  ImageSearch();
   //Stockticker();
 })()

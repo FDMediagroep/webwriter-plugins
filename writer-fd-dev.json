@@ -236,19 +236,6 @@
           }
         },
         {
-          "id": "nl.fdmg.tags",
-          "name": "tags",
-          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
-          "style": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/style.css",
-          "enabled": true,
-          "mandatory": true,
-          "data": {
-              "searchEndpoint": "https://dev-api.fdmg.org/private/fd/search/tag?q=",
-              "updateEndpoint": "https://dev-api.fdmg.org/private/fd/articles/tags/",
-              "token": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiI3NTQ5ODQzMzcxNzQxNjc2NTA4Iiwic3ViIjoiZmV3ZmV3Zndmd2VmZXdjZXdjZXdjZXdkcXdkIiwicm9sZSI6IlVTRVIifQ.RCn3YIFB7LmVzJrf9B-F_xyDAtZ4Zpod_CwOFHEWbJISDu_EaYh0-eseWACxrBS2BP3XT9DH-tBJTIyzj3lZ3A"
-          }
-        },
-        {
           "id": "nl.fdmg.donotindex",
           "name": "donotindex",
           "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
@@ -683,50 +670,11 @@
           }
         },
         {
-            "id": "nl.fdmg.textcountselector",
-            "name": "textcountselector",
-            "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
-            "style": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/style.css",
-            "enabled": true,
-            "mandatory": true
-        },
-        {
-            "id": "nl.fdmg.quote",
-            "name": "quote",
-            "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
-            "style": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/style.css",
-            "enabled": true,
-            "mandatory": true
-        },
-        {
-            "id": "nl.fdmg.numberframe",
-            "name": "numberframe",
-            "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
-            "style": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/style.css",
-            "enabled": true,
-            "mandatory": true
-        },
-        {
-            "id": "nl.fdmg.stackframe",
-            "name": "stackframe",
-            "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
-            "style": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/style.css",
-            "enabled": true,
-            "mandatory": true
-        },
-        {
-            "id": "nl.fdmg.relatedlink",
-            "name": "relatedlink",
-            "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
-            "style": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/style.css",
-            "enabled": true,
-            "mandatory": true
-        },
-        {
             "id": "nl.fdmg.htmlembed",
             "name": "htmlembed",
             "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
-            "enabled": false,
+            "style": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/style.css",
+            "enabled": true,
             "mandatory": true
         },
         {
