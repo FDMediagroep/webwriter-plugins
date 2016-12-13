@@ -1,45 +1,39 @@
 import {Component, FontAwesomeIcon, TextPropertyComponent} from 'substance'
 import {api} from 'writer'
-import HtmlEmbedEditTool from './HtmlEmbedEditTool'
 import OpenEmbedDialog from './openEmbedDialog'
 
 class HtmlEmbedComponent extends Component {
   render($$) {
-    const el = $$('div').addClass('im-blocknode__container im-htmlembed')
-    el.append(this.renderHeader($$))
-    el.append(this.renderContent($$))
-    return el
-  }
-
-  renderHeader($$) {
     return $$('div')
-      .addClass('header')
-      .attr('contentEditable', false)
+      .addClass('im-blocknode__container im-htmlembed')
       .append(
-        $$(FontAwesomeIcon, {icon: 'fa-code'}),
-        $$('strong').append(this.getLabel('HTML Embed')).attr('contentEditable', false),
-        $$('span')
-          .addClass('edit-button')
-          .append($$(FontAwesomeIcon, {icon: 'fa-pencil-square-o'}))
-          .on('click', this.editEmbedHtml).attr('title', this.getLabel('Edit embed code'))
+        $$('div')
+          .addClass('header')
+          .attr({contenteditable: false})
+          .append(
+            $$(FontAwesomeIcon, {icon: 'fa-code'}),
+            $$('strong')
+              .attr({contenteditable: false})
+              .append(this.getLabel('HTML Embed')),
+            $$('span')
+              .addClass('edit-button')
+              .attr({title: this.getLabel('Edit embed code')})
+              .append($$(FontAwesomeIcon, {icon: 'fa-pencil-square-o'}))
+              .on('click', this.editEmbedHtml)
+          ),
+          $$('div')
+            .addClass('im-blocknode__content')
+            .append(
+              $$(TextPropertyComponent, {
+                tagName: 'div',
+                path: [this.props.node.id, 'text']
+              })
+              .append(this.props.node.text)
+              .ref('htmlarea')
+              .on('dblclick', this.editEmbedHtml)
+            )
+            .ref('embedContent')
       )
-  }
-
-  renderContent($$) {
-    const content = $$('div').addClass('im-blocknode__content').ref('embedContent')
-    const textarea = $$(TextPropertyComponent, {
-      tagName: 'div',
-      path: [this.props.node.id, 'text']
-    })
-    textarea.append(this.props.node.text)
-    textarea.ref('htmlarea')
-    textarea.on('dblclick', () => {
-      this.editEmbedHtml()
-    })
-
-    content.append(textarea)
-
-    return content
   }
 
   editEmbedHtml() {

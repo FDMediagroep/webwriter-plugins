@@ -733,7 +733,7 @@
         {
             "id": "nl.fdmg.htmlembed",
             "name": "htmlembed",
-            "url": "http://localhost:3000/index.js",
+            "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
             "enabled": true,
             "mandatory": true
         },

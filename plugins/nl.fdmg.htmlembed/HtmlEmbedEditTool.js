@@ -8,50 +8,26 @@ class HtmlEmbedEditTool extends Tool {
     const textarea = this.refs.embedcode
     textarea.el.el.focus()
 
-    textarea.el.on('keydown', () => {
-      this.resize()
-    })
-    textarea.el.el.addEventListener('paste', () => {
-      this.resize()
-    })
-    textarea.el.el.addEventListener('cut', () => {
-      this.resize()
-    })
-  }
+    textarea.el.on('keydown', this.resize)
 
-  insertEmbed() {
-    api.editorSession.executeCommand('htmlembededit', {
-      text: this.refs.embedcode.val()
-    })
-  }
-
-  resize() {
-    const htmlTextarea = this.refs.embedcode.el.el
-    setTimeout(() => {
-      htmlTextarea.style.height = 'auto'
-      htmlTextarea.style.height = htmlTextarea.scrollHeight + '20px'
-    }, 100)
+    textarea.el.el.addEventListener('paste', this.resize)
+    textarea.el.el.addEventListener('cut', this.resize)
   }
 
   render($$) {
-    const el = $$('div').addClass('embed-dialog')
-    const embed = $$('textarea')
-      .addClass('textarea')
-      .attr('spellcheck', false)
-      .ref('embedcode')
-
-    if (this.props.text) {
-      embed.append(this.props.text)
-    }
-    el.append(embed)
-    return el
+    return $$('div')
+      .addClass('embed-dialog')
+      .append(
+        $$('textarea')
+          .addClass('textarea')
+          .attr({spellcheck: false})
+          .append(this.props.text ? this.props.text : [])
+          .ref('embedcode')
+      )
   }
 
   onClose(status) {
-    if (status === 'cancel') {
-
-    }
-    else if (status === 'save') {
+    if (status === 'save') {
       if (typeof(this.props.text) !== 'undefined') {
         this.props.update(this.refs.embedcode.val())
       } else {
@@ -60,6 +36,23 @@ class HtmlEmbedEditTool extends Tool {
 
       return true
     }
+
+    return false
+  }
+
+  resize() {
+    const htmlTextarea = this.refs.embedcode.el.el
+
+    setTimeout(() => {
+      htmlTextarea.style.height = 'auto'
+      htmlTextarea.style.height = htmlTextarea.scrollHeight + '20px'
+    }, 100)
+  }
+
+  insertEmbed() {
+    api.editorSession.executeCommand('htmlembededit', {
+      text: this.refs.embedcode.val()
+    })
   }
 }
 

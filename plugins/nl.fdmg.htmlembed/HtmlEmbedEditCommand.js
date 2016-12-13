@@ -8,8 +8,7 @@ class HtmlEmbedEditCommand extends WriterCommand {
       text: params.text,
       format: 'html'
     }
-    // FIXME FD compatible datatype
-
+    
     return api.document.insertBlockNode(data.type, data)
   }
 }
