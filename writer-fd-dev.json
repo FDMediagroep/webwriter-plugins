@@ -330,7 +330,7 @@
                   },
                   {
                       "id": "fd-persoonlijk",
-                      "label": "FD persoonlijk"
+                      "label": "FD Persoonlijk"
                   },
                   {
                       "id": "morgen",
@@ -391,14 +391,6 @@
                   {
                       "id": "Commentaar",
                       "label": "Commentaar"
-                  },
-                  {
-                      "id": "Fotoserie",
-                      "label": "Fotoserie"
-                  },
-                  {
-                      "id": "Het Raderwerk",
-                      "label": "Het Raderwerk"
                   },
                   {
                       "id": "Fotoserie",
