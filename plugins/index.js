@@ -36,6 +36,8 @@ import StackFrame from './nl.fdmg.stackframe/index';
 import RelatedLink from './nl.fdmg.relatedlink/index';
 import TextFrame from './nl.fdmg.textframe/index';
 
+import Planneddate from './nl.fdmg.planneddate/index';
+
 // import HtmlEmbed from './nl.fdmg.htmlembed/index';
 import ImageSearch from './nl.fdmg.imagesearch/index';
 
@@ -78,6 +80,8 @@ import ImageSearch from './nl.fdmg.imagesearch/index';
   StackFrame();
   RelatedLink();
   TextFrame();
+
+  Planneddate();
 
   // HtmlEmbed();
   ImageSearch();
