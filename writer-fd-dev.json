@@ -38,7 +38,7 @@
           "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/fd.js",
           "mandatory": false,
           "enabled": true,
-          "data": {"elements": [
+          "data": { "elements": [
               "headline",
               "leadin"
           ]}
@@ -46,14 +46,14 @@
         {
           "id": "se.infomaker.youtubeembed",
           "name": "youtubeembed",
-          "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/index.js",
+          "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/fd.js",
           "enabled": true,
           "mandatory": true
         },
         {
           "id": "se.infomaker.socialembed",
           "name": "socialembed",
-          "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/index.js",
+          "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/fd.js",
           "enabled": true,
           "mandatory": true
         },
@@ -67,7 +67,7 @@
         {
           "id": "se.infomaker.ximimage",
           "name": "ximimage",
-          "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/index.js",
+          "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/fd.js",
           "style": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/fd.css",
           "enabled": true,
           "mandatory": true,
@@ -106,14 +106,14 @@
         {
           "id": "se.infomaker.ximpdf",
           "name": "ximpdf",
-          "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/index.js",
+          "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/fd.js",
           "enabled": true,
           "mandatory": false
         },
         {
           "id": "se.infomaker.ximteaser",
           "name": "ximteaser",
-          "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/index.js",
+          "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/fd.js",
           "enabled": true,
           "mandatory": true,
           "data": {
