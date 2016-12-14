@@ -167,7 +167,7 @@
           "id": "nl.fdmg.tags",
           "name": "tags",
           "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
-          "style": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/style.css",
+          "style": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/style.css",
           "enabled": true,
           "mandatory": true,
           "data": {
