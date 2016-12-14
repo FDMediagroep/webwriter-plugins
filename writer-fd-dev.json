@@ -144,14 +144,14 @@
         {
           "id": "se.infomaker.publishflow",
           "name": "publishflow",
-          "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/index.js",
+          "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/fd.js",
           "enabled": true,
           "mandatory": true
         },
         {
           "id": "nl.fdmg.sidebartabs",
           "name": "sidebartabs",
-          "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/index.js",
+          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
           "enabled": true,
           "mandatory": true
         },
@@ -166,7 +166,7 @@
         {
           "id": "nl.fdmg.tags",
           "name": "tags",
-          "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/index.js",
+          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
           "style": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/style.css",
           "enabled": true,
           "mandatory": true,

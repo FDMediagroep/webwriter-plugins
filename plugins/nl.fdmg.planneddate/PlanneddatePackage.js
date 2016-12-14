@@ -5,7 +5,7 @@ export default {
   id: 'nl.fdmg.planneddate',
   name: 'planneddate',
   configure: function (config) {
-    config.addComponentToSidebarWithTabId(this.id, 'main', PlanneddateComponent)
+    config.addComponentToSidebarWithTabId(this.id, 'adminTab', PlanneddateComponent)
 
     config.addLabel('Planned date', {
       'nl': 'Desknet datum'
