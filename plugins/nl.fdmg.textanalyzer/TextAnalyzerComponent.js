@@ -159,7 +159,7 @@ class TextAnalyzerComponent extends Component {
     else if (actual === target) return '#FF0'
     else if (actual < min) return '#000'
     else if (actual > max) return '#F00'
-    else return '#0F0'
+    else return '#00bf07'
   }
 
   dispose() {
