@@ -156,7 +156,7 @@ class TextAnalyzerComponent extends Component {
     const max = target + margin
 
     if (target < 0) return '#000'
-    else if (actual === target) return '#FF0'
+    else if (actual === target) return '#decf00'
     else if (actual < min) return '#000'
     else if (actual > max) return '#F00'
     else return '#00bf07'
