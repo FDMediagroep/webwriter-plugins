@@ -1,5 +1,5 @@
 .planneddate {
-	padding: 0px 15px 10px 15px;
+	padding-bottom: 10px;
 	display: flex;
 	flex-grow: 1;
 	justify-content: space-around;
@@ -41,7 +41,7 @@
 				position: absolute;
 				font-family: FontAwesome;
 				left: 10px;
-				top: -2px;
+				top: 5px;
 				color: #000;
 				opacity: 0.4;
 			}
@@ -88,4 +88,7 @@
 			}
 	 	}
 	}
+}
+.planneddate-info {
+	padding: 0px 15px 10px 15px;
 }

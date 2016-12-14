@@ -1,5 +1,5 @@
 import {Component} from 'substance'
-import {api, event, lodash} from 'writer'
+import {api, event, lodash, moment} from 'writer'
 import './scss/textanalyzer.scss'
 const pluginId = 'nl.fdmg.textanalyzer'
 
@@ -20,19 +20,46 @@ class TextAnalyzerComponent extends Component {
 
   getInitialState() {
     const count = this.getCount()
+
     return {
       textLength: count.textLength,
       words: count.words,
-      availableSizes: api.getConfigValue(pluginId, 'sizes')
+      availableSizes: api.getConfigValue(pluginId, 'sizes'),
+    }
+  }
+
+  getPlannedDate() {
+    //Get planneddate TODO:create seperate info plugins
+    //TODO: Make the info popover into a general plugin and add textanalyzer and planneddate to that plugin
+    const initialDate = api.newsItem
+      .getLinkByType('planneddate', 'fdmg/planneddate')
+
+    if (!initialDate || initialDate.length < 1) {
+      return { date : '--/--/----', time : ' --:--' }
+    } else { return initialDate.map(initialDate => {
+      return { date : moment(initialDate['@date']).format('ll'), uuid : initialDate['@uuid'], time : initialDate['@time'] } }).pop()
     }
   }
 
   render($$) {
     this.virtualElement = $$  // Hack to use $$ for later use with updateStatus
 
-    const documentSize = this.readDocumentSize()
+    const plannedDate = this.getPlannedDate()
+    const time = plannedDate.time
+    const date = plannedDate.date
 
-    return $$('div')
+    const documentSize = this.readDocumentSize()
+    const el = $$('div').addClass('information')
+
+    const plannedDatePlugin = $$('div')
+      .addClass('planneddate-info plugin fdmg-sidebar')
+      .append(
+        $$('h2').append(this.getLabel('Planned date')),
+        $$('span').append(date,' ', time)
+        // ,$$('hr')
+      )
+
+    const textAnalyzerPlugin = $$('div')
       .addClass('textanalyzer plugin')
       .append(
         $$('div')
@@ -53,8 +80,12 @@ class TextAnalyzerComponent extends Component {
               .append($$('span').append(this.state.words.toString()))
               .append($$('p').append(this.getLabel('Words')))
               .attr({title: this.getLabel('Words')})
-          )
+          ),
+          $$('hr')
       )
+
+    el.append(textAnalyzerPlugin, plannedDatePlugin)
+    return el
   }
 
   calculateText() {

@@ -14,6 +14,10 @@ export default {
       TextAnalyzerComponent
     )
 
+    config.addLabel('Planned date', {
+      'nl': 'Desknet datum'
+    })
+
     config.addLabel('Characters', {
       'nl': 'Karakters'
     })

@@ -1,5 +1,5 @@
 .textanalyzer {
-	padding: 0px 15px 10px 15px;
+	padding: 0px 15px 0px 15px;
 	hr {
 		margin-top: 0px;
 	}
@@ -23,6 +23,7 @@
 
 	.number__container {
 		margin-top: 0;
+		margin-bottom: 5px;
 		display: flex;
 		justify-content: space-between;
 	}
@@ -46,4 +47,9 @@
 			display: inline-block;
 		}
 	}
+}
+
+// Infomaker override
+.sc-np-popover .textanalyzer > div:last-child p {
+	margin-top: 0;
 }

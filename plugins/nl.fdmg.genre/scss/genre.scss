@@ -194,8 +194,19 @@ div {
     }
 }
 
+// Infomaker overrides
+.sc-np-popover {
+  h2 {
+    font-size: 0.9em;
+    font-weight: bold;
+  }
+  hr {
+    margin-bottom: 0px;
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+}
 // teaser override
-
 div.x-im-teaser div.x-im-teaser-text::before {
     content: '\f1dd';
 }

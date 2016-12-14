@@ -4,19 +4,16 @@ import {api, idGenerator} from 'writer'
 class PlanneddateComponent extends Component {
   constructor(...args) {
     super(...args)
-    this.name = 'planneddate'
-    this.type = 'fdmg/textanalyzer'
   }
-
   getInitialState() {
     const initialDate = api.newsItem
-      .getLinkByType(this.name, this.type)
+      .getLinkByType('planneddate', 'fdmg/planneddate')
 
     if (!initialDate || initialDate.length < 1) {
       return { initialDate : { initialDate : { date : '', time : ''} } }
     } else {
       return { initialDate : initialDate.map(initialDate => {
-        return { date : initialDate['@date'], uuid : initialDate['@uuid'], time : initialDate['@time'] } })
+        return { date : initialDate['@date'], uuid : initialDate['@uuid'], time : initialDate['@time'] } }).pop()
       }
     }
   }
@@ -26,7 +23,6 @@ class PlanneddateComponent extends Component {
     const heading = $$('div').append($$('h2').append(this.getLabel('Planned date')))
     const pluginWrapper = $$('div').addClass('planneddate')
 
-
     const date = this.state.initialDate.date
     const time = this.state.initialDate.time
 
@@ -34,7 +30,7 @@ class PlanneddateComponent extends Component {
           $$('input').attr({
             type : 'date',
             id : 'plannedDate',
-            vale : date
+            value : date
           }).addClass('form-control date').ref('dateInput').on('blur', () => { this.updateDate() })
 
     const timeComponent =
@@ -68,9 +64,9 @@ class PlanneddateComponent extends Component {
   }
 
   deleteDate() {
-    api.getLinkByType('planneddate', 'fdmg/planneddate')
+    api.newsItem.getLinkByType('planneddate', 'fdmg/planneddate')
       .forEach( planneddate => {
-        api.removeLinkByUUIDAndRel('planneddate', planneddate['@uuid'], planneddate['@rel'])
+        api.newsItem.removeLinkByUUIDAndRel('planneddate', planneddate['@uuid'], planneddate['@rel'])
       })
   }
 }

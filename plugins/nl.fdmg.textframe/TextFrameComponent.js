@@ -19,7 +19,7 @@ export default class TextFrameComponent extends Component {
   }
 
   render($$) {
-    console.log(this.props.node);
+    console.log(this.props);
     if (!this.props.node.url && this.props.node.uuid) {
       this.fetchUrl();
       return $$('div');
