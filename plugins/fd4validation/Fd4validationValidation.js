@@ -54,18 +54,6 @@ module.exports = {
     // if (exactlyOne(teaser) && emptyTitle(teasertitle) && publishing) acc.addError(this.context.i18n.t('Missing teaser title'))
     if (exactlyOne(teaser) && emptyBody(teaserbody) && publishing) acc.addError(this.context.i18n.t('Missing teaser body'))
 
-    // TODO Extract to htmlembed/HtmlembedValidation.js
-    // Validate HTML Embed
-    const htmlEmbed = newsItem.querySelectorAll('object[type="fdmg/htmlembed"]');
-    if ((submitting || publishing) && htmlEmbed.length) {
-
-      // HTML Embed text
-      let htmlEmbedNodes = Array.from(newsItem.querySelectorAll('object[type="fdmg/htmlembed"] text'));
-      let emptyHtmlEmbeds = htmlEmbedNodes.map((x)=>x.innerHTML.trim()).filter((x) => !x || x === "<![CDATA[]]>");
-      if (emptyHtmlEmbeds.length || htmlEmbed.length !== htmlEmbedNodes.length) acc.addError(this.context.i18n.t("There are one or more empty HTML-embeds"));
-
-    }
-
     return acc.read()
   }
 }
