@@ -34,7 +34,7 @@ import Quote from './nl.fdmg.quote/index';
 import NumberFrame from './nl.fdmg.numberframe/index';
 import StackFrame from './nl.fdmg.stackframe/index';
 import RelatedLink from './nl.fdmg.relatedlink/index';
-import TextFrame from './nl.fdmg.textframe/index';
+// import TextFrame from './nl.fdmg.textframe/index';
 import HtmlEmbed from './nl.fdmg.htmlembed/index';
 
 import Planneddate from './nl.fdmg.planneddate/index';
@@ -83,7 +83,7 @@ import ImageSearch from './nl.fdmg.imagesearch/index';
   NumberFrame();
   StackFrame();
   RelatedLink();
-  TextFrame();
+  // TextFrame();
   HtmlEmbed();
 
   Planneddate();
