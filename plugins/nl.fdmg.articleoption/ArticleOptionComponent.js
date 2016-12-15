@@ -17,7 +17,6 @@ class ArticleOptionComponent extends Component {
     this.hasSelect = plugin.hasSelect
 
     this.extendState(this.getInitialState())
-    console.log(plugin.inputText)
   }
 
   getInitialState() {
@@ -29,7 +28,6 @@ class ArticleOptionComponent extends Component {
   }
 
   render($$) {
-    // console.log(this.state.checked, this.name,'< Checked', this.state.enabled, this.name, '< Enabled')
     const el = $$('div')
     .addClass('fdmg-sidebar').append(
       $$('div')
@@ -95,6 +93,7 @@ class ArticleOptionComponent extends Component {
   }
 
   update(item) {
+    console.log(this.name, this.type)
     api.newsItem
       .getLinkByType(this.name, this.type)
       .forEach(l => {
