@@ -11,26 +11,25 @@ class ArticleOptionComponent extends Component {
     this.type = plugin.type
     this.label = plugin.label
     this.hasinput = plugin.hasInput
-    this.value = plugin.inputText
     this.placeholder = plugin.inputPlaceholder
     this.pluginId = plugin.pluginId
     this.items = plugin.items
     this.hasSelect = plugin.hasSelect
 
     this.extendState(this.getInitialState())
+    console.log(plugin.inputText)
   }
 
   getInitialState() {
     return {
       name : this.name,
       checked: this.getOptionChecked(),
-      value: this.value,
       enabled: true
     }
   }
 
   render($$) {
-    console.log(this.type)
+    // console.log(this.state.checked, this.name,'< Checked', this.state.enabled, this.name, '< Enabled')
     const el = $$('div')
     .addClass('fdmg-sidebar').append(
       $$('div')
@@ -52,6 +51,7 @@ class ArticleOptionComponent extends Component {
     )
 
     if (this.hasinput && this.state.checked) {
+
       el.append(
         $$('input')
           .attr({
@@ -71,13 +71,14 @@ class ArticleOptionComponent extends Component {
     if (this.hasSelect && this.state.checked && this.state.items) {
       const selection = api.newsItem
         .getLinkByType(this.name, this.type)
-        .map(l => {return {id: l['@id'], label: l['@title']}})
+        .map(l => {return {id: l['@id'], label: l['@value']}})
         .map(i => {
           const match = this.state.items.find(item => item.id === i.id)
           const label = (match !== undefined) ? match.label : i.label
           return {id: i.id, label: label}
         })
         .pop()
+
       el.append(
 
         $$(DropdownComponent, {
@@ -86,7 +87,8 @@ class ArticleOptionComponent extends Component {
           allowFreeInput: false,
           allowEmptySelection: false,
           selection: selection
-        })
+        }),
+        $$('hr')
       )
     }
     return el
@@ -104,6 +106,7 @@ class ArticleOptionComponent extends Component {
         '@rel': this.name,
         '@type': this.type,
         '@value': item.id,
+        '@checked': this.getOptionChecked(),
         '@uuid': idGenerator()
       })
     }

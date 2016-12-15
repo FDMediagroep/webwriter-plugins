@@ -35,7 +35,7 @@ class AdvertorialComponent extends ArticleOption {
       placeholder: 'URL to article',
       hasSelect: true,
       pluginId: 'nl.fdmg.advertorial',
-      items: [],
+      items: []
     }, ...args)
   }
 
@@ -46,8 +46,11 @@ class AdvertorialComponent extends ArticleOption {
 
   updateOtherOptions() {
     const eventState = this.state.checked ? 'disabled' : 'enabled'
-    api.events.triggerEvent('', `articletype:${eventState}`)
-    api.events.triggerEvent('', `redirectlink:${eventState}`)
+
+    setTimeout(() => {
+      api.events.triggerEvent('', `articletype:${eventState}`)
+      api.events.triggerEvent('', `redirectlink:${eventState}`)
+    }, 200)
   }
 
   dispose() {

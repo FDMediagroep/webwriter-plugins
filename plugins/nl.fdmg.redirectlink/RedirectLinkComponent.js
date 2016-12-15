@@ -17,7 +17,16 @@ class RedirectLinkComponent extends ArticleOption {
     api.events.on(this.name, 'redirectlink:enabled', this.enable.bind(this))
     api.events.on(this.name, 'redirectlink:disabled', this.disable.bind(this))
 
+    this.extendState({value : this.getInputValue()})
+
     this.updateOtherOptions()
+  }
+
+  getInputValue() {
+    return api.newsItem
+      .getLinkByType(this.name, this.type)
+      .map(i => i['@value'])
+      .pop()
   }
 
   setOptionChecked(checked) {
@@ -27,8 +36,11 @@ class RedirectLinkComponent extends ArticleOption {
 
   updateOtherOptions() {
     const eventState = this.state.checked ? 'disabled' : 'enabled'
-    api.events.triggerEvent('', `articletype:${eventState}`)
-    api.events.triggerEvent('', `advertorial:${eventState}`)
+
+    setTimeout(() => {
+      api.events.triggerEvent('', `articletype:${eventState}`)
+      api.events.triggerEvent('', `advertorial:${eventState}`)
+    }, 200)
   }
 
   dispose() {
