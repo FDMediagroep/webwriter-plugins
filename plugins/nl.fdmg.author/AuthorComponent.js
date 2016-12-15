@@ -1,5 +1,5 @@
 import {Component} from 'substance'
-import {api, NilUUID, idGenerator} from 'writer'
+import {api, NilUUID} from 'writer'
 import AuthorList from './AuthorListComponent'
 import SearchField from '../nl.fdmg.searchfield/SearchFieldComponent'
 import './scss/author.scss'
@@ -48,7 +48,7 @@ class AuthorComponent extends Component {
           title: item.fullName, // Used by api.newsItem
           label: item.fullName, // Used by SearchField
           type: 'x-im/author',
-          uuid: idGenerator(),
+          uuid: item.id,
           id: item.id
         }
       }))
