@@ -7,7 +7,6 @@ const {api, idGenerator} = writer
 class ArticleOptionComponent extends Component {
   constructor(plugin, ...args) {
     super(...args)
-
     this.name = plugin.name
     this.type = plugin.type
     this.label = plugin.label
@@ -18,10 +17,12 @@ class ArticleOptionComponent extends Component {
     this.items = plugin.items
     this.hasSelect = plugin.hasSelect
 
+    this.extendState(this.getInitialState())
   }
 
   getInitialState() {
     return {
+      name : this.name,
       checked: this.getOptionChecked(),
       value: this.value,
       enabled: true
@@ -29,6 +30,7 @@ class ArticleOptionComponent extends Component {
   }
 
   render($$) {
+    console.log(this.type)
     const el = $$('div')
     .addClass('fdmg-sidebar').append(
       $$('div')
@@ -61,11 +63,12 @@ class ArticleOptionComponent extends Component {
           .on('blur', () => {
             this.setOptionChecked(true)
           })
-          .ref('input')
+          .ref('input'),
+          $$('hr')
       )
     }
 
-    if (this.hasSelect && this.state.checked) {
+    if (this.hasSelect && this.state.checked && this.state.items) {
       const selection = api.newsItem
         .getLinkByType(this.name, this.type)
         .map(l => {return {id: l['@id'], label: l['@title']}})
@@ -75,7 +78,6 @@ class ArticleOptionComponent extends Component {
           return {id: i.id, label: label}
         })
         .pop()
-
       el.append(
 
         $$(DropdownComponent, {
@@ -87,7 +89,6 @@ class ArticleOptionComponent extends Component {
         })
       )
     }
-
     return el
   }
 
@@ -111,7 +112,7 @@ class ArticleOptionComponent extends Component {
   getOptionChecked() {
     return api.newsItem
       .getLinkByType(this.name, this.type)
-      .some(i => i['@checked'] === true)
+      .some(i => i['@checked'] === "true")
   }
 
   setOptionChecked(checked) {
@@ -132,7 +133,7 @@ class ArticleOptionComponent extends Component {
       '@uuid': idGenerator()
     }
 
-    if (this.hasinput && checked) {
+    if (this.hasinput || this.hasSelect && checked) {
       link['@value'] = value
     }
 

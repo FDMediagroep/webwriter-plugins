@@ -23,6 +23,8 @@ class AdvertorialComponent extends ArticleOption {
         this.extendState({items: response})
       }
     )
+
+    this.updateOtherOptions()
   }
 
   constructor(...args) {
@@ -39,7 +41,10 @@ class AdvertorialComponent extends ArticleOption {
 
   setOptionChecked(checked) {
     super.setOptionChecked(checked)
+    this.updateOtherOptions()
+  }
 
+  updateOtherOptions() {
     const eventState = this.state.checked ? 'disabled' : 'enabled'
     api.events.triggerEvent('', `articletype:${eventState}`)
     api.events.triggerEvent('', `redirectlink:${eventState}`)
