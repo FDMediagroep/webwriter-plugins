@@ -41,8 +41,6 @@ import Planneddate from './nl.fdmg.planneddate/index';
 import Workinstructions from './nl.fdmg.workinstructions/index';
 import Workflowstate from './nl.fdmg.workflowstate/index';
 
-// import HtmlEmbed from './nl.fdmg.htmlembed/index';
-
 import ImageSearch from './nl.fdmg.imagesearch/index';
 
 //import Stockticker from './nl.fdmg.stockticker/index';

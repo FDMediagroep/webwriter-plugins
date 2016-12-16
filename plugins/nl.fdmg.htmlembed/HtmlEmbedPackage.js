@@ -24,7 +24,8 @@ export default {
 
     config.addConverter('newsml', HtmlEmbedConverter)
 
-    config.addLabel('Edit embed code', {nl: 'Invoeg code aanpassed'})
+    config.addLabel('Edit embed code', {nl: 'Invoeg code aanpassen'})
+    config.addLabel('Add html-embed', {nl: 'HTML embed'})
 
     config.addValidator(HtmlembedValidator)
 

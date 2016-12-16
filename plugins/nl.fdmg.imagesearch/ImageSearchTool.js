@@ -11,6 +11,7 @@ class ImageSearchTool extends Tool {
         $$('button')
           .addClass('se-tool')
           .append($$('i').addClass('fa fa-search'))
+          .attr('title', this.getLabel('Add/search image'))
           .on('click', () => {
             api.ui.showDialog(
               ImageSearchDialog, {

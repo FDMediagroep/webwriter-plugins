@@ -9,5 +9,6 @@ export default {
   configure: function(config) {
     config.addContentMenuTopTool('image-search', ImageSearchTool)
     config.addCommand('image-search', ImageSearchCommand)
+    config.addLabel('Add/search image', { nl: 'Afbeelding (Hollandse Hoogte)' });
   }
 }

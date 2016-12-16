@@ -594,8 +594,8 @@
           "name": "preview",
           "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
           "style": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/style.css",
-          "enabled": true,
-          "mandatory": true,
+          "enabled": false,
+          "mandatory": false,
           "data": {
               "previewBaseUrl": "//preview.fd.nl/_/${id}/_"
           }

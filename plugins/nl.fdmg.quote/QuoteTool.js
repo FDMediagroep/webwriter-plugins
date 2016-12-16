@@ -6,7 +6,8 @@ export default class QuoteTool extends Tool {
   render($$) {
     var el = $$('button').addClass('se-tool').append(
       $$('i').addClass('fa fa-quote-left')
-    ).on('click', () => {
+    ).attr('title', this.getLabel('Quote'))
+    .on('click', () => {
       api.editorSession.executeCommand('quote', {quoteMessage: this.getLabel('Quote'), quoteAuthor: this.getLabel('Source')});
     });
     return el;

@@ -7,6 +7,7 @@ class HtmlEmbedTool extends Tool {
       .addClass('se-tool')
       .attr({title: this.getLabel('Insert HTML embed')})
       .append($$('i').addClass('fa fa-code'))
+      .attr('title', this.getLabel('Add html-embed'))
       .on('click', this.insertEmbedHtml)
   }
 
