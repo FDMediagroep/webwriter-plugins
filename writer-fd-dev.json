@@ -732,6 +732,13 @@
             "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
             "enabled": true,
             "mandatory": true
+        },
+        {
+            "id": "nl.fdmg.headlinestandin",
+            "name": "headlinestandin",
+            "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
+            "enabled": true,
+            "mandatory": true
         }
     ]
 }
