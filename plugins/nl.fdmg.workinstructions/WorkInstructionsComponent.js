@@ -50,7 +50,7 @@ class WorkinstructionsComponent extends Component {
         update: this.updateWorkInstructions.bind(this)
       },
       {
-        title: 'Edit workinstructions',
+        title: this.getLabel('Edit workinstructions'),
         cssClass: 'im-htmlembed-modal'
       }
     )
