@@ -6,6 +6,10 @@ export default {
   configure: function (config) {
     config.addValidator(XimTeaserValidator)
 
+    config.addLabel('Missing teaser title', {
+      'nl': 'Teaser titel ontbreekt'
+    })
+
     config.addLabel('Missing teaser body', {
       'nl': 'Teaser tekst ontbreekt'
     })

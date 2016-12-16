@@ -17,6 +17,22 @@ class FDValidor extends Validator {
     return this.qcode === 'stat:usable'
   }
 
+  get isShortArticle() {
+    return false
+  }
+
+  get isAdvertorial() {
+    return false
+  }
+
+  get isEventArticle() {
+    return false
+  }
+
+  get isRedirectArticle() {
+    return false
+  }
+
   getLabel(label) {
     return api.getLabel(label)
   }
