@@ -64,6 +64,7 @@
           "enabled": true,
           "mandatory": true,
           "data": {
+              "softcrop": true,
               "fields": [
                   {
                       "name": "caption",
@@ -722,6 +723,13 @@
             "name": "workinstructions",
             "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
             "style": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/style.css",
+            "enabled": true,
+            "mandatory": true
+        },
+        {
+            "id": "nl.fdmg.ximteaserstandin",
+            "name": "ximteaserstandin",
+            "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
             "enabled": true,
             "mandatory": true
         }
