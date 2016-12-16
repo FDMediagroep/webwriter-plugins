@@ -12,8 +12,8 @@ export default {
       },
       WorkflowstateComponent
     )
-    config.addLabel('Workflowstate', {nl: 'Desknet status'})
-    config.addLabel('Select workflow state', {nl: 'Selecteer een desknet status'})
+    config.addLabel('Workflowstate', {nl: 'Workflowstatus'})
+    config.addLabel('Select workflow state', {nl: 'Selecteer een workflowstatus'})
     config.addLabel('Cancel', {nl: 'Annuleren'})
   }
 }
