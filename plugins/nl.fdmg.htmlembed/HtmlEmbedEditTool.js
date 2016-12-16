@@ -38,11 +38,10 @@ class HtmlEmbedEditTool extends Tool {
   }
 
   resize() {
-    const htmlTextarea = this.refs.embedcode.el.el
-
+    const htmlTextarea = this.refs.embedcode.el
     setTimeout(() => {
       htmlTextarea.style.height = 'auto'
-      htmlTextarea.style.height = htmlTextarea.scrollHeight + '20px'
+      htmlTextarea.style.height = htmlTextarea.scrollHeight
     }, 100)
   }
 

@@ -12,5 +12,8 @@ export default {
     config.addLabel('Workinstructions placeholder', {
       'nl' : 'b.v. locatie en opmerkingen'
     })
+    config.addLabel('Workinstructions', {
+      'nl' : 'Werkinstructies'
+    })
   }
 }

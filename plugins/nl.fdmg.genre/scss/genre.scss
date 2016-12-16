@@ -182,18 +182,6 @@ a.fdmg-box {
   }
 }
 
-div {
-    &.x-im-teaser, &.x-im-image {
-        > div {
-            img {
-                max-height: 460px;
-                display: block;
-                margin: 0 auto;
-            }
-        }
-    }
-}
-
 // Infomaker overrides
 .sc-np-popover {
   h2 {
@@ -207,6 +195,33 @@ div {
     border-top: 1px solid rgba(0, 0, 0, 0.1);
   }
 }
+
+// Infomaker teaser image height override
+.sc-image-display{
+  >.se-image-container {
+    >img {
+      max-height: 460px;
+      display: block;
+      margin: 0 auto;
+    }
+  }
+}
+
+
+// Infomaker textarea modal override
+.modal {
+  .modal-body{
+     textarea {
+       min-height: 400px;
+     }
+   }
+ }
+
+ // Infomaker html-embed override
+ .im-htmlembed {
+   max-height: 200px;
+   overflow: hidden;
+ }
 // teaser override
 div.x-im-teaser div.x-im-teaser-text::before {
     content: '\f1dd';

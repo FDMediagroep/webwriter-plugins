@@ -25,7 +25,12 @@ class WorkinstructionsComponent extends Component {
   render($$) {
     return $$('div')
       .addClass('plugin workinstructions')
+      .append($$('div').addClass('fdmg-sidebar')
       .append(
+        $$('div').addClass('header')
+        .append($$('h2')
+          .append(this.getLabel('Workinstructions'))
+        ),
         $$('div')
           .addClass('workinstructions-wrapper')
           .append(
@@ -39,7 +44,9 @@ class WorkinstructionsComponent extends Component {
               .setValue(this.state.workInstructions)
           )
           .on('click', this.editWorkInstructions)
-      )
+      ),
+      $$('hr')
+    )
   }
 
   editWorkInstructions() {
