@@ -28,9 +28,9 @@ class TagsComponent extends Component {
   searchTags(query) {
     const endpoint = api.getConfigValue(pluginId, 'searchEndpoint')
     const token = api.getConfigValue(pluginId, 'token')
+    const url = endpoint + query
 
-    return api.router.get('/api/resourceproxy', {
-      url: endpoint + query,
+    return fetch(url, {
       headers: {
         'x-access-token': `Bearer ${token}`
       }
@@ -107,34 +107,18 @@ class TagsComponent extends Component {
     const token = api.getConfigValue(pluginId, 'token')
     const id = api.newsItem.getGuid()
     const url = endpoint + id
+    const body = JSON.stringify(this.state.existingTags.map(tag => tag.name))
 
-    api.router.put('/api/resourceproxy', {
-      url: url,
-      body: JSON.stringify(this.state.existingTags.map(tag => tag.name)).toString(),
+    fetch(url, {
+      method: 'PUT',
+      body: body,
       headers: {
         'x-access-token': `Bearer ${token}`,
         'Content-Type': 'application/json'
       }
     })
-      .then(response => { console.log(response) })
       .then(response => api.router.checkForOKStatus(response))
       .catch(err => { console.warn(err) })
-
-      /*
-      const endpoint = this.context.api.getConfigValue(this.name, 'updateEndpoint')
-
-      let id = this.context.api.getIdForArticle()
-      if (id.indexOf('-') > -1) id = id.substring(id.indexOf('-') + 1)
-
-      $.ajax({
-        url: endpoint + id,
-        method: 'PUT',
-        data: JSON.stringify(this.state.existingTags.map((tag) => tag.name)),
-        contentType: 'application/json',
-        dataType: 'json'
-      })
-        .fail((data, status, err) => { console.error(err) })
-      */
   }
 }
 
