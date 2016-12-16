@@ -1,47 +1,84 @@
 import {Component} from 'substance'
-import {api} from 'writer'
-import OpenWorkinstructionsDialog from './OpenWorkinstructionsDialog'
+import {api, idGenerator} from 'writer'
+import WorkInstructionsEditTool from './WorkInstructionsEditTool'
 
 class WorkinstructionsComponent extends Component {
   constructor(...args) {
     super(...args)
+    this.name = 'workinstructions'
+    this.type = 'fdmg/workinstructions'
   }
 
   getInitialState() {
-    const workInstruction = api.newsItem.getContentMetaObjectsByType('fdmg/workinstructions')
+    const workInstructionsMeta = api.newsItem.getContentMetaObjectsByType('fdmg/workinstructions')
 
-    if (!workInstruction) {
-      return { workInstruction : '' }
-    } else {
-      return { workInstruction : workInstruction.map(workinstruction => {
-        return workinstruction.data.text
-      }).pop()}
+    let workInstructions = ''
+    if (workInstructionsMeta) {
+      workInstructions = workInstructionsMeta.map(wi => wi.data.text).pop() || ''
+    }
+
+    return {
+      workInstructions: workInstructions
     }
   }
 
   render($$) {
-    const workinstructionsArea = $$('div').addClass('workinstructions-wrapper')
+    return $$('div')
+      .addClass('plugin workinstructions')
       .append(
-        $$('textarea')
-          .addClass('workinstructions-textarea')
-          .attr({'spellcheck' : false, 'disabled' : 'disabled', 'placeholder' : this.getLabel('Workinstruction placeholder')})
-          .setValue(this.state.workinstruction)
-          .ref('workinstructions').on('click', () => { this.editWorkinstruction()})
+        $$('div')
+          .addClass('workinstructions-wrapper')
+          .append(
+            $$('textarea')
+              .addClass('workinstructions-textarea')
+              .attr({
+                spellcheck: false,
+                disabled: 'disabled',
+                placeholder: this.getLabel('Workinstructions placeholder')
+              })
+              .setValue(this.state.workInstructions)
+          )
+          .on('click', this.editWorkInstructions)
       )
-
-    return $$('div').addClass('plugin workinstructions')
-      .append(workinstructionsArea)
   }
 
-  editWorkinstruction() {
-    console.log('open area')
-    OpenWorkinstructionsDialog({
-      text: this.props.node.text,
-      update: this.updateHtmlOnNode.bind(this)
+  editWorkInstructions() {
+    api.ui.showDialog(
+      WorkInstructionsEditTool,
+      {
+        text: this.state.workInstructions,
+        update: this.updateWorkInstructions.bind(this)
+      },
+      {
+        title: 'Edit workinstructions',
+        cssClass: 'im-htmlembed-modal'
+      }
+    )
+  }
+
+  updateWorkInstructions(newWorkInstructions) {
+    // Remove existing workInstructions
+    const exisingWorkInstructionsMeta = api.newsItem.getContentMetaObjectsByType(this.type)
+
+    if (exisingWorkInstructionsMeta) {
+      exisingWorkInstructionsMeta.forEach(wi => {
+        api.newsItem.removeContentMetaObject(this.type, wi['@id'])
+      })
+    }
+
+    // Add new workInstructions
+    api.newsItem.setContentMetaObject(this.type, {
+      '@id': idGenerator(),
+      '@type': this.type,
+      '@name': this.name,
+      data: {
+        text: newWorkInstructions
+      }
     })
+
+    // Update internal state
+    this.extendState({workInstructions: newWorkInstructions})
   }
-
-
 }
 
 export default WorkinstructionsComponent
