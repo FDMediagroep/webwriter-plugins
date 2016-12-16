@@ -51,22 +51,6 @@ class WorkflowstateComponent extends Component {
         )
       )
 
-    el.append(
-      $$('div')
-        .css({'text-align': 'right'})
-        .append(
-          $$('button')
-          .addClass('sc-np-btn btn-secondary')
-          .append(
-            this.getLabel('Cancel')
-          )
-          .on('click', () => {
-            this.props.popover.close()
-          }
-        )
-      )
-    )
-
     return el
   }
 
@@ -84,7 +68,7 @@ class WorkflowstateComponent extends Component {
 
     this.extendState({selection: newSelection})
     this.updateStatus()
-
+    this.props.popover.close()
   }
 
   updateStatus() {
