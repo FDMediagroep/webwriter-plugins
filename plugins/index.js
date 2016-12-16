@@ -47,6 +47,9 @@ import ImageSearch from './nl.fdmg.imagesearch/index';
 
 //import Stockticker from './nl.fdmg.stockticker/index';
 
+import XimTeaserStandin from './nl.fdmg.ximteaserstandin/index';
+import HeadlineStandin from './nl.fdmg.headlinestandin/index';
+
 (() => {
   SidebarTabs();
   LocalFocus();
@@ -93,4 +96,7 @@ import ImageSearch from './nl.fdmg.imagesearch/index';
   ImageSearch();
 
   //Stockticker();
+
+  XimTeaserStandin();
+  HeadlineStandin();
 })()
