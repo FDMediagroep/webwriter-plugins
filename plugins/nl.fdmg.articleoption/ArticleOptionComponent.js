@@ -78,7 +78,6 @@ class ArticleOptionComponent extends Component {
         .pop()
 
       el.append(
-
         $$(DropdownComponent, {
           onSelect: this.update.bind(this),
           items: this.state.items,
@@ -93,7 +92,6 @@ class ArticleOptionComponent extends Component {
   }
 
   update(item) {
-    console.log(this.name, this.type)
     api.newsItem
       .getLinkByType(this.name, this.type)
       .forEach(l => {
@@ -101,11 +99,12 @@ class ArticleOptionComponent extends Component {
       })
 
     if (item.id !== 'none' && item.label.trim() !== '') {
+      // Update selection. Checked should be true
       api.newsItem.addLink(this.name, {
         '@rel': this.name,
         '@type': this.type,
         '@value': item.id,
-        '@checked': this.getOptionChecked(),
+        '@checked': 'true',
         '@uuid': idGenerator()
       })
     }
@@ -127,7 +126,6 @@ class ArticleOptionComponent extends Component {
 
     const value = 'input' in this.refs ? this.refs.input.val() : ''
 
-    // Set link
     const link = {
       '@rel': this.name,
       '@type': this.type,
