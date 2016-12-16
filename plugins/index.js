@@ -46,6 +46,7 @@ import ImageSearch from './nl.fdmg.imagesearch/index';
 //import Stockticker from './nl.fdmg.stockticker/index';
 
 import XimTeaserStandin from './nl.fdmg.ximteaserstandin/index';
+import XimImageStandin from './nl.fdmg.ximimagestandin/index';
 import HeadlineStandin from './nl.fdmg.headlinestandin/index';
 
 (() => {
@@ -96,5 +97,6 @@ import HeadlineStandin from './nl.fdmg.headlinestandin/index';
   //Stockticker();
 
   XimTeaserStandin();
+  XimImageStandin();
   HeadlineStandin();
 })()
