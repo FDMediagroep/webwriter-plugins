@@ -8,9 +8,12 @@ export default {
       this.name,
       {
         icon: 'fa-circle',
-        align: 'left'
+        align: 'right'
       },
       WorkflowstateComponent
     )
+    config.addLabel('Workflowstate', {nl: 'Desknet status'})
+    config.addLabel('Select workflow state', {nl: 'Selecteer een desknet status'})
+    config.addLabel('Cancel', {nl: 'Annuleren'})
   }
 }

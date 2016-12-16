@@ -1,0 +1,47 @@
+.workflowstate {
+	margin: 15px;
+	hr {
+		margin: 0px;
+	}
+	.dropdown {
+    margin: 15px -15px 15px -15px;
+		ul {
+			width: 100%;
+      list-style: none;
+      padding: 0;
+			li {
+        &:first-child {
+          border-top:1px solid #ddd;
+        }
+        padding: 0 10px;
+        border-bottom:1px solid #ddd;
+        height: 46px;
+        span {
+          color: #666;
+          font-size: 0.9em;
+        }
+				&:hover {
+          cursor: pointer;
+          span {
+            color: #000;
+          }
+				}
+				i {
+					margin-left: 10px;
+					margin-right: 15px;
+				}
+			}
+		}
+	}
+}
+
+.sc-np-bar-icon {
+  a {
+    &.workflowstate-icon {
+      &.PREPARE { color: #cdcdcd ; }
+      &.EDIT { color: #cbbb62 ; }
+      &.VERIFY { color: #03c6c7 ; }
+      &.READY { color: #a207a2 ; }
+    }
+  }
+}

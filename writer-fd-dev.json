@@ -4,14 +4,6 @@
     "labelLanguage": "nl",
     "plugins": [
         {
-          "id": "se.infomaker.history",
-          "name": "history",
-          "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/fd.js",
-          "style": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/fd.css",
-          "enabled": true,
-          "mandatory": false
-        },
-        {
           "id": "se.infomaker.headline",
           "name": "headline",
           "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/fd.js",
@@ -141,6 +133,22 @@
               "teaserPosition": "top"
           }
         },
+        {
+        "id": "nl.fdmg.workflowstate",
+        "name": "workflowstate",
+        "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/fd.js",
+        "style": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/style.css",
+        "enabled": true,
+        "mandatory": true,
+        "data" : {
+          "options": [
+            { "label": "PREPARE", "text": "In voorbereiding", "color": "#cdcdcd" },
+            { "label": "EDIT", "text": "In bewerking", "color": "#cbbb62" },
+            { "label": "VERIFY", "text": "Klaar voor eindredactie", "color": "#03c6c7" },
+            { "label": "READY", "text": "Geredigeerd", "color": "#a207a2" }
+          ]
+        }
+      },
         {
           "id": "se.infomaker.publishflow",
           "name": "publishflow",
@@ -700,6 +708,14 @@
                 "fetchEndpoint": " https://apigateway-dev.fdmg.nl/image/download",
                 "token": "63401c89-63e9-35f9-9daa-a55ef26c3042"
             }
+        },
+        {
+          "id": "se.infomaker.history",
+          "name": "history",
+          "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/fd.js",
+          "style": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/fd.css",
+          "enabled": true,
+          "mandatory": false
         },
         {
             "id": "nl.fdmg.workinstructions",
