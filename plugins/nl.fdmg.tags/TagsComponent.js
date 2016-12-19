@@ -105,9 +105,11 @@ class TagsComponent extends Component {
   _saveTagListAsync() {
     const endpoint = api.getConfigValue(pluginId, 'updateEndpoint')
     const token = api.getConfigValue(pluginId, 'token')
-    const id = api.newsItem.getGuid()
+    const id = api.newsItem.getGuid().replace(/article-/,'');
+    
     const url = endpoint + id
     const body = JSON.stringify(this.state.existingTags.map(tag => tag.name))
+    console.log(url, id)
 
     fetch(url, {
       method: 'PUT',
