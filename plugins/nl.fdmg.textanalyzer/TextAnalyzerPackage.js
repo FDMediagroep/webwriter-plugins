@@ -1,4 +1,5 @@
 import TextAnalyzerComponent from './TextAnalyzerComponent'
+import TextAnalyzerValidator from './TextAnalyzerValidator'
 
 export default {
   id: 'nl.fdmg.textanalyzer',
@@ -13,6 +14,8 @@ export default {
       },
       TextAnalyzerComponent
     )
+
+    config.addValidator(TextAnalyzerValidator)
 
     config.addLabel('Planned date', {
       'nl': 'Desknet datum'
