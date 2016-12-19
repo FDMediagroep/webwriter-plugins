@@ -309,8 +309,8 @@
           "mandatory": true
         },
         {
-          "id": "nl.fdmg.fullwidtharticle",
-          "name": "fullwidtharticle",
+          "id": "nl.fdmg.fullwidth",
+          "name": "fullwidth",
           "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
           "enabled": true,
           "mandatory": true

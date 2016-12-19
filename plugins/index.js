@@ -15,7 +15,7 @@ import Topstory from './nl.fdmg.topstory/index';
 import Comments from './nl.fdmg.comments/index';
 import Breakingarticle from './nl.fdmg.breakingarticle/index';
 import Shortarticle from './nl.fdmg.shortarticle/index';
-import FullWidthArticle from './nl.fdmg.fullwidtharticle/index';
+import FullWidth from './nl.fdmg.fullwidth/index';
 
 import Section from './nl.fdmg.section/index';
 import Genre from './nl.fdmg.genre/index';
@@ -67,7 +67,7 @@ import HeadlineStandin from './nl.fdmg.headlinestandin/index';
   Comments();
   Breakingarticle();
   Shortarticle();
-  FullWidthArticle();
+  FullWidth();
 
   Section();
   Genre();
