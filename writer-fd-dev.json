@@ -548,10 +548,6 @@
                     "label": "Artikel"
                 },
                 {
-                    "id": "FREE_HTML",
-                    "label": "Vrije HTML"
-                },
-                {
                     "id": "PHOTO_SERIES",
                     "label": "Fotoserie"
                 },
