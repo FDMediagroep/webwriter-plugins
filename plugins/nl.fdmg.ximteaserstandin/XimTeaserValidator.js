@@ -8,10 +8,6 @@ class XimTeaserValidator extends FDValidator {
       if (teasers.length === 1) {
         if (this.published) {
           teasers.forEach(teaser => {
-            const subject = teaser.querySelector('data > subject')
-            if (!subject || subject.textContent.trim() === '') {
-              this.addError(this.getLabel('Missing teaser title'))
-            }
             const text = teaser.querySelector('data > text')
             if (!text || text.textContent.trim() === '') {
               this.addError(this.getLabel('Missing teaser body'))
