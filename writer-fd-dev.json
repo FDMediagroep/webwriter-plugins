@@ -64,7 +64,6 @@
           "enabled": true,
           "mandatory": true,
           "data": {
-              "disableUseOfAnnotationTools": true,
               "softcrop": true,
               "fields": [
                   {
@@ -102,43 +101,39 @@
           "name": "ximpdf",
           "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/fd.js",
           "enabled": true,
-          "mandatory": false,
-          "data" : {
-                "disableUseOfAnnotationTools": true
-          }
+          "mandatory": false
         },
         {
-          "id": "se.infomaker.ximteaser",
-          "name": "ximteaser",
-          "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/fd.js",
-          "enabled": true,
-          "mandatory": true,
-          "data": {
-              "disableUseOfAnnotationTools": true,
-              "softcrop": true,
-              "bylinesearch": false,
-              "imageinfo": false,
-              "disablebylinesearch": true,
-              "crops": {
-                  "16:9": [
-                      16,
-                      9
-                  ],
-                  "1:1": [
-                      1,
-                      1
-                  ],
-                  "2.39:1": [
-                      2.39,
-                      1
-                  ]
-              },
-              "fields": [
-                  "text"
-              ],
-              "teaserPosition": "top"
-          }
-        },
+	        "id": "se.infomaker.ximteaser",
+	        "name": "ximteaser",
+	        "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/fd.js",
+	        "enabled": true,
+	        "mandatory": true,
+	        "data": {
+	            "softcrop": true,
+	            "bylinesearch": false,
+	            "imageinfo": false,
+	            "disablebylinesearch": true,
+	            "crops": {
+	                "16:9": [
+	                    16,
+	                    9
+	                ],
+	                "1:1": [
+	                    1,
+	                    1
+	                ],
+	                "2.39:1": [
+	                    2.39,
+	                    1
+	                ]
+	            },
+	            "fields": [
+	                "text"
+	            ],
+	            "teaserPosition": "top"
+	        }
+	      },
         {
         "id": "nl.fdmg.workflowstate",
         "name": "workflowstate",
@@ -611,10 +606,7 @@
           "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
           "style": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/style.css",
           "enabled": true,
-          "mandatory": true,
-          "data": {
-              "disableUseOfAnnotationTools": true
-            }
+          "mandatory": true
         },
         {
           "id": "nl.fdmg.numberframe",
@@ -622,10 +614,7 @@
           "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
           "style": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/style.css",
           "enabled": true,
-          "mandatory": true,
-          "data": {
-              "disableUseOfAnnotationTools": true
-            }
+          "mandatory": true
         },
         {
           "id": "nl.fdmg.stackframe",
@@ -633,10 +622,7 @@
           "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
           "style": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/style.css",
           "enabled": true,
-          "mandatory": true,
-          "data": {
-              "disableUseOfAnnotationTools": true
-            }
+          "mandatory": true
         },
         {
           "id": "nl.fdmg.relatedlink",
@@ -644,10 +630,7 @@
           "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
           "style": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/style.css",
           "enabled": true,
-          "mandatory": true,
-          "data": {
-              "disableUseOfAnnotationTools": true
-            }
+          "mandatory": true
         },
         {
             "id": "nl.fdmg.planneddate",
@@ -665,7 +648,6 @@
           "enabled": false,
           "mandatory": false,
           "data": {
-              "disableUseOfAnnotationTools": true,
               "fields": [
                   {
                       "name": "alignment",
@@ -701,8 +683,6 @@
                       1
                   ]
               },
-              "preventAutomaticLinkCreation": false,
-              "disableUseOfAnnotationTools": false
           }
         },
         {
@@ -748,7 +728,7 @@
             "id": "nl.fdmg.ximteaserstandin",
             "name": "ximteaserstandin",
             "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
-            "enabled": true,
+            "enabled": false,
             "mandatory": true
         },
         {

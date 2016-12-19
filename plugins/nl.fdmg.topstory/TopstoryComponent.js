@@ -7,7 +7,7 @@ class TopstoryComponent extends ArticleOptionComponent {
       name: "topstory",
       type: "fdmg/topstory",
       label: "Topstory",
-      hasInput: false
+      hasInput: true
     }, ...args)
   }
 }

@@ -57,8 +57,7 @@ class EpicComponent extends Component {
   }
 
   readEpic() {
-    const epic = api.newsItem.getLinkByType(this.name, this.type).pop()
-
+    const epic = api.newsItem.getLinkByType('epic', 'fdmg/epic').pop()
     if (epic) {
       return {
         id: epic['@id'],
@@ -111,7 +110,7 @@ class EpicComponent extends Component {
   }
 
   removeEpic() {
-    api.newsItem.getLinkByType(this.name, this.type)
+    api.newsItem.getLinkByType('epic', 'fdmg/epic')
       .forEach(l => {
         api.newsItem.removeLinkByUUIDAndRel(this.name, l['@uuid'], l['@rel'])
       })
