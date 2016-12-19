@@ -11,6 +11,13 @@
           "mandatory": true
         },
         {
+          "id": "se.infomaker.preamble",
+          "name": "preamble",
+          "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/fd.js",
+          "enabled": true,
+          "mandatory": true
+        },
+        {
           "id": "se.infomaker.subheadline",
           "name": "subheadline",
           "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/fd.js",
