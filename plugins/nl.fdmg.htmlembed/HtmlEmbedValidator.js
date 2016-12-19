@@ -2,6 +2,8 @@ import FDValidator from '../nl.fdmg.fdvalidator/FDValidator'
 
 class HtmlEmbedValidator extends FDValidator {
   validate() {
+    if (this.isShortArticle || this.isAdvertorial || this.isEvents || this.isRedirectArticle) return
+    
     if (this.submitted || this.published) {
       const htmlembeds = this.newsItem.querySelectorAll('idf > group object[type="fdmg/htmlembed"] text')
 

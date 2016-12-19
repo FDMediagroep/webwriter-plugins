@@ -2,6 +2,8 @@ import FDValidator from '../nl.fdmg.fdvalidator/FDValidator'
 
 class TextFrameValidator extends FDValidator {
   validate() {
+    if (this.isShortArticle || this.isAdvertorial || this.isEvents || this.isRedirectArticle) return
+    
     if (this.submitted || this.published) {
       if (this.submitted || this.published) {
         const textframes = Array.from(this.newsItem.querySelectorAll('object[type="fdmg/textframe"]'));

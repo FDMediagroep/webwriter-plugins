@@ -2,6 +2,8 @@ import FDValidator from '../nl.fdmg.fdvalidator/FDValidator'
 
 class XimImageValidator extends FDValidator {
   validate() {
+    if (this.isShortArticle || this.isAdvertorial || this.isEvents || this.isRedirectArticle) return
+
     if (this.submitted || this.published) {
       const images = this.newsItem.querySelectorAll('idf > group object[type="x-im/image"]')
 

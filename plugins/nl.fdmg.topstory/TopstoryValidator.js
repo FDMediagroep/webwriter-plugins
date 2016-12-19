@@ -2,6 +2,8 @@ import FDValidator from '../nl.fdmg.fdvalidator/FDValidator'
 
 class TopstoryValidator extends FDValidator {
   validate() {
+    if (this.isShortArticle || this.isAdvertorial || this.isEvents || this.isRedirectArticle) return
+    
     if (this.drafted || this.submitted || this.published) {
       const topstory = this.newsItem.querySelector('itemMeta > links link[type="fdmg/topstory"]')
 

@@ -2,6 +2,9 @@ import FDValidator from '../nl.fdmg.fdvalidator/FDValidator'
 
 class AuthorValidator extends FDValidator {
   validate() {
+    if (this.isShortArticle || this.isAdvertorial || this.isEvents || this.isRedirectArticle) return
+
+
     if (this.drafted || this.submitted || this.published) {
       const authors = this.newsItem.querySelectorAll('itemMeta > links link[type="x-im/author"]')
 
