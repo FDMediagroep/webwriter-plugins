@@ -69,7 +69,7 @@ class TextcountSelectorComponent extends Component {
     })
 
     this.extendState({
-      documentSize: this.readDocumentSize()
+      documentSize: this.readDocumentSize(this.state.availableSizes)
     })
   }
 }
