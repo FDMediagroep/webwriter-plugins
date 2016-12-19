@@ -127,7 +127,7 @@ class TextAnalyzerComponent extends Component {
       const el = $$('span')
         .setStyle('font-weight', 'bold')
         .append(
-          $$('span').setStyle('color', this.getStatusColor()).append(textLength.toString()),
+          $$('span').attr({id: 'textanalyzer-indicator'}).addClass(this.getStatusColor()).append(textLength.toString()),
           $$('span').append(' ' + this.getLabel('characters'))
         )
       this.props.popover.setStatusText(el)
@@ -155,11 +155,11 @@ class TextAnalyzerComponent extends Component {
     const min = target - margin
     const max = target + margin
 
-    if (target < 0) return '#000'
-    else if (actual === target) return '#decf00'
-    else if (actual < min) return '#000'
-    else if (actual > max) return '#F00'
-    else return '#00bf07'
+    if (target < 0) return 'under-range'
+    else if (actual === target) return 'perfect-range'
+    else if (actual < min) return 'under-range'
+    else if (actual > max) return 'over-range'
+    else return 'in-range'
   }
 
   dispose() {
