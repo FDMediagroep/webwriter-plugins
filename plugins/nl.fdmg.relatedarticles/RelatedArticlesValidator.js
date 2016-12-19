@@ -2,6 +2,8 @@ import FDValidator from '../nl.fdmg.fdvalidator/FDValidator'
 
 class RelatedArticlesValidator extends FDValidator {
   validate() {
+    if (this.isShortArticle || this.isAdvertorial || this.isEvents) return
+
     if (this.drafted || this.submitted || this.published) {
       const relatedarticles = this.newsItem.querySelectorAll('itemMeta > links link[type="fdmg/relatedarticle"]')
 
