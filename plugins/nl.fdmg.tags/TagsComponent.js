@@ -105,8 +105,8 @@ class TagsComponent extends Component {
   _saveTagListAsync() {
     const endpoint = api.getConfigValue(pluginId, 'updateEndpoint')
     const token = api.getConfigValue(pluginId, 'token')
-    const id = api.newsItem.getGuid()
-    const url = endpoint + id
+    // const id = api.newsItem.getGuid()
+    const url = endpoint
     const body = JSON.stringify(this.state.existingTags.map(tag => tag.name))
 
     fetch(url, {
