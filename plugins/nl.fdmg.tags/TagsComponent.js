@@ -39,7 +39,7 @@ class TagsComponent extends Component {
       .then(response => api.router.toJson(response))
       .then(response => response.map(item => {
         return {
-          rel: 'subject',
+          rel: 'tag',
           name: item.tag,  // Used by FD4
           title: item.tag, // Used by api.newsItem
           label: item.tag, // Used by SearchField
