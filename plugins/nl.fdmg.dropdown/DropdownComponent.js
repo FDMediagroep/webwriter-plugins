@@ -4,6 +4,7 @@ const _ = writer.lodash
 /*
   onSelect
   header
+  mandatoryIcon : 'fa-asterisk'
   items
   allowEmptySelection
   allowFreeInput
@@ -97,7 +98,7 @@ class DropdownComponent extends Component {
         $$('div')
           .addClass('header')
           .append(
-            $$('h2').append(this.props.header),
+            $$('h2').append(this.props.header, this.props.mandatoryIcon ? $$(FontAwesomeIcon, {icon: this.props.mandatoryIcon}) : ''),
             this.props.allowFreeInput ? toggleButton : ''
           ),
         $$('div')

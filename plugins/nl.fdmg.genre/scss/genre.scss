@@ -12,6 +12,14 @@
   h2 {
     font-size: 0.9em;
     font-weight: bold;
+    i {
+      font-size: 0.6em;
+      position: relative;
+      &:before {
+        position: absolute;
+        top: -15px;
+      }
+    }
   }
 }
 a.fdmg-box {
@@ -196,6 +204,10 @@ a.fdmg-box {
   }
 }
 
+.im-blocknode__container .header .fa {
+  color: #333;
+}
+
 // Infomaker teaser image height override
 .sc-image-display{
   >.se-image-container {
@@ -222,6 +234,7 @@ a.fdmg-box {
    max-height: 200px;
    overflow: hidden;
  }
+
 // teaser override
 div.x-im-teaser div.x-im-teaser-text::before {
     content: '\f1dd';

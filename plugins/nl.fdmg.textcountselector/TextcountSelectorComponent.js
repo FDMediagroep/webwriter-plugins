@@ -1,4 +1,4 @@
-import {Component} from 'substance'
+import {Component, FontAwesomeIcon} from 'substance'
 import {api, idGenerator} from 'writer'
 
 class TextcountSelectorComponent extends Component {
@@ -16,7 +16,7 @@ class TextcountSelectorComponent extends Component {
     return $$('div')
     .addClass('fdmg-sidebar')
       .append(
-        $$('h2').append(this.getLabel('Textcount size')),
+        $$('h2').append(this.getLabel('Textcount size'), $$(FontAwesomeIcon, {icon: 'fa-asterisk'})),
         $$('div').addClass('form-group')
         .append(
         $$('select')

@@ -1,4 +1,4 @@
-import {Component} from 'substance'
+import {Component, FontAwesomeIcon} from 'substance'
 import {api, NilUUID} from 'writer'
 import AuthorList from './AuthorListComponent'
 import SearchField from '../nl.fdmg.searchfield/SearchFieldComponent'
@@ -55,7 +55,6 @@ class AuthorComponent extends Component {
   }
 
   createAuthor(authorTemp) {
-    console.log(authorTemp)
     api.newsItem.addSimpleAuthor(this.name, authorTemp.label)
     this.reloadAuthors()
   }
@@ -86,7 +85,7 @@ class AuthorComponent extends Component {
     return $$('div')
       .addClass('authors')
       .append(
-        $$('h2').append(this.getLabel('Author')),
+        $$('h2').append(this.getLabel('Author'), $$(FontAwesomeIcon, {icon: 'fa-asterisk'}) ),
         $$(AuthorList, {
           existingAuthors: this.state.existingAuthors,
           removeAuthor: this.removeAuthor.bind(this)

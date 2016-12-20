@@ -29,6 +29,7 @@ class SectionComponent extends Component {
         $$(DropdownComponent, {
           onSelect: this.update.bind(this),
           header: this.getLabel('Section'),
+          mandatoryIcon: "fa-asterisk",
           items: items,
           allowFreeInput: false,
           allowEmptySelection: false,

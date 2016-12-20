@@ -11,7 +11,7 @@ class ArticleOptionComponent extends Component {
     this.type = plugin.type
     this.label = plugin.label
     this.hasinput = plugin.hasInput
-    this.placeholder = plugin.inputPlaceholder
+    this.placeholder = plugin.placeholder
     this.pluginId = plugin.pluginId
     this.items = plugin.items
     this.hasSelect = plugin.hasSelect
