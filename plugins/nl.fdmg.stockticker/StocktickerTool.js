@@ -13,4 +13,5 @@ class StocktickerTool extends Tool {
     api.editorSession.executeCommand('stockticker')
   }
 }
+
 export default StocktickerTool

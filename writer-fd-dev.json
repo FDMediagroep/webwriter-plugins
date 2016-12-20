@@ -71,7 +71,7 @@
           "enabled": true,
           "mandatory": true,
           "data": {
-              "softcrop": true,
+              "softcrop": false,
               "fields": [
                   {
                       "name": "caption",
@@ -119,26 +119,20 @@
 	        "data": {
 	            "softcrop": true,
 	            "bylinesearch": false,
+              "byline": false,
 	            "imageinfo": false,
-	            "disablebylinesearch": true,
 	            "crops": {
-	                "16:9": [
-	                    16,
-	                    9
-	                ],
-	                "1:1": [
-	                    1,
-	                    1
-	                ],
-	                "2.39:1": [
-	                    2.39,
-	                    1
-	                ]
+	                "16:9": [16,9],
+	                "1:1": [1,1],
+	                "2.39:1": [2.39,1]
 	            },
 	            "fields": [
 	                "text"
 	            ],
-	            "teaserPosition": "top"
+              "disableUseOfAnnotationToolsForFields": [
+                "text"
+              ],
+              "teaserPosition": "top"
 	        }
 	      },
         {
@@ -608,6 +602,17 @@
           "mandatory": false,
           "data": {
               "previewBaseUrl": "//preview.fd.nl/_/${id}/_"
+          }
+        },
+        {
+          "id": "nl.fdmg.stockticker",
+          "name": "stockticker",
+          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
+          "style": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/style.css",
+          "enabled": true,
+          "mandatory": true,
+          "data": {
+            "endpoint": "http://beurs.fd.nl/webservices/fd/quicksearch?query="
           }
         },
         {

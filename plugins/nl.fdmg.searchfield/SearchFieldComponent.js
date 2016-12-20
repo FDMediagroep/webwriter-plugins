@@ -10,6 +10,7 @@ import {clone, debounce} from 'lodash'
  * existingItems {array}
  * placeholderText {string} Placehold text inside input
  * createAllowed {bool} If creation of new elements is allowed
+ * autoFocus {bool} If the input should be focussed initially
  *
  * When selecting this.props.onSelect
  * @constructor
@@ -30,6 +31,15 @@ class SearchFieldComponent extends Component {
       items: [],
       currentSelectedIndex: 0,
       isSearching: false
+    }
+  }
+
+  didMount() {
+    if (this.props.autoFocus) {
+      // Use setTimeout because of reasons
+      setTimeout(() => {
+        this.refs.searchInput.focus()
+      }, 40)
     }
   }
 

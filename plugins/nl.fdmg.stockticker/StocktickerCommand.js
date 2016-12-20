@@ -1,38 +1,34 @@
 import {InsertInlineNodeCommand} from 'substance'
+import {api} from 'writer'
 
 class StocktickerCommand extends InsertInlineNodeCommand {
   getCommandState(params) {
     if (!params) return
 
-    var sel = params.selection
-    var newState = {
+    const sel = params.selection
+    const newState = {
       disabled: true,
       active: false
-    };
-
-    if (sel && !sel.isNull() && sel.isPropertySelection()) {
-      newState.disabled = false;
     }
 
-    return newState;
+    if (sel && !sel.isNull() && sel.isPropertySelection()) {
+      newState.disabled = false
+    }
+
+    return newState
   }
 
   createNodeData() {
     return {
       attributes: {'data-isin-code': 'US0378331005'},
-      targets: [],
+      target: [],
       label: '???',
       type: 'stockticker',
       dataType: 'fdmg/stockticker',
       isin: 'US0378331005',
-      exchange: ''
+      exchange: 'XNAS'
     }
-    // api.document.insertInlineNode('stockticker', {
-    //     type: 'stockticker',
-    //     dataType: 'fdmg/stockticker',
-    //     isin: '',
-    //     exchange: ''
-    // });
   }
 }
+
 export default StocktickerCommand

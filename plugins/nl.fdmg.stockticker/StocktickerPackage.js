@@ -1,23 +1,21 @@
 import './scss/stockticker.scss'
-
-import {registerPlugin} from 'writer'
-
 import StocktickerNode from './StocktickerNode'
-import StockertickerConverter from './StocktickerConverter'
-import StockertickerComponent from './StocktickerComponent'
+import StocktickerConverter from './StocktickerConverter'
+import StocktickerComponent from './StocktickerComponent'
 import StocktickerTool from './StocktickerTool'
 import StocktickerCommand from './StocktickerCommand'
 import StocktickerInlineTool from './StocktickerInlineTool'
 import StocktickerInlineCommand from './StocktickerInlineCommand'
 
-
-const stocktickerPackage = {
+export default {
   id: 'nl.fdmg.stockticker',
   name: 'stockticker',
+
   configure: (config) => {
+
     config.addNode(StocktickerNode)
-    config.addConverter('newsml', StockertickerConverter)
-    config.addComponent('stockticker', StockertickerComponent)
+    config.addConverter('newsml', StocktickerConverter)
+    config.addComponent('stockticker', StocktickerComponent)
 
     config.addContentMenuTopTool('stockticker', StocktickerTool)
     config.addCommand('stockticker', StocktickerCommand, {nodeType: 'stockticker'})
@@ -26,13 +24,3 @@ const stocktickerPackage = {
     config.addCommand('stocktickerinline', StocktickerInlineCommand, {nodeType: 'stockticker'})
   }
 }
-
-export default () => {
-  if (registerPlugin) {
-    registerPlugin(stocktickerPackage)
-  } else {
-    console.error("Register method not yet available");
-  }
-}
-
-

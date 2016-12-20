@@ -3,65 +3,21 @@ import {api} from 'writer'
 
 class StocktickerNode extends InlineNode {
 
-  fetchPayload(context, cb) {
+  fetchPayload(context, callback) {
 
-    /**
-     * "<quote>
-     <name>Apple Inc</name>
-     <shortname>Apple Inc</shortname>
-     <price>104,00</price>
-     <difference>-0,84%</difference>
-     <absdifference>-0,89</absdifference>
-     <currency>€</currency>
-     <date>2016-12-01T09:25:58+01:00</date>
-     <id>150176547</id>
-     <isin>US0378331005</isin>
-     <ticker>APC</ticker>
-     <exchange>FRAA</exchange>
-     <url>https://beurs.fd.nl/noteringen/150176547/apple-inc/koersen</url>
-     </quote>
-     * @type {number}
-     */
+    const endpoint = api.getConfigValue('nl.fdmg.stockticker', 'endpoint')
+    const url = endpoint + this.isin
 
+    return api.router.get('/api/resourceproxy', {url: url})
+      .then(response => response.text())
+      .then(xmlString => {
+        const parser = new DOMParser()
+        const xml = parser.parseFromString(xmlString, 'text/xml')
+        const quotes = Array.from(xml.querySelectorAll('quote'))
 
-    const serviceUrl = api.getConfigValue('nl.fdmg.stockticker', 'serviceurl');
-    const searchUrl = encodeURIComponent(serviceUrl + this.isin);
-    api.router.get('/api/resourceproxy', {url: searchUrl})
-    .then(response => response.text())
-    .then(xmlString => {
-      const parser = new DOMParser()
-      const xml = parser.parseFromString(xmlString, 'text/xml')
-      let quote = xml.querySelector('quote')
+        const quote = quotes.filter(q => q.querySelector('exchange').textContent === this.exchange).pop()
 
-      cb(null, {
-        name: quote.querySelector('name').textContent,
-        symbol: quote.querySelector('ticker').textContent,
-        isin: quote.querySelector('isin').textContent,
-        exchange: quote.querySelector('exchange').textContent,
-        currency: quote.querySelector('currency').textContent,
-        price: quote.querySelector('price').textContent,
-        difference: quote.querySelector('difference').textContent
-      })
-
-    })
-    .catch((error) => {
-      cb(error)
-    });
-  }
-
-  search(query, callback) {
-
-    const serviceUrl = api.getConfigValue('nl.fdmg.stockticker', 'serviceurl');
-    const searchUrl = encodeURIComponent(serviceUrl + query);
-    api.router.get('/api/resourceproxy', {url: searchUrl})
-    .then(response => response.text())
-    .then(xmlString => {
-      const parser = new DOMParser()
-      const xml = parser.parseFromString(xmlString, 'text/xml')
-      let quotes = xml.querySelectorAll('quote')
-
-      let results = Array.prototype.map.call(quotes, (quote) => {
-        return {
+        callback(null, {
           name: quote.querySelector('name').textContent,
           symbol: quote.querySelector('ticker').textContent,
           isin: quote.querySelector('isin').textContent,
@@ -69,16 +25,41 @@ class StocktickerNode extends InlineNode {
           currency: quote.querySelector('currency').textContent,
           price: quote.querySelector('price').textContent,
           difference: quote.querySelector('difference').textContent
-        }
+        })
       })
-      callback(null, results)
-    })
-    .catch((error) => {
-      callback(error)
-    });
+      .catch(err => {
+        callback(err)
+      })
+  }
+
+  search(query) {
+    const endpoint = api.getConfigValue('nl.fdmg.stockticker', 'endpoint')
+    const url = endpoint + query
+
+    return api.router.get('/api/resourceproxy', {url: url})
+      .then(response => response.text())
+      .then(xmlString => {
+        const parser = new DOMParser()
+        const xml = parser.parseFromString(xmlString, 'text/xml')
+        const quotes = xml.querySelectorAll('quote')
+
+        return Array.prototype.map.call(quotes, quote => {
+          return {
+            id: `${quote.querySelector('exchange').textContent}${quote.querySelector('isin').textContent}`,
+            label: `${quote.querySelector('name').textContent} (${quote.querySelector('exchange').textContent})`,
+
+            name: quote.querySelector('name').textContent,
+            symbol: quote.querySelector('ticker').textContent,
+            isin: quote.querySelector('isin').textContent,
+            exchange: quote.querySelector('exchange').textContent,
+            currency: quote.querySelector('currency').textContent,
+            price: quote.querySelector('price').textContent,
+            difference: quote.querySelector('difference').textContent
+          }
+        })
+      })
   }
 }
-
 
 StocktickerNode.isResource = true
 

@@ -31,6 +31,7 @@ import Preview from './nl.fdmg.preview/index';
 
 import TextcountSelector from './nl.fdmg.textcountselector/index';
 
+import Stockticker from './nl.fdmg.stockticker/index';
 import Quote from './nl.fdmg.quote/index';
 import NumberFrame from './nl.fdmg.numberframe/index';
 import StackFrame from './nl.fdmg.stackframe/index';
@@ -83,6 +84,7 @@ import HeadlineStandin from './nl.fdmg.headlinestandin/index';
 
   TextcountSelector();
 
+  Stockticker();
   Quote();
   NumberFrame();
   StackFrame();
