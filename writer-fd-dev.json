@@ -313,7 +313,7 @@
           "name": "fullwidth",
           "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
           "enabled": true,
-          "mandatory": true
+          "mandatory": false
         },
         {
           "id": "nl.fdmg.relatedarticles",
