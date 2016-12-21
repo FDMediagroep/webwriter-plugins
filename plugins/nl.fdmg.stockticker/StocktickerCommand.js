@@ -1,5 +1,4 @@
 import {InsertInlineNodeCommand} from 'substance'
-import {api} from 'writer'
 
 class StocktickerCommand extends InsertInlineNodeCommand {
   getCommandState(params) {
