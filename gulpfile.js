@@ -62,15 +62,15 @@ gulp.task('deploy', [], function() {
 /**
  * Deploy webwriter configuration to InfoMaker S3 bucket using environment variables.
  */
-gulp.task('dev-deploy-webwriter-config', ['dev-config-generate'], function() {
+gulp.task('dev-deploy-webwriter-config', [], function() {
   return s3ConfigDeploy('./dist/dev-writer-client.json');
 });
-gulp.task('acc-deploy-webwriter-config', ['acc-config-generate'], function() {
+gulp.task('acc-deploy-webwriter-config', [], function() {
   return s3ConfigDeploy('./dist/acc-writer-client.json');
 });
-gulp.task('prod-deploy-webwriter-config', ['prod-config-generate'], function() {
+gulp.task('prod-deploy-webwriter-config', [], function() {
   return s3ConfigDeploy('./dist/prod-writer-client.json');
 });
 
 // Default build development
-gulp.task('default', ['deploy']);
+gulp.task('default', ['dev-config-generate', 'acc-config-generate', 'prod-config-generate']);
