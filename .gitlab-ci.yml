@@ -25,7 +25,8 @@ build_dist:
 deploy_dev:
   stage: deploy
   script:
-    - gulp --aws_key=$AWS_ACCESS_KEY_ID --aws_secret=$AWS_SECRET_ACCESS_KEY --aws_bucket=$DEV_AWS_S3_BUCKET_NAME --aws_region=$AWS_REGION deploy
+    - gulp --aws_key=$INFOMAKER_AWS_ACCESS_KEY_ID --aws_secret=$INFOMAKER_AWS_SECRET_ACCESS_KEY --aws_bucket=$INFOMAKER_AWS_S3_BUCKET_NAME --aws_region=$AWS_REGION dev-deploy-webwriter-config
+    - gulp --aws_key=$DEV_AWS_ACCESS_KEY_ID --aws_secret=$DEV_AWS_SECRET_ACCESS_KEY --aws_bucket=$DEV_AWS_S3_BUCKET_NAME --aws_region=$AWS_REGION deploy
   environment: webwriter-dev-fd
   only:
     - develop
@@ -33,7 +34,8 @@ deploy_dev:
 deploy_acc:
   stage: deploy
   script:
-    - gulp --aws_key=$AWS_ACCESS_KEY_ID --aws_secret=$AWS_SECRET_ACCESS_KEY --aws_bucket=$ACC_AWS_S3_BUCKET_NAME --aws_region=$AWS_REGION deploy
+    - gulp --aws_key=$INFOMAKER_AWS_ACCESS_KEY_ID --aws_secret=$INFOMAKER_AWS_SECRET_ACCESS_KEY --aws_bucket=$INFOMAKER_AWS_S3_BUCKET_NAME --aws_region=$AWS_REGION acc-deploy-webwriter-config
+    - gulp --aws_key=$DEV_AWS_ACCESS_KEY_ID --aws_secret=$DEV_AWS_SECRET_ACCESS_KEY --aws_bucket=$ACC_AWS_S3_BUCKET_NAME --aws_region=$AWS_REGION deploy
   environment: webwriter-acc-fd
   when: manual
   only:
@@ -42,6 +44,7 @@ deploy_acc:
 deploy_prod:
   stage: deploy
   script:
+    - gulp --aws_key=$INFOMAKER_AWS_ACCESS_KEY_ID --aws_secret=$INFOMAKER_AWS_SECRET_ACCESS_KEY --aws_bucket=$INFOMAKER_AWS_S3_BUCKET_NAME --aws_region=$AWS_REGION prod-deploy-webwriter-config
     - gulp --aws_key=$PROD_AWS_ACCESS_KEY_ID --aws_secret=$PROD_AWS_SECRET_ACCESS_KEY --aws_bucket=$PROD_AWS_S3_BUCKET_NAME --aws_region=$AWS_REGION deploy
   environment: webwriter-fd
   when: manual

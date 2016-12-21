@@ -27,6 +27,8 @@
     "gulp": "^3.9.1",
     "gulp-gzip": "^1.4.0",
     "gulp-print": "^2.0.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-replace": "^0.5.4",
     "gulp-s3": "^0.3.0",
     "gulp-util": "^3.0.7",
     "node-sass": "^3.13.0",

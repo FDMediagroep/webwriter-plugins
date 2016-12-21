@@ -59,7 +59,7 @@
         {
           "id": "nl.fdmg.localfocus",
           "name": "localfocus",
-          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
+          "url": "http://localhost:3000/index.js",
           "enabled": true,
           "mandatory": true
         },
@@ -162,23 +162,23 @@
         {
           "id": "nl.fdmg.sidebartabs",
           "name": "sidebartabs",
-          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
+          "url": "http://localhost:3000/index.js",
           "enabled": true,
           "mandatory": true
         },
         {
           "id": "nl.fdmg.textcountselector",
           "name": "textcountselector",
-          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
-          "style": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/style.css",
+          "url": "http://localhost:3000/index.js",
+          "style": "http://localhost:3000/style.css",
           "enabled": true,
           "mandatory": true
         },
         {
           "id": "nl.fdmg.tags",
           "name": "tags",
-          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
-          "style": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/style.css",
+          "url": "http://localhost:3000/index.js",
+          "style": "http://localhost:3000/style.css",
           "enabled": true,
           "mandatory": true,
           "data": {
@@ -190,8 +190,8 @@
         {
           "id": "nl.fdmg.textanalyzer",
           "name": "textanalyzer",
-          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
-          "style": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/style.css",
+          "url": "http://localhost:3000/index.js",
+          "style": "http://localhost:3000/style.css",
           "enabled": true,
           "mandatory": true,
           "data": {
@@ -237,8 +237,8 @@
         {
           "id": "nl.fdmg.author",
           "name": "author",
-          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
-          "style": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/style.css",
+          "url": "http://localhost:3000/index.js",
+          "style": "http://localhost:3000/style.css",
           "enabled": true,
           "mandatory": true,
           "data": {
@@ -249,78 +249,78 @@
         {
           "id": "nl.fdmg.donotindex",
           "name": "donotindex",
-          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
+          "url": "http://localhost:3000/index.js",
           "enabled": true,
           "mandatory": true
         },
         {
           "id": "nl.fdmg.fdpersonal",
           "name": "fdpersonal",
-          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
+          "url": "http://localhost:3000/index.js",
           "enabled": true,
           "mandatory": true
         },
         {
           "id": "nl.fdmg.showrelatedarticles",
           "name": "showrelatedarticles",
-          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
+          "url": "http://localhost:3000/index.js",
           "enabled": true,
           "mandatory": true
         },
         {
           "id": "nl.fdmg.paywall",
           "name": "paywall",
-          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
+          "url": "http://localhost:3000/index.js",
           "enabled": true,
           "mandatory": true
         },
         {
           "id": "nl.fdmg.topstory",
           "name": "topstory",
-          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
+          "url": "http://localhost:3000/index.js",
           "enabled": true,
           "mandatory": true
         },
         {
           "id": "nl.fdmg.comments",
           "name": "comments",
-          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
+          "url": "http://localhost:3000/index.js",
           "enabled": true,
           "mandatory": true
         },
         {
           "id": "nl.fdmg.breakingarticle",
           "name": "breakingarticle",
-          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
+          "url": "http://localhost:3000/index.js",
           "enabled": true,
           "mandatory": true
         },
         {
           "id": "nl.fdmg.shortarticle",
           "name": "shortarticle",
-          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
+          "url": "http://localhost:3000/index.js",
           "enabled": true,
           "mandatory": true
         },
         {
           "id": "nl.fdmg.fullwidth",
           "name": "fullwidth",
-          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
+          "url": "http://localhost:3000/index.js",
           "enabled": true,
           "mandatory": false
         },
         {
           "id": "nl.fdmg.relatedarticles",
           "name": "relatedarticles",
-          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
-          "style": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/style.css",
+          "url": "http://localhost:3000/index.js",
+          "style": "http://localhost:3000/style.css",
           "enabled": true,
           "mandatory": true
         },
         {
           "id": "nl.fdmg.section",
           "name": "section",
-          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
+          "url": "http://localhost:3000/index.js",
           "enabled": true,
           "mandatory": true,
           "data": {
@@ -363,8 +363,8 @@
         {
           "id": "nl.fdmg.genre",
           "name": "genre",
-          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
-          "style": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/style.css",
+          "url": "http://localhost:3000/index.js",
+          "style": "http://localhost:3000/style.css",
           "enabled": true,
           "mandatory": true,
           "data": {
@@ -435,7 +435,7 @@
         {
           "id": "nl.fdmg.rubric",
           "name": "rubric",
-          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
+          "url": "http://localhost:3000/index.js",
           "enabled": true,
           "mandatory": true,
           "data": {
@@ -538,8 +538,8 @@
         {
           "id": "nl.fdmg.articletype",
           "name": "articletype",
-          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
-          "style": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/style.css",
+          "url": "http://localhost:3000/index.js",
+          "style": "http://localhost:3000/style.css",
           "enabled": true,
           "mandatory": true,
           "data": {
@@ -566,15 +566,15 @@
         {
           "id": "nl.fdmg.redirectlink",
           "name": "redirectlink",
-          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
-          "style": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/style.css",
+          "url": "http://localhost:3000/index.js",
+          "style": "http://localhost:3000/style.css",
           "enabled": true,
           "mandatory": true
         },
         {
           "id": "nl.fdmg.advertorial",
           "name": "advertorial",
-          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
+          "url": "http://localhost:3000/index.js",
           "enabled": true,
           "mandatory": true,
           "data": {
@@ -585,7 +585,7 @@
         {
           "id": "nl.fdmg.epic",
           "name": "epic",
-          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
+          "url": "http://localhost:3000/index.js",
           "enabled": true,
           "mandatory": true,
           "data": {
@@ -596,8 +596,8 @@
         {
           "id": "nl.fdmg.preview",
           "name": "preview",
-          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
-          "style": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/style.css",
+          "url": "http://localhost:3000/index.js",
+          "style": "http://localhost:3000/style.css",
           "enabled": false,
           "mandatory": false,
           "data": {
@@ -607,8 +607,8 @@
         {
           "id": "nl.fdmg.stockticker",
           "name": "stockticker",
-          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
-          "style": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/style.css",
+          "url": "http://localhost:3000/index.js",
+          "style": "http://localhost:3000/style.css",
           "enabled": true,
           "mandatory": true,
           "data": {
@@ -618,48 +618,48 @@
         {
           "id": "nl.fdmg.quote",
           "name": "quote",
-          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
-          "style": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/style.css",
+          "url": "http://localhost:3000/index.js",
+          "style": "http://localhost:3000/style.css",
           "enabled": true,
           "mandatory": true
         },
         {
           "id": "nl.fdmg.numberframe",
           "name": "numberframe",
-          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
-          "style": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/style.css",
+          "url": "http://localhost:3000/index.js",
+          "style": "http://localhost:3000/style.css",
           "enabled": true,
           "mandatory": true
         },
         {
           "id": "nl.fdmg.stackframe",
           "name": "stackframe",
-          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
-          "style": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/style.css",
+          "url": "http://localhost:3000/index.js",
+          "style": "http://localhost:3000/style.css",
           "enabled": true,
           "mandatory": true
         },
         {
           "id": "nl.fdmg.relatedlink",
           "name": "relatedlink",
-          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
-          "style": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/style.css",
+          "url": "http://localhost:3000/index.js",
+          "style": "http://localhost:3000/style.css",
           "enabled": true,
           "mandatory": true
         },
         {
             "id": "nl.fdmg.planneddate",
             "name": "planneddate",
-            "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
-            "style": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/style.css",
+            "url": "http://localhost:3000/index.js",
+            "style": "http://localhost:3000/style.css",
             "enabled": true,
             "mandatory": true
         },
         {
           "id": "nl.fdmg.textframe",
           "name": "textframe",
-          "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
-          "style": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/style.css",
+          "url": "http://localhost:3000/index.js",
+          "style": "http://localhost:3000/style.css",
           "enabled": false,
           "mandatory": false,
           "data": {
@@ -703,16 +703,16 @@
         {
             "id": "nl.fdmg.htmlembed",
             "name": "htmlembed",
-            "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
-            "style": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/style.css",
+            "url": "http://localhost:3000/index.js",
+            "style": "http://localhost:3000/style.css",
             "enabled": true,
             "mandatory": true
         },
         {
             "id": "nl.fdmg.imagesearch",
             "name": "imagesearch",
-            "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
-            "style": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/style.css",
+            "url": "http://localhost:3000/index.js",
+            "style": "http://localhost:3000/style.css",
             "enabled": true,
             "mandatory": true,
             "data": {
@@ -734,29 +734,29 @@
         {
             "id": "nl.fdmg.workinstructions",
             "name": "workinstructions",
-            "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
-            "style": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/style.css",
+            "url": "http://localhost:3000/index.js",
+            "style": "http://localhost:3000/style.css",
             "enabled": true,
             "mandatory": true
         },
         {
             "id": "nl.fdmg.ximteaserstandin",
             "name": "ximteaserstandin",
-            "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
+            "url": "http://localhost:3000/index.js",
             "enabled": false,
             "mandatory": true
         },
         {
             "id": "nl.fdmg.ximimagestandin",
             "name": "ximimagestandin",
-            "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
+            "url": "http://localhost:3000/index.js",
             "enabled": true,
             "mandatory": true
         },
         {
             "id": "nl.fdmg.headlinestandin",
             "name": "headlinestandin",
-            "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
+            "url": "http://localhost:3000/index.js",
             "enabled": true,
             "mandatory": true
         }
