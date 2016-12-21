@@ -22,11 +22,20 @@ build_dist:
     - node_modules/
     - dist/
 
-deploy_dev:
+deploy_dev_gulp:
   stage: deploy
   script:
-    - echo Uploading dist
-    - node s3Upload.js
+    - gulp --aws_key=$AWS_ACCESS_KEY_ID --aws_secret=$AWS_SECRET_ACCESS_KEY --aws_bucket=$DEV_AWS_S3_BUCKET_NAME --aws_region=$AWS_REGION deploy
   environment: webwriter-dev-fd
+  when: manual
   only:
-    - develop
+    - gulp-s3-deployment
+
+deploy_acc_gulp:
+  stage: deploy
+  script:
+    - gulp --aws_key=$AWS_ACCESS_KEY_ID --aws_secret=$AWS_SECRET_ACCESS_KEY --aws_bucket=$ACC_AWS_S3_BUCKET_NAME --aws_region=$AWS_REGION deploy
+  environment: webwriter-acc-fd
+  when: manual
+  only:
+    - gulp-s3-deployment
