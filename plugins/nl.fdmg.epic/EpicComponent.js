@@ -72,18 +72,18 @@ class EpicComponent extends Component {
     const endpoint = api.getConfigValue(pluginId, 'endpoint')
     const token = api.getConfigValue(pluginId, 'token')
 
-    // return api.router.get('/api/resourceproxy', {
-    //   url: endpoint + query,
-    //   headers: {
-    //     'x-access-token': `Bearer ${token}`
-    //   }
-    // })
-    return fetch(endpoint + query, {
-      method: 'GET',
+    return api.router.get('/api/resourceproxy', {
+      url: endpoint + query,
       headers: {
         'x-access-token': `Bearer ${token}`
       }
     })
+    // return fetch(endpoint + query, {
+    //   method: 'GET',
+    //   headers: {
+    //     'x-access-token': `Bearer ${token}`
+    //   }
+    // })
       .then(response => api.router.checkForOKStatus(response))
       .then(response => api.router.toJson(response))
       .then(response => response.map(epic => {
