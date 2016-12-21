@@ -18,21 +18,21 @@ var replace = require('gulp-replace');
 
 gulp.task('dev-config-generate', function(){
   gulp.src(['writer-fd-dev.json'])
-    .pipe(replace(/localhost:3000/g, 's3-eu-west-1.amazonaws.com/webwriter-dev-plugins'))
+    .pipe(replace(/http\:\/\/localhost:3000/g, 'https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins'))
     .pipe(rename('dev-writer-client.json'))
     .pipe(gulp.dest('./dist'));
 });
 
 gulp.task('acc-config-generate', function(){
   gulp.src(['writer-fd-dev.json'])
-    .pipe(replace(/localhost:3000/g, 's3-eu-west-1.amazonaws.com/webwriter-acc-plugins'))
+    .pipe(replace(/http\:\/\/localhost:3000/g, 'https://s3-eu-west-1.amazonaws.com/webwriter-acc-plugins'))
     .pipe(rename('acc-writer-client.json'))
     .pipe(gulp.dest('./dist'));
 });
 
 gulp.task('prod-config-generate', function(){
   gulp.src(['writer-fd-dev.json'])
-    .pipe(replace(/localhost:3000/g, 's3-eu-west-1.amazonaws.com/webwriter-plugins'))
+    .pipe(replace(/http\:\/\/localhost:3000/g, 'https://s3-eu-west-1.amazonaws.com/webwriter-plugins'))
     .pipe(rename('prod-writer-client.json'))
     .pipe(gulp.dest('./dist'));
 });
