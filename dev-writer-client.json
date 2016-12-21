@@ -122,9 +122,9 @@
               "byline": false,
 	            "imageinfo": false,
 	            "crops": {
-	                "16:9": [16,9],
-	                "1:1": [1,1],
-	                "2.39:1": [2.39,1]
+                  "NORMAL": [1.7778,1],
+                  "SQUARE": [1,1],
+                  "WIDE": [2.99765808,1]
 	            },
 	            "fields": [
 	                "text"
