@@ -78,12 +78,6 @@ class EpicComponent extends Component {
         'x-access-token': `Bearer ${token}`
       }
     })
-    // return fetch(endpoint + query, {
-    //   method: 'GET',
-    //   headers: {
-    //     'x-access-token': `Bearer ${token}`
-    //   }
-    // })
       .then(response => api.router.checkForOKStatus(response))
       .then(response => api.router.toJson(response))
       .then(response => response.map(epic => {

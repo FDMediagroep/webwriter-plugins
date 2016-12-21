@@ -10,14 +10,8 @@ class AdvertorialComponent extends ArticleOption {
     const endpoint = api.getConfigValue("nl.fdmg.advertorial", 'endpoint')
     const token = api.getConfigValue("nl.fdmg.advertorial", 'token')
 
-    // api.router.get('/api/resourceproxy', {
-    //   url: endpoint,
-    //   headers: {
-    //     'x-access-token': `Bearer ${token}`
-    //   }
-    // })
-    fetch(endpoint, {
-      method: 'GET',
+    api.router.get('/api/resourceproxy', {
+      url: endpoint,
       headers: {
         'x-access-token': `Bearer ${token}`
       }

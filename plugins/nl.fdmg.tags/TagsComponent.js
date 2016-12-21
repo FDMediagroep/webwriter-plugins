@@ -30,7 +30,13 @@ class TagsComponent extends Component {
     const token = api.getConfigValue(pluginId, 'token')
     const url = endpoint + query
 
-    return fetch(url, {
+    // return fetch(url, {
+    //   headers: {
+    //     'x-access-token': `Bearer ${token}`
+    //   }
+    // })
+    return api.router.get('/api/resourceproxy', {
+      url: url,
       headers: {
         'x-access-token': `Bearer ${token}`
       }
@@ -110,8 +116,16 @@ class TagsComponent extends Component {
     const url = endpoint + id
     const body = JSON.stringify(this.state.existingTags.map(tag => tag.name))
 
-    fetch(url, {
-      method: 'PUT',
+    // fetch(url, {
+    //   method: 'PUT',
+    //   body: body,
+    //   headers: {
+    //     'x-access-token': `Bearer ${token}`,
+    //     'Content-Type': 'application/json'
+    //   }
+    // })
+    api.router.get('/api/resourceproxy', {
+      url: url,
       body: body,
       headers: {
         'x-access-token': `Bearer ${token}`,
