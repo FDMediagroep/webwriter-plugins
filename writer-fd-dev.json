@@ -119,11 +119,11 @@
 	        "data": {
 	            "softcrop": true,
 	            "bylinesearch": false,
-              "byline": false,
+                "byline": false,
 	            "imageinfo": false,
 	            "crops": {
-	                "NORMAL": [1.7778,1],
 	                "SQUARE": [1,1],
+	                "LANDSCAPE": [1.7778,1],
 	                "WIDE": [2.99765808,1]
 	            },
 	            "fields": [
