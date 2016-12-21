@@ -103,4 +103,4 @@ import HeadlineStandin from './nl.fdmg.headlinestandin/index';
   XimTeaserStandin();
   XimImageStandin();
   HeadlineStandin();
-})()
+})();
