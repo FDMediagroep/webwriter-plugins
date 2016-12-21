@@ -4,11 +4,29 @@ cache:
   paths:
     - node_modules/
 
-build:
+stages:
+  - build
+  - deploy
+
+build_dist:
+  stage: build
   script:
     - echo Installing dependencies
     - yarn install
     - echo Running build for production
     - npm run build
+  artifacts:
+    name: "${CI_BUILD_ID}_${CI_PROJECT_NAME}_${CI_BUILD_REF_NAME}"
+    expire_in: 1 week
+    paths:
+    - node_modules/
+    - dist/
+
+deploy_dev:
+  stage: deploy
+  script:
     - echo Uploading dist
     - node s3Upload.js
+  environment: webwriter-dev-fd
+  only:
+    - develop
