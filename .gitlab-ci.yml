@@ -22,20 +22,28 @@ build_dist:
     - node_modules/
     - dist/
 
-deploy_dev_gulp:
+deploy_dev:
   stage: deploy
   script:
     - gulp --aws_key=$AWS_ACCESS_KEY_ID --aws_secret=$AWS_SECRET_ACCESS_KEY --aws_bucket=$DEV_AWS_S3_BUCKET_NAME --aws_region=$AWS_REGION deploy
   environment: webwriter-dev-fd
-  when: manual
   only:
-    - gulp-s3-deployment
+    - develop
 
-deploy_acc_gulp:
+deploy_acc:
   stage: deploy
   script:
     - gulp --aws_key=$AWS_ACCESS_KEY_ID --aws_secret=$AWS_SECRET_ACCESS_KEY --aws_bucket=$ACC_AWS_S3_BUCKET_NAME --aws_region=$AWS_REGION deploy
   environment: webwriter-acc-fd
   when: manual
   only:
-    - gulp-s3-deployment
+    - master
+
+deploy_prod:
+  stage: deploy
+  script:
+    - gulp --aws_key=$PROD_AWS_ACCESS_KEY_ID --aws_secret=$PROD_AWS_SECRET_ACCESS_KEY --aws_bucket=$PROD_AWS_S3_BUCKET_NAME --aws_region=$AWS_REGION deploy
+  environment: webwriter-fd
+  when: manual
+  only:
+    - master
