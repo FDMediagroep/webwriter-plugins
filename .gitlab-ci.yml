@@ -37,7 +37,7 @@ deploy_acc:
   environment: webwriter-acc-fd
   when: manual
   only:
-    - master
+    - develop
 
 deploy_prod:
   stage: deploy
@@ -46,4 +46,4 @@ deploy_prod:
   environment: webwriter-fd
   when: manual
   only:
-    - master
+    - develop
