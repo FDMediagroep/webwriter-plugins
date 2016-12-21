@@ -1,4 +1,4 @@
-image: mkenney/npm:debian
+image: hyperized/ansible-docker-image:ubuntu1404-frontend
 
 cache:
   paths:
@@ -6,8 +6,6 @@ cache:
 
 build:
   script:
-    - echo Installing yarn
-    - npm install yarn
     - echo Installing dependencies
     - yarn install
     - echo Running build for production
