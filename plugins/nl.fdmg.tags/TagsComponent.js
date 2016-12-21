@@ -124,7 +124,7 @@ class TagsComponent extends Component {
     //     'Content-Type': 'application/json'
     //   }
     // })
-    api.router.get('/api/resourceproxy', {
+    api.router.put('/api/resourceproxy', {
       url: url,
       body: body,
       headers: {
