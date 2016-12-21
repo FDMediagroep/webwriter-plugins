@@ -145,9 +145,6 @@ class ImageSearchDialog extends Component {
   insertImageById(imageId) {
     this._retrieveDownloadUrl(imageId)
       .then((url) => {
-
-
-        // FIXME Actually insert image
         api.editorSession.executeCommand('ximimage-insert-image-url', {
           imageUrl: url
         })
