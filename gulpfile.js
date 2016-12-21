@@ -6,6 +6,13 @@ var gutil = require('gulp-util');
 var gzip = require("gulp-gzip");
 var print = require('gulp-print');
 var s3 = require("gulp-s3");
+var s3config = {
+  "key": gutil.env.aws_key,
+  "secret": gutil.env.aws_secret,
+  "bucket": gutil.env.aws_bucket,
+  "region": gutil.env.aws_region
+};
+
 var rename = require('gulp-rename');
 var replace = require('gulp-replace');
 
@@ -30,34 +37,23 @@ gulp.task('prod-config-generate', function(){
     .pipe(gulp.dest('./dist'));
 });
 
-function s3ConfigDeploy(configFile) {
-  var config = {
-    "key": gutil.env.aws_key,
-    "secret": gutil.env.aws_secret,
-    "bucket": gutil.env.aws_bucket,
-    "region": gutil.env.aws_region
-  };
-  var options = { headers: {'x-amz-acl': 'bucket-owner-read'} };
-  return gulp.src(configFile)
-    .pipe(print())
-    .pipe(s3(config, options));
-}
-
 /**
  * Deploy to S3 using environment variables.
  */
 gulp.task('deploy', [], function() {
-  var config = {
-    "key": gutil.env.aws_key,
-    "secret": gutil.env.aws_secret,
-    "bucket": gutil.env.aws_bucket,
-    "region": gutil.env.aws_region
-  };
   return gulp.src('./dist/**')
     .pipe(print())
     .pipe(gzip())
-    .pipe(s3(config, { gzippedOnly: true }));
+    .pipe(s3(s3config, { gzippedOnly: true }));
 });
+
+
+function s3ConfigDeploy(configFile) {
+  var options = { headers: {'x-amz-acl': 'bucket-owner-read'} };
+  return gulp.src(configFile)
+    .pipe(print())
+    .pipe(s3(s3config, options));
+}
 
 /**
  * Deploy webwriter configuration to InfoMaker S3 bucket using environment variables.
