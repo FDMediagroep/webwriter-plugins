@@ -22,7 +22,7 @@ export default class StackFrameComponent extends Component {
       ]),
       heading,
       content
-    ]).addClass('fdmg-stackframe fdmg-box').attr('contentEditable', false);
+    ]).addClass('fdmg-stackframe fdmg-box im-blocknode__container').attr('contentEditable', false);
 
     this.context.api.events.on('publish-button', 'document:startsaving', () => this.updateStackFrame());
 

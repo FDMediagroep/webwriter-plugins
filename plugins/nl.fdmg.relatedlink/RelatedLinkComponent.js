@@ -30,7 +30,7 @@ export default class RelatedLinkComponent extends Component {
       prefix,
       leadText,
       relatedUrl
-    ]).addClass('fdmg-relatedlink fdmg-box').attr('contentEditable', false);
+    ]).addClass('fdmg-relatedlink fdmg-box im-blocknode__container').attr('contentEditable', false);
 
     this.context.api.events.on('publish-button', 'document:startsaving', () => this.updateRelatedLink());
 

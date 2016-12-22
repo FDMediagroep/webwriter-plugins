@@ -22,7 +22,7 @@ export default class NumberFrameComponent extends Component {
       ]),
       heading,
       content
-    ]).addClass('fdmg-numberframe fdmg-box').attr('contentEditable', false);
+    ]).addClass('fdmg-numberframe fdmg-box im-blocknode__container').attr('contentEditable', false);
 
     this.context.api.events.on('publish-button', 'document:startsaving', () => this.updateNumberFrame());
 
