@@ -16,9 +16,15 @@ var s3config = {
 var rename = require('gulp-rename');
 var replace = require('gulp-replace');
 
+gulp.task('local-config-generate', function(){
+  gulp.src(['writer-fd-dev.json'])
+    .pipe(gulp.dest('../NPWriter/server/config'));
+});
+
 gulp.task('dev-config-generate', function(){
   gulp.src(['writer-fd-dev.json'])
     .pipe(replace(/http\:\/\/localhost:3000/g, 'https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins'))
+    .pipe(replace(/30eae1c0-c640-4053-b114-05c64e28bbe7/g, '1156201'))
     .pipe(rename('dev-writer-client.json'))
     .pipe(gulp.dest('./dist'));
 });
@@ -26,6 +32,7 @@ gulp.task('dev-config-generate', function(){
 gulp.task('acc-config-generate', function(){
   gulp.src(['writer-fd-dev.json'])
     .pipe(replace(/http\:\/\/localhost:3000/g, 'https://s3-eu-west-1.amazonaws.com/webwriter-acc-plugins'))
+    .pipe(replace(/30eae1c0-c640-4053-b114-05c64e28bbe7/g, '1156201'))
     .pipe(rename('acc-writer-client.json'))
     .pipe(gulp.dest('./dist'));
 });
@@ -33,6 +40,7 @@ gulp.task('acc-config-generate', function(){
 gulp.task('prod-config-generate', function(){
   gulp.src(['writer-fd-dev.json'])
     .pipe(replace(/http\:\/\/localhost:3000/g, 'https://s3-eu-west-1.amazonaws.com/webwriter-plugins'))
+    .pipe(replace(/30eae1c0-c640-4053-b114-05c64e28bbe7/g, '1156201'))
     .pipe(rename('prod-writer-client.json'))
     .pipe(gulp.dest('./dist'));
 });
