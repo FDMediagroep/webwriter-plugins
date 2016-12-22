@@ -213,12 +213,12 @@ a.fdmg-box {
   >.se-image-container {
     >img {
       max-height: 460px;
+      width: auto;
       display: block;
       margin: 0 auto;
     }
   }
 }
-
 
 // Infomaker textarea modal override
 .modal {
