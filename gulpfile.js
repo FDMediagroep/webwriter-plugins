@@ -22,6 +22,9 @@ gulp.task('local-config-generate', function(){
 });
 
 gulp.task('dev-config-generate', function(){
+  /**
+   * Replace newsItemTemplateId 30eae1c0-c640-4053-b114-05c64e28bbe7 with correct ID on dev.
+   */
   gulp.src(['writer-fd-dev.json'])
     .pipe(replace(/http\:\/\/localhost:3000/g, 'https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins'))
     .pipe(replace(/30eae1c0-c640-4053-b114-05c64e28bbe7/g, '1156201'))
@@ -30,6 +33,10 @@ gulp.task('dev-config-generate', function(){
 });
 
 gulp.task('acc-config-generate', function(){
+  /**
+   * Replace newsItemTemplateId 30eae1c0-c640-4053-b114-05c64e28bbe7 with correct ID on dev.
+   * TODO: probably need another ID on acc
+   */
   gulp.src(['writer-fd-dev.json'])
     .pipe(replace(/http\:\/\/localhost:3000/g, 'https://s3-eu-west-1.amazonaws.com/webwriter-acc-plugins'))
     .pipe(replace(/30eae1c0-c640-4053-b114-05c64e28bbe7/g, '1156201'))
@@ -38,6 +45,10 @@ gulp.task('acc-config-generate', function(){
 });
 
 gulp.task('prod-config-generate', function(){
+  /**
+   * Replace newsItemTemplateId 30eae1c0-c640-4053-b114-05c64e28bbe7 with correct ID on dev.
+   * TODO: probably need another ID on prod
+   */
   gulp.src(['writer-fd-dev.json'])
     .pipe(replace(/http\:\/\/localhost:3000/g, 'https://s3-eu-west-1.amazonaws.com/webwriter-plugins'))
     .pipe(replace(/30eae1c0-c640-4053-b114-05c64e28bbe7/g, '1156201'))
