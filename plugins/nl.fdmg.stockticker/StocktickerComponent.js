@@ -1,6 +1,6 @@
-import {AnnotationComponent} from 'substance'
+import {AnnotationComponent} from 'substance';
 
-class StocktickerComponent extends AnnotationComponent {
+export default class StocktickerComponent extends AnnotationComponent {
 
   getInitialState() {
     return {
@@ -12,18 +12,17 @@ class StocktickerComponent extends AnnotationComponent {
   }
 
   didMount(...args) {
-    super.didMount(...args)
+    super.didMount(...args);
 
-    this.context.editorSession.onRender('document', this._onDocumentChange, this, {path: [this.props.node.id]})
+    this.context.editorSession.onRender('document', this._onDocumentChange, this, {path: [this.props.node.id]});
 
-    this.context.api.document.triggerFetchResourceNode(this.props.node)
+    this.context.api.document.triggerFetchResourceNode(this.props.node);
   }
 
   render($$) {
-    const el = $$('span')
-      .addClass('sc-stockticker')
+    const el = $$('span').addClass('sc-stockticker');
 
-    const node = this.props.node
+    const node = this.props.node;
 
     if (node.symbol) {
       el
@@ -37,24 +36,22 @@ class StocktickerComponent extends AnnotationComponent {
           $$('span')
             .addClass(parseFloat(node.difference) >= 0 ? 'up' : 'down')
             .append(`${node.name} ${node.currency} ${node.price} (${node.difference})`)
-        )
+        );
     } else {
-      el.append($$('span').append('loading...'))
+      el.append($$('span').append('loading...'));
     }
 
-    return el
+    return el;
   }
 
   dispose(...args) {
-    super.dispose(...args)
-    this.context.editorSession.off(this)
+    super.dispose(...args);
+    this.context.editorSession.off(this);
   }
 
   _onDocumentChange(change) {
     if (change.isAffected(this.props.node.id)) {
-      this.rerender()
+      this.rerender();
     }
   }
 }
-
-export default StocktickerComponent
