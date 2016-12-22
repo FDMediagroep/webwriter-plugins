@@ -4,7 +4,8 @@
 1. Clone FDMediagroep `webwriter-plugins` A.K.A. `NPWriterDevKit`: `https://gitlab.fdmg.org/devops/webwriter-plugins`
 1. Use branch `develop` on `webwriter-plugins`
 1. Copy `webwriter-plugins/writer-fd-dev.json` to `NPWriter/server/config` manually or...
-  1. Run `gulp local-config-generate` in the `webwriter-plugins` to have it done for your.
+  * Run `gulp local-config-generate` in the `webwriter-plugins` to have it done for your.
+  * However it does expect both `NPWriter` and `webwriter-plugins` folder to be on the same level.
 1. Getting started guide: https://infomaker.github.io/NPWriterDevelopers/getting-started/
 1. Install NodeJS 6.9.1 or later
   1. For Windows: Install Visual Studio 2013 Express first
