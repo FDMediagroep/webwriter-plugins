@@ -28,7 +28,7 @@ export default class QuoteComponent extends Component {
       ]),
       message,
       author
-    ]).addClass('fdmg-quote fdmg-box').attr('contentEditable', false);
+    ]).addClass('fdmg-quote fdmg-box im-blocknode__container').attr('contentEditable', false);
 
     this.context.api.events.on('publish-button', 'document:startsaving', () => {
       this.updateQuote();
