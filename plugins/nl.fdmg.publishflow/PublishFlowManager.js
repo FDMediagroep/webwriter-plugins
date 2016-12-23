@@ -4,12 +4,13 @@ class PublishFlowConfiguration {
     this.pluginId = pluginId
 
     this.status = {
+      'allowed': [
+        'imext:done',
+        'stat:usable',
+        'stat:canceled',
+        'stat:withheld'
+      ],
       'imext:draft': {
-        'allowed': [
-          'imext:done',
-          'stat:usable',
-          'stat:withheld'
-        ]
       },
       'imext:done': {
         'allowed': [
