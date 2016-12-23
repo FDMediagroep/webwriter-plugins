@@ -160,17 +160,6 @@ class PublishFlowComponent extends Component {
         ])
         break
 
-      case 'fdmg:deleted':
-        el.append([
-          $$('h2').append(
-            this.getLabel('Publish article again?')
-          ),
-          $$('p').append(
-            this.getLabel('Article has been deleted and is no longer published')
-          )
-        ])
-        break
-
       default:
         el.append([
           $$('h2').append(
@@ -222,10 +211,8 @@ class PublishFlowComponent extends Component {
         case 'stat:canceled':
           actionsEl.append(this.renderActionCanceled($$))
           break
-        case 'fdmg:deleted':
-          actionsEl.append(this.renderActionDeleted($$))
-          break
         default:
+          console.log('default', action);
       }
     })
 
@@ -282,28 +269,18 @@ class PublishFlowComponent extends Component {
           this.refs['pfc-withheld'].addClass('active')
         }
       })
-    )
+    );
 
-    let fromVal = '',
-      toVal = '';
+    let fromVal = '';
 
     if (this.state.pubStart) {
       fromVal = moment(this.state.pubStart.value).format('YYYY-MM-DDTHH:mm')
-    }
-
-    if (this.state.pubStop) {
-      toVal = moment(this.state.pubStop.value).format('YYYY-MM-DDTHH:mm')
     }
 
     el.append(
       $$('div')
         .addClass('sc-np-publish-action-section-content sc-np-date-time')
         .append([
-          $$('label')
-            .attr('for', 'pfc-lbl-withheld-from')
-            .append(
-              this.getLabel('From')
-            ),
           $$('input')
             .attr({
               id: 'pfc-lbl-withheld-from',
@@ -313,19 +290,6 @@ class PublishFlowComponent extends Component {
             .addClass('form-control')
             .ref('pfc-lbl-withheld-from')
             .val(fromVal),
-          $$('label')
-            .attr('for', 'pfc-lbl-withheld-to')
-            .append(
-              this.getLabel('To')
-            ),
-          $$('input')
-            .attr({
-              id: 'pfc-lbl-withheld-to',
-              type: 'datetime-local'
-            })
-            .addClass('form-control')
-            .ref('pfc-lbl-withheld-to')
-            .val(toVal),
           $$('div')
             .addClass('sc-np-publish-action-section-content-actions')
             .append(
@@ -337,12 +301,10 @@ class PublishFlowComponent extends Component {
             )
             .on('click', () => {
               try {
-                var fromVal = this.refs['pfc-lbl-withheld-from'].val(),
-                  toVal = this.refs['pfc-lbl-withheld-to'].val()
+                var fromVal = this.refs['pfc-lbl-withheld-from'].val()
                 this._save(() => {
                   this.publishFlowMgr.setToWithheld(
-                    fromVal,
-                    toVal
+                    fromVal
                   )
                 })
               }
@@ -400,20 +362,6 @@ class PublishFlowComponent extends Component {
     .on('click', () => {
       this._save(() => {
         this.publishFlowMgr.setToCanceled()
-      })
-    })
-  }
-
-  renderActionDeleted($$) {
-    return $$('a').append([
-      $$('span').append(
-        $$('i').addClass('fa fa-ban'),
-        this.getLabel('Unpublish article')
-      )
-    ])
-    .on('click', () => {
-      this._save(() => {
-        this.publishFlowMgr.setToDeleted()
       })
     })
   }

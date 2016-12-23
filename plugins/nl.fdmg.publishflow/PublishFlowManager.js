@@ -15,7 +15,6 @@ class PublishFlowConfiguration {
         'allowed': [
           'stat:usable',
           'imext:draft',
-          'fdmg:deleted',
           'stat:withheld'
         ]
       },
@@ -24,7 +23,6 @@ class PublishFlowConfiguration {
           'stat:withheld',
           'stat:usable',
           'stat:canceled',
-          'fdmg:deleted',
           'imext:draft'
         ]
       },
@@ -32,7 +30,6 @@ class PublishFlowConfiguration {
         'allowed': [
           'stat:usable',
           'stat:canceled',
-          'fdmg:deleted'
         ]
       },
       'stat:canceled': {
@@ -41,21 +38,13 @@ class PublishFlowConfiguration {
           'imext:done',
           'stat:usable',
           'stat:withheld',
-          'fdmg:deleted'
         ]
-      },
-      'fdmg:deleted': {
-        'allowed': [
-          'imext:draft',
-          'imext:done',
-          'stat:usable',
-          'stat:withheld'
-        ]
-      },
+      }
     }
   }
 
   getAllowedActions(status) {
+    console.log(status, 'allowed?');
     if (this.status[status]) {
       return this.status[status].allowed
     }
@@ -71,9 +60,8 @@ class PublishFlowConfiguration {
     this.setStatus('imext:done', null, null)
   }
 
-  setToWithheld(from, to) {
-    let fromObj = moment(from),
-      toObj = moment(to)
+  setToWithheld(from) {
+    let fromObj = moment(from);
 
     if (!fromObj.isValid()) {
       throw new Error('Invalid from date and time')
@@ -81,8 +69,7 @@ class PublishFlowConfiguration {
 
     this.setStatus(
       'stat:withheld',
-      {value: fromObj.format('YYYY-MM-DDTHH:mm:ssZ')},
-      !toObj.isValid() ? null : {value: toObj.format('YYYY-MM-DDTHH:mm:ssZ')}
+      {value: fromObj.format('YYYY-MM-DDTHH:mm:ssZ')}
     )
   }
 
@@ -98,11 +85,7 @@ class PublishFlowConfiguration {
     this.setStatus('stat:canceled', null, null)
   }
 
-  setToDeleted() {
-    this.setStatus('fdmg:deleted', null, null)
-  }
-
-  setStatus(qcode, pubStart, pubStop) {
+  setStatus(qcode, pubStart) {
     if (qcode) {
       api.newsItem.setPubStatus(
         this.pluginId,
@@ -117,13 +100,6 @@ class PublishFlowConfiguration {
     }
     else if (typeof pubStart !== 'undefined') {
       api.newsItem.setPubStart(this.pluginId, pubStart)
-    }
-
-    if (pubStop === null) {
-      api.newsItem.removePubStop(this.pluginId)
-    }
-    else if (typeof pubStop !== 'undefined') {
-      api.newsItem.setPubStop(this.pluginId, pubStop)
     }
 
   }
