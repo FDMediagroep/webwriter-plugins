@@ -48,6 +48,7 @@ export default {
     // Import data
     const dataEl = el.find('data')
     node.crops = {}
+    node.alignment = ''
 
     if (dataEl) {
       dataEl.children.forEach(function(child) {
@@ -101,6 +102,10 @@ export default {
           if (crops.crops.length) {
             node.crops = crops;
           }
+        }
+
+        if (child.tagName === 'alignment') {
+          node.alignment = child.text()
         }
       });
     }
@@ -175,6 +180,12 @@ export default {
       }
 
       data.append(crops)
+    }
+
+    if (node.alignment) {
+      data.append($$('alignment').append(
+        converter.annotatedText([node.id, 'alignment'])
+      ))
     }
 
     el.append(data);
