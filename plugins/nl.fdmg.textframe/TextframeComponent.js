@@ -30,6 +30,7 @@ class TextframeComponent extends Component {
     const node = this.props.node
     const el = $$('div').addClass('sc-textframe im-blocknode__container')
     const textframeFields = api.getConfigValue('nl.fdmg.textframe', 'fields', [])
+    const alignments = api.getConfigValue('nl.fdmg.textframe', 'alignments', [])
 
     el.append(this.renderHeader($$))
 
@@ -44,6 +45,10 @@ class TextframeComponent extends Component {
       )
     }
     el.append(this.renderContent($$, textframeFields))
+
+    if (alignments.length > 0) {
+      el.append(this.renderAlignments($$, alignments))
+    }
 
     return el
   }
@@ -113,6 +118,43 @@ class TextframeComponent extends Component {
     }
 
     return content
+  }
+
+  renderAlignments($$, alignments) {
+    const alignmentContainer = $$('div')
+      .addClass('x-im-image-dynamic x-im-image-alignment')
+      .attr('contenteditable', 'false')
+
+    var currentAlignment = null
+
+    if (!this.props.node.alignment) {
+      currentAlignment = alignments[0].name
+      this.props.node.setAlignment(currentAlignment)
+    } else {
+      currentAlignment = this.props.node.alignment
+    }
+
+    alignments.forEach(alignment => {
+      let selectedClass = (currentAlignment === alignment.name) ? ' selected' : ''
+
+      alignmentContainer.append(
+        $$('em')
+          .addClass('fa ' + alignment.icon + selectedClass)
+          .attr({
+            contenteditable: 'false',
+            title: alignment.label
+          })
+          .on('click', () => {
+            if (alignment.name !== this.props.node.alignment) {
+              this.props.node.setAlignment(alignment.name)
+              this.rerender()
+            }
+            return false
+          })
+      )
+    })
+
+    return alignmentContainer
   }
 
   /**

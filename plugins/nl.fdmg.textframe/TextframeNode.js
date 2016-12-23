@@ -21,6 +21,14 @@ class TextframeNode extends BlockNode {
     })
   }
 
+  setAlignment(alignment) {
+
+    console.log('>>', alignment)
+    api.editorSession.transaction((tx) => {
+      tx.set([this.id, 'alignment'], alignment)
+    }, {history: false})
+  }
+
   handleDOMDocument(newsItemDOMDocument) {
     const dom = newsItemDOMDocument.documentElement,
       uuid = dom.getAttribute('guid'),
@@ -47,6 +55,7 @@ TextframeNode.define({
   title: {type: 'string', optional: false, default: '' },
   subject: {type: 'string', optional: false, default: '' },
   text: {type: 'string', optional: false, default: '' },
+  alignment: {type: 'string', optional: false, default: ''},
 
   // ATTENTION: progress should not be part of the model
   // progress: {type: 'number', default: 100 },

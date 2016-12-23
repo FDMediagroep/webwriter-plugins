@@ -146,12 +146,18 @@
             "fields": [
               "text"
             ],
-            "softcrop": true,
-            "crops": {
-              "NORMAL": [1.7778, 1],
-              "SQUARE": [1,1],
-              "WIDE": [2.99765808, 1]
-            }
+            "alignments": [
+              {
+                "name": "right",
+                "label": "Right",
+                "icon": "fa-align-right"
+              },
+              {
+                "name": "block",
+                "label": "Block",
+                "icon": "fa-align-justify"
+              }
+            ]
           }
         },
         {
