@@ -5,6 +5,7 @@ import TextframeNode from './TextframeNode'
 import TextframeTool from './TextframeTool'
 import TextframeCommand from './TextframeCommand'
 import TextframeInsertImageCommand from './TextframeInsertImageCommand'
+import TextframeValidator from './TextframeValidator'
 
 export default {
   name: 'textframe',
@@ -38,5 +39,7 @@ export default {
     config.addLabel('Upload image', {
       nl: 'Afbeelding uploaden'
     })
+
+    config.addValidator(TextframeValidator)
   }
 }
