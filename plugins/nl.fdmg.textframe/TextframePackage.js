@@ -40,6 +40,10 @@ export default {
       nl: 'Afbeelding uploaden'
     })
 
+    config.addLabel('Missing textframe text', {
+      nl: 'Tekst ontbreekt in tekstkader'
+    })
+
     config.addValidator(TextframeValidator)
   }
 }

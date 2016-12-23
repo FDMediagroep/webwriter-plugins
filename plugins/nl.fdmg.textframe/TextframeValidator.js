@@ -10,7 +10,7 @@ class TextframeValidator extends FDValidator {
         .forEach((tf, idx) => {
           const text = tf.querySelector('text')
           if (!text || text.textContent.trim() === '') {
-            this.addError(this.getLabel('Missing textframe text') + `( ${idx + 1} )`)
+            this.addError(this.getLabel('Missing textframe text') + ` ( ${idx + 1} )`)
           }
         })
     }
