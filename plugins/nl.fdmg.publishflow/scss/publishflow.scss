@@ -181,3 +181,15 @@
         }
     }
 }
+
+.sc-np-bar {
+  .sc-np-btn-group {
+    .fa.fa-ellipsis-h {
+      &:before {
+        content: 'Status';
+        font-family: sans-serif;
+      }
+      width: auto;
+    }
+  }
+}
