@@ -44,7 +44,6 @@ class PublishFlowConfiguration {
   }
 
   getAllowedActions(status) {
-    console.log(status, 'allowed?');
     if (this.status[status]) {
       return this.status[status].allowed
     }
