@@ -221,9 +221,10 @@
               "marginPct": 10,
               "sizes": [
                   {
-                      "size": "UNLIMITED",
-                      "label": "∞",
-                      "count": -1
+                      "size": "?",
+                      "label": "?",
+                      "count": -1,
+                      "disabled": true
                   },
                   {
                       "size": "S",
@@ -244,6 +245,11 @@
                       "size": "XXL",
                       "label": "8200",
                       "count": 8200
+                  },
+                  {
+                      "size": "UNLIMITED",
+                      "label": "∞",
+                      "count": -1
                   }
               ]
           }
