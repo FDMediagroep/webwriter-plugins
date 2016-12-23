@@ -29,6 +29,7 @@ class PublishFlowConfiguration {
       'stat:usable': {
         'allowed': [
           'stat:usable',
+          'imext:draft',
           'stat:canceled',
         ]
       },

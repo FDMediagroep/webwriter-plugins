@@ -91,7 +91,7 @@ export default {
     });
 
     config.addLabel('Ready for approval', {
-      nl: 'Klaar voor goedkeuring',
+      nl: 'Submitted/Laatste Nieuws',
       sv: 'Redo för godkännande'
     });
 
