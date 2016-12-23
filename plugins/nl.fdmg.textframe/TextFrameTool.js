@@ -1,19 +1,26 @@
-import {Tool} from 'substance';
-import {api} from 'writer';
+import {Tool} from 'substance'
+import {api} from 'writer'
 
-export default class StackFrameTool extends Tool {
+class TextframeTool extends Tool {
 
   render($$) {
-    var el = $$('div');
+
+    const el = $$('div')
+    el.attr('title', this.getLabel('Insert Textframe'))
 
     el.append(
       $$('button').addClass('se-tool').append(
-        $$('i').addClass('fa fa-list-alt')
-      ).on('click', () => {
-        api.editorSession.executeCommand('textframe', {heading: this.getLabel('Title'), content: this.getLabel('Text')});
-      })
+          $$('i').addClass('fa fa-list-alt')
+      )
+      .on('click', this.insertTextframe)
     );
     return el;
+
   }
 
+  insertTextframe() {
+    const commandName = this.getCommandName()
+    api.editorSession.executeCommand(commandName)
+  }
 }
+export default TextframeTool

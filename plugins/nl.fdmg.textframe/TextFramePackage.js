@@ -1,49 +1,42 @@
-//import './scss/textframe.scss'
-import TextFrameCommand from './TextFrameCommand';
-import TextFrameComponent from './TextFrameComponent';
-import TextFrameConverter from './TextFrameConverter';
-import TextFrameNode from './TextFrameNode';
-import TextFrameTool from './TextFrameTool';
-import TextFrameValidator from './TextFrameValidator.js';
+import './scss/textframe.scss'
+import TextframeComponent from './TextframeComponent'
+import TextframeConverter from './TextframeConverter'
+import TextframeNode from './TextframeNode'
+import TextframeTool from './TextframeTool'
+import TextframeCommand from './TextframeCommand'
+import TextframeInsertImageCommand from './TextframeInsertImageCommand'
 
 export default {
-  id: 'nl.fdmg.textframe',
   name: 'textframe',
-  configure: function (config) {
-    config.addNode(TextFrameNode);
-    config.addConverter('newsml', TextFrameConverter);
-    config.addComponent('textframe', TextFrameComponent);
-    config.addCommand('textframe', TextFrameCommand, {
-      nodeType: 'textframe',
-      handlers: [
-        {
-          type: 'drop',
-          mimetypes: [
-            'image/jpeg',
-            'image/jpg',
-            'image/gif',
-            'image/png'
-          ]
-        },
-        {
-          type: 'uri',
-          patterns: 'urlMatchers'
-        },
-        {
-          type: 'newsItem',
-          itemClasses: ['ninat:picture']
-        }
-      ]
-    });
-    config.addValidator(TextFrameValidator);
-    config.addContentMenuTopTool('textframe', TextFrameTool);
-    config.addIcon('textframe', {'fontawesome': 'fa-bars'});
-    config.addLabel('Textframe', { nl: 'Tekstkader' });
-    config.addLabel('Title', { nl: 'Titel' });
-    config.addLabel('Text', { nl: 'Tekst' });
+  id: 'nl.fdmg.textframe',
+  configure: function (config, pluginConfig) {
+    config.addNode(TextframeNode)
+    config.addComponent(TextframeNode.type, TextframeComponent)
+    config.addConverter('newsml', TextframeConverter)
 
-    config.addLabel('Textframe is missing title', { nl: 'Een of meerdere tekstkaders heeft geen titel' });
+    config.addContentMenuTopTool('textframe', TextframeTool)
+    config.addCommand('textframe', TextframeCommand, pluginConfig)
 
+    config.addCommand('textframeinsertimage', TextframeInsertImageCommand, pluginConfig)
+
+    config.addIcon('textframe', { 'fontawesome': ' fa-newspaper-o' })
+
+    // if (platform.isMac) {
+    //   config.addKeyboardShortcut('cmd+alt+t', { command: 'textframe' })
+    // } else {
+    //   config.addKeyboardShortcut('ctrl+alt+t', { command: 'textframe' })
+    // }
+
+    config.addLabel('Textframe', {
+      nl: 'Tekstkader'
+    })
+
+    config.addLabel('Insert Textframe', {
+      nl: 'Tekstkader invoegen'
+    })
+
+    config.addLabel('Upload image', {
+      nl: 'Afbeelding uploaden'
+    })
   }
-
 }

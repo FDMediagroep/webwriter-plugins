@@ -36,7 +36,7 @@ import Quote from './nl.fdmg.quote/index';
 import NumberFrame from './nl.fdmg.numberframe/index';
 import StackFrame from './nl.fdmg.stackframe/index';
 import RelatedLink from './nl.fdmg.relatedlink/index';
-// import TextFrame from './nl.fdmg.textframe/index';
+import TextFrame from './nl.fdmg.textframe/index';
 import HtmlEmbed from './nl.fdmg.htmlembed/index';
 
 import PublishFlow from './nl.fdmg.publishflow/index';
@@ -88,7 +88,7 @@ import HeadlineStandin from './nl.fdmg.headlinestandin/index';
   NumberFrame();
   StackFrame();
   RelatedLink();
-  // TextFrame();
+  TextFrame();
   HtmlEmbed();
 
   PublishFlow();

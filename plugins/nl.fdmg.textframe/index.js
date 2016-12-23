@@ -1,10 +1,12 @@
-import TextFramePackage from './TextFramePackage';
-import {registerPlugin} from 'writer';
+import './scss/textframe.scss'
+
+import TextframePackage from './TextframePackage'
+const { registerPlugin } = writer
 
 export default () => {
   if (registerPlugin) {
-    registerPlugin(TextFramePackage);
+    registerPlugin(TextframePackage)
   } else {
-    console.error("Register method not yet available: TextFramePackage");
+    console.info("Register method not yet available");
   }
 }
