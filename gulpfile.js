@@ -39,7 +39,7 @@ gulp.task('acc-config-generate', function(){
    */
   gulp.src(['writer-fd-dev.json'])
     .pipe(replace(/http\:\/\/localhost:3000/g, 'https://s3-eu-west-1.amazonaws.com/webwriter-acc-plugins'))
-    .pipe(replace(/30eae1c0-c640-4053-b114-05c64e28bbe7/g, '1191302'))
+    .pipe(replace(/30eae1c0-c640-4053-b114-05c64e28bbe7/g, '1204619'))
     .pipe(rename('acc-writer-client.json'))
     .pipe(gulp.dest('./dist'));
 });
