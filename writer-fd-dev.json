@@ -152,10 +152,10 @@
         }
       },
         {
-          "id": "se.infomaker.publishflow",
+          "id": "nl.fdmg.publishflow",
           "name": "publishflow",
-          "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/fd.js",
-          "style": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/style.css",
+          "url": "http://localhost:3000/index.js",
+          "style": "http://localhost:3000/style.css",
           "enabled": true,
           "mandatory": true
         },
@@ -196,7 +196,8 @@
           "mandatory": true,
           "data": {
               "counting": [
-                  "paragraph"
+                  "paragraph",
+                  "subheadline"
               ],
               "marginPct": 10,
               "sizes": [
