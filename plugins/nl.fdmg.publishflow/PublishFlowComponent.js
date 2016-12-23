@@ -235,7 +235,7 @@ class PublishFlowComponent extends Component {
 
   renderActionDone($$) {
     return $$('a').append([
-      $$('i').addClass('fa fa-check-circle-o'),
+      $$('i').addClass('fa fa-check-circle-o orange'),
       $$('span').append(
         this.getLabel('Ready for approval')
       )
@@ -336,7 +336,7 @@ class PublishFlowComponent extends Component {
     }
     else {
       el.append([
-        $$('i').addClass('fa fa-send'),
+        $$('i').addClass('fa fa-check-circle-o green'),
         $$('span').append(
           this.getLabel('Publish article')
         )

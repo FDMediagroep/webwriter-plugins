@@ -102,6 +102,12 @@
 
                     &.fa-check-circle-o {
                         color: #565656;
+                      &.orange {
+                        color: orange;
+                      }
+                      &.green {
+                        color: #5cb85c;
+                      }
                     }
 
                     &.fa-send {
