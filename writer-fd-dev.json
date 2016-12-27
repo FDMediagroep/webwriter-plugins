@@ -753,6 +753,13 @@
             "url": "http://localhost:3000/index.js",
             "enabled": true,
             "mandatory": true
+        },
+        {
+            "id": "nl.fdmg.translations",
+            "name": "translations",
+            "url": "http://localhost:3000/index.js",
+            "enabled": true,
+            "mandatory": true
         }
     ]
 }

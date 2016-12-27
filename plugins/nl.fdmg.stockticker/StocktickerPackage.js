@@ -13,14 +13,19 @@ export default {
 
   configure: (config) => {
 
-    config.addNode(StocktickerNode)
-    config.addConverter('newsml', StocktickerConverter)
-    config.addComponent('stockticker', StocktickerComponent)
+    config.addNode(StocktickerNode);
+    config.addConverter('newsml', StocktickerConverter);
+    config.addComponent('stockticker', StocktickerComponent);
 
-    config.addContentMenuTopTool('stockticker', StocktickerTool)
-    config.addCommand('stockticker', StocktickerCommand, {nodeType: 'stockticker'})
+    config.addContentMenuTopTool('stockticker', StocktickerTool);
+    config.addCommand('stockticker', StocktickerCommand, {nodeType: 'stockticker'});
 
-    config.addOverlayTool('stocktickerinline', StocktickerInlineTool)
-    config.addCommand('stocktickerinline', StocktickerInlineCommand, {nodeType: 'stockticker'})
+    config.addOverlayTool('stocktickerinline', StocktickerInlineTool);
+    config.addCommand('stocktickerinline', StocktickerInlineCommand, {nodeType: 'stockticker'});
+
+    config.addLabel('Insert Stockticker', {
+      'nl': 'Stockticker invoegen'
+    });
+
   }
 }

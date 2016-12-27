@@ -51,6 +51,9 @@ import XimTeaserStandin from './nl.fdmg.ximteaserstandin/index';
 import XimImageStandin from './nl.fdmg.ximimagestandin/index';
 import HeadlineStandin from './nl.fdmg.headlinestandin/index';
 
+// Import this last!
+import Translations from './nl.fdmg.translations/index';
+
 (() => {
   SidebarTabs();
   LocalFocus();
@@ -103,4 +106,7 @@ import HeadlineStandin from './nl.fdmg.headlinestandin/index';
   XimTeaserStandin();
   XimImageStandin();
   HeadlineStandin();
+
+  // Import this last!
+  Translations();
 })();

@@ -18,6 +18,7 @@ export default {
     config.addContentMenuTopTool('relatedlink', RelatedLinkTool);
     config.addIcon('relatedlink', {'fontawesome': 'fa-angle-right'});
     config.addLabel('Related article', { nl: 'Uitstapmoment' });
+    config.addLabel('Insert Related article', { nl: 'Uitstapmoment invoegen' });
     config.addLabel('Also read', { nl: 'Lees ook' });
     config.addLabel('Article title', { nl: 'Titel van artikel' });
 

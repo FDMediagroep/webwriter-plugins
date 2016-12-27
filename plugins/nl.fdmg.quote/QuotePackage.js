@@ -18,6 +18,7 @@ export default {
     config.addContentMenuTopTool('quote', QuoteTool);
     config.addIcon('quote', {'fontawesome': 'fa-quote-left'});
     config.addLabel('Quote', { nl: 'Quote' });
+    config.addLabel('Insert Quote', { nl: 'Quote invoegen' });
     config.addLabel('Source', { nl: 'Bron' });
 
     config.addLabel('Missing one or more quote messages', { nl: 'Een of meerdere quotes bevat geen tekst' });
