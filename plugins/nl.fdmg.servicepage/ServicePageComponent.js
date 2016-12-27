@@ -31,7 +31,7 @@ export default class ServicePageComponent extends ArticleOption {
     })
     .then(response => api.router.checkForOKStatus(response))
     .then(response => api.router.toJson(response))
-    .then(response => response.map(x => {return {id: x, label: x}}))
+    .then(response => response.map(x => {return {id: x.name, label: x.path}}))
     .then(response => { this.extendState({items: response}) } );
 
     // Important to call `super` and not `this`. `this` would return the wrong instance. The effect would be the sames
