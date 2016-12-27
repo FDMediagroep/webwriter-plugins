@@ -41,7 +41,7 @@ export default {
     });
 
     config.addLabel('Article is currently pending approval', {
-      nl: 'Dit artikel wacht op goedkeuring',
+      nl: 'Dit artikel staat op Laatste Nieuws',
       sv: 'Artikeln väntar på godkännande'
     });
 
@@ -122,7 +122,7 @@ export default {
     });
 
     config.addLabel('imext:done', {
-      nl: 'Klaar voor goedkeuring',
+      nl: 'Laatste Nieuws',
       en: 'Ready for approval',
       sv: 'Redo för godkännande'
     });
