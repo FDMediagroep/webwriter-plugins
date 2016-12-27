@@ -62,6 +62,13 @@ export default {
       nl: 'Afbeelding verwijderen'
     });
 
+    config.addLabel('history-popover-headline', {
+      nl: 'Recente wijzigingen'
+    });
+    config.addLabel('history-popover-description', {
+      nl: 'Wijzigingen sinds de laatste succesvolle bewaring'
+    });
+
     config.addLabel('Create strong', {
       nl: 'Vet'
     });
