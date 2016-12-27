@@ -48,5 +48,9 @@ export default {
     config.addLabel('Too many characters', {
       'nl': 'Te veel karakters'
     });
+
+    config.addLabel('Information', {
+      'nl': 'Informatie'
+    });
   }
 }

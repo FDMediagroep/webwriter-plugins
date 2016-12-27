@@ -16,6 +16,8 @@ export default class TextAnalyzerComponent extends Component {
 
   didMount() {
     this.updateStatus();
+    // Set hover label for `i`-icon.
+    document.querySelector('.fa-info').setAttribute('title', this.getLabel('Information'));
   }
 
   getInitialState() {
