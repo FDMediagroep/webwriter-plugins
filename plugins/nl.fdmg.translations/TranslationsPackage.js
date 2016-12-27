@@ -29,5 +29,26 @@ export default {
       nl: 'Inleiding'
     });
 
+    config.addLabel('subheadline', {
+      nl: 'Subkop'
+    })
+    config.addLabel('subheadline.content', {
+      nl: 'Subkop'
+    })
+
+    config.addLabel('paragraph', {
+      nl: 'Paragraaf'
+    })
+    config.addLabel('paragraph.content', {
+      nl: 'Paragraaf'
+    })
+
+    config.addLabel('A teaser already exist', {
+      nl: 'Er bestaat al een teaser'
+    })
+    config.addLabel('There is already a teaser in this document', {
+      nl: 'Er bestaat al een teaser in dit document'
+    })
+
   }
 }
