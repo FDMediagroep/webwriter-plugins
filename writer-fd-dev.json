@@ -75,7 +75,7 @@
               "fields": [
                   {
                       "name": "caption",
-                      "label": "Caption",
+                      "label": "Bijschrift",
                       "type": "text"
                   },
                   {
@@ -90,12 +90,12 @@
                       "options": [
                           {
                               "name": "right",
-                              "label": "Right",
+                              "label": "Rechts uitlijnend",
                               "icon": "fa-align-right"
                           },
                           {
                               "name": "block",
-                              "label": "Block",
+                              "label": "Volledige breedte",
                               "icon": "fa-align-justify"
                           }
                       ]

@@ -17,7 +17,7 @@ export default class NumberFrameComponent extends Component {
 
     let el = $$('a').append([
       $$('div').addClass('header').append([
-        $$(FontAwesomeIcon, {icon: 'fa-money'}).addClass('plugin-icon'),
+        $$(FontAwesomeIcon, {icon: 'fa-eur'}).addClass('plugin-icon'),
         $$('div').addClass('plugin-title').append(this.getLabel("Numberframe"))
       ]),
       heading,

@@ -31,24 +31,49 @@ export default {
 
     config.addLabel('subheadline', {
       nl: 'Subkop'
-    })
+    });
     config.addLabel('subheadline.content', {
       nl: 'Subkop'
-    })
+    });
 
     config.addLabel('paragraph', {
       nl: 'Paragraaf'
-    })
+    });
     config.addLabel('paragraph.content', {
       nl: 'Paragraaf'
-    })
+    });
 
     config.addLabel('A teaser already exist', {
       nl: 'Er bestaat al een teaser'
-    })
+    });
     config.addLabel('There is already a teaser in this document', {
       nl: 'Er bestaat al een teaser in dit document'
-    })
+    });
+
+    config.addLabel('Remove', {
+      nl: 'Verwijderen'
+    });
+
+    config.addLabel('ok', {
+      nl: 'OK'
+    });
+
+    config.addLabel('remove-image-button-title', {
+      nl: 'Afbeelding verwijderen'
+    });
+
+    config.addLabel('Create strong', {
+      nl: 'Vet'
+    });
+    config.addLabel('Create emphasis', {
+      nl: 'Cursief'
+    });
+    config.addLabel('Create link', {
+      nl: 'Link creren'
+    });
+    config.addLabel('Delete link', {
+      nl: 'Link verwijderen'
+    });
 
   }
 }

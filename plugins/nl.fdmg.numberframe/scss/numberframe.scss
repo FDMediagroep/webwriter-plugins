@@ -44,3 +44,13 @@ $im-embedhtml-border-color: #ddd;
 		}
 	}
 }
+
+.sc-content-menu {
+  i.fa.fa-eur {
+    &:before {
+      content: "5";
+      font-weight: bold;
+      font-family: sans-serif;
+    }
+  }
+}
