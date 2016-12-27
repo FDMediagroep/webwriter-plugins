@@ -1,16 +1,16 @@
-import ArticleOption from '../nl.fdmg.articleoption/ArticleOptionComponent'
-import {api} from 'writer'
+import ArticleOption from '../nl.fdmg.articleoption/ArticleOptionComponent';
+import {api} from 'writer';
 
-export default class AdvertorialComponent extends ArticleOption {
+export default class ServicePageComponent extends ArticleOption {
 
   constructor(...args) {
     super({
-      name: "advertorial",
-      type: "fdmg/advertorial",
-      label: "Advertorial",
+      name: "servicepage",
+      type: "fdmg/servicepage",
+      label: "Service Page",
       placeholder: 'URL to article',
       hasSelect: true,
-      pluginId: 'nl.fdmg.advertorial', // Very important to set this; used by parent class in getConfigValue
+      pluginId: 'nl.fdmg.servicepage', // Very important to set this; used by parent class in getConfigValue
       items: []
     }, ...args);
   }
@@ -32,7 +32,7 @@ export default class AdvertorialComponent extends ArticleOption {
     .then(response => api.router.checkForOKStatus(response))
     .then(response => api.router.toJson(response))
     .then(response => response.map(x => {return {id: x, label: x}}))
-    .then(response => { this.extendState({items: response}) });
+    .then(response => { this.extendState({items: response}) } );
 
     // Important to call `super` and not `this`. `this` would return the wrong instance. The effect would be the sames
     // as calling a static property of a class thus returning the value set by other classes.

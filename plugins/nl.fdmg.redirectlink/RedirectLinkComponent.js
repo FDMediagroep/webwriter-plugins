@@ -1,52 +1,37 @@
-import ArticleOption from '../nl.fdmg.articleoption/ArticleOptionComponent'
-import {api} from 'writer'
-import './scss/redirectlink.scss'
+import ArticleOption from '../nl.fdmg.articleoption/ArticleOptionComponent';
+import {api} from 'writer';
+import './scss/redirectlink.scss';
 
-class RedirectLinkComponent extends ArticleOption {
+export default class RedirectLinkComponent extends ArticleOption {
   constructor(...args) {
     super({
       name: "redirectlink",
       type: "fdmg/redirectlink",
       label: "Redirect article",
       hasInput: true,
-      placeholder: 'URL to article'
-    }, ...args)
+      placeholder: 'URL to article',
+      pluginId: 'nl.fdmg.redirectlink' // Very important to set this; used by parent class in getConfigValue
+    }, ...args);
   }
 
+  /**
+   * Called when the element is inserted into the DOM.
+   */
   didMount(){
-    api.events.on(this.name, 'redirectlink:enabled', this.enable.bind(this))
-    api.events.on(this.name, 'redirectlink:disabled', this.disable.bind(this))
+    this.extendState({value : ()=> {
+      return api.newsItem
+        .getLinkByType(this.name, this.type)
+        .map(i => i['@value'])
+        .pop();
+    }});
 
-    this.extendState({value : this.getInputValue()})
-
-    this.updateOtherOptions()
+    // Important to call `super` and not `this`. `this` would return the wrong instance. The effect would be the sames
+    // as calling a static property of a class thus returning the value set by other classes.
+    // To understand this better you'll need to delve deeper into documentation about prototypical inheritance.
+    // There is also no need to update the other components in the same optionsGroup if this component is not checked.
+    if(super.getOptionChecked()) {
+      this.updateOtherOptions();
+    }
   }
 
-  getInputValue() {
-    return api.newsItem
-      .getLinkByType(this.name, this.type)
-      .map(i => i['@value'])
-      .pop()
-  }
-
-  setOptionChecked(checked) {
-    super.setOptionChecked(checked)
-    this.updateOtherOptions()
-  }
-
-  updateOtherOptions() {
-    const eventState = this.state.checked ? 'disabled' : 'enabled'
-
-    setTimeout(() => {
-      api.events.triggerEvent('', `articletype:${eventState}`)
-      api.events.triggerEvent('', `advertorial:${eventState}`)
-    }, 200)
-  }
-
-  dispose() {
-    api.events.off(this.name, 'redirectlink:enabled')
-    api.events.off(this.name, 'redirectlink:disabled')
-  }
 }
-
-export default RedirectLinkComponent

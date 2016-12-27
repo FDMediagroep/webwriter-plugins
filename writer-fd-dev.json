@@ -579,15 +579,12 @@
                     "label": "Fotoserie"
                 },
                 {
-                    "id": "SERVICE",
-                    "label": "Service pagina"
-                },
-                {
                     "id": "EVENT",
                     "label": "Event"
                 }
-              ]
-            }
+              ],
+            "optionsGroup": "articletype"
+          }
         },
         {
           "id": "nl.fdmg.redirectlink",
@@ -595,7 +592,10 @@
           "url": "http://localhost:3000/index.js",
           "style": "http://localhost:3000/style.css",
           "enabled": true,
-          "mandatory": true
+          "mandatory": true,
+          "data": {
+            "optionsGroup": "articletype"
+          }
         },
         {
           "id": "nl.fdmg.advertorial",
@@ -605,8 +605,21 @@
           "mandatory": true,
           "data": {
               "endpoint": "https://webwriter-dev.fd.nl/fdmgapi/private/fd/articles/section/fd4.advertorial/children",
-              "token": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIxMjMiLCJzdWIiOiJzdmVuIiwicm9sZSI6InVzZXIifQ.omGBEdLl3e_bxNFq83bsTUZnO5HU_c0gltDuTFWM_KlLJWtlZzDo1F7jGD6zPD54XmimTAWmD5XKIlhMQVmChQ"
+              "token": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIxMjMiLCJzdWIiOiJzdmVuIiwicm9sZSI6InVzZXIifQ.omGBEdLl3e_bxNFq83bsTUZnO5HU_c0gltDuTFWM_KlLJWtlZzDo1F7jGD6zPD54XmimTAWmD5XKIlhMQVmChQ",
+              "optionsGroup": "articletype"
             }
+        },
+        {
+          "id": "nl.fdmg.servicepage",
+          "name": "servicepage",
+          "url": "http://localhost:3000/index.js",
+          "enabled": true,
+          "mandatory": true,
+          "data": {
+            "endpoint": "https://webwriter-dev.fd.nl/fdmgapi/private/fd/articles/section/service/children",
+            "token": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIxMjMiLCJzdWIiOiJzdmVuIiwicm9sZSI6InVzZXIifQ.omGBEdLl3e_bxNFq83bsTUZnO5HU_c0gltDuTFWM_KlLJWtlZzDo1F7jGD6zPD54XmimTAWmD5XKIlhMQVmChQ",
+            "optionsGroup": "articletype"
+          }
         },
         {
           "id": "nl.fdmg.epic",
