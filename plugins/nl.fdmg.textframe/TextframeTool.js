@@ -10,7 +10,7 @@ class TextframeTool extends Tool {
 
     el.append(
       $$('button').addClass('se-tool').append(
-          $$('i').addClass('fa fa-list-alt')
+          $$('i').addClass('fa fa-file-word-o')
       )
       .on('click', this.insertTextframe)
     );

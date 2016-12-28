@@ -20,7 +20,7 @@ export default {
 
     config.addCommand('textframeinsertimage', TextframeInsertImageCommand, pluginConfig)
 
-    config.addIcon('textframe', { 'fontawesome': ' fa-newspaper-o' })
+    config.addIcon('textframe', { 'fontawesome': 'fa-font' })
 
     // if (platform.isMac) {
     //   config.addKeyboardShortcut('cmd+alt+t', { command: 'textframe' })
