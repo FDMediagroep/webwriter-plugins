@@ -113,7 +113,7 @@ class PublishFlowComponent extends Component {
             this.getLabel('From') + ': '
           ),
           $$('strong').append(
-            moment(this.state.pubStart.value).format('YYYY-MM-DD HH:mm')
+            moment(this.state.pubStart.value).format('ddd DD-MM-YYYY HH:mm')
           )
         ])
 
@@ -126,7 +126,7 @@ class PublishFlowComponent extends Component {
                 this.getLabel('To') + ': '
               ),
               $$('strong').append(
-                moment(this.state.pubStop.value).format('YYYY-MM-DD HH:mm')
+                moment(this.state.pubStop.value).format('ddd DD-MM-YYYY HH:mm')
               )
             ])
           }

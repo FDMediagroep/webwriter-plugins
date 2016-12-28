@@ -30,6 +30,10 @@ export default {
       sv: 'Avbryt'
     });
 
+    config.addLabel('From', {
+      nl: 'Op'
+    });
+
     config.addLabel('Publish article?', {
       nl: 'Artikel publiceren?',
       sv: 'Publicera artikeln?'
