@@ -1,3 +1,6 @@
+[![build status](https://gitlab.fdmg.org/devops/webwriter-plugins/badges/develop/build.svg)](https://gitlab.fdmg.org/devops/webwriter-plugins/commits/develop)
+[![coverage report](https://gitlab.fdmg.org/devops/webwriter-plugins/badges/develop/coverage.svg)](https://gitlab.fdmg.org/devops/webwriter-plugins/commits/develop)
+
 # Getting started guide
 
 1. Clone `NPWriter`: `https://github.com/Infomaker/NPWriter.git`
