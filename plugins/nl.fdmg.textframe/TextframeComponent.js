@@ -76,7 +76,7 @@ class TextframeComponent extends Component {
   renderHeader($$) {
     return $$('div')
       .append([
-        $$(FontAwesomeIcon, {icon: 'fa-file-word-o'}),
+        $$(FontAwesomeIcon, {icon: 'fa-tumblr'}),
         $$('strong').append(this.getLabel('Textframe')),
         $$(FileInputComponent, {onChange: this.triggerFileUpload.bind(this)})
       ])
