@@ -17,7 +17,7 @@ export default class StackFrameComponent extends Component {
 
     var el = $$('a').append([
       $$('div').addClass('header').append([
-        $$(FontAwesomeIcon, {icon: 'fa-bars'}).addClass('plugin-icon'),
+        $$(FontAwesomeIcon, {icon: 'fa-database'}).addClass('plugin-icon'),
         $$('div').addClass('plugin-title').append(this.getLabel("Stackframe"))
       ]),
       heading,

@@ -16,7 +16,7 @@ export default {
     config.addCommand('stackframe', StackFrameCommand, {nodeType: 'stackframe'});
     config.addValidator(StackFrameValidator);
     config.addContentMenuTopTool('stackframe', StackFrameTool);
-    config.addIcon('stackframe', {'fontawesome': 'fa-bars'});
+    config.addIcon('stackframe', {'fontawesome': 'fa-database'});
     config.addLabel('Stackframe', { nl: 'Stapelkader' });
     config.addLabel('Insert Stackframe', { nl: 'Stapelkader invoegen' });
     config.addLabel('Title', { nl: 'Titel' });
