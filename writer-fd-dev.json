@@ -718,10 +718,10 @@
             }
         },
         {
-          "id": "se.infomaker.history",
+          "id": "nl.fdmg.history",
           "name": "history",
-          "url": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/fd.js",
-          "style": "https://s3-eu-west-1.amazonaws.com/writer-dev-plugins/fd.css",
+          "url": "http://localhost:3000/index.js",
+          "style": "http://localhost:3000/style.css",
           "enabled": true,
           "mandatory": false
         },

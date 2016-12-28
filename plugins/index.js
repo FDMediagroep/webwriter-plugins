@@ -40,6 +40,7 @@ import RelatedLink from './nl.fdmg.relatedlink/index';
 import TextFrame from './nl.fdmg.textframe/index';
 import HtmlEmbed from './nl.fdmg.htmlembed/index';
 
+import History from './nl.fdmg.history/index';
 import PublishFlow from './nl.fdmg.publishflow/index';
 import Planneddate from './nl.fdmg.planneddate/index';
 import Workinstructions from './nl.fdmg.workinstructions/index';
@@ -96,6 +97,7 @@ import Translations from './nl.fdmg.translations/index';
   TextFrame();
   HtmlEmbed();
 
+  History();
   PublishFlow();
   Planneddate();
   Workinstructions();
