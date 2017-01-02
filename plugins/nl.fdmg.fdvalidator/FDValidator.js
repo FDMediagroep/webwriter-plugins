@@ -29,6 +29,12 @@ class FDValidor extends Validator {
     return (advertorial && advertorial.getAttribute('checked') === 'true')
   }
 
+  get isServicePage() {
+    const servicePage = this.newsItem.querySelector('itemMeta > links link[type="fdmg/servicepage"]')
+
+    return (servicePage && servicePage.getAttribute('checked') === 'true')
+  }
+
   get isEvents() {
     const articletype = this.newsItem.querySelector('itemMeta > links link[type="fdmg/articletype"]')
 
