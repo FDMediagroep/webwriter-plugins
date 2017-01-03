@@ -25,7 +25,6 @@ class HistoryItemComponent extends Component {
       });
 
     var inner = $$('div');
-    console.info(version.time, Number(new Date()));
     inner.append(
       $$('span').append(moment(version.time).from())
     );
