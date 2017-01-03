@@ -15,19 +15,19 @@ export default({
     });
 
     config.addLabel('history-popover-description', {
-      nl: 'Wijzigingen sinds de laatste succesvolle bewaring',
+      nl: 'Selecteer een eerdere versie van uw artikel',
       en: 'Changes since last successful save',
       sv: 'Ändringar sedan senast lyckade uppdatering till servern.'
     });
 
     config.addLabel('Unsaved articles found', {
-      nl: 'Onopgeslagen versies gevonden'
+      nl: 'Niet opgeslagen artikelversies'
     });
     config.addLabel('Continue with last saved version', {
       nl: 'Doorgaan met laatst opgeslagen versie'
     });
     config.addLabel('We found some unsaved changes for this article.', {
-      nl: 'We hebben onopgeslagen wijzigingen gevonden voor dit artikel'
+      nl: 'Selecteer een eerdere versie van je artikel'
     });
     config.addLabel('Unsaved changes found for this article', {
       nl: 'Onopgeslagen wijzigingen gevonden voor dit artikel'
