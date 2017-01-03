@@ -144,7 +144,7 @@ class PublishFlowComponent extends Component {
           $$('p').append(
             this.getLabel('Article was published') +
             ' ' +
-            moment(this.state.pubStart.value).fromNow()
+            moment(this.state.pubStart.value).format('ddd DD-MM-YYYY HH:mm')
           )
         ])
         break
@@ -470,14 +470,14 @@ class PublishFlowComponent extends Component {
       this.props.popover.setStatusText(
         this.getLabel(this.state.status.qcode) +
         " " +
-        moment(this.state.pubStart.value).fromNow()
+        moment(this.state.pubStart.value).format('ddd DD-MM-YYYY HH:mm')
       )
     }
     else if (this.state.status.qcode === 'stat:withheld') {
       this.props.popover.setStatusText(
         this.getLabel(this.state.status.qcode) +
         " " +
-        moment(this.state.pubStart.value).fromNow()
+        moment(this.state.pubStart.value).format('ddd DD-MM-YYYY HH:mm')
       )
     }
     else {
