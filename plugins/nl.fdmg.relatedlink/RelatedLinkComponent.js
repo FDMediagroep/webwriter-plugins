@@ -20,7 +20,7 @@ export default class RelatedLinkComponent extends Component {
       tagName: 'div',
       name: 'relatedurl',
       path: [this.props.node.id, 'relatedurl']
-    }).addClass('relatedurl').attr({'contentEditable' : true, "data-text" : "/"}).ref('relatedurl');
+    }).addClass('relatedurl').attr({'contentEditable' : true, "data-text" : "https://www.fd.nl"}).ref('relatedurl');
 
     var el = $$('a').append([
       $$('div').addClass('header').append([

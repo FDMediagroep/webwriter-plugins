@@ -8,7 +8,7 @@ export default class RelatedLinkTool extends Tool {
       $$('i').addClass('fa fa-external-link-square')
     ).attr('title', this.getLabel('Insert Related article'))
     .on('click', () => {
-      api.editorSession.executeCommand('relatedlink', {prefix: this.getLabel('Also read'), leadtext: this.getLabel('Article title'), relatedurl: '/'});
+      api.editorSession.executeCommand('relatedlink', {prefix: this.getLabel('Also read'), leadtext: this.getLabel('Article title'), relatedurl: 'https://www.fd.nl'});
     });
     return el;
   }
