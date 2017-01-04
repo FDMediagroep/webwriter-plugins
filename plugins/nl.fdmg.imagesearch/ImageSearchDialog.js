@@ -84,7 +84,14 @@ class ImageSearchDialog extends Component {
   onKeydown(e) {
     switch(e.keyCode) {
       case 13:  // Enter
-        this.extendState(this.getInitialState())
+        this.extendState({
+          isSearching: false,
+          lastQuery: this.refs.searchfield.val(),
+          pageIndex: 0,
+          images: [],
+          totalResults: -1,
+          scrollOffset: 0
+        })
         this.search(this.refs.searchfield.val())
         break
       case 27:  // Escape
