@@ -18,12 +18,12 @@ export default class RedirectLinkComponent extends ArticleOption {
    * Called when the element is inserted into the DOM.
    */
   didMount(){
-    this.extendState({value : ()=> {
-      return api.newsItem
+    this.extendState({
+      value: api.newsItem
         .getLinkByType(this.name, this.type)
         .map(i => i['@value'])
-        .pop();
-    }});
+        .pop()
+    });
 
     // Important to call `super` and not `this`. `this` would return the wrong instance. The effect would be the sames
     // as calling a static property of a class thus returning the value set by other classes.

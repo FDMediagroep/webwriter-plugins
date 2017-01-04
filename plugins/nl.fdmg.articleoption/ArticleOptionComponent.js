@@ -76,6 +76,7 @@ export default class ArticleOptionComponent extends Component {
 
     // When component is configured to have an input field and this checkbox is checked.
     if (this.hasinput && this.state.checked) {
+      console.log(this.state);
       // Append an input field.
       el.append(
         $$('input')
@@ -97,10 +98,10 @@ export default class ArticleOptionComponent extends Component {
     if (this.hasSelect && this.state.checked && this.state.items) {
       const selection = api.newsItem
         .getLinkByType(this.name, this.type)
-        .map(l => { return {id: l['@id'], label: l['@value']}; })
+        .map(l => { return {id: l['@value']}; })
         .map(i => {
           const match = this.state.items.find(item => item.id === i.id);
-          const label = (match !== undefined) ? match.label : i.label;
+          const label = (match !== undefined) ? match.label : i.id;
           return {id: i.id, label: label};
         })
         .pop();
