@@ -621,7 +621,7 @@
           "enabled": true,
           "mandatory": true,
           "data": {
-            "endpoint": "https://webwriter-dev.fd.nl/fdmgapi/private/fd/articles/section/service/allchildren",
+            "endpoint": "https://webwriter-dev.fd.nl/fdmgapi/private/fd/articles/section/fd4.service/allchildren",
             "token": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIxMjMiLCJzdWIiOiJzdmVuIiwicm9sZSI6InVzZXIifQ.omGBEdLl3e_bxNFq83bsTUZnO5HU_c0gltDuTFWM_KlLJWtlZzDo1F7jGD6zPD54XmimTAWmD5XKIlhMQVmChQ",
             "optionsGroup": "articletype"
           }
