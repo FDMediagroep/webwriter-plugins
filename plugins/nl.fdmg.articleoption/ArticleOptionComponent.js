@@ -76,7 +76,6 @@ export default class ArticleOptionComponent extends Component {
 
     // When component is configured to have an input field and this checkbox is checked.
     if (this.hasinput && this.state.checked) {
-      console.log(this.state);
       // Append an input field.
       el.append(
         $$('input')
