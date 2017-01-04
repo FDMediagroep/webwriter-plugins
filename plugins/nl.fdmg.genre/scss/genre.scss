@@ -209,11 +209,12 @@ a.fdmg-box {
 }
 
 // Infomaker teaser image height override
-.sc-image-display{
+.sc-image-display,
+.sm-ximimage {
   >.se-image-container {
     >img {
       max-height: 460px;
-      width: auto;
+      width: auto !important;
       display: block;
       margin: 0 auto;
     }
