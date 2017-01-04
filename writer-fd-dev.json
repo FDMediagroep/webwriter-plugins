@@ -425,10 +425,6 @@
                       "label": "Column"
                   },
                   {
-                      "id": "Commentaar",
-                      "label": "Commentaar"
-                  },
-                  {
                       "id": "Fotoserie",
                       "label": "Fotoserie"
                   },
@@ -478,6 +474,10 @@
                   {
                       "id": "Boardroom",
                       "label": "Boardroom"
+                  },
+                  {
+                    "id": "Commentaar",
+                    "label": "Commentaar"
                   },
                   {
                       "id": "Gazellen",
