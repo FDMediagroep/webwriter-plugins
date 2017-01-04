@@ -238,6 +238,11 @@
                       "count": 1810
                   },
                   {
+                      "size": "M",
+                      "label": "2450",
+                      "count": 2450
+                  },
+                  {
                       "size": "L",
                       "label": "3600",
                       "count": 3600
@@ -716,6 +721,18 @@
                 "fetchEndpoint": "https://apigateway-dev.fdmg.nl/image/v1.0/download",
                 "token": "63401c89-63e9-35f9-9daa-a55ef26c3042"
             }
+        },
+        {
+          "id": "nl.fdmg.heartbeat",
+          "name": "heartbeat",
+          "url": "http://localhost:3000/index.js",
+          "style": "http://localhost:3000/style.css",
+          "enabled": true,
+          "mandatory": true,
+          "data": {
+            "endpoint": "http://localhost:3000/index.js",
+            "token": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIxMjMiLCJzdWIiOiJzdmVuIiwicm9sZSI6InVzZXIifQ.omGBEdLl3e_bxNFq83bsTUZnO5HU_c0gltDuTFWM_KlLJWtlZzDo1F7jGD6zPD54XmimTAWmD5XKIlhMQVmChQ"
+          }
         },
         {
           "id": "nl.fdmg.history",
