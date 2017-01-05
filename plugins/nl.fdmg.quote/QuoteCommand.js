@@ -14,7 +14,6 @@ export default class QuoteCommand extends Command {
    */
   getSelectionText(selection) {
 
-    console.log(selection.getFragments());
     let joinedText = '';
     selection.getFragments().forEach(fragment => {
       if(fragment.type === 'selection-fragment') {
@@ -26,26 +25,61 @@ export default class QuoteCommand extends Command {
     return (joinedText.length > 0)?joinedText:null;
   }
 
-  execute(params, context) {
+  /**
+   * Insert given nodeObj at the line before the current selection.
+   * @param params
+   * @param nodeObj
+   */
+  insertAtSelection(params, nodeObj) {
+    const editorSession = params.editorSession;
+    const doc = editorSession.getDocument();
 
-    params.quoteMessage = this.getSelectionText(params.selection) || params.quoteMessage;
+    editorSession.transaction((tx, args) => {
+      tx.selection = doc.createSelection({
+        type: 'property',
+        containerId: 'body',
+        path: [args.selection.getFragments()[0].path[0], 'content'],
+        startOffset: 0
+      });
+      tx.insertBlockNode(nodeObj);
+    });
+  }
 
-    var state = this.getCommandState();
-
-    if (state.disabled) {
-      return;
-    }
-    var data = {
+  /**
+   * Returns the Quote node.
+   *
+   * @param message
+   * @param author
+   * @returns {{type: string, contentType: string, message: *, author: *, data: {type: string, data-type: string}}}
+   */
+  getQuoteNode(message, author) {
+    return {
       type: 'quote',
       contentType: 'fdmg/quote',
-      message: params.quoteMessage,
-      author: params.quoteAuthor,
+      message: message,
+      author: author,
       data: {
         type: 'quote',
         'data-type': 'quote'
       }
     };
-    return context.api.document.insertBlockNode(data.type, data);
   }
+
+  execute(params, context) {
+
+    params.quoteMessage = this.getSelectionText(params.selection) || params.quoteMessage;
+
+    const state = this.getCommandState();
+    if (state.disabled) {
+      return;
+    }
+    const data = this.getQuoteNode(params.quoteMessage, params.quoteAuthor);
+    if(params.selection.getFragments().length > 0) {
+      this.insertAtSelection(params, data);
+    } else {
+      context.api.document.insertBlockNode(data.type, data);
+    }
+  }
+
 
 }
