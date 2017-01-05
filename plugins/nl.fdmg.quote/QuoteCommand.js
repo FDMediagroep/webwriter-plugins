@@ -14,7 +14,6 @@ export default class QuoteCommand extends Command {
    */
   getSelectionText(selection) {
 
-    console.log(selection.getFragments());
     let joinedText = '';
     selection.getFragments().forEach(fragment => {
       if(fragment.type === 'selection-fragment') {
