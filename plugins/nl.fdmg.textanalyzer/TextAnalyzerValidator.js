@@ -10,9 +10,7 @@ export default class TextAnalyzerValidator extends FDValidator {
       if (textAnalyzerIndicator) {
         const classes = Array.from(textAnalyzerIndicator.classList);
 
-        if (classes.indexOf('under-range') !== -1) {
-          this.addWarning(this.getLabel('Not enough characters'));
-        } else if (classes.indexOf('over-range') !== -1) {
+        if (classes.indexOf('over-range') !== -1) {
           this.addWarning(this.getLabel('Too many characters'));
         }
       }
