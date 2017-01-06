@@ -35,7 +35,7 @@ export default class HeartbeatComponent extends Component {
     const url = api.getConfigValue(pluginId, 'endpoint');
     api.router.put('/api/resourceproxy', {
       url: url,
-      body: JSON.stringify({ "articleId": this.state.articleId }),
+      body: JSON.stringify({ "id": this.state.articleId }),
       headers: {
         'x-access-token': `Bearer ${token}`,
         'Content-Type': 'application/json'
