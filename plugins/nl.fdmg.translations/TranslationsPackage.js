@@ -8,7 +8,7 @@ export default {
   name: 'translations',
   configure: function (config) {
     config.addLabel('Insert Teaser', {
-      'nl': 'Teaser invoegen'
+      'nl': 'Intro voor de homepage invoegen'
     });
 
     config.addLabel('Insert PDF document', {
@@ -30,24 +30,24 @@ export default {
     });
 
     config.addLabel('subheadline', {
-      nl: 'Subkop'
+      nl: 'Tussenkop'
     });
     config.addLabel('subheadline.content', {
-      nl: 'Subkop'
+      nl: 'Tussenkop'
     });
 
     config.addLabel('paragraph', {
-      nl: 'Paragraaf'
+      nl: 'Alinea'
     });
     config.addLabel('paragraph.content', {
-      nl: 'Paragraaf'
+      nl: 'Alinea'
     });
 
     config.addLabel('A teaser already exist', {
-      nl: 'Er bestaat al een teaser'
+      nl: 'Er bestaat al een intro voor de homepage'
     });
     config.addLabel('There is already a teaser in this document', {
-      nl: 'Er bestaat al een teaser in dit document'
+      nl: 'Er bestaat al een intro voor de homepage in dit document'
     });
 
     config.addLabel('Remove', {
