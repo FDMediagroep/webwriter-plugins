@@ -18,10 +18,7 @@ export default class HeartbeatComponent extends Component {
       }
 
       // Change state
-      this.extendState({
-        name: navigator.userAgent,
-        articleId: id
-      });
+      this.extendState({ articleId: id });
 
       if(pollInterval === undefined) {
         this.poll();
@@ -38,7 +35,7 @@ export default class HeartbeatComponent extends Component {
     const url = api.getConfigValue(pluginId, 'endpoint');
     api.router.put('/api/resourceproxy', {
       url: url,
-      body: JSON.stringify({"name": this.state.name, "articleId": this.state.articleId}),
+      body: JSON.stringify({ "id": this.state.articleId }),
       headers: {
         'x-access-token': `Bearer ${token}`,
         'Content-Type': 'application/json'
@@ -63,8 +60,9 @@ export default class HeartbeatComponent extends Component {
 
   getInitialState() {
     this.extendState({
-      name: null,
-      articleId: -1
+      articleId: -1,
+      locked: false,
+      articleVersion: 0
     });
   }
 
@@ -84,7 +82,7 @@ export default class HeartbeatComponent extends Component {
     if(this.state.lockedBy !== null && this.state.lockedBy === 'System') {
       locked = false;
       this.setLockedBySystem();
-    } else if (this.state.lockedBy !== null && this.state.lockedBy !== navigator.userAgent) {
+    } else if (this.state.locked !== null && this.state.locked) {
       locked = true;
       this.setLockedByUser();
     } else {
