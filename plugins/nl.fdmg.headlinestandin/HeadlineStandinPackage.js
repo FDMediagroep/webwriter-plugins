@@ -7,11 +7,11 @@ export default {
     config.addValidator(HeadlineValidator)
 
     config.addLabel('Missing headline', {
-      'nl': 'Headline ontbreekt'
+      'nl': 'Kop ontbreekt'
     })
 
     config.addLabel('More than one headline', {
-      'nl': 'Meerdere headlines'
+      'nl': 'Meerdere koppen'
     })
   }
 }

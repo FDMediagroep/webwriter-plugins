@@ -24,7 +24,7 @@ export default {
     config.addCommand('stocktickerinline', StocktickerInlineCommand, {nodeType: 'stockticker'});
 
     config.addLabel('Insert Stockticker', {
-      'nl': 'Stockticker invoegen'
+      'nl': 'Beurskoers invoegen'
     });
 
     config.addLabel('No stockticker chosen yet...', {
