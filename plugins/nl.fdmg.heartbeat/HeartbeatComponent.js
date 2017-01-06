@@ -21,6 +21,7 @@ export default class HeartbeatComponent extends Component {
       let value = 0;
       articleVersions.forEach(function(articleVersion) {
         value = articleVersion['@value'];
+        console.info('currentArticleVersion', value);
       });
 
       // Change state
