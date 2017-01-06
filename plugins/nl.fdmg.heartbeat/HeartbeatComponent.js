@@ -107,7 +107,7 @@ export default class HeartbeatComponent extends Component {
     el = virtualElement('div').addClass('fdmg-heartbeat').append(
       virtualElement('h2').append(this.getLabel('Article unlocked'))
     ).append(
-      virtualElement('p').append(this.getLabel('Heartbeat endpoint is unreachable. Article is or will become unlocked in less than 70 seconds.'))
+      virtualElement('p').append(this.getLabel('Article is new or Heartbeat endpoint is unreachable. Article is or will become unlocked in less than 70 seconds.'))
     );
   }
   /**
