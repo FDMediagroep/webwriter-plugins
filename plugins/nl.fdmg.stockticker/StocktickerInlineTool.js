@@ -3,6 +3,7 @@ import {api} from 'writer';
 import SearchField from '../nl.fdmg.searchfield/SearchFieldComponent';
 
 export default class StocktickerInlineTool extends Tool {
+
   render($$) {
     const node = this.props.node;
     const el = $$('div');
@@ -55,7 +56,6 @@ export default class StocktickerInlineTool extends Tool {
 
   close() {
     console.warn('Closing a Tool manually is not supported / implemented');
-    
     this.send('close');
   }
 }

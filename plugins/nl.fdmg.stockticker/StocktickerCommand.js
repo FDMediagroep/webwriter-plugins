@@ -2,6 +2,7 @@ import {InsertInlineNodeCommand} from 'substance'
 
 class StocktickerCommand extends InsertInlineNodeCommand {
   getCommandState(params) {
+
     if (!params) return
 
     const sel = params.selection
@@ -19,13 +20,13 @@ class StocktickerCommand extends InsertInlineNodeCommand {
 
   createNodeData() {
     return {
-      attributes: {'data-isin-code': 'US0378331005'},
+      attributes: {'data-isin-code': ''},
       target: [],
       label: '???',
       type: 'stockticker',
       dataType: 'fdmg/stockticker',
-      isin: 'US0378331005',
-      exchange: 'XNAS'
+      isin: '',
+      exchange: ''
     }
   }
 }
