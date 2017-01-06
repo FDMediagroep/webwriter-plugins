@@ -13,11 +13,10 @@ export default class QuoteCommand extends Command {
    * @returns {string}
    */
   getSelectionText(selection) {
-
     let joinedText = '';
     selection.getFragments().forEach(fragment => {
       if(fragment.type === 'selection-fragment') {
-        joinedText += document.querySelector('[data-path="' + fragment.path.join('.') + '"]').innerText.substr(fragment.startOffset, fragment.endOffset) + ' ';
+        joinedText += document.querySelector('[data-path="' + fragment.path.join('.') + '"]').innerText.substr(fragment.startOffset, fragment.endOffset-fragment.startOffset) + ' ';
       }
     });
     joinedText = joinedText.replace('\n', '').trim();
