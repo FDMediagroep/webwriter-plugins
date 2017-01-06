@@ -34,7 +34,7 @@ export default class HeartbeatComponent extends Component {
   poll() {
     const token = api.getConfigValue(pluginId, 'token');
     const url = api.getConfigValue(pluginId, 'endpoint');
-    api.router.post('/api/resourceproxy', {
+    api.router.put('/api/resourceproxy', {
       url: url,
       body: JSON.stringify(this.state),
       headers: {
@@ -46,13 +46,19 @@ export default class HeartbeatComponent extends Component {
     .then(response => response.json())
     .then((json) => {
       console.info(json);
+      this.extendState({
+        heartbeat: {
+          lockedBy: json.lockedBy
+        }
+      });
       this._updatePresentation();
     })
     .catch((err) => {
       console.warn(err);
       this.extendState({
         heartbeat: {
-          lockedBy: 'System'
+          lockedBy: 'System',
+          errorMessage: err
         }
       });
       this._updatePresentation();
@@ -107,6 +113,8 @@ export default class HeartbeatComponent extends Component {
       virtualElement('h2').append(this.getLabel('Article unlocked'))
     ).append(
       virtualElement('p').append(this.getLabel('Heartbeat endpoint is unreachable. Article is or will become unlocked in less than 70 seconds.'))
+    ).append(
+      virtualElement('p').html(this.state.heartbeat.errorMessage)
     );
   }
   /**
