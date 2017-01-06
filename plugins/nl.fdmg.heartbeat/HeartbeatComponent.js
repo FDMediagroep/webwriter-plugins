@@ -58,7 +58,7 @@ export default class HeartbeatComponent extends Component {
       this.extendState({
         heartbeat: {
           lockedBy: 'System',
-          errorMessage: err
+          errorMessage: JSON.stringify(err)
         }
       });
       this._updatePresentation();
