@@ -716,7 +716,7 @@
           "name": "heartbeat",
           "url": "http://localhost:3000/index.js",
           "style": "http://localhost:3000/style.css",
-          "enabled": false,
+          "enabled": true,
           "mandatory": true,
           "data": {
             "endpoint": "https://webwriter-dev.fd.nl/fdmgapi/private/fd/articles/lock",
