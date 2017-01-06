@@ -13,15 +13,22 @@ export default class HeartbeatComponent extends Component {
 
     console.info(api.newsItem, api);
     api.events.on(pluginId, event.DOCUMENT_CHANGED, () => {
-      if(pollInterval === undefined) {
-        // Change state
-        this.extendState({
-          heartbeat: {
-            name: 'The name of the current user',
-            articleId: api.newsItem.getIdForArticle()
-          }
-        });
+      let id = api.newsItem.getIdForArticle();
+      if (id.indexOf('-') > -1) {
+        id = id.substring(id.indexOf('-') + 1);
+      } else {
+        id = -1;
+      }
 
+      // Change state
+      this.extendState({
+        heartbeat: {
+          name: 'The name of the current user',
+          articleId: id
+        }
+      });
+
+      if(pollInterval === undefined) {
         this.poll();
         pollInterval = setInterval(this.poll, 60000);
       } else {
@@ -36,7 +43,7 @@ export default class HeartbeatComponent extends Component {
     const url = api.getConfigValue(pluginId, 'endpoint');
     api.router.put('/api/resourceproxy', {
       url: url,
-      body: JSON.stringify(this.state),
+      body: JSON.stringify(this.state.heartbeat),
       headers: {
         'x-access-token': `Bearer ${token}`,
         'Content-Type': 'application/json'
@@ -57,8 +64,7 @@ export default class HeartbeatComponent extends Component {
       console.warn(err);
       this.extendState({
         heartbeat: {
-          lockedBy: 'System',
-          errorMessage: JSON.stringify(err)
+          lockedBy: 'System'
         }
       });
       this._updatePresentation();
@@ -69,8 +75,7 @@ export default class HeartbeatComponent extends Component {
     this.extendState({
       heartbeat: {
         name: null,
-        lockedBy: '',
-        articleId: api.newsItem.getIdForArticle()
+        articleId: -1
       }
     });
   }
