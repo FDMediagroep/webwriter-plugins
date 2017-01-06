@@ -11,7 +11,6 @@ export default class HeartbeatComponent extends Component {
   constructor(...args) {
     super(...args);
 
-    console.info(api.newsItem, api);
     api.events.on(pluginId, event.DOCUMENT_CHANGED, () => {
       let id = api.newsItem.getIdForArticle();
       if (id.indexOf('-') > -1) {
@@ -48,7 +47,6 @@ export default class HeartbeatComponent extends Component {
     .then(response => api.router.checkForOKStatus(response))
     .then(response => response.json())
     .then((json) => {
-      console.info(json);
       this.extendState({
         lockedBy: json.lockedBy
       });
