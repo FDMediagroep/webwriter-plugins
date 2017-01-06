@@ -130,7 +130,7 @@ export default class HeartbeatComponent extends Component {
    */
   setUnlocked() {
     // Article is not locked
-    this.props.popover.setStatusText('');
+    this.props.popover.setStatusText(this.getLabel('In use by') + ' ' + this.state.lockedBy);
     this.props.popover.setIcon('fa-unlock-alt');
     el = virtualElement('div').addClass('fdmg-heartbeat').append(
       virtualElement('h2').append(this.getLabel('Article editable'))
