@@ -17,8 +17,14 @@ export default class HeartbeatComponent extends Component {
         id = id.substring(id.indexOf('-') + 1);
       }
 
+      const articleVersions = api.newsItem.getLinkByType('articleverion', 'fdmg/articleversion');
+      let value = 0;
+      articleVersions.forEach(function(articleVersion) {
+        value = articleVersion['@value'];
+      });
+
       // Change state
-      this.extendState({ articleId: id });
+      this.extendState({ articleId: id, articleVersion: value });
 
       if(pollInterval === undefined) {
         this.poll();
