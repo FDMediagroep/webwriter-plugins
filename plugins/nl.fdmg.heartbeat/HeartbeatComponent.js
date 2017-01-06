@@ -16,8 +16,6 @@ export default class HeartbeatComponent extends Component {
       let id = api.newsItem.getIdForArticle();
       if (id.indexOf('-') > -1) {
         id = id.substring(id.indexOf('-') + 1);
-      } else {
-        id = -1;
       }
 
       // Change state
