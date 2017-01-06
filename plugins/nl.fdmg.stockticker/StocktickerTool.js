@@ -2,6 +2,7 @@ import {Tool} from 'substance';
 import {api} from 'writer';
 
 export default class StocktickerTool extends Tool {
+  
   render($$) {
     return $$('button')
       .addClass('se-tool')

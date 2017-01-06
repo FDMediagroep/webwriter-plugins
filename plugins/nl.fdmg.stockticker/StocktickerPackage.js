@@ -27,5 +27,9 @@ export default {
       'nl': 'Stockticker invoegen'
     });
 
+    config.addLabel('No stockticker chosen yet...', {
+      'nl': 'Nog geen stockticker geselecteerd...'
+    });
+
   }
 }

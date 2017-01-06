@@ -35,10 +35,10 @@ export default class StocktickerComponent extends AnnotationComponent {
           node.symbol,
           $$('span')
             .addClass(parseFloat(node.difference) >= 0 ? 'up' : 'down')
-            .append(`${node.name} ${node.currency} ${node.price} (${node.difference})`)
+            .append(`${node.currency} ${node.price} (${node.difference})`)
         );
-    } else {
-      el.append($$('span').append('loading...'));
+    } else if (!node.symbol) {
+      el.append($$('span').append(this.getLabel('No stockticker chosen yet...')));
     }
 
     return el;
