@@ -110,8 +110,6 @@ export default class HeartbeatComponent extends Component {
       virtualElement('h2').append(this.getLabel('Article unlocked'))
     ).append(
       virtualElement('p').append(this.getLabel('Heartbeat endpoint is unreachable. Article is or will become unlocked in less than 70 seconds.'))
-    ).append(
-      virtualElement('p').html(this.state.heartbeat.errorMessage)
     );
   }
   /**
