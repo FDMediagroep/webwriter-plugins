@@ -22,10 +22,8 @@ export default class HeartbeatComponent extends Component {
 
       // Change state
       this.extendState({
-        heartbeat: {
-          name: 'The name of the current user',
-          articleId: id
-        }
+        name: 'The name of the current user',
+        articleId: id
       });
 
       if(pollInterval === undefined) {
@@ -43,7 +41,7 @@ export default class HeartbeatComponent extends Component {
     const url = api.getConfigValue(pluginId, 'endpoint');
     api.router.put('/api/resourceproxy', {
       url: url,
-      body: JSON.stringify(this.state.heartbeat),
+      body: JSON.stringify({"name": this.state.name, "articleId": this.state.articleId}),
       headers: {
         'x-access-token': `Bearer ${token}`,
         'Content-Type': 'application/json'
@@ -54,18 +52,14 @@ export default class HeartbeatComponent extends Component {
     .then((json) => {
       console.info(json);
       this.extendState({
-        heartbeat: {
-          lockedBy: json.lockedBy
-        }
+        lockedBy: json.lockedBy
       });
       this._updatePresentation();
     })
     .catch((err) => {
       console.warn(err);
       this.extendState({
-        heartbeat: {
-          lockedBy: 'System'
-        }
+        lockedBy: 'System'
       });
       this._updatePresentation();
     })
@@ -73,10 +67,8 @@ export default class HeartbeatComponent extends Component {
 
   getInitialState() {
     this.extendState({
-      heartbeat: {
-        name: null,
-        articleId: -1
-      }
+      name: null,
+      articleId: -1
     });
   }
 
@@ -93,10 +85,10 @@ export default class HeartbeatComponent extends Component {
 
   _updatePresentation() {
     let locked = false;
-    if(this.state.heartbeat.lockedBy !== null && this.state.heartbeat.lockedBy === 'System') {
+    if(this.state.lockedBy !== null && this.state.lockedBy === 'System') {
       locked = false;
       this.setLockedBySystem();
-    } else if (this.state.heartbeat.lockedBy !== null && this.state.heartbeat.lockedBy !== 'The name of the current user') {
+    } else if (this.state.lockedBy !== null && this.state.lockedBy !== 'The name of the current user') {
       locked = true;
       this.setLockedByUser();
     } else {
@@ -127,13 +119,13 @@ export default class HeartbeatComponent extends Component {
    */
   setLockedByUser() {
     // Article is locked by user
-    api.ui.showNotification('Article locked', this.getLabel('Article locked'), this.getLabel('This article is in use by') + ': ' + this.state.heartbeat.lockedBy);
-    this.props.popover.setStatusText(this.getLabel('In use by') + ' ' + this.state.heartbeat.lockedBy);
+    api.ui.showNotification('Article locked', this.getLabel('Article locked'), this.getLabel('This article is in use by') + ': ' + this.state.lockedBy);
+    this.props.popover.setStatusText(this.getLabel('In use by') + ' ' + this.state.lockedBy);
     this.props.popover.setIcon('fa-lock');
     el = virtualElement('div').addClass('fdmg-heartbeat').append(
       virtualElement('h2').append(this.getLabel('Article locked'))
     ).append(
-      virtualElement('p').append(this.getLabel('This article is in use by') + ': ' + this.state.heartbeat.lockedBy)
+      virtualElement('p').append(this.getLabel('This article is in use by') + ': ' + this.state.lockedBy)
     );
   }
   /**
