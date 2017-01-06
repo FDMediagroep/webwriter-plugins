@@ -52,6 +52,7 @@ export default class HeartbeatComponent extends Component {
       this.extendState({
         lockedBy: json.lockedBy
       });
+      console.info('ArticleVersion check', this.state.articleVersion, json.articleVersion);
       this._updatePresentation();
     })
     .catch((err) => {
