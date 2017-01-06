@@ -22,7 +22,7 @@ export default class HeartbeatComponent extends Component {
 
       // Change state
       this.extendState({
-        name: 'The name of the current user',
+        name: navigator.userAgent,
         articleId: id
       });
 
@@ -88,7 +88,7 @@ export default class HeartbeatComponent extends Component {
     if(this.state.lockedBy !== null && this.state.lockedBy === 'System') {
       locked = false;
       this.setLockedBySystem();
-    } else if (this.state.lockedBy !== null && this.state.lockedBy !== 'The name of the current user') {
+    } else if (this.state.lockedBy !== null && this.state.lockedBy !== navigator.userAgent) {
       locked = true;
       this.setLockedByUser();
     } else {
