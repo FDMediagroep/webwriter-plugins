@@ -47,6 +47,7 @@ gulp.task('acc-config-generate', function(){
     .pipe(replace(/https\:\/\/webwriter-dev.fd.nl/g, 'https://webwriter-acc.fd.nl'))
     .pipe(replace(/FDMG_SERVICES_TOKEN/g, 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiItNjYxODc1NjIyMjg3NzcxNTU1MiIsInN1YiI6ImluZm9tYWtlciIsInJvbGUiOiJVU0VSIn0.35SdM_LRat9AAfrZJo4EM2mlDtYzk6X3rARTW9I4XKWM4tvBCpb2gKzVewmWQq1DuqOhCskr3HNdSf7tK664Rw'))
     .pipe(replace(/HOLLANDSE_HOOGTE_TOKEN/g, '63401c89-63e9-35f9-9daa-a55ef26c3042'))
+    .pipe(replace(/https\:\/\/apigateway-dev.fdmg.nl/g, 'https://apigateway-acc.fdmg.nl'))
     .pipe(rename('acc-writer-client.json'))
     .pipe(gulp.dest('./dist'));
 });
@@ -62,6 +63,7 @@ gulp.task('prod-config-generate', function(){
     .pipe(replace(/https\:\/\/webwriter-dev.fd.nl/g, 'https://webwriter.fd.nl'))
     .pipe(replace(/FDMG_SERVICES_TOKEN/g, 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiI3NTQ5ODQzMzcxNzQxNjc2NTA4Iiwic3ViIjoiZmV3ZmV3Zndmd2VmZXdjZXdjZXdjZXdkcXdkIiwicm9sZSI6IlVTRVIifQ.RCn3YIFB7LmVzJrf9B-F_xyDAtZ4Zpod_CwOFHEWbJISDu_EaYh0-eseWACxrBS2BP3XT9DH-tBJTIyzj3lZ3A'))
     .pipe(replace(/HOLLANDSE_HOOGTE_TOKEN/g, '63401c89-63e9-35f9-9daa-a55ef26c3042'))
+    .pipe(replace(/https\:\/\/apigateway-dev.fdmg.nl/g, 'https://apigateway.fdmg.nl'))
     .pipe(rename('prod-writer-client.json'))
     .pipe(gulp.dest('./dist'));
 });
