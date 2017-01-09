@@ -69,7 +69,7 @@ export default class HeartbeatComponent extends Component {
       this.updatePresentation();
     })
     .catch((err) => {
-      console.warn(err);
+      console.warn(err.status, err);
       this.extendState({
         lockedBy: 'System',
         error: err
