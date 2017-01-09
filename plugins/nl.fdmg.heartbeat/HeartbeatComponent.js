@@ -95,7 +95,7 @@ export default class HeartbeatComponent extends Component {
     virtualElement = $$;
     if(el === undefined) {
       el = virtualElement('div').addClass('fdmg-heartbeat').append(
-        virtualElement('h2').append(this.getLabel('Article unlocked'))
+        virtualElement('h2').append(this.getLabel('New article'))
       );
     }
 
