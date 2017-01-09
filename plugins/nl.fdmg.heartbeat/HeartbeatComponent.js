@@ -132,6 +132,25 @@ export default class HeartbeatComponent extends Component {
       message = 'Heartbeat endpoint is unreachable. Article is or will become unlocked in less than 70 seconds.';
       api.ui.showNotification('Article unlocked', this.getLabel(title), this.getLabel(message));
       this.props.popover.setIcon('fa-heartbeat');
+    } else {
+      switch(this.state.error.status) {
+        case 400:
+          message = 'Provided parameters are incorrect';
+          break;
+        case 401:
+          message = 'Unauthorized';
+          break;
+        case 403:
+          message = 'Forbidden';
+          break;
+        case 404:
+          message = 'Heartbeat service is offline';
+          break;
+        case 500:
+          message = 'Internal server error';
+          break;
+        default:
+      }
     }
     this.props.popover.setStatusText(this.getLabel(statusText));
     el = virtualElement('div').addClass('fdmg-heartbeat').append(
