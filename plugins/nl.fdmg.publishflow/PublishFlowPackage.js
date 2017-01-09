@@ -50,12 +50,12 @@ export default {
     });
 
     config.addLabel('Scheduled', {
-      nl: 'Ingeplanned',
+      nl: 'Ingepland',
       sv: 'Schemalagd'
     });
 
     config.addLabel('Article is scheduled to be published', {
-      nl: 'Artikel is ingeplanned voor publicatie',
+      nl: 'Artikel is ingepland voor publicatie',
       sv: 'Artiklen är schemalagd för publicering'
     });
 
@@ -85,7 +85,7 @@ export default {
     });
 
     config.addLabel('This article has an unknown, unsupported, status', {
-      nl: 'Dit artikel heeft een onbekend en niet ondersteunde status',
+      nl: 'Dit artikel heeft een onbekende en niet ondersteunde status',
       sv: 'Artikeln har en okänd eller felaktig status'
     });
 
@@ -132,7 +132,7 @@ export default {
     });
 
     config.addLabel('stat:withheld', {
-      nl: 'Ingeplanned voor publicatie',
+      nl: 'Ingepland voor publicatie',
       en: 'Scheduled for publication',
       sv: 'Schemalagd för publicering'
     });
