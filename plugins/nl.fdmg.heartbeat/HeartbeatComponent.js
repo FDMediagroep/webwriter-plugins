@@ -16,6 +16,10 @@ export default class HeartbeatComponent extends Component {
       if (id.indexOf('-') > -1) {
         id = id.substring(id.indexOf('-') + 1);
       }
+      // When id can't be parsed to integer value it means it is a new article. In that case we don't activate the heartbeat.
+      if(!parseInt(id, 10)) {
+        return;
+      }
 
       /**
        * Use the article version stored in the NewsML.
