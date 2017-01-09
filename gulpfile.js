@@ -28,6 +28,7 @@ gulp.task('dev-config-generate', function(){
   gulp.src(['writer-fd-dev.json'])
     .pipe(replace(/http\:\/\/localhost:3000/g, 'https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins'))
     .pipe(replace(/30eae1c0-c640-4053-b114-05c64e28bbe7/g, '1156201'))
+    .pipe(replace(/FDMG_SERVICES_TOKEN/g, 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIxMjMiLCJzdWIiOiJzdmVuIiwicm9sZSI6InVzZXIifQ.omGBEdLl3e_bxNFq83bsTUZnO5HU_c0gltDuTFWM_KlLJWtlZzDo1F7jGD6zPD54XmimTAWmD5XKIlhMQVmChQ'))
     .pipe(rename('dev-writer-client.json'))
     .pipe(gulp.dest('./dist'));
 });
@@ -41,6 +42,7 @@ gulp.task('acc-config-generate', function(){
     .pipe(replace(/http\:\/\/localhost:3000/g, 'https://s3-eu-west-1.amazonaws.com/webwriter-acc-plugins'))
     .pipe(replace(/30eae1c0-c640-4053-b114-05c64e28bbe7/g, '1204619'))
     .pipe(replace(/https\:\/\/webwriter-dev.fd.nl/g, 'https://webwriter-acc.fd.nl'))
+    .pipe(replace(/FDMG_SERVICES_TOKEN/g, 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiItNjYxODc1NjIyMjg3NzcxNTU1MiIsInN1YiI6ImluZm9tYWtlciIsInJvbGUiOiJVU0VSIn0.35SdM_LRat9AAfrZJo4EM2mlDtYzk6X3rARTW9I4XKWM4tvBCpb2gKzVewmWQq1DuqOhCskr3HNdSf7tK664Rw'))
     .pipe(rename('acc-writer-client.json'))
     .pipe(gulp.dest('./dist'));
 });
@@ -54,6 +56,7 @@ gulp.task('prod-config-generate', function(){
     .pipe(replace(/http\:\/\/localhost:3000/g, 'https://s3-eu-west-1.amazonaws.com/webwriter-plugins'))
     .pipe(replace(/30eae1c0-c640-4053-b114-05c64e28bbe7/g, '1171067'))
     .pipe(replace(/https\:\/\/webwriter-dev.fd.nl/g, 'https://webwriter.fd.nl'))
+    .pipe(replace(/FDMG_SERVICES_TOKEN/g, 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiItNjYxODc1NjIyMjg3NzcxNTU1MiIsInN1YiI6ImluZm9tYWtlciIsInJvbGUiOiJVU0VSIn0.35SdM_LRat9AAfrZJo4EM2mlDtYzk6X3rARTW9I4XKWM4tvBCpb2gKzVewmWQq1DuqOhCskr3HNdSf7tK664Rw'))
     .pipe(rename('prod-writer-client.json'))
     .pipe(gulp.dest('./dist'));
 });
