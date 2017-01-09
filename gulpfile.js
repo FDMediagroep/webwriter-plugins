@@ -17,6 +17,9 @@ var rename = require('gulp-rename');
 var replace = require('gulp-replace');
 
 gulp.task('local-config-generate', function(){
+  /**
+   * Replace placeholders.
+   */
   gulp.src(['writer-fd-dev.json'])
     .pipe(replace(/FDMG_SERVICES_TOKEN/g, 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIxMjMiLCJzdWIiOiJzdmVuIiwicm9sZSI6InVzZXIifQ.omGBEdLl3e_bxNFq83bsTUZnO5HU_c0gltDuTFWM_KlLJWtlZzDo1F7jGD6zPD54XmimTAWmD5XKIlhMQVmChQ'))
     .pipe(replace(/HOLLANDSE_HOOGTE_TOKEN/g, '63401c89-63e9-35f9-9daa-a55ef26c3042'))
@@ -25,7 +28,7 @@ gulp.task('local-config-generate', function(){
 
 gulp.task('dev-config-generate', function(){
   /**
-   * Replace newsItemTemplateId 30eae1c0-c640-4053-b114-05c64e28bbe7 with correct ID on dev.
+   * Replace placeholders.
    */
   gulp.src(['writer-fd-dev.json'])
     .pipe(replace(/http\:\/\/localhost:3000/g, 'https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins'))
@@ -38,8 +41,7 @@ gulp.task('dev-config-generate', function(){
 
 gulp.task('acc-config-generate', function(){
   /**
-   * Replace newsItemTemplateId 30eae1c0-c640-4053-b114-05c64e28bbe7 with correct ID on dev.
-   * TODO: probably need another ID on acc
+   * Replace various dev variables to acc env variables. Replace placeholders.
    */
   gulp.src(['writer-fd-dev.json'])
     .pipe(replace(/http\:\/\/localhost:3000/g, 'https://s3-eu-west-1.amazonaws.com/webwriter-acc-plugins'))
@@ -54,8 +56,7 @@ gulp.task('acc-config-generate', function(){
 
 gulp.task('prod-config-generate', function(){
   /**
-   * Replace newsItemTemplateId 30eae1c0-c640-4053-b114-05c64e28bbe7 with correct ID on dev.
-   * TODO: probably need another ID on prod
+   * Replace various dev variables to prod env variables. Replace placeholders.
    */
   gulp.src(['writer-fd-dev.json'])
     .pipe(replace(/http\:\/\/localhost:3000/g, 'https://s3-eu-west-1.amazonaws.com/webwriter-plugins'))
