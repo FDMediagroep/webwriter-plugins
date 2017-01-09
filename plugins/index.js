@@ -91,11 +91,12 @@ import Translations from './nl.fdmg.translations/index';
   TextcountSelector();
 
   Stockticker();
+  TextFrame();
   Quote();
   NumberFrame();
   StackFrame();
   RelatedLink();
-  TextFrame();
+
   HtmlEmbed();
 
   Heartbeat();
