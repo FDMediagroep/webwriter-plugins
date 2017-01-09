@@ -718,7 +718,7 @@
       "name": "heartbeat",
       "url": "http://localhost:3000/index.js",
       "style": "http://localhost:3000/style.css",
-      "enabled": true,
+      "enabled": false,
       "mandatory": true,
       "data": {
         "endpoint": "https://webwriter-dev.fd.nl/fdmgapi/private/fd/articles/lock/",
@@ -731,7 +731,7 @@
       "url": "http://localhost:3000/index.js",
       "style": "http://localhost:3000/style.css",
       "enabled": true,
-      "mandatory": false
+      "mandatory": true
     },
     {
       "id": "nl.fdmg.workinstructions",
