@@ -721,7 +721,7 @@
       "enabled": true,
       "mandatory": true,
       "data": {
-        "endpoint": "http://localhost:3000/index.js",
+        "endpoint": "https://webwriter-dev.fd.nl/fdmgapi/private/fd/articles/lock",
         "token": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIxMjMiLCJzdWIiOiJzdmVuIiwicm9sZSI6InVzZXIifQ.omGBEdLl3e_bxNFq83bsTUZnO5HU_c0gltDuTFWM_KlLJWtlZzDo1F7jGD6zPD54XmimTAWmD5XKIlhMQVmChQ"
       }
     },
