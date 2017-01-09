@@ -23,6 +23,9 @@ export default {
     config.addLabel('Unknown error. Article is or will become unlocked in less than 70 seconds.', {
       nl: 'Onbekende fout. Artikel is of zal vrij komen in minder dan 70 seconden.'
     });
+    config.addLabel('Obsolete version', {
+      nl: 'Verouderde versie'
+    });
     config.addLabel('The version of the article on the server is newer than your version. Please hit F5 to reload the version from server. Your unsaved changes will be lost.', {
       nl: 'Artikel versie op de server is nieuwer dan uw versie. Toets F5 in om de laatste versie van de server op te halen. Al uw onopgeslagen veranderingen zullen verloren gaan.'
     });
