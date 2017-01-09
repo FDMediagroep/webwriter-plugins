@@ -35,6 +35,9 @@ a.fdmg-box {
     border-radius: 5px;
     .sc-text-property {
         cursor: text;
+        &:hover {
+          background-color: rgba(0,0,0,0.02);
+        }
     }
     > div {
         display:block;
