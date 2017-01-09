@@ -133,6 +133,7 @@ export default class HeartbeatComponent extends Component {
       api.ui.showNotification('Article unlocked', this.getLabel(title), this.getLabel(message));
       this.props.popover.setIcon('fa-heartbeat');
     } else {
+      this.props.popover.setIcon('fa-heartbeat');
       switch(this.state.error.status) {
         case 400:
           message = 'Provided parameters are incorrect';
