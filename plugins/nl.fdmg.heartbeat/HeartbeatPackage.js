@@ -15,7 +15,7 @@ export default {
 
     config.addLabel('No heartbeat', { nl: 'Geen heartbeat' });
     config.addLabel('Article unlocked', { nl: 'Artikel vrij' });
-    config.addLabel('Article is new.', { nl: 'Nieuws artikel.' });
+    config.addLabel('Article is new.', { nl: 'Nieuw artikel.' });
     config.addLabel('Heartbeat endpoint is unreachable. Article is or will become unlocked in less than 70 seconds.', {
       nl: 'Heartbeat endpoint is onbereikbaar. Artikel is of zal vrij komen in minder dan 70 seconden.'
     });

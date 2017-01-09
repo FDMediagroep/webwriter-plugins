@@ -125,13 +125,13 @@ export default class HeartbeatComponent extends Component {
     let title = 'Article unlocked';
     let message = 'Unknown error. Article is or will become unlocked in less than 70 seconds.';
     // Heartbeat endpoint unreachable.
-    if(this.state.error.message === 'request timeout') {
+    if(!parseInt(this.state.articleVersion, 10)) {
+      message = 'Article is new.';
+      this.props.popover.setIcon('fa-unlock-alt');
+    } else if(this.state.error.message === 'request timeout') {
       message = 'Heartbeat endpoint is unreachable. Article is or will become unlocked in less than 70 seconds.';
       api.ui.showNotification('Article unlocked', this.getLabel(title), this.getLabel(message));
       this.props.popover.setIcon('fa-heartbeat');
-    } else if(!parseInt(this.state.articleVersion, 10)) {
-      message = 'Article is new.';
-      this.props.popover.setIcon('fa-unlock-alt');
     }
     this.props.popover.setStatusText(this.getLabel(statusText));
     el = virtualElement('div').addClass('fdmg-heartbeat').append(
