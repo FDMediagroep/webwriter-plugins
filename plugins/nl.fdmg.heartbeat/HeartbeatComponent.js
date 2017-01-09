@@ -179,6 +179,7 @@ export default class HeartbeatComponent extends Component {
    * Set UI to reflect status where article is locked because version on server is newer.
    */
   setLockedByVersion() {
+    // Leave this statement for informational purposes during production.
     console.info('Article version:', this.state.articleVersion, 'Server version:', this.state.serverVersion);
     // Article is locked by version
     api.ui.showNotification('Article locked', this.getLabel('Article locked'), this.getLabel('The version of the article on the server is newer than your version. Please hit F5 to reload the version from server. Your unsaved changes will be lost.'));
