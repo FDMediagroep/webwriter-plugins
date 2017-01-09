@@ -25,7 +25,6 @@ export default class HeartbeatComponent extends Component {
       // There should only be one. But we use forEach anyway because it's so short to write.
       articleVersions.forEach((articleVersion) => {
         value = articleVersion['@value'];
-        console.info('currentArticleVersion', value);
       });
 
       // Change state
@@ -41,16 +40,25 @@ export default class HeartbeatComponent extends Component {
 
   }
 
+  /**
+   * Send heartbeat to server. When article is not locked by anyone else it is then locked by this user.
+   */
   poll() {
     const token = api.getConfigValue(pluginId, 'token');
     const url = api.getConfigValue(pluginId, 'endpoint');
-    api.router.put('/api/resourceproxy', {
-      url: url + this.state.articleId,
-      headers: {
-        'x-access-token': `Bearer ${token}`,
-        'Content-Type': 'application/json'
-      }
-    })
+    // Promise.race allows multiple promises to run asynchronously and see who finishes first.
+    Promise.race([
+      api.router.put('/api/resourceproxy', {
+        url: url + this.state.articleId,
+        headers: {
+          'x-access-token': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        }
+      }),
+      new Promise(function (resolve, reject) {
+        setTimeout(() => reject(new Error('request timeout')), 5000)
+      })
+    ])
     .then(response => api.router.checkForOKStatus(response))
     .then(response => response.json())
     .then((json) => {
@@ -63,11 +71,13 @@ export default class HeartbeatComponent extends Component {
     .catch((err) => {
       console.warn(err);
       this.extendState({
-        lockedBy: 'System'
+        lockedBy: 'System',
+        error: err
       });
       this.updatePresentation();
     })
   }
+
 
   getInitialState() {
     this.extendState({
@@ -94,12 +104,11 @@ export default class HeartbeatComponent extends Component {
   updatePresentation() {
     let locked = false;
     if(this.state.lockedBy !== null && this.state.lockedBy === 'System') {
-      locked = false;
       this.setLockedBySystem();
     } else if (this.state.locked !== null && this.state.locked) {
       locked = true;
       this.setLockedByUser();
-    } else if(this.state.articleVersion !== json.articleVersion) {
+    } else if(this.state.articleVersion !== this.state.serverVersion) {
       locked = true;
       this.setLockedByVersion()
     } else {
@@ -112,16 +121,26 @@ export default class HeartbeatComponent extends Component {
    * Set UI to reflect status where Heartbeat endpoint is unreachable.
    */
   setLockedBySystem() {
+    let statusText = 'No heartbeat';
+    let title = 'Article unlocked';
+    let message = 'Unknown error. Article is or will become unlocked in less than 70 seconds.';
     // Heartbeat endpoint unreachable.
-    api.ui.showNotification('Article unlocked', this.getLabel('Article unlocked'), this.getLabel('Article is new or Heartbeat endpoint is unreachable. Article is or will become unlocked in less than 70 seconds.'));
-    this.props.popover.setStatusText(this.getLabel('No heartbeat'));
-    this.props.popover.setIcon('fa-heartbeat');
+    if(this.state.error.message === 'request timeout') {
+      message = 'Heartbeat endpoint is unreachable. Article is or will become unlocked in less than 70 seconds.';
+      api.ui.showNotification('Article unlocked', this.getLabel(title), this.getLabel(message));
+      this.props.popover.setIcon('fa-heartbeat');
+    } else if(!parseInt(this.state.articleVersion, 10)) {
+      message = 'Article is new.';
+      this.props.popover.setIcon('fa-unlock-alt');
+    }
+    this.props.popover.setStatusText(this.getLabel(statusText));
     el = virtualElement('div').addClass('fdmg-heartbeat').append(
-      virtualElement('h2').append(this.getLabel('Article unlocked'))
+      virtualElement('h2').append(this.getLabel(title))
     ).append(
-      virtualElement('p').append(this.getLabel('Article is new or Heartbeat endpoint is unreachable. Article is or will become unlocked in less than 70 seconds.'))
+      virtualElement('p').append(this.getLabel(message))
     );
   }
+
   /**
    * Set UI to reflect status where article is locked by another user.
    */
