@@ -254,7 +254,7 @@
       "data": {
         "searchEndpoint": "https://webwriter-dev.fd.nl/fdmgapi/private/fd/search/tag?q=",
         "updateEndpoint": "https://webwriter-dev.fd.nl/fdmgapi/private/fd/articles/tags/",
-        "token": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiI3NTQ5ODQzMzcxNzQxNjc2NTA4Iiwic3ViIjoiZmV3ZmV3Zndmd2VmZXdjZXdjZXdjZXdkcXdkIiwicm9sZSI6IlVTRVIifQ.RCn3YIFB7LmVzJrf9B-F_xyDAtZ4Zpod_CwOFHEWbJISDu_EaYh0-eseWACxrBS2BP3XT9DH-tBJTIyzj3lZ3A"
+        "token": "FDMG_SERVICES_TOKEN"
       }
     },
     {
@@ -319,7 +319,7 @@
       "mandatory": true,
       "data": {
         "endpoint": "https://webwriter-dev.fd.nl/fdmgapi/private/fd/search/author?q=",
-        "token": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiI3NTQ5ODQzMzcxNzQxNjc2NTA4Iiwic3ViIjoiZmV3ZmV3Zndmd2VmZXdjZXdjZXdjZXdkcXdkIiwicm9sZSI6IlVTRVIifQ.RCn3YIFB7LmVzJrf9B-F_xyDAtZ4Zpod_CwOFHEWbJISDu_EaYh0-eseWACxrBS2BP3XT9DH-tBJTIyzj3lZ3A"
+        "token": "FDMG_SERVICES_TOKEN"
       }
     },
     {
@@ -655,7 +655,7 @@
       "mandatory": true,
       "data": {
         "endpoint": "https://webwriter-dev.fd.nl/fdmgapi/private/fd/articles/section/fd4.advertorial/children",
-        "token": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIxMjMiLCJzdWIiOiJzdmVuIiwicm9sZSI6InVzZXIifQ.omGBEdLl3e_bxNFq83bsTUZnO5HU_c0gltDuTFWM_KlLJWtlZzDo1F7jGD6zPD54XmimTAWmD5XKIlhMQVmChQ",
+        "token": "FDMG_SERVICES_TOKEN",
         "optionsGroup": "articletype"
       }
     },
@@ -667,7 +667,7 @@
       "mandatory": true,
       "data": {
         "endpoint": "https://webwriter-dev.fd.nl/fdmgapi/private/fd/articles/section/fd4.service/allchildren",
-        "token": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIxMjMiLCJzdWIiOiJzdmVuIiwicm9sZSI6InVzZXIifQ.omGBEdLl3e_bxNFq83bsTUZnO5HU_c0gltDuTFWM_KlLJWtlZzDo1F7jGD6zPD54XmimTAWmD5XKIlhMQVmChQ",
+        "token": "FDMG_SERVICES_TOKEN",
         "optionsGroup": "articletype"
       }
     },
@@ -679,7 +679,7 @@
       "mandatory": true,
       "data": {
         "endpoint": "https://webwriter-dev.fd.nl/fdmgapi/private/fd/search/epic?q=",
-        "token": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiI3NTQ5ODQzMzcxNzQxNjc2NTA4Iiwic3ViIjoiZmV3ZmV3Zndmd2VmZXdjZXdjZXdjZXdkcXdkIiwicm9sZSI6IlVTRVIifQ.RCn3YIFB7LmVzJrf9B-F_xyDAtZ4Zpod_CwOFHEWbJISDu_EaYh0-eseWACxrBS2BP3XT9DH-tBJTIyzj3lZ3A"
+        "token": "FDMG_SERVICES_TOKEN"
       }
     },
     {
