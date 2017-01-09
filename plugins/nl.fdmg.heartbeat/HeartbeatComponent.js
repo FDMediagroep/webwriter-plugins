@@ -17,46 +17,67 @@ export default class HeartbeatComponent extends Component {
         id = id.substring(id.indexOf('-') + 1);
       }
 
+      /**
+       * Use the article version stored in the NewsML.
+       */
+      const articleVersions = api.newsItem.getLinkByType('articleverion', 'fdmg/articleversion');
+      let value = 0;
+      // There should only be one. But we use forEach anyway because it's so short to write.
+      articleVersions.forEach((articleVersion) => {
+        value = articleVersion['@value'];
+      });
+
       // Change state
-      this.extendState({ articleId: id });
+      this.extendState({ articleId: id, articleVersion: value });
 
       if(pollInterval === undefined) {
         this.poll();
         pollInterval = setInterval(() => this.poll(), 60000);
       } else {
-        this._updatePresentation();
+        this.updatePresentation();
       }
-    })
+    });
 
   }
 
+  /**
+   * Send heartbeat to server. When article is not locked by anyone else it is then locked by this user.
+   */
   poll() {
     const token = api.getConfigValue(pluginId, 'token');
     const url = api.getConfigValue(pluginId, 'endpoint');
-    api.router.put('/api/resourceproxy', {
-      url: url,
-      body: JSON.stringify({ "id": this.state.articleId }),
-      headers: {
-        'x-access-token': `Bearer ${token}`,
-        'Content-Type': 'application/json'
-      }
-    })
+    // Promise.race allows multiple promises to run asynchronously and see who finishes first.
+    Promise.race([
+      api.router.put('/api/resourceproxy', {
+        url: url + this.state.articleId,
+        headers: {
+          'x-access-token': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        }
+      }),
+      new Promise(function (resolve, reject) {
+        setTimeout(() => reject(new Error('request timeout')), 5000)
+      })
+    ])
     .then(response => api.router.checkForOKStatus(response))
     .then(response => response.json())
     .then((json) => {
       this.extendState({
-        lockedBy: json.lockedBy
+        lockedBy: json.lockedBy,
+        serverVersion: json.articleVersion
       });
-      this._updatePresentation();
+      this.updatePresentation();
     })
     .catch((err) => {
-      console.warn(err);
+      console.warn(err.status, err);
       this.extendState({
-        lockedBy: 'System'
+        lockedBy: 'System',
+        error: err
       });
-      this._updatePresentation();
+      this.updatePresentation();
     })
   }
+
 
   getInitialState() {
     this.extendState({
@@ -77,18 +98,22 @@ export default class HeartbeatComponent extends Component {
     return el;
   }
 
-  _updatePresentation() {
+  /**
+   * Determine if article is locked or not and update the UI accordingly.
+   */
+  updatePresentation() {
     let locked = false;
     if(this.state.lockedBy !== null && this.state.lockedBy === 'System') {
-      locked = false;
       this.setLockedBySystem();
     } else if (this.state.locked !== null && this.state.locked) {
       locked = true;
       this.setLockedByUser();
+    } else if(parseInt(this.state.articleVersion, 10) !== parseInt(this.state.serverVersion, 10)) {
+      locked = true;
+      this.setLockedByVersion()
     } else {
       this.setUnlocked();
     }
-
     this.lockMenu(locked);
   }
 
@@ -96,16 +121,46 @@ export default class HeartbeatComponent extends Component {
    * Set UI to reflect status where Heartbeat endpoint is unreachable.
    */
   setLockedBySystem() {
+    let statusText = 'No heartbeat';
+    let title = 'Article unlocked';
+    let message = 'Unknown error. Article is or will become unlocked in less than 70 seconds.';
     // Heartbeat endpoint unreachable.
-    //api.ui.showNotification('Article unlocked', this.getLabel('Article unlocked'), this.getLabel('Heartbeat endpoint is unreachable. Article is or will become unlocked in less than 70 seconds.'));
-    this.props.popover.setStatusText(this.getLabel('No heartbeat'));
-    this.props.popover.setIcon('fa-heartbeat');
+    if(!parseInt(this.state.articleVersion, 10)) {
+      message = 'Article is new.';
+      this.props.popover.setIcon('fa-unlock-alt');
+    } else if(this.state.error.message === 'request timeout') {
+      message = 'Heartbeat endpoint is unreachable. Article is or will become unlocked in less than 70 seconds.';
+      api.ui.showNotification('Article unlocked', this.getLabel(title), this.getLabel(message));
+      this.props.popover.setIcon('fa-heartbeat');
+    } else {
+      this.props.popover.setIcon('fa-heartbeat');
+      switch(this.state.error.status) {
+        case 400:
+          message = 'Provided parameters are incorrect';
+          break;
+        case 401:
+          message = 'Unauthorized';
+          break;
+        case 403:
+          message = 'Forbidden';
+          break;
+        case 404:
+          message = 'Heartbeat service is offline';
+          break;
+        case 500:
+          message = 'Internal server error';
+          break;
+        default:
+      }
+    }
+    this.props.popover.setStatusText(this.getLabel(statusText));
     el = virtualElement('div').addClass('fdmg-heartbeat').append(
-      virtualElement('h2').append(this.getLabel('Article unlocked'))
+      virtualElement('h2').append(this.getLabel(title))
     ).append(
-      virtualElement('p').append(this.getLabel('Article is new or Heartbeat endpoint is unreachable. Article is or will become unlocked in less than 70 seconds.'))
+      virtualElement('p').append(this.getLabel(message))
     );
   }
+
   /**
    * Set UI to reflect status where article is locked by another user.
    */
@@ -121,11 +176,27 @@ export default class HeartbeatComponent extends Component {
     );
   }
   /**
+   * Set UI to reflect status where article is locked because version on server is newer.
+   */
+  setLockedByVersion() {
+    // Leave this statement for informational purposes during production.
+    console.info('Article version:', this.state.articleVersion, 'Server version:', this.state.serverVersion);
+    // Article is locked by version
+    api.ui.showNotification('Article locked', this.getLabel('Article locked'), this.getLabel('The version of the article on the server is newer than your version. Please hit F5 to reload the version from server. Your unsaved changes will be lost.'));
+    this.props.popover.setStatusText(this.getLabel('Obsolete version'));
+    this.props.popover.setIcon('fa-lock');
+    el = virtualElement('div').addClass('fdmg-heartbeat').append(
+      virtualElement('h2').append(this.getLabel('Article locked'))
+    ).append(
+      virtualElement('p').append(this.getLabel('The version of the article on the server is newer than your version. Please hit F5 to reload the version from server. Your unsaved changes will be lost.'))
+    );
+  }
+  /**
    * Set UI to reflect status where article is not locked.
    */
   setUnlocked() {
     // Article is not locked
-    this.props.popover.setStatusText('');
+    this.props.popover.setStatusText(this.getLabel('In use by') + ' ' + this.state.lockedBy);
     this.props.popover.setIcon('fa-unlock-alt');
     el = virtualElement('div').addClass('fdmg-heartbeat').append(
       virtualElement('h2').append(this.getLabel('Article editable'))
