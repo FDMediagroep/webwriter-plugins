@@ -108,7 +108,7 @@ export default class HeartbeatComponent extends Component {
     } else if (this.state.locked !== null && this.state.locked) {
       locked = true;
       this.setLockedByUser();
-    } else if(this.state.articleVersion !== this.state.serverVersion) {
+    } else if(parseInt(this.state.articleVersion) !== parseInt(this.state.serverVersion)) {
       locked = true;
       this.setLockedByVersion()
     } else {
