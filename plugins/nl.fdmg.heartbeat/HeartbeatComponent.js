@@ -17,9 +17,13 @@ export default class HeartbeatComponent extends Component {
         id = id.substring(id.indexOf('-') + 1);
       }
 
+      /**
+       * Use the article version stored in the NewsML.
+       */
       const articleVersions = api.newsItem.getLinkByType('articleverion', 'fdmg/articleversion');
       let value = 0;
-      articleVersions.forEach(function(articleVersion) {
+      // There should only be one. But we use forEach anyway because it's so short to write.
+      articleVersions.forEach((articleVersion) => {
         value = articleVersion['@value'];
         console.info('currentArticleVersion', value);
       });
@@ -31,9 +35,9 @@ export default class HeartbeatComponent extends Component {
         this.poll();
         pollInterval = setInterval(() => this.poll(), 60000);
       } else {
-        this._updatePresentation();
+        this.updatePresentation();
       }
-    })
+    });
 
   }
 
@@ -51,17 +55,17 @@ export default class HeartbeatComponent extends Component {
     .then(response => response.json())
     .then((json) => {
       this.extendState({
-        lockedBy: json.lockedBy
+        lockedBy: json.lockedBy,
+        serverVersion: json.articleVersion
       });
-      console.info('ArticleVersion check', this.state.articleVersion, json.articleVersion);
-      this._updatePresentation();
+      this.updatePresentation();
     })
     .catch((err) => {
       console.warn(err);
       this.extendState({
         lockedBy: 'System'
       });
-      this._updatePresentation();
+      this.updatePresentation();
     })
   }
 
@@ -84,7 +88,10 @@ export default class HeartbeatComponent extends Component {
     return el;
   }
 
-  _updatePresentation() {
+  /**
+   * Determine if article is locked or not and update the UI accordingly.
+   */
+  updatePresentation() {
     let locked = false;
     if(this.state.lockedBy !== null && this.state.lockedBy === 'System') {
       locked = false;
@@ -92,10 +99,12 @@ export default class HeartbeatComponent extends Component {
     } else if (this.state.locked !== null && this.state.locked) {
       locked = true;
       this.setLockedByUser();
+    } else if(this.state.articleVersion !== json.articleVersion) {
+      locked = true;
+      this.setLockedByVersion()
     } else {
       this.setUnlocked();
     }
-
     this.lockMenu(locked);
   }
 
@@ -104,7 +113,7 @@ export default class HeartbeatComponent extends Component {
    */
   setLockedBySystem() {
     // Heartbeat endpoint unreachable.
-    //api.ui.showNotification('Article unlocked', this.getLabel('Article unlocked'), this.getLabel('Heartbeat endpoint is unreachable. Article is or will become unlocked in less than 70 seconds.'));
+    api.ui.showNotification('Article unlocked', this.getLabel('Article unlocked'), this.getLabel('Article is new or Heartbeat endpoint is unreachable. Article is or will become unlocked in less than 70 seconds.'));
     this.props.popover.setStatusText(this.getLabel('No heartbeat'));
     this.props.popover.setIcon('fa-heartbeat');
     el = virtualElement('div').addClass('fdmg-heartbeat').append(
@@ -125,6 +134,20 @@ export default class HeartbeatComponent extends Component {
       virtualElement('h2').append(this.getLabel('Article locked'))
     ).append(
       virtualElement('p').append(this.getLabel('This article is in use by') + ': ' + this.state.lockedBy)
+    );
+  }
+  /**
+   * Set UI to reflect status where article is locked because version on server is newer.
+   */
+  setLockedByVersion() {
+    // Article is locked by version
+    api.ui.showNotification('Article locked', this.getLabel('Article locked'), this.getLabel('The version of the article on the server is newer than your version. Please hit F5 to reload the version from server. Your unsaved changes will be lost.'));
+    this.props.popover.setStatusText(this.getLabel('Obsolete version'));
+    this.props.popover.setIcon('fa-lock');
+    el = virtualElement('div').addClass('fdmg-heartbeat').append(
+      virtualElement('h2').append(this.getLabel('Article locked'))
+    ).append(
+      virtualElement('p').append(this.getLabel('The version of the article on the server is newer than your version. Please hit F5 to reload the version from server. Your unsaved changes will be lost.'))
     );
   }
   /**
