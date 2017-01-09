@@ -718,7 +718,7 @@
       "name": "heartbeat",
       "url": "http://localhost:3000/index.js",
       "style": "http://localhost:3000/style.css",
-      "enabled": false,
+      "enabled": true,
       "mandatory": true,
       "data": {
         "endpoint": "http://localhost:3000/index.js",
