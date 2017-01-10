@@ -17,22 +17,12 @@ export default class HeartbeatComponent extends Component {
         id = id.substring(id.indexOf('-') + 1);
       }
       // When id can't be parsed to integer value it means it is a new article. In that case we don't activate the heartbeat.
-      if(!parseInt(id, 10)) {
+      if(isNaN(id)) {
         return;
       }
 
-      /**
-       * Use the article version stored in the NewsML.
-       */
-      const articleVersions = api.newsItem.getLinkByType('articleverion', 'fdmg/articleversion');
-      let value = 0;
-      // There should only be one. But we use forEach anyway because it's so short to write.
-      articleVersions.forEach((articleVersion) => {
-        value = articleVersion['@value'];
-      });
-
       // Change state
-      this.extendState({ articleId: id, articleVersion: value });
+      this.extendState({ articleId: id, articleVersion: this.getArticleVersion() });
 
       if(pollInterval === undefined) {
         this.poll();
@@ -42,6 +32,26 @@ export default class HeartbeatComponent extends Component {
       }
     });
 
+    /**
+     * When document has been saved.
+     */
+    api.events.on('nl.fdmg.publishflow', event.DOCUMENT_SAVED, () => {
+      console.log('Reload');
+      window.location.reload();
+    })
+  }
+
+  /**
+   * Return the article version stored in the NewsML.
+   */
+  getArticleVersion() {
+    const articleVersions = api.newsItem.getLinkByType('articleverion', 'fdmg/articleversion');
+    let value = 0;
+    // There should only be one. But we use forEach anyway because it's so short to write.
+    articleVersions.forEach((articleVersion) => {
+      value = articleVersion['@value'];
+    });
+    return value;
   }
 
   /**
@@ -129,7 +139,7 @@ export default class HeartbeatComponent extends Component {
     let title = 'Article unlocked';
     let message = 'Unknown error. Article is or will become unlocked in less than 70 seconds.';
     // Heartbeat endpoint unreachable.
-    if(!parseInt(this.state.articleVersion, 10)) {
+    if(isNaN(this.state.articleVersion)) {
       message = 'Article is new.';
       this.props.popover.setIcon('fa-unlock-alt');
     } else if(this.state.error.message === 'request timeout') {
