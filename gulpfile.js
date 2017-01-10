@@ -52,7 +52,7 @@ gulp.task('acc-config-generate', function(){
    * Replace placeholders.
    */
   gulp.src(['writer-fd-dev.json'])
-    .pipe(replace(/INFOMAKER_PLUGINS_BASE_URL/g, 'https://s3-eu-west-1.amazonaws.com/writer-dev-plugins'))
+    .pipe(replace(/INFOMAKER_PLUGINS_BASE_URL/g, 'https://s3-eu-west-1.amazonaws.com/writer-production-plugins'))
     .pipe(replace(/WEBWRITER_PLUGINS_BASE_URL/g, 'https://s3-eu-west-1.amazonaws.com/webwriter-acc-plugins'))
     .pipe(replace(/NEWS_ITEM_TEMPLATE_ID/g, '1204619'))
     .pipe(replace(/FDMG_SERVICES_BASE_URL/g, 'https://webwriter-acc.fd.nl/fdmgapi/private/fd'))
@@ -68,7 +68,7 @@ gulp.task('prod-config-generate', function(){
    * Replace placeholders.
    */
   gulp.src(['writer-fd-dev.json'])
-    .pipe(replace(/INFOMAKER_PLUGINS_BASE_URL/g, 'https://s3-eu-west-1.amazonaws.com/writer-dev-plugins'))
+    .pipe(replace(/INFOMAKER_PLUGINS_BASE_URL/g, 'https://s3-eu-west-1.amazonaws.com/writer-production-plugins'))
     .pipe(replace(/WEBWRITER_PLUGINS_BASE_URL/g, 'https://s3-eu-west-1.amazonaws.com/webwriter-plugins'))
     .pipe(replace(/NEWS_ITEM_TEMPLATE_ID/g, '1171067'))
     .pipe(replace(/FDMG_SERVICES_BASE_URL/g, 'https://webwriter.fd.nl/fdmgapi/private/fd'))
