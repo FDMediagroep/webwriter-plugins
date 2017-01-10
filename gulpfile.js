@@ -21,6 +21,7 @@ gulp.task('local-config-generate', function(){
    * Replace placeholders.
    */
   gulp.src(['writer-fd-dev.json'])
+    .pipe(replace(/INFOMAKER_PLUGINS_BASE_URL/g, 'https://s3-eu-west-1.amazonaws.com/writer-dev-plugins'))
     .pipe(replace(/WEBWRITER_PLUGINS_BASE_URL/g, 'http://localhost:3000'))
     .pipe(replace(/NEWS_ITEM_TEMPLATE_ID/g, '30eae1c0-c640-4053-b114-05c64e28bbe7'))
     .pipe(replace(/FDMG_SERVICES_BASE_URL/g, 'https://webwriter-dev.fd.nl'))
@@ -35,6 +36,7 @@ gulp.task('dev-config-generate', function(){
    * Replace placeholders.
    */
   gulp.src(['writer-fd-dev.json'])
+    .pipe(replace(/INFOMAKER_PLUGINS_BASE_URL/g, 'https://s3-eu-west-1.amazonaws.com/writer-dev-plugins'))
     .pipe(replace(/WEBWRITER_PLUGINS_BASE_URL/g, 'https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins'))
     .pipe(replace(/NEWS_ITEM_TEMPLATE_ID/g, '1156201'))
     .pipe(replace(/FDMG_SERVICES_BASE_URL/g, 'https://webwriter-dev.fd.nl'))
@@ -50,6 +52,7 @@ gulp.task('acc-config-generate', function(){
    * Replace placeholders.
    */
   gulp.src(['writer-fd-dev.json'])
+    .pipe(replace(/INFOMAKER_PLUGINS_BASE_URL/g, 'https://s3-eu-west-1.amazonaws.com/writer-dev-plugins'))
     .pipe(replace(/WEBWRITER_PLUGINS_BASE_URL/g, 'https://s3-eu-west-1.amazonaws.com/webwriter-acc-plugins'))
     .pipe(replace(/NEWS_ITEM_TEMPLATE_ID/g, '1204619'))
     .pipe(replace(/FDMG_SERVICES_BASE_URL/g, 'https://webwriter-acc.fd.nl'))
@@ -65,6 +68,7 @@ gulp.task('prod-config-generate', function(){
    * Replace placeholders.
    */
   gulp.src(['writer-fd-dev.json'])
+    .pipe(replace(/INFOMAKER_PLUGINS_BASE_URL/g, 'https://s3-eu-west-1.amazonaws.com/writer-dev-plugins'))
     .pipe(replace(/WEBWRITER_PLUGINS_BASE_URL/g, 'https://s3-eu-west-1.amazonaws.com/webwriter-plugins'))
     .pipe(replace(/NEWS_ITEM_TEMPLATE_ID/g, '1171067'))
     .pipe(replace(/FDMG_SERVICES_BASE_URL/g, 'https://webwriter.fd.nl'))
