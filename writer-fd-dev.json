@@ -1,5 +1,5 @@
 {
-  "newsItemTemplateId": "30eae1c0-c640-4053-b114-05c64e28bbe7",
+  "newsItemTemplateId": "NEWS_ITEM_TEMPLATE_ID",
   "language": "nl_NL",
   "labelLanguage": "nl",
   "plugins": [
@@ -101,8 +101,8 @@
     {
       "id": "nl.fdmg.stockticker",
       "name": "stockticker",
-      "url": "http://localhost:3000/index.js",
-      "style": "http://localhost:3000/style.css",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
       "enabled": true,
       "mandatory": true,
       "data": {
@@ -112,8 +112,8 @@
     {
       "id": "nl.fdmg.textframe",
       "name": "textframe",
-      "url": "http://localhost:3000/index.js",
-      "style": "http://localhost:3000/style.css",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
       "enabled": true,
       "mandatory": true,
       "data": {
@@ -137,39 +137,39 @@
     {
       "id": "nl.fdmg.quote",
       "name": "quote",
-      "url": "http://localhost:3000/index.js",
-      "style": "http://localhost:3000/style.css",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
       "enabled": true,
       "mandatory": true
     },
     {
       "id": "nl.fdmg.numberframe",
       "name": "numberframe",
-      "url": "http://localhost:3000/index.js",
-      "style": "http://localhost:3000/style.css",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
       "enabled": true,
       "mandatory": true
     },
     {
       "id": "nl.fdmg.stackframe",
       "name": "stackframe",
-      "url": "http://localhost:3000/index.js",
-      "style": "http://localhost:3000/style.css",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
       "enabled": true,
       "mandatory": true
     },
     {
       "id": "nl.fdmg.relatedlink",
       "name": "relatedlink",
-      "url": "http://localhost:3000/index.js",
-      "style": "http://localhost:3000/style.css",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
       "enabled": true,
       "mandatory": true
     },
     {
       "id": "nl.fdmg.localfocus",
       "name": "localfocus",
-      "url": "http://localhost:3000/index.js",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
       "enabled": true,
       "mandatory": true
     },
@@ -224,44 +224,44 @@
     {
       "id": "nl.fdmg.publishflow",
       "name": "publishflow",
-      "url": "http://localhost:3000/index.js",
-      "style": "http://localhost:3000/style.css",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
       "enabled": true,
       "mandatory": true
     },
     {
       "id": "nl.fdmg.sidebartabs",
       "name": "sidebartabs",
-      "url": "http://localhost:3000/index.js",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
       "enabled": true,
       "mandatory": true
     },
     {
       "id": "nl.fdmg.textcountselector",
       "name": "textcountselector",
-      "url": "http://localhost:3000/index.js",
-      "style": "http://localhost:3000/style.css",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
       "enabled": true,
       "mandatory": true
     },
     {
       "id": "nl.fdmg.tags",
       "name": "tags",
-      "url": "http://localhost:3000/index.js",
-      "style": "http://localhost:3000/style.css",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
       "enabled": true,
       "mandatory": true,
       "data": {
-        "searchEndpoint": "https://webwriter-dev.fd.nl/fdmgapi/private/fd/search/tag?q=",
-        "updateEndpoint": "https://webwriter-dev.fd.nl/fdmgapi/private/fd/articles/tags/",
+        "searchEndpoint": "FDMG_SERVICES_BASE_URL/fdmgapi/private/fd/search/tag?q=",
+        "updateEndpoint": "FDMG_SERVICES_BASE_URL/fdmgapi/private/fd/articles/tags/",
         "token": "FDMG_SERVICES_TOKEN"
       }
     },
     {
       "id": "nl.fdmg.textanalyzer",
       "name": "textanalyzer",
-      "url": "http://localhost:3000/index.js",
-      "style": "http://localhost:3000/style.css",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
       "enabled": true,
       "mandatory": true,
       "data": {
@@ -313,90 +313,90 @@
     {
       "id": "nl.fdmg.author",
       "name": "author",
-      "url": "http://localhost:3000/index.js",
-      "style": "http://localhost:3000/style.css",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
       "enabled": true,
       "mandatory": true,
       "data": {
-        "endpoint": "https://webwriter-dev.fd.nl/fdmgapi/private/fd/search/author?q=",
+        "endpoint": "FDMG_SERVICES_BASE_URL/fdmgapi/private/fd/search/author?q=",
         "token": "FDMG_SERVICES_TOKEN"
       }
     },
     {
       "id": "nl.fdmg.donotindex",
       "name": "donotindex",
-      "url": "http://localhost:3000/index.js",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
       "enabled": true,
       "mandatory": true
     },
     {
       "id": "nl.fdmg.fdpersonal",
       "name": "fdpersonal",
-      "url": "http://localhost:3000/index.js",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
       "enabled": true,
       "mandatory": true
     },
     {
       "id": "nl.fdmg.showrelatedarticles",
       "name": "showrelatedarticles",
-      "url": "http://localhost:3000/index.js",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
       "enabled": true,
       "mandatory": true
     },
     {
       "id": "nl.fdmg.paywall",
       "name": "paywall",
-      "url": "http://localhost:3000/index.js",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
       "enabled": true,
       "mandatory": true
     },
     {
       "id": "nl.fdmg.topstory",
       "name": "topstory",
-      "url": "http://localhost:3000/index.js",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
       "enabled": true,
       "mandatory": true
     },
     {
       "id": "nl.fdmg.comments",
       "name": "comments",
-      "url": "http://localhost:3000/index.js",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
       "enabled": true,
       "mandatory": true
     },
     {
       "id": "nl.fdmg.breakingarticle",
       "name": "breakingarticle",
-      "url": "http://localhost:3000/index.js",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
       "enabled": true,
       "mandatory": true
     },
     {
       "id": "nl.fdmg.shortarticle",
       "name": "shortarticle",
-      "url": "http://localhost:3000/index.js",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
       "enabled": true,
       "mandatory": true
     },
     {
       "id": "nl.fdmg.fullwidth",
       "name": "fullwidth",
-      "url": "http://localhost:3000/index.js",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
       "enabled": true,
       "mandatory": false
     },
     {
       "id": "nl.fdmg.relatedarticles",
       "name": "relatedarticles",
-      "url": "http://localhost:3000/index.js",
-      "style": "http://localhost:3000/style.css",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
       "enabled": true,
       "mandatory": true
     },
     {
       "id": "nl.fdmg.section",
       "name": "section",
-      "url": "http://localhost:3000/index.js",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
       "enabled": true,
       "mandatory": true,
       "data": {
@@ -439,8 +439,8 @@
     {
       "id": "nl.fdmg.genre",
       "name": "genre",
-      "url": "http://localhost:3000/index.js",
-      "style": "http://localhost:3000/style.css",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
       "enabled": true,
       "mandatory": true,
       "data": {
@@ -507,7 +507,7 @@
     {
       "id": "nl.fdmg.rubric",
       "name": "rubric",
-      "url": "http://localhost:3000/index.js",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
       "enabled": true,
       "mandatory": true,
       "data": {
@@ -614,8 +614,8 @@
     {
       "id": "nl.fdmg.articletype",
       "name": "articletype",
-      "url": "http://localhost:3000/index.js",
-      "style": "http://localhost:3000/style.css",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
       "enabled": true,
       "mandatory": true,
       "data": {
@@ -639,8 +639,8 @@
     {
       "id": "nl.fdmg.redirectlink",
       "name": "redirectlink",
-      "url": "http://localhost:3000/index.js",
-      "style": "http://localhost:3000/style.css",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
       "enabled": true,
       "mandatory": true,
       "data": {
@@ -650,11 +650,11 @@
     {
       "id": "nl.fdmg.advertorial",
       "name": "advertorial",
-      "url": "http://localhost:3000/index.js",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
       "enabled": true,
       "mandatory": true,
       "data": {
-        "endpoint": "https://webwriter-dev.fd.nl/fdmgapi/private/fd/articles/section/fd4.advertorial/children",
+        "endpoint": "FDMG_SERVICES_BASE_URL/fdmgapi/private/fd/articles/section/fd4.advertorial/children",
         "token": "FDMG_SERVICES_TOKEN",
         "optionsGroup": "articletype"
       }
@@ -662,11 +662,11 @@
     {
       "id": "nl.fdmg.servicepage",
       "name": "servicepage",
-      "url": "http://localhost:3000/index.js",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
       "enabled": true,
       "mandatory": true,
       "data": {
-        "endpoint": "https://webwriter-dev.fd.nl/fdmgapi/private/fd/articles/section/fd4.service/allchildren",
+        "endpoint": "FDMG_SERVICES_BASE_URL/fdmgapi/private/fd/articles/section/fd4.service/allchildren",
         "token": "FDMG_SERVICES_TOKEN",
         "optionsGroup": "articletype"
       }
@@ -674,78 +674,78 @@
     {
       "id": "nl.fdmg.epic",
       "name": "epic",
-      "url": "http://localhost:3000/index.js",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
       "enabled": true,
       "mandatory": true,
       "data": {
-        "endpoint": "https://webwriter-dev.fd.nl/fdmgapi/private/fd/search/epic?q=",
+        "endpoint": "FDMG_SERVICES_BASE_URL/fdmgapi/private/fd/search/epic?q=",
         "token": "FDMG_SERVICES_TOKEN"
       }
     },
     {
       "id": "nl.fdmg.planneddate",
       "name": "planneddate",
-      "url": "http://localhost:3000/index.js",
-      "style": "http://localhost:3000/style.css",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
       "enabled": true,
       "mandatory": true
     },
     {
       "id": "nl.fdmg.htmlembed",
       "name": "htmlembed",
-      "url": "http://localhost:3000/index.js",
-      "style": "http://localhost:3000/style.css",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
       "enabled": true,
       "mandatory": true
     },
     {
       "id": "nl.fdmg.imagesearch",
       "name": "imagesearch",
-      "url": "http://localhost:3000/index.js",
-      "style": "http://localhost:3000/style.css",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
       "enabled": true,
       "mandatory": true,
       "data": {
         "loadNextScrollThreshold": 100,
         "resultsPerPage": 25,
-        "searchEndpoint": "https://apigateway-dev.fdmg.nl/image/search/v1.0/hollandse-hoogte",
-        "fetchEndpoint": "https://apigateway-dev.fdmg.nl/image/v1.0/download",
+        "searchEndpoint": "API_GATEWAY_BASE_URL/image/search/v1.0/hollandse-hoogte",
+        "fetchEndpoint": "API_GATEWAY_BASE_URL/image/v1.0/download",
         "token": "HOLLANDSE_HOOGTE_TOKEN"
       }
     },
     {
       "id": "nl.fdmg.heartbeat",
       "name": "heartbeat",
-      "url": "http://localhost:3000/index.js",
-      "style": "http://localhost:3000/style.css",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
       "enabled": true,
       "mandatory": true,
       "data": {
-        "endpoint": "https://webwriter-dev.fd.nl/fdmgapi/private/fd/articles/lock/",
+        "endpoint": "FDMG_SERVICES_BASE_URL/fdmgapi/private/fd/articles/lock/",
         "token": "FDMG_SERVICES_TOKEN"
       }
     },
     {
       "id": "nl.fdmg.history",
       "name": "history",
-      "url": "http://localhost:3000/index.js",
-      "style": "http://localhost:3000/style.css",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
       "enabled": true,
       "mandatory": true
     },
     {
       "id": "nl.fdmg.workinstructions",
       "name": "workinstructions",
-      "url": "http://localhost:3000/index.js",
-      "style": "http://localhost:3000/style.css",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
       "enabled": true,
       "mandatory": true
     },
     {
       "id": "nl.fdmg.preview",
       "name": "preview",
-      "url": "http://localhost:3000/index.js",
-      "style": "http://localhost:3000/style.css",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
       "enabled": true,
       "mandatory": true,
       "data": {
@@ -755,28 +755,28 @@
     {
       "id": "nl.fdmg.ximteaserstandin",
       "name": "ximteaserstandin",
-      "url": "http://localhost:3000/index.js",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
       "enabled": false,
       "mandatory": true
     },
     {
       "id": "nl.fdmg.ximimagestandin",
       "name": "ximimagestandin",
-      "url": "http://localhost:3000/index.js",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
       "enabled": true,
       "mandatory": true
     },
     {
       "id": "nl.fdmg.headlinestandin",
       "name": "headlinestandin",
-      "url": "http://localhost:3000/index.js",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
       "enabled": true,
       "mandatory": true
     },
     {
       "id": "nl.fdmg.translations",
       "name": "translations",
-      "url": "http://localhost:3000/index.js",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
       "enabled": true,
       "mandatory": true
     }

@@ -21,8 +21,12 @@ gulp.task('local-config-generate', function(){
    * Replace placeholders.
    */
   gulp.src(['writer-fd-dev.json'])
+    .pipe(replace(/WEBWRITER_PLUGINS_BASE_URL/g, 'http://localhost:3000'))
+    .pipe(replace(/NEWS_ITEM_TEMPLATE_ID/g, '30eae1c0-c640-4053-b114-05c64e28bbe7'))
+    .pipe(replace(/FDMG_SERVICES_BASE_URL/g, 'https://webwriter-dev.fd.nl'))
     .pipe(replace(/FDMG_SERVICES_TOKEN/g, 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIxMjMiLCJzdWIiOiJzdmVuIiwicm9sZSI6InVzZXIifQ.omGBEdLl3e_bxNFq83bsTUZnO5HU_c0gltDuTFWM_KlLJWtlZzDo1F7jGD6zPD54XmimTAWmD5XKIlhMQVmChQ'))
     .pipe(replace(/HOLLANDSE_HOOGTE_TOKEN/g, '63401c89-63e9-35f9-9daa-a55ef26c3042'))
+    .pipe(replace(/API_GATEWAY_BASE_URL/g, 'https://apigateway-dev.fdmg.nl'))
     .pipe(gulp.dest('../NPWriter/server/config'));
 });
 
@@ -31,40 +35,42 @@ gulp.task('dev-config-generate', function(){
    * Replace placeholders.
    */
   gulp.src(['writer-fd-dev.json'])
-    .pipe(replace(/http\:\/\/localhost:3000/g, 'https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins'))
-    .pipe(replace(/30eae1c0-c640-4053-b114-05c64e28bbe7/g, '1156201'))
+    .pipe(replace(/WEBWRITER_PLUGINS_BASE_URL/g, 'https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins'))
+    .pipe(replace(/NEWS_ITEM_TEMPLATE_ID/g, '1156201'))
+    .pipe(replace(/FDMG_SERVICES_BASE_URL/g, 'https://webwriter-dev.fd.nl'))
     .pipe(replace(/FDMG_SERVICES_TOKEN/g, 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIxMjMiLCJzdWIiOiJzdmVuIiwicm9sZSI6InVzZXIifQ.omGBEdLl3e_bxNFq83bsTUZnO5HU_c0gltDuTFWM_KlLJWtlZzDo1F7jGD6zPD54XmimTAWmD5XKIlhMQVmChQ'))
     .pipe(replace(/HOLLANDSE_HOOGTE_TOKEN/g, '63401c89-63e9-35f9-9daa-a55ef26c3042'))
+    .pipe(replace(/API_GATEWAY_BASE_URL/g, 'https://apigateway-dev.fdmg.nl'))
     .pipe(rename('dev-writer-client.json'))
     .pipe(gulp.dest('./dist'));
 });
 
 gulp.task('acc-config-generate', function(){
   /**
-   * Replace various dev variables to acc env variables. Replace placeholders.
+   * Replace placeholders.
    */
   gulp.src(['writer-fd-dev.json'])
-    .pipe(replace(/http\:\/\/localhost:3000/g, 'https://s3-eu-west-1.amazonaws.com/webwriter-acc-plugins'))
-    .pipe(replace(/30eae1c0-c640-4053-b114-05c64e28bbe7/g, '1204619'))
-    .pipe(replace(/https\:\/\/webwriter-dev.fd.nl/g, 'https://webwriter-acc.fd.nl'))
+    .pipe(replace(/WEBWRITER_PLUGINS_BASE_URL/g, 'https://s3-eu-west-1.amazonaws.com/webwriter-acc-plugins'))
+    .pipe(replace(/NEWS_ITEM_TEMPLATE_ID/g, '1204619'))
+    .pipe(replace(/FDMG_SERVICES_BASE_URL/g, 'https://webwriter-acc.fd.nl'))
     .pipe(replace(/FDMG_SERVICES_TOKEN/g, 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiItNjYxODc1NjIyMjg3NzcxNTU1MiIsInN1YiI6ImluZm9tYWtlciIsInJvbGUiOiJVU0VSIn0.35SdM_LRat9AAfrZJo4EM2mlDtYzk6X3rARTW9I4XKWM4tvBCpb2gKzVewmWQq1DuqOhCskr3HNdSf7tK664Rw'))
     .pipe(replace(/HOLLANDSE_HOOGTE_TOKEN/g, '63401c89-63e9-35f9-9daa-a55ef26c3042'))
-    .pipe(replace(/https\:\/\/apigateway-dev.fdmg.nl/g, 'https://apigateway-acc.fdmg.nl'))
+    .pipe(replace(/API_GATEWAY_BASE_URL/g, 'https://apigateway-dev.fdmg.nl'))
     .pipe(rename('acc-writer-client.json'))
     .pipe(gulp.dest('./dist'));
 });
 
 gulp.task('prod-config-generate', function(){
   /**
-   * Replace various dev variables to prod env variables. Replace placeholders.
+   * Replace placeholders.
    */
   gulp.src(['writer-fd-dev.json'])
-    .pipe(replace(/http\:\/\/localhost:3000/g, 'https://s3-eu-west-1.amazonaws.com/webwriter-plugins'))
-    .pipe(replace(/30eae1c0-c640-4053-b114-05c64e28bbe7/g, '1171067'))
-    .pipe(replace(/https\:\/\/webwriter-dev.fd.nl/g, 'https://webwriter.fd.nl'))
+    .pipe(replace(/WEBWRITER_PLUGINS_BASE_URL/g, 'https://s3-eu-west-1.amazonaws.com/webwriter-plugins'))
+    .pipe(replace(/NEWS_ITEM_TEMPLATE_ID/g, '1171067'))
+    .pipe(replace(/FDMG_SERVICES_BASE_URL/g, 'https://webwriter.fd.nl'))
     .pipe(replace(/FDMG_SERVICES_TOKEN/g, 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiI3NTQ5ODQzMzcxNzQxNjc2NTA4Iiwic3ViIjoiZmV3ZmV3Zndmd2VmZXdjZXdjZXdjZXdkcXdkIiwicm9sZSI6IlVTRVIifQ.RCn3YIFB7LmVzJrf9B-F_xyDAtZ4Zpod_CwOFHEWbJISDu_EaYh0-eseWACxrBS2BP3XT9DH-tBJTIyzj3lZ3A'))
     .pipe(replace(/HOLLANDSE_HOOGTE_TOKEN/g, '63401c89-63e9-35f9-9daa-a55ef26c3042'))
-    .pipe(replace(/https\:\/\/apigateway-dev.fdmg.nl/g, 'https://apigateway.fdmg.nl'))
+    .pipe(replace(/API_GATEWAY_BASE_URL/g, 'https://apigateway-dev.fdmg.nl'))
     .pipe(rename('prod-writer-client.json'))
     .pipe(gulp.dest('./dist'));
 });
