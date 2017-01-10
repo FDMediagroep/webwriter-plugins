@@ -54,8 +54,8 @@ export default class HeartbeatComponent extends Component {
     const url = api.getConfigValue(pluginId, 'endpoint');
     // Promise.race allows multiple promises to run asynchronously and see who finishes first.
     Promise.race([
-      fetch(url + this.state.articleId, {
-        method: 'PUT',
+      api.router.put('/api/resourceproxy', {
+        url: url + this.state.articleId,
         headers: {
           'x-access-token': `Bearer ${token}`,
           'Content-Type': 'application/json'
