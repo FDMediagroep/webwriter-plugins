@@ -17,6 +17,7 @@ class PublishFlowComponent extends Component {
 
     api.events.on(pluginId, event.DOCUMENT_SAVED, () => {
       this._onDocumentSaved()
+      window.location.reload();
     })
 
     api.events.on(pluginId, event.DOCUMENT_SAVE_FAILED, () => {

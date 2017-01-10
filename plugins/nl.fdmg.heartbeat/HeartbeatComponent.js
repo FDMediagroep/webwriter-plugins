@@ -31,14 +31,6 @@ export default class HeartbeatComponent extends Component {
         this.updatePresentation();
       }
     });
-
-    /**
-     * When document has been saved.
-     */
-    api.events.on('nl.fdmg.publishflow', event.DOCUMENT_SAVED, () => {
-      console.log('Reload');
-      window.location.reload();
-    })
   }
 
   /**
