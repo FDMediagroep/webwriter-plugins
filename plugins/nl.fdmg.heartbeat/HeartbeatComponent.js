@@ -59,7 +59,8 @@ export default class HeartbeatComponent extends Component {
         headers: {
           'x-access-token': `Bearer ${token}`,
           'Content-Type': 'application/json'
-        }
+        },
+        credentials: 'include'
       }),
       new Promise(function (resolve, reject) {
         setTimeout(() => reject(new Error('request timeout')), 5000)
