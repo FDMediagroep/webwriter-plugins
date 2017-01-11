@@ -70,6 +70,7 @@ export default class HeartbeatComponent extends Component {
     .then(response => response.json())
     .then((json) => {
       this.extendState({
+        locked: json.locked,
         lockedBy: json.lockedBy,
         serverVersion: json.articleVersion
       });
