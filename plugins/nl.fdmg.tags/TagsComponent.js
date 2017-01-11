@@ -21,8 +21,6 @@ class TagsComponent extends Component {
     this.extendState({
       existingTags: this._getExistingTags()
     })
-
-    this._saveTagListAsync()
   }
 
   searchTags(query) {
@@ -102,27 +100,6 @@ class TagsComponent extends Component {
       tag['name'] = tag.title
       return tag
     })
-  }
-
-  _saveTagListAsync() {
-    const endpoint = api.getConfigValue(pluginId, 'updateEndpoint')
-    const token = api.getConfigValue(pluginId, 'token')
-    const id = api.newsItem.getGuid().replace(/article-/,'');
-
-    const url = endpoint + id
-    const body = JSON.stringify(this.state.existingTags.map(tag => tag.name))
-
-    fetch(url, {
-      method: 'GET',
-      body: body,
-      headers: {
-        'x-access-token': `Bearer ${token}`,
-        'Content-Type': 'application/json'
-      },
-      credentials: 'include'
-    })
-      .then(response => api.router.checkForOKStatus(response))
-      .catch(err => { console.warn(err) })
   }
 }
 
