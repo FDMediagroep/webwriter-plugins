@@ -60,7 +60,7 @@ gulp.task('acc-config-generate', function(){
     .pipe(replace(/FDMG_SERVICES_BASE_URL/g, 'https://webwriter-acc.fd.nl/fdmgapi/private/fd'))
     .pipe(replace(/FDMG_SERVICES_NO_PROXY_BASE_URL/g, 'https://acc-api.fdmg.org/private/fd'))
     .pipe(replace(/FDMG_SERVICES_TOKEN/g, 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiItNjYxODc1NjIyMjg3NzcxNTU1MiIsInN1YiI6ImluZm9tYWtlciIsInJvbGUiOiJVU0VSIn0.35SdM_LRat9AAfrZJo4EM2mlDtYzk6X3rARTW9I4XKWM4tvBCpb2gKzVewmWQq1DuqOhCskr3HNdSf7tK664Rw'))
-    .pipe(replace(/HOLLANDSE_HOOGTE_TOKEN/g, '63401c89-63e9-35f9-9daa-a55ef26c3042'))
+    .pipe(replace(/HOLLANDSE_HOOGTE_TOKEN/g, 'f021be3b-a527-364a-a93e-03de82270efc'))
     .pipe(replace(/API_GATEWAY_BASE_URL/g, 'https://apigateway-acc.fdmg.nl'))
     .pipe(rename('acc-writer-client.json'))
     .pipe(gulp.dest('./dist'));
@@ -77,7 +77,7 @@ gulp.task('prod-config-generate', function(){
     .pipe(replace(/FDMG_SERVICES_BASE_URL/g, 'https://webwriter.fd.nl/fdmgapi/private/fd'))
     .pipe(replace(/FDMG_SERVICES_NO_PROXY_BASE_URL/g, 'https://api.fdmg.org/private/fd'))
     .pipe(replace(/FDMG_SERVICES_TOKEN/g, 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiItMjgyODgyODMxNDU0ODY5MzIyIiwic3ViIjoiaW5mb21ha2VyIiwicm9sZSI6IlVTRVIifQ.8j3gRJplT9t0mUPEjWoGUxOO7kvJqbhwrIdneOY7Csyy8oyr8ff3XmdHfXpC4VCiWT8O06sSlP-9We63l60Gw'))
-    .pipe(replace(/HOLLANDSE_HOOGTE_TOKEN/g, '63401c89-63e9-35f9-9daa-a55ef26c3042'))
+    .pipe(replace(/HOLLANDSE_HOOGTE_TOKEN/g, '77bd7434-7ffa-34b8-bafe-a1b6f24be599'))
     .pipe(replace(/API_GATEWAY_BASE_URL/g, 'https://apigateway.fdmg.nl'))
     .pipe(rename('prod-writer-client.json'))
     .pipe(gulp.dest('./dist'));
