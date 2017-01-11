@@ -253,7 +253,6 @@
       "mandatory": true,
       "data": {
         "searchEndpoint": "FDMG_SERVICES_BASE_URL/search/tag?q=",
-        "updateEndpoint": "FDMG_SERVICES_BASE_URL/articles/tags/",
         "token": "FDMG_SERVICES_TOKEN"
       }
     },
