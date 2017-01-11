@@ -23,8 +23,8 @@ export default class ServicePageComponent extends ArticleOption {
     const token = api.getConfigValue(this.pluginId, 'token');
 
     // Makes call to webservice to populate the dropdown.
-    api.router.get('/api/resourceproxy', {
-      url: endpoint,
+    fetch(endpoint, {
+      method: 'GET',
       headers: {
         'x-access-token': `Bearer ${token}`
       }
