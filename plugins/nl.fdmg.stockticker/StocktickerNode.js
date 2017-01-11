@@ -9,8 +9,7 @@ class StocktickerNode extends InlineNode {
     const url = endpoint + this.isin
 
     return api.router.get('/api/resourceproxy', {
-      url: url,
-      credentials: 'include'
+      url: url
     })
       .then(response => response.text())
       .then(xmlString => {
@@ -40,8 +39,7 @@ class StocktickerNode extends InlineNode {
     const url = endpoint + query
 
     return api.router.get('/api/resourceproxy', {
-      url: url,
-      credentials: 'include'
+      url: url
     })
       .then(response => response.text())
       .then(xmlString => {
