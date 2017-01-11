@@ -37,7 +37,6 @@ export default class StocktickerComponent extends AnnotationComponent {
             .append(`${node.currency} ${node.price} (${node.difference})`)
         );
     } else if (!node.symbol || node.symbol === '') {
-      this.dispose(this);
       el.append($$('span').append(this.getLabel('No stockticker chosen yet...')));
     }
 

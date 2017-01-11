@@ -28,7 +28,7 @@ class TextframeComponent extends Component {
 
   render($$) {
     const node = this.props.node
-    const el = $$('div').addClass('sc-textframe im-blocknode__container')
+    const el = $$('div').addClass('sc-textframe fdmg-box im-blocknode__container')
     const textframeFields = api.getConfigValue('nl.fdmg.textframe', 'fields', [])
     const alignments = api.getConfigValue('nl.fdmg.textframe', 'alignments', [])
 
