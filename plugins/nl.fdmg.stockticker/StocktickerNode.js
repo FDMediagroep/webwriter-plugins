@@ -9,8 +9,8 @@ class StocktickerNode extends InlineNode {
     const url = endpoint + this.isin
 
     return fetch(url, {
-        credentials: 'include'
-      })
+      credentials: 'include'
+    })
       .then(response => response.text())
       .then(xmlString => {
         const parser = new DOMParser()
@@ -39,8 +39,8 @@ class StocktickerNode extends InlineNode {
     const url = endpoint + query
 
     return fetch(url, {
-        credentials: 'include'
-      })
+      credentials: 'include'
+    })
       .then(response => response.text())
       .then(xmlString => {
         const parser = new DOMParser()
