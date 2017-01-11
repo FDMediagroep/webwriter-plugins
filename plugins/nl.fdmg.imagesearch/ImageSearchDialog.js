@@ -165,8 +165,8 @@ class ImageSearchDialog extends Component {
     const url = `${endpoint}?q=${query}&page=${pageIndex + 1}&result=${resultsPerPage}`
     const token = api.getConfigValue(pluginId, 'token')
 
-    return fetch(url, {
-      method: 'GET',
+    return api.router.get({
+      url: url,
       headers: {
         'Authorization': `Bearer ${token}`
       },
@@ -196,8 +196,8 @@ class ImageSearchDialog extends Component {
     const url = `${endpoint}?id=${imageId}`
     const token = api.getConfigValue(pluginId, 'token')
 
-    return fetch(url, {
-      method: 'GET',
+    return api.router.get({
+      url: url,
       headers: {
         'Authorization': `Bearer ${token}`
       },
