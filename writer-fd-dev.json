@@ -209,7 +209,7 @@
       "id": "nl.fdmg.workflowstate",
       "name": "workflowstate",
       "url": "INFOMAKER_PLUGINS_BASE_URL/fd.js",
-      "style": "INFOMAKER_PLUGINS_BASE_URL/style.css",
+      "style": "INFOMAKER_PLUGINS_BASE_URL/fd.css",
       "enabled": true,
       "mandatory": true,
       "data" : {
