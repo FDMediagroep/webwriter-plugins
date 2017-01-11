@@ -8,7 +8,9 @@ class StocktickerNode extends InlineNode {
     const endpoint = api.getConfigValue('nl.fdmg.stockticker', 'endpoint')
     const url = endpoint + this.isin
 
-    return fetch(url)
+    return fetch(url, {
+        credentials: 'include'
+      })
       .then(response => response.text())
       .then(xmlString => {
         const parser = new DOMParser()
@@ -36,7 +38,9 @@ class StocktickerNode extends InlineNode {
     const endpoint = api.getConfigValue('nl.fdmg.stockticker', 'endpoint')
     const url = endpoint + query
 
-    return fetch(url)
+    return fetch(url, {
+        credentials: 'include'
+      })
       .then(response => response.text())
       .then(xmlString => {
         const parser = new DOMParser()

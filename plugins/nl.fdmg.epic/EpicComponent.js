@@ -76,7 +76,8 @@ class EpicComponent extends Component {
       method: 'GET',
       headers: {
         'x-access-token': `Bearer ${token}`
-      }
+      },
+      credentials: 'include'
     })
       .then(response => api.router.checkForOKStatus(response))
       .then(response => api.router.toJson(response))

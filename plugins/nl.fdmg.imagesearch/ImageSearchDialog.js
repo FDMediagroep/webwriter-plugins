@@ -169,7 +169,8 @@ class ImageSearchDialog extends Component {
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${token}`
-      }
+      },
+      credentials: 'include'
     })
       .then(response => api.router.checkForOKStatus(response))
       .then(response => api.router.toJson(response))
@@ -199,7 +200,8 @@ class ImageSearchDialog extends Component {
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${token}`
-      }
+      },
+      credentials: 'include'
     })
       .then(response => api.router.checkForOKStatus(response))
       .then(response => api.router.toJson(response))

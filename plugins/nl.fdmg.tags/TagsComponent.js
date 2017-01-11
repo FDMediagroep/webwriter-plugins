@@ -34,7 +34,8 @@ class TagsComponent extends Component {
       method: 'GET',
       headers: {
         'x-access-token': `Bearer ${token}`
-      }
+      },
+      credentials: 'include'
     })
       .then(response => api.router.checkForOKStatus(response))
       .then(response => api.router.toJson(response))
@@ -117,7 +118,8 @@ class TagsComponent extends Component {
       headers: {
         'x-access-token': `Bearer ${token}`,
         'Content-Type': 'application/json'
-      }
+      },
+      credentials: 'include'
     })
       .then(response => api.router.checkForOKStatus(response))
       .catch(err => { console.warn(err) })
