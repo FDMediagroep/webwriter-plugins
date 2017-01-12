@@ -82,7 +82,7 @@ class ImageSearchDialog extends Component {
                       this.send('close')
                       this.insertImageById(image.id)
                     }),
-                  $$('div').append(moment(image.picturedate).format('DD-MM-YYYY'))
+                  $$('div').append(moment(image.pictureDate).format('DD-MM-YYYY'))
                 )
             })
           )
@@ -90,6 +90,7 @@ class ImageSearchDialog extends Component {
           .on('scroll', this.onScroll.bind(this))
       )
       .ref('dialog')
+
   }
 
   triggerFileDialog() {
@@ -208,7 +209,8 @@ class ImageSearchDialog extends Component {
           images: response.result.map(result => {
             return {
               id: result.id,
-              thumbnailUrl: result.thumbnail_url
+              thumbnailUrl: result.thumbnail_url,
+              pictureDate: result.picturedate
             }
           })
         }

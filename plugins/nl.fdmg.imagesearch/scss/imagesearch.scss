@@ -45,14 +45,23 @@
       border: 2px solid white;
       background-color: #fafafa;
       position: relative;
+      &:hover {
+        opacity: 0.7;
+        cursor: pointer;
+      }
       > div {
         position: absolute;
         bottom: 0;
-        font-size: 0.9em;
+        font-size: 1em;
+        z-index: 2;
+        width: 100%;
+        text-align: center;
+        background-color: #fafafa;
       }
       img {
         max-width: 97%;
         max-height: 97%;
+        z-index: 1;
       }
     }
   }
