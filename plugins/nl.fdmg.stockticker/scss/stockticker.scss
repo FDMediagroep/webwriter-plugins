@@ -29,6 +29,7 @@
             margin-bottom: 0;
         }
     }
+
 }
 @mixin flex() {
     display: -webkit-flex;
@@ -95,6 +96,10 @@
     cursor: pointer;
     font-weight: bold;
     border: 1px solid #dfdfdf;
+    .stockticker-warning {
+      color: #c13a3a;
+      margin-right: 10px;
+    }
     span {
         margin-left: 5px;
         font-style: italic;
