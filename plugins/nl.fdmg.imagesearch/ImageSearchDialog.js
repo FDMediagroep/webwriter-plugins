@@ -41,23 +41,33 @@ class ImageSearchDialog extends Component {
               .addClass('form-group')
               .append(
                 $$('input')
-                .addClass('form-control form__search')
-                .attr({'placeholder': api.getLabel('Search query')})
-                .setValue(this.state.lastQuery)
-                .ref('searchfield')
-                .on('keydown', this.onKeydown.bind(this)),
-              $$('button')
-                .addClass('btn btn-neutral')
-                .attr({title: api.getLabel('Search')})
-                .append(
-                  $$(FontAwesomeIcon, {icon: 'fa-search'}),
-                  $$(FontAwesomeIcon, {icon: 'fa-spinner fa-pulse'}).addClass(this.state.isSearching ? 'active' : '')
-                )
-                .on('click', () => {
-                  this.extendState(this.getInitialState())
-                  this.search(this.refs.searchfield.val())
-                })
-              // TODO Add upload button
+                  .addClass('form-control form__search')
+                  .attr({'placeholder': api.getLabel('Search query')})
+                  .setValue(this.state.lastQuery)
+                  .ref('searchfield')
+                  .on('keydown', this.onKeydown.bind(this)),
+                $$('button')
+                  .addClass('btn btn-neutral')
+                  .attr({title: api.getLabel('Search')})
+                  .append(
+                    $$(FontAwesomeIcon, {icon: 'fa-search'}),
+                    $$(FontAwesomeIcon, {icon: 'fa-spinner fa-pulse'}).addClass(this.state.isSearching ? 'active' : '')
+                  )
+                  .on('click', () => {
+                    this.extendState(this.getInitialState())
+                    this.search(this.refs.searchfield.val())
+                  }),
+                $$('button').addClass('se-tool').append(
+                    $$('i').addClass('fa fa-image').attr({'title': this.getLabel('Upload image')})
+                  )
+                  .on('click', this.triggerFileDialog),
+                $$('input')
+                  .attr('type', 'file')
+                  .attr('multiple', 'multiple')
+                  .attr('id', 'x-im-image-fileupload')
+                  .ref('x-im-image-fileupload')
+                  .on('change', this.triggerFileUpload)
+
               )
           ),
         $$('div')
@@ -71,8 +81,7 @@ class ImageSearchDialog extends Component {
                     .on('click', () => {
                       this.send('close')
                       this.insertImageById(image.id)
-                    })
-                ).append(
+                    }),
                   $$('div').append(moment(image.picturedate).format('DD-MM-YYYY'))
                 )
             })
@@ -81,6 +90,20 @@ class ImageSearchDialog extends Component {
           .on('scroll', this.onScroll.bind(this))
       )
       .ref('dialog')
+  }
+
+  triggerFileDialog() {
+    var evt = document.createEvent('MouseEvents');
+    evt.initEvent('click', true, false);
+    this.refs['x-im-image-fileupload'].el.el.dispatchEvent(evt);
+
+  }
+
+  triggerFileUpload(ev) {
+    this.context.editorSession.executeCommand('insert-images', {
+      files: ev.target.files
+    });
+    this.send('close');
   }
 
   onKeydown(e) {
