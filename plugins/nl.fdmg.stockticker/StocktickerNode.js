@@ -38,8 +38,8 @@ class StocktickerNode extends InlineNode {
     const endpoint = api.getConfigValue('nl.fdmg.stockticker', 'endpoint')
     const url = endpoint + query
 
-    return api.router.get('/api/resourceproxy', {
-      url: url
+    return fetch(url, {
+      method: 'GET'
     })
       .then(response => response.text())
       .then(xmlString => {
