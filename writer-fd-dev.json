@@ -99,21 +99,6 @@
       }
     },
     {
-      "id": "nl.fdmg.imagesearch",
-      "name": "imagesearch",
-      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
-      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
-      "enabled": true,
-      "mandatory": true,
-      "data": {
-        "loadNextScrollThreshold": 100,
-        "resultsPerPage": 25,
-        "searchEndpoint": "API_GATEWAY_BASE_URL/image/search/v1.0/hollandse-hoogte",
-        "fetchEndpoint": "API_GATEWAY_BASE_URL/image/v1.0/download",
-        "token": "HOLLANDSE_HOOGTE_TOKEN"
-      }
-    },
-    {
       "id": "nl.fdmg.stockticker",
       "name": "stockticker",
       "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
@@ -121,7 +106,7 @@
       "enabled": true,
       "mandatory": true,
       "data": {
-        "endpoint": "https://beurs.fd.nl/webservices/fd/quicksearch?query="
+        "endpoint": "http://beurs.fd.nl/webservices/fd/quicksearch?query="
       }
     },
     {
@@ -224,7 +209,7 @@
       "id": "nl.fdmg.workflowstate",
       "name": "workflowstate",
       "url": "INFOMAKER_PLUGINS_BASE_URL/fd.js",
-      "style": "INFOMAKER_PLUGINS_BASE_URL/fd.css",
+      "style": "INFOMAKER_PLUGINS_BASE_URL/style.css",
       "enabled": true,
       "mandatory": true,
       "data" : {
@@ -267,7 +252,8 @@
       "enabled": true,
       "mandatory": true,
       "data": {
-        "searchEndpoint": "FDMG_SERVICES_NO_PROXY_BASE_URL/search/tag?q=",
+        "searchEndpoint": "FDMG_SERVICES_BASE_URL/search/tag?q=",
+        "updateEndpoint": "FDMG_SERVICES_BASE_URL/articles/tags/",
         "token": "FDMG_SERVICES_TOKEN"
       }
     },
@@ -332,7 +318,7 @@
       "enabled": true,
       "mandatory": true,
       "data": {
-        "endpoint": "FDMG_SERVICES_NO_PROXY_BASE_URL/search/author?q=",
+        "endpoint": "FDMG_SERVICES_BASE_URL/search/author?q=",
         "token": "FDMG_SERVICES_TOKEN"
       }
     },
@@ -668,7 +654,7 @@
       "enabled": true,
       "mandatory": true,
       "data": {
-        "endpoint": "FDMG_SERVICES_NO_PROXY_BASE_URL/articles/section/fd4.advertorial/children",
+        "endpoint": "FDMG_SERVICES_BASE_URL/articles/section/fd4.advertorial/children",
         "token": "FDMG_SERVICES_TOKEN",
         "optionsGroup": "articletype"
       }
@@ -680,7 +666,7 @@
       "enabled": true,
       "mandatory": true,
       "data": {
-        "endpoint": "FDMG_SERVICES_NO_PROXY_BASE_URL/articles/section/fd4.service/allchildren",
+        "endpoint": "FDMG_SERVICES_BASE_URL/articles/section/fd4.service/allchildren",
         "token": "FDMG_SERVICES_TOKEN",
         "optionsGroup": "articletype"
       }
@@ -692,7 +678,7 @@
       "enabled": true,
       "mandatory": true,
       "data": {
-        "endpoint": "FDMG_SERVICES_NO_PROXY_BASE_URL/search/epic?q=",
+        "endpoint": "FDMG_SERVICES_BASE_URL/search/epic?q=",
         "token": "FDMG_SERVICES_TOKEN"
       }
     },
@@ -711,6 +697,21 @@
       "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
       "enabled": true,
       "mandatory": true
+    },
+    {
+      "id": "nl.fdmg.imagesearch",
+      "name": "imagesearch",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
+      "enabled": true,
+      "mandatory": true,
+      "data": {
+        "loadNextScrollThreshold": 100,
+        "resultsPerPage": 25,
+        "searchEndpoint": "API_GATEWAY_BASE_URL/image/search/v1.0/hollandse-hoogte",
+        "fetchEndpoint": "API_GATEWAY_BASE_URL/image/v1.0/download",
+        "token": "HOLLANDSE_HOOGTE_TOKEN"
+      }
     },
     {
       "id": "nl.fdmg.heartbeat",
