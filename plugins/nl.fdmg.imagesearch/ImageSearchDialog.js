@@ -1,5 +1,5 @@
 import {Component, FontAwesomeIcon} from 'substance'
-import {api} from 'writer'
+import {api, moment} from 'writer'
 const pluginId = 'nl.fdmg.imagesearch'
 
 class ImageSearchDialog extends Component {
@@ -72,6 +72,8 @@ class ImageSearchDialog extends Component {
                       this.send('close')
                       this.insertImageById(image.id)
                     })
+                ).append(
+                  $$('div').append(moment(image.picturedate).format('DD-MM-YYYY'))
                 )
             })
           )
