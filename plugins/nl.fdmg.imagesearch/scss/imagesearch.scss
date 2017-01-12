@@ -44,6 +44,12 @@
       justify-content: center;
       border: 2px solid white;
       background-color: #fafafa;
+      position: relative;
+      > div {
+        position: absolute;
+        bottom: 0;
+        font-size: 0.9em;
+      }
       img {
         max-width: 97%;
         max-height: 97%;
