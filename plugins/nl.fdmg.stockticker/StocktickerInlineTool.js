@@ -7,8 +7,7 @@ export default class StocktickerInlineTool extends Tool {
   render($$) {
     const node = this.props.node;
     const el = $$('div');
-
-
+    // const selector = querySelectorAll('object[type="fdmg/quote"] message')
     if (node) {
       el
         .addClass('se-tool sc-stockticker-inline-tool')
@@ -18,31 +17,50 @@ export default class StocktickerInlineTool extends Tool {
             onSelect: this.onSelect.bind(this),
             autoFocus: true
           })
-          // .on('click', () => this.removeEmptyStockTickers()
-        )
-        .on('keydown', this.onKeyDown);
+        ).on('keydown', this.onKeyDown);
     }
 
     return el
   }
+
+  // Initial code to try and remove the component and node when no
+  // stockticker is selected but pop-over is closed by the user
+  // isEmptyNode() {
+  //   // Get all inline nodes
+  //   var inlineNodes = writer.api.editorSession.document.data.nodes;
+  //   for (var key in inlineNodes) {
+  //
+  //     if (!inlineNodes.hasOwnProperty(key)) {
+  //       continue;
+  //     }
+  //     // send all nodes to remove function
+  //     var inlineNode = inlineNodes[key];
+  //     this.removeEmptyStockTickers(inlineNode)
+  //   }
+  // }
+  //
+  // removeEmptyStockTickers(node) {
+  //   // Check if node is of type stockticker, if so and isin is empty remove node
+  //   if (node.isin === "" && node.dataType === "fdmg/stockticker") {
+  //     console.log(node.id)
+  //     console.log(this.props.node)
+  //     const something = this.getNode();
+  //     console.log(something)
+  //     // this.delete();
+  //     api.editorSession.transaction((tx, node) => {
+  //       const nodeId = node.id;
+  //       tx.delete('stockticker', nodeId)
+  //     })
+  //   } else {
+  //     return;
+  //   }
+  // }
 
   getNode() {
     if (this.props.annotationId) {
       return this.context.doc.get(this.props.annotationId);
     }
   }
-
-  // removeEmptyStockTickers() {
-  //   var tickers = this.getStockTickers(writer.api.editorSession.document.data.nodes);
-  //   console.log(tickers);
-  // }
-  //
-  // getStockTickers(existingTickers) {
-  //
-  //   console.log(existingTickers);
-  //
-  //   return tickers;
-  // }
 
   performSearch(query) {
     return this.props.node.search(query);

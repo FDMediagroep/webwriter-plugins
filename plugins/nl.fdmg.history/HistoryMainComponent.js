@@ -92,7 +92,7 @@ class HistoryMainComponent extends Component {
 
   render($$) {
 
-    var el = $$('div').addClass('imc-history light').append(
+    var el = $$('div').addClass('imc-history fdmg-history light').append(
       $$('h2').append(this.getLabel('history-popover-headline'))
     )
     el.append($$('p').append(this.getLabel('history-popover-description')))
