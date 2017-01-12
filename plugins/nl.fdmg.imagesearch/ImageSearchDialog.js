@@ -58,7 +58,7 @@ class ImageSearchDialog extends Component {
                     this.search(this.refs.searchfield.val())
                   }),
                 $$('button').addClass('se-tool').append(
-                    $$('i').addClass('fa fa-image').attr({'title': this.getLabel('Upload image')})
+                    $$('i').addClass('fa fa-upload').attr({'title': this.getLabel('Upload image')})
                   )
                   .on('click', this.triggerFileDialog),
                 $$('input')

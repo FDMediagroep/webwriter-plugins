@@ -9,7 +9,7 @@ export default {
   configure: function(config) {
     config.addContentMenuTopTool('image-search', ImageSearchTool)
     config.addCommand('image-search', ImageSearchCommand)
-    config.addLabel('Add/search image', { nl: 'Afbeelding invoegen (Hollandse Hoogte)' });
+    config.addLabel('Add/search image', { nl: 'Afbeelding invoegen/uploaden' });
     config.addLabel('Image search', { nl: 'Afbeelding zoeken' });
     config.addLabel('Upload image', { nl: 'Afbeelding uploaden' });
     config.addLabel('Search query', { nl: 'Zoekterm' });

@@ -64,3 +64,10 @@
     }
   }
 }
+
+// Remove original image upload icon from the content menu.
+.sc-content-menu {
+  div[title="Afbeelding uploaden"] {
+    display: none;
+  }
+}
