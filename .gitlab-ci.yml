@@ -18,7 +18,7 @@ build_dist:
     - gulp
   artifacts:
     name: "${CI_BUILD_ID}_${CI_PROJECT_NAME}_${CI_BUILD_REF_NAME}"
-    expire_in: 1 week
+    expire_in: 1d
     paths:
     - node_modules/
     - dist/
@@ -38,9 +38,8 @@ deploy_acc:
     - gulp --aws_key=$INFOMAKER_AWS_ACCESS_KEY_ID --aws_secret=$INFOMAKER_AWS_SECRET_ACCESS_KEY --aws_bucket=$INFOMAKER_AWS_S3_BUCKET_NAME --aws_region=$AWS_REGION --fdmg_services_token=$ACC_FDMG_SERVICES_TOKEN --hollandse_hoogte_token=ACC_HOLLANDSE_HOOGTE_TOKEN acc-deploy-webwriter-config
     - gulp --aws_key=$DEV_AWS_ACCESS_KEY_ID --aws_secret=$DEV_AWS_SECRET_ACCESS_KEY --aws_bucket=$ACC_AWS_S3_BUCKET_NAME --aws_region=$AWS_REGION deploy
   environment: webwriter-acc-fd
-  when: manual
   only:
-    - develop
+    - acceptance
 
 deploy_prod:
   stage: deploy
@@ -48,6 +47,5 @@ deploy_prod:
     - gulp --aws_key=$INFOMAKER_AWS_ACCESS_KEY_ID --aws_secret=$INFOMAKER_AWS_SECRET_ACCESS_KEY --aws_bucket=$INFOMAKER_AWS_S3_BUCKET_NAME --aws_region=$AWS_REGION --fdmg_services_token=$PROD_FDMG_SERVICES_TOKEN --hollandse_hoogte_token=PROD_HOLLANDSE_HOOGTE_TOKEN prod-deploy-webwriter-config
     - gulp --aws_key=$PROD_AWS_ACCESS_KEY_ID --aws_secret=$PROD_AWS_SECRET_ACCESS_KEY --aws_bucket=$PROD_AWS_S3_BUCKET_NAME --aws_region=$AWS_REGION deploy
   environment: webwriter-fd
-  when: manual
   only:
-    - develop
+    - production

@@ -21,8 +21,6 @@ class TagsComponent extends Component {
     this.extendState({
       existingTags: this._getExistingTags()
     })
-
-    this._saveTagListAsync()
   }
 
   searchTags(query) {
@@ -30,8 +28,8 @@ class TagsComponent extends Component {
     const token = api.getConfigValue(pluginId, 'token')
     const url = endpoint + query
 
-    return api.router.get('/api/resourceproxy', {
-      url: url,
+    return fetch(url, {
+      method: 'GET',
       headers: {
         'x-access-token': `Bearer ${token}`
       }
@@ -101,26 +99,6 @@ class TagsComponent extends Component {
       tag['name'] = tag.title
       return tag
     })
-  }
-
-  _saveTagListAsync() {
-    const endpoint = api.getConfigValue(pluginId, 'updateEndpoint')
-    const token = api.getConfigValue(pluginId, 'token')
-    const id = api.newsItem.getGuid().replace(/article-/,'');
-
-    const url = endpoint + id
-    const body = JSON.stringify(this.state.existingTags.map(tag => tag.name))
-
-    api.router.put('/api/resourceproxy', {
-      url: url,
-      body: body,
-      headers: {
-        'x-access-token': `Bearer ${token}`,
-        'Content-Type': 'application/json'
-      }
-    })
-      .then(response => api.router.checkForOKStatus(response))
-      .catch(err => { console.warn(err) })
   }
 }
 
