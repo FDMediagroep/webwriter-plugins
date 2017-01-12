@@ -18,7 +18,7 @@ build_dist:
     - gulp
   artifacts:
     name: "${CI_BUILD_ID}_${CI_PROJECT_NAME}_${CI_BUILD_REF_NAME}"
-    expire_in: 1 week
+    expire_in: 1d
     paths:
     - node_modules/
     - dist/
