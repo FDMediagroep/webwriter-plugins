@@ -23,6 +23,24 @@ export default class StocktickerInlineTool extends Tool {
     return el
   }
 
+  // Hacky way to disable the annotation tools.
+  // Awaiting fix from infomaker.
+  didMount() {
+    this.disableAnnotationTools();
+  }
+
+  dispose() {
+    this.enableAnnotationTools();
+  }
+
+  disableAnnotationTools() {
+    document.querySelector('html').classList.add('hide-text-annotation')
+  }
+
+  enableAnnotationTools() {
+    document.querySelector('html').classList.remove('hide-text-annotation')
+  }
+
   // Initial code to try and remove the component and node when no
   // stockticker is selected but pop-over is closed by the user
   // isEmptyNode() {
@@ -79,8 +97,6 @@ export default class StocktickerInlineTool extends Tool {
 
     this.close()
   }
-
-  //document.querySelector('html').classList.add('hide-text-annotation');
 
   onKeyDown(e) {
     if (e.keyCode === 27 /* escape */) {

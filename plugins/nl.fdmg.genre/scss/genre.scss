@@ -187,6 +187,11 @@ a.fdmg-box {
 }
 
 // Infomaker overrides
+.hide-text-annotation {
+  .sm-annotation-tool {
+    display: none;
+  }
+}
 .sc-np-popover {
   h2 {
     font-size: 0.9em;
