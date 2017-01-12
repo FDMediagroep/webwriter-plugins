@@ -58,6 +58,14 @@ export default {
       nl: 'OK'
     });
 
+    config.addLabel('cancel', {
+      nl: 'Annuleren'
+    });
+
+    config.addLabel('continue', {
+      nl: 'Doorgaan'
+    });
+
     config.addLabel('remove-image-button-title', {
       nl: 'Afbeelding verwijderen'
     });
