@@ -35,8 +35,8 @@
     -webkit-transition: width 0.4s, height 0.5s;
     transition: width 0.4s, height 0.5s;
     div {
-      width: 300px;
-      height: 300px;
+      width: 250px;
+      height: 250px;
       background-color: grey;
       display: flex;
       align-items: center;
@@ -59,7 +59,7 @@
   &.image-search-dialog-expand {
     width: 80%;
     .image-search-results {
-      height: 700px;
+      height: 600px;
     }
   }
 }
