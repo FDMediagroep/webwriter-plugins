@@ -252,7 +252,7 @@
       "enabled": true,
       "mandatory": true,
       "data": {
-        "searchEndpoint": "FDMG_SERVICES_BASE_URL/search/tag?q=",
+        "searchEndpoint": "FDMG_SERVICES_NO_PROXY_BASE_URL/search/tag?q=",
         "token": "FDMG_SERVICES_TOKEN"
       }
     },
@@ -317,7 +317,7 @@
       "enabled": true,
       "mandatory": true,
       "data": {
-        "endpoint": "FDMG_SERVICES_BASE_URL/search/author?q=",
+        "endpoint": "FDMG_SERVICES_NO_PROXY_BASE_URL/search/author?q=",
         "token": "FDMG_SERVICES_TOKEN"
       }
     },
@@ -653,7 +653,7 @@
       "enabled": true,
       "mandatory": true,
       "data": {
-        "endpoint": "FDMG_SERVICES_BASE_URL/articles/section/fd4.advertorial/children",
+        "endpoint": "FDMG_SERVICES_NO_PROXY_BASE_URL/articles/section/fd4.advertorial/children",
         "token": "FDMG_SERVICES_TOKEN",
         "optionsGroup": "articletype"
       }
@@ -665,7 +665,7 @@
       "enabled": true,
       "mandatory": true,
       "data": {
-        "endpoint": "FDMG_SERVICES_BASE_URL/articles/section/fd4.service/allchildren",
+        "endpoint": "FDMG_SERVICES_NO_PROXY_BASE_URL/articles/section/fd4.service/allchildren",
         "token": "FDMG_SERVICES_TOKEN",
         "optionsGroup": "articletype"
       }
@@ -677,7 +677,7 @@
       "enabled": true,
       "mandatory": true,
       "data": {
-        "endpoint": "FDMG_SERVICES_BASE_URL/search/epic?q=",
+        "endpoint": "FDMG_SERVICES_NO_PROXY_BASE_URL/search/epic?q=",
         "token": "FDMG_SERVICES_TOKEN"
       }
     },
