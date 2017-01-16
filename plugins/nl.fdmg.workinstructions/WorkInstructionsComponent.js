@@ -18,7 +18,7 @@ class WorkinstructionsComponent extends Component {
     if (workInstructionsMeta) {
       workInstructions = workInstructionsMeta.map(wi => wi.data.text).pop() || '';
     }
-
+    console.info('Decoupled: ', this.getOptionChecked());
     return {
       workInstructions: workInstructions,
       decoupled: this.getOptionChecked()
