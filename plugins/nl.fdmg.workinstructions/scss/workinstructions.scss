@@ -43,8 +43,11 @@
     min-height: initial;
   }
 
-  .decoupled.active {
-    color: red;
+  label.decoupled {
+    cursor: pointer;
+    &.active {
+      color: red;
+    }
   }
 
 }

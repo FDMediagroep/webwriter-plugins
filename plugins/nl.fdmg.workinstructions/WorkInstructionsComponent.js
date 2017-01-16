@@ -35,7 +35,8 @@ class WorkinstructionsComponent extends Component {
           .append(this.getLabel('Workinstructions'))
         ),
         $$('label')
-          .addClass(this.state.decoupled ? 'decoupled active' : '')
+          .addClass('decoupled')
+          .addClass(this.state.decoupled ? 'active' : '')
           .append(
             $$('input')
               .attr('type', 'checkbox')
