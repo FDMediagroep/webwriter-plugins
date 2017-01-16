@@ -111,9 +111,9 @@ class WorkinstructionsComponent extends Component {
   updateDecoupled() {
     // Clear existing links of this type (from the NewsML representation)
     api.newsItem
-      .getLinkByType(this.name, this.type)
+      .getLinkByType(this.decoupledName, this.decoupledType)
       .forEach(l => {
-        api.newsItem.removeLinkByUUIDAndRel(this.name, l['@uuid'], l['@rel'])
+        api.newsItem.removeLinkByUUIDAndRel(this.decoupledName, l['@uuid'], l['@rel'])
       });
 
     let link = {
