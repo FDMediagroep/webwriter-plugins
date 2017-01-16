@@ -119,7 +119,7 @@ class WorkinstructionsComponent extends Component {
     let link = {
       '@rel': this.decoupledName,
       '@type': this.decoupledType,
-      '@checked': checked,
+      '@checked': this.state.decoupled,
       '@uuid': idGenerator()
     };
 
