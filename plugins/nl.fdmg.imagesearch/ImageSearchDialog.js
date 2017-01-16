@@ -223,7 +223,7 @@ class ImageSearchDialog extends Component {
     const token = api.getConfigValue(pluginId, 'token')
 
     return fetch(url, {
-      method: 'POST',
+      method: 'GET',
       headers: {
         'Authorization': `Bearer ${token}`
       }
