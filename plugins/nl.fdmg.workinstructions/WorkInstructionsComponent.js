@@ -4,19 +4,23 @@ import WorkInstructionsEditTool from './WorkInstructionsEditTool'
 
 class WorkinstructionsComponent extends Component {
   constructor(...args) {
-    super(...args)
-    this.name = 'workinstructions'
-    this.type = 'fdmg/workinstructions'
+    super(...args);
+    this.name = 'workinstructions';
+    this.type = 'fdmg/workinstructions';
+    this.decoupledType = 'fdmg/article-decoupled';
   }
 
   getInitialState() {
-    const workInstructionsMeta = api.newsItem.getContentMetaObjectsByType('fdmg/workinstructions')
+    const workInstructionsMeta = api.newsItem.getContentMetaObjectsByType('fdmg/workinstructions');
+    const decoupledMeta = api.newsItem.getContentMetaObjectsByType('fdmg/article-decoupled');
 
     let decoupled = false;
     let workInstructions = '';
     if (workInstructionsMeta) {
-      decoupled = workInstructionsMeta.map(wi => wi.data.decoupled).pop() || false;
       workInstructions = workInstructionsMeta.map(wi => wi.data.text).pop() || '';
+    }
+    if (decoupledMeta) {
+      decoupled = decoupledMeta.map(wi => wi.decoupled).pop() || false;
     }
 
     return {
@@ -43,7 +47,7 @@ class WorkinstructionsComponent extends Component {
               .attr(this.state.decoupled ? {'checked': 'checked'} : {})
               .on('change', () => {
                 this.extendState({decoupled: !this.state.decoupled});
-                this.updateNewsML();
+                this.updateDecoupled();
               }),
             this.getLabel('Decoupled')
           ),
@@ -82,10 +86,6 @@ class WorkinstructionsComponent extends Component {
   updateWorkInstructions(newWorkInstructions) {
     // Update internal state
     this.extendState({workInstructions: newWorkInstructions});
-    this.updateNewsML();
-  }
-
-  updateNewsML() {
     // Remove existing workInstructions
     const exisingWorkInstructionsMeta = api.newsItem.getContentMetaObjectsByType(this.type)
 
@@ -101,11 +101,29 @@ class WorkinstructionsComponent extends Component {
       '@type': this.type,
       '@name': this.name,
       data: {
-        decoupled: this.state.decoupled,
         text: this.state.workInstructions
       }
     });
   }
+
+  updateDecoupled() {
+    // Remove existing workInstructions
+    const decoupledMeta = api.newsItem.getContentMetaObjectsByType(this.decoupledType)
+
+    if (decoupledMeta) {
+      decoupledMeta.forEach(wi => {
+        api.newsItem.removeContentMetaObject(this.decoupledType, wi['@id'])
+      })
+    }
+
+    // Add new workInstructions
+    api.newsItem.setContentMetaObject(this.decoupledType, {
+      '@id': idGenerator(),
+      '@type': this.decoupledType,
+      '@checked': this.state.decoupled
+    });
+  }
+
 }
 
 export default WorkinstructionsComponent
