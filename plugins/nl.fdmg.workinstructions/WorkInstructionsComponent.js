@@ -20,7 +20,9 @@ class WorkinstructionsComponent extends Component {
       workInstructions = workInstructionsMeta.map(wi => wi.data.text).pop() || '';
     }
     if (decoupledMeta) {
-      decoupled = decoupledMeta.map(wi => wi.decoupled).pop() || false;
+      decoupled = decoupledMeta.map(wi => {
+        return wi['@checked'];
+      }).pop() || false;
     }
 
     return {
