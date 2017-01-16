@@ -8,36 +8,21 @@
       "name": "headline",
       "url": "INFOMAKER_PLUGINS_BASE_URL/fd.js",
       "enabled": true,
-      "mandatory": true,
-      "data": {
-        "disableUseOfAnnotationToolsForFields": [
-          "text"
-        ]
-      }
+      "mandatory": true
     },
     {
       "id": "se.infomaker.preamble",
       "name": "preamble",
       "url": "INFOMAKER_PLUGINS_BASE_URL/fd.js",
       "enabled": true,
-      "mandatory": true,
-      "data": {
-        "disableUseOfAnnotationToolsForFields": [
-          "text"
-        ]
-      }
+      "mandatory": true
     },
     {
       "id": "se.infomaker.subheadline",
       "name": "subheadline",
       "url": "INFOMAKER_PLUGINS_BASE_URL/fd.js",
       "enabled": true,
-      "mandatory": true,
-      "data": {
-        "disableUseOfAnnotationToolsForFields": [
-          "text"
-        ]
-      }
+      "mandatory": true
     },
     {
       "id": "se.infomaker.paragraph",
@@ -175,10 +160,7 @@
       "enabled": true,
       "mandatory": true,
       "data": {
-        "disableUseOfAnnotationToolsForFields": [
-          "heading",
-          "content"
-        ]
+        "disableUseOfAnnotationTools": true
       }
     },
     {

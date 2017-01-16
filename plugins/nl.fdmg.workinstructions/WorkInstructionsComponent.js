@@ -12,13 +12,16 @@ class WorkinstructionsComponent extends Component {
   getInitialState() {
     const workInstructionsMeta = api.newsItem.getContentMetaObjectsByType('fdmg/workinstructions')
 
-    let workInstructions = ''
+    let decoupled = false;
+    let workInstructions = '';
     if (workInstructionsMeta) {
-      workInstructions = workInstructionsMeta.map(wi => wi.data.text).pop() || ''
+      decoupled = workInstructionsMeta.map(wi => wi.data.decoupled).pop() || false;
+      workInstructions = workInstructionsMeta.map(wi => wi.data.text).pop() || '';
     }
 
     return {
-      workInstructions: workInstructions
+      workInstructions: workInstructions,
+      decoupled: decoupled
     }
   }
 
@@ -31,6 +34,14 @@ class WorkinstructionsComponent extends Component {
         .append($$('h2')
           .append(this.getLabel('Workinstructions'))
         ),
+        $$('input')
+          .attr('type', 'checkbox')
+          .attr(this.state.decoupled ? {'checked': 'checked'} : {})
+          .on('change', () => {
+            this.extendState({decoupled: !this.state.decoupled});
+            this.updateNewsML();
+          }),
+        $$('span').append(this.getLabel('Decoupled')),
         $$('div')
           .addClass('workinstructions-wrapper')
           .append(
@@ -64,6 +75,12 @@ class WorkinstructionsComponent extends Component {
   }
 
   updateWorkInstructions(newWorkInstructions) {
+    // Update internal state
+    this.extendState({workInstructions: newWorkInstructions});
+    this.updateNewsML();
+  }
+
+  updateNewsML() {
     // Remove existing workInstructions
     const exisingWorkInstructionsMeta = api.newsItem.getContentMetaObjectsByType(this.type)
 
@@ -79,12 +96,10 @@ class WorkinstructionsComponent extends Component {
       '@type': this.type,
       '@name': this.name,
       data: {
-        text: newWorkInstructions
+        decoupled: this.state.decoupled,
+        text: this.state.workInstructions
       }
-    })
-
-    // Update internal state
-    this.extendState({workInstructions: newWorkInstructions})
+    });
   }
 }
 
