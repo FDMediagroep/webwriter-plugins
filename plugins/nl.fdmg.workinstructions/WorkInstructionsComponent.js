@@ -21,6 +21,7 @@ class WorkinstructionsComponent extends Component {
     }
     if (decoupledMeta) {
       decoupled = decoupledMeta.map(wi => {
+        console.info(wi);
         return wi['@checked'];
       }).pop() || false;
     }
