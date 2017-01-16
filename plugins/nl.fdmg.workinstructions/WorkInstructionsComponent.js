@@ -34,14 +34,18 @@ class WorkinstructionsComponent extends Component {
         .append($$('h2')
           .append(this.getLabel('Workinstructions'))
         ),
-        $$('input')
-          .attr('type', 'checkbox')
-          .attr(this.state.decoupled ? {'checked': 'checked'} : {})
-          .on('change', () => {
-            this.extendState({decoupled: !this.state.decoupled});
-            this.updateNewsML();
-          }),
-        $$('span').append(this.getLabel('Decoupled')),
+        $$('label')
+          .addClass(this.state.decoupled ? 'decoupled active' : '')
+          .append(
+            $$('input')
+              .attr('type', 'checkbox')
+              .attr(this.state.decoupled ? {'checked': 'checked'} : {})
+              .on('change', () => {
+                this.extendState({decoupled: !this.state.decoupled});
+                this.updateNewsML();
+              }),
+            this.getLabel('Decoupled')
+          ),
         $$('div')
           .addClass('workinstructions-wrapper')
           .append(

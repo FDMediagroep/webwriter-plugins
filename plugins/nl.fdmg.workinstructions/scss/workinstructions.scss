@@ -38,4 +38,13 @@
       }
     }
   }
+
+  input[type=checkbox] {
+    min-height: initial;
+  }
+
+  .decoupled.active {
+    color: red;
+  }
+
 }
