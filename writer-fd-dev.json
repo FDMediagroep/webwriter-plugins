@@ -10,7 +10,9 @@
       "enabled": true,
       "mandatory": true,
       "data": {
-        "disableUseOfAnnotationToolsForFields": true
+        "disableUseOfAnnotationToolsForFields": [
+          "text"
+        ]
       }
     },
     {
@@ -20,7 +22,9 @@
       "enabled": true,
       "mandatory": true,
       "data": {
-        "disableUseOfAnnotationToolsForFields": true
+        "disableUseOfAnnotationToolsForFields": [
+          "text"
+        ]
       }
     },
     {
@@ -30,7 +34,9 @@
       "enabled": true,
       "mandatory": true,
       "data": {
-        "disableUseOfAnnotationToolsForFields": true
+        "disableUseOfAnnotationToolsForFields": [
+          "text"
+        ]
       }
     },
     {
@@ -140,6 +146,10 @@
           "label": "Block",
           "icon": "fa-align-justify"
           }
+        ],
+        "disableUseOfAnnotationToolsForFields": [
+          "title",
+          "text"
         ]
       }
     },
@@ -163,7 +173,13 @@
       "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
       "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
       "enabled": true,
-      "mandatory": true
+      "mandatory": true,
+      "data": {
+        "disableUseOfAnnotationToolsForFields": [
+          "heading",
+          "content"
+        ]
+      }
     },
     {
       "id": "nl.fdmg.stackframe",
@@ -171,7 +187,13 @@
       "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
       "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
       "enabled": true,
-      "mandatory": true
+      "mandatory": true,
+      "data": {
+        "disableUseOfAnnotationToolsForFields": [
+          "heading",
+          "content"
+        ]
+      }
     },
     {
       "id": "nl.fdmg.relatedlink",
@@ -179,7 +201,14 @@
       "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
       "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
       "enabled": true,
-      "mandatory": true
+      "mandatory": true,
+      "data": {
+        "disableUseOfAnnotationToolsForFields": [
+          "prefix",
+          "leadtext",
+          "relatedurl"
+        ]
+      }
     },
     {
       "id": "nl.fdmg.localfocus",
