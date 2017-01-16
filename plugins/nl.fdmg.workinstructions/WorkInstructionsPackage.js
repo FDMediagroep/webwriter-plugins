@@ -15,5 +15,8 @@ export default {
     config.addLabel('Workinstructions', {
       'nl' : 'Werkinstructies'
     })
+    config.addLabel('Decoupled', {
+      'nl' : 'Ontkoppeld'
+    })
   }
 }
