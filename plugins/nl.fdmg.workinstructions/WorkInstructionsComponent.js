@@ -7,28 +7,21 @@ class WorkinstructionsComponent extends Component {
     super(...args);
     this.name = 'workinstructions';
     this.type = 'fdmg/workinstructions';
+    this.decoupledName = 'article-decoupled';
     this.decoupledType = 'fdmg/article-decoupled';
   }
 
   getInitialState() {
     const workInstructionsMeta = api.newsItem.getContentMetaObjectsByType('fdmg/workinstructions');
-    const decoupledMeta = api.newsItem.getContentMetaObjectsByType('fdmg/article-decoupled');
 
-    let decoupled = false;
     let workInstructions = '';
     if (workInstructionsMeta) {
       workInstructions = workInstructionsMeta.map(wi => wi.data.text).pop() || '';
     }
-    if (decoupledMeta) {
-      decoupled = decoupledMeta.map(wi => {
-        console.info(wi);
-        return wi['@checked'];
-      }).pop() || false;
-    }
 
     return {
       workInstructions: workInstructions,
-      decoupled: decoupled
+      decoupled: this.getOptionChecked()
     }
   }
 
@@ -109,22 +102,29 @@ class WorkinstructionsComponent extends Component {
     });
   }
 
+  getOptionChecked() {
+    return api.newsItem
+      .getLinkByType(this.decoupledName, this.decoupledType)
+      .some(i => i['@checked'] === "true");
+  }
+
   updateDecoupled() {
-    // Remove existing workInstructions
-    const decoupledMeta = api.newsItem.getContentMetaObjectsByType(this.decoupledType)
+    // Clear existing links of this type (from the NewsML representation)
+    api.newsItem
+      .getLinkByType(this.name, this.type)
+      .forEach(l => {
+        api.newsItem.removeLinkByUUIDAndRel(this.name, l['@uuid'], l['@rel'])
+      });
 
-    if (decoupledMeta) {
-      decoupledMeta.forEach(wi => {
-        api.newsItem.removeContentMetaObject(this.decoupledType, wi['@id'])
-      })
-    }
-
-    // Add new workInstructions
-    api.newsItem.setContentMetaObject(this.decoupledType, {
-      '@id': idGenerator(),
+    let link = {
+      '@rel': this.decoupledName,
       '@type': this.decoupledType,
-      '@checked': this.state.decoupled
-    });
+      '@checked': checked,
+      '@uuid': idGenerator()
+    };
+
+    // Add the link (to NewsML representation)
+    api.newsItem.addLink(this.name, link);
   }
 
 }
