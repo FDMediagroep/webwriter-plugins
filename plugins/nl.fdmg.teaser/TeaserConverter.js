@@ -2,11 +2,11 @@ import { idGenerator } from 'writer'
 
 
 export default {
-  type: 'ximteaser',
+  type: 'x-im/teaser',
   tagName: 'object',
 
   matchElement: function (el) {
-    return el.is('object') && el.attr('type') === 'ximteaser'
+    return el.is('object') && el.attr('type') === 'x-im/teaser'
   },
 
 
