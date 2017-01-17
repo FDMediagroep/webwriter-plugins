@@ -1,6 +1,5 @@
 import {Component, TextPropertyEditor, FontAwesomeIcon} from 'substance'
 import {api} from 'writer'
-import ImageDisplay from './ImageDisplay'
 import FileInputComponent from './FileInputComponent'
 
 class TextframeComponent extends Component {
@@ -28,6 +27,7 @@ class TextframeComponent extends Component {
 
   render($$) {
     const node = this.props.node
+    const ImageDisplay = api.ui.getComponent('imageDisplay')
     const el = $$('div').addClass('sc-textframe fdmg-box im-blocknode__container')
     const textframeFields = api.getConfigValue('nl.fdmg.textframe', 'fields', [])
     const alignments = api.getConfigValue('nl.fdmg.textframe', 'alignments', [])

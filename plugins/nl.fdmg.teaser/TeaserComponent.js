@@ -1,6 +1,5 @@
 import {Component, TextPropertyEditor, FontAwesomeIcon} from 'substance'
 import {api} from 'writer'
-import ImageDisplay from '../nl.fdmg.textframe/ImageDisplay'
 import FileInputComponent from './FileInputComponent'
 
 class TeaserComponent extends Component {
@@ -30,6 +29,7 @@ class TeaserComponent extends Component {
     const node = this.props.node
     const el = $$('div').addClass('fdmg-box sc-teaser im-blocknode__container')
     const teaserFields = api.getConfigValue('nl.fdmg.teaser', 'fields', [])
+    const ImageDisplay = api.ui.getComponent('imageDisplay')
 
     el.append(this.renderHeader($$))
 
