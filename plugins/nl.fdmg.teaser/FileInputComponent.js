@@ -20,7 +20,7 @@ class FileInputComponent extends Component {
     return $$('span').addClass('fileinput').append([uploadbutton, fileInput])
   }
 
-  triggerFileDialog(e) {
+  triggerFileDialog() {
     console.log("Trigger file upload");
 
     const evt = document.createEvent('MouseEvents');

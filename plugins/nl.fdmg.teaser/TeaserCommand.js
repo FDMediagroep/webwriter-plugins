@@ -4,9 +4,8 @@ class teaserCommand extends WriterCommand {
 
 
   execute(params, context) {
-    const id = this.config.id
-    const teaserPosition = context.api.getConfigValue(this.config.id, 'teaserPosition', 'bottom')
-
+    const teaserPosition = context.api.getConfigValue(this.config.id, 'teaserPosition', 'top')
+    console.log(teaserPosition)
     const nodes = api.document.getDocumentNodes()
     const existingTeaser = nodes.filter((node) => {
       return node.dataType === 'x-im/teaser'
@@ -36,11 +35,11 @@ class teaserCommand extends WriterCommand {
     const editorSession = params.editorSession
     const doc = editorSession.getDocument()
 
-    editorSession.transaction((tx, args) => {
+    editorSession.transaction((tx) => {
 
       // Select the first node to the selection
       const firstNodeId = doc.getNodes()['body'].nodes[0];
-
+      console.log(firstNodeId)
       tx.selection = doc.createSelection({
         type: 'property',
         containerId: 'body',
@@ -73,14 +72,14 @@ class teaserCommand extends WriterCommand {
   getEmptyTeaserNode() {
 
     return {
-      type: 'x-im/teaser',
+      type: 'ximteaser',
       dataType: 'x-im/teaser',
       id: idGenerator(),
       uuid: '',
       url: '',
       imageType: 'x-im/image',
-      title: '',
-      text: '',
+      title: "Teaserkop - toont op home (optioneel)",
+      text: "Teaserintro - toont op home (verplicht)",
       crops: []
     }
 

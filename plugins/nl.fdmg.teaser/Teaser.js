@@ -39,7 +39,7 @@ class teaser extends BlockNode {
 }
 
 teaser.define({
-  type: 'teaser',
+  type: 'ximteaser',
   dataType: {type: 'string', optional: false},
   imageFile: { type: 'file', optional: true },
   uuid: {type: 'string', optional: true},

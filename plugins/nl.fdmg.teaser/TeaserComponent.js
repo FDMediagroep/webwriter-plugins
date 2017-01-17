@@ -1,6 +1,6 @@
 import {Component, TextPropertyEditor, FontAwesomeIcon} from 'substance'
 import {api} from 'writer'
-import ImageDisplay from '../se.infomaker.ximimage/ImageDisplay'
+import ImageDisplay from '../nl.fdmg.textframe/ImageDisplay'
 import FileInputComponent from './FileInputComponent'
 
 class teaserComponent extends Component {
@@ -28,15 +28,15 @@ class teaserComponent extends Component {
 
   render($$) {
     const node = this.props.node
-    const el = $$('div').addClass('sc-teaser im-blocknode__container')
-    const teaserFields = api.getConfigValue('se.infomaker.teaser', 'fields', [])
+    const el = $$('div').addClass('fdmg-box sc-teaser im-blocknode__container')
+    const teaserFields = api.getConfigValue('nl.fdmg.teaser', 'fields', [])
 
     el.append(this.renderHeader($$))
 
     if (this.props.node.imageFile) {
       el.append(
           $$(ImageDisplay, { // Pass property to images if used in teaser and if drag should be disabled
-            parentId: 'se.infomaker.teaser',
+            parentId: 'nl.fdmg.teaser',
             node: node,
             isolatedNodeState: this.props.isolatedNodeState,
             removeImage: this.removeImage.bind(this)
@@ -141,11 +141,10 @@ class teaserComponent extends Component {
       tagName: 'div',
       path: [this.props.node.id, 'title'],
       doc: this.props.doc
-    }).ref('title').addClass('x-im-teaser-title')
+    }).ref('title').addClass('fdmg-teaser-title x-im-teaser-title')
 
-    const icon = $$(FontAwesomeIcon, {icon: 'fa-header'})
 
-    titleContainer.append([icon, titleEditor])
+    titleContainer.append([titleEditor])
     return titleContainer
   }
 
@@ -155,11 +154,9 @@ class teaserComponent extends Component {
       tagName: 'div',
       path: [this.props.node.id, 'text'],
       doc: this.props.doc
-    }).ref('text').addClass('x-im-teaser-text')
+    }).ref('text').addClass('fdmg-teaser-text x-im-teaser-text')
 
-    const icon = $$(FontAwesomeIcon, {icon: 'fa-paragraph'})
-
-    textContainer.append([icon, textEditor])
+    textContainer.append([textEditor])
     return textContainer
   }
 }

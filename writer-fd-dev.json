@@ -207,9 +207,10 @@
       "mandatory": false
     },
     {
-      "id": "se.infomaker.ximteaser",
+      "id": "nl.fdmg.teaser",
       "name": "ximteaser",
-      "url": "INFOMAKER_PLUGINS_BASE_URL/fd.js",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
       "enabled": true,
       "mandatory": true,
       "data": {
@@ -235,8 +236,8 @@
     {
       "id": "nl.fdmg.workflowstate",
       "name": "workflowstate",
-      "url": "INFOMAKER_PLUGINS_BASE_URL/fd.js",
-      "style": "INFOMAKER_PLUGINS_BASE_URL/style.css",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
       "enabled": true,
       "mandatory": true,
       "data" : {

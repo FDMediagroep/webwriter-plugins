@@ -1,4 +1,4 @@
-import {WriterCommand, api, idGenerator} from 'writer'
+import {WriterCommand, api} from 'writer'
 
 class teaserInsertImageCommand extends WriterCommand {
 
@@ -11,7 +11,6 @@ class teaserInsertImageCommand extends WriterCommand {
 
     const teaserNode = params.context.node
     const editorSession = context.editorSession
-    const doc = editorSession.getDocument()
     const file = params.data[0] // Teaser only supports one image, take the first one
 
     editorSession.transaction((tx) => {
