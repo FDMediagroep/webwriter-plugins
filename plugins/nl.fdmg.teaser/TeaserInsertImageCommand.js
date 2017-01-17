@@ -1,6 +1,6 @@
 import {WriterCommand, api} from 'writer'
 
-class teaserInsertImageCommand extends WriterCommand {
+class TeaserInsertImageCommand extends WriterCommand {
 
   constructor(...args) {
     super(...args)
@@ -30,4 +30,4 @@ class teaserInsertImageCommand extends WriterCommand {
 
   }
 }
-export default teaserInsertImageCommand
+export default TeaserInsertImageCommand

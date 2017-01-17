@@ -6,13 +6,12 @@ export default {
   tagName: 'object',
 
   matchElement: function (el) {
-    return el.is('object') && el.attr('type') === 'x-im/teaser'
+    return el.is('object') && el.attr('type') === 'ximteaser'
   },
 
 
   import: function (el, node, converter) { // jshint ignore:line
     // x-im/image attributes
-
     const nodeId = el.attr('id')
     node.title = el.attr('title');
     node.dataType = el.attr('type');

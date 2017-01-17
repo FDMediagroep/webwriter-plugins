@@ -1,24 +1,24 @@
 import './scss/teaser.scss'
-import teaserComponent from './teaserComponent'
-import teaserConverter from './teaserConverter'
-import teaser from './teaser'
-import teaserTool from './teaserTool'
-import teaserCommand from './teaserCommand'
-import teaserInsertImageCommand from './teaserInsertImageCommand'
+import TeaserComponent from './TeaserComponent'
+import TeaserConverter from './TeaserConverter'
+import Teaser from './Teaser'
+import TeaserTool from './TeaserTool'
+import TeaserCommand from './TeaserCommand'
+import TeaserInsertImageCommand from './TeaserInsertImageCommand'
 
 import {platform} from 'substance'
 export default {
   name: 'ximteaser',
   id: 'nl.fdmg.teaser',
   configure: function (config, pluginConfig) {
-    config.addNode(teaser)
-    config.addComponent(teaser.type, teaserComponent)
-    config.addConverter('newsml', teaserConverter)
+    config.addNode(Teaser)
+    config.addComponent(Teaser.type, TeaserComponent)
+    config.addConverter('newsml', TeaserConverter)
 
-    config.addContentMenuTopTool('ximteaser', teaserTool)
-    config.addCommand('ximteaser', teaserCommand, pluginConfig)
+    config.addContentMenuTopTool('ximteaser', TeaserTool)
+    config.addCommand('ximteaser', TeaserCommand, pluginConfig)
 
-    config.addCommand('teaserinsertimage', teaserInsertImageCommand, pluginConfig)
+    config.addCommand('teaserinsertimage', TeaserInsertImageCommand, pluginConfig)
 
     config.addIcon('ximteaser', { 'fontawesome': ' fa-newspaper-o' })
 

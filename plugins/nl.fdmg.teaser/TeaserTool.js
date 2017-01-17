@@ -1,7 +1,7 @@
 import {Tool} from 'substance'
 import {api} from 'writer'
 
-class teaserTool extends Tool {
+class TeaserTool extends Tool {
 
   render($$) {
 
@@ -26,4 +26,4 @@ class teaserTool extends Tool {
     })
   }
 }
-export default teaserTool
+export default TeaserTool

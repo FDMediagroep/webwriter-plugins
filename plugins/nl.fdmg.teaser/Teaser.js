@@ -1,6 +1,6 @@
 import {BlockNode} from 'substance'
 import {api} from 'writer'
-class teaser extends BlockNode {
+class Teaser extends BlockNode {
 
   getImageFile() {
     if (this.imageFile) {
@@ -38,7 +38,7 @@ class teaser extends BlockNode {
   }
 }
 
-teaser.define({
+Teaser.define({
   type: 'ximteaser',
   dataType: {type: 'string', optional: false},
   imageFile: { type: 'file', optional: true },
@@ -56,4 +56,4 @@ teaser.define({
   crops: { type: 'object', default: [] }
 })
 
-export default teaser
+export default Teaser

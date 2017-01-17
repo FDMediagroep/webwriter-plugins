@@ -1,11 +1,10 @@
 import {WriterCommand, api, idGenerator} from 'writer'
 
-class teaserCommand extends WriterCommand {
+class TeaserCommand extends WriterCommand {
 
 
   execute(params, context) {
-    const teaserPosition = context.api.getConfigValue(this.config.id, 'teaserPosition', 'top')
-    console.log(teaserPosition)
+    const teaserPosition = context.api.getConfigValue(this.config.id, 'teaserPosition', 'bottom')
     const nodes = api.document.getDocumentNodes()
     const existingTeaser = nodes.filter((node) => {
       return node.dataType === 'x-im/teaser'
@@ -39,7 +38,6 @@ class teaserCommand extends WriterCommand {
 
       // Select the first node to the selection
       const firstNodeId = doc.getNodes()['body'].nodes[0];
-      console.log(firstNodeId)
       tx.selection = doc.createSelection({
         type: 'property',
         containerId: 'body',
@@ -86,4 +84,4 @@ class teaserCommand extends WriterCommand {
   }
 
 }
-export default teaserCommand
+export default TeaserCommand

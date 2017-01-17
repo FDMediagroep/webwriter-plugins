@@ -3,7 +3,7 @@ import {api} from 'writer'
 import ImageDisplay from '../nl.fdmg.textframe/ImageDisplay'
 import FileInputComponent from './FileInputComponent'
 
-class teaserComponent extends Component {
+class TeaserComponent extends Component {
 
   didMount() {
     this.context.editorSession.onRender('document', this._onDocumentChange, this)
@@ -161,4 +161,4 @@ class teaserComponent extends Component {
   }
 }
 
-export default teaserComponent
+export default TeaserComponent

@@ -1,11 +1,11 @@
 import './scss/teaser.scss'
 
-import teaserPackage from './teaserPackage'
+import TeaserPackage from './TeaserPackage'
 const { registerPlugin } = writer
 
 export default () => {
   if (registerPlugin) {
-    registerPlugin(teaserPackage)
+    registerPlugin(TeaserPackage)
   } else {
     console.info("Register method not yet available");
   }
