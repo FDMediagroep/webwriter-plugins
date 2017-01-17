@@ -2,7 +2,7 @@ import { idGenerator } from 'writer'
 
 
 export default {
-  type: 'x-im/teaser',
+  type: 'ximteaser',
   tagName: 'object',
 
   matchElement: function (el) {

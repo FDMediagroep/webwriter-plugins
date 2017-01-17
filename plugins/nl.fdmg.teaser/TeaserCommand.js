@@ -76,8 +76,8 @@ class TeaserCommand extends WriterCommand {
       uuid: '',
       url: '',
       imageType: 'x-im/image',
-      title: "Teaserkop - toont op home (optioneel)",
-      text: "Teaserintro - toont op home (verplicht)",
+      title: "",
+      text: "",
       crops: []
     }
 

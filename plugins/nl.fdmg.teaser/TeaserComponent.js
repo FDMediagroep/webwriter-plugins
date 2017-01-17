@@ -36,7 +36,7 @@ class TeaserComponent extends Component {
     if (this.props.node.imageFile) {
       el.append(
           $$(ImageDisplay, { // Pass property to images if used in teaser and if drag should be disabled
-            parentId: 'nl.fdmg.teaser',
+            parentId: 'se.infomaker.teaser',
             node: node,
             isolatedNodeState: this.props.isolatedNodeState,
             removeImage: this.removeImage.bind(this)
