@@ -41,39 +41,6 @@ export default class StocktickerInlineTool extends Tool {
     document.querySelector('html').classList.remove('hide-text-annotation')
   }
 
-  // Initial code to try and remove the component and node when no
-  // stockticker is selected but pop-over is closed by the user
-  // isEmptyNode() {
-  //   // Get all inline nodes
-  //   var inlineNodes = writer.api.editorSession.document.data.nodes;
-  //   for (var key in inlineNodes) {
-  //
-  //     if (!inlineNodes.hasOwnProperty(key)) {
-  //       continue;
-  //     }
-  //     // send all nodes to remove function
-  //     var inlineNode = inlineNodes[key];
-  //     this.removeEmptyStockTickers(inlineNode)
-  //   }
-  // }
-  //
-  // removeEmptyStockTickers(node) {
-  //   // Check if node is of type stockticker, if so and isin is empty remove node
-  //   if (node.isin === "" && node.dataType === "fdmg/stockticker") {
-  //     console.log(node.id)
-  //     console.log(this.props.node)
-  //     const something = this.getNode();
-  //     console.log(something)
-  //     // this.delete();
-  //     api.editorSession.transaction((tx, node) => {
-  //       const nodeId = node.id;
-  //       tx.delete('stockticker', nodeId)
-  //     })
-  //   } else {
-  //     return;
-  //   }
-  // }
-
   getNode() {
     if (this.props.annotationId) {
       return this.context.doc.get(this.props.annotationId);
