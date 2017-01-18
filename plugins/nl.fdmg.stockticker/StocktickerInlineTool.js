@@ -7,7 +7,7 @@ export default class StocktickerInlineTool extends Tool {
   render($$) {
     const node = this.props.node;
     const el = $$('div');
-    // const selector = querySelectorAll('object[type="fdmg/quote"] message')
+
     if (node) {
       el
         .addClass('se-tool sc-stockticker-inline-tool')
