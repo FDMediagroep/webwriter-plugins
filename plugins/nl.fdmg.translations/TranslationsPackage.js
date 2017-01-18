@@ -77,10 +77,16 @@ export default {
       nl: 'Cursief'
     });
     config.addLabel('Create link', {
-      nl: 'Link creren'
+      nl: 'Link creëren'
     });
     config.addLabel('Delete link', {
       nl: 'Link verwijderen'
+    });
+    config.addLabel('Rechts uitlijnend', {
+      nl: 'Afbeelding rechts uitlijnend'
+    });
+    config.addLabel('Volledige breedte', {
+      nl: 'Afbeelding volledige breedte'
     });
 
   }

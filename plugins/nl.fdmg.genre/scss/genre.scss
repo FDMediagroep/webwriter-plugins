@@ -204,7 +204,7 @@ a.fdmg-box {
     border-top: 1px solid rgba(0, 0, 0, 0.1);
   }
 }
-.sc-ximteaser, .fdmg-box {
+.sc-ximteaser, .fdmg-box, .sc-ximimage {
   .sc-text-property {
     cursor: text;
     &:hover {
@@ -262,4 +262,10 @@ a.fdmg-box {
 // teaser override
 div.x-im-teaser div.x-im-teaser-text::before {
     content: '\f1dd';
+}
+
+// Infomaker preamble override
+
+.sc-preamble {
+  font-size: 1.1em;
 }
