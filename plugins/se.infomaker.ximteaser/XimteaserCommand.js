@@ -4,7 +4,6 @@ class XimteaserCommand extends WriterCommand {
 
 
   execute(params, context) {
-    const id = this.config.id
     const teaserPosition = context.api.getConfigValue(this.config.id, 'teaserPosition', 'bottom')
 
     const nodes = api.document.getDocumentNodes()
@@ -36,7 +35,7 @@ class XimteaserCommand extends WriterCommand {
     const editorSession = params.editorSession
     const doc = editorSession.getDocument()
 
-    editorSession.transaction((tx, args) => {
+    editorSession.transaction((tx) => {
 
         // Select the first node to the selection
       const firstNodeId = doc.getNodes()['body'].nodes[0];

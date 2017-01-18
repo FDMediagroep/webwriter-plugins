@@ -58,6 +58,10 @@ export default {
       nl: 'OK'
     });
 
+    config.addLabel('Meta', {
+      nl: 'Basis'
+    });
+
     config.addLabel('cancel', {
       nl: 'Annuleren'
     });
