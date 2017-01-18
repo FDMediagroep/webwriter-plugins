@@ -2,13 +2,14 @@ import {Component} from 'substance'
 import {api, idGenerator} from 'writer'
 import WorkInstructionsEditTool from './WorkInstructionsEditTool'
 
+const decoupledName = 'article-decoupled';
+const decoupledType = 'fdmg/article-decoupled';
+
 class WorkinstructionsComponent extends Component {
   constructor(...args) {
     super(...args);
     this.name = 'workinstructions';
     this.type = 'fdmg/workinstructions';
-    this.decoupledName = 'article-decoupled';
-    this.decoupledType = 'fdmg/article-decoupled';
   }
 
   getInitialState() {
@@ -18,7 +19,7 @@ class WorkinstructionsComponent extends Component {
     if (workInstructionsMeta) {
       workInstructions = workInstructionsMeta.map(wi => wi.data.text).pop() || '';
     }
-    console.info('Decoupled: ', this.getOptionChecked());
+    console.info('Decoupled: ', this.getOptionChecked(), this.name, this.type);
     return {
       workInstructions: workInstructions,
       decoupled: this.getOptionChecked()
@@ -103,11 +104,11 @@ class WorkinstructionsComponent extends Component {
   }
 
   getOptionChecked() {
-    console.info('decoupled getOptionChecked', this.decoupledName, this.decoupledType);
+    console.info('decoupled getOptionChecked', decoupledName, decoupledType);
     return api.newsItem
-      .getLinkByType(this.decoupledName, this.decoupledType)
+      .getLinkByType(decoupledName, decoupledType)
       .some(i => {
-        console.info('get link', i, this.decoupledName, this.decoupledType);
+        console.info('get link', i, decoupledName, decoupledType);
         return i['@checked'] === "true";
       });
   }
@@ -115,14 +116,14 @@ class WorkinstructionsComponent extends Component {
   updateDecoupled() {
     // Clear existing links of this type (from the NewsML representation)
     api.newsItem
-      .getLinkByType(this.decoupledName, this.decoupledType)
+      .getLinkByType(decoupledName, decoupledType)
       .forEach(l => {
-        api.newsItem.removeLinkByUUIDAndRel(this.decoupledName, l['@uuid'], l['@rel'])
+        api.newsItem.removeLinkByUUIDAndRel(decoupledName, l['@uuid'], l['@rel'])
       });
 
     let link = {
-      '@rel': this.decoupledName,
-      '@type': this.decoupledType,
+      '@rel': decoupledName,
+      '@type': decoupledType,
       '@checked': this.state.decoupled,
       '@uuid': idGenerator()
     };
