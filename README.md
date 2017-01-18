@@ -171,6 +171,9 @@ export default {
 }
 ```
 
+## Print language labels
+English example: `writer.api.configurator.labelProvider.labels.en`
+
 ## Resources
 * https://infomaker.github.io/NPWriterDevelopers/getting-started/
 * https://github.com/Infomaker

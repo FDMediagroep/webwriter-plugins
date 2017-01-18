@@ -2,23 +2,24 @@ import {Component} from 'substance'
 import {api, idGenerator} from 'writer'
 import WorkInstructionsEditTool from './WorkInstructionsEditTool'
 
+const decoupledName = 'article-decoupled';
+const decoupledType = 'fdmg/article-decoupled';
+const name = 'workinstructions';
+const type = 'fdmg/workinstructions';
+
 class WorkinstructionsComponent extends Component {
   constructor(...args) {
     super(...args);
-    this.name = 'workinstructions';
-    this.type = 'fdmg/workinstructions';
-    this.decoupledName = 'article-decoupled';
-    this.decoupledType = 'fdmg/article-decoupled';
   }
 
   getInitialState() {
-    const workInstructionsMeta = api.newsItem.getContentMetaObjectsByType('fdmg/workinstructions');
+    const workInstructionsMeta = api.newsItem.getContentMetaObjectsByType(type);
 
     let workInstructions = '';
     if (workInstructionsMeta) {
       workInstructions = workInstructionsMeta.map(wi => wi.data.text).pop() || '';
     }
-    console.info('Decoupled: ', this.getOptionChecked());
+
     return {
       workInstructions: workInstructions,
       decoupled: this.getOptionChecked()
@@ -83,19 +84,19 @@ class WorkinstructionsComponent extends Component {
     // Update internal state
     this.extendState({workInstructions: newWorkInstructions});
     // Remove existing workInstructions
-    const exisingWorkInstructionsMeta = api.newsItem.getContentMetaObjectsByType(this.type)
+    const exisingWorkInstructionsMeta = api.newsItem.getContentMetaObjectsByType(type)
 
     if (exisingWorkInstructionsMeta) {
       exisingWorkInstructionsMeta.forEach(wi => {
-        api.newsItem.removeContentMetaObject(this.type, wi['@id'])
+        api.newsItem.removeContentMetaObject(type, wi['@id'])
       })
     }
 
     // Add new workInstructions
-    api.newsItem.setContentMetaObject(this.type, {
+    api.newsItem.setContentMetaObject(type, {
       '@id': idGenerator(),
-      '@type': this.type,
-      '@name': this.name,
+      '@type': type,
+      '@name': name,
       data: {
         text: this.state.workInstructions
       }
@@ -104,27 +105,27 @@ class WorkinstructionsComponent extends Component {
 
   getOptionChecked() {
     return api.newsItem
-      .getLinkByType(this.decoupledName, this.decoupledType)
+      .getLinkByType(decoupledName, decoupledType)
       .some(i => i['@checked'] === "true");
   }
 
   updateDecoupled() {
     // Clear existing links of this type (from the NewsML representation)
     api.newsItem
-      .getLinkByType(this.decoupledName, this.decoupledType)
+      .getLinkByType(decoupledName, decoupledType)
       .forEach(l => {
-        api.newsItem.removeLinkByUUIDAndRel(this.decoupledName, l['@uuid'], l['@rel'])
+        api.newsItem.removeLinkByUUIDAndRel(decoupledName, l['@uuid'], l['@rel'])
       });
 
     let link = {
-      '@rel': this.decoupledName,
-      '@type': this.decoupledType,
+      '@rel': decoupledName,
+      '@type': decoupledType,
       '@checked': this.state.decoupled,
       '@uuid': idGenerator()
     };
 
     // Add the link (to NewsML representation)
-    api.newsItem.addLink(this.name, link);
+    api.newsItem.addLink(decoupledName, link);
   }
 
 }

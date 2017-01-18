@@ -85,17 +85,32 @@
             "options": [
               {
                 "name": "right",
-                "label": "Rechts uitlijnend",
+                "label": "Afbeelding rechts uitlijnend",
                 "icon": "fa-align-right"
               },
               {
                 "name": "block",
-                "label": "Volledige breedte",
+                "label": "Afbeelding volledige breedte",
                 "icon": "fa-align-justify"
               }
             ]
           }
         ]
+      }
+    },
+    {
+      "id": "nl.fdmg.imagesearch",
+      "name": "imagesearch",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
+      "enabled": true,
+      "mandatory": true,
+      "data": {
+        "loadNextScrollThreshold": 100,
+        "resultsPerPage": 25,
+        "searchEndpoint": "API_GATEWAY_BASE_URL/image/search/v1.0/hollandse-hoogte",
+        "fetchEndpoint": "API_GATEWAY_BASE_URL/image/v1.0/download",
+        "token": "HOLLANDSE_HOOGTE_TOKEN"
       }
     },
     {
@@ -123,12 +138,12 @@
         "alignments": [
           {
             "name": "right",
-            "label": "Right",
+            "label": "Afbeelding rechts uitlijnend",
             "icon": "fa-align-right"
           },
           {
           "name": "block",
-          "label": "Block",
+          "label": "Afbeelding volledige breedte",
           "icon": "fa-align-justify"
           }
         ],
@@ -209,7 +224,8 @@
     {
       "id": "se.infomaker.ximteaser",
       "name": "ximteaser",
-      "url": "INFOMAKER_PLUGINS_BASE_URL/fd.js",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
       "enabled": true,
       "mandatory": true,
       "data": {
@@ -235,8 +251,8 @@
     {
       "id": "nl.fdmg.workflowstate",
       "name": "workflowstate",
-      "url": "INFOMAKER_PLUGINS_BASE_URL/fd.js",
-      "style": "INFOMAKER_PLUGINS_BASE_URL/style.css",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
       "enabled": true,
       "mandatory": true,
       "data" : {
@@ -723,21 +739,6 @@
       "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
       "enabled": true,
       "mandatory": true
-    },
-    {
-      "id": "nl.fdmg.imagesearch",
-      "name": "imagesearch",
-      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
-      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
-      "enabled": true,
-      "mandatory": true,
-      "data": {
-        "loadNextScrollThreshold": 100,
-        "resultsPerPage": 25,
-        "searchEndpoint": "API_GATEWAY_BASE_URL/image/search/v1.0/hollandse-hoogte",
-        "fetchEndpoint": "API_GATEWAY_BASE_URL/image/v1.0/download",
-        "token": "HOLLANDSE_HOOGTE_TOKEN"
-      }
     },
     {
       "id": "nl.fdmg.heartbeat",
