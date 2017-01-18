@@ -85,12 +85,12 @@
             "options": [
               {
                 "name": "right",
-                "label": "Rechts uitlijnend",
+                "label": "Afbeelding rechts uitlijnend",
                 "icon": "fa-align-right"
               },
               {
                 "name": "block",
-                "label": "Volledige breedte",
+                "label": "Afbeelding volledige breedte",
                 "icon": "fa-align-justify"
               }
             ]
@@ -123,12 +123,12 @@
         "alignments": [
           {
             "name": "right",
-            "label": "Right",
+            "label": "Afbeelding rechts uitlijnend",
             "icon": "fa-align-right"
           },
           {
           "name": "block",
-          "label": "Block",
+          "label": "Afbeelding volledige breedte",
           "icon": "fa-align-justify"
           }
         ],
