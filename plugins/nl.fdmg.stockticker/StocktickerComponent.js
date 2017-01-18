@@ -36,7 +36,7 @@ export default class StocktickerComponent extends AnnotationComponent {
             .addClass(parseFloat(node.difference) >= 0 ? 'up' : 'down')
             .append(`${node.currency} ${node.price} (${node.difference})`)
         );
-    } else if (!node.symbol || node.symbol === '') {
+    } else {
       el.append($$('span').append(
         $$(FontAwesomeIcon, {icon: 'fa-exclamation-triangle'}).addClass('stockticker-warning'),
         this.getLabel('No stockticker chosen yet...'))
