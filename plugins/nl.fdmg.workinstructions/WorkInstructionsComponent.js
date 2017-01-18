@@ -103,6 +103,7 @@ class WorkinstructionsComponent extends Component {
   }
 
   getOptionChecked() {
+    console.info('decoupled getOptionChecked');
     return api.newsItem
       .getLinkByType(this.decoupledName, this.decoupledType)
       .some(i => {
