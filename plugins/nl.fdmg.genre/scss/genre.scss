@@ -204,6 +204,11 @@ a.fdmg-box {
     border-top: 1px solid rgba(0, 0, 0, 0.1);
   }
 }
+
+div.x-im-image-dynamic:last-child {
+  border: none;
+}
+
 .sc-ximteaser, .fdmg-box, .sc-ximimage {
   .sc-text-property {
     cursor: text;
