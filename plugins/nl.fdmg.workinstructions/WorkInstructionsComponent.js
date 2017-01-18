@@ -4,22 +4,22 @@ import WorkInstructionsEditTool from './WorkInstructionsEditTool'
 
 const decoupledName = 'article-decoupled';
 const decoupledType = 'fdmg/article-decoupled';
+const name = 'workinstructions';
+const type = 'fdmg/workinstructions';
 
 class WorkinstructionsComponent extends Component {
   constructor(...args) {
     super(...args);
-    this.name = 'workinstructions';
-    this.type = 'fdmg/workinstructions';
   }
 
   getInitialState() {
-    const workInstructionsMeta = api.newsItem.getContentMetaObjectsByType('fdmg/workinstructions');
+    const workInstructionsMeta = api.newsItem.getContentMetaObjectsByType(type);
 
     let workInstructions = '';
     if (workInstructionsMeta) {
       workInstructions = workInstructionsMeta.map(wi => wi.data.text).pop() || '';
     }
-    console.info('Decoupled: ', this.getOptionChecked(), this.name, this.type);
+
     return {
       workInstructions: workInstructions,
       decoupled: this.getOptionChecked()
@@ -84,19 +84,19 @@ class WorkinstructionsComponent extends Component {
     // Update internal state
     this.extendState({workInstructions: newWorkInstructions});
     // Remove existing workInstructions
-    const exisingWorkInstructionsMeta = api.newsItem.getContentMetaObjectsByType(this.type)
+    const exisingWorkInstructionsMeta = api.newsItem.getContentMetaObjectsByType(type)
 
     if (exisingWorkInstructionsMeta) {
       exisingWorkInstructionsMeta.forEach(wi => {
-        api.newsItem.removeContentMetaObject(this.type, wi['@id'])
+        api.newsItem.removeContentMetaObject(type, wi['@id'])
       })
     }
 
     // Add new workInstructions
-    api.newsItem.setContentMetaObject(this.type, {
+    api.newsItem.setContentMetaObject(type, {
       '@id': idGenerator(),
-      '@type': this.type,
-      '@name': this.name,
+      '@type': type,
+      '@name': name,
       data: {
         text: this.state.workInstructions
       }
@@ -104,13 +104,9 @@ class WorkinstructionsComponent extends Component {
   }
 
   getOptionChecked() {
-    console.info('decoupled getOptionChecked', decoupledName, decoupledType);
     return api.newsItem
       .getLinkByType(decoupledName, decoupledType)
-      .some(i => {
-        console.info('get link', i, decoupledName, decoupledType);
-        return i['@checked'] === "true";
-      });
+      .some(i => i['@checked'] === "true");
   }
 
   updateDecoupled() {
@@ -129,7 +125,7 @@ class WorkinstructionsComponent extends Component {
     };
 
     // Add the link (to NewsML representation)
-    api.newsItem.addLink(this.name, link);
+    api.newsItem.addLink(decoupledName, link);
   }
 
 }
