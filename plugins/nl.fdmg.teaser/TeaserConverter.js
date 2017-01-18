@@ -6,7 +6,7 @@ export default {
   tagName: 'object',
 
   matchElement: function (el) {
-    return el.is('object') && el.attr('type') === 'ximteaser'
+    return el.is('object') && el.attr('type') === 'x-im/teaser'
   },
 
 
