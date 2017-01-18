@@ -207,7 +207,7 @@
       "mandatory": false
     },
     {
-      "id": "nl.fdmg.teaser",
+      "id": "se.infomaker.ximteaser",
       "name": "ximteaser",
       "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
       "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",

@@ -51,7 +51,7 @@ import ImageSearch from './nl.fdmg.imagesearch/index';
 
 import XimTeaserStandin from './nl.fdmg.ximteaserstandin/index';
 import XimImageStandin from './nl.fdmg.ximimagestandin/index';
-import Teaser from './nl.fdmg.teaser/index';
+import Teaser from './se.infomaker.ximteaser/index';
 import HeadlineStandin from './nl.fdmg.headlinestandin/index';
 
 // Import this last!

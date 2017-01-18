@@ -1,12 +1,11 @@
 import {BlockNode} from 'substance'
 import {api} from 'writer'
-class Teaser extends BlockNode {
+class Ximteaser extends BlockNode {
 
   getImageFile() {
     if (this.imageFile) {
       return this.document.get(this.imageFile)
     }
-
   }
 
   getUrl() {
@@ -38,7 +37,7 @@ class Teaser extends BlockNode {
   }
 }
 
-Teaser.define({
+Ximteaser.define({
   type: 'ximteaser',
   dataType: {type: 'string', optional: false},
   imageFile: { type: 'file', optional: true },
@@ -56,4 +55,4 @@ Teaser.define({
   crops: { type: 'object', default: [] }
 })
 
-export default Teaser
+export default Ximteaser

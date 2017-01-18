@@ -2,7 +2,7 @@ import {Component, TextPropertyEditor, FontAwesomeIcon} from 'substance'
 import {api} from 'writer'
 import FileInputComponent from './FileInputComponent'
 
-class TeaserComponent extends Component {
+class XimteaserComponent extends Component {
 
   didMount() {
     this.context.editorSession.onRender('document', this._onDocumentChange, this)
@@ -20,84 +20,84 @@ class TeaserComponent extends Component {
 
   _onDocumentChange(change) {
     if (change.isAffected(this.props.node.id) ||
-        change.isAffected(this.props.node.imageFile)) {
+      change.isAffected(this.props.node.imageFile)) {
       this.rerender()
     }
   }
 
   render($$) {
     const node = this.props.node
-    const el = $$('div').addClass('fdmg-box sc-teaser im-blocknode__container')
-    const teaserFields = api.getConfigValue('nl.fdmg.teaser', 'fields', [])
+    const el = $$('div').addClass('sc-ximteaser im-blocknode__container')
+    const teaserFields = api.getConfigValue('se.infomaker.ximteaser', 'fields', [])
     const ImageDisplay = api.ui.getComponent('imageDisplay')
 
     el.append(this.renderHeader($$))
 
     if (this.props.node.imageFile) {
       el.append(
-          $$(ImageDisplay, { // Pass property to images if used in teaser and if drag should be disabled
-            parentId: 'nl.fdm.teaser',
-            node: node,
-            isolatedNodeState: this.props.isolatedNodeState,
-            removeImage: this.removeImage.bind(this)
-          }).ref('image')
-        )
+        $$(ImageDisplay, { // Pass property to images if used in teaser and if drag should be disabled
+          parentId: 'se.infomaker.ximteaser',
+          node: node,
+          isolatedNodeState: this.props.isolatedNodeState,
+          removeImage: this.removeImage.bind(this)
+        }).ref('image')
+      )
     }
     el.append(this.renderContent($$, teaserFields))
 
     return el
   }
 
-/**
- * Remove reference to fileNode from teaser node
- * Set subject property on teaser to null
- */
+  /**
+   * Remove reference to fileNode from teaser node
+   * Set subject property on teaser to null
+   */
   removeImage() {
 
     api.editorSession.transaction((tx) => {
       const node = this.props.node
       tx.set([node.id, 'imageFile'], null)
       tx.set([node.id, 'subject'], '')
-        // tx.delete(node.imageFile)
+      // tx.delete(node.imageFile)
     })
   }
 
-/**
- * Render component header with icon
- * @param $$
- * @returns {*}
- */
+  /**
+   * Render component header with icon
+   * @param $$
+   * @returns {*}
+   */
 
   renderHeader($$) {
     return $$('div')
-    .append([
-      $$(FontAwesomeIcon, {icon: 'fa-newspaper-o'}),
-      $$('strong').append(this.getLabel('Teaser')),
-      $$(FileInputComponent, {onChange: this.triggerFileUpload.bind(this)})
-    ])
-    .addClass('header')
+      .append([
+        $$(FontAwesomeIcon, {icon: 'fa-newspaper-o'}),
+        $$('strong').append(this.getLabel('Teaser')),
+        $$(FileInputComponent, {onChange: this.triggerFileUpload.bind(this)})
+      ])
+      .addClass('header')
   }
 
 
   triggerFileUpload(ev) {
     const editorSession = api.editorSession
-    editorSession.executeCommand('teaserinsertimage', {
+    editorSession.executeCommand('ximteaserinsertimage', {
       type: 'file',
       data: ev.target.files,
       context: {node: this.props.node}
     });
   }
 
-/**
- * Render content and all text property editors
- * @param $$
- * @param teaserFields
- * @returns {*}
- */
+  /**
+   * Render content and all text property editors
+   * @param $$
+   * @param teaserFields
+   * @returns {*}
+   */
 
   renderContent($$, teaserFields) {
     const content = $$('div')
-    .addClass('im-blocknode__content full-width')
+        .addClass('im-blocknode__content full-width')
 
     // If 'subject' is specified in the config it should be rendered
     if (teaserFields.indexOf('subject') >= 0) {
@@ -115,11 +115,12 @@ class TeaserComponent extends Component {
     return content
   }
 
-/**
- * Render text editor for subject if an image exist
- * @param $$
- * @returns {?Component}
- */
+
+  /**
+   * Render text editor for subject if an image exist
+   * @param $$
+   * @returns {?Component}
+   */
   renderSubjectEditor($$) {
     if (this.props.node.imageFile) {
       const subjectContainer = $$('div')
@@ -141,10 +142,11 @@ class TeaserComponent extends Component {
       tagName: 'div',
       path: [this.props.node.id, 'title'],
       doc: this.props.doc
-    }).ref('title').addClass('fdmg-teaser-title x-im-teaser-title')
+    }).ref('title').addClass('x-im-teaser-title')
 
+    const icon = $$(FontAwesomeIcon, {icon: 'fa-header'})
 
-    titleContainer.append([titleEditor])
+    titleContainer.append([icon, titleEditor])
     return titleContainer
   }
 
@@ -154,11 +156,13 @@ class TeaserComponent extends Component {
       tagName: 'div',
       path: [this.props.node.id, 'text'],
       doc: this.props.doc
-    }).ref('text').addClass('fdmg-teaser-text x-im-teaser-text')
+    }).ref('text').addClass('x-im-teaser-text')
 
-    textContainer.append([textEditor])
+    const icon = $$(FontAwesomeIcon, {icon: 'fa-paragraph'})
+
+    textContainer.append([icon, textEditor])
     return textContainer
   }
 }
 
-export default TeaserComponent
+export default XimteaserComponent

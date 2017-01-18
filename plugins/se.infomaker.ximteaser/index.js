@@ -1,11 +1,11 @@
-import './scss/teaser.scss'
+import './scss/ximteaser.scss'
 
-import TeaserPackage from './TeaserPackage'
+import XimteaserPackage from './XimteaserPackage'
 const { registerPlugin } = writer
 
 export default () => {
   if (registerPlugin) {
-    registerPlugin(TeaserPackage)
+    registerPlugin(XimteaserPackage)
   } else {
     console.info("Register method not yet available");
   }

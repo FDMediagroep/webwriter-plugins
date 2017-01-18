@@ -1,5 +1,5 @@
 import { Component, TextPropertyEditor } from 'substance'
-import teaserUpdater from './teaserUpdater'
+import XimteaserUpdater from './XimteaserUpdater'
 
 /*
     STATUS: refactor in progress
@@ -15,14 +15,14 @@ import teaserUpdater from './teaserUpdater'
         - Factor out Toolbar to be used in Ximimage
         - Slim down
 */
-class teaserComponent extends Component {
+class XimteaserComponent extends Component {
 
     didMount() {
         // Rerender on any model change
         this.context.editorSession.onRender('document', this.rerender, this, { path: [this.props.node.id] })
 
         // Updater makes sure missing async information is fetched and set on the node
-        this.updater = new teaserUpdater(this.context.editorSession, this.props.node)
+        this.updater = new XimteaserUpdater(this.context.editorSession, this.props.node)
     }
 
     dispose() {
@@ -50,7 +50,7 @@ class teaserComponent extends Component {
         ])
         .addClass('x-im-teaser');
 
-        var fields = this.context.api.getConfigValue('teaser', 'fields', []);
+        var fields = this.context.api.getConfigValue('ximteaser', 'fields', []);
 
         if (fields.indexOf('subject') >= 0) {
             if (this.props.node.url || this.props.node.previewUrl) {
@@ -155,7 +155,7 @@ class teaserComponent extends Component {
             .addClass('x-im-teaser-toolbar')
             .attr('contenteditable', false);
 
-        if (this.context.api.getConfigValue('teaser', 'enablesoftcrop')) {
+        if (this.context.api.getConfigValue('ximteaser', 'enablesoftcrop')) {
             toolbar.append(
                 $$('a').append(
                     this.context.iconProvider.renderIcon($$, 'crop')
@@ -181,7 +181,7 @@ class teaserComponent extends Component {
      * Remove full teaser
      */
     removeTeaser() {
-        this.context.api.deleteNode('teaser', this.props.node);
+        this.context.api.deleteNode('ximteaser', this.props.node);
     }
 
     triggerFileDialog() {
@@ -241,7 +241,7 @@ class teaserComponent extends Component {
         this.editorSession.startWorkflow('replace-image', {
             path: [this.props.node.id, 'url']
         })
-        // this.context.editorSession.executeCommand('teaser', {
+        // this.context.editorSession.executeCommand('ximteaser', {
         //     type:'file',
         //     data:ev.target.files,
         //     context: { nodeId: this.props.node.id }
@@ -315,7 +315,7 @@ class teaserComponent extends Component {
     handleDrop(evt) {
         var surface = this.context.controller.getSurface('body')
         if (surface) {
-            this.context.api.handleDrop(surface, evt, 'teaser', {
+            this.context.api.handleDrop(surface, evt, 'ximteaser', {
                 nodeId: this.props.node.id
             })
         }
@@ -324,6 +324,6 @@ class teaserComponent extends Component {
 }
 
 // Makes isolated node display in full width
-teaserComponent.fullWidth = true
+XimteaserComponent.fullWidth = true
 
-export default teaserComponent
+export default XimteaserComponent

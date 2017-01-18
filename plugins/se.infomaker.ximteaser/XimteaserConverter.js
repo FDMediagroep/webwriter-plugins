@@ -11,7 +11,8 @@ export default {
 
 
   import: function (el, node, converter) { // jshint ignore:line
-    // x-im/image attributes
+      // x-im/image attributes
+
     const nodeId = el.attr('id')
     node.title = el.attr('title');
     node.dataType = el.attr('type');
@@ -107,24 +108,24 @@ export default {
   },
 
   /**
-  *
-  *  <object id="mb2" type="x-im/teaser" title="50-åring häktad för barnporrbrott">
-  <data>
-  <text>
-  En man i 50-årsåldern som är anställd på en skola i Västerås häktades i dag på sannolika skäl
-  misstänkt för utnyttjande av barn för sexuell posering, sexuellt ofredande och
-  barnpornografibrott, rapporterar P4 Västmanland. Brotten omfattar sammanlagt fe
-  </text>
-  <subject>hnjnjnjnj</subject>
-  </data>
-  <links>
-  <link rel="image" type="x-im/image" uri="im://image/oaVeImm6yCsoihzsKNAuFUAsOpY.jpg" uuid="631c8997-36c8-5d0d-9acd-68cc1856f87c"/>
-  </links>
-  </object>
-  * @param el
-  * @param node
-  * @param converter
-  */
+   *
+   *  <object id="mb2" type="x-im/teaser" title="50-åring häktad för barnporrbrott">
+   <data>
+   <text>
+   En man i 50-årsåldern som är anställd på en skola i Västerås häktades i dag på sannolika skäl
+   misstänkt för utnyttjande av barn för sexuell posering, sexuellt ofredande och
+   barnpornografibrott, rapporterar P4 Västmanland. Brotten omfattar sammanlagt fe
+   </text>
+   <subject>hnjnjnjnj</subject>
+   </data>
+   <links>
+   <link rel="image" type="x-im/image" uri="im://image/oaVeImm6yCsoihzsKNAuFUAsOpY.jpg" uuid="631c8997-36c8-5d0d-9acd-68cc1856f87c"/>
+   </links>
+   </object>
+   * @param el
+   * @param node
+   * @param converter
+   */
 
   export: function (node, el, converter) {
     const $$ = converter.$$;
@@ -165,13 +166,13 @@ export default {
         var origCrop = node.crops.crops[x];
 
         crops.append(
-          $$('crop').attr('name', origCrop.name).append([
-            $$('x').append(origCrop.x),
-            $$('y').append(origCrop.y),
-            $$('width').append(origCrop.width),
-            $$('height').append(origCrop.height)
-          ])
-        );
+            $$('crop').attr('name', origCrop.name).append([
+              $$('x').append(origCrop.x),
+              $$('y').append(origCrop.y),
+              $$('width').append(origCrop.width),
+              $$('height').append(origCrop.height)
+            ])
+          );
       }
 
       data.append(crops)

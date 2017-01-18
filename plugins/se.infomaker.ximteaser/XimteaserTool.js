@@ -1,7 +1,7 @@
 import {Tool} from 'substance'
 import {api} from 'writer'
 
-class TeaserTool extends Tool {
+class XimteaserTool extends Tool {
 
   render($$) {
 
@@ -9,10 +9,10 @@ class TeaserTool extends Tool {
     el.attr('title', this.getLabel('Insert Teaser'))
 
     el.append(
-      $$('button').addClass('se-tool').append(
-      $$('i').addClass('fa fa-newspaper-o')
-    )
-    .on('click', this.insertTeaser)
+        $$('button').addClass('se-tool').append(
+            $$('i').addClass('fa fa-newspaper-o')
+        )
+            .on('click', this.insertTeaser)
     );
     return el;
 
@@ -26,4 +26,4 @@ class TeaserTool extends Tool {
     })
   }
 }
-export default TeaserTool
+export default XimteaserTool
