@@ -3,22 +3,6 @@
     content: attr(data-text);
     opacity :0.5;
 }
-
-.x-im-image-alignment {
-  .fa-align-right {
-    position: relative;
-    &:hover{
-      &:after {
-        position: absolute;
-        top: 0;
-        content: "Uitlijning: rechts";
-        background-color: #fff;
-        color: #333;
-        width: 100%;
-      }
-    }
-  }
-}
 .plugin {
   hr {
     margin-bottom: 0px;
