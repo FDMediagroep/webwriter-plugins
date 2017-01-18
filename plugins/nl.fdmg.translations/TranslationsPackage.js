@@ -19,7 +19,7 @@ export default {
       nl: 'Titel'
     });
     config.addLabel('headline', {
-      nl: 'Titel'
+      nl: 'Kop'
     });
 
     config.addLabel('preamble', {
