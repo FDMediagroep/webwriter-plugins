@@ -491,7 +491,7 @@ class PublishFlowComponent extends Component {
       )
 
     } else if (this.state.status.qcode === 'stat:canceled') {
-      this.props.popover.setIcon('fa-ban stats-red')
+      this.props.popover.setIcon('fa-ban status-red')
     } else if (this.state.status.qcode === 'imext:done') {
       this.props.popover.setIcon('fa-check-circle-o status-green')
     }
