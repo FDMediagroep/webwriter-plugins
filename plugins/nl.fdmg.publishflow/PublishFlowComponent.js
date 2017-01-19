@@ -71,10 +71,6 @@ class PublishFlowComponent extends Component {
     return el
   }
 
-  // updatePopoverIcon(icon) {
-  //   this.props.popover.setIcon
-  // }
-
   renderBody($$) {
     let el = $$('div').addClass('sc-np-publish-body'),
       actions = this.renderAllowedActions($$)
@@ -90,7 +86,6 @@ class PublishFlowComponent extends Component {
           )
         ])
 
-        // this.props.popover.setIcon('fa-pencil')
         break
 
       case 'imext:done':
@@ -103,7 +98,6 @@ class PublishFlowComponent extends Component {
           )
         ])
 
-        // this.props.popover.setIcon('fa-check-circle-o color')
         break
 
       case 'stat:withheld':
@@ -146,7 +140,6 @@ class PublishFlowComponent extends Component {
 
         el.append(specEl)
 
-        // this.props.popover.setIcon('fa-clock-o color')
         break
 
       case 'stat:usable':
@@ -161,7 +154,6 @@ class PublishFlowComponent extends Component {
           )
         ])
 
-        // this.props.popover.setIcon('fa-clock-o color')
         break
 
       case 'stat:canceled':
