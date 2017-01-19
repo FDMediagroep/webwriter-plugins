@@ -270,7 +270,16 @@
       "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
       "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
       "enabled": true,
-      "mandatory": true
+      "mandatory": true,
+      "data" : {
+        "options": [
+          { "status":"imext:draft", "icon": "fa-pencil", "color": "#666666" },
+          { "status":"imext:done", "icon": "fa-check-circle-o", "color": "#ffa500" },
+          { "status":"stat:withheld", "icon": "fa-clock-o", "color": "#03c6c7" },
+          { "status":"stat:usable", "icon": "fa-check-circle-o ", "color": "#5cb85c" },
+          { "status":"stat:canceled", "icon": "fa-ban", "color": "#d9534f" }
+        ]
+      }
     },
     {
       "id": "nl.fdmg.sidebartabs",

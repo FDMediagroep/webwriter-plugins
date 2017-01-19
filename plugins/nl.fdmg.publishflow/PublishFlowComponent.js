@@ -40,6 +40,7 @@ class PublishFlowComponent extends Component {
 
   getInitialState() {
     let status = api.newsItem.getPubStatus()
+    console.log(status);
     this.publishFlowMgr = new PublishFlowManager(pluginId)
 
     return {
@@ -70,6 +71,10 @@ class PublishFlowComponent extends Component {
     return el
   }
 
+  // updatePopoverIcon(icon) {
+  //   this.props.popover.setIcon
+  // }
+
   renderBody($$) {
     let el = $$('div').addClass('sc-np-publish-body'),
       actions = this.renderAllowedActions($$)
@@ -84,6 +89,8 @@ class PublishFlowComponent extends Component {
             this.getLabel('This article is currently an unpublished draft')
           )
         ])
+
+        // this.props.popover.setIcon('fa-pencil')
         break
 
       case 'imext:done':
@@ -95,6 +102,8 @@ class PublishFlowComponent extends Component {
             this.getLabel('Article is currently pending approval')
           )
         ])
+
+        // this.props.popover.setIcon('fa-check-circle-o color')
         break
 
       case 'stat:withheld':
@@ -108,6 +117,8 @@ class PublishFlowComponent extends Component {
             moment(this.state.pubStart.value).fromNow()
           )
         ])
+
+
 
         var specEl = $$('p').addClass('dates').append([
           $$('span').append(
@@ -135,6 +146,7 @@ class PublishFlowComponent extends Component {
 
         el.append(specEl)
 
+        // this.props.popover.setIcon('fa-clock-o color')
         break
 
       case 'stat:usable':
@@ -148,6 +160,8 @@ class PublishFlowComponent extends Component {
             moment(this.state.pubStart.value).format('ddd DD-MM-YYYY HH:mm')
           )
         ])
+
+        // this.props.popover.setIcon('fa-clock-o color')
         break
 
       case 'stat:canceled':
@@ -159,6 +173,8 @@ class PublishFlowComponent extends Component {
             this.getLabel('Article has been canceled and is no longer published')
           )
         ])
+
+        this.props.popover.setIcon('fa-ban color')
         break
 
       default:
@@ -460,7 +476,7 @@ class PublishFlowComponent extends Component {
    * Update UI
    */
   _updateStatus(updateButtonSavedLabel) {
-
+    console.log('updateui')
     if (updateButtonSavedLabel) {
       this.props.popover.setButtonText(
         this.getLabel('Save')
@@ -468,6 +484,8 @@ class PublishFlowComponent extends Component {
     }
 
     if (this.state.status.qcode === 'stat:usable') {
+      this.props.popover.setIcon('fa-check-circle-o status-green')
+
       this.props.popover.setStatusText(
         this.getLabel(this.state.status.qcode) +
         " " +
@@ -475,13 +493,22 @@ class PublishFlowComponent extends Component {
       )
     }
     else if (this.state.status.qcode === 'stat:withheld') {
+      this.props.popover.setIcon('fa-clock-o status-blue')
+
       this.props.popover.setStatusText(
         this.getLabel(this.state.status.qcode) +
         " " +
         moment(this.state.pubStart.value).format('ddd DD-MM-YYYY HH:mm')
       )
+
+    } else if (this.state.status.qcode === 'stat:canceled') {
+      this.props.popover.setIcon('fa-ban stats-red')
+    } else if (this.state.status.qcode === 'imext:done') {
+      this.props.popover.setIcon('fa-check-circle-o status-orange')
     }
     else {
+      this.props.popover.setIcon('fa-pencil status-grey')
+
       this.props.popover.setStatusText(
         this.getLabel(this.state.status.qcode)
       )

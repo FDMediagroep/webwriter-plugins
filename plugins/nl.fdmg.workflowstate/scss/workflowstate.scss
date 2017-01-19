@@ -38,10 +38,14 @@
 .sc-np-bar-icon {
   a {
     &.workflowstate-icon {
+			opacity: 0.8;
       &.PREPARE { color: #cdcdcd ; }
       &.EDIT { color: #cbbb62 ; }
       &.VERIFY { color: #03c6c7 ; }
       &.READY { color: #a207a2 ; }
+			&:hover {
+				opacity: 1;
+			}
     }
   }
 }
