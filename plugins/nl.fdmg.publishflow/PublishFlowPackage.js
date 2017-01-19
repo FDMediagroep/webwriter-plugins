@@ -45,7 +45,7 @@ export default {
     });
 
     config.addLabel('Article is currently pending approval', {
-      nl: 'Dit artikel staat op Laatste Nieuws',
+      nl: 'Dit artikel staat op Submitted/Laatste nieuws',
       sv: 'Artikeln väntar på godkännande'
     });
 
@@ -95,7 +95,7 @@ export default {
     });
 
     config.addLabel('Ready for approval', {
-      nl: 'Submitted/Laatste Nieuws',
+      nl: 'Submitted/Laatste nieuws',
       sv: 'Redo för godkännande'
     });
 
