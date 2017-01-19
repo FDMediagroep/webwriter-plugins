@@ -126,7 +126,7 @@ export default {
     });
 
     config.addLabel('imext:done', {
-      nl: 'Laatste Nieuws',
+      nl: 'Submitted/Laatste nieuws',
       en: 'Ready for approval',
       sv: 'Redo för godkännande'
     });

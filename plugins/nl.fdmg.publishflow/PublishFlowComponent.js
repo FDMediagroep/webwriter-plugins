@@ -40,7 +40,6 @@ class PublishFlowComponent extends Component {
 
   getInitialState() {
     let status = api.newsItem.getPubStatus()
-    console.log(status);
     this.publishFlowMgr = new PublishFlowManager(pluginId)
 
     return {
@@ -476,11 +475,16 @@ class PublishFlowComponent extends Component {
       this.props.popover.setIcon('fa-check-circle-o status-orange')
 
       this.props.popover.setStatusText(
+        this.getLabel(this.state.status.qcode)
+      )
+
+      this.props.popover.setStatusText(
         this.getLabel(this.state.status.qcode) +
         " " +
         moment(this.state.pubStart.value).format('ddd DD-MM-YYYY HH:mm')
       )
     }
+
     else if (this.state.status.qcode === 'stat:withheld') {
       this.props.popover.setIcon('fa-clock-o status-blue')
 
@@ -495,9 +499,15 @@ class PublishFlowComponent extends Component {
         this.getLabel(this.state.status.qcode)
       )
       this.props.popover.setIcon('fa-ban status-red')
+
     } else if (this.state.status.qcode === 'imext:done') {
       this.props.popover.setIcon('fa-check-circle-o status-green')
+
+      this.props.popover.setStatusText(
+        this.getLabel(this.state.status.qcode)
+      )
     }
+
     else {
       this.props.popover.setIcon('fa-pencil status-grey')
 
