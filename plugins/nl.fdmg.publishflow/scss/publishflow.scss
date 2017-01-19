@@ -204,13 +204,14 @@ div {
           // Status button
           &:last-child {
             float: left;
-            margin-right: 5px;
+            margin-right: 15px;
             background-color: transparent;
             border-right: 0;
             color: #0098c7;
-            padding-left: 0;
+            padding: 0.5rem 0;
             .fa {
               opacity: 0.8;
+              font-size: 1.1em;
               &.status-green { color: #ffa500; }
               &.status-blue { color: #03c6c7; }
               &.status-orange { color: #5cb85c; }
