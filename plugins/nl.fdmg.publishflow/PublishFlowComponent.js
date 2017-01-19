@@ -166,7 +166,6 @@ class PublishFlowComponent extends Component {
           )
         ])
 
-        this.props.popover.setIcon('fa-ban color')
         break
 
       default:
@@ -221,7 +220,6 @@ class PublishFlowComponent extends Component {
           actionsEl.append(this.renderActionCanceled($$))
           break
         default:
-          console.log('default', action);
       }
     })
 
@@ -468,7 +466,6 @@ class PublishFlowComponent extends Component {
    * Update UI
    */
   _updateStatus(updateButtonSavedLabel) {
-    console.log('updateui')
     if (updateButtonSavedLabel) {
       this.props.popover.setButtonText(
         this.getLabel('Save')
@@ -476,7 +473,7 @@ class PublishFlowComponent extends Component {
     }
 
     if (this.state.status.qcode === 'stat:usable') {
-      this.props.popover.setIcon('fa-check-circle-o status-green')
+      this.props.popover.setIcon('fa-check-circle-o status-orange')
 
       this.props.popover.setStatusText(
         this.getLabel(this.state.status.qcode) +
@@ -496,7 +493,7 @@ class PublishFlowComponent extends Component {
     } else if (this.state.status.qcode === 'stat:canceled') {
       this.props.popover.setIcon('fa-ban stats-red')
     } else if (this.state.status.qcode === 'imext:done') {
-      this.props.popover.setIcon('fa-check-circle-o status-orange')
+      this.props.popover.setIcon('fa-check-circle-o status-green')
     }
     else {
       this.props.popover.setIcon('fa-pencil status-grey')
