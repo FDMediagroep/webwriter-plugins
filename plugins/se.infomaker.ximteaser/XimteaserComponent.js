@@ -70,7 +70,7 @@ class XimteaserComponent extends Component {
    * @returns {*}
    */
 
-  renderHeader($$) {
+  renderHeader($$) { 
     return $$('div')
       .append([
         $$(FontAwesomeIcon, {icon: 'fa-newspaper-o'}),

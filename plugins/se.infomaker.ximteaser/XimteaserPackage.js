@@ -15,7 +15,7 @@ export default {
     config.addComponent(Ximteaser.type, XimteaserComponent)
     config.addConverter('newsml', XimteaserConverter)
 
-    config.addContentMenuTopTool('ximteaser', XimteaserTool)
+    config.addContentMenuTopTool('ximteaser', XimteaserTool) 
     config.addCommand('ximteaser', XimteaserCommand, pluginConfig)
 
     config.addCommand('ximteaserinsertimage', XimteaserInsertImageCommand, pluginConfig)
@@ -30,6 +30,6 @@ export default {
     } else {
       config.addKeyboardShortcut('ctrl+alt+t', { command: 'ximteaser' })
     }
-    
+
   }
 }
