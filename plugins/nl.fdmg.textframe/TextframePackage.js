@@ -29,19 +29,19 @@ export default {
     // }
 
     config.addLabel('Textframe', {
-      nl: 'Tekstkader'
+      'nl': 'Tekstkader'
     })
 
     config.addLabel('Insert Textframe', {
-      nl: 'Tekstkader invoegen'
+      'nl': 'Tekstkader invoegen'
     })
 
     config.addLabel('Upload image', {
-      nl: 'Afbeelding uploaden'
+      'nl': 'Afbeelding uploaden'
     })
 
     config.addLabel('Missing textframe text', {
-      nl: 'Tekst ontbreekt in tekstkader'
+      'nl': 'Tekst ontbreekt in tekstkader'
     })
 
     config.addValidator(TextframeValidator)

@@ -17,13 +17,13 @@ export default {
     config.addValidator(NumberFrameValidator);
     config.addContentMenuTopTool('numberframe', NumberFrameTool);
     config.addIcon('numberframe', {'fontawesome': 'fa-eur'});
-    config.addLabel('Numberframe', { nl: 'Cijferkader' });
-    config.addLabel('Insert Numberframe', { nl: 'Cijferkader invoegen' });
-    config.addLabel('Text', { nl: 'Tekst' });
-    config.addLabel('Amount', { nl: 'Aantal' });
+    config.addLabel('Numberframe', { 'nl': 'Cijferkader' });
+    config.addLabel('Insert Numberframe', { 'nl': 'Cijferkader invoegen' });
+    config.addLabel('Text', { 'nl': 'Tekst' });
+    config.addLabel('Amount', { 'nl': 'Aantal' });
 
-    config.addLabel('No numberframe heading', { nl: 'Een of meerdere cijferkaders heeft geen titel' });
-    config.addLabel('No numberframe content', { nl: 'Een of meerdere cijferkaders heeft geen tekst' });
+    config.addLabel('No numberframe heading', { 'nl': 'Een of meerdere cijferkaders heeft geen titel' });
+    config.addLabel('No numberframe content', { 'nl': 'Een of meerdere cijferkaders heeft geen tekst' });
 
   }
 }

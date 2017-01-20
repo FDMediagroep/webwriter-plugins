@@ -10,10 +10,10 @@ export default {
 
     config.addValidator(RedirectLinkValidator)
 
-    config.addLabel('Redirect link', {nl: 'Redirect artikel'})
-    config.addLabel('URL to article', {nl: 'URL naar artikel (verplicht)'})
-    config.addLabel('Redirect link is missing a value', {nl: 'Redirect artikel URL is niet ingevuld'})
-    config.addLabel('Redirect link is not a valid url', {nl: 'Redirect artikel URL is ongeldig'})
+    config.addLabel('Redirect link', {'nl': 'Redirect artikel'})
+    config.addLabel('URL to article', {'nl': 'URL naar artikel (verplicht)'})
+    config.addLabel('Redirect link is missing a value', {'nl': 'Redirect artikel URL is niet ingevuld'})
+    config.addLabel('Redirect link is not a valid url', {'nl': 'Redirect artikel URL is ongeldig'})
 
   }
 }

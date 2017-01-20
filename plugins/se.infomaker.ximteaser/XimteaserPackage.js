@@ -15,14 +15,14 @@ export default {
     config.addComponent(Ximteaser.type, XimteaserComponent)
     config.addConverter('newsml', XimteaserConverter)
 
-    config.addContentMenuTopTool('ximteaser', XimteaserTool) 
+    config.addContentMenuTopTool('ximteaser', XimteaserTool)
     config.addCommand('ximteaser', XimteaserCommand, pluginConfig)
 
     config.addCommand('ximteaserinsertimage', XimteaserInsertImageCommand, pluginConfig)
 
     config.addIcon('ximteaser', { 'fontawesome': ' fa-newspaper-o' })
     config.addLabel('Teaser', {
-      nl: 'Intro voor de homepage'
+      'nl': 'Intro voor de homepage'
     })
 
     if (platform.isMac) {

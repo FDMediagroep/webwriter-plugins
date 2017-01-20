@@ -9,9 +9,9 @@ export default {
 
     config.addValidator(SectionValidator)
 
-    config.addLabel('Section', {nl: 'Sectie'})
-    config.addLabel('- no selection -', {nl: '- geen selectie -'})
-    config.addLabel('free input', {nl: 'vrije invoer'})
-    config.addLabel('Missing section', {nl: 'Sectie ontbreekt'})
+    config.addLabel('Section', {'nl': 'Sectie'})
+    config.addLabel('- no selection -', {'nl': '- geen selectie -'})
+    config.addLabel('free input', {'nl': 'vrije invoer'})
+    config.addLabel('Missing section', {'nl': 'Sectie ontbreekt'})
   }
 }

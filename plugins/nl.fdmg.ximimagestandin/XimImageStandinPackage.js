@@ -7,7 +7,7 @@ export default {
     config.addValidator(XimImageValidator)
 
     config.addLabel('Image is missing credit', {
-      nl: 'Image credit ontbreekt'
+      'nl': 'Image credit ontbreekt'
     })
   }
 }

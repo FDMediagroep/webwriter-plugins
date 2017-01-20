@@ -17,12 +17,12 @@ export default {
     config.addValidator(StackFrameValidator);
     config.addContentMenuTopTool('stackframe', StackFrameTool);
     config.addIcon('stackframe', {'fontawesome': 'fa-database'});
-    config.addLabel('Stackframe', { nl: 'Stapelkader' });
-    config.addLabel('Insert Stackframe', { nl: 'Stapelkader invoegen' });
-    config.addLabel('Title', { nl: 'Titel' });
-    config.addLabel('Text', { nl: 'Tekst' });
+    config.addLabel('Stackframe', { 'nl': 'Stapelkader' });
+    config.addLabel('Insert Stackframe', { 'nl': 'Stapelkader invoegen' });
+    config.addLabel('Title', { 'nl': 'Titel' });
+    config.addLabel('Text', { 'nl': 'Tekst' });
 
-    config.addLabel('No stackframe heading', { nl: 'Een of meerdere stapelkaders heeft geen titel' });
-    config.addLabel('No stackframe content', { nl: 'Een of meerdere stapelkaders heeft geen tekst' });
+    config.addLabel('No stackframe heading', { 'nl': 'Een of meerdere stapelkaders heeft geen titel' });
+    config.addLabel('No stackframe content', { 'nl': 'Een of meerdere stapelkaders heeft geen tekst' });
   }
 }
