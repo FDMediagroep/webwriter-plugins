@@ -21,17 +21,15 @@ export default {
     config.addCommand('ximteaserinsertimage', XimteaserInsertImageCommand, pluginConfig)
 
     config.addIcon('ximteaser', { 'fontawesome': ' fa-newspaper-o' })
-
+    config.addLabel('Teaser', {
+      nl: 'Intro voor de homepage'
+    })
 
     if (platform.isMac) {
       config.addKeyboardShortcut('cmd+alt+t', { command: 'ximteaser' })
     } else {
       config.addKeyboardShortcut('ctrl+alt+t', { command: 'ximteaser' })
     }
-
-    config.addLabel('Insert Teaser', {
-      en: 'Insert Teaser',
-      sv: 'Infoga puff'
-    })
+    
   }
 }

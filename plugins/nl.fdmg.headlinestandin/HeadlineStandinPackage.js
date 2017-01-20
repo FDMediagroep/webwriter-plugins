@@ -11,7 +11,7 @@ export default {
     })
 
     config.addLabel('More than one headline', {
-      'nl': 'Meerdere koppen'
+      'nl': 'Artikel mag niet meer dan één artikel bevatten'
     })
   }
 }

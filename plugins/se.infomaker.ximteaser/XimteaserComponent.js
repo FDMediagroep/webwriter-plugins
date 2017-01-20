@@ -23,7 +23,7 @@ class XimteaserComponent extends Component {
   _onDocumentChange(change) {
     if (change.isAffected(this.props.node.id) ||
       change.isAffected(this.props.node.imageFile)) {
-      this.rerender() 
+      this.rerender()
     }
   }
 
