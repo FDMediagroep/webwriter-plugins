@@ -9,9 +9,9 @@ export default {
     config.addLabel('Missing headline', {
       'nl': 'Kop ontbreekt'
     })
- 
+
     config.addLabel('More than one headline', {
-      'nl': 'Artikel mag niet meer dan één artikel bevatten'
+      'nl': 'Artikel mag niet meer dan één kop bevatten'
     })
   }
 }
