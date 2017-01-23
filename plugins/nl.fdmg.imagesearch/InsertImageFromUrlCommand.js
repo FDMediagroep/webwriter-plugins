@@ -1,4 +1,4 @@
-import insertImageFromUrl from './insertImageFromUrl'
+import insertImageFromUrl from './InsertImageFromUrl'
 import {api, WriterCommand} from 'writer'
 
 /*
