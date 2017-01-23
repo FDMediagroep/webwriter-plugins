@@ -71,10 +71,29 @@ class XimteaserComponent extends Component {
    */
 
   renderHeader($$) {
+    console.log(this.props.node, 'teaser node')
     return $$('div')
       .append([
         $$(FontAwesomeIcon, {icon: 'fa-newspaper-o'}),
         $$('strong').append(this.getLabel('Teaser')),
+        $$('div').append(
+         $$('button')
+           .append($$('i').addClass('fa fa-picture-o'))
+           .attr('title', 'Add/search image')
+           .on('click', () => {
+             api.ui.showDialog(
+               ImageSearchDialog, {
+                 loadNextScrollThreshold: api.getConfigValue(pluginId, 'loadNextScrollThreshold', 100),
+                 pluginCommand: 'ximteaserinsertimage',
+                 node: this.props.node
+               }, {
+                 primary: false,
+                 center: true,
+                 title: 'Image search'
+               }
+             )
+           })
+       ),
         $$(FileInputComponent, {onChange: this.triggerFileUpload.bind(this)})
 
       ])

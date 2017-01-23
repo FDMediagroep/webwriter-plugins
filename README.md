@@ -88,8 +88,8 @@ export default {
     config.addContentMenuTopTool('<plugin name>', <Plugin name>Tool);
     config.addIcon('<plugin name>', {'fontawesome': '<fontawesome icon name>'});
     config.addLabel('<original text>', {
-      en: '<english translation>',
-      nl: '<dutch translation>'
+      'en': '<english translation>',
+      'nl': '<dutch translation>'
     });
   }
 }
