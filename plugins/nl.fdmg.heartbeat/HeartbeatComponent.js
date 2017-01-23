@@ -26,7 +26,7 @@ export default class HeartbeatComponent extends Component {
 
       if(pollInterval === undefined) {
         this.poll();
-        pollInterval = setInterval(() => this.poll(), 60000);
+        pollInterval = setInterval(() => this.poll(), 15000);
       } else {
         this.updatePresentation();
       }
