@@ -1,5 +1,6 @@
 import {Component, FontAwesomeIcon} from 'substance'
 import {api, moment} from 'writer'
+import FileInputComponent from './FileInputComponent'
 const pluginId = 'nl.fdmg.imagesearch'
 
 class ImageSearchDialog extends Component {
@@ -57,16 +58,7 @@ class ImageSearchDialog extends Component {
                     this.extendState(this.getInitialState())
                     this.search(this.refs.searchfield.val())
                   }),
-                $$('button').addClass('se-tool').append(
-                    $$('i').addClass('fa fa-upload').attr({'title': this.getLabel('Upload image')})
-                  )
-                  .on('click', this.triggerFileDialog),
-                $$('input')
-                  .attr('type', 'file')
-                  .attr('multiple', 'multiple')
-                  .attr('id', 'x-im-image-fileupload')
-                  .ref('x-im-image-fileupload')
-                  .on('change', this.triggerFileUpload)
+                  $$(FileInputComponent, {onChange: this.triggerFileUpload.bind(this)})
               )
           ),
         $$('div')
@@ -100,9 +92,20 @@ class ImageSearchDialog extends Component {
   }
 
   triggerFileUpload(ev) {
-    this.context.editorSession.executeCommand('insert-images', {
-      files: ev.target.files
-    });
+    const insertImageCommand = this.props.insertImageCommand
+    const node = this.props.pluginNode
+
+    if (insertImageCommand) {
+      this.context.editorSession.executeCommand(insertImageCommand, {
+        type: 'file',
+        data: ev.target.files,
+        context: {node: node}
+      });
+    } else {
+      this.context.editorSession.executeCommand('insert-images', {
+        files: ev.target.files
+      });
+    }
     this.send('close');
   }
 
@@ -175,14 +178,29 @@ class ImageSearchDialog extends Component {
   }
 
   insertImageById(imageId) {
-    this._retrieveDownloadUrl(imageId)
-      .then((url) => {
-        api.editorSession.executeCommand('ximimage-insert-image-url', {
-          imageUrl: url
-        })
-      })
-      .catch(err => { console.error(err) })
+    const command = this.props.insertImageFromUrlCommand
 
+    if (command === "" || !command) {
+      this._retrieveDownloadUrl(imageId)
+        .then((url) => {
+          api.editorSession.executeCommand('ximimage-insert-image-url', {
+            imageUrl: url
+          })
+        })
+        .catch(err => { console.error(err) })
+
+    } else {
+      const nodeId = this.props.pluginNode.id
+
+      this._retrieveDownloadUrl(imageId)
+        .then((url) => {
+          api.editorSession.executeCommand(command, {
+            imageUrl: url,
+            context: {nodeId : nodeId}
+          })
+        })
+        .catch(err => { console.error(err) })
+    }
   }
 
   _performSearch(query, pageIndex) {

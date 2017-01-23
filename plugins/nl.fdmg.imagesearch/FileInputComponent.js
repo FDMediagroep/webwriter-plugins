@@ -4,8 +4,8 @@ class FileInputComponent extends Component {
 
   render($$) {
 
-    const uploadbutton = $$('span')
-      .addClass('upload-button')
+    const uploadbutton = $$('button')
+      .addClass('upload-button btn btn-neutral')
       .append($$(FontAwesomeIcon, {icon: 'fa-upload'}))
       .on('click', this.triggerFileDialog)
       .attr('title', this.getLabel('Upload image'))
@@ -21,8 +21,6 @@ class FileInputComponent extends Component {
   }
 
   triggerFileDialog() {
-    console.log("Trigger file upload");
-
     const evt = document.createEvent('MouseEvents');
     evt.initEvent('click', true, false);
     this.refs.fileInput.el.el.dispatchEvent(evt);

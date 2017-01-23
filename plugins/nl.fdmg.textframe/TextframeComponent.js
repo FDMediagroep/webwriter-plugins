@@ -1,6 +1,8 @@
 import {Component, TextPropertyEditor, FontAwesomeIcon} from 'substance'
 import {api} from 'writer'
-import FileInputComponent from './FileInputComponent'
+
+import ImageSearchDialog from '../nl.fdmg.imagesearch/ImageSearchDialog'
+const pluginId = 'nl.fdmg.imagesearch'
 
 class TextframeComponent extends Component {
 
@@ -78,7 +80,25 @@ class TextframeComponent extends Component {
       .append([
         $$(FontAwesomeIcon, {icon: 'fa-tumblr'}),
         $$('strong').append(this.getLabel('Textframe')),
-        $$(FileInputComponent, {onChange: this.triggerFileUpload.bind(this)})
+        $$('div').addClass('image-search-button').append(
+         $$('button')
+           .append($$('i').addClass('fa fa-picture-o'))
+           .attr('title', 'Add/search image')
+           .on('click', () => {
+             api.ui.showDialog(
+               ImageSearchDialog, {
+                 loadNextScrollThreshold: api.getConfigValue(pluginId, 'loadNextScrollThreshold', 100),
+                 insertImageFromUrlCommand: 'insert-image-from-url',
+                 insertImageCommand: 'textframeinsertimage',
+                 pluginNode: this.props.node,
+               }, {
+                 primary: false,
+                 center: true,
+                 title: 'Image search'
+               }
+             )
+           })
+         )
       ])
       .addClass('header')
   }
