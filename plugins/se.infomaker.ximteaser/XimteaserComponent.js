@@ -1,6 +1,6 @@
 import {Component, TextPropertyEditor, FontAwesomeIcon} from 'substance'
 import {api} from 'writer'
-import FileInputComponent from './FileInputComponent'
+
 import ImageSearchDialog from '../nl.fdmg.imagesearch/ImageSearchDialog'
 const pluginId = 'nl.fdmg.imagesearch'
 
@@ -75,16 +75,17 @@ class XimteaserComponent extends Component {
       .append([
         $$(FontAwesomeIcon, {icon: 'fa-newspaper-o'}),
         $$('strong').append(this.getLabel('Teaser')),
-        $$('div').append(
+        $$('div').addClass('image-search-button').append(
          $$('button')
            .append($$('i').addClass('fa fa-picture-o'))
            .attr('title', 'Add/search image')
            .on('click', () => {
-             console.log('click')
              api.ui.showDialog(
                ImageSearchDialog, {
                  loadNextScrollThreshold: api.getConfigValue(pluginId, 'loadNextScrollThreshold', 100),
-                 pluginCommand: 'insert-image-from-url'
+                 insertImageFromUrlCommand: 'insert-image-from-url',
+                 insertImageCommand: 'ximteaserinsertimage',
+                 pluginNode: this.props.node,
                }, {
                  primary: false,
                  center: true,
@@ -92,9 +93,7 @@ class XimteaserComponent extends Component {
                }
              )
            })
-       ),
-        $$(FileInputComponent, {onChange: this.triggerFileUpload.bind(this)})
-
+         )
       ])
       .addClass('header')
   }

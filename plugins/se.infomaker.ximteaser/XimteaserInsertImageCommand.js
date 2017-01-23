@@ -8,24 +8,22 @@ class XimteaserInsertImageCommand extends WriterCommand {
   }
 
   execute(params, context) {
-    // get the node from the image in the teaser
-    console.log(params, 'params', params.context)
-    const teaserNode = params.context.node
+
+    const node = params.context.node
     const editorSession = context.editorSession
     const file = params.data[0] // Teaser only supports one image, take the first one
-    console.log('Teaserstuff:', teaserNode.id, file.type)
+
     editorSession.transaction((tx) => {
         // Create file node for the image
       let imageFile = tx.create({
-        parentNodeId: teaserNode.id,
+        parentNodeId: node.id,
         type: 'npfile',
         imType: 'x-im/image',
         mimeType: file.type,
         sourceFile: file
       })
 
-      tx.set([teaserNode.id, 'imageFile'], imageFile.id)
-      console.log(imageFile)
+      tx.set([node.id, 'imageFile'], imageFile.id)
     })
 
     api.editorSession.fileManager.sync()

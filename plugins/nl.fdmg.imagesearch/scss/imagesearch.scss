@@ -1,4 +1,50 @@
+
+.image-search-button {
+  float: right;
+  display: none;
+}
+
+.sm-selected {
+  .image-search-button {
+    display: inline;
+  }
+}
+
 .image-search {
+    .fileinput {
+        .upload-button {
+            cursor: pointer;
+            float: right;
+            font-size: 1rem;
+            margin-left: 0;
+            padding: 0.5rem;
+            .fa {
+                color: #565656
+            }
+        }
+        input[type="file"] {
+            display: none;
+        }
+    }
+
+    .im-blocknode__content {
+        div {
+            margin-top: 10px;
+        }
+        .fa {
+            width: 20px;
+            float: left;
+            color: #b4b4b4;
+            line-height: 24px;
+            margin-right: 10px;
+        }
+    }
+
+    .se-title {
+        padding: 10px 20px;
+        background: #eee;
+        padding-bottom: 20px;
+    }
   .image-search-searchbar {
     display: flex;
     margin: 10px 0;

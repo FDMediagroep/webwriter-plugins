@@ -5,7 +5,6 @@ import Ximteaser from './Ximteaser'
 import XimteaserTool from './XimteaserTool'
 import XimteaserCommand from './XimteaserCommand'
 import XimteaserInsertImageCommand from './XimteaserInsertImageCommand'
-import InsertImageFromUrlCommand from './InsertImageFromUrlCommand'
 
 import {platform} from 'substance'
 export default {
@@ -20,7 +19,6 @@ export default {
     config.addCommand('ximteaser', XimteaserCommand, pluginConfig)
 
     config.addCommand('ximteaserinsertimage', XimteaserInsertImageCommand, pluginConfig)
-    config.addCommand('insert-image-from-url', InsertImageFromUrlCommand, pluginConfig)
 
     config.addIcon('ximteaser', { 'fontawesome': ' fa-newspaper-o' })
     config.addLabel('Teaser', {

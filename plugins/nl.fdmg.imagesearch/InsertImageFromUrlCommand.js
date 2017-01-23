@@ -11,12 +11,10 @@ class InsertImageUrlCommand extends WriterCommand {
   }
 
   execute(params) {
-
     api.editorSession.transaction((tx) => {
-      insertImageFromUrl(tx, params.imageUrl)
+      insertImageFromUrl(tx, params.imageUrl, params.context.nodeId, params.context.nodeType)
     })
     api.editorSession.fileManager.sync()
-    console.log('insertimagefromurlcommand')
   }
 }
 
