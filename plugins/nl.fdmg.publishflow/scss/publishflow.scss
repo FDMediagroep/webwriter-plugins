@@ -189,6 +189,7 @@
 }
 
 // Infomaker publish plugin override
+
 div {
   &.sc-np-bar-container {
     div {
@@ -221,10 +222,16 @@ div {
                 opacity: 1;
               }
             }
-
           }
         }
       }
     }
+  }
+}
+
+div {
+  &.sc-np-bar {
+    min-height:52px;
+    height: auto;
   }
 }

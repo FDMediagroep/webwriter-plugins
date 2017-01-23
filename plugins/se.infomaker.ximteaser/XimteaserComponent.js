@@ -71,7 +71,6 @@ class XimteaserComponent extends Component {
    */
 
   renderHeader($$) {
-    console.log(this.props.node, 'teaser node')
     return $$('div')
       .append([
         $$(FontAwesomeIcon, {icon: 'fa-newspaper-o'}),
@@ -81,11 +80,11 @@ class XimteaserComponent extends Component {
            .append($$('i').addClass('fa fa-picture-o'))
            .attr('title', 'Add/search image')
            .on('click', () => {
+             console.log('click')
              api.ui.showDialog(
                ImageSearchDialog, {
                  loadNextScrollThreshold: api.getConfigValue(pluginId, 'loadNextScrollThreshold', 100),
-                 pluginCommand: 'ximteaserinsertimage',
-                 node: this.props.node
+                 pluginCommand: 'insert-image-from-url'
                }, {
                  primary: false,
                  center: true,
