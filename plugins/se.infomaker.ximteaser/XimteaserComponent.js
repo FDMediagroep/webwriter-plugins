@@ -84,7 +84,7 @@ class XimteaserComponent extends Component {
              api.ui.showDialog(
                ImageSearchDialog, {
                  loadNextScrollThreshold: api.getConfigValue(pluginId, 'loadNextScrollThreshold', 100),
-                 insertImageFromUrlCommand: 'insert-image-from-url',
+                 insertImageFromUrlCommand: 'insert-image-from-url', 
                  insertImageCommand: 'ximteaserinsertimage',
                  pluginNode: this.props.node,
                }, {
