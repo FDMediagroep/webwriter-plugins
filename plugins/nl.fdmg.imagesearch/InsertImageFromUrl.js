@@ -1,5 +1,3 @@
-// import {idGenerator} from 'writer'
-
 /*
     Insert an image via file or uri.
     data either contains a File object or a url. NPImageProxy detects if
