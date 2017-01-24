@@ -241,15 +241,26 @@ div.x-im-image-dynamic:last-child {
   font-family: Tahoma, sans-serif;
   font-size: 0.9em;
 }
-
-.im-blocknode__container .header .fa {
-  color: #333;
-  margin-right: 10px;
-  &.fa-picture-o {
-    margin-right: 0;
-    width: 16px;
+.im-blocknode__container {
+  .header {
+    .fa {
+      color: #333;
+    }
   }
 }
+
+.sc-ximteaser {
+  .header {
+    .fa-picture-o {
+      margin-right: 0;
+      width: 16px;
+    }
+    .fa-newspaper-o {
+      margin-right: 10px;
+    }
+  }
+}
+
 
 // Infomaker teaser image height override
 .sc-image-display,
