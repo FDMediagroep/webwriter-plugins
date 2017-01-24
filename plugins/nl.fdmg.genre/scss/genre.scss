@@ -190,6 +190,9 @@ a.fdmg-box {
 
 .se-tab-content {
   .plugin {
+    &:first-child {
+      margin-top: 5px;
+    }
     &:last-child {
         margin-bottom: 0;
     }
