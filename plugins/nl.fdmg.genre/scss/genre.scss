@@ -234,6 +234,10 @@ div.x-im-image-dynamic:last-child {
 .im-blocknode__container .header .fa {
   color: #333;
   margin-right: 10px;
+  &.fa-picture-o {
+    margin-right: 0;
+    width: 16px;
+  }
 }
 
 // Infomaker teaser image height override
@@ -274,3 +278,20 @@ div.x-im-teaser div.x-im-teaser-text::before {
 .sc-preamble {
   font-size: 1.1em;
 }
+
+// File search icon for block content
+.im-blocknode__content {
+  .fa-picture-o {
+    margin-right: 0;
+  }
+  div {
+      margin-top: 10px;
+  }
+  .fa {
+    width: 20px;
+    float: left;
+    color: #b4b4b4;
+    line-height: 24px;
+    margin-right: 10px;
+    }
+  }
