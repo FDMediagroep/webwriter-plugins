@@ -30,7 +30,7 @@ export default {
       'nl': 'Artikel versie op de server is nieuwer dan uw versie. Toets F5 in om de laatste versie van de server op te halen. Al uw onopgeslagen veranderingen zullen verloren gaan.'
     });
     config.addLabel('Article locked', { 'nl': 'Artikel in gebruik' });
-    config.addLabel('In use by', { 'nl': 'In gebruik door' });
+    // config.addLabel('In use by', { 'nl': 'In gebruik door' }); - removed to save space in topbar
     config.addLabel('This article is in use by', { 'nl': 'Dit artikel is in gebruik door' });
     config.addLabel('Article editable', { 'nl': 'Artikel vrij' });
     config.addLabel('You can edit this article', { 'nl': 'U mag dit artikel bewerken' });

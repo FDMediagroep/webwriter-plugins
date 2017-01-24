@@ -111,8 +111,6 @@ class PublishFlowComponent extends Component {
           )
         ])
 
-
-
         var specEl = $$('p').addClass('dates').append([
           $$('span').append(
             this.getLabel('From') + ': '
@@ -481,7 +479,7 @@ class PublishFlowComponent extends Component {
       this.props.popover.setStatusText(
         this.getLabel(this.state.status.qcode) +
         " " +
-        moment(this.state.pubStart.value).format('ddd DD-MM-YYYY HH:mm')
+        moment(this.state.pubStart.value).format('DD-MM-YYYY HH:mm')
       )
     }
 
@@ -491,7 +489,7 @@ class PublishFlowComponent extends Component {
       this.props.popover.setStatusText(
         this.getLabel(this.state.status.qcode) +
         " " +
-        moment(this.state.pubStart.value).format('ddd DD-MM-YYYY HH:mm')
+        moment(this.state.pubStart.value).format('DD-MM-YYYY HH:mm')
       )
 
     } else if (this.state.status.qcode === 'stat:canceled') {

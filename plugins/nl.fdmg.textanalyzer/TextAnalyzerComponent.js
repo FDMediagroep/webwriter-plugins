@@ -132,7 +132,7 @@ export default class TextAnalyzerComponent extends Component {
         .setStyle('font-weight', 'bold')
         .append(
           $$('span').attr({id: 'textanalyzer-indicator'}).addClass(this.getStatusColor()).append(textLength.toString()),
-          $$('span').append(' ' + this.getLabel('characters'))
+          $$('span').addClass('textanalyzer-label').append(' ' + this.getLabel('characters'))
         );
       this.props.popover.setStatusText(el)
     } else {

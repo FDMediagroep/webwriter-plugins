@@ -65,7 +65,7 @@ export default {
     });
 
     config.addLabel('Article was published', {
-      'nl': 'Artikel is gepubliceerd',
+      'nl': 'Artikel is gepubliceerd op:',
       sv: 'Artikeln publicerades'
     });
 
@@ -132,7 +132,7 @@ export default {
     });
 
     config.addLabel('stat:withheld', {
-      'nl': 'Ingepland voor publicatie',
+      'nl': 'Ingepland:',
       en: 'Scheduled for publication',
       sv: 'Schemalagd för publicering'
     });
