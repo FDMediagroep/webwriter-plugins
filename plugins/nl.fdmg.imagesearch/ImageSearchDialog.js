@@ -2,7 +2,19 @@ import {Component, FontAwesomeIcon} from 'substance'
 import {api, moment} from 'writer'
 import FileInputComponent from './FileInputComponent'
 const pluginId = 'nl.fdmg.imagesearch'
-
+/**
+  * Params to pass when calling the dialogue
+  *
+  * @param loadNextScrollThreshold:
+  * api.getConfigValue(pluginId, 'loadNextScrollThreshold', 100)
+  * - The scrolltreshold, use default pluginId: 'nl.fdmg.imagesearch'.
+  * @param {string} insertImageFromUrlCommand: 'insert-image-from-url' - the command to use
+  * to insert an image from a url.
+  * @param {string} insertImageCommand: 'ximteaserinsertimage' - the desired command to insertImageCommand
+  * an image from a local source/drag and drop.
+  * @param pluginNode : this.props.node (the node calling the plugin).
+  *
+*/
 class ImageSearchDialog extends Component {
 
   get allResultsLoaded() {
