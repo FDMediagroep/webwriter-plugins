@@ -35,6 +35,8 @@ class WorkinstructionsComponent extends Component {
         .append($$('h2')
           .append(this.getLabel('Workinstructions'))
         ),
+        $$('div').addClass('checkbox form-group')
+        .append(
         $$('label')
           .addClass('decoupled')
           .addClass(this.state.decoupled ? 'active' : '')
@@ -47,7 +49,7 @@ class WorkinstructionsComponent extends Component {
                 this.updateDecoupled();
               }),
             this.getLabel('Decoupled')
-          ),
+          )),
         $$('div')
           .addClass('workinstructions-wrapper')
           .append(
