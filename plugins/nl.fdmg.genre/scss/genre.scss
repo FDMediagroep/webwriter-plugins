@@ -216,8 +216,12 @@ a.fdmg-box {
   }
 }
 
-div.x-im-image-dynamic:last-child {
-  border: none;
+div{
+  &.x-im-image-dynamic{
+    &:last-child {
+      border: none;
+    }
+  }
 }
 
 .sc-ximteaser, .fdmg-box, .sc-ximimage {
