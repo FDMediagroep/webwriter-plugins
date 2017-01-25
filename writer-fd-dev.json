@@ -500,10 +500,6 @@
             "label": "Audio"
           },
           {
-            "id": "Beursverslag",
-            "label": "Beursverslag"
-          },
-          {
             "id": "Blog",
             "label": "Blog"
           },
@@ -557,6 +553,10 @@
           {
             "id": "Bartjens",
             "label": "Bartjens"
+          },
+          {
+            "id": "Beursverslag",
+            "label": "Beursverslag"
           },
           {
             "id": "Boardroom",
