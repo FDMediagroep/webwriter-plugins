@@ -15,8 +15,12 @@ export default {
     config.addLabel('Workinstructions', {
       'nl' : 'Werkinstructies'
     })
-    config.addLabel('Decoupled', {
-      'nl' : 'Ontkoppeld'
+    config.addLabel('Article decoupled', {
+      'nl' : 'Let op: ontkoppeld. Wijzigingen komen niet in de krant'
+    })
+
+    config.addLabel('Article coupled', {
+      'nl' : 'Ontkoppel dit artikel'
     })
   }
 }

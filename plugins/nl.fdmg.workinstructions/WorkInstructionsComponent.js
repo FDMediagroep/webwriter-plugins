@@ -27,7 +27,13 @@ class WorkinstructionsComponent extends Component {
   }
 
   render($$) {
-    return $$('div')
+    var decoupledLabel = this.getLabel('Article coupled')
+
+    if (this.state.decoupled === true) {
+      decoupledLabel = this.getLabel('Article decoupled')
+    }
+
+    const el = $$('div')
       .addClass('plugin workinstructions')
       .append($$('div').addClass('fdmg-sidebar')
       .append(
@@ -48,7 +54,7 @@ class WorkinstructionsComponent extends Component {
                 this.extendState({decoupled: !this.state.decoupled});
                 this.updateDecoupled();
               }),
-            this.getLabel('Decoupled')
+            decoupledLabel
           )),
         $$('div')
           .addClass('workinstructions-wrapper')
@@ -66,6 +72,8 @@ class WorkinstructionsComponent extends Component {
       ),
       $$('hr')
     )
+
+    return el
   }
 
   editWorkInstructions() {
