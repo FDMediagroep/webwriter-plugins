@@ -25,9 +25,13 @@ export default {
     config.addLabel('preamble', {
       'nl': 'Inleiding'
     });
-    
+
     config.addLabel('preamble.content', {
       'nl': 'Inleiding'
+    });
+
+    config.addLabel('Paste or type a link url', {
+      'nl': 'Plak of type een url'
     });
 
     config.addLabel('undo', {
