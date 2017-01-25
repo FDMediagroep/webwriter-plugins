@@ -28,7 +28,7 @@ export default {
     });
 
     config.addLabel('No stockticker chosen yet...', {
-      'nl': 'Nog geen beurskoers geselecteerd...'
+      'nl': 'Selecteer een beurskoers'
     });
 
   }
