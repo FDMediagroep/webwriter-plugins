@@ -25,8 +25,25 @@ export default {
     config.addLabel('preamble', {
       'nl': 'Inleiding'
     });
+    
     config.addLabel('preamble.content', {
       'nl': 'Inleiding'
+    });
+
+    config.addLabel('undo', {
+      'nl': 'Ongedaan maken'
+    });
+
+    config.addLabel('No suggestions', {
+      'nl': 'Geen suggesties'
+    });
+
+    config.addLabel('redo', {
+      'nl': 'Opnieuw'
+    });
+
+    config.addLabel('select-all', {
+      'nl': 'Alles selecteren'
     });
 
     config.addLabel('subheadline', {
