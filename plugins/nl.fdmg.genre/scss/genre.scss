@@ -311,7 +311,7 @@ div.x-im-teaser div.x-im-teaser-text::before {
     margin-right: 0;
   }
   div {
-      margin-top: 10px;
+    margin-top: 10px;
   }
   .fa {
     width: 20px;
@@ -319,5 +319,11 @@ div.x-im-teaser div.x-im-teaser-text::before {
     color: #b4b4b4;
     line-height: 24px;
     margin-right: 10px;
-    }
   }
+}
+
+.sc-context-menu {
+  > .sc-tool-group {
+    min-width: 130px;
+  }
+}
