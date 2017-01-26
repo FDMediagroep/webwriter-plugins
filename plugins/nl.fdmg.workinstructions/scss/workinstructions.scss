@@ -1,0 +1,53 @@
+.workinstructions {
+  padding: 0;
+  .workinstructions-wrapper {
+    width: 100%;
+    position: relative;
+    display: inline-block;
+    &:after {
+    position: absolute;
+    content: "\f24a";
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-size: 1em;
+    right: 5px;
+    top: 2px;
+    opacity: 0;
+  }
+  &:hover {
+    &:after {
+      opacity: 1;
+      cursor: pointer;
+    }
+  }
+  textarea {
+    font-size: 0.8em;
+    width: 100%;
+    padding: 5px;
+    color: black;
+    // max-height: 150px;
+    min-height: 150px;
+    resize: none;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid #d2d2d2;
+    background-color: #fbfbfb;
+    &:hover {
+      opacity: 0.8;
+      }
+    }
+  }
+
+  input[type=checkbox] {
+    min-height: initial;
+  }
+
+  label.decoupled {
+    cursor: pointer;
+    &.active {
+      color: red;
+    }
+  }
+
+}

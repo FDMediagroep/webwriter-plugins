@@ -1,0 +1,5 @@
+input[type=checkbox], input[type=text], select {
+  &[disabled=disabled] {
+    cursor: not-allowed;
+  }
+}

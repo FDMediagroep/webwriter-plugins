@@ -1,0 +1,31 @@
+.sc-ximteaser {
+
+    .fileinput {
+        display: none;
+        .upload-button {
+            cursor: pointer;
+            float: right;
+            font-size: 1rem;
+
+            .fa {
+                color: #565656
+            }
+        }
+        input[type="file"] {
+            display: none;
+        }
+    }
+
+    .se-title {
+        padding: 10px 20px;
+        background: #eee;
+        padding-bottom: 20px;
+    }
+}
+.sm-ximteaser {
+    &.sm-selected {
+        .fileinput {
+            display: inline;
+        }
+    }
+}
