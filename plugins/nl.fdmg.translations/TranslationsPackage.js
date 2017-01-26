@@ -16,63 +16,102 @@ export default {
     });
 
     config.addLabel('headline.content', {
-      nl: 'Titel'
+      'nl': 'Titel'
     });
     config.addLabel('headline', {
-      nl: 'Titel'
+      'nl': 'Kop'
     });
 
     config.addLabel('preamble', {
-      nl: 'Inleiding'
+      'nl': 'Inleiding'
     });
+
     config.addLabel('preamble.content', {
-      nl: 'Inleiding'
+      'nl': 'Inleiding'
+    });
+
+    config.addLabel('Paste or type a link url', {
+      'nl': 'Plak of type een url'
+    });
+
+    config.addLabel('undo', {
+      'nl': 'Ongedaan maken'
+    });
+
+    config.addLabel('No suggestions', {
+      'nl': 'Geen suggesties'
+    });
+
+    config.addLabel('redo', {
+      'nl': 'Opnieuw'
+    });
+
+    config.addLabel('select-all', {
+      'nl': 'Alles selecteren'
     });
 
     config.addLabel('subheadline', {
-      nl: 'Tussenkop'
+      'nl': 'Tussenkop'
     });
     config.addLabel('subheadline.content', {
-      nl: 'Tussenkop'
+      'nl': 'Tussenkop'
     });
 
     config.addLabel('paragraph', {
-      nl: 'Alinea'
+      'nl': 'Alinea'
     });
     config.addLabel('paragraph.content', {
-      nl: 'Alinea'
+      'nl': 'Alinea'
     });
 
     config.addLabel('A teaser already exist', {
-      nl: 'Er bestaat al een intro voor de homepage'
+      'nl': 'Er bestaat al een intro voor de homepage'
     });
     config.addLabel('There is already a teaser in this document', {
-      nl: 'Er bestaat al een intro voor de homepage in dit document'
+      'nl': 'Er bestaat al een intro voor de homepage in dit document'
     });
 
     config.addLabel('Remove', {
-      nl: 'Verwijderen'
+      'nl': 'Verwijderen'
     });
 
     config.addLabel('ok', {
-      nl: 'OK'
+      'nl': 'OK'
+    });
+
+    config.addLabel('Meta', {
+      'nl': 'Basis'
+    });
+
+    config.addLabel('cancel', {
+      'nl': 'Annuleren'
+    });
+
+    config.addLabel('continue', {
+      'nl': 'Doorgaan'
     });
 
     config.addLabel('remove-image-button-title', {
-      nl: 'Afbeelding verwijderen'
+      'nl': 'Afbeelding verwijderen'
     });
 
     config.addLabel('Create strong', {
-      nl: 'Vet'
+      'nl': 'Vet'
     });
     config.addLabel('Create emphasis', {
-      nl: 'Cursief'
+      'nl': 'Cursief'
     });
     config.addLabel('Create link', {
-      nl: 'Link creren'
+      'nl': 'Link creëren'
     });
     config.addLabel('Delete link', {
-      nl: 'Link verwijderen'
+      'nl': 'Link verwijderen'
+    });
+    config.addLabel('Rechts uitlijnend', {
+      'nl': 'Afbeelding rechts uitlijnend'
+    });
+    config.addLabel('Volledige breedte', {
+      'nl': 'Afbeelding volledige breedte'
     });
 
   }

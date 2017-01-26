@@ -38,4 +38,16 @@
       }
     }
   }
+
+  input[type=checkbox] {
+    min-height: initial;
+  }
+
+  label.decoupled {
+    cursor: pointer;
+    &.active {
+      color: red;
+    }
+  }
+
 }

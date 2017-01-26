@@ -16,135 +16,135 @@ export default {
     );
 
     config.addLabel('Save', {
-      nl: 'Opslaan',
+      'nl': 'Opslaan',
       sv: 'Spara'
     });
 
     config.addLabel('Save *', {
-      nl: 'Opslaan *',
+      'nl': 'Opslaan *',
       sv: 'Spara *'
     });
 
     config.addLabel('Cancel', {
-      nl: 'Annuleren',
+      'nl': 'Annuleren',
       sv: 'Avbryt'
     });
 
     config.addLabel('From', {
-      nl: 'Op'
+      'nl': 'Op'
     });
 
     config.addLabel('Publish article?', {
-      nl: 'Artikel publiceren?',
+      'nl': 'Artikel publiceren?',
       sv: 'Publicera artikeln?'
     });
 
     config.addLabel('This article is currently an unpublished draft', {
-      nl: 'Dit artikel staat momenteel in concept',
+      'nl': 'Dit artikel staat momenteel in concept',
       sv: 'Den här artikeln är ett ej publicerat utkast'
     });
 
     config.addLabel('Article is currently pending approval', {
-      nl: 'Dit artikel staat op Laatste Nieuws',
+      'nl': 'Dit artikel staat op Submitted/Laatste nieuws',
       sv: 'Artikeln väntar på godkännande'
     });
 
     config.addLabel('Scheduled', {
-      nl: 'Ingepland',
+      'nl': 'Ingepland',
       sv: 'Schemalagd'
     });
 
     config.addLabel('Article is scheduled to be published', {
-      nl: 'Artikel is ingepland voor publicatie',
+      'nl': 'Artikel is ingepland voor publicatie',
       sv: 'Artiklen är schemalagd för publicering'
     });
 
     config.addLabel('Republish article?', {
-      nl: 'Herpubliceer artikel?',
+      'nl': 'Herpubliceer artikel?',
       sv: 'Ompublicera artikeln?'
     });
 
     config.addLabel('Article was published', {
-      nl: 'Artikel is gepubliceerd',
+      'nl': 'Artikel is gepubliceerd op:',
       sv: 'Artikeln publicerades'
     });
 
     config.addLabel('Publish article again?', {
-      nl: 'Artikel opnieuw publiceren?',
+      'nl': 'Artikel opnieuw publiceren?',
       sv: 'Publicera artikeln igen?'
     });
 
     config.addLabel('Article has been canceled and is no longer published', {
-      nl: 'Artikel is verwijderd en is niet langer gepubliceerd',
+      'nl': 'Artikel is verwijderd en is niet langer gepubliceerd',
       sv: 'Artikeln har blivit avpublicerad och är ej längre publicerad'
     });
 
     config.addLabel('Unknown state', {
-      nl: 'Onbekende status',
+      'nl': 'Onbekende status',
       sv: 'Okänd status'
     });
 
     config.addLabel('This article has an unknown, unsupported, status', {
-      nl: 'Dit artikel heeft een onbekende en niet ondersteunde status',
+      'nl': 'Dit artikel heeft een onbekende en niet ondersteunde status',
       sv: 'Artikeln har en okänd eller felaktig status'
     });
 
     config.addLabel('Save as draft', {
-      nl: 'Opslaan als concept',
+      'nl': 'Opslaan als concept',
       sv: 'Spara som utkast'
     });
 
     config.addLabel('Ready for approval', {
-      nl: 'Submitted/Laatste Nieuws',
+      'nl': 'Submitted/Laatste nieuws',
       sv: 'Redo för godkännande'
     });
 
     config.addLabel('Schedule for publish', {
-      nl: 'Tijdklok',
+      'nl': 'Tijdklok',
       sv: 'Schemalägg publicering'
     });
 
     config.addLabel('Republish article', {
-      nl: 'Herpubliceer artikel',
+      'nl': 'Herpubliceer artikel',
       sv: 'Ompublicera artikeln'
     });
 
     config.addLabel('Publish article', {
-      nl: 'Publiceer artikel',
+      'nl': 'Publiceer artikel',
       sv: 'Publicera artikeln'
     });
 
     config.addLabel('Unpublish article', {
-      nl: 'Verwijder artikel',
+      'nl': 'Verwijder artikel',
       sv: 'Avpublicera artikeln'
     });
 
     config.addLabel('imext:draft', {
-      nl: 'Concept',
+      'nl': 'Concept',
       en: 'Draft',
       sv: 'Utkast'
     });
 
     config.addLabel('imext:done', {
-      nl: 'Laatste Nieuws',
+      'nl': 'Submitted/Laatste nieuws',
       en: 'Ready for approval',
       sv: 'Redo för godkännande'
     });
 
     config.addLabel('stat:withheld', {
-      nl: 'Ingepland voor publicatie',
+      'nl': 'Ingepland:',
       en: 'Scheduled for publication',
       sv: 'Schemalagd för publicering'
     });
 
     config.addLabel('stat:usable', {
-      nl: 'Gepubliceerd',
+      'nl': 'Gepubliceerd',
       en: 'Published',
       sv: 'Publicerad'
     });
 
     config.addLabel('stat:canceled', {
-      nl: 'Verwijderd',
+      'nl': 'Verwijderd',
       en: 'Unpublished',
       sv: 'Avpublicerad'
     });

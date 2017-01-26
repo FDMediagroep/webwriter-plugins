@@ -22,11 +22,11 @@ export default {
     });
 
     config.addLabel('Characters', {
-      'nl': 'Karakters'
+      'nl': 'Tekens'
     });
 
     config.addLabel('characters', {
-      'nl': 'karakters'
+      'nl': 'tekens'
     });
 
     config.addLabel('Words', {

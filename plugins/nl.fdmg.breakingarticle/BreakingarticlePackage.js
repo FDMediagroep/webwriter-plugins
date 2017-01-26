@@ -7,7 +7,7 @@ export default {
     config.addComponentToSidebarWithTabId(this.id, 'adminTab', BreakingarticleComponent)
 
     config.addLabel('Breaking article', {
-      'nl': 'Breaking article'
+      'nl': 'Breaking artikel'
     })
   }
 }

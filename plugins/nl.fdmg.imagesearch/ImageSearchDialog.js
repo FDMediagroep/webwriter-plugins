@@ -1,7 +1,20 @@
 import {Component, FontAwesomeIcon} from 'substance'
-import {api} from 'writer'
+import {api, moment} from 'writer'
+import FileInputComponent from './FileInputComponent'
 const pluginId = 'nl.fdmg.imagesearch'
-
+/**
+  * Params to pass when calling the dialogue
+  *
+  * @param loadNextScrollThreshold:
+  * api.getConfigValue(pluginId, 'loadNextScrollThreshold', 100)
+  * - The scrolltreshold, use default pluginId: 'nl.fdmg.imagesearch'.
+  * @param {string} insertImageFromUrlCommand: 'insert-image-from-url' - the command to use
+  * to insert an image from a url.
+  * @param {string} insertImageCommand: 'ximteaserinsertimage' - the desired command to insertImageCommand
+  * an image from a local source/drag and drop.
+  * @param pluginNode : this.props.node (the node calling the plugin).
+  *
+*/
 class ImageSearchDialog extends Component {
 
   get allResultsLoaded() {
@@ -41,23 +54,23 @@ class ImageSearchDialog extends Component {
               .addClass('form-group')
               .append(
                 $$('input')
-                .addClass('form-control form__search')
-                .attr({'placeholder': api.getLabel('Search query')})
-                .setValue(this.state.lastQuery)
-                .ref('searchfield')
-                .on('keydown', this.onKeydown.bind(this)),
-              $$('button')
-                .addClass('btn btn-neutral')
-                .attr({title: api.getLabel('Search')})
-                .append(
-                  $$(FontAwesomeIcon, {icon: 'fa-search'}),
-                  $$(FontAwesomeIcon, {icon: 'fa-spinner fa-pulse'}).addClass(this.state.isSearching ? 'active' : '')
-                )
-                .on('click', () => {
-                  this.extendState(this.getInitialState())
-                  this.search(this.refs.searchfield.val())
-                })
-              // TODO Add upload button
+                  .addClass('form-control form__search')
+                  .attr({'placeholder': api.getLabel('Search query')})
+                  .setValue(this.state.lastQuery)
+                  .ref('searchfield')
+                  .on('keydown', this.onKeydown.bind(this)),
+                $$('button')
+                  .addClass('btn btn-neutral')
+                  .attr({title: api.getLabel('Search')})
+                  .append(
+                    $$(FontAwesomeIcon, {icon: 'fa-search'}),
+                    $$(FontAwesomeIcon, {icon: 'fa-spinner fa-pulse'}).addClass(this.state.isSearching ? 'active' : '')
+                  )
+                  .on('click', () => {
+                    this.extendState(this.getInitialState())
+                    this.search(this.refs.searchfield.val())
+                  }),
+                  $$(FileInputComponent, {onChange: this.triggerFileUpload.bind(this)})
               )
           ),
         $$('div')
@@ -71,7 +84,8 @@ class ImageSearchDialog extends Component {
                     .on('click', () => {
                       this.send('close')
                       this.insertImageById(image.id)
-                    })
+                    }),
+                  $$('div').append(moment(image.pictureDate).format('DD-MM-YYYY'))
                 )
             })
           )
@@ -79,6 +93,32 @@ class ImageSearchDialog extends Component {
           .on('scroll', this.onScroll.bind(this))
       )
       .ref('dialog')
+
+  }
+
+  triggerFileDialog() {
+    var evt = document.createEvent('MouseEvents');
+    evt.initEvent('click', true, false);
+    this.refs['x-im-image-fileupload'].el.el.dispatchEvent(evt);
+
+  }
+
+  triggerFileUpload(ev) {
+    const insertImageCommand = this.props.insertImageCommand
+    const node = this.props.pluginNode
+
+    if (insertImageCommand) {
+      this.context.editorSession.executeCommand(insertImageCommand, {
+        type: 'file',
+        data: ev.target.files,
+        context: {node: node}
+      });
+    } else {
+      this.context.editorSession.executeCommand('insert-images', {
+        files: ev.target.files
+      });
+    }
+    this.send('close');
   }
 
   onKeydown(e) {
@@ -150,13 +190,29 @@ class ImageSearchDialog extends Component {
   }
 
   insertImageById(imageId) {
-    this._retrieveDownloadUrl(imageId)
-      .then((url) => {
-        api.editorSession.executeCommand('ximimage-insert-image-url', {
-          imageUrl: url
+    const command = this.props.insertImageFromUrlCommand
+
+    if (command === "" || !command) {
+      this._retrieveDownloadUrl(imageId)
+        .then((url) => {
+          api.editorSession.executeCommand('ximimage-insert-image-url', {
+            imageUrl: url
+          })
         })
-      })
-      .catch(err => { console.error(err) })
+        .catch(err => { console.error(err) })
+
+    } else {
+      const nodeId = this.props.pluginNode.id
+
+      this._retrieveDownloadUrl(imageId)
+        .then((url) => {
+          api.editorSession.executeCommand(command, {
+            imageUrl: url,
+            context: {nodeId : nodeId}
+          })
+        })
+        .catch(err => { console.error(err) })
+    }
   }
 
   _performSearch(query, pageIndex) {
@@ -183,7 +239,8 @@ class ImageSearchDialog extends Component {
           images: response.result.map(result => {
             return {
               id: result.id,
-              thumbnailUrl: result.thumbnail_url
+              thumbnailUrl: result.thumbnail_url,
+              pictureDate: result.picturedate
             }
           })
         }

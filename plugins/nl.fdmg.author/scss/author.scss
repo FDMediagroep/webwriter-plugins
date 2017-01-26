@@ -119,19 +119,18 @@
 }
 
 .plugin-nl-fdmg-author, .plugin-nl-fdmg-tags {
-    ul#searchResult {
+      #searchResult {
         max-height: 300px;
         li {
-            max-height: 90px;
-            line-height: 1.1;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            padding: 5px;
-            font-size: 0.8em;
-            border-bottom: 1px solid #e7e7e7;
+          line-height: 1.1;
+          border-bottom: 1px solid #e7e7e7;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          padding: 5px;
+          font-size: 0.8em;
             .item__name {
                 padding: 0;
             }
         }
-    }
+      }
 }

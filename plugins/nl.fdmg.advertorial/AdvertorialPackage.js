@@ -10,7 +10,7 @@ export default {
     config.addValidator(AdvertorialValidator)
 
 
-    config.addLabel('Advertorial', {nl: 'Advertorial'})
-    config.addLabel('Advertorial value missing', {nl: 'Artikel is gemarkeerd als advertorial maar geen advertorial geselecteerd'})
+    config.addLabel('Advertorial', {'nl': 'Advertorial'})
+    config.addLabel('Advertorial value missing', {'nl': 'Artikel is gemarkeerd als advertorial maar geen advertorial geselecteerd'})
   }
 }

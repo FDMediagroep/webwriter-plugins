@@ -5,7 +5,6 @@ class HistoryItemComponent extends Component {
 
   render($$) {
     var version = this.props.version;
-
     var icon, title;
 
     if(this.context.api.newsItemArticle.firstElementChild.outerHTML === version.src) {
@@ -24,9 +23,14 @@ class HistoryItemComponent extends Component {
         this.props.applyVersion(version, this.props.article)
       });
 
-    var inner = $$('div');
+    var inner = $$('div').addClass('date-wrapper');
     inner.append(
-      $$('span').append(moment(version.time).from())
+      $$('span').append(
+        moment(version.time).from()
+      ),
+      $$('span').addClass('time-small').append(
+        moment(version.time).format('LTS')
+      )
     );
 
     if (version.action === 'saved') {
@@ -39,4 +43,3 @@ class HistoryItemComponent extends Component {
 
 }
 export default HistoryItemComponent
-

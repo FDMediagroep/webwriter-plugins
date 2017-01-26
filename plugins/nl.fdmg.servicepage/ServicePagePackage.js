@@ -10,7 +10,7 @@ export default {
     config.addValidator(ServicePageValidator);
 
 
-    config.addLabel('Service Page', {nl: 'Service Pagina'});
-    config.addLabel('Service Page value missing', {nl: 'Artikel is gemarkeerd als Service Pagina maar geen service pagina geselecteerd'});
+    config.addLabel('Service Page', {'nl': 'Servicepagina'});
+    config.addLabel('Service Page value missing', {'nl': 'Artikel is gemarkeerd als Service Pagina maar er is geen service pagina geselecteerd'});
   }
 }

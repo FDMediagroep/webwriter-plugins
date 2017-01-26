@@ -24,12 +24,14 @@ class WorkflowstateComponent extends Component {
   }
 
   render($$) {
+    const statusText = $$('span').append(
+      this.state.selection.text).addClass('state-text')
 
     const el = $$('div')
     .addClass('workflowstate plugin')
     .append(
       $$('h2').append( this.getLabel('Workflowstate')),
-      $$('p').append( this.getLabel('Select workflow state')),
+      $$('p').append( this.getLabel('Dit artikel is '), statusText),
       $$('div')
         .addClass('dropdown')
         .append(

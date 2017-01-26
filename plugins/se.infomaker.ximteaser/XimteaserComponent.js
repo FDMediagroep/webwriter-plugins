@@ -4,7 +4,8 @@ import {api} from 'writer'
 import ImageSearchDialog from '../nl.fdmg.imagesearch/ImageSearchDialog'
 const pluginId = 'nl.fdmg.imagesearch'
 
-class TextframeComponent extends Component {
+
+class XimteaserComponent extends Component {
 
   didMount() {
     this.context.editorSession.onRender('document', this._onDocumentChange, this)
@@ -29,35 +30,30 @@ class TextframeComponent extends Component {
 
   render($$) {
     const node = this.props.node
+    const el = $$('div').addClass('sc-ximteaser im-blocknode__container')
+    const teaserFields = api.getConfigValue('se.infomaker.ximteaser', 'fields', [])
     const ImageDisplay = api.ui.getComponent('imageDisplay')
-    const el = $$('div').addClass('sc-textframe fdmg-box im-blocknode__container')
-    const textframeFields = api.getConfigValue('nl.fdmg.textframe', 'fields', [])
-    const alignments = api.getConfigValue('nl.fdmg.textframe', 'alignments', [])
 
     el.append(this.renderHeader($$))
 
     if (this.props.node.imageFile) {
       el.append(
-        $$(ImageDisplay, { // Pass property to images if used in textframe and if drag should be disabled
-          parentId: 'nl.fdmg.textframe',
+        $$(ImageDisplay, { // Pass property to images if used in teaser and if drag should be disabled
+          parentId: 'se.infomaker.ximteaser',
           node: node,
           isolatedNodeState: this.props.isolatedNodeState,
           removeImage: this.removeImage.bind(this)
         }).ref('image')
       )
     }
-    el.append(this.renderContent($$, textframeFields))
-
-    if (alignments.length > 0) {
-      el.append(this.renderAlignments($$, alignments))
-    }
+    el.append(this.renderContent($$, teaserFields))
 
     return el
   }
 
   /**
-   * Remove reference to fileNode from textframe node
-   * Set subject property on textframe to null
+   * Remove reference to fileNode from teaser node
+   * Set subject property on teaser to null
    */
   removeImage() {
 
@@ -78,8 +74,8 @@ class TextframeComponent extends Component {
   renderHeader($$) {
     return $$('div')
       .append([
-        $$(FontAwesomeIcon, {icon: 'fa-tumblr'}),
-        $$('strong').append(this.getLabel('Textframe')),
+        $$(FontAwesomeIcon, {icon: 'fa-newspaper-o'}),
+        $$('strong').append(this.getLabel('Teaser')),
         $$('div').addClass('image-search-button').append(
          $$('button')
            .append($$('i').addClass('fa fa-picture-o'))
@@ -88,8 +84,8 @@ class TextframeComponent extends Component {
              api.ui.showDialog(
                ImageSearchDialog, {
                  loadNextScrollThreshold: api.getConfigValue(pluginId, 'loadNextScrollThreshold', 100),
-                 insertImageFromUrlCommand: 'insert-image-from-url',
-                 insertImageCommand: 'textframeinsertimage',
+                 insertImageFromUrlCommand: 'insert-image-from-url', 
+                 insertImageCommand: 'ximteaserinsertimage',
                  pluginNode: this.props.node,
                }, {
                  primary: false,
@@ -106,7 +102,7 @@ class TextframeComponent extends Component {
 
   triggerFileUpload(ev) {
     const editorSession = api.editorSession
-    editorSession.executeCommand('textframeinsertimage', {
+    editorSession.executeCommand('ximteaserinsertimage', {
       type: 'file',
       data: ev.target.files,
       context: {node: this.props.node}
@@ -116,16 +112,16 @@ class TextframeComponent extends Component {
   /**
    * Render content and all text property editors
    * @param $$
-   * @param textframeFields
+   * @param teaserFields
    * @returns {*}
    */
 
-  renderContent($$, textframeFields) {
+  renderContent($$, teaserFields) {
     const content = $$('div')
-      .addClass('im-blocknode__content full-width')
+        .addClass('im-blocknode__content full-width')
 
     // If 'subject' is specified in the config it should be rendered
-    if (textframeFields.indexOf('subject') >= 0) {
+    if (teaserFields.indexOf('subject') >= 0) {
       content.append(this.renderSubjectEditor($$))
     }
 
@@ -133,49 +129,13 @@ class TextframeComponent extends Component {
     content.append(this.renderTitleEditor($$))
 
     // If 'text' is specified in the config it should be rendered
-    if (textframeFields.indexOf('text') >= 0) {
+    if (teaserFields.indexOf('text') >= 0) {
       content.append(this.renderTextEditor($$))
     }
 
     return content
   }
 
-  renderAlignments($$, alignments) {
-    const alignmentContainer = $$('div')
-      .addClass('x-im-image-dynamic x-im-image-alignment')
-      .attr('contenteditable', 'false')
-
-    var currentAlignment = null
-
-    if (!this.props.node.alignment) {
-      currentAlignment = alignments[0].name
-      this.props.node.setAlignment(currentAlignment)
-    } else {
-      currentAlignment = this.props.node.alignment
-    }
-
-    alignments.forEach(alignment => {
-      let selectedClass = (currentAlignment === alignment.name) ? ' selected' : ''
-
-      alignmentContainer.append(
-        $$('em')
-          .addClass('fa ' + alignment.icon + selectedClass)
-          .attr({
-            contenteditable: 'false',
-            title: alignment.label
-          })
-          .on('click', () => {
-            if (alignment.name !== this.props.node.alignment) {
-              this.props.node.setAlignment(alignment.name)
-              this.rerender()
-            }
-            return false
-          })
-      )
-    })
-
-    return alignmentContainer
-  }
 
   /**
    * Render text editor for subject if an image exist
@@ -226,4 +186,4 @@ class TextframeComponent extends Component {
   }
 }
 
-export default TextframeComponent
+export default XimteaserComponent

@@ -84,6 +84,7 @@ class PublishFlowComponent extends Component {
             this.getLabel('This article is currently an unpublished draft')
           )
         ])
+
         break
 
       case 'imext:done':
@@ -95,6 +96,7 @@ class PublishFlowComponent extends Component {
             this.getLabel('Article is currently pending approval')
           )
         ])
+
         break
 
       case 'stat:withheld':
@@ -148,6 +150,7 @@ class PublishFlowComponent extends Component {
             moment(this.state.pubStart.value).format('ddd DD-MM-YYYY HH:mm')
           )
         ])
+
         break
 
       case 'stat:canceled':
@@ -159,6 +162,7 @@ class PublishFlowComponent extends Component {
             this.getLabel('Article has been canceled and is no longer published')
           )
         ])
+
         break
 
       default:
@@ -213,7 +217,6 @@ class PublishFlowComponent extends Component {
           actionsEl.append(this.renderActionCanceled($$))
           break
         default:
-          console.log('default', action);
       }
     })
 
@@ -460,7 +463,6 @@ class PublishFlowComponent extends Component {
    * Update UI
    */
   _updateStatus(updateButtonSavedLabel) {
-
     if (updateButtonSavedLabel) {
       this.props.popover.setButtonText(
         this.getLabel('Save')
@@ -468,20 +470,45 @@ class PublishFlowComponent extends Component {
     }
 
     if (this.state.status.qcode === 'stat:usable') {
+      this.props.popover.setIcon('fa-check-circle-o status-orange')
+
+      this.props.popover.setStatusText(
+        this.getLabel(this.state.status.qcode)
+      )
+
       this.props.popover.setStatusText(
         this.getLabel(this.state.status.qcode) +
         " " +
-        moment(this.state.pubStart.value).format('ddd DD-MM-YYYY HH:mm')
+        moment(this.state.pubStart.value).format('DD-MM-YYYY HH:mm')
       )
     }
+
     else if (this.state.status.qcode === 'stat:withheld') {
+      this.props.popover.setIcon('fa-clock-o status-blue')
+
       this.props.popover.setStatusText(
         this.getLabel(this.state.status.qcode) +
         " " +
-        moment(this.state.pubStart.value).format('ddd DD-MM-YYYY HH:mm')
+        moment(this.state.pubStart.value).format('DD-MM-YYYY HH:mm')
+      )
+
+    } else if (this.state.status.qcode === 'stat:canceled') {
+      this.props.popover.setStatusText(
+        this.getLabel(this.state.status.qcode)
+      )
+      this.props.popover.setIcon('fa-ban status-red')
+
+    } else if (this.state.status.qcode === 'imext:done') {
+      this.props.popover.setIcon('fa-check-circle-o status-green')
+
+      this.props.popover.setStatusText(
+        this.getLabel(this.state.status.qcode)
       )
     }
+
     else {
+      this.props.popover.setIcon('fa-pencil status-grey')
+
       this.props.popover.setStatusText(
         this.getLabel(this.state.status.qcode)
       )

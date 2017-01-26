@@ -188,14 +188,50 @@
     }
 }
 
-.sc-np-bar {
-  .sc-np-btn-group {
-    .fa.fa-ellipsis-h {
-      &:before {
-        content: 'Status';
-        font-family: sans-serif;
+// Infomaker publish plugin override
+
+div {
+  &.sc-np-bar-container {
+    div {
+      &.sc-np-btn-group {
+        vertical-align: middle;
+        button {
+          border-radius: 40px;
+          // Save button
+          &:first-child {
+            float: right;
+            margin-left: 5px;
+          }
+          // Status button
+          &:last-child {
+            float: left;
+            margin-right: 15px;
+            background-color: transparent;
+            border-right: 0;
+            color: #0098c7;
+            padding: 0.5rem 0;
+            .fa {
+              opacity: 0.8;
+              font-size: 18px;
+              &.status-green { color: #ffa500; }
+              &.status-blue { color: #2e94b7; }
+              &.status-orange { color: #5cb85c; }
+              &.status-grey { color: #666666 ; }
+              &.status-red { color: #d9534f; }
+              &:hover {
+                opacity: 1;
+              }
+            }
+          }
+        }
       }
-      width: auto;
     }
+  }
+}
+
+div {
+  &.sc-np-bar {
+    min-height:52px;
+    height: auto;
   }
 }

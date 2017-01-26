@@ -8,7 +8,7 @@ export default {
     config.addComponentToSidebarWithTabId(this.id, 'advancedTab', TextcountSelectorComponent)
     config.addValidator(TextcountSelectorValidator)
     config.addLabel('Textcount size', {
-      'nl': 'Tekstlengte (karakters)'
+      'nl': 'Aantal tekens (incl. spaties)'
     })
     config.addLabel('Missing text length', {
       'nl': 'Tekstlengte is niet ingesteld'

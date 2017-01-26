@@ -88,8 +88,8 @@ export default {
     config.addContentMenuTopTool('<plugin name>', <Plugin name>Tool);
     config.addIcon('<plugin name>', {'fontawesome': '<fontawesome icon name>'});
     config.addLabel('<original text>', {
-      en: '<english translation>',
-      nl: '<dutch translation>'
+      'en': '<english translation>',
+      'nl': '<dutch translation>'
     });
   }
 }
@@ -170,6 +170,9 @@ export default {
   }
 }
 ```
+
+## Print language labels
+English example: `writer.api.configurator.labelProvider.labels.en`
 
 ## Resources
 * https://infomaker.github.io/NPWriterDevelopers/getting-started/

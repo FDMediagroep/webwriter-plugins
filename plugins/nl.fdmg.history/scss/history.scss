@@ -20,7 +20,9 @@
 }
 .history-article {
     margin-bottom:15px;
-
+    padding: 5px;
+    background-color: rgba(136, 136, 136, 0.06);
+    border-radius: 2px;
     h4 {
         font-weight: bold;
         font-size: 1rem;
@@ -32,7 +34,15 @@
     color: #fff;
     border: 1px solid #ddd;
     line-height:1.3rem;
-
+    .date-wrapper {
+      display: flex;
+      justify-content: space-between;
+      span {}
+      .time-small {
+        display: inline-block;
+        font-size: 0.8em;
+      }
+    }
     &>i.fa {
         color: #666;
     }
@@ -90,10 +100,12 @@
 }
 
 .sc-np-popover {
-    .imc-history {
-        min-width:300px;
+  .imc-history {
+     &.fdmg-history {
+        min-width:330px;
         padding:1rem;
     }
+  }
 }
 .imc-history {
     height: 300px;

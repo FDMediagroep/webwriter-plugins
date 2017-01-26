@@ -2,7 +2,7 @@ import FDValidator from '../nl.fdmg.fdvalidator/FDValidator'
 
 class HeadlineValidator extends FDValidator {
   validate() {
-    if (this.submitted || this.published) {
+    if (this.submitted || this.published || this.drafted) {
       const headlines = this.newsItem.querySelectorAll('idf > group element[type="headline"]')
       if (headlines.length === 1) {
         headlines.forEach(headline => {

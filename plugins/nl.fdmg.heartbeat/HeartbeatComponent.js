@@ -26,7 +26,7 @@ export default class HeartbeatComponent extends Component {
 
       if(pollInterval === undefined) {
         this.poll();
-        pollInterval = setInterval(() => this.poll(), 60000);
+        pollInterval = setInterval(() => this.poll(), 15000);
       } else {
         this.updatePresentation();
       }
@@ -131,7 +131,7 @@ export default class HeartbeatComponent extends Component {
   setLockedBySystem() {
     let statusText = 'No heartbeat';
     let title = 'Article unlocked';
-    let message = 'Unknown error. Article is or will become unlocked in less than 70 seconds.';
+    let message = 'Unknown error. Article is or will become unlocked in less than 20 seconds.';
     // Heartbeat endpoint unreachable.
     if(isNaN(this.state.articleVersion)) {
       message = 'Article is new.';
@@ -175,7 +175,7 @@ export default class HeartbeatComponent extends Component {
   setLockedByUser() {
     // Article is locked by user
     api.ui.showNotification('Article locked', this.getLabel('Article locked'), this.getLabel('This article is in use by') + ': ' + this.state.lockedBy);
-    this.props.popover.setStatusText(this.getLabel('In use by') + ' ' + this.state.lockedBy);
+    this.props.popover.setStatusText(this.state.lockedBy);
     this.props.popover.setIcon('fa-lock');
     el = virtualElement('div').addClass('fdmg-heartbeat').append(
       virtualElement('h2').append(this.getLabel('Article locked'))
@@ -204,7 +204,7 @@ export default class HeartbeatComponent extends Component {
    */
   setUnlocked() {
     // Article is not locked
-    this.props.popover.setStatusText(this.getLabel('In use by') + ' ' + this.state.lockedBy);
+    this.props.popover.setStatusText(this.state.lockedBy);
     this.props.popover.setIcon('fa-unlock-alt');
     el = virtualElement('div').addClass('fdmg-heartbeat').append(
       virtualElement('h2').append(this.getLabel('Article editable'))

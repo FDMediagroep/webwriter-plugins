@@ -1,4 +1,4 @@
-import {AnnotationComponent} from 'substance';
+import {AnnotationComponent, FontAwesomeIcon} from 'substance';
 
 export default class StocktickerComponent extends AnnotationComponent {
 
@@ -36,8 +36,11 @@ export default class StocktickerComponent extends AnnotationComponent {
             .addClass(parseFloat(node.difference) >= 0 ? 'up' : 'down')
             .append(`${node.currency} ${node.price} (${node.difference})`)
         );
-    } else if (!node.symbol || node.symbol === '') {
-      el.append($$('span').append(this.getLabel('No stockticker chosen yet...')));
+    } else {
+      el.append($$('span').append(
+        $$(FontAwesomeIcon, {icon: 'fa-exclamation-triangle'}).addClass('stockticker-warning'),
+        this.getLabel('No stockticker chosen yet...'))
+      );
     }
 
     return el;

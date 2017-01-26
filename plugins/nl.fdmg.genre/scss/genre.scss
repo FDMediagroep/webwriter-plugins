@@ -56,8 +56,8 @@ a.fdmg-box {
         display: inline-block;
         float: left;
         color: #444;
-        font-size: 0.8em;
-        padding-top: 8px;
+        font-size: 1em;
+        padding-top: 4px;
         padding-right: 15px;
     }
 
@@ -187,6 +187,22 @@ a.fdmg-box {
 }
 
 // Infomaker overrides
+
+.se-tab-content {
+  .plugin {
+    &:first-child {
+      margin-top: 5px;
+    }
+    &:last-child {
+        margin-bottom: 0;
+    }
+  }
+}
+.hide-text-annotation {
+  .sm-annotation-tool {
+    display: none;
+  }
+}
 .sc-np-popover {
   h2 {
     font-size: 0.9em;
@@ -199,7 +215,16 @@ a.fdmg-box {
     border-top: 1px solid rgba(0, 0, 0, 0.1);
   }
 }
-.sc-ximteaser, .fdmg-box {
+
+div{
+  &.x-im-image-dynamic{
+    &:last-child {
+      border: none;
+    }
+  }
+}
+
+.sc-ximteaser, .fdmg-box, .sc-ximimage {
   .sc-text-property {
     cursor: text;
     &:hover {
@@ -220,17 +245,33 @@ a.fdmg-box {
   font-family: Tahoma, sans-serif;
   font-size: 0.9em;
 }
-
-.im-blocknode__container .header .fa {
-  color: #333;
+.im-blocknode__container {
+  .header {
+    .fa {
+      color: #333;
+    }
+  }
 }
+
+.sc-ximteaser {
+  .header {
+    .fa-picture-o {
+      margin-right: 0;
+      width: 16px;
+    }
+    .fa-newspaper-o {
+      margin-right: 10px;
+    }
+  }
+}
+
 
 // Infomaker teaser image height override
 .sc-image-display,
 .sm-ximimage {
   >.se-image-container {
     >img {
-      max-height: 460px;
+      max-height: 300px;
       width: auto !important;
       max-width: 100%;
       display: block;
@@ -257,4 +298,32 @@ a.fdmg-box {
 // teaser override
 div.x-im-teaser div.x-im-teaser-text::before {
     content: '\f1dd';
+}
+
+// Infomaker preamble override
+.sc-preamble {
+  font-size: 1.1em;
+}
+
+// File search icon for block content
+.im-blocknode__content {
+  .fa-picture-o {
+    margin-right: 0;
+  }
+  div {
+    margin-top: 10px;
+  }
+  .fa {
+    width: 20px;
+    float: left;
+    color: #b4b4b4;
+    line-height: 24px;
+    margin-right: 10px;
+  }
+}
+
+.sc-context-menu {
+  > .sc-tool-group {
+    min-width: 130px;
+  }
 }

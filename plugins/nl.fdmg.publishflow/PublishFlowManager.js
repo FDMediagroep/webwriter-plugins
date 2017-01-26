@@ -8,16 +8,16 @@ class PublishFlowConfiguration {
         'allowed': [
           'imext:done',
           'stat:usable',
-          'stat:canceled',
-          'stat:withheld'
+          'stat:withheld',
+          'stat:canceled'
         ],
       },
       'imext:done': {
         'allowed': [
           'stat:usable',
           'imext:draft',
-          'stat:canceled',
-          'stat:withheld'
+          'stat:withheld',
+          'stat:canceled'
         ]
       },
       'stat:withheld': {

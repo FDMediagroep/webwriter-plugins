@@ -8,7 +8,6 @@ export default class StocktickerInlineTool extends Tool {
     const node = this.props.node;
     const el = $$('div');
 
-
     if (node) {
       el
         .addClass('se-tool sc-stockticker-inline-tool')
@@ -18,12 +17,28 @@ export default class StocktickerInlineTool extends Tool {
             onSelect: this.onSelect.bind(this),
             autoFocus: true
           })
-          // .on('click', () => this.removeEmptyStockTickers()
-        )
-        .on('keydown', this.onKeyDown);
+        ).on('keydown', this.onKeyDown);
     }
 
     return el
+  }
+
+  // Hacky way to disable the annotation tools.
+  // Awaiting fix from infomaker.
+  didMount() {
+    this.disableAnnotationTools();
+  }
+
+  dispose() {
+    this.enableAnnotationTools();
+  }
+
+  disableAnnotationTools() {
+    document.querySelector('html').classList.add('hide-text-annotation')
+  }
+
+  enableAnnotationTools() {
+    document.querySelector('html').classList.remove('hide-text-annotation')
   }
 
   getNode() {
@@ -31,18 +46,6 @@ export default class StocktickerInlineTool extends Tool {
       return this.context.doc.get(this.props.annotationId);
     }
   }
-
-  // removeEmptyStockTickers() {
-  //   var tickers = this.getStockTickers(writer.api.editorSession.document.data.nodes);
-  //   console.log(tickers);
-  // }
-  //
-  // getStockTickers(existingTickers) {
-  //
-  //   console.log(existingTickers);
-  //
-  //   return tickers;
-  // }
 
   performSearch(query) {
     return this.props.node.search(query);
@@ -61,8 +64,6 @@ export default class StocktickerInlineTool extends Tool {
 
     this.close()
   }
-
-  //document.querySelector('html').classList.add('hide-text-annotation');
 
   onKeyDown(e) {
     if (e.keyCode === 27 /* escape */) {
