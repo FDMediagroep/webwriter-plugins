@@ -1,5 +1,4 @@
 .sc-ximteaser {
-
     .fileinput {
         display: none;
         .upload-button {
@@ -23,6 +22,7 @@
     }
 }
 .sm-ximteaser {
+    margin-bottom: 15px;
     &.sm-selected {
         .fileinput {
             display: inline;
