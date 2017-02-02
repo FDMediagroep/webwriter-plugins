@@ -16,109 +16,157 @@ var s3config = {
 var rename = require('gulp-rename');
 var replace = require('gulp-replace');
 
-/**
- * Replace placeholders in config file for FD and BNR
- * @param source - sourcefile
- * @param publication - the writer publiction (fd, bnr)
- * @param environment - the writer environment (-dev, -acc, leave blank for prod)
- * @param fdmgToken - FDMG token
- * @param articleId - Template article id for environment and publication
- */
-function config(source, publication, environment, fdmgToken, articleId) {
+function config(data) {
   console.log('Replace placeholders in ./src/config/placeholder/AppConfig.ts');
-  return gulp.src([source])
-    .pipe(replace(/INFOMAKER_PLUGINS_BASE_URL/g, 'https://s3-eu-west-1.amazonaws.com/writer-production-plugins'))
-    .pipe(replace(/WEBWRITER_PLUGINS_BASE_URL/g, `https://s3-eu-west-1.amazonaws.com/webwriter-${environment}-plugins`))
-    .pipe(replace(/NEWS_ITEM_TEMPLATE_ID/g, articleId))
-    .pipe(replace(/FDMG_SERVICES_BASE_URL/g, `https://webwriter${environment}.${publication}.nl/fdmgapi/private/${publication}`))
-    .pipe(replace(/FDMG_SERVICES_NO_PROXY_BASE_URL/g, `https://${environment}-api.fdmg.org/private/${publication}`))
-    .pipe(replace(/FDMG_SERVICES_TOKEN/g, fdmgToken))
-    .pipe(replace(/HOLLANDSE_HOOGTE_TOKEN/g, 'f021be3b-a527-364a-a93e-03de82270efc'))
-    .pipe(replace(/API_GATEWAY_BASE_URL/g, `https://apigateway-${environment}.fdmg.nl`))
+  return gulp.src([data.source])
+    .pipe(replace(/INFOMAKER_PLUGINS_BASE_URL/g, data.infoMakerPluginsBase))
+    .pipe(replace(/WEBWRITER_PLUGINS_BASE_URL/g, data.webwriterPluginsBase))
+    .pipe(replace(/NEWS_ITEM_TEMPLATE_ID/g, data.newsItemTemplateId))
+    .pipe(replace(/FDMG_SERVICES_BASE_URL/g, data.fdmgServicesBaseUrl))
+    .pipe(replace(/FDMG_SERVICES_NO_PROXY_BASE_URL/g, data.fdmgServicesNoProxyBaseUrl))
+    .pipe(replace(/FDMG_SERVICES_TOKEN/g, data.fdmgServicesToken))
+    .pipe(replace(/HOLLANDSE_HOOGTE_TOKEN/g, data.hollandseHoogteToken))
+    .pipe(replace(/API_GATEWAY_BASE_URL/g, data.apiGatewayBaseUrl))
+    .pipe(rename(data.fileName))
+    .pipe(gulp.dest(data.destination));
 }
 
-/**
- * Webwriter FD configs
- */
-
- /* Local FD config */
+/* FD Environments */
 gulp.task('local-config-fd-generate', function(){
-  const fdmgToken = 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIxMjMiLCJzdWIiOiJzdmVuIiwicm9sZSI6InVzZXIifQ.omGBEdLl3e_bxNFq83bsTUZnO5HU_c0gltDuTFWM_KlLJWtlZzDo1F7jGD6zPD54XmimTAWmD5XKIlhMQVmChQ'
-  const configFile = config('writer-fd-dev.json', 'fd', 'dev', fdmgToken, '30eae1c0-c640-4053-b114-05c64e28bbe7', '../NPWriter/server/config');
-
-  configFile.pipe(replace(/https:\/\/s3-eu-west-1.amazonaws.com\/webwriter-dev-plugins/g, 'http://localhost:3000'))
-  .pipe(rename(`dev-writer-client.json`))
-  .pipe(gulp.dest('../NPWriter/server/config/'));
+  console.log('Creating "local" config for FD writer');
+  config({
+    source                      : 'writer-fd-dev.json',
+    infoMakerPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/writer-dev-plugins',
+    webwriterPluginsBase        : 'http://localhost:3000',
+    newsItemTemplateId          : '30eae1c0-c640-4053-b114-05c64e28bbe7',
+    fdmgServicesBaseUrl         : 'https://webwriter-dev.fd.nl/fdmgapi/private/fd',
+    fdmgServicesNoProxyBaseUrl  : 'https://dev-api.fdmg.org/private/fd',
+    fdmgServicesToken           : 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIxMjMiLCJzdWIiOiJzdmVuIiwicm9sZSI6InVzZXIifQ.omGBEdLl3e_bxNFq83bsTUZnO5HU_c0gltDuTFWM_KlLJWtlZzDo1F7jGD6zPD54XmimTAWmD5XKIlhMQVmChQ',
+    hollandseHoogteToken        : '63401c89-63e9-35f9-9daa-a55ef26c3042',
+    apiGatewayBaseUrl           : 'https://apigateway-dev.fdmg.nl',
+    fileName                    : 'dev-writer-client.json',
+    destination                 : '../NPWriter/server/config/'
+  });
 });
 
-/* Development FD config */
 gulp.task('dev-config-fd-generate', function(){
-  const fdmgToken = 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiItMjgyODgyODMxNDU0ODY5MzIyIiwic3ViIjoiaW5mb21ha2VyIiwicm9sZSI6IlVTRVIifQ.8j3gRJplT9t0mUPEjWoGUxOO7kvJqbhwrIdneOY7Csyy8oyr8ff3XmdHfXpC4VCiWT8O06sSlP-9We63l60Gw'
-  const configFile = config('writer-fd-dev.json', 'fd', 'dev', fdmgToken, '1156201');
-
-  configFile.pipe(rename(`dev-writer-client.json`))
-    .pipe(gulp.dest('./dist'));
+  console.log('Creating "development" config for FD writer');
+  config({
+    source                      : 'writer-fd-dev.json',
+    infoMakerPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/writer-dev-plugins',
+    webwriterPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/writer-dev-plugins',
+    newsItemTemplateId          : '1156201',
+    fdmgServicesBaseUrl         : 'https://webwriter-dev.fd.nl/fdmgapi/private/fd',
+    fdmgServicesNoProxyBaseUrl  : 'https://dev-api.fdmg.org/private/fd',
+    fdmgServicesToken           : 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIxMjMiLCJzdWIiOiJzdmVuIiwicm9sZSI6InVzZXIifQ.omGBEdLl3e_bxNFq83bsTUZnO5HU_c0gltDuTFWM_KlLJWtlZzDo1F7jGD6zPD54XmimTAWmD5XKIlhMQVmChQ',
+    hollandseHoogteToken        : '63401c89-63e9-35f9-9daa-a55ef26c3042',
+    apiGatewayBaseUrl           : 'https://apigateway-dev.fdmg.nl',
+    fileName                    : 'dev-writer-client.json',
+    destination                 : './dist'
+  });
 });
 
-/* Acceptance FD config */
 gulp.task('acc-config-fd-generate', function(){
-  const fdmgToken = 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiItNjYxODc1NjIyMjg3NzcxNTU1MiIsInN1YiI6ImluZm9tYWtlciIsInJvbGUiOiJVU0VSIn0.35SdM_LRat9AAfrZJo4EM2mlDtYzk6X3rARTW9I4XKWM4tvBCpb2gKzVewmWQq1DuqOhCskr3HNdSf7tK664Rw'
-  const configFile = config('writer-fd-dev.json', 'fd', 'acc', fdmgToken, '1204619');
-
-  configFile.pipe(rename(`acc-writer-client.json`))
-    .pipe(gulp.dest('./dist'));
+  console.log('Creating "acceptance" config for FD writer');
+  config({
+    source                      : 'writer-fd-dev.json',
+    infoMakerPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/writer-production-plugins',
+    webwriterPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/webwriter-acc-plugins',
+    newsItemTemplateId          : '1204619',
+    fdmgServicesBaseUrl         : 'https://webwriter-acc.fd.nl/fdmgapi/private/fd',
+    fdmgServicesNoProxyBaseUrl  : 'https://acc-api.fdmg.org/private/fd',
+    fdmgServicesToken           : 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiItNjYxODc1NjIyMjg3NzcxNTU1MiIsInN1YiI6ImluZm9tYWtlciIsInJvbGUiOiJVU0VSIn0.35SdM_LRat9AAfrZJo4EM2mlDtYzk6X3rARTW9I4XKWM4tvBCpb2gKzVewmWQq1DuqOhCskr3HNdSf7tK664Rw',
+    hollandseHoogteToken        : 'f021be3b-a527-364a-a93e-03de82270efc',
+    apiGatewayBaseUrl           : 'https://apigateway-acc.fdmg.nl',
+    fileName                    : 'acc-writer-client.json',
+    destination                 : './dist'
+  });
 });
 
-/* Production FD config */
 gulp.task('prod-config-fd-generate', function(){
-  const fdmgToken = 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiItMjgyODgyODMxNDU0ODY5MzIyIiwic3ViIjoiaW5mb21ha2VyIiwicm9sZSI6IlVTRVIifQ.8j3gRJplT9t0mUPEjWoGUxOO7kvJqbhwrIdneOY7Csyy8oyr8ff3XmdHfXpC4VCiWT8O06sSlP-9We63l60Gw'
-  const configFile = config('writer-fd-dev.json', 'fd', '', fdmgToken, '1171067');
-
-  configFile.pipe(replace(/webwriter--plugins/g, `webwriter-plugins`))
-  .pipe(rename(`prod-writer-client.json`))
-  .pipe(gulp.dest('./dist'));
+  console.log('Creating "production" config for FD writer');
+  config({
+    source                      : 'writer-fd-dev.json',
+    infoMakerPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/writer-production-plugins',
+    webwriterPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/webwriter-plugins',
+    newsItemTemplateId          : '1171067',
+    fdmgServicesBaseUrl         : 'https://webwriter.fd.nl/fdmgapi/private/fd',
+    fdmgServicesNoProxyBaseUrl  : 'https://acc.fdmg.org/private/fd',
+    fdmgServicesToken           : 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiItMjgyODgyODMxNDU0ODY5MzIyIiwic3ViIjoiaW5mb21ha2VyIiwicm9sZSI6IlVTRVIifQ.8j3gRJplT9t0mUPEjWoGUxOO7kvJqbhwrIdneOY7Csyy8oyr8ff3XmdHfXpC4VCiWT8O06sSlP-9We63l60Gw',
+    hollandseHoogteToken        : '77bd7434-7ffa-34b8-bafe-a1b6f24be599',
+    apiGatewayBaseUrl           : 'https://apigateway.fdmg.nl',
+    fileName                    : 'prod-writer-client.json',
+    destination                 : './dist'
+  });
 });
 
-/**
- * Webwriter ESB configs
- */
-
-/* Local ESB config */
+/* ESB Environments */
 gulp.task('local-config-esb-generate', function(){
-  const fdmgToken = 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIxMjMiLCJzdWIiOiJzdmVuIiwicm9sZSI6InVzZXIifQ.omGBEdLl3e_bxNFq83bsTUZnO5HU_c0gltDuTFWM_KlLJWtlZzDo1F7jGD6zPD54XmimTAWmD5XKIlhMQVmChQ'
-  const configFile = config('writer-esb-dev.json', 'esb', 'dev', fdmgToken, '30eae1c0-c640-4053-b114-05c64e28bbe7', '../NPWriter/server/config');
-
-  configFile.pipe(replace(/https:\/\/s3-eu-west-1.amazonaws.com\/webwriter-dev-plugins/g, 'http://localhost:3000'))
-  .pipe(rename(`dev-writer-client.json`))
-  .pipe(gulp.dest('../NPWriter/server/config/'));
+  console.log('Creating "local" config for ESB writer');
+  config({
+    source                      : 'writer-fd-dev.json',
+    infoMakerPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/writer-dev-plugins',
+    webwriterPluginsBase        : 'http://localhost:3000',
+    newsItemTemplateId          : '20003109',
+    fdmgServicesBaseUrl         : 'https://webwriter-dev.esb.nu/fdmgapi/private/fd',
+    fdmgServicesNoProxyBaseUrl  : 'https://dev-api.fdmg.org/private/fd',
+    fdmgServicesToken           : 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIxMjMiLCJzdWIiOiJzdmVuIiwicm9sZSI6InVzZXIifQ.omGBEdLl3e_bxNFq83bsTUZnO5HU_c0gltDuTFWM_KlLJWtlZzDo1F7jGD6zPD54XmimTAWmD5XKIlhMQVmChQ',
+    hollandseHoogteToken        : '63401c89-63e9-35f9-9daa-a55ef26c3042',
+    apiGatewayBaseUrl           : 'https://apigateway-dev.fdmg.nl',
+    fileName                    : 'dev-writer-client.json',
+    destination                 : '../NPWriter/server/config/'
+  });
 });
 
-/* Development ESB config */
 gulp.task('dev-config-esb-generate', function(){
-  const fdmgToken = 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiItMjgyODgyODMxNDU0ODY5MzIyIiwic3ViIjoiaW5mb21ha2VyIiwicm9sZSI6IlVTRVIifQ.8j3gRJplT9t0mUPEjWoGUxOO7kvJqbhwrIdneOY7Csyy8oyr8ff3XmdHfXpC4VCiWT8O06sSlP-9We63l60Gw'
-  const configFile = config('writer-esb-dev.json', 'esb', 'dev', fdmgToken, '1156201');
-
-  configFile.pipe(rename(`dev-writer-client.json`))
-   .pipe(gulp.dest('./dist'));
+  console.log('Creating "development" config for ESB writer');
+  config({
+    source                      : 'writer-fd-dev.json',
+    infoMakerPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/writer-dev-plugins',
+    webwriterPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/writer-dev-plugins',
+    newsItemTemplateId          : '20003109',
+    fdmgServicesBaseUrl         : 'https://webwriter-dev.esb.nu/fdmgapi/private/fd',
+    fdmgServicesNoProxyBaseUrl  : 'https://dev-api.fdmg.org/private/fd',
+    fdmgServicesToken           : 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIxMjMiLCJzdWIiOiJzdmVuIiwicm9sZSI6InVzZXIifQ.omGBEdLl3e_bxNFq83bsTUZnO5HU_c0gltDuTFWM_KlLJWtlZzDo1F7jGD6zPD54XmimTAWmD5XKIlhMQVmChQ',
+    hollandseHoogteToken        : '63401c89-63e9-35f9-9daa-a55ef26c3042',
+    apiGatewayBaseUrl           : 'https://apigateway-dev.fdmg.nl',
+    fileName                    : 'dev-writer-client.json',
+    destination                 : './dist'
+  });
 });
 
-/* Acceptance ESB config */
 gulp.task('acc-config-esb-generate', function(){
-  const fdmgToken = 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiItNjYxODc1NjIyMjg3NzcxNTU1MiIsInN1YiI6ImluZm9tYWtlciIsInJvbGUiOiJVU0VSIn0.35SdM_LRat9AAfrZJo4EM2mlDtYzk6X3rARTW9I4XKWM4tvBCpb2gKzVewmWQq1DuqOhCskr3HNdSf7tK664Rw'
-  const configFile = config('writer-esb-dev.json', 'esb', 'acc', fdmgToken, '1204619');
-
-  configFile.pipe(rename(`acc-writer-client.json`))
-   .pipe(gulp.dest('./dist'));
+  console.log('Creating "acceptance" config for ESB writer');
+  config({
+    source                      : 'writer-fd-dev.json',
+    infoMakerPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/writer-production-plugins',
+    webwriterPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/webwriter-acc-plugins',
+    newsItemTemplateId          : '20003109',
+    fdmgServicesBaseUrl         : 'https://webwriter-acc.esb.nu/fdmgapi/private/fd',
+    fdmgServicesNoProxyBaseUrl  : 'https://acc-api.fdmg.org/private/fd',
+    fdmgServicesToken           : 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiItNjYxODc1NjIyMjg3NzcxNTU1MiIsInN1YiI6ImluZm9tYWtlciIsInJvbGUiOiJVU0VSIn0.35SdM_LRat9AAfrZJo4EM2mlDtYzk6X3rARTW9I4XKWM4tvBCpb2gKzVewmWQq1DuqOhCskr3HNdSf7tK664Rw',
+    hollandseHoogteToken        : 'f021be3b-a527-364a-a93e-03de82270efc',
+    apiGatewayBaseUrl           : 'https://apigateway-acc.fdmg.nl',
+    fileName                    : 'acc-writer-client.json',
+    destination                 : './dist'
+  });
 });
 
-/* Production ESB config */
 gulp.task('prod-config-esb-generate', function(){
-  const fdmgToken = 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiItMjgyODgyODMxNDU0ODY5MzIyIiwic3ViIjoiaW5mb21ha2VyIiwicm9sZSI6IlVTRVIifQ.8j3gRJplT9t0mUPEjWoGUxOO7kvJqbhwrIdneOY7Csyy8oyr8ff3XmdHfXpC4VCiWT8O06sSlP-9We63l60Gw'
-  const configFile = config('writer-esb-dev.json', 'esb', '', fdmgToken, '1171067');
-
-  configFile.pipe(replace(/webwriter--plugins/g, `webwriter-plugins`))
-   .pipe(rename(`prod-writer-client.json`))
-   .pipe(gulp.dest('./dist'));
+  console.log('Creating "production" config for ESB writer');
+  config({
+    source                      : 'writer-fd-dev.json',
+    infoMakerPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/writer-production-plugins',
+    webwriterPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/webwriter-plugins',
+    newsItemTemplateId          : '20003109',
+    fdmgServicesBaseUrl         : 'https://webwriter.esb.nu/fdmgapi/private/fd',
+    fdmgServicesNoProxyBaseUrl  : 'https://acc.fdmg.org/private/fd',
+    fdmgServicesToken           : 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiItMjgyODgyODMxNDU0ODY5MzIyIiwic3ViIjoiaW5mb21ha2VyIiwicm9sZSI6IlVTRVIifQ.8j3gRJplT9t0mUPEjWoGUxOO7kvJqbhwrIdneOY7Csyy8oyr8ff3XmdHfXpC4VCiWT8O06sSlP-9We63l60Gw',
+    hollandseHoogteToken        : '77bd7434-7ffa-34b8-bafe-a1b6f24be599',
+    apiGatewayBaseUrl           : 'https://apigateway.fdmg.nl',
+    fileName                    : 'prod-writer-client.json',
+    destination                 : './dist'
+  });
 });
 
 /**
