@@ -444,36 +444,16 @@
       "data": {
         "sections": [
           {
-            "id": "beursradar",
-            "label": "Beurs"
+            "id": "blog",
+            "label": "Blog"
           },
           {
-            "id": "economie-politiek",
-            "label": "Economie & Politiek"
+            "id": "esb",
+            "label": "ESB"
           },
           {
-            "id": "fd-persoonlijk",
-            "label": "FD Persoonlijk"
-          },
-          {
-            "id": "morgen",
-            "label": "Morgen"
-          },
-          {
-            "id": "ondernemen",
-            "label": "Ondernemen"
-          },
-          {
-            "id": "opinie",
-            "label": "Opinie"
-          },
-          {
-            "id": "profiel",
-            "label": "Profiel"
-          },
-          {
-            "id": "werk-geld",
-            "label": "Werk & Geld"
+            "id": "kort",
+            "label": "Kort"
           }
         ]
       }
@@ -488,56 +468,12 @@
       "data": {
         "genres": [
           {
-            "id": "Achtergrond",
-            "label": "Achtergrond"
+            "id": "esb-1",
+            "label": "ESB Genre 1"
           },
           {
-            "id": "Analyse",
-            "label": "Analyse"
-          },
-          {
-            "id": "Audio",
-            "label": "Audio"
-          },
-          {
-            "id": "Blog",
-            "label": "Blog"
-          },
-          {
-            "id": "Column",
-            "label": "Column"
-          },
-          {
-            "id": "Fotoserie",
-            "label": "Fotoserie"
-          },
-          {
-            "id": "Interview",
-            "label": "Interview"
-          },
-          {
-            "id": "Liveblog",
-            "label": "Liveblog"
-          },
-          {
-            "id": "Opinie",
-            "label": "Opinie"
-          },
-          {
-            "id": "Opnieuw relevant",
-            "label": "Opnieuw relevant"
-          },
-          {
-            "id": "Uitgelicht",
-            "label": "Uitgelicht"
-          },
-          {
-            "id": "Update",
-            "label": "Update"
-          },
-          {
-            "id": "Video",
-            "label": "Video"
+            "id": "esb-2",
+            "label": "ESB Genre 2"
           }
         ]
       }

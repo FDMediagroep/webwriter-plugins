@@ -44,7 +44,7 @@ gulp.task('local-config-fd-generate', function(){
     fdmgServicesToken           : 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIxMjMiLCJzdWIiOiJzdmVuIiwicm9sZSI6InVzZXIifQ.omGBEdLl3e_bxNFq83bsTUZnO5HU_c0gltDuTFWM_KlLJWtlZzDo1F7jGD6zPD54XmimTAWmD5XKIlhMQVmChQ',
     hollandseHoogteToken        : '63401c89-63e9-35f9-9daa-a55ef26c3042',
     apiGatewayBaseUrl           : 'https://apigateway-dev.fdmg.nl',
-    fileName                    : 'dev-writer-client.json',
+    fileName                    : 'writer-fd-dev.json',
     destination                 : '../NPWriter/server/config/'
   });
 });
@@ -91,7 +91,7 @@ gulp.task('prod-config-fd-generate', function(){
     webwriterPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/webwriter-plugins',
     newsItemTemplateId          : '1171067',
     fdmgServicesBaseUrl         : 'https://webwriter.fd.nl/fdmgapi/private/fd',
-    fdmgServicesNoProxyBaseUrl  : 'https://acc.fdmg.org/private/fd',
+    fdmgServicesNoProxyBaseUrl  : 'https://api.fdmg.org/private/fd',
     fdmgServicesToken           : 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiItMjgyODgyODMxNDU0ODY5MzIyIiwic3ViIjoiaW5mb21ha2VyIiwicm9sZSI6IlVTRVIifQ.8j3gRJplT9t0mUPEjWoGUxOO7kvJqbhwrIdneOY7Csyy8oyr8ff3XmdHfXpC4VCiWT8O06sSlP-9We63l60Gw',
     hollandseHoogteToken        : '77bd7434-7ffa-34b8-bafe-a1b6f24be599',
     apiGatewayBaseUrl           : 'https://apigateway.fdmg.nl',
@@ -104,7 +104,7 @@ gulp.task('prod-config-fd-generate', function(){
 gulp.task('local-config-esb-generate', function(){
   console.log('Creating "local" config for ESB writer');
   config({
-    source                      : 'writer-fd-dev.json',
+    source                      : 'writer-esb-dev.json',
     infoMakerPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/writer-dev-plugins',
     webwriterPluginsBase        : 'http://localhost:3000',
     newsItemTemplateId          : '20003109',
@@ -121,16 +121,16 @@ gulp.task('local-config-esb-generate', function(){
 gulp.task('dev-config-esb-generate', function(){
   console.log('Creating "development" config for ESB writer');
   config({
-    source                      : 'writer-fd-dev.json',
+    source                      : 'writer-esb-dev.json',
     infoMakerPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/writer-dev-plugins',
     webwriterPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/writer-dev-plugins',
     newsItemTemplateId          : '20003109',
-    fdmgServicesBaseUrl         : 'https://webwriter-dev.esb.nu/fdmgapi/private/fd',
-    fdmgServicesNoProxyBaseUrl  : 'https://dev-api.fdmg.org/private/fd',
+    fdmgServicesBaseUrl         : 'https://webwriter-dev.esb.nu/fdmgapi/private/esb',
+    fdmgServicesNoProxyBaseUrl  : 'https://dev-api.fdmg.org/private/esb',
     fdmgServicesToken           : 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIxMjMiLCJzdWIiOiJzdmVuIiwicm9sZSI6InVzZXIifQ.omGBEdLl3e_bxNFq83bsTUZnO5HU_c0gltDuTFWM_KlLJWtlZzDo1F7jGD6zPD54XmimTAWmD5XKIlhMQVmChQ',
     hollandseHoogteToken        : '63401c89-63e9-35f9-9daa-a55ef26c3042',
     apiGatewayBaseUrl           : 'https://apigateway-dev.fdmg.nl',
-    fileName                    : 'dev-writer-client.json',
+    fileName                    : 'esb-dev-writer-client.json',
     destination                 : './dist'
   });
 });
