@@ -468,12 +468,52 @@
       "data": {
         "genres": [
           {
-            "id": "esb-1",
-            "label": "ESB Genre 1"
+            "id": "Bijlage",
+            "label": "Bijlage"
           },
           {
-            "id": "esb-2",
-            "label": "ESB Genre 2"
+            "id": "Blog",
+            "label": "Blog"
+          },
+          {
+            "id": "Column",
+            "label": "Column"
+          },
+          {
+            "id": "ESB",
+            "label": "ESB"
+          },
+          {
+            "id": "Event",
+            "label": "Event"
+          },
+          {
+            "id": "Kerstverhaal",
+            "label": "Kerstverhaal"
+          },
+          {
+            "id": "Kort",
+            "label": "Kort"
+          },
+          {
+            "id": "KVS",
+            "label": "KVS"
+          },
+          {
+            "id": "Lees nu",
+            "label": "Lees nu"
+          },
+          {
+            "id": "Nieuwjaarsatrikel",
+            "label": "Nieuwjaarsartikel"
+          },
+          {
+            "id": "Thema",
+            "label": "Thema"
+          },
+          {
+            "id": "Overig",
+            "label": "Overig"
           }
         ]
       }
@@ -487,104 +527,8 @@
       "data": {
         "rubrics": [
           {
-            "id": "Bartjens",
-            "label": "Bartjens"
-          },
-          {
-            "id": "Beursverslag",
-            "label": "Beursverslag"
-          },
-          {
-            "id": "Boardroom",
-            "label": "Boardroom"
-          },
-          {
-            "id": "Commentaar",
-            "label": "Commentaar"
-          },
-          {
-            "id": "Gazellen",
-            "label": "Gazellen"
-          },
-          {
-            "id": "Het Raderwerk",
-            "label": "Het Raderwerk"
-          },
-          {
-            "id": "Kantelpunt",
-            "label": "Kantelpunt"
-          },
-          {
-            "id": "Marktmeesters",
-            "label": "Marktmeesters"
-          },
-          {
-            "id": "Nieuws in beeld",
-            "label": "Nieuws in beeld"
-          },
-          {
-            "id": "Black Book",
-            "label": "Black Book"
-          },
-          {
-            "id": "Droomweekend",
-            "label": "Droomweekend"
-          },
-          {
-            "id": "Eten & Drinken",
-            "label": "Eten & Drinken"
-          },
-          {
-            "id": "Go!",
-            "label": "Go!"
-          },
-          {
-            "id": "Huis te koop",
-            "label": "Huis te koop"
-          },
-          {
-            "id": "Man van de wereld",
-            "label": "Man van de wereld"
-          },
-          {
-            "id": "Oog voor…",
-            "label": "Oog voor…"
-          },
-          {
-            "id": "Eyeopeners",
-            "label": "Eyeopeners"
-          },
-          {
-            "id": "Nieuw Bronnen",
-            "label": "Nieuw Bronnen"
-          },
-          {
-            "id": "Oude bronnen",
-            "label": "Oude bronnen"
-          },
-          {
-            "id": "Start-up Insights",
-            "label": "Start-up Insights"
-          },
-          {
-            "id": "Start-up Kitchen",
-            "label": "Start-up Kitchen"
-          },
-          {
-            "id": "Slimme Stekken",
-            "label": "Slimme Stekken"
-          },
-          {
-            "id": "TechTeam",
-            "label": "TechTeam"
-          },
-          {
-            "id": "Eerste baas",
-            "label": "Eerste baas"
-          },
-          {
-            "id": "Zakenauto",
-            "label": "Zakenauto"
+            "id": "rubric",
+            "label": "Rubric"
           }
         ]
       }
