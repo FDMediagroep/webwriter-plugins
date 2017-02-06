@@ -53,7 +53,7 @@ gulp.task('dev-config-fd-generate', function(){
   console.log('Creating "development" config for FD writer');
   config({
     source                      : 'writer-fd-dev.json',
-    infoMakerPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins',
+    infoMakerPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/writer-dev-plugins',
     webwriterPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins',
     newsItemTemplateId          : '1156201',
     fdmgServicesBaseUrl         : 'https://webwriter-dev.fd.nl/fdmgapi/private/fd',
@@ -70,7 +70,7 @@ gulp.task('acc-config-fd-generate', function(){
   console.log('Creating "acceptance" config for FD writer');
   config({
     source                      : 'writer-fd-dev.json',
-    infoMakerPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/webwriter-production-plugins',
+    infoMakerPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/writer-production-plugins',
     webwriterPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/webwriter-acc-plugins',
     newsItemTemplateId          : '1204619',
     fdmgServicesBaseUrl         : 'https://webwriter-acc.fd.nl/fdmgapi/private/fd',
@@ -87,7 +87,7 @@ gulp.task('prod-config-fd-generate', function(){
   console.log('Creating "production" config for FD writer');
   config({
     source                      : 'writer-fd-dev.json',
-    infoMakerPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/webwriter-production-plugins',
+    infoMakerPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/writer-production-plugins',
     webwriterPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/webwriter-plugins',
     newsItemTemplateId          : '1171067',
     fdmgServicesBaseUrl         : 'https://webwriter.fd.nl/fdmgapi/private/fd',
@@ -105,7 +105,7 @@ gulp.task('local-config-esb-generate', function(){
   console.log('Creating "local" config for ESB writer');
   config({
     source                      : 'writer-esb-dev.json',
-    infoMakerPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins',
+    infoMakerPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/writer-dev-plugins',
     webwriterPluginsBase        : 'http://localhost:3000',
     newsItemTemplateId          : '20003109',
     fdmgServicesBaseUrl         : 'https://webwriter-dev.esb.nu/fdmgapi/private/fd',
@@ -122,7 +122,7 @@ gulp.task('dev-config-esb-generate', function(){
   console.log('Creating "development" config for ESB writer');
   config({
     source                      : 'writer-esb-dev.json',
-    infoMakerPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins',
+    infoMakerPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/writer-dev-plugins',
     webwriterPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins',
     newsItemTemplateId          : '20003109',
     fdmgServicesBaseUrl         : 'https://webwriter-dev.esb.nu/fdmgapi/private/esb',
@@ -139,7 +139,7 @@ gulp.task('acc-config-esb-generate', function(){
   console.log('Creating "acceptance" config for ESB writer');
   config({
     source                      : 'writer-fd-dev.json',
-    infoMakerPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/webwriter-production-plugins',
+    infoMakerPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/writer-production-plugins',
     webwriterPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/webwebwriter-acc-plugins',
     newsItemTemplateId          : '20003109',
     fdmgServicesBaseUrl         : 'https://webwriter-acc.esb.nu/fdmgapi/private/fd',
@@ -156,7 +156,7 @@ gulp.task('prod-config-esb-generate', function(){
   console.log('Creating "production" config for ESB writer');
   config({
     source                      : 'writer-fd-dev.json',
-    infoMakerPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/webwriter-production-plugins',
+    infoMakerPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/writer-production-plugins',
     webwriterPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/webwriter-plugins',
     newsItemTemplateId          : '20003109',
     fdmgServicesBaseUrl         : 'https://webwriter.esb.nu/fdmgapi/private/fd',
