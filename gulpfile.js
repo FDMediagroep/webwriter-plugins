@@ -36,7 +36,7 @@ gulp.task('local-config-fd-generate', function(){
   console.log('Creating "local" config for FD writer');
   config({
     source                      : 'writer-fd-dev.json',
-    infoMakerPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins',
+    infoMakerPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/writer-dev-plugins',
     webwriterPluginsBase        : 'http://localhost:3000',
     newsItemTemplateId          : '30eae1c0-c640-4053-b114-05c64e28bbe7',
     fdmgServicesBaseUrl         : 'https://webwriter-dev.fd.nl/fdmgapi/private/fd',

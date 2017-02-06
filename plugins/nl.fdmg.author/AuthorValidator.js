@@ -9,7 +9,7 @@ class AuthorValidator extends FDValidator {
       const authors = this.newsItem.querySelectorAll('itemMeta > links link[type="x-im/author"]')
 
       if (authors.length === 0) {
-        this.addError(`${this.getLabel('Missing author')}`)
+        this.addError(this.getLabel('Missing author'))
       }
     }
   }
