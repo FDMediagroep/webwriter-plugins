@@ -569,8 +569,8 @@
       "id": "nl.fdmg.advertorial",
       "name": "advertorial",
       "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
-      "enabled": true,
-      "mandatory": true,
+      "enabled": false,
+      "mandatory": false,
       "data": {
         "endpoint": "FDMG_SERVICES_NO_PROXY_BASE_URL/articles/section/fd4.advertorial/children",
         "token": "FDMG_SERVICES_TOKEN",
@@ -584,7 +584,7 @@
       "enabled": true,
       "mandatory": true,
       "data": {
-        "endpoint": "FDMG_SERVICES_NO_PROXY_BASE_URL/articles/section/fd4.service/allchildren",
+        "endpoint": "FDMG_SERVICES_NO_PROXY_BASE_URL/articles/section/service/allchildren",
         "token": "FDMG_SERVICES_TOKEN",
         "optionsGroup": "articletype"
       }
