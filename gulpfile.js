@@ -140,7 +140,7 @@ gulp.task('acc-config-esb-generate', function(){
   config({
     source                      : 'writer-fd-dev.json',
     infoMakerPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/writer-production-plugins',
-    webwriterPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/webwebwriter-acc-plugins',
+    webwriterPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/webwriter-acc-plugins',
     newsItemTemplateId          : '20003109',
     fdmgServicesBaseUrl         : 'https://webwriter-acc.esb.nu/fdmgapi/private/fd',
     fdmgServicesNoProxyBaseUrl  : 'https://acc-api.fdmg.org/private/fd',
