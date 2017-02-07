@@ -454,6 +454,14 @@
           {
             "id": "kort",
             "label": "Kort"
+          },
+          {
+            "id": "kvs",
+            "label": "KVS"
+          },
+          {
+            "id": "overig",
+            "label": "Overig"
           }
         ]
       }
