@@ -17,7 +17,7 @@ var rename = require('gulp-rename');
 var replace = require('gulp-replace');
 
 function config(data) {
-  console.log('Replace placeholders in ./src/config/placeholder/AppConfig.ts');
+  console.log('Written ' + data.fileName + ' to: ' + data.destination);
   return gulp.src([data.source])
     .pipe(replace(/INFOMAKER_PLUGINS_BASE_URL/g, data.infoMakerPluginsBase))
     .pipe(replace(/WEBWRITER_PLUGINS_BASE_URL/g, data.webwriterPluginsBase))
