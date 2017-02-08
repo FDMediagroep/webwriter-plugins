@@ -118,8 +118,8 @@
       "name": "stockticker",
       "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
       "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
-      "enabled": true,
-      "mandatory": true,
+      "enabled": false,
+      "mandatory": false,
       "data": {
         "endpoint": "http://beurs.fd.nl/webservices/fd/quicksearch?query="
       }
@@ -253,8 +253,8 @@
       "name": "workflowstate",
       "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
       "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
-      "enabled": true,
-      "mandatory": true,
+      "enabled": false,
+      "mandatory": false,
       "data" : {
         "options": [
           { "label": "PREPARE", "text": "In voorbereiding", "color": "#cdcdcd" },
@@ -284,8 +284,8 @@
       "name": "textcountselector",
       "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
       "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
-      "enabled": true,
-      "mandatory": true
+      "enabled": false,
+      "mandatory": false
     },
     {
       "id": "nl.fdmg.tags",
@@ -304,8 +304,8 @@
       "name": "textanalyzer",
       "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
       "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
-      "enabled": true,
-      "mandatory": true,
+      "enabled": false,
+      "mandatory": false,
       "data": {
         "counting": [
           "paragraph",
@@ -375,8 +375,8 @@
       "id": "nl.fdmg.fdpersonal",
       "name": "fdpersonal",
       "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
-      "enabled": true,
-      "mandatory": true
+      "enabled": false,
+      "mandatory": false
     },
     {
       "id": "nl.fdmg.showrelatedarticles",
@@ -396,8 +396,8 @@
       "id": "nl.fdmg.topstory",
       "name": "topstory",
       "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
-      "enabled": true,
-      "mandatory": true
+      "enabled": false,
+      "mandatory": false
     },
     {
       "id": "nl.fdmg.comments",
@@ -444,36 +444,24 @@
       "data": {
         "sections": [
           {
-            "id": "beursradar",
-            "label": "Beurs"
+            "id": "blog",
+            "label": "Blog"
           },
           {
-            "id": "economie-politiek",
-            "label": "Economie & Politiek"
+            "id": "esb",
+            "label": "ESB"
           },
           {
-            "id": "fd-persoonlijk",
-            "label": "FD Persoonlijk"
+            "id": "kort",
+            "label": "Kort"
           },
           {
-            "id": "morgen",
-            "label": "Morgen"
+            "id": "kvs",
+            "label": "KVS"
           },
           {
-            "id": "ondernemen",
-            "label": "Ondernemen"
-          },
-          {
-            "id": "opinie",
-            "label": "Opinie"
-          },
-          {
-            "id": "profiel",
-            "label": "Profiel"
-          },
-          {
-            "id": "werk-geld",
-            "label": "Werk & Geld"
+            "id": "overig",
+            "label": "Overig"
           }
         ]
       }
@@ -488,16 +476,8 @@
       "data": {
         "genres": [
           {
-            "id": "Achtergrond",
-            "label": "Achtergrond"
-          },
-          {
-            "id": "Analyse",
-            "label": "Analyse"
-          },
-          {
-            "id": "Audio",
-            "label": "Audio"
+            "id": "Bijlage",
+            "label": "Bijlage"
           },
           {
             "id": "Blog",
@@ -508,36 +488,40 @@
             "label": "Column"
           },
           {
-            "id": "Fotoserie",
-            "label": "Fotoserie"
+            "id": "ESB",
+            "label": "ESB"
           },
           {
-            "id": "Interview",
-            "label": "Interview"
+            "id": "Event",
+            "label": "Event"
           },
           {
-            "id": "Liveblog",
-            "label": "Liveblog"
+            "id": "Kerstverhaal",
+            "label": "Kerstverhaal"
           },
           {
-            "id": "Opinie",
-            "label": "Opinie"
+            "id": "Kort",
+            "label": "Kort"
           },
           {
-            "id": "Opnieuw relevant",
-            "label": "Opnieuw relevant"
+            "id": "KVS",
+            "label": "KVS"
           },
           {
-            "id": "Uitgelicht",
-            "label": "Uitgelicht"
+            "id": "Lees nu",
+            "label": "Lees nu"
           },
           {
-            "id": "Update",
-            "label": "Update"
+            "id": "Nieuwjaarsatrikel",
+            "label": "Nieuwjaarsartikel"
           },
           {
-            "id": "Video",
-            "label": "Video"
+            "id": "Thema",
+            "label": "Thema"
+          },
+          {
+            "id": "Overig",
+            "label": "Overig"
           }
         ]
       }
@@ -546,105 +530,13 @@
       "id": "nl.fdmg.rubric",
       "name": "rubric",
       "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
-      "enabled": true,
-      "mandatory": true,
+      "enabled": false,
+      "mandatory": false,
       "data": {
         "rubrics": [
           {
-            "id": "Beursverslag",
-            "label": "Beursverslag"
-          },
-          {
-            "id": "Boardroom",
-            "label": "Boardroom"
-          },
-          {
-            "id": "Commentaar",
-            "label": "Commentaar"
-          },
-          {
-            "id": "Gazellen",
-            "label": "Gazellen"
-          },
-          {
-            "id": "Het Raderwerk",
-            "label": "Het Raderwerk"
-          },
-          {
-            "id": "Kantelpunt",
-            "label": "Kantelpunt"
-          },
-          {
-            "id": "Marktmeesters",
-            "label": "Marktmeesters"
-          },
-          {
-            "id": "Nieuws in beeld",
-            "label": "Nieuws in beeld"
-          },
-          {
-            "id": "Black Book",
-            "label": "Black Book"
-          },
-          {
-            "id": "Droomweekend",
-            "label": "Droomweekend"
-          },
-          {
-            "id": "Eten & Drinken",
-            "label": "Eten & Drinken"
-          },
-          {
-            "id": "Go!",
-            "label": "Go!"
-          },
-          {
-            "id": "Huis te koop",
-            "label": "Huis te koop"
-          },
-          {
-            "id": "Man van de wereld",
-            "label": "Man van de wereld"
-          },
-          {
-            "id": "Oog voor…",
-            "label": "Oog voor…"
-          },
-          {
-            "id": "Eyeopeners",
-            "label": "Eyeopeners"
-          },
-          {
-            "id": "Nieuw Bronnen",
-            "label": "Nieuw Bronnen"
-          },
-          {
-            "id": "Oude bronnen",
-            "label": "Oude bronnen"
-          },
-          {
-            "id": "Start-up Insights",
-            "label": "Start-up Insights"
-          },
-          {
-            "id": "Start-up Kitchen",
-            "label": "Start-up Kitchen"
-          },
-          {
-            "id": "Slimme Stekken",
-            "label": "Slimme Stekken"
-          },
-          {
-            "id": "TechTeam",
-            "label": "TechTeam"
-          },
-          {
-            "id": "Eerste baas",
-            "label": "Eerste baas"
-          },
-          {
-            "id": "Zakenauto",
-            "label": "Zakenauto"
+            "id": "rubric",
+            "label": "Rubric"
           }
         ]
       }
@@ -661,10 +553,6 @@
           {
             "id": "ARTICLE",
             "label": "Artikel"
-          },
-          {
-            "id": "PHOTO_SERIES",
-            "label": "Fotoserie"
           },
           {
             "id": "EVENT",
@@ -689,8 +577,8 @@
       "id": "nl.fdmg.advertorial",
       "name": "advertorial",
       "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
-      "enabled": true,
-      "mandatory": true,
+      "enabled": false,
+      "mandatory": false,
       "data": {
         "endpoint": "FDMG_SERVICES_NO_PROXY_BASE_URL/articles/section/fd4.advertorial/children",
         "token": "FDMG_SERVICES_TOKEN",
@@ -704,7 +592,7 @@
       "enabled": true,
       "mandatory": true,
       "data": {
-        "endpoint": "FDMG_SERVICES_NO_PROXY_BASE_URL/articles/section/fd4.service/allchildren",
+        "endpoint": "FDMG_SERVICES_NO_PROXY_BASE_URL/articles/section/service/allchildren",
         "token": "FDMG_SERVICES_TOKEN",
         "optionsGroup": "articletype"
       }
@@ -725,8 +613,8 @@
       "name": "planneddate",
       "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
       "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
-      "enabled": true,
-      "mandatory": true
+      "enabled": false,
+      "mandatory": false
     },
     {
       "id": "nl.fdmg.htmlembed",
@@ -769,8 +657,8 @@
       "name": "preview",
       "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
       "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
-      "enabled": true,
-      "mandatory": true,
+      "enabled": false,
+      "mandatory": false,
       "data": {
         "previewBaseUrl": "//preview.fd.nl/_/${id}/_"
       }
