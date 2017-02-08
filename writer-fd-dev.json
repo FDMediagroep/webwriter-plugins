@@ -551,10 +551,6 @@
       "data": {
         "rubrics": [
           {
-            "id": "Bartjens",
-            "label": "Bartjens"
-          },
-          {
             "id": "Beursverslag",
             "label": "Beursverslag"
           },
