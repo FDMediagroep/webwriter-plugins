@@ -3,7 +3,7 @@ import {api} from 'writer'
 
 class TextcountSelectorValidator extends FDValidator {
   validate() {
-    if (this.isShortArticle || this.isAdvertorial || this.isEvents || this.isRedirectArticle) return
+    if (this.isShortArticle || this.isAdvertorial || this.isEvents || this.isRedirectArticle || this.isServicePage) return
 
     if (this.submitted || this.published) {
       const textcount = this.newsItem.querySelector('itemMeta > links link[type="fdmg/textcount"]')
