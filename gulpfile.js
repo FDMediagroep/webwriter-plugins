@@ -92,7 +92,7 @@ gulp.task('prod-config-fd-generate', function(){
     newsItemTemplateId          : '1171067',
     fdmgServicesBaseUrl         : 'https://webwriter.fd.nl/fdmgapi/private/fd',
     fdmgServicesNoProxyBaseUrl  : 'https://api.fdmg.org/private/fd',
-    fdmgServicesToken           : 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiItMjgyODgyODMxNDU0ODY5MzIyIiwic3ViIjoiaW5mb21ha2VyIiwicm9sZSI6IlVTRVIifQ.8j3gRJplT9t0mUPEjWoGUxOO7kvJqbhwrIdneOY7Csyy8oyr8ff3XmdHfXpC4VCiWT8O06sSlP-9We63l60Gw',
+    fdmgServicesToken           : 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiItMjgyODgyODMxNDU0ODY5MzIyIiwic3ViIjoiaW5mb21ha2VyIiwicm9sZSI6IlVTRVIifQ.8j3gRJplT9t0mUPEjWoGUxOO7kvJqbhwrIdneOY7Csyy8oy_r8ff3XmdHfXpC4VCiWT8O06sSlP-9We63l60Gw',
     hollandseHoogteToken        : '77bd7434-7ffa-34b8-bafe-a1b6f24be599',
     apiGatewayBaseUrl           : 'https://apigateway.fdmg.nl',
     fileName                    : 'prod-writer-client.json',

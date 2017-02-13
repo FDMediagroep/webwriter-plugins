@@ -2,7 +2,7 @@ import FDValidator from '../nl.fdmg.fdvalidator/FDValidator'
 
 class AuthorValidator extends FDValidator {
   validate() {
-    if (this.isShortArticle || this.isAdvertorial || this.isEvents || this.isRedirectArticle) return
+    if (this.isShortArticle || this.isAdvertorial || this.isEvents || this.isRedirectArticle || this.isServicePage) return
 
 
     if (this.drafted || this.submitted || this.published) {
