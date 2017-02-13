@@ -5,11 +5,11 @@ import './scss/relatedarticles.scss'
 class RelatedArticlesComponent extends Component {
   constructor(...args) {
     super(...args)
-    this.name = 'relatedarticle'
-    this.type = 'fdmg/relatedarticle'
   }
 
   getInitialState() {
+    this.name = 'relatedarticle';
+    this.type = 'fdmg/relatedarticle';
     return this.readState()
   }
 
@@ -26,23 +26,24 @@ class RelatedArticlesComponent extends Component {
                   $$('span')
                     .append($$(FontAwesomeIcon, {icon: 'fa-times'}))
                     .on('click', () => {
-                      const ref = this.refs['redirectarticleurl-' + i.toString()]
-                      ref.val('')
+                      const ref = this.refs['redirectarticleurl-' + i.toString()];
+                      ref.val('');
                       this.save()
                     }),
                   $$('input')
                     .addClass('form-control')
-                    .attr({type: 'text', placeholder: this.getLabel('Article url')})
+                    .attr({type: 'text', placeholder: this.getLabel('Article url'), value: this.state.urls[i]})
                     .ref('redirectarticleurl-' + i.toString())
-                    .on('blur', () => {this.save()})
+                    .on('blur', () => {
+                      this.save()
+                    })
                 )
             )
           )
           .append($$('hr'))
-        )
+      );
 
-    const urls = this.state.urls
-
+    const urls = this.state.urls;
     if (this.refs['redirectarticleurl-0']) {
       this.refs['redirectarticleurl-0'].val(urls.length >= 1 ? urls[0] : '')
     }
@@ -59,12 +60,12 @@ class RelatedArticlesComponent extends Component {
       .filter(e => e[0].indexOf('redirectarticleurl-') === 0)
       .map(e => e[1])
       .map(r => r.val())
-      .filter(r => Boolean(r))
+      .filter(r => Boolean(r));
 
     // Remove existing links
     api.newsItem
       .getLinkByType(this.name, this.type)
-      .forEach(l => api.newsItem.removeLinkByUUIDAndRel(this.name, l['@uuid'], l['@rel']))
+      .forEach(l => api.newsItem.removeLinkByUUIDAndRel(this.name, l['@uuid'], l['@rel']));
 
     // Create new links
     newUrls.forEach(url =>
@@ -72,10 +73,10 @@ class RelatedArticlesComponent extends Component {
         '@type': this.type,
         '@rel': this.name,
         '@url': url,
-        '@id': this.extractId(url),
+        '@id': RelatedArticlesComponent.extractId(url),
         '@uuid': idGenerator()
       })
-    )
+    );
 
     this.reloadState()
   }
@@ -92,10 +93,10 @@ class RelatedArticlesComponent extends Component {
     }
   }
 
-  extractId(url) {
-    const res = (/^.*fd\.nl.*\/(\d+).*$/i).exec(url)
+  static extractId(url) {
+    const res = (/^.*fd\.nl.*\/(\d+).*$/i).exec(url);
 
-    if (res && res.length === 2) return res[1]
+    if (res && res.length === 2) return res[1];
 
     return ''
   }
