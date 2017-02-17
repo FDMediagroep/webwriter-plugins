@@ -138,16 +138,16 @@ gulp.task('dev-config-esb-generate', function(){
 gulp.task('acc-config-esb-generate', function(){
   console.log('Creating "acceptance" config for ESB writer');
   config({
-    source                      : 'writer-fd-dev.json',
+    source                      : 'writer-esb-dev.json',
     infoMakerPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/writer-production-plugins',
     webwriterPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/webwriter-acc-plugins',
-    newsItemTemplateId          : '20003109',
+    newsItemTemplateId          : '20035194',
     fdmgServicesBaseUrl         : 'https://webwriter-acc.esb.nu/fdmgapi/private/esb',
     fdmgServicesNoProxyBaseUrl  : 'https://acc-api.fdmg.org/private/esb',
-    fdmgServicesToken           : 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiItODQ4NjA0OTc4NTk4NTYxODE5NSIsInN1YiI6ImZkbWdfc2VydmljZXMiLCJyb2xlIjoiVVNFUiJ9.VVES6D2RCrF90XvZLS8BWu0FoEGdCOlkfCtE7hvrVHp3Zw_ZxtqD8Es5KG4fQKBWZtWCKHJEQU2yUnHVYPqsCQ',
+    fdmgServicesToken           : 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiI1ODU3NzQxNjc3OTI0MDAxNDEyIiwic3ViIjoiU2VydmljZXMiLCJyb2xlIjoiVVNFUiJ9.C1yWr2ig_fwU-IrxHGripFidqkNzf4ImIBDnB4oBpgqF3XR6GZbt40D2DvO1cno_UA8FlaBi9hE5y4OH-BTsNw',
     hollandseHoogteToken        : 'f021be3b-a527-364a-a93e-03de82270efc',
     apiGatewayBaseUrl           : 'https://apigateway-acc.fdmg.nl',
-    fileName                    : 'acc-writer-client.json',
+    fileName                    : 'esb-acc-writer-client.json',
     destination                 : './dist'
   });
 });
@@ -155,16 +155,16 @@ gulp.task('acc-config-esb-generate', function(){
 gulp.task('prod-config-esb-generate', function(){
   console.log('Creating "production" config for ESB writer');
   config({
-    source                      : 'writer-fd-dev.json',
+    source                      : 'writer-esb-dev.json',
     infoMakerPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/writer-production-plugins',
     webwriterPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/webwriter-plugins',
-    newsItemTemplateId          : '20003109',
+    newsItemTemplateId          : '20022794',
     fdmgServicesBaseUrl         : 'https://webwriter.esb.nu/fdmgapi/private/esb',
     fdmgServicesNoProxyBaseUrl  : 'https://acc.fdmg.org/private/esb',
     fdmgServicesToken           : 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiItNjY2MjU2NzgyNTk5OTIwMDM3NyIsInN1YiI6ImZkbWdfc2VydmljZXMiLCJyb2xlIjoiVVNFUiJ9.7a3I4CJbMM8BSf4sT3mbcEoMB9ttmbr9znXND0Y024b_OO9AEwCkOzkaHEkjrjglYJfyJCO59wzfzE0ZK_Fjbg',
     hollandseHoogteToken        : '77bd7434-7ffa-34b8-bafe-a1b6f24be599',
     apiGatewayBaseUrl           : 'https://apigateway.fdmg.nl',
-    fileName                    : 'prod-writer-client.json',
+    fileName                    : 'esb-prod-writer-client.json',
     destination                 : './dist'
   });
 });
