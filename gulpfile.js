@@ -31,6 +31,23 @@ function config(data) {
     .pipe(gulp.dest(data.destination));
 }
 
+gulp.task('config-devbox-generate', function(){
+  console.log('Creating config for devbox VM');
+  config({
+    source                      : 'writer-fd-dev.json',
+    infoMakerPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/writer-dev-plugins',
+    webwriterPluginsBase        : 'http://localhost:3000',
+    newsItemTemplateId          : '819',
+    fdmgServicesBaseUrl         : 'https://api-devbox.fdmg.org/private',
+    fdmgServicesNoProxyBaseUrl  : 'https://api-devbix.fdmg.org/private',
+    fdmgServicesToken           : 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIxMjMiLCJzdWIiOiJzdmVuIiwicm9sZSI6InVzZXIifQ.omGBEdLl3e_bxNFq83bsTUZnO5HU_c0gltDuTFWM_KlLJWtlZzDo1F7jGD6zPD54XmimTAWmD5XKIlhMQVmChQ',
+    hollandseHoogteToken        : '63401c89-63e9-35f9-9daa-a55ef26c3042',
+    apiGatewayBaseUrl           : 'https://apigateway-dev.fdmg.nl',
+    fileName                    : 'writer-fd-dev.json',
+    destination                 : '../NPWriter/dist/server/config/writer.json'
+  });
+});
+
 /* FD Environments */
 gulp.task('local-config-fd-generate', function(){
   console.log('Creating "local" config for FD writer');

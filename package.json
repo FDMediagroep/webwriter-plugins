@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config webpack.production.config.js",
-    "dev": "webpack-dev-server --content-base build/ --config webpack.config.js --hot --progress --colors --watch"
+    "dev": "webpack-dev-server --content-base build/ --config webpack.config.js --hot --progress --colors --watch --host 0.0.0.0"
   },
   "author": "FDMG",
   "license": "ISC",
