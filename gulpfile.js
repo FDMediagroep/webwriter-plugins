@@ -43,8 +43,8 @@ gulp.task('config-devbox-generate', function(){
     fdmgServicesToken           : 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIxMjMiLCJzdWIiOiJzdmVuIiwicm9sZSI6InVzZXIifQ.omGBEdLl3e_bxNFq83bsTUZnO5HU_c0gltDuTFWM_KlLJWtlZzDo1F7jGD6zPD54XmimTAWmD5XKIlhMQVmChQ',
     hollandseHoogteToken        : '63401c89-63e9-35f9-9daa-a55ef26c3042',
     apiGatewayBaseUrl           : 'https://apigateway-dev.fdmg.nl',
-    fileName                    : 'writer-fd-dev.json',
-    destination                 : '../NPWriter/dist/server/config/writer.json'
+    fileName                    : 'writer.json',
+    destination                 : '../NPWriter/dist/server/config'
   });
 });
 
