@@ -36,7 +36,7 @@ gulp.task('config-devbox-generate', function(){
   config({
     source                      : 'writer-fd-dev.json',
     infoMakerPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/writer-dev-plugins',
-    webwriterPluginsBase        : 'http://localhost:3000',
+    webwriterPluginsBase        : 'http://devbox.fdmg.org:3000',
     newsItemTemplateId          : '819',
     fdmgServicesBaseUrl         : 'https://api-devbox.fdmg.org/private',
     fdmgServicesNoProxyBaseUrl  : 'https://api-devbix.fdmg.org/private',
