@@ -6,6 +6,7 @@ class ShowRelatedArticlesComponent extends ArticleOptionComponent {
       name: "showrelatedarticles",
       type: "fdmg/showrelatedarticles",
       label: "Show related articles",
+      pluginId: 'nl.fdmg.showrelatedarticles',
       hasInput: false,
     }, ...args)
   }

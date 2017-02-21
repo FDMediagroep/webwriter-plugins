@@ -480,16 +480,8 @@
             "label": "Bijlage"
           },
           {
-            "id": "Blog",
-            "label": "Blog"
-          },
-          {
             "id": "Column",
             "label": "Column"
-          },
-          {
-            "id": "ESB",
-            "label": "ESB"
           },
           {
             "id": "Event",
@@ -498,14 +490,6 @@
           {
             "id": "Kerstverhaal",
             "label": "Kerstverhaal"
-          },
-          {
-            "id": "Kort",
-            "label": "Kort"
-          },
-          {
-            "id": "KVS",
-            "label": "KVS"
           },
           {
             "id": "Lees nu",
@@ -518,10 +502,6 @@
           {
             "id": "Thema",
             "label": "Thema"
-          },
-          {
-            "id": "Overig",
-            "label": "Overig"
           }
         ]
       }
