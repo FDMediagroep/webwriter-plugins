@@ -21,7 +21,6 @@ export default class ArticleOptionComponent extends Component {
     this.pluginId = plugin.pluginId;
     this.items = plugin.items;
     this.hasSelect = plugin.hasSelect;
-
     this.extendState(this.getInitialState());
 
     /**

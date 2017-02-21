@@ -6,6 +6,7 @@ class BreakingarticleComponent extends ArticleOptionComponent {
       name: "breakingarticle",
       type: "fdmg/breakingarticle",
       label: "Breaking article",
+      pluginId: 'nl.fdmg.breakingarticle',
       hasInput: false
     }, ...args)
   }

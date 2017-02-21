@@ -6,6 +6,7 @@ class PaywallComponent extends ArticleOptionComponent {
       name: "paywall",
       type: "fdmg/paywall",
       label: "Free article",
+      pluginId: 'nl.fdmg.paywall',
       hasInput: false,
     }, ...args)
   }

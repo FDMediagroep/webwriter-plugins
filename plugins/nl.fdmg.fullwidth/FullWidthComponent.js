@@ -6,6 +6,7 @@ class FullWidthComponent extends ArticleOptionComponent {
       name: "fullwidth",
       type: "fdmg/fullwidth",
       label: "Full width article",
+      pluginId: 'nl.fdmg.fullwidth',
       hasInput: false
     }, ...args)
   }

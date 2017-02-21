@@ -8,6 +8,7 @@ class TopstoryComponent extends ArticleOptionComponent {
       type: "fdmg/topstory",
       label: "Topstory",
       placeholder: "Topstory text",
+      pluginId: 'nl.fdmg.topstory',
       hasInput: true
     }, ...args)
   }

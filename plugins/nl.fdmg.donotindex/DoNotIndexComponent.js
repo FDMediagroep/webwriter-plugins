@@ -6,6 +6,7 @@ class DoNotIndexComponent extends ArticleOptionComponent {
       name: "donotindex",
       type: "fdmg/donotindex",
       label: "Do not index",
+      pluginId: 'nl.fdmg.donotindex',
       hasInput: false
     }, ...args)
   }

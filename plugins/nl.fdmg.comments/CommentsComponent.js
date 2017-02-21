@@ -6,6 +6,7 @@ class CommentsComponent extends ArticleOptionComponent {
       name: "comments",
       type: "fdmg/comments",
       label: "Enable comments",
+      pluginId: 'nl.fdmg.comments',
       hasInput: false
     }, ...args)
   }
