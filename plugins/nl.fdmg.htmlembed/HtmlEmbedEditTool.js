@@ -6,7 +6,7 @@ class HtmlEmbedEditTool extends Tool {
     this.resize()
 
     const textarea = this.refs.embedcode
-    textarea.el.el.focus()
+    textarea.getNativeElement().focus()
 
     textarea.el.on('keydown', this.resize)
 
@@ -38,7 +38,7 @@ class HtmlEmbedEditTool extends Tool {
   }
 
   resize() {
-    const htmlTextarea = this.refs.embedcode.el
+    const htmlTextarea = this.refs.embedcode.getNativeElement()
     setTimeout(() => {
       htmlTextarea.style.height = 'auto'
       htmlTextarea.style.height = htmlTextarea.scrollHeight

@@ -38,7 +38,7 @@ class SearchFieldComponent extends Component {
     if (this.props.autoFocus) {
       // Use setTimeout because of reasons
       setTimeout(() => {
-        this.refs.searchInput.focus()
+        this.refs.searchInput.getNativeElement().focus()
       }, 40)
     }
   }

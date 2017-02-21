@@ -33,7 +33,7 @@ class ImageSearchDialog extends Component {
   }
 
   didMount() {
-    this.refs.searchfield.focus()
+    this.refs.searchfield.getNativeElement().focus();
 
     // TODO Make this more solid, don't rely on .parent * 3
     this.refs.dialog.parent.parent.parent.addClass('image-search-dialog')
