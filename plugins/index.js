@@ -1,3 +1,4 @@
+import Styles from './nl.fdmg.styles/index';
 import SidebarTabs from './nl.fdmg.sidebartabs/index';
 
 import LocalFocus from './nl.fdmg.localfocus/index'
@@ -57,6 +58,7 @@ import HeadlineStandin from './nl.fdmg.headlinestandin/index';
 import Translations from './nl.fdmg.translations/index';
 
 (() => {
+  Styles();
   SidebarTabs();
   LocalFocus();
 

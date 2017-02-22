@@ -4,6 +4,14 @@
   "labelLanguage": "nl",
   "plugins": [
     {
+      "id": "nl.fdmg.styles",
+      "name": "styles",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
+      "enabled": true,
+      "mandatory": true
+    },
+    {
       "id": "se.infomaker.headline",
       "name": "headline",
       "url": "INFOMAKER_PLUGINS_BASE_URL/fd.js",

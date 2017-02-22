@@ -31,8 +31,6 @@ export default {
       'nl': "Kopieer afbeelding naar 'Intro voor de homepage'"
     });
 
-
-
     config.addLabel('Missing teaser title', {
       'nl': 'Teaser titel ontbreekt'
     })
