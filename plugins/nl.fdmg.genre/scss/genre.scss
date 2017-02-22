@@ -10,8 +10,9 @@
     border-top: 1px solid rgba(0,0,0,0.1);
   }
   h2 {
-    font-size: 0.9em;
+    font-size: 1em;
     font-weight: bold;
+    margin-bottom: 5px;
     i {
       font-size: 0.5em;
       position: relative;
@@ -141,7 +142,7 @@ a.fdmg-box {
         color: #181818;
         span {
           vertical-align: middle;
-          font-size: 1em;
+          font-size: 1.1em;
         }
       }
       input[type="checkbox"] {
