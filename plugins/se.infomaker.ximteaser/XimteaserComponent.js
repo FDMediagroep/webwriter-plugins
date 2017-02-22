@@ -78,7 +78,7 @@ class XimteaserComponent extends Component {
         $$('button').addClass('inline-plugin-button')
          .append(
            $$('i').addClass('fa fa-picture-o'))
-           .attr('title', 'Add/search image')
+           .attr('title', this.getLabel('Add/search image'))
            .on('click', () => {
              api.ui.showDialog(
                ImageSearchDialog, {
