@@ -644,13 +644,6 @@
       }
     },
     {
-      "id": "nl.fdmg.ximteaserstandin",
-      "name": "ximteaserstandin",
-      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
-      "enabled": false,
-      "mandatory": true
-    },
-    {
       "id": "nl.fdmg.ximimagestandin",
       "name": "ximimagestandin",
       "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
