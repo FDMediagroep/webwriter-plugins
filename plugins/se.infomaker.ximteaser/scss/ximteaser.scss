@@ -1,4 +1,9 @@
 .sc-ximteaser {
+    &.im-blocknode__container {
+        .header {
+            margin: 0 0 15px 2px;
+        }
+    }
     .fileinput {
         display: none;
         .upload-button {

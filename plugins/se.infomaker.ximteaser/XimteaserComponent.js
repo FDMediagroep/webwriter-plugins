@@ -75,9 +75,9 @@ class XimteaserComponent extends Component {
       .append([
         $$(FontAwesomeIcon, {icon: 'fa-newspaper-o'}),
         $$('strong').append(this.getLabel('Teaser')),
-        $$('div').addClass('image-search-button').append(
-         $$('button')
-           .append($$('i').addClass('fa fa-picture-o'))
+        $$('button').addClass('inline-plugin-button')
+         .append(
+           $$('i').addClass('fa fa-picture-o'))
            .attr('title', 'Add/search image')
            .on('click', () => {
              api.ui.showDialog(
@@ -93,7 +93,6 @@ class XimteaserComponent extends Component {
                }
              )
            })
-         )
       ])
       .addClass('header')
   }

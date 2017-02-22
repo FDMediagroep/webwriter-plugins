@@ -15,11 +15,11 @@ class HtmlEmbedComponent extends Component {
             $$('strong')
               .attr({contenteditable: false})
               .append(this.getLabel('HTML Embed')),
-            $$('span')
-              .addClass('edit-button')
-              .attr({title: this.getLabel('Edit embed code')})
-              .append($$(FontAwesomeIcon, {icon: 'fa-pencil-square-o'}))
-              .on('click', this.editEmbedHtml)
+              $$('button')
+                .addClass('inline-plugin-button')
+                .attr({title: this.getLabel('Edit embed code')})
+                .append($$(FontAwesomeIcon, {icon: 'fa-pencil-square-o'}))
+                .on('click', this.editEmbedHtml)
           ),
           $$('div')
             .addClass('im-blocknode__content')
@@ -46,7 +46,7 @@ class HtmlEmbedComponent extends Component {
   updateHtmlOnNode(html) {
     api.editorSession.transaction(tx => {
       tx.set([this.props.node.id, 'text'], html)
-    })
+    });
     this.rerender()
   }
 }

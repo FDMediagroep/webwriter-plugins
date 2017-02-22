@@ -43,8 +43,6 @@ a.fdmg-box {
     div.header {
       .remove-button { display: block; }
       .edit-button { display: block; }
-      border-bottom: 1px solid #efefef;
-      opacity: 1;
     }
   }
   .plugin-title {
@@ -63,27 +61,10 @@ a.fdmg-box {
   }
 
   div.header {
-    opacity: 0.2;
     display: block;
     margin-bottom: 5px;
     float: left;
     width: 100%;
-    border-bottom: 1px solid #ffffff;
-    -webkit-transition: opacity 0.5s, border-bottom 0.5s;
-    transition: opacity 0.5s, border-bottom 0.5s;
-    &:hover {
-      cursor: move;
-    }
-    .remove-button {
-      display: none;
-      float: right;
-      color: #d9534f;
-      cursor: pointer;
-      font-size: 0.9rem;
-      line-height: 1;
-      padding: 5px 5px 5px 5px;
-      margin-right: -5px;
-    }
 
     .edit-button {
       display: none;
@@ -97,7 +78,6 @@ a.fdmg-box {
       &:hover { color: #000; }
     }
   }
-
 }
 
 .fdmg-dialog {
@@ -242,13 +222,17 @@ div{
   }
 }
 
-
 .sc-strong {
   font-family: Tahoma, sans-serif;
   font-size: 0.9em;
 }
 .im-blocknode__container {
   .header {
+    .inline-plugin-button {
+      .fa {
+        color: white;
+      }
+    }
     .fa {
       color: #333;
     }
@@ -266,7 +250,6 @@ div{
     }
   }
 }
-
 
 // Infomaker teaser image height override
 .sc-image-display,
@@ -293,7 +276,7 @@ div{
 
 // Infomaker html-embed override
 .im-htmlembed {
-  max-height: 200px;
+  max-height: 140px;
   overflow: hidden;
 }
 
@@ -327,5 +310,30 @@ div.x-im-teaser div.x-im-teaser-text::before {
 .sc-context-menu {
   > .sc-tool-group {
     min-width: 130px;
+  }
+}
+
+.inline-plugin-button {
+  float: right;
+  display: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  position: relative;
+  font-size: 0.9em;
+  i {
+    &.fa {
+      position: absolute;
+      left: 6px;
+      top: 8px;
+      color: white;
+    }
+  }
+}
+
+.sm-selected, .sm-focused {
+  .inline-plugin-button {
+    display: inline;
+    background-color: rgb(0, 152, 199);
   }
 }
