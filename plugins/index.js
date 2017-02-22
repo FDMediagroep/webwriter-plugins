@@ -49,7 +49,6 @@ import Workflowstate from './nl.fdmg.workflowstate/index';
 
 import ImageSearch from './nl.fdmg.imagesearch/index';
 
-import XimTeaserStandin from './nl.fdmg.ximteaserstandin/index';
 import XimImageStandin from './nl.fdmg.ximimagestandin/index';
 import Teaser from './se.infomaker.ximteaser/index';
 import HeadlineStandin from './nl.fdmg.headlinestandin/index';
@@ -109,7 +108,6 @@ import Translations from './nl.fdmg.translations/index';
 
   ImageSearch();
 
-  XimTeaserStandin();
   XimImageStandin();
   Teaser();
   HeadlineStandin();
