@@ -335,5 +335,8 @@ div.x-im-teaser div.x-im-teaser-text::before {
   .inline-plugin-button {
     display: inline;
     background-color: rgb(0, 152, 199);
+    &:hover {
+      background-color: #00abe1;
+    }
   }
 }
