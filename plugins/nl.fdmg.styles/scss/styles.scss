@@ -201,7 +201,7 @@ a.fdmg-box {
 div{
   &.x-im-image-dynamic{
     &:last-child {
-      border: none;
+      border-bottom: 1px solid transparent;
     }
   }
 }

@@ -19,7 +19,6 @@ class VersionSelectorDialog extends Component {
     this.props.applyVersion(version, article)
   }
 
-
   onClose(status) {
     if ('cancel' === status) {
       return true;
