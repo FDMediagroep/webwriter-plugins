@@ -178,7 +178,7 @@ gulp.task('prod-config-esb-generate', function(){
     newsItemTemplateId          : '20022794',
     fdmgServicesBaseUrl         : 'https://webwriter.esb.nu/fdmgapi/private/esb',
     fdmgServicesNoProxyBaseUrl  : 'https://acc.fdmg.org/private/esb',
-    fdmgServicesToken           : 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiItNjY2MjU2NzgyNTk5OTIwMDM3NyIsInN1YiI6ImZkbWdfc2VydmljZXMiLCJyb2xlIjoiVVNFUiJ9.7a3I4CJbMM8BSf4sT3mbcEoMB9ttmbr9znXND0Y024b_OO9AEwCkOzkaHEkjrjglYJfyJCO59wzfzE0ZK_Fjbg',
+    fdmgServicesToken           : 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiItNzMyNDM4NzEyMjA5NzgxNjYyMiIsInN1YiI6IlNlcnZpY2UiLCJyb2xlIjoiVVNFUiJ9.wqJYlwcCv7AeFV00VA-bzo-gfHkUpJyh552EqnuXPJ2c8BEA849ej-fqaetY6vfR2tIPEReT-iw6qC-xG_lK4Q',
     hollandseHoogteToken        : '77bd7434-7ffa-34b8-bafe-a1b6f24be599',
     apiGatewayBaseUrl           : 'https://apigateway.fdmg.nl',
     fileName                    : 'esb-prod-writer-client.json',
