@@ -94,7 +94,8 @@ class RelatedArticlesComponent extends Component {
   }
 
   static extractId(url) {
-    const res = (/^.*fd\.nl.*\/(\d+).*$/i).exec(url);
+    // const res = (/^.*fd\.nl.*\/(\d+).*$/i).exec(url);
+    const res = (/^.*(fd\.nl|esb\.nu).*\/(\d+).*$/i).exec(url);
 
     if (res && res.length === 2) return res[1];
 
