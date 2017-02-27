@@ -4,6 +4,14 @@
   "labelLanguage": "nl",
   "plugins": [
     {
+      "id": "nl.fdmg.styles",
+      "name": "styles",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
+      "enabled": true,
+      "mandatory": true
+    },
+    {
       "id": "se.infomaker.headline",
       "name": "headline",
       "url": "INFOMAKER_PLUGINS_BASE_URL/fd.js",
@@ -95,6 +103,9 @@
               }
             ]
           }
+        ],
+        "disableUseOfAnnotationToolsForFields": [
+          "text"
         ]
       }
     },
@@ -433,7 +444,10 @@
       "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
       "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
       "enabled": true,
-      "mandatory": true
+      "mandatory": true,
+      "data": {
+        "domain": "esb.nu"
+      }
     },
     {
       "id": "nl.fdmg.section",
@@ -642,13 +656,6 @@
       "data": {
         "previewBaseUrl": "//preview.fd.nl/_/${id}/_"
       }
-    },
-    {
-      "id": "nl.fdmg.ximteaserstandin",
-      "name": "ximteaserstandin",
-      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
-      "enabled": false,
-      "mandatory": true
     },
     {
       "id": "nl.fdmg.ximimagestandin",

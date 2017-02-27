@@ -6,218 +6,223 @@ var gutil = require('gulp-util');
 var gzip = require("gulp-gzip");
 var print = require('gulp-print');
 var s3 = require("gulp-s3");
-var s3config = {
-  "key": gutil.env.aws_key,
-  "secret": gutil.env.aws_secret,
-  "bucket": gutil.env.aws_bucket,
-  "region": gutil.env.aws_region
-};
 
 var rename = require('gulp-rename');
 var replace = require('gulp-replace');
+var del = require('del');
+var request = require('request');
 
-function config(data) {
-  console.log('Written ' + data.fileName + ' to: ' + data.destination);
-  return gulp.src([data.source])
-    .pipe(replace(/INFOMAKER_PLUGINS_BASE_URL/g, data.infoMakerPluginsBase))
-    .pipe(replace(/WEBWRITER_PLUGINS_BASE_URL/g, data.webwriterPluginsBase))
-    .pipe(replace(/NEWS_ITEM_TEMPLATE_ID/g, data.newsItemTemplateId))
-    .pipe(replace(/FDMG_SERVICES_BASE_URL/g, data.fdmgServicesBaseUrl))
-    .pipe(replace(/FDMG_SERVICES_NO_PROXY_BASE_URL/g, data.fdmgServicesNoProxyBaseUrl))
-    .pipe(replace(/FDMG_SERVICES_TOKEN/g, data.fdmgServicesToken))
-    .pipe(replace(/HOLLANDSE_HOOGTE_TOKEN/g, data.hollandseHoogteToken))
-    .pipe(replace(/API_GATEWAY_BASE_URL/g, data.apiGatewayBaseUrl))
-    .pipe(rename(data.fileName))
-    .pipe(gulp.dest(data.destination));
+function getConfig(url, cb) {
+  let configObject = initializeConfig();
+  console.log('Request config',url);
+  request(url, function(error, response, body) {
+    if (!error && response.statusCode == 200) {
+      console.log('FDMG Services Config:', body);
+      const jsonBody = JSON.parse(body);
+      for (let key in configObject) {
+        console.log(key, "=", jsonBody.propertySources[0].source[key]);
+        configObject[key] = jsonBody.propertySources[0].source[key];
+      }
+      console.log('Configuration:', configObject);
+      cb(configObject);
+    }
+  });
+  return configObject;
+}
+
+function writeConfig(data) {
+  console.log('Written ' + data['fdmg.fileName'] + ' to: ' + data['fdmg.destination']);
+  return gulp.src([data['fdmg.source']])
+    .pipe(replace(/INFOMAKER_PLUGINS_BASE_URL/g, data['infoMaker.plugins.base']))
+    .pipe(replace(/WEBWRITER_PLUGINS_BASE_URL/g, data['fdmg.webwriter.plugins.base']))
+    .pipe(replace(/NEWS_ITEM_TEMPLATE_ID/g, data['fdmg.newsItem.template.id']))
+    .pipe(replace(/FDMG_SERVICES_BASE_URL/g, data['fdmg.services.baseUrl']))
+    .pipe(replace(/FDMG_SERVICES_NO_PROXY_BASE_URL/g, data['fdmg.services.noProxyBaseUrl']))
+    .pipe(replace(/FDMG_SERVICES_TOKEN/g, data['fdmg.services.token']))
+    .pipe(replace(/HOLLANDSE_HOOGTE_TOKEN/g, data['hollandseHoogte.token']))
+    .pipe(replace(/API_GATEWAY_BASE_URL/g, data['fdmg.apiGatewayBaseUrl']))
+    .pipe(rename(data['fdmg.fileName']))
+    .pipe(gulp.dest(data['fdmg.destination']));
 }
 
 gulp.task('config-devbox-generate', function(){
   console.log('Creating config for devbox VM');
-  config({
-    source                      : 'writer-fd-dev.json',
-    infoMakerPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/writer-dev-plugins',
-    webwriterPluginsBase        : 'http://devbox.fdmg.org:3000',
-    newsItemTemplateId          : '819',
-    fdmgServicesBaseUrl         : 'https://api-devbox.fdmg.org/private',
-    fdmgServicesNoProxyBaseUrl  : 'https://api-devbix.fdmg.org/private',
-    fdmgServicesToken           : 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIxMjMiLCJzdWIiOiJzdmVuIiwicm9sZSI6InVzZXIifQ.omGBEdLl3e_bxNFq83bsTUZnO5HU_c0gltDuTFWM_KlLJWtlZzDo1F7jGD6zPD54XmimTAWmD5XKIlhMQVmChQ',
-    hollandseHoogteToken        : '63401c89-63e9-35f9-9daa-a55ef26c3042',
-    apiGatewayBaseUrl           : 'https://apigateway-dev.fdmg.nl',
-    fileName                    : 'writer.json',
-    destination                 : '../NPWriter/dist/server/config'
+  writeConfig({
+    'fdmg.source'                   : 'writer-fd.json',
+    'infoMaker.plugins.base'        : 'https://s3-eu-west-1.amazonaws.com/writer-dev-plugins',
+    'fdmg.webwriter.plugins.base'   : 'http://devbox.fdmg.org:3000',
+    'fdmg.newsItem.template.id'     : '819',
+    'fdmg.services.baseUrl'         : 'https://api-devbox.fdmg.org/private',
+    'fdmg.services.noProxyBaseUrl'  : 'https://api-devbix.fdmg.org/private',
+    'fdmg.services.token'           : 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIxMjMiLCJzdWIiOiJzdmVuIiwicm9sZSI6InVzZXIifQ.omGBEdLl3e_bxNFq83bsTUZnO5HU_c0gltDuTFWM_KlLJWtlZzDo1F7jGD6zPD54XmimTAWmD5XKIlhMQVmChQ',
+    'hollandseHoogte.token'         : '63401c89-63e9-35f9-9daa-a55ef26c3042',
+    'fdmg.apiGatewayBaseUrl'        : 'https://apigateway-dev.fdmg.nl',
+    'fdmg.fileName'                 : 'writer.json',
+    'fdmg.destination'              : '../NPWriter/dist/server/config'
   });
 });
 
 /* FD Environments */
 gulp.task('local-config-fd-generate', function(){
   console.log('Creating "local" config for FD writer');
-  config({
-    source                      : 'writer-fd-dev.json',
-    infoMakerPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/writer-dev-plugins',
-    webwriterPluginsBase        : 'http://localhost:3000',
-    newsItemTemplateId          : '30eae1c0-c640-4053-b114-05c64e28bbe7',
-    fdmgServicesBaseUrl         : 'https://webwriter-dev.fd.nl/fdmgapi/private/fd',
-    fdmgServicesNoProxyBaseUrl  : 'https://dev-api.fdmg.org/private/fd',
-    fdmgServicesToken           : 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIxMjMiLCJzdWIiOiJzdmVuIiwicm9sZSI6InVzZXIifQ.omGBEdLl3e_bxNFq83bsTUZnO5HU_c0gltDuTFWM_KlLJWtlZzDo1F7jGD6zPD54XmimTAWmD5XKIlhMQVmChQ',
-    hollandseHoogteToken        : '63401c89-63e9-35f9-9daa-a55ef26c3042',
-    apiGatewayBaseUrl           : 'https://apigateway-dev.fdmg.nl',
-    fileName                    : 'writer-fd-dev.json',
-    destination                 : '../NPWriter/server/config/'
+  writeConfig({
+    'fdmg.source'                   : 'writer-fd.json',
+    'infoMaker.plugins.base'        : 'https://s3-eu-west-1.amazonaws.com/writer-dev-plugins',
+    'fdmg.webwriter.plugins.base'   : 'http://localhost:3000',
+    'fdmg.newsItem.template.id'     : '30eae1c0-c640-4053-b114-05c64e28bbe7',
+    'fdmg.services.baseUrl'         : 'https://webwriter-dev.fd.nl/fdmgapi/private/fd',
+    'fdmg.services.noProxyBaseUrl'  : 'https://dev-api.fdmg.org/private/fd',
+    'fdmg.services.token'           : 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIxMjMiLCJzdWIiOiJzdmVuIiwicm9sZSI6InVzZXIifQ.omGBEdLl3e_bxNFq83bsTUZnO5HU_c0gltDuTFWM_KlLJWtlZzDo1F7jGD6zPD54XmimTAWmD5XKIlhMQVmChQ',
+    'hollandseHoogte.token'         : '63401c89-63e9-35f9-9daa-a55ef26c3042',
+    'fdmg.apiGatewayBaseUrl'        : 'https://apigateway-dev.fdmg.nl',
+    'fdmg.fileName'                 : 'writer-fd.json',
+    'fdmg.destination'              : '../NPWriter/server/config/'
   });
 });
 
 gulp.task('dev-config-fd-generate', function(){
   console.log('Creating "development" config for FD writer');
-  config({
-    source                      : 'writer-fd-dev.json',
-    infoMakerPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/writer-dev-plugins',
-    webwriterPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins',
-    newsItemTemplateId          : '1156201',
-    fdmgServicesBaseUrl         : 'https://webwriter-dev.fd.nl/fdmgapi/private/fd',
-    fdmgServicesNoProxyBaseUrl  : 'https://dev-api.fdmg.org/private/fd',
-    fdmgServicesToken           : 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIxMjMiLCJzdWIiOiJzdmVuIiwicm9sZSI6InVzZXIifQ.omGBEdLl3e_bxNFq83bsTUZnO5HU_c0gltDuTFWM_KlLJWtlZzDo1F7jGD6zPD54XmimTAWmD5XKIlhMQVmChQ',
-    hollandseHoogteToken        : '63401c89-63e9-35f9-9daa-a55ef26c3042',
-    apiGatewayBaseUrl           : 'https://apigateway-dev.fdmg.nl',
-    fileName                    : 'dev-writer-client.json',
-    destination                 : './dist'
-  });
+  getConfig(gutil.env.fdmg_services_config_url + '-dev/fd', writeConfig);
 });
 
 gulp.task('acc-config-fd-generate', function(){
   console.log('Creating "acceptance" config for FD writer');
-  config({
-    source                      : 'writer-fd-dev.json',
-    infoMakerPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/writer-production-plugins',
-    webwriterPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/webwriter-acc-plugins',
-    newsItemTemplateId          : '1204619',
-    fdmgServicesBaseUrl         : 'https://webwriter-acc.fd.nl/fdmgapi/private/fd',
-    fdmgServicesNoProxyBaseUrl  : 'https://acc-api.fdmg.org/private/fd',
-    fdmgServicesToken           : 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiItNjYxODc1NjIyMjg3NzcxNTU1MiIsInN1YiI6ImluZm9tYWtlciIsInJvbGUiOiJVU0VSIn0.35SdM_LRat9AAfrZJo4EM2mlDtYzk6X3rARTW9I4XKWM4tvBCpb2gKzVewmWQq1DuqOhCskr3HNdSf7tK664Rw',
-    hollandseHoogteToken        : 'f021be3b-a527-364a-a93e-03de82270efc',
-    apiGatewayBaseUrl           : 'https://apigateway-acc.fdmg.nl',
-    fileName                    : 'acc-writer-client.json',
-    destination                 : './dist'
-  });
+  getConfig(gutil.env.fdmg_services_config_url + '-acc/fd', writeConfig);
 });
 
 gulp.task('prod-config-fd-generate', function(){
   console.log('Creating "production" config for FD writer');
-  config({
-    source                      : 'writer-fd-dev.json',
-    infoMakerPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/writer-production-plugins',
-    webwriterPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/webwriter-plugins',
-    newsItemTemplateId          : '1171067',
-    fdmgServicesBaseUrl         : 'https://webwriter.fd.nl/fdmgapi/private/fd',
-    fdmgServicesNoProxyBaseUrl  : 'https://api.fdmg.org/private/fd',
-    fdmgServicesToken           : 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiItMjgyODgyODMxNDU0ODY5MzIyIiwic3ViIjoiaW5mb21ha2VyIiwicm9sZSI6IlVTRVIifQ.8j3gRJplT9t0mUPEjWoGUxOO7kvJqbhwrIdneOY7Csyy8oy_r8ff3XmdHfXpC4VCiWT8O06sSlP-9We63l60Gw',
-    hollandseHoogteToken        : '77bd7434-7ffa-34b8-bafe-a1b6f24be599',
-    apiGatewayBaseUrl           : 'https://apigateway.fdmg.nl',
-    fileName                    : 'prod-writer-client.json',
-    destination                 : './dist'
-  });
+  getConfig(gutil.env.fdmg_services_config_url + '-prod/fd', writeConfig);
 });
 
 /* ESB Environments */
 gulp.task('local-config-esb-generate', function(){
   console.log('Creating "local" config for ESB writer');
-  config({
-    source                      : 'writer-esb-dev.json',
-    infoMakerPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/writer-dev-plugins',
-    webwriterPluginsBase        : 'http://localhost:3000',
-    newsItemTemplateId          : '20003109',
-    fdmgServicesBaseUrl         : 'https://webwriter-dev.esb.nu/fdmgapi/private/esb',
-    fdmgServicesNoProxyBaseUrl  : 'https://dev-api.fdmg.org/private/esb',
-    fdmgServicesToken           : 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiI5MDA0Nzc2NDc3ODQyMDQ1ODAwIiwic3ViIjoiU2VydmljZXMiLCJyb2xlIjoiVVNFUiJ9.vRx7zG0lTInK6BCnoy25FRXNO6kGP8bi03eB1xviWjkM4xq-fQ6EoBR88yZPC4CAfdjpcNcQ_pxlJbvcISaAOw',
-    hollandseHoogteToken        : '63401c89-63e9-35f9-9daa-a55ef26c3042',
-    apiGatewayBaseUrl           : 'https://apigateway-dev.fdmg.nl',
-    fileName                    : 'dev-writer-client.json',
-    destination                 : '../NPWriter/server/config/'
+  writeConfig({
+    'fdmg.source'                   : 'writer-esb.json',
+    'infoMaker.plugins.base'        : 'https://s3-eu-west-1.amazonaws.com/writer-dev-plugins',
+    'fdmg.webwriter.plugins.base'   : 'http://localhost:3000',
+    'fdmg.newsItem.template.id'     : '20003109',
+    'fdmg.services.baseUrl'         : 'https://webwriter-dev.esb.nu/fdmgapi/private/esb',
+    'fdmg.services.noProxyBaseUrl'  : 'https://dev-api.fdmg.org/private/esb',
+    'fdmg.services.token'           : 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiI5MDA0Nzc2NDc3ODQyMDQ1ODAwIiwic3ViIjoiU2VydmljZXMiLCJyb2xlIjoiVVNFUiJ9.vRx7zG0lTInK6BCnoy25FRXNO6kGP8bi03eB1xviWjkM4xq-fQ6EoBR88yZPC4CAfdjpcNcQ_pxlJbvcISaAOw',
+    'hollandseHoogte.token'         : '63401c89-63e9-35f9-9daa-a55ef26c3042',
+    'fdmg.apiGatewayBaseUrl'        : 'https://apigateway-dev.fdmg.nl',
+    'fdmg.fileName'                 : 'dev-writer-client.json',
+    'fdmg.destination'              : '../NPWriter/server/config/'
   });
 });
 
 gulp.task('dev-config-esb-generate', function(){
   console.log('Creating "development" config for ESB writer');
-  config({
-    source                      : 'writer-esb-dev.json',
-    infoMakerPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/writer-dev-plugins',
-    webwriterPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins',
-    newsItemTemplateId          : '20003109',
-    fdmgServicesBaseUrl         : 'https://webwriter-dev.esb.nu/fdmgapi/private/esb',
-    fdmgServicesNoProxyBaseUrl  : 'https://dev-api.fdmg.org/private/esb',
-    fdmgServicesToken           : 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiI5MDA0Nzc2NDc3ODQyMDQ1ODAwIiwic3ViIjoiU2VydmljZXMiLCJyb2xlIjoiVVNFUiJ9.vRx7zG0lTInK6BCnoy25FRXNO6kGP8bi03eB1xviWjkM4xq-fQ6EoBR88yZPC4CAfdjpcNcQ_pxlJbvcISaAOw',
-    hollandseHoogteToken        : '63401c89-63e9-35f9-9daa-a55ef26c3042',
-    apiGatewayBaseUrl           : 'https://apigateway-dev.fdmg.nl',
-    fileName                    : 'esb-dev-writer-client.json',
-    destination                 : './dist'
-  });
+  getConfig(gutil.env.fdmg_services_config_url + '-dev/esb', writeConfig);
 });
 
 gulp.task('acc-config-esb-generate', function(){
   console.log('Creating "acceptance" config for ESB writer');
-  config({
-    source                      : 'writer-esb-dev.json',
-    infoMakerPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/writer-production-plugins',
-    webwriterPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/webwriter-acc-plugins',
-    newsItemTemplateId          : '20035194',
-    fdmgServicesBaseUrl         : 'https://webwriter-acc.esb.nu/fdmgapi/private/esb',
-    fdmgServicesNoProxyBaseUrl  : 'https://acc-api.fdmg.org/private/esb',
-    fdmgServicesToken           : 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiI1ODU3NzQxNjc3OTI0MDAxNDEyIiwic3ViIjoiU2VydmljZXMiLCJyb2xlIjoiVVNFUiJ9.C1yWr2ig_fwU-IrxHGripFidqkNzf4ImIBDnB4oBpgqF3XR6GZbt40D2DvO1cno_UA8FlaBi9hE5y4OH-BTsNw',
-    hollandseHoogteToken        : 'f021be3b-a527-364a-a93e-03de82270efc',
-    apiGatewayBaseUrl           : 'https://apigateway-acc.fdmg.nl',
-    fileName                    : 'esb-acc-writer-client.json',
-    destination                 : './dist'
-  });
+  getConfig(gutil.env.fdmg_services_config_url + '-acc/esb', writeConfig);
+
 });
 
 gulp.task('prod-config-esb-generate', function(){
   console.log('Creating "production" config for ESB writer');
-  config({
-    source                      : 'writer-esb-dev.json',
-    infoMakerPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/writer-production-plugins',
-    webwriterPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/webwriter-plugins',
-    newsItemTemplateId          : '20022794',
-    fdmgServicesBaseUrl         : 'https://webwriter.esb.nu/fdmgapi/private/esb',
-    fdmgServicesNoProxyBaseUrl  : 'https://acc.fdmg.org/private/esb',
-    fdmgServicesToken           : 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiItNjY2MjU2NzgyNTk5OTIwMDM3NyIsInN1YiI6ImZkbWdfc2VydmljZXMiLCJyb2xlIjoiVVNFUiJ9.7a3I4CJbMM8BSf4sT3mbcEoMB9ttmbr9znXND0Y024b_OO9AEwCkOzkaHEkjrjglYJfyJCO59wzfzE0ZK_Fjbg',
-    hollandseHoogteToken        : '77bd7434-7ffa-34b8-bafe-a1b6f24be599',
-    apiGatewayBaseUrl           : 'https://apigateway.fdmg.nl',
-    fileName                    : 'esb-prod-writer-client.json',
-    destination                 : './dist'
-  });
+  getConfig(gutil.env.fdmg_services_config_url + '-prod/esb', writeConfig);
 });
 
-/**
- * Deploy to S3 using environment variables.
- */
-gulp.task('deploy', [], function() {
-  return gulp.src('./dist/**')
-    .pipe(print())
-    .pipe(gzip())
-    .pipe(s3(s3config, { gzippedOnly: true }));
-});
-
-
-function s3ConfigDeploy(configFile) {
-  var options = { headers: {'x-amz-acl': 'bucket-owner-read'} };
-  return gulp.src(configFile)
-    .pipe(print())
-    .pipe(s3(s3config, options));
+function initializeConfig() {
+  return {
+    'fdmg.source'                   : '',
+    'infoMaker.plugins.base'        : '',
+    'fdmg.webwriter.plugins.base'   : '',
+    'fdmg.newsItem.template.id'     : '',
+    'fdmg.services.baseUrl'         : '',
+    'fdmg.services.noProxyBaseUrl'  : '',
+    'fdmg.services.token'           : '',
+    'hollandseHoogte.token'         : '',
+    'fdmg.apiGatewayBaseUrl'        : '',
+    'fdmg.fileName'                 : '',
+    'fdmg.destination'              : '',
+    'fdmg.aws.bucket'               : '',
+    'fdmg.aws.key'                  : '',
+    'fdmg.aws.region'               : '',
+    'fdmg.aws.secret'               : '',
+    'infoMaker.aws.key'             : '',
+    'infoMaker.aws.secret'          : '',
+    'infoMaker.aws.bucket'          : '',
+    'infoMaker.aws.region'          : ''
+  };
 }
 
 /**
- * Deploy webwriter configuration to InfoMaker S3 bucket using environment variables.
+ * Deploy to S3.
  */
-gulp.task('dev-deploy-webwriter-config', [], function() {
-  return s3ConfigDeploy('./dist/dev-writer-client.json');
+function deploy(configFile) {
+  let writerClient = configFile['fdmg.destination'] + '/' + configFile['fdmg.fileName'];
+  console.log(writerClient);
+  s3ConfigFdmgDeploy(writerClient, getS3ConfigFdmg(configFile));
+  return s3ConfigInfoMakerDeploy(writerClient, getS3ConfigInfoMaker(configFile));
+}
+
+function s3ConfigFdmgDeploy(configFile, s3Config) {
+  return gulp.src(configFile)
+    .pipe(print())
+    .pipe(gzip())
+    .pipe(s3(s3Config, { gzippedOnly: true }));
+}
+
+function s3ConfigInfoMakerDeploy(configFile, s3Config) {
+  let options = {headers: {'x-amz-acl': 'bucket-owner-read'}};
+  return gulp.src(configFile)
+    .pipe(print())
+    .pipe(s3(s3Config, options));
+}
+
+function getS3ConfigFdmg(configFile) {
+  return {
+    "key"   : configFile['fdmg.aws.key'],
+    "secret": configFile['fdmg.aws.secret'],
+    "bucket": configFile['fdmg.aws.bucket'],
+    "region": configFile['fdmg.aws.region']
+  };
+}
+
+function getS3ConfigInfoMaker(configFile) {
+  return {
+    "key"   : configFile['infoMaker.aws.key'],
+    "secret": configFile['infoMaker.aws.secret'],
+    "bucket": configFile['infoMaker.aws.bucket'],
+    "region": configFile['infoMaker.aws.region']
+  };
+}
+
+gulp.task('dev-fd-deploy-webwriter-config', [], function() {
+  getConfig(gutil.env.fdmg_services_config_url + '-dev/fd', deploy);
 });
-gulp.task('acc-deploy-webwriter-config', [], function() {
-  return s3ConfigDeploy('./dist/acc-writer-client.json');
+gulp.task('acc-fd-deploy-webwriter-config', [], function() {
+  getConfig(gutil.env.fdmg_services_config_url + '-acc/fd', deploy);
 });
-gulp.task('prod-deploy-webwriter-config', [], function() {
-  return s3ConfigDeploy('./dist/prod-writer-client.json');
+gulp.task('prod-fd-deploy-webwriter-config', [], function() {
+  getConfig(gutil.env.fdmg_services_config_url + '-prod/fd', deploy);
+});
+
+gulp.task('dev-esb-deploy-webwriter-config', [], function() {
+  getConfig(gutil.env.fdmg_services_config_url + '-dev/esb', deploy);
+});
+gulp.task('acc-esb-deploy-webwriter-config', [], function() {
+  getConfig(gutil.env.fdmg_services_config_url + '-acc/esb', deploy);
+});
+gulp.task('prod-esb-deploy-webwriter-config', [], function() {
+  getConfig(gutil.env.fdmg_services_config_url + '-prod/esb', deploy);
+});
+
+// Clean
+gulp.task('clean', function() {
+  return del([
+    './dist/**'
+  ]);
 });
 
 // Default build development
 gulp.task('generate-config-fd', ['dev-config-fd-generate', 'acc-config-fd-generate', 'prod-config-fd-generate']);
 gulp.task('generate-config-esb', ['dev-config-esb-generate', 'acc-config-esb-generate', 'prod-config-esb-generate']);
-gulp.task('default', ['generate-config-fd']);
+gulp.task('default', ['clean', 'local-config-fd-generate']);

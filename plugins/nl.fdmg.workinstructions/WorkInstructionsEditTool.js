@@ -3,7 +3,7 @@ import {Tool} from 'substance'
 class WorkInstructionEditTool extends Tool {
 
   didMount() {
-    this.refs.textarea.focus()
+    this.refs.textarea.getNativeElement().focus()
   }
 
   render($$) {

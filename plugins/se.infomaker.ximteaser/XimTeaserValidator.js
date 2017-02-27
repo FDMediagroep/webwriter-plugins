@@ -4,7 +4,6 @@ class XimTeaserValidator extends FDValidator {
   validate() {
     if (this.isShortArticle || this.isAdvertorial || this.isEvents || this.isRedirectArticle) return
 
-
     if (this.published) {
       const teasers = this.newsItem.querySelectorAll('contentMeta > metadata object[type="x-im/teaser"]')
 

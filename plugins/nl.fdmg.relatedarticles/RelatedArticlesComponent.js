@@ -94,7 +94,9 @@ class RelatedArticlesComponent extends Component {
   }
 
   static extractId(url) {
-    const res = (/^.*fd\.nl.*\/(\d+).*$/i).exec(url);
+    const domain = api.getConfigValue('nl.fdmg.relatedarticles', 'domain');
+    const regex = new RegExp("^.*" + domain + ".*/(\\\d+).*", 'i');
+    const res = regex.exec(url);
 
     if (res && res.length === 2) return res[1];
 

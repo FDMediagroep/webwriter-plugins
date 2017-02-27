@@ -8,10 +8,10 @@ export default {
 
     config.addLabel('Genre', {
       'nl': 'Genre'
-    })
+    });
     config.addLabel('- no selection -', {
       'nl': '- geen selectie -'
-    })
+    });
     config.addLabel('free input', {
       'nl': 'vrije invoer'
     })
