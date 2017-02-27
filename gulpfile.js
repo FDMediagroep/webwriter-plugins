@@ -131,17 +131,25 @@ gulp.task('prod-config-esb-generate', function(){
 
 function initializeConfig() {
   return {
-    'fdmg.source': '',
-    'infoMaker.plugins.base': '',
-    'fdmg.webwriter.plugins.base': '',
-    'fdmg.newsItem.template.id': '',
-    'fdmg.services.baseUrl': '',
-    'fdmg.services.noProxyBaseUrl': '',
-    'fdmg.services.token': '',
-    'hollandseHoogte.token': '',
-    'fdmg.apiGatewayBaseUrl': '',
-    'fdmg.fileName': '',
-    'fdmg.destination': ''
+    'fdmg.source'                   : '',
+    'infoMaker.plugins.base'        : '',
+    'fdmg.webwriter.plugins.base'   : '',
+    'fdmg.newsItem.template.id'     : '',
+    'fdmg.services.baseUrl'         : '',
+    'fdmg.services.noProxyBaseUrl'  : '',
+    'fdmg.services.token'           : '',
+    'hollandseHoogte.token'         : '',
+    'fdmg.apiGatewayBaseUrl'        : '',
+    'fdmg.fileName'                 : '',
+    'fdmg.destination'              : '',
+    'fdmg.aws.bucket'               : '',
+    'fdmg.aws.key'                  : '',
+    'fdmg.aws.region'               : '',
+    'fdmg.aws.secret'               : '',
+    'infoMaker.aws.key'             : '',
+    'infoMaker.aws.secret'          : '',
+    'infoMaker.aws.bucket'          : '',
+    'infoMaker.aws.region'          : ''
   };
 }
 
@@ -170,7 +178,7 @@ function s3ConfigInfoMakerDeploy(configFile, s3Config) {
 
 function getS3ConfigFdmg(configFile) {
   return {
-    "key": configFile['fdmg.aws.key'],
+    "key"   : configFile['fdmg.aws.key'],
     "secret": configFile['fdmg.aws.secret'],
     "bucket": configFile['fdmg.aws.bucket'],
     "region": configFile['fdmg.aws.region']
@@ -179,7 +187,7 @@ function getS3ConfigFdmg(configFile) {
 
 function getS3ConfigInfoMaker(configFile) {
   return {
-    "key": configFile['infoMaker.aws.key'],
+    "key"   : configFile['infoMaker.aws.key'],
     "secret": configFile['infoMaker.aws.secret'],
     "bucket": configFile['infoMaker.aws.bucket'],
     "region": configFile['infoMaker.aws.region']
