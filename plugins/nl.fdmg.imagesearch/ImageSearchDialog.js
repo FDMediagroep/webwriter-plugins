@@ -122,7 +122,7 @@ class ImageSearchDialog extends Component {
   }
 
   onKeydown(e) {
-    // e.stopPropagation();
+    e.stopPropagation();
     switch(e.keyCode) {
       case 13:  // Enter
         this.extendState({
