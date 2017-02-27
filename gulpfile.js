@@ -47,18 +47,18 @@ function writeConfig(data) {
 
 gulp.task('config-devbox-generate', function(){
   console.log('Creating config for devbox VM');
-  config({
-    source                      : 'writer-fd-dev.json',
-    infoMakerPluginsBase        : 'https://s3-eu-west-1.amazonaws.com/writer-dev-plugins',
-    webwriterPluginsBase        : 'http://devbox.fdmg.org:3000',
-    newsItemTemplateId          : '819',
-    fdmgServicesBaseUrl         : 'https://api-devbox.fdmg.org/private',
-    fdmgServicesNoProxyBaseUrl  : 'https://api-devbix.fdmg.org/private',
-    fdmgServicesToken           : 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIxMjMiLCJzdWIiOiJzdmVuIiwicm9sZSI6InVzZXIifQ.omGBEdLl3e_bxNFq83bsTUZnO5HU_c0gltDuTFWM_KlLJWtlZzDo1F7jGD6zPD54XmimTAWmD5XKIlhMQVmChQ',
-    hollandseHoogteToken        : '63401c89-63e9-35f9-9daa-a55ef26c3042',
-    apiGatewayBaseUrl           : 'https://apigateway-dev.fdmg.nl',
-    fileName                    : 'writer.json',
-    destination                 : '../NPWriter/dist/server/config'
+  writeConfig({
+    'fdmg.source'                   : 'writer-fd-dev.json',
+    'infoMaker.plugins.base'        : 'https://s3-eu-west-1.amazonaws.com/writer-dev-plugins',
+    'fdmg.webwriter.plugins.base'   : 'http://devbox.fdmg.org:3000',
+    'fdmg.newsItem.template.id'     : '819',
+    'fdmg.services.baseUrl'         : 'https://api-devbox.fdmg.org/private',
+    'fdmg.services.noProxyBaseUrl'  : 'https://api-devbix.fdmg.org/private',
+    'fdmg.services.token'           : 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIxMjMiLCJzdWIiOiJzdmVuIiwicm9sZSI6InVzZXIifQ.omGBEdLl3e_bxNFq83bsTUZnO5HU_c0gltDuTFWM_KlLJWtlZzDo1F7jGD6zPD54XmimTAWmD5XKIlhMQVmChQ',
+    'hollandseHoogte.token'         : '63401c89-63e9-35f9-9daa-a55ef26c3042',
+    'fdmg.apiGatewayBaseUrl'        : 'https://apigateway-dev.fdmg.nl',
+    'fdmg.fileName'                 : 'writer.json',
+    'fdmg.destination'              : '../NPWriter/dist/server/config'
   });
 });
 
