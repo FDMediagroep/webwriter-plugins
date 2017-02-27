@@ -44,12 +44,10 @@ Ximteaser.define({
   uuid: {type: 'string', optional: true},
   uri: { type: 'string', optional: true },
 
-  title: {type: 'string', optional: false, default: '' },
+  title: {type: 'text', optional: false, default: '' },
   subject: {type: 'string', optional: false, default: '' },
   text: {type: 'string', optional: false, default: '' },
 
-  // ATTENTION: progress should not be part of the model
-  // progress: {type: 'number', default: 100 },
   width: {type: 'number', optional: true },
   height: {type: 'number', optional: true },
   crops: { type: 'object', default: [] }

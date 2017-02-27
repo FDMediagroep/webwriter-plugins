@@ -21,15 +21,15 @@ export default class ArticleOptionComponent extends Component {
     this.pluginId = plugin.pluginId;
     this.items = plugin.items;
     this.hasSelect = plugin.hasSelect;
-
     this.extendState(this.getInitialState());
 
     /**
      * Listeners used for options grouping functionality.
      */
-    api.events.on(this.name, api.getConfigValue(this.pluginId||this.id, 'optionsGroup', this.id) + ':enabled', this.enable.bind(this));
-    api.events.on(this.name, api.getConfigValue(this.pluginId||this.id, 'optionsGroup', this.id) + ':disabled', this.disable.bind(this));
-
+    if(api.getConfigValue(this.pluginId||this.id, 'optionsGroup', this.id)) {
+      api.events.on(this.name, api.getConfigValue(this.pluginId || this.id, 'optionsGroup', this.id) + ':enabled', this.enable.bind(this));
+      api.events.on(this.name, api.getConfigValue(this.pluginId || this.id, 'optionsGroup', this.id) + ':disabled', this.disable.bind(this));
+    }
   }
 
   /**

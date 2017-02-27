@@ -1,3 +1,4 @@
+import Styles from './nl.fdmg.styles/index';
 import SidebarTabs from './nl.fdmg.sidebartabs/index';
 
 import LocalFocus from './nl.fdmg.localfocus/index'
@@ -49,7 +50,6 @@ import Workflowstate from './nl.fdmg.workflowstate/index';
 
 import ImageSearch from './nl.fdmg.imagesearch/index';
 
-import XimTeaserStandin from './nl.fdmg.ximteaserstandin/index';
 import XimImageStandin from './nl.fdmg.ximimagestandin/index';
 import Teaser from './se.infomaker.ximteaser/index';
 import HeadlineStandin from './nl.fdmg.headlinestandin/index';
@@ -58,6 +58,7 @@ import HeadlineStandin from './nl.fdmg.headlinestandin/index';
 import Translations from './nl.fdmg.translations/index';
 
 (() => {
+  Styles();
   SidebarTabs();
   LocalFocus();
 
@@ -109,7 +110,6 @@ import Translations from './nl.fdmg.translations/index';
 
   ImageSearch();
 
-  XimTeaserStandin();
   XimImageStandin();
   Teaser();
   HeadlineStandin();

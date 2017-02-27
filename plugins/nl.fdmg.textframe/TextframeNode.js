@@ -22,8 +22,6 @@ class TextframeNode extends BlockNode {
   }
 
   setAlignment(alignment) {
-
-    console.log('>>', alignment)
     api.editorSession.transaction((tx) => {
       tx.set([this.id, 'alignment'], alignment)
     }, {history: false})

@@ -33,7 +33,7 @@ class ImageSearchDialog extends Component {
   }
 
   didMount() {
-    this.refs.searchfield.focus()
+    this.refs.searchfield.getNativeElement().focus();
 
     // TODO Make this more solid, don't rely on .parent * 3
     this.refs.dialog.parent.parent.parent.addClass('image-search-dialog')
@@ -122,6 +122,7 @@ class ImageSearchDialog extends Component {
   }
 
   onKeydown(e) {
+    e.stopPropagation();
     switch(e.keyCode) {
       case 13:  // Enter
         this.extendState({
@@ -131,12 +132,12 @@ class ImageSearchDialog extends Component {
           images: [],
           totalResults: -1,
           scrollOffset: 0
-        })
-        this.search(this.refs.searchfield.val())
-        break
+        });
+        this.search(this.refs.searchfield.val());
+        break;
       case 27:  // Escape
-        this.send('close')
-        break
+        this.send('close');
+        break;
       default:
         // Nop
         break

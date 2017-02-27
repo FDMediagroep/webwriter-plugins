@@ -10,11 +10,14 @@
 1. Getting started guide: https://infomaker.github.io/NPWriterDevelopers/getting-started/
 1. Install NodeJS 6.9.1 or later
   1. For Windows: Install Visual Studio 2013 Express first
+  1. run the following commands in `NPWriter/`:
   1. npm install
   1. npm run build-dep
   1. npm run dev
 1. run `CONFIG_FILE=writer-fd-dev.json npm run dev` in `NPWriter/`
   1. For Windows use `set CONFIG_FILE=writer-fd-dev.json&npm run dev` instead
+1. The `NPWriter/` should now be up and running.
+
 1. Navigate to `webwriter-plugins` and run `npm install`
 1. Then run `npm run dev` in `webwriter-plugins` to run the `NPWriterDevKit`
 1. Open `localhost:5000` in a browser

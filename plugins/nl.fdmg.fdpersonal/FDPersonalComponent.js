@@ -6,6 +6,7 @@ class FDPersonalComponent extends ArticleOptionComponent {
       name: "fdpersonal",
       type: "fdmg/fdpersonal",
       label: "FD Personal",
+      pluginId: 'nl.fdmg.fdpersonal',
       hasInput: false
     }, ...args)
   }

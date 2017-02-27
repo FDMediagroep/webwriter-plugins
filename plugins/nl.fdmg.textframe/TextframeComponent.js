@@ -80,25 +80,23 @@ class TextframeComponent extends Component {
       .append([
         $$(FontAwesomeIcon, {icon: 'fa-tumblr'}),
         $$('strong').append(this.getLabel('Textframe')),
-        $$('div').addClass('image-search-button').append(
-         $$('button')
-           .append($$('i').addClass('fa fa-picture-o'))
-           .attr('title', 'Add/search image')
-           .on('click', () => {
-             api.ui.showDialog(
-               ImageSearchDialog, {
-                 loadNextScrollThreshold: api.getConfigValue(pluginId, 'loadNextScrollThreshold', 100),
-                 insertImageFromUrlCommand: 'insert-image-from-url',
-                 insertImageCommand: 'textframeinsertimage',
-                 pluginNode: this.props.node,
-               }, {
-                 primary: false,
-                 center: true,
-                 title: 'Image search'
-               }
-             )
-           })
-         )
+        $$('button').addClass('inline-plugin-button')
+         .append($$('i').addClass('fa fa-picture-o'))
+         .attr('title', this.getLabel('Add/search image'))
+         .on('click', () => {
+           api.ui.showDialog(
+             ImageSearchDialog, {
+               loadNextScrollThreshold: api.getConfigValue(pluginId, 'loadNextScrollThreshold', 100),
+               insertImageFromUrlCommand: 'insert-image-from-url',
+               insertImageCommand: 'textframeinsertimage',
+               pluginNode: this.props.node,
+             }, {
+               primary: false,
+               center: true,
+               title: 'Image search'
+             }
+           )
+         })
       ])
       .addClass('header')
   }
