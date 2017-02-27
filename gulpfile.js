@@ -48,7 +48,7 @@ function writeConfig(data) {
 gulp.task('config-devbox-generate', function(){
   console.log('Creating config for devbox VM');
   writeConfig({
-    'fdmg.source'                   : 'writer-fd-dev.json',
+    'fdmg.source'                   : 'writer-fd.json',
     'infoMaker.plugins.base'        : 'https://s3-eu-west-1.amazonaws.com/writer-dev-plugins',
     'fdmg.webwriter.plugins.base'   : 'http://devbox.fdmg.org:3000',
     'fdmg.newsItem.template.id'     : '819',
@@ -66,7 +66,7 @@ gulp.task('config-devbox-generate', function(){
 gulp.task('local-config-fd-generate', function(){
   console.log('Creating "local" config for FD writer');
   writeConfig({
-    'fdmg.source'                   : 'writer-fd-dev.json',
+    'fdmg.source'                   : 'writer-fd.json',
     'infoMaker.plugins.base'        : 'https://s3-eu-west-1.amazonaws.com/writer-dev-plugins',
     'fdmg.webwriter.plugins.base'   : 'http://localhost:3000',
     'fdmg.newsItem.template.id'     : '30eae1c0-c640-4053-b114-05c64e28bbe7',
@@ -75,7 +75,7 @@ gulp.task('local-config-fd-generate', function(){
     'fdmg.services.token'           : 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIxMjMiLCJzdWIiOiJzdmVuIiwicm9sZSI6InVzZXIifQ.omGBEdLl3e_bxNFq83bsTUZnO5HU_c0gltDuTFWM_KlLJWtlZzDo1F7jGD6zPD54XmimTAWmD5XKIlhMQVmChQ',
     'hollandseHoogte.token'         : '63401c89-63e9-35f9-9daa-a55ef26c3042',
     'fdmg.apiGatewayBaseUrl'        : 'https://apigateway-dev.fdmg.nl',
-    'fdmg.fileName'                 : 'writer-fd-dev.json',
+    'fdmg.fileName'                 : 'writer-fd.json',
     'fdmg.destination'              : '../NPWriter/server/config/'
   });
 });
@@ -99,7 +99,7 @@ gulp.task('prod-config-fd-generate', function(){
 gulp.task('local-config-esb-generate', function(){
   console.log('Creating "local" config for ESB writer');
   writeConfig({
-    'fdmg.source'                   : 'writer-esb-dev.json',
+    'fdmg.source'                   : 'writer-esb.json',
     'infoMaker.plugins.base'        : 'https://s3-eu-west-1.amazonaws.com/writer-dev-plugins',
     'fdmg.webwriter.plugins.base'   : 'http://localhost:3000',
     'fdmg.newsItem.template.id'     : '20003109',
