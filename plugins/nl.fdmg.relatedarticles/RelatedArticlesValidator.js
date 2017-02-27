@@ -2,14 +2,14 @@ import FDValidator from '../nl.fdmg.fdvalidator/FDValidator'
 
 class RelatedArticlesValidator extends FDValidator {
   validate() {
-    if (this.isShortArticle || this.isAdvertorial || this.isEvents) return
+    if (this.isShortArticle || this.isAdvertorial || this.isEvents) return;
 
     if (this.drafted || this.submitted || this.published) {
-      const relatedarticles = this.newsItem.querySelectorAll('itemMeta > links link[type="fdmg/relatedarticle"]')
+      const relatedarticles = this.newsItem.querySelectorAll('itemMeta > links link[type="fdmg/relatedarticle"]');
 
       relatedarticles.forEach((link, index) => {
         const id = link.attributes.getNamedItem('id');
-        console.log(id, 'validator id', link, 'link', link.attributes, 'link attributes')
+        console.log(id, 'validator id', link, 'link', link.attributes, 'link attributes');
         if (!id || id.value.trim() === '') {
 
           this.addError(`${this.getLabel('Related article url is invalid')} (${index + 1})`)

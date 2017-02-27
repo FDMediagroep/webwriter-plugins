@@ -61,7 +61,7 @@ class RelatedArticlesComponent extends Component {
       .map(e => e[1])
       .map(r => r.val())
       .filter(r => Boolean(r));
-    console.log(newUrls)
+
     // Remove existing links
     api.newsItem
       .getLinkByType(this.name, this.type)
@@ -69,7 +69,6 @@ class RelatedArticlesComponent extends Component {
 
     // Create new links
     newUrls.forEach(url =>
-
       api.newsItem.addLink(this.name, {
         '@type': this.type,
         '@rel': this.name,
@@ -79,7 +78,7 @@ class RelatedArticlesComponent extends Component {
       })
     );
 
-    // this.reloadState()
+    this.reloadState()
   }
 
   reloadState() {
@@ -95,10 +94,11 @@ class RelatedArticlesComponent extends Component {
   }
 
   static extractId(url) {
-    // const res = (/^.*fd\.nl.*\/(\d+).*$/i).exec(url);
-    const res = (/^.*(fd\.nl|esb\.nu).*\/(\d+).*$/i).exec(url);
-    console.log(res, 'res', res[2]);
-    if (res && res.length === 2) return res[2];
+    const domain = api.getConfigValue('nl.fdmg.relatedarticles', 'domain');
+    const regex = new RegExp("^.*" + domain + ".*/(\\\d+).*", 'i');
+    const res = regex.exec(url);
+
+    if (res && res.length === 2) return res[1];
 
     return ''
   }
