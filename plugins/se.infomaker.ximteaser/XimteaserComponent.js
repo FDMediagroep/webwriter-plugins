@@ -187,6 +187,7 @@ class XimteaserComponent extends Component {
   getDropzoneSpecs() {
     console.log("Dropzone");
     const label = this.props.node.imageFile ? 'teaser-replace-image' : 'teaser-add-image';
+    console.log(this.props.node)
     return [
       {
         component: this,
@@ -212,6 +213,7 @@ class XimteaserComponent extends Component {
     if (this.isFileDrop(dragState.data)) {
       // Handle file drop
       this.handleNewImage(tx, dragState);
+
       //Handle URI drop
     } else if (dragState.nodeDrag) {
       // Handle internal node drag
