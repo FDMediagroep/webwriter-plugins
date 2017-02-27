@@ -216,4 +216,4 @@ gulp.task('clean', function() {
 // Default build development
 gulp.task('generate-config-fd', ['dev-config-fd-generate', 'acc-config-fd-generate', 'prod-config-fd-generate']);
 gulp.task('generate-config-esb', ['dev-config-esb-generate', 'acc-config-esb-generate', 'prod-config-esb-generate']);
-gulp.task('default', ['clean', 'generate-config-fd', 'generate-config-esb']);
+gulp.task('default', ['clean', 'local-config-fd-generate']);
