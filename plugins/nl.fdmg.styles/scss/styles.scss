@@ -342,3 +342,10 @@ div{
     }
   }
 }
+
+.sc-edit-link-tool {
+  button[title=open-link] {
+      display: none;
+  }
+}
+
