@@ -15,7 +15,8 @@ build_dist:
     - yarn install
     - echo Running build for production
     - npm run build
-    - gulp
+    - gulp --fdmg_services_config_url=http://spring-config-fd.fdmg.org:8088/webwriter generate-config-fd
+    - gulp --fdmg_services_config_url=http://spring-config-esb.fdmg.org:8088/webwriter generate-config-esb
   artifacts:
     name: "${CI_BUILD_ID}_${CI_PROJECT_NAME}_${CI_BUILD_REF_NAME}"
     expire_in: 1d
@@ -23,29 +24,50 @@ build_dist:
     - node_modules/
     - dist/
 
-deploy_dev:
+deploy_dev_fd:
   stage: deploy
   script:
-    - gulp --aws_key=$INFOMAKER_AWS_ACCESS_KEY_ID --aws_secret=$INFOMAKER_AWS_SECRET_ACCESS_KEY --aws_bucket=$INFOMAKER_AWS_S3_BUCKET_NAME --aws_region=$AWS_REGION --fdmg_services_token=$DEV_FDMG_SERVICES_TOKEN --hollandse_hoogte_token=DEV_HOLLANDSE_HOOGTE_TOKEN dev-deploy-webwriter-config
-    - gulp --aws_key=$DEV_AWS_ACCESS_KEY_ID --aws_secret=$DEV_AWS_SECRET_ACCESS_KEY --aws_bucket=$DEV_AWS_S3_BUCKET_NAME --aws_region=$AWS_REGION deploy
+    - gulp --fdmg_services_config_url=http://spring-config-fd.fdmg.org:8088/webwriter dev-fd-deploy-webwriter-config
   environment: webwriter-dev-fd
   only:
     - develop
 
-deploy_acc:
+deploy_dev_esb:
   stage: deploy
   script:
-    - gulp --aws_key=$INFOMAKER_AWS_ACCESS_KEY_ID --aws_secret=$INFOMAKER_AWS_SECRET_ACCESS_KEY --aws_bucket=$INFOMAKER_AWS_S3_BUCKET_NAME --aws_region=$AWS_REGION --fdmg_services_token=$ACC_FDMG_SERVICES_TOKEN --hollandse_hoogte_token=ACC_HOLLANDSE_HOOGTE_TOKEN acc-deploy-webwriter-config
-    - gulp --aws_key=$DEV_AWS_ACCESS_KEY_ID --aws_secret=$DEV_AWS_SECRET_ACCESS_KEY --aws_bucket=$ACC_AWS_S3_BUCKET_NAME --aws_region=$AWS_REGION deploy
+    - gulp --fdmg_services_config_url=http://spring-config-esb.fdmg.org:8088/webwriter dev-esb-deploy-webwriter-config
+  environment: webwriter-dev-esb
+  only:
+    - develop
+
+deploy_acc_fd:
+  stage: deploy
+  script:
+    - gulp --fdmg_services_config_url=http://spring-config-fd.fdmg.org:8088/webwriter acc-fd-deploy-webwriter-config
   environment: webwriter-acc-fd
   only:
     - acceptance
 
-deploy_prod:
+deploy_acc_esb:
   stage: deploy
   script:
-    - gulp --aws_key=$INFOMAKER_AWS_ACCESS_KEY_ID --aws_secret=$INFOMAKER_AWS_SECRET_ACCESS_KEY --aws_bucket=$INFOMAKER_AWS_S3_BUCKET_NAME --aws_region=$AWS_REGION --fdmg_services_token=$PROD_FDMG_SERVICES_TOKEN --hollandse_hoogte_token=PROD_HOLLANDSE_HOOGTE_TOKEN prod-deploy-webwriter-config
-    - gulp --aws_key=$PROD_AWS_ACCESS_KEY_ID --aws_secret=$PROD_AWS_SECRET_ACCESS_KEY --aws_bucket=$PROD_AWS_S3_BUCKET_NAME --aws_region=$AWS_REGION deploy
+    - gulp --fdmg_services_config_url=http://spring-config-esb.fdmg.org:8088/webwriter acc-esb-deploy-webwriter-config
+  environment: webwriter-acc-esb
+  only:
+    - acceptance
+
+deploy_prod_fd:
+  stage: deploy
+  script:
+    - gulp --fdmg_services_config_url=http://spring-config-fd.fdmg.org:8088/webwriter prod-fd-deploy-webwriter-config
   environment: webwriter-fd
+  only:
+    - production
+
+deploy_prod_esb:
+  stage: deploy
+  script:
+    - gulp --fdmg_services_config_url=http://spring-config-esb.fdmg.org:8088/webwriter prod-esb-deploy-webwriter-config
+  environment: webwriter-esb
   only:
     - production
