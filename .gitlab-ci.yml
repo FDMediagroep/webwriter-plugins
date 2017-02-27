@@ -10,6 +10,8 @@ stages:
 
 build_dist:
   stage: build
+  tags:
+    - FDMG
   script:
     - echo Installing dependencies
     - yarn install
@@ -26,6 +28,8 @@ build_dist:
 
 deploy_dev_fd:
   stage: deploy
+  tags:
+      - FDMG
   script:
     - gulp --fdmg_services_config_url=http://spring-config-fd.fdmg.org:8088/webwriter dev-fd-deploy-webwriter-config
   environment: webwriter-dev-fd
@@ -34,6 +38,8 @@ deploy_dev_fd:
 
 deploy_dev_esb:
   stage: deploy
+  tags:
+      - FDMG
   script:
     - gulp --fdmg_services_config_url=http://spring-config-esb.fdmg.org:8088/webwriter dev-esb-deploy-webwriter-config
   environment: webwriter-dev-esb
@@ -42,6 +48,8 @@ deploy_dev_esb:
 
 deploy_acc_fd:
   stage: deploy
+  tags:
+      - FDMG
   script:
     - gulp --fdmg_services_config_url=http://spring-config-fd.fdmg.org:8088/webwriter acc-fd-deploy-webwriter-config
   environment: webwriter-acc-fd
@@ -50,6 +58,8 @@ deploy_acc_fd:
 
 deploy_acc_esb:
   stage: deploy
+  tags:
+      - FDMG
   script:
     - gulp --fdmg_services_config_url=http://spring-config-esb.fdmg.org:8088/webwriter acc-esb-deploy-webwriter-config
   environment: webwriter-acc-esb
@@ -58,6 +68,8 @@ deploy_acc_esb:
 
 deploy_prod_fd:
   stage: deploy
+  tags:
+      - FDMG
   script:
     - gulp --fdmg_services_config_url=http://spring-config-fd.fdmg.org:8088/webwriter prod-fd-deploy-webwriter-config
   environment: webwriter-fd
@@ -66,6 +78,8 @@ deploy_prod_fd:
 
 deploy_prod_esb:
   stage: deploy
+  tags:
+      - FDMG
   script:
     - gulp --fdmg_services_config_url=http://spring-config-esb.fdmg.org:8088/webwriter prod-esb-deploy-webwriter-config
   environment: webwriter-esb

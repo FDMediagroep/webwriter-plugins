@@ -157,7 +157,8 @@ function initializeConfig() {
  * Deploy to S3.
  */
 function deploy(configFile) {
-  let writerClient = configFile['destination'] + '/' + configFile['fdmg.fileName'];
+  let writerClient = configFile['fdmg.destination'] + '/' + configFile['fdmg.fileName'];
+  console.log(writerClient);
   s3ConfigFdmgDeploy(writerClient, getS3ConfigFdmg(configFile));
   return s3ConfigInfoMakerDeploy(writerClient, getS3ConfigInfoMaker(configFile));
 }
