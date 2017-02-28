@@ -13,13 +13,13 @@ class AuthorComponent extends Component {
 
   getInitialState() {
     return {
-      existingAuthors: this._getExistingAuthors();
+      existingAuthors: this._getExistingAuthors()
     }
   }
 
   reloadAuthors() {
     this.extendState({
-      existingAuthors: this._getExistingAuthors();
+      existingAuthors: this._getExistingAuthors()
     })
   }
 

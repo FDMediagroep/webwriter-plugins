@@ -1,4 +1,4 @@
-import ArticleOptionComponent from '../nl.fdmg.articleoption/ArticleOptionComponent'
+import ArticleOptionComponent from '../nl.fdmg.articleoption/ArticleOptionComponent';
 
 class BreakingarticleComponent extends ArticleOptionComponent {
   constructor(...args) {
@@ -12,4 +12,4 @@ class BreakingarticleComponent extends ArticleOptionComponent {
   }
 }
 
-export default BreakingarticleComponent
+export default BreakingarticleComponent;
