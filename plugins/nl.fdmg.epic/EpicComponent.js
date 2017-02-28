@@ -1,15 +1,15 @@
-import {Component, FontAwesomeIcon} from 'substance'
-import {api, idGenerator} from 'writer'
-import SearchFieldComponent from '../nl.fdmg.searchfield/SearchFieldComponent'
-import './scss/epic.scss'
+import {Component, FontAwesomeIcon} from 'substance';
+import {api, idGenerator} from 'writer';
+import SearchFieldComponent from '../nl.fdmg.searchfield/SearchFieldComponent';
+import './scss/epic.scss';
 
-const pluginId = 'nl.fdmg.epic'
+const pluginId = 'nl.fdmg.epic';
 
 class EpicComponent extends Component {
   constructor(...args) {
-    super(...args)
-    this.name = 'epic'
-    this.type = 'fdmg/epic'
+    super(...args);
+    this.name = 'epic';
+    this.type = 'fdmg/epic';
   }
 
   getInitialState() {
@@ -19,7 +19,7 @@ class EpicComponent extends Component {
   }
 
   render($$) {
-    const epic = this.state.epic
+    const epic = this.state.epic;
 
     const searchComponent = $$(SearchFieldComponent, {
       existingItems: epic ? [epic] : [],
@@ -28,9 +28,9 @@ class EpicComponent extends Component {
       onCreate: this.setEpic.bind(this),
       createAllowed: true,
       placeholderText: this.getLabel('Select epic')
-    }).ref('searchComponent')
+    }).ref('searchComponent');
 
-    let epicEl = $$('span')
+    let epicEl = $$('span');
 
     if (epic) {
       epicEl = $$('div')
@@ -42,7 +42,7 @@ class EpicComponent extends Component {
               $$('span').addClass('epic__name notClickable meta').append(epic.label),
               $$('button').append($$(FontAwesomeIcon, {icon: 'fa-times'})).on('click', this.removeEpic)
             )
-        )
+        );
       searchComponent.addClass('hidden')
     }
 
@@ -57,20 +57,20 @@ class EpicComponent extends Component {
   }
 
   readEpic() {
-    const epic = api.newsItem.getLinkByType('epic', 'fdmg/epic').pop()
+    const epic = api.newsItem.getLinkByType('epic', 'fdmg/epic').pop();
     if (epic) {
       return {
         id: epic['@id'],
         label: epic['@name']
-      }
+      };
     }
 
     return undefined;
   }
 
   searchEpic(query) {
-    const endpoint = api.getConfigValue(pluginId, 'endpoint')
-    const token = api.getConfigValue(pluginId, 'token')
+    const endpoint = api.getConfigValue(pluginId, 'endpoint');
+    const token = api.getConfigValue(pluginId, 'token');
 
     return fetch(endpoint + query, {
       method: 'GET',
@@ -86,7 +86,7 @@ class EpicComponent extends Component {
   }
 
   setEpic(epic) {
-    this.removeEpic()
+    this.removeEpic();
 
     const link = {
       '@rel': this.name,
@@ -94,29 +94,29 @@ class EpicComponent extends Component {
       '@id': epic.id,
       '@name': epic.label,
       '@uuid': idGenerator()
-    }
+    };
 
     if (epic.id === '__create-new') {
       delete link['@id']
     }
 
-    api.newsItem.addLink(this.name, link)
+    api.newsItem.addLink(this.name, link);
 
-    this.reloadEpic()
+    this.reloadEpic();
   }
 
   reloadEpic() {
-    this.extendState({epic: this.readEpic()})
+    this.extendState({epic: this.readEpic()});
   }
 
   removeEpic() {
     api.newsItem.getLinkByType('epic', 'fdmg/epic')
       .forEach(l => {
         api.newsItem.removeLinkByUUIDAndRel(this.name, l['@uuid'], l['@rel'])
-      })
+      });
 
-    this.reloadEpic()
+    this.reloadEpic();
   }
 }
 
-export default EpicComponent
+export default EpicComponent;
