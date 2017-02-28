@@ -19,4 +19,4 @@ class AdvertorialValidator extends FDValidator {
   }
 }
 
-export default AdvertorialValidator
+export default AdvertorialValidator;

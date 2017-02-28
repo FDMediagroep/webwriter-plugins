@@ -42,5 +42,4 @@ export default class AdvertorialComponent extends ArticleOption {
       this.updateOtherOptions();
     }
   }
-
 }
