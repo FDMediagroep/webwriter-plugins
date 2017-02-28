@@ -107,6 +107,9 @@ export default {
     config.addLabel('Delete link', {
       'nl': 'Link verwijderen'
     });
+    config.addLabel('delete-link', {
+      'nl': 'Link verwijderen'
+    });
     config.addLabel('Rechts uitlijnend', {
       'nl': 'Afbeelding rechts uitlijnend'
     });

@@ -342,7 +342,7 @@ div{
     }
   }
 }
-
+// Do not display the open external link button
 .sc-edit-link-tool {
   button[title=open-link] {
       display: none;
