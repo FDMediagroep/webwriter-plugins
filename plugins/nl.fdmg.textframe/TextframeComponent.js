@@ -1,7 +1,7 @@
 import {Component, TextPropertyEditor, FontAwesomeIcon} from 'substance';
 import {api} from 'writer';
 
-import ImageSearchDialog from '../nl.fdmg.imagesearch/ImageSearchDialog'
+import ImageSearchDialog from '../nl.fdmg.imagesearch/ImageSearchDialog';
 const pluginId = 'nl.fdmg.imagesearch';
 
 class TextframeComponent extends Component {
