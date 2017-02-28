@@ -1,4 +1,4 @@
-import ArticleOptionComponent from '../nl.fdmg.articleoption/ArticleOptionComponent'
+import ArticleOptionComponent from '../nl.fdmg.articleoption/ArticleOptionComponent';
 
 class DoNotIndexComponent extends ArticleOptionComponent {
   constructor(...args) {
@@ -8,8 +8,8 @@ class DoNotIndexComponent extends ArticleOptionComponent {
       label: "Do not index",
       pluginId: 'nl.fdmg.donotindex',
       hasInput: false
-    }, ...args)
+    }, ...args);
   }
 }
 
-export default DoNotIndexComponent
+export default DoNotIndexComponent;
