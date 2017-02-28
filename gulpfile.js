@@ -157,9 +157,10 @@ function initializeConfig() {
  * Deploy to S3.
  */
 function deploy(configFile) {
-  let writerClient = configFile['fdmg.destination'] + '/' + configFile['fdmg.fileName'];
-  console.log(writerClient);
-  s3ConfigFdmgDeploy(writerClient, getS3ConfigFdmg(configFile));
+  let distFolder = configFile['fdmg.destination'] + '/';
+  let writerClient = distFolder + configFile['fdmg.fileName'];
+  let files = [writerClient, distFolder + 'index.js', distFolder + 'style.css'];
+  s3ConfigFdmgDeploy(files, getS3ConfigFdmg(configFile));
   return s3ConfigInfoMakerDeploy(writerClient, getS3ConfigInfoMaker(configFile));
 }
 
