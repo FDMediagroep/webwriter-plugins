@@ -56,20 +56,18 @@ class ImageSearchDialog extends Component {
                 $$('input')
                   .addClass('form-control form__search')
                   .attr({'placeholder': api.getLabel('Search query')})
-                  .setValue(this.state.lastQuery)
                   .ref('searchfield')
                   .on('keydown', this.onKeydown.bind(this)),
                 $$('button')
                   .addClass('btn btn-neutral')
                   .attr({title: api.getLabel('Search')})
                   .append(
-                    $$(FontAwesomeIcon, {icon: 'fa-search'}),
+                    $$(FontAwesomeIcon, {icon: 'fa-search'}).on('click', () => {
+                      this.extendState(this.getInitialState());
+                      this.search(this.refs.searchfield.val());
+                    }),
                     $$(FontAwesomeIcon, {icon: 'fa-spinner fa-pulse'}).addClass(this.state.isSearching ? 'active' : '')
-                  )
-                  .on('click', () => {
-                    this.extendState(this.getInitialState())
-                    this.search(this.refs.searchfield.val())
-                  }),
+                  ),
                   $$(FileInputComponent, {onChange: this.triggerFileUpload.bind(this)})
               )
           ),
@@ -122,9 +120,9 @@ class ImageSearchDialog extends Component {
   }
 
   onKeydown(e) {
-    e.stopPropagation();
     switch(e.keyCode) {
       case 13:  // Enter
+        e.stopPropagation();
         this.extendState({
           isSearching: false,
           lastQuery: this.refs.searchfield.val(),
