@@ -1,4 +1,4 @@
-import {BlockNode} from 'substance'
+import {BlockNode} from 'substance';
 
 class HtmlEmbedNode extends BlockNode {
 }
@@ -9,6 +9,6 @@ HtmlEmbedNode.define({
   dataType: 'string',
   format: 'string',
   text: {type: 'string', optional: true}
-})
+});
 
-export default HtmlEmbedNode
+export default HtmlEmbedNode;

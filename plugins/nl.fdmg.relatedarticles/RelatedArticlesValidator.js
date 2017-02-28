@@ -1,4 +1,4 @@
-import FDValidator from '../nl.fdmg.fdvalidator/FDValidator'
+import FDValidator from '../nl.fdmg.fdvalidator/FDValidator';
 
 class RelatedArticlesValidator extends FDValidator {
   validate() {
@@ -12,11 +12,11 @@ class RelatedArticlesValidator extends FDValidator {
         console.log(id, 'validator id', link, 'link', link.attributes, 'link attributes');
         if (!id || id.value.trim() === '') {
 
-          this.addError(`${this.getLabel('Related article url is invalid')} (${index + 1})`)
+          this.addError(`${this.getLabel('Related article url is invalid')} (${index + 1})`);
         }
       })
     }
   }
 }
 
-export default RelatedArticlesValidator
+export default RelatedArticlesValidator;

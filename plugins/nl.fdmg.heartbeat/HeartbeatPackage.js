@@ -34,6 +34,5 @@ export default {
     config.addLabel('This article is in use by', { 'nl': 'Dit artikel is in gebruik door' });
     config.addLabel('Article editable', { 'nl': 'Artikel vrij' });
     config.addLabel('You can edit this article', { 'nl': 'U mag dit artikel bewerken' });
-
   }
 }

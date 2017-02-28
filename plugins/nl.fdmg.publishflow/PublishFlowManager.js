@@ -1,7 +1,7 @@
-const {api, moment} = writer
+const {api, moment} = writer;
 class PublishFlowConfiguration {
   constructor(pluginId) {
-    this.pluginId = pluginId
+    this.pluginId = pluginId;
 
     this.status = {
       'imext:draft': {
@@ -48,25 +48,25 @@ class PublishFlowConfiguration {
 
   getAllowedActions(status) {
     if (this.status[status]) {
-      return this.status[status].allowed
+      return this.status[status].allowed;
     }
 
     return []
   }
 
   setToDraft() {
-    this.setStatus('imext:draft', null, null)
+    this.setStatus('imext:draft', null, null);
   }
 
   setToDone() {
-    this.setStatus('imext:done', null, null)
+    this.setStatus('imext:done', null, null);
   }
 
   setToWithheld(from) {
     let fromObj = moment(from);
 
     if (!fromObj.isValid()) {
-      throw new Error('Invalid from date and time')
+      throw new Error('Invalid from date and time');
     }
 
     this.setStatus(
@@ -98,13 +98,13 @@ class PublishFlowConfiguration {
     }
 
     if (pubStart === null) {
-      api.newsItem.removePubStart(this.pluginId)
+      api.newsItem.removePubStart(this.pluginId);
     }
     else if (typeof pubStart !== 'undefined') {
-      api.newsItem.setPubStart(this.pluginId, pubStart)
+      api.newsItem.setPubStart(this.pluginId, pubStart);
     }
 
   }
 }
 
-export default PublishFlowConfiguration
+export default PublishFlowConfiguration;

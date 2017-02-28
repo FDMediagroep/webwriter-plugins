@@ -1,9 +1,9 @@
-import {Component} from 'substance'
-import TagItem from './TagItemComponent'
+import {Component} from 'substance';
+import TagItem from './TagItemComponent';
 
 class TagsListComponent extends Component {
   render($$) {
-    const existingTags = this.props.existingTags
+    const existingTags = this.props.existingTags;
     return $$('ul')
       .addClass('tag-list')
       .append(existingTags.map(tag =>
@@ -16,9 +16,9 @@ class TagsListComponent extends Component {
   }
 
   removeTag(tag) {
-    delete this.refs['tag-' + tag.uuid]
+    delete this.refs['tag-' + tag.uuid];
     this.props.removeTag(tag)
   }
 }
 
-export default TagsListComponent
+export default TagsListComponent;

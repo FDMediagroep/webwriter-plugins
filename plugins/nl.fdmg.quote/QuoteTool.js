@@ -4,7 +4,7 @@ import {api} from 'writer';
 export default class QuoteTool extends Tool {
 
   render($$) {
-    var el = $$('button').addClass('se-tool').append(
+    const el = $$('button').addClass('se-tool').append(
       $$('i').addClass('fa fa-quote-left')
     ).attr('title', this.getLabel('Insert Quote'))
     .on('click', () => {

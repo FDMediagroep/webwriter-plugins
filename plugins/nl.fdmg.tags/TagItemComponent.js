@@ -1,4 +1,4 @@
-import {Component, FontAwesomeIcon} from 'substance'
+import {Component, FontAwesomeIcon} from 'substance';
 
 class TagItemComponent extends Component {
   render($$) {
@@ -25,14 +25,14 @@ class TagItemComponent extends Component {
   }
 
   showHover() {
-    const deleteButton = this.el.find('.tag-icon--delete')
+    const deleteButton = this.el.find('.tag-icon--delete');
     deleteButton.addClass('active')
   }
 
   hideHover() {
-    const deleteButton = this.el.find('.tag-icon--delete')
+    const deleteButton = this.el.find('.tag-icon--delete');
     deleteButton.removeClass('active')
   }
 }
 
-export default TagItemComponent
+export default TagItemComponent;

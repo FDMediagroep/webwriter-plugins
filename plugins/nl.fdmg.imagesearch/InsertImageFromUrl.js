@@ -5,7 +5,7 @@
 */
 
 export default function(tx, data, nodeId) {
-  let isFile = data instanceof File
+  let isFile = data instanceof File;
 
   if (!typeof data === 'string' && !isFile) {
     throw new Error('Unsupported data. Must be File or String')
@@ -15,7 +15,7 @@ export default function(tx, data, nodeId) {
     parentNodeId: nodeId,
     type: 'npfile',
     imType: 'x-im/image'
-  }
+  };
 
   if(isFile) {
     imageFileNode['sourceFile'] = data
@@ -24,7 +24,7 @@ export default function(tx, data, nodeId) {
   }
 
   // Create file node for the image
-  let imageFile = tx.create(imageFileNode)
+  let imageFile = tx.create(imageFileNode);
 
   tx.set([nodeId, 'imageFile'], imageFile.id)
 }

@@ -1,6 +1,6 @@
-import {Component} from 'substance'
-import SpinnerComponent from './SpinnerComponent'
-import {clone, debounce} from 'lodash'
+import {Component} from 'substance';
+import SpinnerComponent from './SpinnerComponent';
+import {clone, debounce} from 'lodash';
 
 /**
  * Props to pass:
@@ -17,13 +17,13 @@ import {clone, debounce} from 'lodash'
  */
 class SearchFieldComponent extends Component {
   constructor(...args) {
-    super(...args)
+    super(...args);
 
     if (this.props.createAllowed && !this.props.onCreate) {
-      console.warn('Creation of items is allowed but onCreate method is missing')
+      console.warn('Creation of items is allowed but onCreate method is missing');
     }
 
-    this.debouncedSearch = debounce(this._search, 300)
+    this.debouncedSearch = debounce(this._search, 300);
   }
 
   getInitialState() {
@@ -44,7 +44,7 @@ class SearchFieldComponent extends Component {
   }
 
   render($$) {
-    const formGroup = $$('div').addClass('form-group').ref('formGroup')
+    const formGroup = $$('div').addClass('form-group').ref('formGroup');
 
     const searchInput = $$('input')
       .addClass('form-control')
@@ -56,94 +56,94 @@ class SearchFieldComponent extends Component {
         id: 'formSearch',
         placeholder: this.props.placeholderText
       })
-      .ref('searchInput')
+      .ref('searchInput');
 
-    const inlineIcon = $$(SpinnerComponent, {isSearching: this.state.isSearching})
+    const inlineIcon = $$(SpinnerComponent, {isSearching: this.state.isSearching});
 
-    formGroup.append(inlineIcon)
-    formGroup.append(searchInput)
+    formGroup.append(inlineIcon);
+    formGroup.append(searchInput);
 
-    const el = $$('div').addClass('search__container').ref('searchContainer')
-    const list = $$('div').attr({id: 'searchResult'}).ref('searchResult')
+    const el = $$('div').addClass('search__container').ref('searchContainer');
+    const list = $$('div').attr({id: 'searchResult'}).ref('searchResult');
 
     if (this.state.items.length > 0) {
       list.addClass('isSearching')
     }
 
     this.state.items.forEach((item, idx) => {
-      const itemToSave = clone(item)
+      const itemToSave = clone(item);
 
-      let label = item.label
+      let label = item.label;
       if (item.id === '__create-new') {
         label = `${this.getLabel('Create')} : ${label}`
       }
 
-      const itemId = 'item-' + item.id
-      const itemEl = $$('li')
+      const itemId = 'item-' + item.id;
+      const itemEl = $$('li');
 
       if (item.exists) {
-        itemEl.addClass('item__exists')
-        itemEl.append($$('span').append('\u2713').addClass('item__found'))
+        itemEl.addClass('item__exists');
+        itemEl.append($$('span').append('\u2713').addClass('item__found'));
       }
 
       itemEl
         .append($$('span').append(label).addClass('item__name'))
         .attr({id: itemId})
         .on('click', () => {
-          this.select(itemToSave)
-        })
+          this.select(itemToSave);
+        });
 
       if (this.state.currentSelectedIndex === idx) {
-        this.currentSelectedItem = itemToSave
-        itemEl.addClass('active')
+        this.currentSelectedItem = itemToSave;
+        itemEl.addClass('active');
       }
 
       list.append(itemEl)
-    })
+    });
 
-    el.append(formGroup)
-    el.append(list)
+    el.append(formGroup);
+    el.append(list);
 
-    return el
+    return el;
   }
 
   onSearchInputKeyUp(e) {
     switch (e.keyCode) {
       case 38:  // up arrow
-        if (e.shiftKey) return
-        e.preventDefault()
-        this.prev()
+        if (e.shiftKey) return;
+        e.preventDefault();
+        this.prev();
         break;
       case 40:  // down arrow
-        if (e.shiftKey) return
-        e.preventDefault()
-        this.next()
-        break
+        if (e.shiftKey) return;
+        e.preventDefault();
+        this.next();
+        break;
       case 9:   // tab
       case 13:  // enter
-        e.preventDefault()
-        if (this.state.items.length === 0) return
-        this.select(this.currentSelectedItem)
-        break
+        e.preventDefault();
+        if (this.state.items.length === 0) return;
+        this.select(this.currentSelectedItem);
+        break;
       case 27:  // escape
-        this.hide()
+        this.hide();
         break;
       default:
-        this.search(this.refs.searchInput.val())
+        this.search(this.refs.searchInput.val());
     }
   }
 
   get search() {
-    return this.debouncedSearch
+    return this.debouncedSearch;
   }
 
   _search(query) {
     if (query.length === 0) {
-      this.hide()
-      return
+      this.hide();
+      return;
     }
 
-    if (query.length < 2) return
+    if (query.length < 2) return;
 
     this.extendState({isSearching: true})
 
@@ -157,7 +157,7 @@ class SearchFieldComponent extends Component {
   }
 
   select(item) {
-    if (item.exists) return
+    if (item.exists) return;
 
     if (this.props.onCreate && this.props.createAllowed && item.id === '__create-new') {
       this.props.onCreate(item, itemAlreadyExists(this.state.items, item))
@@ -165,7 +165,7 @@ class SearchFieldComponent extends Component {
       this.props.onSelect(item)
     }
 
-    this.hide()
+    this.hide();
 
     function itemAlreadyExists(items, item) {
       for (let i = 0; i < items.length; i++) {
@@ -176,19 +176,19 @@ class SearchFieldComponent extends Component {
   }
 
   next() {
-    const selectedDomItem = document.getElementById('item-' + this.currentSelectedItem.id)
-    let currentSelectedItem = this.currentSelectedItem && selectedDomItem
+    const selectedDomItem = document.getElementById('item-' + this.currentSelectedItem.id);
+    let currentSelectedItem = this.currentSelectedItem && selectedDomItem;
     if (currentSelectedItem) {
-      let searchResultElement = this.refs.searchResult.el.el
-      let selectedItem = selectedDomItem
-      let items = this.state.items
+      let searchResultElement = this.refs.searchResult.el.el;
+      let selectedItem = selectedDomItem;
+      let items = this.state.items;
 
       if (this.state.currentSelectedIndex >= 0) {
-        let idx = parseInt(this.state.currentSelectedIndex, 10)
-        idx += 1
+        let idx = parseInt(this.state.currentSelectedIndex, 10);
+        idx += 1;
 
-        searchResultElement.scrollTop = selectedItem.offsetTop
-        this.extendState({currentSelectedIndex: idx})
+        searchResultElement.scrollTop = selectedItem.offsetTop;
+        this.extendState({currentSelectedIndex: idx});
 
         if (idx === items.length) {
           this.extendState({currentSelectedIndex: 0})
@@ -199,25 +199,25 @@ class SearchFieldComponent extends Component {
   }
 
   prev() {
-    const selectedDomItem = document.getElementById('item-' + this.currentSelectedItem.id)
-    let currentSelectedItem = this.currentSelectedItem && selectedDomItem
+    const selectedDomItem = document.getElementById('item-' + this.currentSelectedItem.id);
+    let currentSelectedItem = this.currentSelectedItem && selectedDomItem;
     if (currentSelectedItem) {
-      let searchResultElement = this.refs.searchResult.el.el
-      let selectedItemPrevSibling = selectedDomItem.previousSibling
-      let items = this.state.items
+      let searchResultElement = this.refs.searchResult.el.el;
+      let selectedItemPrevSibling = selectedDomItem.previousSibling;
+      let items = this.state.items;
 
       if (this.state.currentSelectedIndex >= 0) {
-        let idx = parseInt(this.state.currentSelectedIndex, 10)
+        let idx = parseInt(this.state.currentSelectedIndex, 10);
 
         if (selectedItemPrevSibling === null) {
-          searchResultElement.scrollTop = searchResultElement.lastChild.offsetTop
+          searchResultElement.scrollTop = searchResultElement.lastChild.offsetTop;
           this.extendState({currentSelectedIndex: items.length - 1})
         } else {
-          let offsetTop = selectedItemPrevSibling.offsetTop
-          let offsetHeight = selectedItemPrevSibling.offsetHeight
+          let offsetTop = selectedItemPrevSibling.offsetTop;
+          let offsetHeight = selectedItemPrevSibling.offsetHeight;
 
-          searchResultElement.scrollTop = offsetTop - offsetHeight
-          idx -= 1
+          searchResultElement.scrollTop = offsetTop - offsetHeight;
+          idx -= 1;
           this.extendState({currentSelectedIndex: idx})
         }
       }
@@ -225,7 +225,7 @@ class SearchFieldComponent extends Component {
   }
 
   hide() {
-    this.refs.searchInput.val('')
+    this.refs.searchInput.val('');
     this.extendState({
       items: [],
       currentSelectedIndex: 0,
@@ -254,10 +254,10 @@ class SearchFieldComponent extends Component {
       if (existingItemsMap[item.label]) {
         item.exists = true;
       }
-    })
+    });
 
     return items;
   }
 }
 
-export default SearchFieldComponent
+export default SearchFieldComponent;

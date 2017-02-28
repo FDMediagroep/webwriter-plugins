@@ -1,17 +1,17 @@
-import {Component, TextPropertyEditor, FontAwesomeIcon} from 'substance'
-import {api} from 'writer'
+import {Component, TextPropertyEditor, FontAwesomeIcon} from 'substance';
+import {api} from 'writer';
 
 import ImageSearchDialog from '../nl.fdmg.imagesearch/ImageSearchDialog'
-const pluginId = 'nl.fdmg.imagesearch'
+const pluginId = 'nl.fdmg.imagesearch';
 
 class TextframeComponent extends Component {
 
   didMount() {
-    this.context.editorSession.onRender('document', this._onDocumentChange, this)
+    this.context.editorSession.onRender('document', this._onDocumentChange, this);
 
     // @TODO, how to prevent drag correctly??
-    this.parent.parent.attr('draggable', false)
-    this.parent.attr('draggable', false)
+    this.parent.parent.attr('draggable', false);
+    this.parent.attr('draggable', false);
     this.attr('draggable', false)
 
   }
@@ -28,13 +28,13 @@ class TextframeComponent extends Component {
   }
 
   render($$) {
-    const node = this.props.node
-    const ImageDisplay = api.ui.getComponent('imageDisplay')
-    const el = $$('div').addClass('sc-textframe fdmg-box im-blocknode__container')
-    const textframeFields = api.getConfigValue('nl.fdmg.textframe', 'fields', [])
-    const alignments = api.getConfigValue('nl.fdmg.textframe', 'alignments', [])
+    const node = this.props.node;
+    const ImageDisplay = api.ui.getComponent('imageDisplay');
+    const el = $$('div').addClass('sc-textframe fdmg-box im-blocknode__container');
+    const textframeFields = api.getConfigValue('nl.fdmg.textframe', 'fields', []);
+    const alignments = api.getConfigValue('nl.fdmg.textframe', 'alignments', []);
 
-    el.append(this.renderHeader($$))
+    el.append(this.renderHeader($$));
 
     if (this.props.node.imageFile) {
       el.append(
@@ -46,7 +46,7 @@ class TextframeComponent extends Component {
         }).ref('image')
       )
     }
-    el.append(this.renderContent($$, textframeFields))
+    el.append(this.renderContent($$, textframeFields));
 
     if (alignments.length > 0) {
       el.append(this.renderAlignments($$, alignments))
@@ -62,9 +62,9 @@ class TextframeComponent extends Component {
   removeImage() {
 
     api.editorSession.transaction((tx) => {
-      const node = this.props.node
-      tx.set([node.id, 'imageFile'], null)
-      tx.set([node.id, 'subject'], '')
+      const node = this.props.node;
+      tx.set([node.id, 'imageFile'], null);
+      tx.set([node.id, 'subject'], '');
       // tx.delete(node.imageFile)
     })
   }
@@ -103,7 +103,7 @@ class TextframeComponent extends Component {
 
 
   triggerFileUpload(ev) {
-    const editorSession = api.editorSession
+    const editorSession = api.editorSession;
     editorSession.executeCommand('textframeinsertimage', {
       type: 'file',
       data: ev.target.files,
@@ -120,7 +120,7 @@ class TextframeComponent extends Component {
 
   renderContent($$, textframeFields) {
     const content = $$('div')
-      .addClass('im-blocknode__content full-width')
+      .addClass('im-blocknode__content full-width');
 
     // If 'subject' is specified in the config it should be rendered
     if (textframeFields.indexOf('subject') >= 0) {
@@ -128,7 +128,7 @@ class TextframeComponent extends Component {
     }
 
     // Render title editor
-    content.append(this.renderTitleEditor($$))
+    content.append(this.renderTitleEditor($$));
 
     // If 'text' is specified in the config it should be rendered
     if (textframeFields.indexOf('text') >= 0) {
@@ -141,19 +141,19 @@ class TextframeComponent extends Component {
   renderAlignments($$, alignments) {
     const alignmentContainer = $$('div')
       .addClass('x-im-image-dynamic x-im-image-alignment')
-      .attr('contenteditable', 'false')
+      .attr('contenteditable', 'false');
 
-    var currentAlignment = null
+    var currentAlignment = null;
 
     if (!this.props.node.alignment) {
-      currentAlignment = alignments[0].name
+      currentAlignment = alignments[0].name;
       this.props.node.setAlignment(currentAlignment)
     } else {
       currentAlignment = this.props.node.alignment
     }
 
     alignments.forEach(alignment => {
-      let selectedClass = (currentAlignment === alignment.name) ? ' selected' : ''
+      let selectedClass = (currentAlignment === alignment.name) ? ' selected' : '';
 
       alignmentContainer.append(
         $$('em')
@@ -164,13 +164,13 @@ class TextframeComponent extends Component {
           })
           .on('click', () => {
             if (alignment.name !== this.props.node.alignment) {
-              this.props.node.setAlignment(alignment.name)
+              this.props.node.setAlignment(alignment.name);
               this.rerender()
             }
             return false
           })
       )
-    })
+    });
 
     return alignmentContainer
   }
@@ -182,46 +182,46 @@ class TextframeComponent extends Component {
    */
   renderSubjectEditor($$) {
     if (this.props.node.imageFile) {
-      const subjectContainer = $$('div')
+      const subjectContainer = $$('div');
       const subjectEditor = $$(TextPropertyEditor, {
         tagName: 'div',
         path: [this.props.node.id, 'subject'],
         doc: this.props.doc
-      }).ref('subject').addClass('x-im-teaser-subject')
-      const icon = $$(FontAwesomeIcon, {icon: 'fa-flag'})
+      }).ref('subject').addClass('x-im-teaser-subject');
+      const icon = $$(FontAwesomeIcon, {icon: 'fa-flag'});
 
-      subjectContainer.append([icon, subjectEditor])
+      subjectContainer.append([icon, subjectEditor]);
       return subjectContainer
     }
   }
 
   renderTitleEditor($$) {
-    const titleContainer = $$('div')
+    const titleContainer = $$('div');
     const titleEditor = $$(TextPropertyEditor, {
       tagName: 'div',
       path: [this.props.node.id, 'title'],
       doc: this.props.doc
-    }).ref('title').addClass('x-im-teaser-title')
+    }).ref('title').addClass('x-im-teaser-title');
 
-    const icon = $$(FontAwesomeIcon, {icon: 'fa-header'})
+    const icon = $$(FontAwesomeIcon, {icon: 'fa-header'});
 
-    titleContainer.append([icon, titleEditor])
+    titleContainer.append([icon, titleEditor]);
     return titleContainer
   }
 
   renderTextEditor($$) {
-    const textContainer = $$('div')
+    const textContainer = $$('div');
     const textEditor = $$(TextPropertyEditor, {
       tagName: 'div',
       path: [this.props.node.id, 'text'],
       doc: this.props.doc
-    }).ref('text').addClass('x-im-teaser-text')
+    }).ref('text').addClass('x-im-teaser-text');
 
-    const icon = $$(FontAwesomeIcon, {icon: 'fa-paragraph'})
+    const icon = $$(FontAwesomeIcon, {icon: 'fa-paragraph'});
 
-    textContainer.append([icon, textEditor])
+    textContainer.append([icon, textEditor]);
     return textContainer
   }
 }
 
-export default TextframeComponent
+export default TextframeComponent;

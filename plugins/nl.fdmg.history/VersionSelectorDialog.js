@@ -6,12 +6,12 @@ class VersionSelectorDialog extends Component {
     const el = $$('div').addClass('restore-history-dialog');
     const unsavedArticles = this.props.unsavedArticles;
 
-    el.append($$('p').append(this.getLabel(this.props.descriptionText)))
+    el.append($$('p').append(this.getLabel(this.props.descriptionText)));
     let versions = unsavedArticles.map((article) => {
       return $$(ArticleItem, {article: article, applyVersion: this.applyVersion.bind(this)})
     });
 
-    el.append(versions)
+    el.append(versions);
     return el;
   }
 
@@ -23,7 +23,6 @@ class VersionSelectorDialog extends Component {
     if ('cancel' === status) {
       return true;
     }
-
     return true;
   }
 

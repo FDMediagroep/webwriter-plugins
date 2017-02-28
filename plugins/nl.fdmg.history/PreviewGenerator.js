@@ -1,9 +1,7 @@
 var jxon = require('jxon/index');
 var isArray = require('lodash/isArray');
 
-
 function PreviewGenerator() {
-
 }
 
 PreviewGenerator.prototype.getPreviewTextForVersion = function (version, withTime, length) {
@@ -30,9 +28,7 @@ PreviewGenerator.prototype.getPreviewTextForVersion = function (version, withTim
         previewText += " " + element.keyValue;
       }
     });
-
   }
-
 
   if(length && previewText.length > length) {
     previewText = previewText.substr(0, length);

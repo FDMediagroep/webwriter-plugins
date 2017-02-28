@@ -1,5 +1,5 @@
-import RelatedArticlesComponent from './RelatedArticlesComponent'
-import RelatedArticlesValidator from './RelatedArticlesValidator'
+import RelatedArticlesComponent from './RelatedArticlesComponent';
+import RelatedArticlesValidator from './RelatedArticlesValidator';
 
 export default {
   id: 'nl.fdmg.relatedarticles',
@@ -20,6 +20,6 @@ export default {
 
     config.addLabel('Related article url is invalid', {
       'nl': 'Gerelateerd artikel url is ongeldig'
-    })
+    });
   }
 }

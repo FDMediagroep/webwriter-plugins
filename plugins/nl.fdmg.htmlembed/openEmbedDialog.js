@@ -1,5 +1,5 @@
-import {api} from 'writer'
-import HtmlEmbedEditTool from './HtmlEmbedEditTool'
+import {api} from 'writer';
+import HtmlEmbedEditTool from './HtmlEmbedEditTool';
 
 export default (props) => {
   api.ui.showDialog(
@@ -9,5 +9,5 @@ export default (props) => {
       title: 'Embed HTML',
       cssClass: 'im-htmlembed-modal'
     }
-  )
+  );
 }

@@ -1,21 +1,21 @@
-import {InsertInlineNodeCommand} from 'substance'
+import {InsertInlineNodeCommand} from 'substance';
 
 class StocktickerCommand extends InsertInlineNodeCommand {
   getCommandState(params) {
 
-    if (!params) return
+    if (!params) return;
 
-    const sel = params.selection
+    const sel = params.selection;
     const newState = {
       disabled: true,
       active: false
-    }
+    };
 
     if (sel && !sel.isNull() && sel.isPropertySelection()) {
-      newState.disabled = false
+      newState.disabled = false;
     }
 
-    return newState
+    return newState;
   }
 
   createNodeData() {
@@ -31,4 +31,4 @@ class StocktickerCommand extends InsertInlineNodeCommand {
   }
 }
 
-export default StocktickerCommand
+export default StocktickerCommand;

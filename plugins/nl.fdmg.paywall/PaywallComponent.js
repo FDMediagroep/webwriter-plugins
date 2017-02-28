@@ -1,4 +1,4 @@
-import ArticleOptionComponent from '../nl.fdmg.articleoption/ArticleOptionComponent'
+import ArticleOptionComponent from '../nl.fdmg.articleoption/ArticleOptionComponent';
 
 class PaywallComponent extends ArticleOptionComponent {
   constructor(...args) {
@@ -12,4 +12,4 @@ class PaywallComponent extends ArticleOptionComponent {
   }
 }
 
-export default PaywallComponent
+export default PaywallComponent;

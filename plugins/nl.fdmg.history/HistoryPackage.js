@@ -1,6 +1,6 @@
-import './scss/history.scss'
+import './scss/history.scss';
 
-import HistoryMainComponent from './HistoryMainComponent'
+import HistoryMainComponent from './HistoryMainComponent';
 
 export default({
   id: 'nl.fdmg.history',
@@ -58,8 +58,6 @@ export default({
         align: 'right'
       },
       HistoryMainComponent
-    )
-
-
+    );
   }
 })

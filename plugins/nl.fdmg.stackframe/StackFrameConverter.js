@@ -15,7 +15,7 @@ export default {
 
     node.contentType = el.attr('type');
 
-    var dataEl = el.find('data');
+    const dataEl = el.find('data');
     dataEl.children.forEach(function(child) {
       if (child.tagName === 'heading') {
         node.heading = child.text();

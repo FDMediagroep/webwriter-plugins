@@ -1,6 +1,6 @@
-import {Component} from 'substance'
-import {api, idGenerator} from 'writer'
-import WorkInstructionsEditTool from './WorkInstructionsEditTool'
+import {Component} from 'substance';
+import {api, idGenerator} from 'writer';
+import WorkInstructionsEditTool from './WorkInstructionsEditTool';
 
 const decoupledName = 'article-decoupled';
 const decoupledType = 'fdmg/article-decoupled';
@@ -27,10 +27,10 @@ class WorkinstructionsComponent extends Component {
   }
 
   render($$) {
-    var decoupledLabel = this.getLabel('Article coupled')
+    var decoupledLabel = this.getLabel('Article coupled');
 
     if (this.state.decoupled === true) {
-      decoupledLabel = this.getLabel('Article decoupled')
+      decoupledLabel = this.getLabel('Article decoupled');
     }
 
     const el = $$('div')
@@ -71,9 +71,9 @@ class WorkinstructionsComponent extends Component {
           .on('click', this.editWorkInstructions)
       ),
       $$('hr')
-    )
+    );
 
-    return el
+    return el;
   }
 
   editWorkInstructions() {
@@ -87,14 +87,14 @@ class WorkinstructionsComponent extends Component {
         title: this.getLabel('Edit workinstructions'),
         cssClass: 'im-htmlembed-modal'
       }
-    )
+    );
   }
 
   updateWorkInstructions(newWorkInstructions) {
     // Update internal state
     this.extendState({workInstructions: newWorkInstructions});
     // Remove existing workInstructions
-    const exisingWorkInstructionsMeta = api.newsItem.getContentMetaObjectsByType(type)
+    const exisingWorkInstructionsMeta = api.newsItem.getContentMetaObjectsByType(type);
 
     if (exisingWorkInstructionsMeta) {
       exisingWorkInstructionsMeta.forEach(wi => {
@@ -140,4 +140,4 @@ class WorkinstructionsComponent extends Component {
 
 }
 
-export default WorkinstructionsComponent
+export default WorkinstructionsComponent;

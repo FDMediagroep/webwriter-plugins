@@ -1,5 +1,5 @@
 import {Component, FontAwesomeIcon, TextPropertyEditor} from 'substance';
-import './scss/numberframe.scss'
+import './scss/numberframe.scss';
 
 export default class NumberFrameComponent extends Component {
   render($$) {
@@ -34,14 +34,6 @@ export default class NumberFrameComponent extends Component {
       this.updateProps(this.refs.content.text(), this.refs.heading.text());
     }
   }
-
-  /*removeNumberFrame() {
-    api.document.deleteNode('numberframe', this.props.node);
-    api.editorSession.transaction((tx) => {
-      const node = this.props.node
-      tx.delete(node.id)
-    })
-  }*/
 
   updateProps() {
     this.props.doc.set([this.props.node, 'content'], this.props.node.content);

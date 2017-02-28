@@ -1,5 +1,5 @@
-import {BlockNode} from 'substance'
-import {api} from 'writer'
+import {BlockNode} from 'substance';
+import {api} from 'writer';
 class TextframeNode extends BlockNode {
 
   getImageFile() {
@@ -9,7 +9,7 @@ class TextframeNode extends BlockNode {
   }
 
   getUrl() {
-    let imageFile = this.getImageFile()
+    let imageFile = this.getImageFile();
     if (imageFile) {
       return imageFile.getUrl()
     }
@@ -32,14 +32,14 @@ class TextframeNode extends BlockNode {
       uuid = dom.getAttribute('guid'),
       uri = dom.querySelector('itemMeta > itemMetaExtProperty[type="imext:uri"]').getAttribute('value'),
       width = dom.querySelector('contentMeta > metadata > object > data > width'),
-      height = dom.querySelector('contentMeta > metadata > object > data > height')
+      height = dom.querySelector('contentMeta > metadata > object > data > height');
 
     api.editorSession.transaction((tx) => {
-      tx.set([this.id, 'uuid'], uuid)
-      tx.set([this.id, 'uri'], uri)
-      tx.set([this.id, 'width'], width ? width.textContent : '')
-      tx.set([this.id, 'height'], height ? height.textContent : '')
-    }, {history: false})
+      tx.set([this.id, 'uuid'], uuid);
+      tx.set([this.id, 'uri'], uri);
+      tx.set([this.id, 'width'], width ? width.textContent : '');
+      tx.set([this.id, 'height'], height ? height.textContent : '');
+    }, {history: false});
   }
 }
 
@@ -60,6 +60,6 @@ TextframeNode.define({
   width: {type: 'number', optional: true },
   height: {type: 'number', optional: true },
   crops: { type: 'object', default: [] }
-})
+});
 
-export default TextframeNode
+export default TextframeNode;

@@ -1,8 +1,8 @@
-import FDValidator from '../nl.fdmg.fdvalidator/FDValidator'
+import FDValidator from '../nl.fdmg.fdvalidator/FDValidator';
 
 class RelatedLinkValidator extends FDValidator {
   validate() {
-    if (this.isShortArticle || this.isAdvertorial || this.isEvents || this.isRedirectArticle) return
+    if (this.isShortArticle || this.isAdvertorial || this.isEvents || this.isRedirectArticle) return;
 
     if (this.submitted || this.published) {
       const relatedLinks = this.newsItem.querySelectorAll('object[type="fdmg/relatedlink"]');

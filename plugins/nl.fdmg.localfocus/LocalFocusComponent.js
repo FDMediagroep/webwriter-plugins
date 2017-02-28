@@ -1,8 +1,8 @@
-import {Component, FontAwesomeIcon} from 'substance'
+import {Component, FontAwesomeIcon} from 'substance';
 
 class LocalFocusComponent extends Component {
   render($$) {
-    const iframe = `<iframe class="localfocusvisual" frameborder="0" style="width:100%; height:500px; overflow:hidden" src="${this.props.node.url}"></iframe>`
+    const iframe = `<iframe class="localfocusvisual" frameborder="0" style="width:100%; height:500px; overflow:hidden" src="${this.props.node.url}"></iframe>`;
     return $$('div')
       .addClass('im-blocknode__container')
       .addClass('localfocus')
@@ -27,6 +27,6 @@ class LocalFocusComponent extends Component {
   }
 }
 
-LocalFocusComponent.noStyle = true
+LocalFocusComponent.noStyle = true;
 
 export default LocalFocusComponent

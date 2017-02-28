@@ -1,15 +1,15 @@
-import {WriterCommand, api, idGenerator} from 'writer'
+import {WriterCommand, api, idGenerator} from 'writer';
 
 class XimteaserCommand extends WriterCommand {
 
 
   execute(params, context) {
-    const teaserPosition = context.api.getConfigValue(this.config.id, 'teaserPosition', 'bottom')
+    const teaserPosition = context.api.getConfigValue(this.config.id, 'teaserPosition', 'bottom');
 
-    const nodes = api.document.getDocumentNodes()
+    const nodes = api.document.getDocumentNodes();
     const existingTeaser = nodes.filter((node) => {
       return node.dataType === 'x-im/teaser'
-    })
+    });
     if(existingTeaser.length > 0) {
       api.ui.showNotification('se.infomaker.ximteaser', api.getLabel('A teaser already exist'), api.getLabel('There is already a teaser in this document'))
       return false
@@ -17,12 +17,12 @@ class XimteaserCommand extends WriterCommand {
 
     switch (teaserPosition) {
       case 'top':
-        this.insertTeaserAtTop(params)
-        break
+        this.insertTeaserAtTop(params);
+        break;
 
       default:
-        this.insertTeaserAtBottom(params)
-        break
+        this.insertTeaserAtBottom(params);
+        break;
     }
 
   }
@@ -32,8 +32,8 @@ class XimteaserCommand extends WriterCommand {
    * @param params
    */
   insertTeaserAtTop(params) {
-    const editorSession = params.editorSession
-    const doc = editorSession.getDocument()
+    const editorSession = params.editorSession;
+    const doc = editorSession.getDocument();
 
     editorSession.transaction((tx) => {
 
@@ -45,8 +45,8 @@ class XimteaserCommand extends WriterCommand {
         containerId: 'body',
         path: [firstNodeId, 'content'],
         startOffset: 0
-      })
-      tx.insertBlockNode(this.getEmptyTeaserNode())
+      });
+      tx.insertBlockNode(this.getEmptyTeaserNode());
 
     })
   }
@@ -57,7 +57,7 @@ class XimteaserCommand extends WriterCommand {
    * @param params
    */
   insertTeaserAtBottom(params) {
-    const editorSession = params.editorSession
+    const editorSession = params.editorSession;
     editorSession.transaction((tx) => {
       const body = tx.get('body');
       const node = tx.create(this.getEmptyTeaserNode());

@@ -1,31 +1,31 @@
-import {Component, FontAwesomeIcon} from 'substance'
-import {api, idGenerator} from 'writer'
-import './scss/workflowstate.scss'
+import {Component, FontAwesomeIcon} from 'substance';
+import {api, idGenerator} from 'writer';
+import './scss/workflowstate.scss';
 
 class WorkflowstateComponent extends Component {
   constructor(...args) {
-    super(...args)
-    this.name = 'workflowstate'
-    this.type = 'fdmg/workflowstate'
+    super(...args);
+    this.name = 'workflowstate';
+    this.type = 'fdmg/workflowstate';
   }
 
   didMount() {
-    this.updateStatus()
+    this.updateStatus();
   }
 
   getInitialState() {
-    const options = api.getConfigValue('nl.fdmg.workflowstate', 'options')
+    const options = api.getConfigValue('nl.fdmg.workflowstate', 'options');
     const label = api.newsItem.getLinkByType('workflowstate', 'fdmg/workflowstate')
       .map(link => link['@label'] )
-      .pop() || options[0].label
-    const selection = options.find((option) => option.label === label)
+      .pop() || options[0].label;
+    const selection = options.find((option) => option.label === label);
 
     return { options, selection}
   }
 
   render($$) {
     const statusText = $$('span').append(
-      this.state.selection.text).addClass('state-text')
+      this.state.selection.text).addClass('state-text');
 
     const el = $$('div')
     .addClass('workflowstate plugin')
@@ -51,9 +51,9 @@ class WorkflowstateComponent extends Component {
             )
           )
         )
-      )
+      );
 
-    return el
+    return el;
   }
 
   updateSelection(newSelection) {
@@ -66,23 +66,23 @@ class WorkflowstateComponent extends Component {
       '@type': 'fdmg/workflowstate',
       '@label': newSelection.label,
       '@uuid': idGenerator(),
-    })
+    });
 
-    this.extendState({selection: newSelection})
-    this.updateStatus()
-    this.props.popover.close()
+    this.extendState({selection: newSelection});
+    this.updateStatus();
+    this.props.popover.close();
   }
 
   updateStatus() {
-    const workflowState = this.state.selection.text
-    const stateIconClass = this.state.selection.label
+    const workflowState = this.state.selection.text;
+    const stateIconClass = this.state.selection.label;
 
     this.props.popover.setStatusText(
       workflowState
-    )
+    );
     this.props.popover.setIcon('fa-circle ' + stateIconClass + ' workflowstate-icon')
   }
 
 }
 
-export default WorkflowstateComponent
+export default WorkflowstateComponent;

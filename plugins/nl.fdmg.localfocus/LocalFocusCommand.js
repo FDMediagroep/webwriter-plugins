@@ -1,4 +1,4 @@
-import {Command} from 'substance'
+import {Command} from 'substance';
 
 class LocalFocusCommand extends Command {
   getCommandState() {
@@ -12,9 +12,9 @@ class LocalFocusCommand extends Command {
         dataType: 'fdmg/localfocus',
         url: params.url
       })
-    })
-    return true
+    });
+    return true;
   }
 }
 
-export default LocalFocusCommand
+export default LocalFocusCommand;

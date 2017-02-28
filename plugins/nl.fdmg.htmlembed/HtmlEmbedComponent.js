@@ -1,6 +1,6 @@
-import {Component, FontAwesomeIcon, TextPropertyComponent} from 'substance'
-import {api} from 'writer'
-import OpenEmbedDialog from './openEmbedDialog'
+import {Component, FontAwesomeIcon, TextPropertyComponent} from 'substance';
+import {api} from 'writer';
+import OpenEmbedDialog from './openEmbedDialog';
 
 class HtmlEmbedComponent extends Component {
   render($$) {
@@ -40,15 +40,15 @@ class HtmlEmbedComponent extends Component {
     OpenEmbedDialog({
       text: this.props.node.text,
       update: this.updateHtmlOnNode.bind(this)
-    })
+    });
   }
 
   updateHtmlOnNode(html) {
     api.editorSession.transaction(tx => {
       tx.set([this.props.node.id, 'text'], html)
     });
-    this.rerender()
+    this.rerender();
   }
 }
 
-export default HtmlEmbedComponent
+export default HtmlEmbedComponent;
