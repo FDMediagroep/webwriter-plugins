@@ -1,5 +1,5 @@
-import ArticleOption from '../nl.fdmg.articleoption/ArticleOptionComponent'
-import {api} from 'writer'
+import ArticleOption from '../nl.fdmg.articleoption/ArticleOptionComponent';
+import {api} from 'writer';
 
 export default class AdvertorialComponent extends ArticleOption {
 
