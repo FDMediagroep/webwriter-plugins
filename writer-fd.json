@@ -2,7 +2,24 @@
   "newsItemTemplateId": "NEWS_ITEM_TEMPLATE_ID",
   "language": "nl_NL",
   "labelLanguage": "nl",
-  "plugins": [
+  "plugins": [{
+      "id": "se.infomaker.charactertransformation",
+      "name": "charactertransformation",
+      "url": "https://s3-eu-west-1.amazonaws.com/webwriter-dev-plugins/index.js",
+      "enabled": true,
+      "mandatory": false,
+      "data": {
+        "rules": [{
+            "char": "\"",
+            "to": ["“", "”"]
+          },
+          {
+            "char": "'",
+            "to": ["‘", "’"]
+          }
+        ]
+      }
+    },
     {
       "id": "nl.fdmg.styles",
       "name": "styles",
@@ -75,23 +92,21 @@
       "mandatory": true,
       "data": {
         "softcrop": false,
-        "fields": [
-          {
-          "name": "caption",
-          "label": "Bijschrift",
-          "type": "text"
+        "fields": [{
+            "name": "caption",
+            "label": "Bijschrift",
+            "type": "text"
           },
           {
-          "name": "credit",
-          "label": "Credit",
-          "type": "text"
+            "name": "credit",
+            "label": "Credit",
+            "type": "text"
           },
           {
             "name": "alignment",
             "label": "Alignment",
             "type": "option",
-            "options": [
-              {
+            "options": [{
                 "name": "right",
                 "label": "Afbeelding rechts uitlijnend",
                 "icon": "fa-align-right"
@@ -146,16 +161,15 @@
         "fields": [
           "text"
         ],
-        "alignments": [
-          {
+        "alignments": [{
             "name": "right",
             "label": "Afbeelding rechts uitlijnend",
             "icon": "fa-align-right"
           },
           {
-          "name": "block",
-          "label": "Afbeelding volledige breedte",
-          "icon": "fa-align-justify"
+            "name": "block",
+            "label": "Afbeelding volledige breedte",
+            "icon": "fa-align-justify"
           }
         ],
         "disableUseOfAnnotationToolsForFields": [
@@ -245,9 +259,9 @@
         "byline": false,
         "imageinfo": false,
         "crops": {
-          "NORMAL": [1.7778,1],
-          "SQUARE": [1,1],
-          "WIDE": [3,1]
+          "NORMAL": [1.7778, 1],
+          "SQUARE": [1, 1],
+          "WIDE": [3, 1]
         },
         "fields": [
           "text"
@@ -266,7 +280,7 @@
       "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
       "enabled": true,
       "mandatory": true,
-      "data" : {
+      "data": {
         "options": [
           { "label": "PREPARE", "text": "In voorbereiding", "color": "#cdcdcd" },
           { "label": "EDIT", "text": "In bewerking", "color": "#cbbb62" },
@@ -323,8 +337,7 @@
           "subheadline"
         ],
         "marginPct": 10,
-        "sizes": [
-          {
+        "sizes": [{
             "size": "?",
             "label": "?",
             "count": -1,
@@ -456,8 +469,7 @@
       "enabled": true,
       "mandatory": true,
       "data": {
-        "sections": [
-          {
+        "sections": [{
             "id": "beursradar",
             "label": "Beurs"
           },
@@ -500,8 +512,7 @@
       "enabled": true,
       "mandatory": true,
       "data": {
-        "genres": [
-          {
+        "genres": [{
             "id": "Achtergrond",
             "label": "Achtergrond"
           },
@@ -563,8 +574,7 @@
       "enabled": true,
       "mandatory": true,
       "data": {
-        "rubrics": [
-          {
+        "rubrics": [{
             "id": "Beursverslag",
             "label": "Beursverslag"
           },
@@ -671,8 +681,7 @@
       "enabled": true,
       "mandatory": true,
       "data": {
-        "articletypes": [
-          {
+        "articletypes": [{
             "id": "ARTICLE",
             "label": "Artikel"
           },
