@@ -1,22 +1,22 @@
-import FDValidator from '../nl.fdmg.fdvalidator/FDValidator'
+import FDValidator from '../nl.fdmg.fdvalidator/FDValidator';
 
 class AdvertorialValidator extends FDValidator {
   validate() {
     if (this.drafted || this.submitted || this.published) {
-      const advertorial = this.newsItem.querySelector('itemMeta > links link[type="fdmg/advertorial"]')
+      const advertorial = this.newsItem.querySelector('itemMeta > links link[type="fdmg/advertorial"]');
 
       if (advertorial) {
-        const as = advertorial.attributes
+        const as = advertorial.attributes;
 
-        const checked = as.hasOwnProperty('checked') ? as.getNamedItem('checked').value === 'true' : false
-        const value = as.hasOwnProperty('value') ? as.getNamedItem('value').value.trim() : ''
+        const checked = as.hasOwnProperty('checked') ? as.getNamedItem('checked').value === 'true' : false;
+        const value = as.hasOwnProperty('value') ? as.getNamedItem('value').value.trim() : '';
 
         if (checked && !value) {
-          this.addError(`${this.getLabel('Advertorial value missing')}`)
+          this.addError(`${this.getLabel('Advertorial value missing')}`);
         }
       }
     }
   }
 }
 
-export default AdvertorialValidator
+export default AdvertorialValidator;

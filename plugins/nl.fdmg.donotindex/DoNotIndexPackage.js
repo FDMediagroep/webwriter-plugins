@@ -8,6 +8,6 @@ export default {
 
     config.addLabel('Do not index', {
       'nl': 'Artikel niet indexeren'
-    })
+    });
   }
 }

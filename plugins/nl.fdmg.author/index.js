@@ -1,9 +1,9 @@
-import AuthorPackage from './AuthorPackage'
-import {registerPlugin} from 'writer'
+import AuthorPackage from './AuthorPackage';
+import {registerPlugin} from 'writer';
 
 export default () => {
   if (registerPlugin) {
-    registerPlugin(AuthorPackage)
+    registerPlugin(AuthorPackage);
   } else {
     console.error("Register method not yet available");
   }

@@ -1,27 +1,27 @@
-import DropdownComponent from '../nl.fdmg.dropdown/DropdownComponent'
+import DropdownComponent from '../nl.fdmg.dropdown/DropdownComponent';
 
-const {Component} = substance
-const {api, idGenerator} = writer
-const pluginId = 'nl.fdmg.rubric'
+const {Component} = substance;
+const {api, idGenerator} = writer;
+const pluginId = 'nl.fdmg.rubric';
 
 class RubricComponent extends Component {
   constructor(...args) {
-    super(...args)
-    this.name = 'rubric'
-    this.type = 'fdmg/rubric'
+    super(...args);
+    this.name = 'rubric';
+    this.type = 'fdmg/rubric';
   }
 
   render($$) {
-    const items = api.getConfigValue(pluginId, 'rubrics')
+    const items = api.getConfigValue(pluginId, 'rubrics');
     const selection = api.newsItem
       .getLinkByType(this.name, this.type)
       .map(l => {return {id: l['@id'], label: l['@title']}})
       .map(i => {
-        const match = items.find(item => item.id === i.id)
-        const label = (match !== undefined) ? match.label : i.label
+        const match = items.find(item => item.id === i.id);
+        const label = (match !== undefined) ? match.label : i.label;
         return {id: i.id, label: label}
       })
-      .pop()
+      .pop();
 
     return $$('div')
       .addClass('fdmg-sidebar')
@@ -43,7 +43,7 @@ class RubricComponent extends Component {
       .getLinkByType(this.name, this.type)
       .forEach(l => {
         api.newsItem.removeLinkByUUIDAndRel(this.name, l['@uuid'], l['@rel'])
-      })
+      });
 
     if (item.id !== 'none' && item.label.trim() !== '') {
       api.newsItem.addLink(this.name, {
@@ -52,9 +52,9 @@ class RubricComponent extends Component {
         '@id': item.id,
         '@title': item.label,
         '@uuid': idGenerator()
-      })
+      });
     }
   }
 }
 
-export default RubricComponent
+export default RubricComponent;

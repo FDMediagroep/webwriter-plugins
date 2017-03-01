@@ -3,7 +3,7 @@ import {WriterCommand, api, idGenerator} from 'writer'
 class TextframeCommand extends WriterCommand {
 
   execute() {
-    const node = this.getEmptyTextframeNode()
+    const node = this.getEmptyTextframeNode();
 
     return api.document.insertBlockNode(node.type, node)
   }

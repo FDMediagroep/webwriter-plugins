@@ -1,9 +1,9 @@
-import HistoryPackage from './HistoryPackage'
-import {registerPlugin} from 'writer'
+import HistoryPackage from './HistoryPackage';
+import {registerPlugin} from 'writer';
 
 export default () => {
   if (registerPlugin) {
-    registerPlugin(HistoryPackage)
+    registerPlugin(HistoryPackage);
   } else {
     console.info("Register method not yet available");
   }

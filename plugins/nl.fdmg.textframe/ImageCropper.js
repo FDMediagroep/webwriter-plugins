@@ -1,6 +1,6 @@
-import { Component } from 'substance'
+import { Component } from 'substance';
 
-const {api} = writer
+const {api} = writer;
 
 /*
   Used in ImageDisplay
@@ -16,21 +16,21 @@ class ImageCropper extends Component {
         //detectStepSize: 3,
         debug: false
       }
-    )
+    );
 
-    let definedCrops = api.getConfigValue(this.props.parentId, 'crops', [])
-    let encodedSrc = encodeURIComponent(this.props.src)
+    let definedCrops = api.getConfigValue(this.props.parentId, 'crops', []);
+    let encodedSrc = encodeURIComponent(this.props.src);
 
     this.cropEditor.addImage(
         '/api/resourceproxy?url=' + encodedSrc,
         () => {
-          let selected = true
+          let selected = true;
           for(var name in definedCrops) {
             if (this.props.crops) {
-              this.addCrop(name, selected, definedCrops[name], this.props.crops)
+              this.addCrop(name, selected, definedCrops[name], this.props.crops);
             }
             else {
-              this.createCrop(name, selected, definedCrops[name])
+              this.createCrop(name, selected, definedCrops[name]);
             }
             selected = false
           }
@@ -49,25 +49,25 @@ class ImageCropper extends Component {
 
   // FIXME: Does not work with existing crops already on the image
   addCrop(name, selected, definedCrop, existingCrops) {
-    var existingCrop = null
+    var existingCrop = null;
     for (var n = 0; n < existingCrops.length; n++) {
       if (existingCrops[n].name === name) {
-        existingCrop = existingCrops[n]
+        existingCrop = existingCrops[n];
         break
       }
     }
 
     if (!existingCrop) {
-      this.createCrop(name, selected, definedCrop)
+      this.createCrop(name, selected, definedCrop);
       return
     }
 
-    let imageWidth = this.props.width
-    let imageHeight = this.props.height
-    let matches = this.props.src.match(/&w=([0-9]*)/)
+    let imageWidth = this.props.width;
+    let imageHeight = this.props.height;
+    let matches = this.props.src.match(/&w=([0-9]*)/);
 
     if (Array.isArray(matches) && matches.length === 2) {
-      imageWidth = matches[1]
+      imageWidth = matches[1];
       imageHeight = Math.round((imageWidth / this.props.width) * this.props.height)
     }
 
@@ -93,8 +93,8 @@ class ImageCropper extends Component {
       return
     }
 
-    let data = this.cropEditor.getSoftcropData()
-    let crops = []
+    let data = this.cropEditor.getSoftcropData();
+    let crops = [];
 
     data.crops.forEach( (crop) => {
       crops.push({
@@ -104,7 +104,7 @@ class ImageCropper extends Component {
         width: crop.width / data.width,
         height: crop.height / data.height
       })
-    })
+    });
 
     this.props.callback({
       crops: crops
@@ -112,4 +112,4 @@ class ImageCropper extends Component {
   }
 }
 
-export default ImageCropper
+export default ImageCropper;

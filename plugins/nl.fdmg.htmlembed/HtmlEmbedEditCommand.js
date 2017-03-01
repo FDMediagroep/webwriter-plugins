@@ -1,4 +1,4 @@
-import {WriterCommand, api} from 'writer'
+import {WriterCommand, api} from 'writer';
 
 class HtmlEmbedEditCommand extends WriterCommand {
   execute(params) {
@@ -7,10 +7,10 @@ class HtmlEmbedEditCommand extends WriterCommand {
       dataType: 'fdmg/htmlembed',
       text: params.text,
       format: 'html'
-    }
-    
-    return api.document.insertBlockNode(data.type, data)
+    };
+
+    return api.document.insertBlockNode(data.type, data);
   }
 }
 
-export default HtmlEmbedEditCommand
+export default HtmlEmbedEditCommand;

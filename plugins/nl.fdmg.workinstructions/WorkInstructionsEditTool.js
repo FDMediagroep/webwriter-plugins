@@ -1,9 +1,9 @@
-import {Tool} from 'substance'
+import {Tool} from 'substance';
 
 class WorkInstructionEditTool extends Tool {
 
   didMount() {
-    this.refs.textarea.getNativeElement().focus()
+    this.refs.textarea.getNativeElement().focus();
   }
 
   render($$) {
@@ -23,10 +23,10 @@ class WorkInstructionEditTool extends Tool {
 
   onClose(status) {
     if (status === 'save') {
-      this.props.update(this.refs.textarea.val())
+      this.props.update(this.refs.textarea.val());
     }
   }
 
 }
 
-export default WorkInstructionEditTool
+export default WorkInstructionEditTool;

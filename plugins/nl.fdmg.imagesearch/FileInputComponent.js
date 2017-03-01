@@ -1,4 +1,4 @@
-import {Component, FontAwesomeIcon} from 'substance'
+import {Component, FontAwesomeIcon} from 'substance';
 
 class FileInputComponent extends Component {
 
@@ -8,14 +8,13 @@ class FileInputComponent extends Component {
       .addClass('upload-button btn btn-neutral')
       .append($$(FontAwesomeIcon, {icon: 'fa-upload'}))
       .on('click', this.triggerFileDialog)
-      .attr('title', this.getLabel('Upload image'))
-
+      .attr('title', this.getLabel('Upload image'));
 
     const fileInput = $$('input')
       .attr('type', 'file')
       .attr('multiple', 'multiple')
       .ref('fileInput')
-      .on('change', this.props.onChange)
+      .on('change', this.props.onChange);
 
     return $$('span').addClass('fileinput').append([uploadbutton, fileInput])
   }

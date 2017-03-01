@@ -94,7 +94,7 @@ class XimteaserComponent extends Component {
              )
            })
       ])
-      .addClass('header')
+      .addClass('header');
   }
 
 
@@ -120,7 +120,7 @@ class XimteaserComponent extends Component {
 
     // If 'subject' is specified in the config it should be rendered
     if (teaserFields.indexOf('subject') >= 0) {
-      content.append(this.renderSubjectEditor($$))
+      content.append(this.renderSubjectEditor($$));
     }
 
     // Render title editor
@@ -131,7 +131,7 @@ class XimteaserComponent extends Component {
       content.append(this.renderTextEditor($$));
     }
 
-    return content
+    return content;
   }
 
 
@@ -151,7 +151,7 @@ class XimteaserComponent extends Component {
       const icon = $$(FontAwesomeIcon, {icon: 'fa-flag'});
 
       subjectContainer.append([icon, subjectEditor]);
-      return subjectContainer
+      return subjectContainer;
     }
   }
 
@@ -166,7 +166,7 @@ class XimteaserComponent extends Component {
     const icon = $$(FontAwesomeIcon, {icon: 'fa-header'});
 
     titleContainer.append([icon, titleEditor]);
-    return titleContainer
+    return titleContainer;
   }
 
   renderTextEditor($$) {
@@ -180,14 +180,12 @@ class XimteaserComponent extends Component {
     const icon = $$(FontAwesomeIcon, {icon: 'fa-paragraph'});
 
     textContainer.append([icon, textEditor]);
-    return textContainer
+    return textContainer;
   }
 
   /* Custom dropzone protocol */
   getDropzoneSpecs() {
-    console.log("Dropzone");
     const label = this.props.node.imageFile ? 'teaser-replace-image' : 'teaser-add-image';
-    console.log(this.props.node)
     return [
       {
         component: this,
@@ -332,7 +330,6 @@ class XimteaserComponent extends Component {
     }
     return false;
   }
-
 }
 
-export default XimteaserComponent
+export default XimteaserComponent;

@@ -1,5 +1,5 @@
-const {Component, FontAwesomeIcon} = substance
-const _ = writer.lodash
+const {Component, FontAwesomeIcon} = substance;
+const _ = writer.lodash;
 
 /*
   onSelect
@@ -14,8 +14,8 @@ const _ = writer.lodash
 class DropdownComponent extends Component {
 
   getInitialState() {
-    const selection = this.props.selection || {id: 'default', label: ''}
-    const listmode = !(this.props.allowFreeInput && !this.props.items.some(i => selection.label === i.label) && selection.label !== '')
+    const selection = this.props.selection || {id: 'default', label: ''};
+    const listmode = !(this.props.allowFreeInput && !this.props.items.some(i => selection.label === i.label) && selection.label !== '');
 
     return {
       listmode,
@@ -28,19 +28,19 @@ class DropdownComponent extends Component {
       .addClass('input-toggle')
       .append(
         $$(FontAwesomeIcon, {icon: this.state.listmode ? 'fa-pencil' : 'fa-list-ul'})
-      ).on('click', this.toggle.bind(this))
+      ).on('click', this.toggle.bind(this));
 
-    const items = this.props.items.slice()
+    const items = this.props.items.slice();
 
     const empty = {
       id: 'none',
       label: this.getLabel('- no selection -'),
-    }
+    };
     if (!this.props.allowEmptySelection) {
-      empty.disabled = 'disabled'
+      empty.disabled = 'disabled';
     }
 
-    items.unshift(empty)
+    items.unshift(empty);
 
     const listselect = $$('select')
       .attr(this.props.disabled ? {disabled: 'disabled'} : {})
@@ -60,14 +60,14 @@ class DropdownComponent extends Component {
       )
       .ref('listselect')
       .on('change', function() {
-        const options = this.refs.listselect.el.el.options
-        const option = options[options.selectedIndex]
+        const options = this.refs.listselect.el.el.options;
+        const option = options[options.selectedIndex];
 
         this.update({
           id: option.attributes['data-id'].value,
           label: option.value
         })
-      }.bind(this))
+      }.bind(this));
 
     const freeinput = $$('input')
       .addClass('form-control free-input')
@@ -79,18 +79,18 @@ class DropdownComponent extends Component {
       })
       .ref('freeinput')
       .on('blur', () => {
-        const label = this.refs.freeinput.val()
-        const id = this.findIdForLabel(label, 'unknown')
+        const label = this.refs.freeinput.val();
+        const id = this.findIdForLabel(label, 'unknown');
 
         this.update({
           id,
           label,
           freeinput: true
         })
-      })
+      });
 
-    const showlist = this.state.listmode || !this.props.allowFreeInput
-    const body = showlist ? listselect : freeinput
+    const showlist = this.state.listmode || !this.props.allowFreeInput;
+    const body = showlist ? listselect : freeinput;
 
     return $$('div')
       .addClass('fdmg-sidebar')
@@ -108,25 +108,25 @@ class DropdownComponent extends Component {
   }
 
   toggle() {
-    this.extendState({listmode: !this.state.listmode})
+    this.extendState({listmode: !this.state.listmode});
   }
 
   update(selection) {
     if (!_.isEqual(this.state.selection, selection)) {
       if (this.props.onSelect) {
-        this.props.onSelect(selection)
+        this.props.onSelect(selection);
       }
-      this.extendState({selection})
+      this.extendState({selection});
     }
   }
 
   findIdForLabel(label, orElse = -1) {
-    const item = this.props.items.find(i => i.label === label)
+    const item = this.props.items.find(i => i.label === label);
     if (item !== undefined) {
-      return item.id
+      return item.id;
     }
-    return orElse
+    return orElse;
   }
 }
 
-export default DropdownComponent
+export default DropdownComponent;

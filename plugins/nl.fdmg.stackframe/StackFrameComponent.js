@@ -3,19 +3,19 @@ import './scss/stackframe.scss'
 
 export default class StackFrameComponent extends Component {
   render($$) {
-    var content = $$(TextPropertyEditor, {
+    const content = $$(TextPropertyEditor, {
       tagName: 'div',
       name: 'content',
       path: [this.props.node.id, 'content']
     }).addClass('content').attr({'contentEditable' : true, "data-text" : this.getLabel('Text')}).ref('content');
 
-    var heading = $$(TextPropertyEditor, {
+    const heading = $$(TextPropertyEditor, {
       tagName: 'div',
       name: 'heading',
       path: [this.props.node.id, 'heading']
     }).addClass('heading').attr({'contentEditable' : true, "data-text" : this.getLabel('Title')}).ref('heading');
 
-    var el = $$('a').append([
+    const el = $$('a').append([
       $$('div').addClass('header').append([
         $$(FontAwesomeIcon, {icon: 'fa-database'}).addClass('plugin-icon'),
         $$('div').addClass('plugin-title').append(this.getLabel("Stackframe"))
@@ -39,5 +39,4 @@ export default class StackFrameComponent extends Component {
     this.props.doc.set([this.props.node, 'content'], this.props.node.content);
     this.props.doc.set([this.props.node, 'heading'], this.props.node.heading);
   }
-
 }

@@ -1,17 +1,10 @@
-import {Tool} from 'substance'
-import {api} from 'writer'
+import {Tool} from 'substance';
+import {api} from 'writer';
 
 class HtmlEmbedEditTool extends Tool {
   didMount() {
-    // this.resize();
-
     const textarea = this.refs.embedcode;
     textarea.getNativeElement().focus();
-
-    // textarea.getNativeElement().on('keydown', this.resize);
-    //
-    // textarea.getNativeElement().addEventListener('paste', this.resize);
-    // textarea.getNativeElement().addEventListener('cut', this.resize)
   }
 
   render($$) {
@@ -37,14 +30,6 @@ class HtmlEmbedEditTool extends Tool {
     }
   }
 
-  // resize() {
-  //   const htmlTextarea = this.refs.embedcode.getNativeElement();
-  //   setTimeout(() => {
-  //     htmlTextarea.style.height = 'auto';
-  //     htmlTextarea.style.height = htmlTextarea.scrollHeight
-  //   }, 100)
-  // }
-
   insertEmbed() {
     api.editorSession.executeCommand('htmlembededit', {
       text: this.refs.embedcode.val()
@@ -52,4 +37,4 @@ class HtmlEmbedEditTool extends Tool {
   }
 }
 
-export default HtmlEmbedEditTool
+export default HtmlEmbedEditTool;

@@ -42,5 +42,4 @@ export default class ServicePageComponent extends ArticleOption {
       this.updateOtherOptions();
     }
   }
-
 }

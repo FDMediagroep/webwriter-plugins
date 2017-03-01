@@ -3,7 +3,7 @@ import FDValidator from '../nl.fdmg.fdvalidator/FDValidator';
 class QuoteValidator extends FDValidator {
   validate() {
     if (this.isShortArticle || this.isAdvertorial || this.isEvents || this.isRedirectArticle) return
-    
+
     if (this.submitted || this.published) {
       // Validate Quote
       const quotes = this.newsItem.querySelectorAll('object[type="fdmg/quote"]');
@@ -23,4 +23,4 @@ class QuoteValidator extends FDValidator {
   }
 }
 
-export default QuoteValidator
+export default QuoteValidator;

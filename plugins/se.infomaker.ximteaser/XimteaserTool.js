@@ -5,25 +5,23 @@ class XimteaserTool extends Tool {
 
   render($$) {
 
-    const el = $$('div')
-    el.attr('title', this.getLabel('Insert Teaser'))
+    const el = $$('div');
+    el.attr('title', this.getLabel('Insert Teaser'));
 
     el.append(
         $$('button').addClass('se-tool').append(
             $$('i').addClass('fa fa-newspaper-o')
-        )
-            .on('click', this.insertTeaser)
+        ).on('click', this.insertTeaser)
     );
     return el;
 
   }
 
   insertTeaser() {
-
-    const commandName = this.getCommandName()
+    const commandName = this.getCommandName();
     api.editorSession.executeCommand(commandName, {
       test: "hello"
     })
   }
 }
-export default XimteaserTool
+export default XimteaserTool;

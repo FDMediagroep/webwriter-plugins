@@ -1,12 +1,12 @@
-import {Tool} from 'substance'
-import {api} from 'writer'
+import {Tool} from 'substance';
+import {api} from 'writer';
 
 class TextframeTool extends Tool {
 
   render($$) {
 
-    const el = $$('div')
-    el.attr('title', this.getLabel('Insert Textframe'))
+    const el = $$('div');
+    el.attr('title', this.getLabel('Insert Textframe'));
 
     el.append(
       $$('button').addClass('se-tool').append(
@@ -19,8 +19,8 @@ class TextframeTool extends Tool {
   }
 
   insertTextframe() {
-    const commandName = this.getCommandName()
+    const commandName = this.getCommandName();
     api.editorSession.executeCommand(commandName)
   }
 }
-export default TextframeTool
+export default TextframeTool;

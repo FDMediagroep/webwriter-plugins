@@ -1,5 +1,5 @@
-import {Component} from 'substance'
-import {api, idGenerator} from 'writer'
+import {Component} from 'substance';
+import {api, idGenerator} from 'writer';
 
 class PlanneddateComponent extends Component {
   constructor(...args) {
@@ -7,7 +7,7 @@ class PlanneddateComponent extends Component {
   }
   getInitialState() {
     const initialDate = api.newsItem
-      .getLinkByType('planneddate', 'fdmg/planneddate')
+      .getLinkByType('planneddate', 'fdmg/planneddate');
 
     if (!initialDate || initialDate.length < 1) {
       return { initialDate : { initialDate : { date : '', time : ''} } }
@@ -19,38 +19,38 @@ class PlanneddateComponent extends Component {
   }
 
   render($$) {
-    const el = $$('div').addClass('fdmg-sidebar')
-    const heading = $$('div').append($$('h2').append(this.getLabel('Planned date')))
-    const pluginWrapper = $$('div').addClass('planneddate')
+    const el = $$('div').addClass('fdmg-sidebar');
+    const heading = $$('div').append($$('h2').append(this.getLabel('Planned date')));
+    const pluginWrapper = $$('div').addClass('planneddate');
 
-    const date = this.state.initialDate.date
-    const time = this.state.initialDate.time
+    const date = this.state.initialDate.date;
+    const time = this.state.initialDate.time;
 
     const dateComponent =
           $$('input').attr({
             type : 'date',
             id : 'plannedDate',
             value : date
-          }).addClass('form-control date').ref('dateInput').on('blur', () => { this.updateDate() })
+          }).addClass('form-control date').ref('dateInput').on('blur', () => { this.updateDate() });
 
     const timeComponent =
           $$('input').attr({
             type: 'time',
             id: 'plannedTime',
             value: time,
-          }).addClass('form-control time').ref('timeInput').on("blur", () =>{ this.updateDate() })
+          }).addClass('form-control time').ref('timeInput').on("blur", () =>{ this.updateDate() });
 
-    pluginWrapper.append(dateComponent, timeComponent)
-    el.append(heading, pluginWrapper, $$('hr'))
+    pluginWrapper.append(dateComponent, timeComponent);
+    el.append(heading, pluginWrapper, $$('hr'));
 
     return el
   }
 
   updateDate(){
-    this.deleteDate()
+    this.deleteDate();
 
-    const date = this.refs.dateInput.val()
-    const time = this.refs.timeInput.val()
+    const date = this.refs.dateInput.val();
+    const time = this.refs.timeInput.val();
 
     if (date !== '') {
       api.newsItem.addLink('planneddate', {
@@ -67,7 +67,7 @@ class PlanneddateComponent extends Component {
     api.newsItem.getLinkByType('planneddate', 'fdmg/planneddate')
       .forEach( planneddate => {
         api.newsItem.removeLinkByUUIDAndRel('planneddate', planneddate['@uuid'], planneddate['@rel'])
-      })
+      });
   }
 }
-export default PlanneddateComponent
+export default PlanneddateComponent;

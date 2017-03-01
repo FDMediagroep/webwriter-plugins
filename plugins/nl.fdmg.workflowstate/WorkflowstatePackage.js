@@ -1,4 +1,4 @@
-import WorkflowstateComponent from './WorkflowstateComponent'
+import WorkflowstateComponent from './WorkflowstateComponent';
 
 export default {
   id: 'nl.fdmg.workflowstate',
@@ -11,9 +11,9 @@ export default {
         align: 'right'
       },
       WorkflowstateComponent
-    )
-    config.addLabel('Workflowstate', {'nl': 'Workflowstatus'})
-    config.addLabel('Select workflow state', {'nl': 'Selecteer een workflowstatus'})
-    config.addLabel('Cancel', {'nl': 'Annuleren'})
+    );
+    config.addLabel('Workflowstate', {'nl': 'Workflowstatus'});
+    config.addLabel('Select workflow state', {'nl': 'Selecteer een workflowstatus'});
+    config.addLabel('Cancel', {'nl': 'Annuleren'});
   }
 }

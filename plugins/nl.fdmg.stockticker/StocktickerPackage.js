@@ -1,11 +1,11 @@
-import './scss/stockticker.scss'
-import StocktickerNode from './StocktickerNode'
-import StocktickerConverter from './StocktickerConverter'
-import StocktickerComponent from './StocktickerComponent'
-import StocktickerTool from './StocktickerTool'
-import StocktickerCommand from './StocktickerCommand'
-import StocktickerInlineTool from './StocktickerInlineTool'
-import StocktickerInlineCommand from './StocktickerInlineCommand'
+import './scss/stockticker.scss';
+import StocktickerNode from './StocktickerNode';
+import StocktickerConverter from './StocktickerConverter';
+import StocktickerComponent from './StocktickerComponent';
+import StocktickerTool from './StocktickerTool';
+import StocktickerCommand from './StocktickerCommand';
+import StocktickerInlineTool from './StocktickerInlineTool';
+import StocktickerInlineCommand from './StocktickerInlineCommand';
 
 export default {
   id: 'nl.fdmg.stockticker',

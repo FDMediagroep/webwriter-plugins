@@ -1,8 +1,8 @@
-import './scss/heartbeat.scss'
+import './scss/heartbeat.scss';
 
-const {Component} = substance
-const {api, event} = writer
-const pluginId = 'nl.fdmg.heartbeat'
+const {Component} = substance;
+const {api, event} = writer;
+const pluginId = 'nl.fdmg.heartbeat';
 let virtualElement;
 let el;
 let pollInterval;
@@ -85,7 +85,6 @@ export default class HeartbeatComponent extends Component {
       this.updatePresentation();
     })
   }
-
 
   getInitialState() {
     this.extendState({

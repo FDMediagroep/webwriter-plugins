@@ -1,9 +1,9 @@
-import FDValidator from '../nl.fdmg.fdvalidator/FDValidator'
+import FDValidator from '../nl.fdmg.fdvalidator/FDValidator';
 
 class StackFrameValidator extends FDValidator {
   validate() {
-    if (this.isShortArticle || this.isAdvertorial || this.isEvents || this.isRedirectArticle) return
-    
+    if (this.isShortArticle || this.isAdvertorial || this.isEvents || this.isRedirectArticle) return;
+
     if (this.submitted || this.published) {
       // Validate Stackframe
       const stackFrames = this.newsItem.querySelectorAll('object[type="fdmg/stackframe"]');
@@ -22,4 +22,4 @@ class StackFrameValidator extends FDValidator {
   }
 }
 
-export default StackFrameValidator
+export default StackFrameValidator;

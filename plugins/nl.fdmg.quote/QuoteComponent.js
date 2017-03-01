@@ -3,7 +3,7 @@ import {Component, FontAwesomeIcon, TextPropertyEditor} from 'substance';
 export default class QuoteComponent extends Component {
 
   render($$) {
-    var message = $$(TextPropertyEditor, {
+    const message = $$(TextPropertyEditor, {
       tagName: 'div',
       name: 'message',
       path: [this.props.node.id, 'message']
@@ -12,7 +12,7 @@ export default class QuoteComponent extends Component {
       "data-text": this.getLabel("Quote")
     }).ref('message');
 
-    var author = $$(TextPropertyEditor, {
+    const author = $$(TextPropertyEditor, {
       tagName: 'div',
       name: 'author',
       path: [this.props.node.id, 'author']
@@ -21,7 +21,7 @@ export default class QuoteComponent extends Component {
       "data-text": this.getLabel("Source")
     }).ref('author');
 
-    var el = $$('a').append([
+    const el = $$('a').append([
       $$('div').addClass('header').append([
         $$(FontAwesomeIcon, {icon: 'fa-quote-left'}).addClass('plugin-icon'),
         $$('div').addClass('plugin-title').append(this.getLabel("Quote"))

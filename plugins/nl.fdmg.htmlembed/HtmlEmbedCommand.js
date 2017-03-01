@@ -1,10 +1,10 @@
-import {WriterCommand} from 'writer'
-import OpenEmbedDialog from './openEmbedDialog'
+import {WriterCommand} from 'writer';
+import OpenEmbedDialog from './openEmbedDialog';
 
 class HtmlEmbedCommand extends WriterCommand {
   execute() {
-    OpenEmbedDialog({})
+    OpenEmbedDialog({});
   }
 }
 
-export default HtmlEmbedCommand
+export default HtmlEmbedCommand;

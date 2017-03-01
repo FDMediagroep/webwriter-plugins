@@ -16,4 +16,4 @@ class StocktickerTool extends Tool {
   }
 }
 
-export default StocktickerTool
+export default StocktickerTool;

@@ -1,10 +1,10 @@
-import GenreComponent from './GenreComponent'
+import GenreComponent from './GenreComponent';
 
 export default {
   id: 'nl.fdmg.genre',
   name: 'genre',
   configure: function(config) {
-    config.addComponentToSidebarWithTabId(this.id, 'main', GenreComponent)
+    config.addComponentToSidebarWithTabId(this.id, 'main', GenreComponent);
 
     config.addLabel('Genre', {
       'nl': 'Genre'
@@ -14,6 +14,6 @@ export default {
     });
     config.addLabel('free input', {
       'nl': 'vrije invoer'
-    })
+    });
   }
 }

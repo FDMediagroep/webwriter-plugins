@@ -1,10 +1,10 @@
-import {Component} from 'substance'
-import {NilUUID} from 'writer'
-import AuthorItem from './AuthorItemComponent'
+import {Component} from 'substance';
+import {NilUUID} from 'writer';
+import AuthorItem from './AuthorItemComponent';
 
 class AuthorListComponent extends Component {
   render($$) {
-    const existingAuthors = this.props.existingAuthors
+    const existingAuthors = this.props.existingAuthors;
     return $$('ul')
       .addClass('authors__list')
       .append(existingAuthors.map(author =>
@@ -18,18 +18,18 @@ class AuthorListComponent extends Component {
 
   getIdForRef(author) {
     if (NilUUID.isNilUUID(author.uuid)) {
-      return 'author-' + author.title.replace(' ', '')
+      return 'author-' + author.title.replace(' ', '');
     } else if (author.uuid) {
-      return 'author-' + author.uuid
+      return 'author-' + author.uuid;
     } else {
-      console.warn('No UUID')
+      console.warn('No UUID');
     }
   }
 
   deleteAuthorAndReference(author) {
-    delete this.refs[this.getIdForRef(author)]
-    this.props.removeAuthor(author)
+    delete this.refs[this.getIdForRef(author)];
+    this.props.removeAuthor(author);
   }
 }
 
-export default AuthorListComponent
+export default AuthorListComponent;

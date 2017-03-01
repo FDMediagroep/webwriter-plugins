@@ -14,12 +14,12 @@ export default {
    * Import textframe xml structure
    */
   import: function (el, node, converter) { // jshint ignore:line
-    const nodeId = el.attr('id')
-    node.title = el.attr('title')
-    node.dataType = el.attr('type')
+    const nodeId = el.attr('id');
+    node.title = el.attr('title');
+    node.dataType = el.attr('type');
 
       // Import textframe data
-    const dataEl = el.find('data')
+    const dataEl = el.find('data');
     if (dataEl) {
       dataEl.children.forEach(function(child) {
         if (child.tagName === 'text') {
@@ -34,16 +34,16 @@ export default {
     }
 
       // Handle image link in textframe
-    const linkEl = el.find('links > link')
+    const linkEl = el.find('links > link');
     if (linkEl) {
-      node.imageType = linkEl.attr('type')
+      node.imageType = linkEl.attr('type');
 
       let imageFile = {
         id: idGenerator(),
         type: 'npfile',
         imType: 'x-im/image',
         parentNodeId:nodeId
-      }
+      };
 
       if (linkEl.attr('uuid')) {
         imageFile.uuid = linkEl.attr('uuid')
@@ -59,18 +59,18 @@ export default {
 
       // If image data like width, height, crops is not found here it's
       // the old depcrecated format with image data in the textframe data.
-      const linkDataEl = linkEl.find('data')
+      const linkDataEl = linkEl.find('data');
       if (linkDataEl) {
         // New format, image data is found correctly in link data element
-        this.importImageLinkData(linkDataEl, node)
+        this.importImageLinkData(linkDataEl, node);
       }
       else {
           // Old, depcrecated format, image data is found in textframe data
-        this.importImageLinkData(dataEl, node)
+        this.importImageLinkData(dataEl, node);
       }
 
-      converter.createNode(imageFile)
-      node.imageFile = imageFile.id
+      converter.createNode(imageFile);
+      node.imageFile = imageFile.id;
       node.uuid = linkEl.attr('uuid')
     }
   },
@@ -108,7 +108,7 @@ export default {
             var x = crop.find('x'),
               y = crop.find('y'),
               width = crop.find('width'),
-              height = crop.find('height')
+              height = crop.find('height');
 
             crops.crops.push({
               name: crop.attr('name'),
@@ -118,7 +118,7 @@ export default {
               height: height.text()
             })
           }
-        })
+        });
 
         if (crops.crops.length) {
           node.crops = crops
@@ -156,20 +156,20 @@ export default {
    */
 
   export: function (node, el, converter) {
-    const $$ = converter.$$
+    const $$ = converter.$$;
 
-    el.removeAttr('data-id')
+    el.removeAttr('data-id');
     el.attr({
       id: node.id,
       type: 'fdmg/textframe'
-    })
+    });
 
     if(node.title) {
       el.attr('title', converter.annotatedText([node.id, 'title']))
     }
 
     // Data element
-    const data = $$('data')
+    const data = $$('data');
     if (node.text) {
       data.append($$('text').append(
         converter.annotatedText([node.id, 'text'])
@@ -181,9 +181,9 @@ export default {
         converter.annotatedText([node.id, 'subject'])
       ))
     }
-    el.append(data)
+    el.append(data);
 
-    let fileNode = node.document.get(node.imageFile)
+    let fileNode = node.document.get(node.imageFile);
 
     // Links
     if (fileNode && fileNode.uuid !== '' && node.uri) {
@@ -192,8 +192,8 @@ export default {
         type: 'x-im/image',
         uri: node.uri,
         uuid: fileNode.uuid
-      })
-      const linkData = $$('data')
+      });
+      const linkData = $$('data');
 
         // Add image data and crops to data
       if(node.width) {
@@ -212,10 +212,10 @@ export default {
       }
 
       if (node.crops) {
-        let crops = $$('crops')
+        let crops = $$('crops');
 
             for (var x in node.crops.crops) { // eslint-disable-line
-              var origCrop = node.crops.crops[x]
+              var origCrop = node.crops.crops[x];
 
               crops.append(
                 $$('crop').attr('name', origCrop.name).append([
@@ -227,7 +227,7 @@ export default {
               )
             }
 
-        linkData.append(crops)
+        linkData.append(crops);
         link.append(linkData)
       }
 

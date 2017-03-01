@@ -1,24 +1,24 @@
-import DropdownComponent from '../nl.fdmg.dropdown/DropdownComponent'
+import DropdownComponent from '../nl.fdmg.dropdown/DropdownComponent';
 
-const {Component} = substance
-const {api, idGenerator} = writer
-const pluginId = 'nl.fdmg.section'
+const {Component} = substance;
+const {api, idGenerator} = writer;
+const pluginId = 'nl.fdmg.section';
 
 class SectionComponent extends Component {
   constructor(...args) {
-    super(...args)
-    this.name = 'section'
+    super(...args);
+    this.name = 'section';
     this.type = 'fdmg/section'
   }
 
   render($$) {
-    const items = api.getConfigValue(pluginId, 'sections')
+    const items = api.getConfigValue(pluginId, 'sections');
     const selection = api.newsItem
       .getLinkByType(this.name, this.type)
       .map(l => {return {id: l['@id'], label: l['@title']}})
       .map(i => {
-        const match = items.find(item => item.id === i.id)
-        const label = (match !== undefined) ? match.label : i.label
+        const match = items.find(item => item.id === i.id);
+        const label = (match !== undefined) ? match.label : i.label;
         return {id: i.id, label: label}
       })
       .pop()
@@ -44,7 +44,7 @@ class SectionComponent extends Component {
       .getLinkByType(this.name, this.type)
       .forEach(l => {
         api.newsItem.removeLinkByUUIDAndRel(this.name, l['@uuid'], l['@rel'])
-      })
+      });
 
     api.newsItem.addLink(this.name, {
       '@rel': this.name,
@@ -56,4 +56,4 @@ class SectionComponent extends Component {
   }
 }
 
-export default SectionComponent
+export default SectionComponent;

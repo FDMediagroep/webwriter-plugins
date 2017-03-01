@@ -1,4 +1,4 @@
-import './scss/relatedlink.scss'
+import './scss/relatedlink.scss';
 import RelatedLinkCommand from './RelatedLinkCommand';
 import RelatedLinkComponent from './RelatedLinkComponent';
 import RelatedLinkConverter from './RelatedLinkConverter';
