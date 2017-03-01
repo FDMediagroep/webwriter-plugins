@@ -9,7 +9,6 @@ export default class StackFrameCommand extends Command {
 
   execute(params, context) {
     const state = this.getCommandState();
-    console.info('Added stackframe "' + params.heading + '" with content: "' + params.content + '" to document');
     if (state.disabled) {
       return;
     }

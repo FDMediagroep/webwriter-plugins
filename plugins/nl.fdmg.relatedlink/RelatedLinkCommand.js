@@ -9,7 +9,6 @@ export default class RelatedLinkCommand extends Command {
 
   execute(params, context) {
     const state = this.getCommandState();
-    console.info('Added relatedlink prefix:', params.prefix, ', content:', params.leadtext, ', relatedurl:', params.relatedurl, 'to document');
     if (state.disabled) {
       return;
     }
