@@ -1,5 +1,5 @@
-import {Component, FontAwesomeIcon} from 'substance';
-import {api, idGenerator} from 'writer';
+import { Component, FontAwesomeIcon } from 'substance';
+import { api, idGenerator } from 'writer';
 import './scss/relatedarticles.scss';
 
 class RelatedArticlesComponent extends Component {
@@ -19,28 +19,28 @@ class RelatedArticlesComponent extends Component {
       .append(
         $$('h2').append(this.getLabel('Related articles')),
         $$('div')
-          .append(
-            [0, 1].map((i) =>
-              $$('div')
-                .append(
-                  $$('span')
-                    .append($$(FontAwesomeIcon, {icon: 'fa-times'}))
-                    .on('click', () => {
-                      const ref = this.refs['redirectarticleurl-' + i.toString()];
-                      ref.val('');
-                      this.save()
-                    }),
-                  $$('input')
-                    .addClass('form-control')
-                    .attr({type: 'text', placeholder: this.getLabel('Article url'), value: this.state.urls[i]})
-                    .ref('redirectarticleurl-' + i.toString())
-                    .on('blur', () => {
-                      this.save()
-                    })
-                )
+        .append(
+          [0, 1].map((i) =>
+            $$('div')
+            .append(
+              $$('span')
+              .append($$(FontAwesomeIcon, { icon: 'fa-times' }))
+              .on('click', () => {
+                const ref = this.refs['redirectarticleurl-' + i.toString()];
+                ref.val('');
+                this.save()
+              }),
+              $$('input')
+              .addClass('form-control')
+              .attr({ type: 'text', placeholder: this.getLabel('Article url'), value: this.state.urls[i] })
+              .ref('redirectarticleurl-' + i.toString())
+              // .on('blur', () => {
+              //   this.save();
+              // })
             )
           )
-          .append($$('hr'))
+        )
+        .append($$('hr'))
       );
 
     const urls = this.state.urls;
@@ -52,10 +52,15 @@ class RelatedArticlesComponent extends Component {
       this.refs['redirectarticleurl-1'].val(urls.length >= 2 ? urls[1] : '');
     }
 
+    api.events.on('publish-button', 'useraction:save', () => {
+      this.save();
+    });
+
     return el;
   }
 
   save() {
+    console.log('save this');
     const newUrls = Object.entries(this.refs)
       .filter(e => e[0].indexOf('redirectarticleurl-') === 0)
       .map(e => e[1])

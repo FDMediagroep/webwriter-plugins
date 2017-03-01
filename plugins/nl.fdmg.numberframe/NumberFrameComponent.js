@@ -1,4 +1,4 @@
-import {Component, FontAwesomeIcon, TextPropertyEditor} from 'substance';
+import { Component, FontAwesomeIcon, TextPropertyEditor } from 'substance';
 import './scss/numberframe.scss';
 
 export default class NumberFrameComponent extends Component {
@@ -7,17 +7,17 @@ export default class NumberFrameComponent extends Component {
       tagName: 'div',
       name: 'content',
       path: [this.props.node.id, 'content']
-    }).addClass('content').attr({'contentEditable' : true, "data-text" : this.getLabel("Text")}).ref('content');
+    }).addClass('content').attr({ 'contentEditable': true, "data-text": this.getLabel("Text") }).ref('content');
 
     let heading = $$(TextPropertyEditor, {
       tagName: 'div',
       name: 'heading',
       path: [this.props.node.id, 'heading']
-    }).addClass('heading').attr({'contentEditable' : true, "data-text" : this.getLabel("Amount")}).ref('heading');
+    }).addClass('heading').attr({ 'contentEditable': true, "data-text": this.getLabel("Amount") }).ref('heading');
 
     let el = $$('a').append([
       $$('div').addClass('header').append([
-        $$(FontAwesomeIcon, {icon: 'fa-eur'}).addClass('plugin-icon'),
+        $$(FontAwesomeIcon, { icon: 'fa-eur' }).addClass('plugin-icon'),
         $$('div').addClass('plugin-title').append(this.getLabel("Numberframe"))
       ]),
       heading,
@@ -30,7 +30,7 @@ export default class NumberFrameComponent extends Component {
   }
 
   updateNumberFrame() {
-    if (typeof(this.props.node.content) !== 'undefined' && typeof(this.props.node.heading)!== 'undefined') {
+    if (typeof(this.props.node.content) !== 'undefined' && typeof(this.props.node.heading) !== 'undefined') {
       this.updateProps(this.refs.content.text(), this.refs.heading.text());
     }
   }
