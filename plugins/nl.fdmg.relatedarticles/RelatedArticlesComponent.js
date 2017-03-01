@@ -34,9 +34,9 @@ class RelatedArticlesComponent extends Component {
               .addClass('form-control')
               .attr({ type: 'text', placeholder: this.getLabel('Article url'), value: this.state.urls[i] })
               .ref('redirectarticleurl-' + i.toString())
-              // .on('blur', () => {
-              //   this.save();
-              // })
+              .on('blur', () => {
+                this.save()
+              })
             )
           )
         )
@@ -52,15 +52,10 @@ class RelatedArticlesComponent extends Component {
       this.refs['redirectarticleurl-1'].val(urls.length >= 2 ? urls[1] : '');
     }
 
-    api.events.on('publish-button', 'useraction:save', () => {
-      this.save();
-    });
-
     return el;
   }
 
   save() {
-    console.log('save this');
     const newUrls = Object.entries(this.refs)
       .filter(e => e[0].indexOf('redirectarticleurl-') === 0)
       .map(e => e[1])
