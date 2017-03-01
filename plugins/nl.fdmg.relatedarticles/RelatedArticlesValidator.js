@@ -9,7 +9,6 @@ class RelatedArticlesValidator extends FDValidator {
 
       relatedarticles.forEach((link, index) => {
         const id = link.attributes.getNamedItem('id');
-        console.log(id, 'validator id', link, 'link', link.attributes, 'link attributes');
         if (!id || id.value.trim() === '') {
 
           this.addError(`${this.getLabel('Related article url is invalid')} (${index + 1})`);
