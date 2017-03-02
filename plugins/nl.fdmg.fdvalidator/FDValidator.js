@@ -1,6 +1,6 @@
-import {Validator, api} from 'writer';
+import { Validator, api } from 'writer';
 
-class FDValidor extends Validator {
+class FDValidator extends Validator {
   get qcode() {
     return api.newsItem.getPubStatus().qcode
   }
@@ -52,4 +52,4 @@ class FDValidor extends Validator {
   }
 }
 
-export default FDValidor;
+export default FDValidator;
