@@ -50,7 +50,7 @@ gulp.task('config-devbox-generate', function(){
   writeConfig({
     'fdmg.source'                   : 'writer-fd.json',
     'infoMaker.plugins.base'        : 'https://s3-eu-west-1.amazonaws.com/writer-dev-plugins',
-    'fdmg.webwriter.blugins.base'   : 'https://webwriter-devbox.fdmg.org/plugins',
+    'fdmg.webwriter.plugins.base'   : 'https://webwriter-devbox.fdmg.org/plugins',
     'fdmg.newsItem.template.id'     : '819',
     'fdmg.services.baseUrl'         : 'https://webwriter-devbox.fdmg.org/fdmgapi/private',
     'fdmg.services.noProxyBaseUrl'  : 'https://api-devbox.fdmg.org/private',
