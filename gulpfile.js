@@ -50,10 +50,10 @@ gulp.task('config-devbox-generate', function(){
   writeConfig({
     'fdmg.source'                   : 'writer-fd-dev.json',
     'infoMaker.plugins.base'        : 'https://s3-eu-west-1.amazonaws.com/writer-dev-plugins',
-    'fdmg.webwriter.blugins.base'   : 'http://devbox.fdmg.org:3000',
+    'fdmg.webwriter.blugins.base'   : 'https://webwriter-devbox.fdmg.org/plugins',
     'fdmg.newsItem.template.id'     : '819',
-    'fdmg.services.baseUrl'         : 'https://api-devbox.fdmg.org/private',
-    'fdmg.services.noProxyBaseUrl'  : 'https://api-devbix.fdmg.org/private',
+    'fdmg.services.baseUrl'         : 'https://webwriter-devbox.fdmg.org/fdmgapi/private',
+    'fdmg.services.noProxyBaseUrl'  : 'https://api-devbox.fdmg.org/private',
     'fdmg.services.token'           : 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIxMjMiLCJzdWIiOiJzdmVuIiwicm9sZSI6InVzZXIifQ.omGBEdLl3e_bxNFq83bsTUZnO5HU_c0gltDuTFWM_KlLJWtlZzDo1F7jGD6zPD54XmimTAWmD5XKIlhMQVmChQ',
     'hollandseHoogte.token'         : '63401c89-63e9-35f9-9daa-a55ef26c3042',
     'fdmg.apiGatewayBaseUrl'        : 'https://apigateway-dev.fdmg.nl',
