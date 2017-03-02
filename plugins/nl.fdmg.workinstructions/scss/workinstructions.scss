@@ -44,10 +44,10 @@
     label.decoupled {
         cursor: pointer;
         text-indent: -18px;
-        font-size: 1em;
         &.active {
             background-color: #b10000;
             color: white;
+            font-size: 1em;
         }
     }
 }
