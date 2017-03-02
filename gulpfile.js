@@ -48,9 +48,9 @@ function writeConfig(data) {
 gulp.task('config-devbox-generate', function(){
   console.log('Creating config for devbox VM');
   writeConfig({
-    'fdmg.source'                   : 'writer-fd.json',
+    'fdmg.source'                   : 'writer-fd-dev.json',
     'infoMaker.plugins.base'        : 'https://s3-eu-west-1.amazonaws.com/writer-dev-plugins',
-    'fdmg.webwriter.plugins.base'   : 'http://devbox.fdmg.org:3000',
+    'fdmg.webwriter.blugins.base'   : 'http://devbox.fdmg.org:3000',
     'fdmg.newsItem.template.id'     : '819',
     'fdmg.services.baseUrl'         : 'https://api-devbox.fdmg.org/private',
     'fdmg.services.noProxyBaseUrl'  : 'https://api-devbix.fdmg.org/private',
