@@ -659,10 +659,10 @@
       "name": "preview",
       "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
       "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
-      "enabled": false,
-      "mandatory": false,
+      "enabled": true,
+      "mandatory": true,
       "data": {
-        "previewBaseUrl": "//preview.fd.nl/_/${id}/_"
+        "previewBaseUrl": "//preview.esb.nu/${id}"
       }
     },
     {
