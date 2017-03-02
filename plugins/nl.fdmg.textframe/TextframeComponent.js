@@ -1,5 +1,5 @@
-import {Component, TextPropertyEditor, FontAwesomeIcon} from 'substance';
-import {api} from 'writer';
+import { Component, TextPropertyEditor, FontAwesomeIcon } from 'substance';
+import { api } from 'writer';
 
 import ImageSearchDialog from '../nl.fdmg.imagesearch/ImageSearchDialog';
 const pluginId = 'nl.fdmg.imagesearch';
@@ -78,25 +78,25 @@ class TextframeComponent extends Component {
   renderHeader($$) {
     return $$('div')
       .append([
-        $$(FontAwesomeIcon, {icon: 'fa-tumblr'}),
+        $$(FontAwesomeIcon, { icon: 'fa-tumblr' }),
         $$('strong').append(this.getLabel('Textframe')),
         $$('button').addClass('inline-plugin-button')
-         .append($$('i').addClass('fa fa-picture-o'))
-         .attr('title', this.getLabel('Add/search image'))
-         .on('click', () => {
-           api.ui.showDialog(
-             ImageSearchDialog, {
-               loadNextScrollThreshold: api.getConfigValue(pluginId, 'loadNextScrollThreshold', 100),
-               insertImageFromUrlCommand: 'insert-image-from-url',
-               insertImageCommand: 'textframeinsertimage',
-               pluginNode: this.props.node,
-             }, {
-               primary: false,
-               center: true,
-               title: 'Image search'
-             }
-           )
-         })
+        .append($$('i').addClass('fa fa-picture-o'))
+        .attr('title', this.getLabel('Add/search image'))
+        .on('click', () => {
+          api.ui.showDialog(
+            ImageSearchDialog, {
+              loadNextScrollThreshold: api.getConfigValue(pluginId, 'loadNextScrollThreshold', 100),
+              insertImageFromUrlCommand: 'insert-image-from-url',
+              insertImageCommand: 'textframeinsertimage',
+              pluginNode: this.props.node,
+            }, {
+              primary: false,
+              center: true,
+              title: 'Image search'
+            }
+          )
+        })
       ])
       .addClass('header')
   }
@@ -107,7 +107,7 @@ class TextframeComponent extends Component {
     editorSession.executeCommand('textframeinsertimage', {
       type: 'file',
       data: ev.target.files,
-      context: {node: this.props.node}
+      context: { node: this.props.node }
     });
   }
 
@@ -157,18 +157,18 @@ class TextframeComponent extends Component {
 
       alignmentContainer.append(
         $$('em')
-          .addClass('fa ' + alignment.icon + selectedClass)
-          .attr({
-            contenteditable: 'false',
-            title: alignment.label
-          })
-          .on('click', () => {
-            if (alignment.name !== this.props.node.alignment) {
-              this.props.node.setAlignment(alignment.name);
-              this.rerender()
-            }
-            return false
-          })
+        .addClass('fa ' + alignment.icon + selectedClass)
+        .attr({
+          contenteditable: 'false',
+          title: alignment.label
+        })
+        .on('click', () => {
+          if (alignment.name !== this.props.node.alignment) {
+            this.props.node.setAlignment(alignment.name);
+            this.rerender()
+          }
+          return false
+        })
       )
     });
 
@@ -188,7 +188,7 @@ class TextframeComponent extends Component {
         path: [this.props.node.id, 'subject'],
         doc: this.props.doc
       }).ref('subject').addClass('x-im-teaser-subject');
-      const icon = $$(FontAwesomeIcon, {icon: 'fa-flag'});
+      const icon = $$(FontAwesomeIcon, { icon: 'fa-flag' });
 
       subjectContainer.append([icon, subjectEditor]);
       return subjectContainer
@@ -203,7 +203,7 @@ class TextframeComponent extends Component {
       doc: this.props.doc
     }).ref('title').addClass('x-im-teaser-title');
 
-    const icon = $$(FontAwesomeIcon, {icon: 'fa-header'});
+    const icon = $$(FontAwesomeIcon, { icon: 'fa-header' });
 
     titleContainer.append([icon, titleEditor]);
     return titleContainer
@@ -217,7 +217,7 @@ class TextframeComponent extends Component {
       doc: this.props.doc
     }).ref('text').addClass('x-im-teaser-text');
 
-    const icon = $$(FontAwesomeIcon, {icon: 'fa-paragraph'});
+    const icon = $$(FontAwesomeIcon, { icon: 'fa-paragraph' });
 
     textContainer.append([icon, textEditor]);
     return textContainer

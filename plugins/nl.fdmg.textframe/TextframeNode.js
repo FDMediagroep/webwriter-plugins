@@ -1,5 +1,5 @@
-import {BlockNode} from 'substance';
-import {api} from 'writer';
+import { BlockNode } from 'substance';
+import { api } from 'writer';
 class TextframeNode extends BlockNode {
 
   getImageFile() {
@@ -24,7 +24,7 @@ class TextframeNode extends BlockNode {
   setAlignment(alignment) {
     api.editorSession.transaction((tx) => {
       tx.set([this.id, 'alignment'], alignment)
-    }, {history: false})
+    }, { history: false })
   }
 
   handleDOMDocument(newsItemDOMDocument) {
@@ -39,26 +39,24 @@ class TextframeNode extends BlockNode {
       tx.set([this.id, 'uri'], uri);
       tx.set([this.id, 'width'], width ? width.textContent : '');
       tx.set([this.id, 'height'], height ? height.textContent : '');
-    }, {history: false});
+    }, { history: false });
   }
 }
 
 TextframeNode.define({
   type: 'textframe',
-  dataType: {type: 'string', optional: false},
+  dataType: { type: 'string', optional: false },
   imageFile: { type: 'file', optional: true },
-  uuid: {type: 'string', optional: true},
+  uuid: { type: 'string', optional: true },
   uri: { type: 'string', optional: true },
 
-  title: {type: 'string', optional: false, default: '' },
-  subject: {type: 'string', optional: false, default: '' },
-  text: {type: 'string', optional: false, default: '' },
-  alignment: {type: 'string', optional: false, default: ''},
+  title: { type: 'text', optional: false, default: '' },
+  subject: { type: 'string', optional: false, default: '' },
+  text: { type: 'string', optional: false, default: '' },
+  alignment: { type: 'string', optional: false, default: '' },
 
-  // ATTENTION: progress should not be part of the model
-  // progress: {type: 'number', default: 100 },
-  width: {type: 'number', optional: true },
-  height: {type: 'number', optional: true },
+  width: { type: 'number', optional: true },
+  height: { type: 'number', optional: true },
   crops: { type: 'object', default: [] }
 });
 

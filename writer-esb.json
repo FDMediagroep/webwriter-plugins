@@ -158,6 +158,7 @@
       "enabled": true,
       "mandatory": true,
       "data": {
+        "softcrop": false,
         "fields": [
           "text"
         ],
