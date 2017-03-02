@@ -48,7 +48,7 @@ function writeConfig(data) {
 gulp.task('config-devbox-generate', function(){
   console.log('Creating config for devbox VM');
   writeConfig({
-    'fdmg.source'                   : 'writer-fd-dev.json',
+    'fdmg.source'                   : 'writer-fd.json',
     'infoMaker.plugins.base'        : 'https://s3-eu-west-1.amazonaws.com/writer-dev-plugins',
     'fdmg.webwriter.blugins.base'   : 'https://webwriter-devbox.fdmg.org/plugins',
     'fdmg.newsItem.template.id'     : '819',
@@ -58,7 +58,7 @@ gulp.task('config-devbox-generate', function(){
     'hollandseHoogte.token'         : '63401c89-63e9-35f9-9daa-a55ef26c3042',
     'fdmg.apiGatewayBaseUrl'        : 'https://apigateway-dev.fdmg.nl',
     'fdmg.fileName'                 : 'writer.json',
-    'fdmg.destination'              : '../NPWriter/dist/server/config'
+    'fdmg.destination'              : '../NPWriter/dist/server/config/'
   });
 });
 
