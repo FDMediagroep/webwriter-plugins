@@ -54,6 +54,7 @@ import XimImageStandin from './nl.fdmg.ximimagestandin/index';
 import Teaser from './se.infomaker.ximteaser/index';
 import HeadlineStandin from './nl.fdmg.headlinestandin/index';
 import PreambleStandin from './nl.fdmg.preamblestandin/index';
+import Writerinfo from './nl.fdmg.writerinfo/index';
 
 // Import this last!
 import Translations from './nl.fdmg.translations/index';
@@ -115,6 +116,8 @@ import Translations from './nl.fdmg.translations/index';
   Teaser();
   HeadlineStandin();
   PreambleStandin();
+
+  Writerinfo();
 
   // Import this last!
   Translations();

@@ -1,5 +1,5 @@
-import {Component, FontAwesomeIcon} from 'substance';
-import {api} from 'writer';
+import { Component, FontAwesomeIcon } from 'substance';
+import { api } from 'writer';
 
 const pluginId = 'nl.fdmg.preview';
 
@@ -9,17 +9,18 @@ export default class PreviewComponent extends Component {
     return $$('div')
       .addClass('fdmg-sidebar preview')
       .append(
-      $$('a')
+        $$('a')
         .attr({
           'href': this.getPreviewUrl(),
           'target': '_blank'
         })
         .append(
-        this.getLabel('Preview'),
-        ' ',
-        $$(FontAwesomeIcon, {icon: 'fa-external-link-square'})
+          this.getLabel('Preview'),
+          ' ',
+          $$(FontAwesomeIcon, { icon: 'fa-external-link-square' })
+        ),
+        $$('hr')
       )
-    )
   }
 
   getPreviewUrl() {
