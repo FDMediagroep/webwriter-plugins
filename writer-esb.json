@@ -87,6 +87,9 @@
       "mandatory": true,
       "data": {
         "softcrop": false,
+        "bylinesearch": false,
+        "byline": false,
+        "imageinfo": false,
         "fields": [{
             "name": "caption",
             "label": "Bijschrift",
