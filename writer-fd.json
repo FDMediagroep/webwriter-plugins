@@ -5,7 +5,7 @@
   "plugins": [{
       "id": "se.infomaker.charactertransformation",
       "name": "charactertransformation",
-      "url": "INFOMAKER_PLUGINS_BASE_URL/fd.js",
+      "url": "INFOMAKER_PLUGINS_BASE_URL/im-charactertransformation.js",
       "enabled": true,
       "mandatory": false,
       "data": {
@@ -26,35 +26,40 @@
     {
       "id": "se.infomaker.headline",
       "name": "headline",
-      "url": "INFOMAKER_PLUGINS_BASE_URL/fd.js",
+      "url": "INFOMAKER_PLUGINS_BASE_URL/im-textstyle-headline.js",
+      "style": "INFOMAKER_PLUGINS_BASE_URL/im-textstyle-headline.css",
       "enabled": true,
       "mandatory": true
     },
     {
       "id": "se.infomaker.preamble",
       "name": "preamble",
-      "url": "INFOMAKER_PLUGINS_BASE_URL/fd.js",
+      "url": "INFOMAKER_PLUGINS_BASE_URL/im-textstyle-preamble.js",
+      "style": "INFOMAKER_PLUGINS_BASE_URL/im-textstyle-preamble.css",
       "enabled": true,
       "mandatory": true
     },
     {
       "id": "se.infomaker.subheadline",
       "name": "subheadline",
-      "url": "INFOMAKER_PLUGINS_BASE_URL/fd.js",
+      "url": "INFOMAKER_PLUGINS_BASE_URL/im-textstyle-subheadline.js",
+      "style": "INFOMAKER_PLUGINS_BASE_URL/im-textstyle-subheadline.css",
       "enabled": true,
       "mandatory": true
     },
     {
       "id": "se.infomaker.paragraph",
       "name": "paragraph",
-      "url": "INFOMAKER_PLUGINS_BASE_URL/fd.js",
+      "url": "INFOMAKER_PLUGINS_BASE_URL/im-textstyle-paragraph.js",
+      "style": "INFOMAKER_PLUGINS_BASE_URL/im-textstyle-paragraph.css",
       "enabled": true,
       "mandatory": true
     },
     {
       "id": "se.infomaker.headereditor",
       "name": "headereditor",
-      "url": "INFOMAKER_PLUGINS_BASE_URL/fd.js",
+      "url": "INFOMAKER_PLUGINS_BASE_URL/im-headereditor.js",
+      "style": "INFOMAKER_PLUGINS_BASE_URL/im-headereditor.css",
       "mandatory": false,
       "enabled": true,
       "data": {
@@ -67,22 +72,24 @@
     {
       "id": "se.infomaker.youtubeembed",
       "name": "youtubeembed",
-      "url": "INFOMAKER_PLUGINS_BASE_URL/fd.js",
+      "url": "INFOMAKER_PLUGINS_BASE_URL/im-youtubeembed.js",
+      "style": "INFOMAKER_PLUGINS_BASE_URL/im-youtubeembed.css",
       "enabled": true,
       "mandatory": true
     },
     {
       "id": "se.infomaker.socialembed",
       "name": "socialembed",
-      "url": "INFOMAKER_PLUGINS_BASE_URL/fd.js",
+      "url": "INFOMAKER_PLUGINS_BASE_URL/im-socialembed.js",
+      "style": "INFOMAKER_PLUGINS_BASE_URL/im-socialembed.css",
       "enabled": true,
       "mandatory": true
     },
     {
       "id": "se.infomaker.ximimage",
       "name": "ximimage",
-      "url": "INFOMAKER_PLUGINS_BASE_URL/fd.js",
-      "style": "INFOMAKER_PLUGINS_BASE_URL/fd.css",
+      "url": "INFOMAKER_PLUGINS_BASE_URL/im-ximimage.js",
+      "style": "INFOMAKER_PLUGINS_BASE_URL/im-ximimage.css",
       "enabled": true,
       "mandatory": true,
       "data": {
