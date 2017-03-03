@@ -508,6 +508,10 @@
       "mandatory": true,
       "data": {
         "genres": [{
+            "id": "blog",
+            "label": "Blog"
+          },
+          {
             "id": "Bijlage",
             "label": "Bijlage"
           },
@@ -520,8 +524,20 @@
             "label": "Event"
           },
           {
+            "id": "esb",
+            "label": "ESB"
+          },
+          {
             "id": "Kerstverhaal",
             "label": "Kerstverhaal"
+          },
+          {
+            "id": "kort",
+            "label": "Kort"
+          },
+          {
+            "id": "kvs",
+            "label": "KVS"
           },
           {
             "id": "Lees nu",
@@ -534,6 +550,11 @@
           {
             "id": "Thema",
             "label": "Thema"
+          },
+
+          {
+            "id": "overig",
+            "label": "Overig"
           }
         ]
       }
