@@ -132,7 +132,7 @@
       "enabled": false,
       "mandatory": false,
       "data": {
-        "endpoint": "http://beurs.fd.nl/webservices/fd/quicksearch?query="
+        "endpoint": "https://beurs.fd.nl/webservices/fd/quicksearch?query="
       }
     },
     {
