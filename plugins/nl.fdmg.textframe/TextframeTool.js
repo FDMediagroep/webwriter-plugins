@@ -1,5 +1,5 @@
-import {Tool} from 'substance';
-import {api} from 'writer';
+import { Tool } from 'substance';
+import { api } from 'writer';
 
 class TextframeTool extends Tool {
 
@@ -10,7 +10,7 @@ class TextframeTool extends Tool {
 
     el.append(
       $$('button').addClass('se-tool').append(
-          $$('i').addClass('fa fa-tumblr')
+        $$('i').addClass('fa fa-tumblr')
       )
       .on('click', this.insertTextframe)
     );

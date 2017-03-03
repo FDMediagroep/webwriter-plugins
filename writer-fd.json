@@ -10,14 +10,9 @@
       "mandatory": false,
       "data": {
         "rules": [{
-            "char": "\"",
-            "to": ["“", "”"]
-          },
-          {
-            "char": "'",
-            "to": ["‘", "’"]
-          }
-        ]
+          "char": "\"",
+          "to": ["“", "”"]
+        }]
       }
     },
     {
@@ -92,6 +87,9 @@
       "mandatory": true,
       "data": {
         "softcrop": false,
+        "bylinesearch": false,
+        "byline": false,
+        "imageinfo": false,
         "fields": [{
             "name": "caption",
             "label": "Bijschrift",
@@ -147,7 +145,7 @@
       "enabled": true,
       "mandatory": true,
       "data": {
-        "endpoint": "http://beurs.fd.nl/webservices/fd/quicksearch?query="
+        "endpoint": "https://beurs.fd.nl/webservices/fd/quicksearch?query="
       }
     },
     {
@@ -158,6 +156,7 @@
       "enabled": true,
       "mandatory": true,
       "data": {
+        "softcrop": false,
         "fields": [
           "text"
         ],
@@ -795,7 +794,7 @@
       "enabled": true,
       "mandatory": true,
       "data": {
-        "previewBaseUrl": "//preview.fd.nl/_/${id}/_"
+        "previewBaseUrl": "FDMG_PREVIEW_URL/${id}"
       }
     },
     {
@@ -808,6 +807,13 @@
     {
       "id": "nl.fdmg.headlinestandin",
       "name": "headlinestandin",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
+      "enabled": true,
+      "mandatory": true
+    },
+    {
+      "id": "nl.fdmg.preamblestandin",
+      "name": "preamblestandin",
       "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
       "enabled": true,
       "mandatory": true
