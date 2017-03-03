@@ -248,8 +248,7 @@
     {
       "id": "se.infomaker.ximpdf",
       "name": "ximpdf",
-      "url": "INFOMAKER_PLUGINS_BASE_URL/im-textstyle-preamble.js",
-      "style": "INFOMAKER_PLUGINS_BASE_URL/im-textstyle-preamble.css",
+      "url": "INFOMAKER_PLUGINS_BASE_URL/im-ximpdf.js",
       "enabled": true,
       "mandatory": false
     },
