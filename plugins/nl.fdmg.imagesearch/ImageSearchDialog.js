@@ -24,7 +24,6 @@ class ImageSearchDialog extends Component {
   getInitialState() {
     return {
       isSearching: false,
-      lastQuery: '',
       pageIndex: 0,
       images: [],
       totalResults: -1,

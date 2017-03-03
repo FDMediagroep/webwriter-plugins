@@ -1,5 +1,5 @@
-import {Component} from 'substance';
-import {api, event, moment} from 'writer';
+import { Component } from 'substance';
+import { api, event, moment } from 'writer';
 import './scss/textanalyzer.scss';
 const pluginId = 'nl.fdmg.textanalyzer';
 
@@ -37,14 +37,16 @@ export default class TextAnalyzerComponent extends Component {
       .getLinkByType('planneddate', 'fdmg/planneddate');
 
     if (!initialDate || initialDate.length < 1) {
-      return { date : '--/--/----', time : ' --:--' };
-    } else { return initialDate.map(initialDate => {
-      return { date : moment(initialDate['@date']).format('ll'), uuid : initialDate['@uuid'], time : initialDate['@time'] } }).pop();
+      return { date: '--/--/----', time: ' --:--' };
+    } else {
+      return initialDate.map(initialDate => {
+        return { date: moment(initialDate['@date']).format('ll'), uuid: initialDate['@uuid'], time: initialDate['@time'] }
+      }).pop();
     }
   }
 
   render($$) {
-    this.virtualElement = $$;  // Hack to use $$ for later use with updateStatus
+    this.virtualElement = $$; // Hack to use $$ for later use with updateStatus
 
     const plannedDate = this.getPlannedDate();
     const time = plannedDate.time;
@@ -57,33 +59,32 @@ export default class TextAnalyzerComponent extends Component {
       .addClass('planneddate-info plugin fdmg-sidebar')
       .append(
         $$('h2').append(this.getLabel('Planned date')),
-        $$('span').append(date,' ', time)
-        // ,$$('hr')
+        $$('span').append(date, ' ', time)
       );
 
     const textAnalyzerPlugin = $$('div')
       .addClass('textanalyzer plugin')
       .append(
         $$('div')
-          .addClass('number__container clearfix')
-          .append(
-            $$('div')
-              .addClass('count-info')
-              .append($$('span').append(documentSize.size))
-              .append($$('p').append(this.getLabel('Document')))
-              .attr({title: this.getLabel('Document')}),
-            $$('div')
-              .addClass('count-info')
-              .append($$('span').append(this.state.textLength.toString()))
-              .append($$('p').append(this.getLabel('Characters')))
-              .attr({title: this.getLabel('Characters')}),
-            $$('div')
-              .addClass('count-info')
-              .append($$('span').append(this.state.words.toString()))
-              .append($$('p').append(this.getLabel('Words')))
-              .attr({title: this.getLabel('Words')})
-          ),
-          $$('hr')
+        .addClass('number__container clearfix')
+        .append(
+          $$('div')
+          .addClass('count-info')
+          .append($$('span').append(documentSize.size))
+          .append($$('p').append(this.getLabel('Document')))
+          .attr({ title: this.getLabel('Document') }),
+          $$('div')
+          .addClass('count-info')
+          .append($$('span').append(this.state.textLength.toString()))
+          .append($$('p').append(this.getLabel('Characters')))
+          .attr({ title: this.getLabel('Characters') }),
+          $$('div')
+          .addClass('count-info')
+          .append($$('span').append(this.state.words.toString()))
+          .append($$('p').append(this.getLabel('Words')))
+          .attr({ title: this.getLabel('Words') })
+        ),
+        $$('hr')
       );
 
     el.append(textAnalyzerPlugin, plannedDatePlugin);
@@ -103,7 +104,7 @@ export default class TextAnalyzerComponent extends Component {
     const counting = api.getConfigValue(pluginId, 'counting');
 
     let textContent = "";
-    nodes.forEach(function (node) {
+    nodes.forEach(function(node) {
       if (node.content && counting.indexOf(node.type) > -1) {
         textContent += node.content.trim();
       }
@@ -117,8 +118,18 @@ export default class TextAnalyzerComponent extends Component {
     };
   }
 
+  convertDocumentsize() {
+    const documentSize = this.readDocumentSize();
+    if (documentSize.size === 'UNLIMITED') {
+      return "∞"
+    } else {
+      return documentSize.size;
+    }
+  }
+
   updateStatus() {
     const textLength = this.state.textLength;
+    const documentSize = this.convertDocumentsize();
 
     if (this.virtualElement) {
 
@@ -131,7 +142,8 @@ export default class TextAnalyzerComponent extends Component {
       const el = $$('span')
         .setStyle('font-weight', 'bold')
         .append(
-          $$('span').attr({id: 'textanalyzer-indicator'}).addClass(this.getStatusColor()).append(textLength.toString()),
+          $$('span').attr({ id: 'textanalyzer-size' }).addClass('size-indicator').append(documentSize),
+          $$('span').attr({ id: 'textanalyzer-indicator' }).addClass(this.getStatusColor()).append(textLength.toString()),
           $$('span').addClass('textanalyzer-label').append(' ' + this.getLabel('characters'))
         );
       this.props.popover.setStatusText(el)
