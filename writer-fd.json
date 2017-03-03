@@ -794,7 +794,7 @@
       "enabled": true,
       "mandatory": true,
       "data": {
-        "previewBaseUrl": "//preview.fd.nl/${id}"
+        "previewBaseUrl": "FDMG_PREVIEW_URL/${id}"
       }
     },
     {
