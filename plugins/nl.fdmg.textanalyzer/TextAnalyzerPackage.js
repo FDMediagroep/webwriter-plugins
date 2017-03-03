@@ -41,10 +41,6 @@ export default {
       'nl': 'Niet genoeg karakters'
     });
 
-    // config.addLabel('Not enough characters', {
-    //   'nl': 'Niet genoeg karakters'
-    // })
-
     config.addLabel('Too many characters', {
       'nl': 'Te veel karakters'
     });

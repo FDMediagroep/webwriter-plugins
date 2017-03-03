@@ -1,4 +1,4 @@
-import DropdownComponent from '../nl.fdmg.dropdown/DropdownComponent'
+import DropdownComponent from '../nl.fdmg.dropdown/DropdownComponent';
 
 const {Component} = substance;
 const {api, idGenerator} = writer;
@@ -57,4 +57,4 @@ class GenreComponent extends Component {
   }
 }
 
-export default GenreComponent
+export default GenreComponent;

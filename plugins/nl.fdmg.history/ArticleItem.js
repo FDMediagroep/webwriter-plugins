@@ -6,8 +6,8 @@ import HistoryItemComponent from './HistoryItemComponent'
 class ArticleItem extends Component {
 
   render($$) {
-    let el = $$('div').addClass('history-article')
-    let article = this.props.article
+    let el = $$('div').addClass('history-article');
+    let article = this.props.article;
 
 
     const deleteButton = $$('span').append($$(FontAwesomeIcon, {icon: 'fa-times'})
@@ -18,7 +18,7 @@ class ArticleItem extends Component {
         this.remove();
       }.bind(this));
 
-    el.append(deleteButton)
+    el.append(deleteButton);
     let title = article.id;
 
     el.append($$('h4').append(title));
@@ -27,7 +27,7 @@ class ArticleItem extends Component {
       return this.renderHistoryItem($$, version, article);
     }.bind(this));
 
-    el.append(versions)
+    el.append(versions);
     return el
   }
 

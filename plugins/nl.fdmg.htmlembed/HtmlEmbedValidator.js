@@ -1,11 +1,11 @@
-import FDValidator from '../nl.fdmg.fdvalidator/FDValidator'
+import FDValidator from '../nl.fdmg.fdvalidator/FDValidator';
 
 class HtmlEmbedValidator extends FDValidator {
   validate() {
-    if (this.isShortArticle || this.isAdvertorial || this.isEvents || this.isRedirectArticle) return
-    
+    if (this.isShortArticle || this.isAdvertorial || this.isEvents || this.isRedirectArticle) return;
+
     if (this.submitted || this.published) {
-      const htmlembeds = this.newsItem.querySelectorAll('idf > group object[type="fdmg/htmlembed"] text')
+      const htmlembeds = this.newsItem.querySelectorAll('idf > group object[type="fdmg/htmlembed"] text');
 
       Array.from(htmlembeds)
       .map(node => node.textContent)
@@ -17,4 +17,4 @@ class HtmlEmbedValidator extends FDValidator {
   }
 }
 
-export default HtmlEmbedValidator
+export default HtmlEmbedValidator;

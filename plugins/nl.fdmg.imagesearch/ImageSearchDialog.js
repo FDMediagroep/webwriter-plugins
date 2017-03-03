@@ -1,7 +1,7 @@
-import {Component, FontAwesomeIcon} from 'substance'
-import {api, moment} from 'writer'
-import FileInputComponent from './FileInputComponent'
-const pluginId = 'nl.fdmg.imagesearch'
+import {Component, FontAwesomeIcon} from 'substance';
+import {api, moment} from 'writer';
+import FileInputComponent from './FileInputComponent';
+const pluginId = 'nl.fdmg.imagesearch';
 /**
   * Params to pass when calling the dialogue
   *
@@ -36,11 +36,11 @@ class ImageSearchDialog extends Component {
     this.refs.searchfield.getNativeElement().focus();
 
     // TODO Make this more solid, don't rely on .parent * 3
-    this.refs.dialog.parent.parent.parent.addClass('image-search-dialog')
+    this.refs.dialog.parent.parent.parent.addClass('image-search-dialog');
   }
 
   didUpdate() {
-    this.refs.resultscontainer.el.el.scrollTop = this.state.scrollOffset
+    this.refs.resultscontainer.el.el.scrollTop = this.state.scrollOffset;
   }
 
   render($$) {
@@ -56,20 +56,18 @@ class ImageSearchDialog extends Component {
                 $$('input')
                   .addClass('form-control form__search')
                   .attr({'placeholder': api.getLabel('Search query')})
-                  .setValue(this.state.lastQuery)
                   .ref('searchfield')
                   .on('keydown', this.onKeydown.bind(this)),
                 $$('button')
                   .addClass('btn btn-neutral')
                   .attr({title: api.getLabel('Search')})
                   .append(
-                    $$(FontAwesomeIcon, {icon: 'fa-search'}),
+                    $$(FontAwesomeIcon, {icon: 'fa-search'}).on('click', () => {
+                      this.extendState(this.getInitialState());
+                      this.search(this.refs.searchfield.val());
+                    }),
                     $$(FontAwesomeIcon, {icon: 'fa-spinner fa-pulse'}).addClass(this.state.isSearching ? 'active' : '')
-                  )
-                  .on('click', () => {
-                    this.extendState(this.getInitialState())
-                    this.search(this.refs.searchfield.val())
-                  }),
+                  ),
                   $$(FileInputComponent, {onChange: this.triggerFileUpload.bind(this)})
               )
           ),
@@ -82,7 +80,7 @@ class ImageSearchDialog extends Component {
                   $$('img')
                     .attr({src: image.thumbnailUrl})
                     .on('click', () => {
-                      this.send('close')
+                      this.send('close');
                       this.insertImageById(image.id)
                     }),
                   $$('div').append(moment(image.pictureDate).format('DD-MM-YYYY'))
@@ -104,8 +102,8 @@ class ImageSearchDialog extends Component {
   }
 
   triggerFileUpload(ev) {
-    const insertImageCommand = this.props.insertImageCommand
-    const node = this.props.pluginNode
+    const insertImageCommand = this.props.insertImageCommand;
+    const node = this.props.pluginNode;
 
     if (insertImageCommand) {
       this.context.editorSession.executeCommand(insertImageCommand, {
@@ -122,9 +120,9 @@ class ImageSearchDialog extends Component {
   }
 
   onKeydown(e) {
-    e.stopPropagation();
     switch(e.keyCode) {
       case 13:  // Enter
+        e.stopPropagation();
         this.extendState({
           isSearching: false,
           lastQuery: this.refs.searchfield.val(),
@@ -146,11 +144,11 @@ class ImageSearchDialog extends Component {
 
   onScroll() {
     if (!this.allResultsLoaded && !this.state.isSearching) {
-      const rc = this.refs.resultscontainer.el.el
-      const rcsh = rc.scrollHeight
+      const rc = this.refs.resultscontainer.el.el;
+      const rcsh = rc.scrollHeight;
       const rch = parseInt(window.getComputedStyle(rc).getPropertyValue('height'), 10)
-      const rcst = rc.scrollTop
-      const pixelsLeft = rcsh - rch - rcst
+      const rcst = rc.scrollTop;
+      const pixelsLeft = rcsh - rch - rcst;
 
       if (pixelsLeft < this.props.loadNextScrollThreshold) {
         this.search(this.state.lastQuery, this.state.pageIndex + 1)
@@ -164,9 +162,9 @@ class ImageSearchDialog extends Component {
       this.extendState({
         isSearching: true,
         scrollOffset: this.refs.resultscontainer.el.el.scrollTop
-      })
+      });
 
-      this.refs.dialog.parent.parent.parent.addClass('image-search-dialog-expand')
+      this.refs.dialog.parent.parent.parent.addClass('image-search-dialog-expand');
 
       this._performSearch(query, pageIndex)
         .then(results => {
@@ -180,7 +178,7 @@ class ImageSearchDialog extends Component {
           })
         })
         .catch((err) => {
-          console.warn(err)
+          console.warn(err);
           this.extendState(this.getInitialState())
         })
     }
@@ -191,7 +189,7 @@ class ImageSearchDialog extends Component {
   }
 
   insertImageById(imageId) {
-    const command = this.props.insertImageFromUrlCommand
+    const command = this.props.insertImageFromUrlCommand;
 
     if (command === "" || !command) {
       this._retrieveDownloadUrl(imageId)
@@ -203,7 +201,7 @@ class ImageSearchDialog extends Component {
         .catch(err => { console.error(err) })
 
     } else {
-      const nodeId = this.props.pluginNode.id
+      const nodeId = this.props.pluginNode.id;
 
       this._retrieveDownloadUrl(imageId)
         .then((url) => {
@@ -217,10 +215,10 @@ class ImageSearchDialog extends Component {
   }
 
   _performSearch(query, pageIndex) {
-    const resultsPerPage = api.getConfigValue(pluginId, 'resultsPerPage', 25)
-    const endpoint = api.getConfigValue(pluginId, 'searchEndpoint')
-    const url = `${endpoint}?q=${query}&page=${pageIndex + 1}&result=${resultsPerPage}`
-    const token = api.getConfigValue(pluginId, 'token')
+    const resultsPerPage = api.getConfigValue(pluginId, 'resultsPerPage', 25);
+    const endpoint = api.getConfigValue(pluginId, 'searchEndpoint');
+    const url = `${endpoint}?q=${query}&page=${pageIndex + 1}&result=${resultsPerPage}`;
+    const token = api.getConfigValue(pluginId, 'token');
 
     return fetch(url, {
       method: 'GET',
@@ -249,9 +247,9 @@ class ImageSearchDialog extends Component {
   }
 
   _retrieveDownloadUrl(imageId) {
-    const endpoint = api.getConfigValue(pluginId, 'fetchEndpoint')
-    const url = `${endpoint}?id=${imageId}`
-    const token = api.getConfigValue(pluginId, 'token')
+    const endpoint = api.getConfigValue(pluginId, 'fetchEndpoint');
+    const url = `${endpoint}?id=${imageId}`;
+    const token = api.getConfigValue(pluginId, 'token');
 
     return fetch(url, {
       method: 'GET',
@@ -265,4 +263,4 @@ class ImageSearchDialog extends Component {
   }
 }
 
-export default ImageSearchDialog
+export default ImageSearchDialog;

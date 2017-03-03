@@ -1,5 +1,5 @@
-import ArticleOptionComponent from '../nl.fdmg.articleoption/ArticleOptionComponent'
-import './scss/topstory.scss'
+import ArticleOptionComponent from '../nl.fdmg.articleoption/ArticleOptionComponent';
+import './scss/topstory.scss';
 
 class TopstoryComponent extends ArticleOptionComponent {
   constructor(...args) {
@@ -10,8 +10,8 @@ class TopstoryComponent extends ArticleOptionComponent {
       placeholder: "Topstory text",
       pluginId: 'nl.fdmg.topstory',
       hasInput: true
-    }, ...args)
+    }, ...args);
   }
 }
 
-export default TopstoryComponent
+export default TopstoryComponent;

@@ -1,4 +1,4 @@
-import {Component, FontAwesomeIcon} from 'substance'
+import {Component, FontAwesomeIcon} from 'substance';
 
 class AuthorItemComponent extends Component {
   render($$) {
@@ -6,9 +6,9 @@ class AuthorItemComponent extends Component {
       .addClass('authors__list-item clearfix')
       .on('mouseenter', this.showHover)
       .on('mouseleave', this.hideHover)
-      .ref('authorItem')
+      .ref('authorItem');
 
-    const displayTitle = this.props.author.title
+    const displayTitle = this.props.author.title;
 
     const deleteButton = $$('button')
       .addClass('author__button--delete')
@@ -16,11 +16,11 @@ class AuthorItemComponent extends Component {
       .attr('title', this.getLabel('Remove from article'))
       .on('click', () => {
         this.props.removeAuthor(this.props.author)
-      })
+      });
 
-    this.populateElementsForSimpleAuthor($$, authorItem, displayTitle, deleteButton)
+    this.populateElementsForSimpleAuthor($$, authorItem, displayTitle, deleteButton);
 
-    return authorItem
+    return authorItem;
   }
 
   populateElementsForSimpleAuthor($$, authorItem, displayTitle, deleteButton) {
@@ -34,14 +34,14 @@ class AuthorItemComponent extends Component {
   }
 
   showHover() {
-    const deleteButton = this.el.find('.author__button--delete')
-    deleteButton.addClass('active')
+    const deleteButton = this.el.find('.author__button--delete');
+    deleteButton.addClass('active');
   }
 
   hideHover() {
-    const deleteButton = this.el.find('.author__button--delete')
-    deleteButton.removeClass('active')
+    const deleteButton = this.el.find('.author__button--delete');
+    deleteButton.removeClass('active');
   }
 }
 
-export default AuthorItemComponent
+export default AuthorItemComponent;

@@ -1,24 +1,24 @@
-import {Component} from 'substance'
-import VersionSelectorDialog from './VersionSelectorDialog'
-import HistoryItemComponent from './HistoryItemComponent'
-import {event, api} from 'writer'
+import {Component} from 'substance';
+import VersionSelectorDialog from './VersionSelectorDialog';
+import HistoryItemComponent from './HistoryItemComponent';
+import {event, api} from 'writer';
 
 
 class HistoryMainComponent extends Component {
 
   constructor(...args) {
-    super(...args)
+    super(...args);
 
     api.events.on('history', event.DOCUMENT_SAVED, () => {
       api.history.deleteHistory(api.newsItem.getIdForArticle());
-    })
+    });
 
     api.events.on('history', event.HISTORY_SAVED, () => {
       this.updateHistoryState()
-    })
+    });
     api.events.on('history', event.HISTORY_CLEARED, () => {
       this.updateHistoryState()
-    })
+    });
   }
 
   dispose() {
@@ -74,7 +74,7 @@ class HistoryMainComponent extends Component {
   }
 
   updateHistoryState() {
-    let id = this.context.api.newsItem.getIdForArticle()
+    let id = this.context.api.newsItem.getIdForArticle();
 
     this.setState({
       historyForArticle: this.context.api.history.get(id)
@@ -82,7 +82,7 @@ class HistoryMainComponent extends Component {
   }
 
   getInitialState() {
-    let id = this.context.api.newsItem.getIdForArticle()
+    let id = this.context.api.newsItem.getIdForArticle();
 
     return {
       historyForArticle: this.context.api.history.get(id)
@@ -94,19 +94,18 @@ class HistoryMainComponent extends Component {
 
     var el = $$('div').addClass('imc-history fdmg-history light').append(
       $$('h2').append(this.getLabel('history-popover-headline'))
-    )
-    el.append($$('p').append(this.getLabel('history-popover-description')))
+    );
+    el.append($$('p').append(this.getLabel('history-popover-description')));
 
     if (this.state.historyForArticle === false) {
       return el
     }
 
-    const scrollpane = api.ui.getComponent('scroll-pane')
+    const scrollpane = api.ui.getComponent('scroll-pane');
 
     const scroll = $$(scrollpane, {
       scrollbarType: 'native'
-    })
-
+    });
 
     let versions = this.state.historyForArticle.versions.reverse().slice(0, 100).map(function (version) {
       return this.renderHistoryItem($$, version, this.state.historyForArticle);
@@ -123,7 +122,6 @@ class HistoryMainComponent extends Component {
     if (this.context.api.newsItem.hasTemporaryId()) {
       el.append(this.renderSeeAllUnsavedLink($$, unsavedArticles));
     }
-
     return el;
   }
 
@@ -154,8 +152,8 @@ class HistoryMainComponent extends Component {
   }
 
   applyVersion(version, article) {
-    api.newsItem.setTemporaryId(article.id)
-    api.newsItem.setSource(version.src, null, true)
+    api.newsItem.setTemporaryId(article.id);
+    api.newsItem.setSource(version.src, null, true);
 
     api.events.documentChanged(
       'se.infomaker.history',
@@ -167,4 +165,4 @@ class HistoryMainComponent extends Component {
   }
 }
 
-export default HistoryMainComponent
+export default HistoryMainComponent;

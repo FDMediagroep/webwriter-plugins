@@ -1,14 +1,14 @@
-import {Component, FontAwesomeIcon} from 'substance'
-import {api, NilUUID} from 'writer'
-import AuthorList from './AuthorListComponent'
-import SearchField from '../nl.fdmg.searchfield/SearchFieldComponent'
-import './scss/author.scss'
-const pluginId = 'nl.fdmg.author'
+import {Component, FontAwesomeIcon} from 'substance';
+import {api, NilUUID} from 'writer';
+import AuthorList from './AuthorListComponent';
+import SearchField from '../nl.fdmg.searchfield/SearchFieldComponent';
+import './scss/author.scss';
+const pluginId = 'nl.fdmg.author';
 
 class AuthorComponent extends Component {
   constructor(...args) {
-    super(...args)
-    this.name = 'author'
+    super(...args);
+    this.name = 'author';
   }
 
   getInitialState() {
@@ -24,8 +24,8 @@ class AuthorComponent extends Component {
   }
 
   searchAuthors(query) {
-    const endpoint = api.getConfigValue(pluginId, 'endpoint')
-    const token = api.getConfigValue(pluginId, 'token')
+    const endpoint = api.getConfigValue(pluginId, 'endpoint');
+    const token = api.getConfigValue(pluginId, 'token');
 
     return fetch(endpoint + query, {
       method: 'GET',
@@ -49,27 +49,27 @@ class AuthorComponent extends Component {
   }
 
   createAuthor(authorTemp) {
-    api.newsItem.addSimpleAuthor(this.name, authorTemp.label)
+    api.newsItem.addSimpleAuthor(this.name, authorTemp.label);
     this.reloadAuthors()
   }
 
   addAuthor(author) {
     try {
-      api.newsItem.addAuthor(this.name, author)
-      this.reloadAuthors()
+      api.newsItem.addAuthor(this.name, author);
+      this.reloadAuthors();
     } catch (e) {
-      console.warn(e)
+      console.warn(e);
     }
   }
 
   removeAuthor(author) {
     try {
       if (NilUUID.isNilUUID(author.uuid)) {
-        api.newsItem.removeAuthorByTitle(this.name, author.title)
+        api.newsItem.removeAuthorByTitle(this.name, author.title);
       } else {
-        api.newsItem.removeAuthorByUUID(this.name, author.uuid)
+        api.newsItem.removeAuthorByUUID(this.name, author.uuid);
       }
-      this.reloadAuthors()
+      this.reloadAuthors();
     } catch (e) {
       console.warn(e);
     }
@@ -97,13 +97,13 @@ class AuthorComponent extends Component {
   }
 
   _getExistingAuthors() {
-    const authors = api.newsItem.getAuthors()
+    const authors = api.newsItem.getAuthors();
     return authors.map(author => {
-      author['name'] = author.title   // Used by FD4
-      author['label'] = author.title  // Used by SearchField
-      return author
+      author['name'] = author.title;  // Used by FD4
+      author['label'] = author.title; // Used by SearchField
+      return author;
     })
   }
 }
 
-export default AuthorComponent
+export default AuthorComponent;

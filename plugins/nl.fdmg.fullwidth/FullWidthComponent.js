@@ -1,4 +1,4 @@
-import ArticleOptionComponent from '../nl.fdmg.articleoption/ArticleOptionComponent'
+import ArticleOptionComponent from '../nl.fdmg.articleoption/ArticleOptionComponent';
 
 class FullWidthComponent extends ArticleOptionComponent {
   constructor(...args) {
@@ -8,8 +8,8 @@ class FullWidthComponent extends ArticleOptionComponent {
       label: "Full width article",
       pluginId: 'nl.fdmg.fullwidth',
       hasInput: false
-    }, ...args)
+    }, ...args);
   }
 }
 
-export default FullWidthComponent
+export default FullWidthComponent;

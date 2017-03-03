@@ -1,7 +1,7 @@
-import {Tool} from 'substance'
-import {api} from 'writer'
-import ImageSearchDialog from './ImageSearchDialog'
-const pluginId = 'nl.fdmg.imagesearch'
+import {Tool} from 'substance';
+import {api} from 'writer';
+import ImageSearchDialog from './ImageSearchDialog';
+const pluginId = 'nl.fdmg.imagesearch';
 
 class ImageSearchTool extends Tool {
   render($$) {
@@ -27,4 +27,4 @@ class ImageSearchTool extends Tool {
   }
 }
 
-export default ImageSearchTool
+export default ImageSearchTool;

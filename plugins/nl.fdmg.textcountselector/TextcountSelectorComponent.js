@@ -1,10 +1,10 @@
-import {Component, FontAwesomeIcon} from 'substance'
-import {api, idGenerator} from 'writer'
+import {Component, FontAwesomeIcon} from 'substance';
+import {api, idGenerator} from 'writer';
 
 class TextcountSelectorComponent extends Component {
   getInitialState() {
-    const availableSizes = api.getConfigValue('nl.fdmg.textanalyzer', 'sizes')
-    const documentSize = this.readDocumentSize(availableSizes)
+    const availableSizes = api.getConfigValue('nl.fdmg.textanalyzer', 'sizes');
+    const documentSize = this.readDocumentSize(availableSizes);
 
     return {
       documentSize,
@@ -31,11 +31,11 @@ class TextcountSelectorComponent extends Component {
           )
           .ref('select')
           .on('change', () => {
-            const options = this.refs.select.el.el.options
-            const option = options[options.selectedIndex]
-            const id = option.attributes['data-id'].value
+            const options = this.refs.select.el.el.options;
+            const option = options[options.selectedIndex];
+            const id = option.attributes['data-id'].value;
 
-            const size = this.state.availableSizes.find(size => size.size === id)
+            const size = this.state.availableSizes.find(size => size.size === id);
 
             this.updateDocumentSize(size)
           }),
@@ -48,7 +48,7 @@ class TextcountSelectorComponent extends Component {
     const documentSize = api.newsItem
       .getLinkByType('textcount', 'fdmg/textcount')
       .map(link => link['@size'])
-      .pop() || availableSizes[0]['size']
+      .pop() || availableSizes[0]['size'];
 
     // match against available sizes
     return availableSizes.find(size =>
@@ -66,7 +66,7 @@ class TextcountSelectorComponent extends Component {
       '@type': 'fdmg/textcount',
       '@size': size.size,
       '@uuid': idGenerator()
-    })
+    });
 
     this.extendState({
       documentSize: this.readDocumentSize(this.state.availableSizes)
@@ -74,4 +74,4 @@ class TextcountSelectorComponent extends Component {
   }
 }
 
-export default TextcountSelectorComponent
+export default TextcountSelectorComponent;

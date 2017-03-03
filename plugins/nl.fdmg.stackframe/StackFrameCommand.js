@@ -8,12 +8,11 @@ export default class StackFrameCommand extends Command {
   }
 
   execute(params, context) {
-    var state = this.getCommandState();
-    console.info('Added stackframe "' + params.heading + '" with content: "' + params.content + '" to document');
+    const state = this.getCommandState();
     if (state.disabled) {
       return;
     }
-    var data = {
+    const data = {
       type: 'stackframe',
       contentType: 'fdmg/stackframe',
       heading: params.heading,
@@ -26,5 +25,4 @@ export default class StackFrameCommand extends Command {
 
     return context.api.document.insertBlockNode(data.type, data);
   }
-
 }

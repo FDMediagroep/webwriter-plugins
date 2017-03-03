@@ -1,13 +1,13 @@
-import {Component} from 'substance'
-import {api} from 'writer'
-import TagsList from './TagsListComponent'
-import SearchField from '../nl.fdmg.searchfield/SearchFieldComponent'
-import './scss/tags.scss'
-const pluginId = 'nl.fdmg.tags'
+import {Component} from 'substance';
+import {api} from 'writer';
+import TagsList from './TagsListComponent';
+import SearchField from '../nl.fdmg.searchfield/SearchFieldComponent';
+import './scss/tags.scss';
+const pluginId = 'nl.fdmg.tags';
 
 class TagsComponent extends Component {
   constructor(...args) {
-    super(...args)
+    super(...args);
     this.name = 'tags'
   }
 
@@ -24,9 +24,9 @@ class TagsComponent extends Component {
   }
 
   searchTags(query) {
-    const endpoint = api.getConfigValue(pluginId, 'searchEndpoint')
-    const token = api.getConfigValue(pluginId, 'token')
-    const url = endpoint + query
+    const endpoint = api.getConfigValue(pluginId, 'searchEndpoint');
+    const token = api.getConfigValue(pluginId, 'token');
+    const url = endpoint + query;
 
     return fetch(url, {
       method: 'GET',
@@ -55,7 +55,7 @@ class TagsComponent extends Component {
         name: [tag.title],
         uuid: tag.uuid,
         imType: [tag.type]
-      })
+      });
       this.reloadTags()
     } catch (e) {
       console.warn(e)
@@ -64,7 +64,7 @@ class TagsComponent extends Component {
 
   removeTag(tag) {
     try {
-      api.newsItem.removeLinkByUUIDAndRel(this.name, tag.uuid, 'subject')
+      api.newsItem.removeLinkByUUIDAndRel(this.name, tag.uuid, 'subject');
       this.reloadTags()
     } catch (e) {
       console.warn(e);
@@ -93,13 +93,13 @@ class TagsComponent extends Component {
   }
 
   _getExistingTags() {
-    const tags = api.newsItem.getTags(["x-im/category"])
+    const tags = api.newsItem.getTags(["x-im/category"]);
 
     return tags.map(tag => {
-      tag['name'] = tag.title
-      return tag
+      tag['name'] = tag.title;
+      return tag;
     })
   }
 }
 
-export default TagsComponent
+export default TagsComponent;

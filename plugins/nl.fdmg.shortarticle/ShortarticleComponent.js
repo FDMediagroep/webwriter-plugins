@@ -1,4 +1,4 @@
-import ArticleOptionComponent from '../nl.fdmg.articleoption/ArticleOptionComponent'
+import ArticleOptionComponent from '../nl.fdmg.articleoption/ArticleOptionComponent';
 
 class ShortarticleComponent extends ArticleOptionComponent {
   constructor(...args) {
@@ -8,8 +8,8 @@ class ShortarticleComponent extends ArticleOptionComponent {
       label: "Short article",
       pluginId: 'nl.fdmg.shortarticle',
       hasInput: false
-    }, ...args)
+    }, ...args);
   }
 }
 
-export default ShortarticleComponent
+export default ShortarticleComponent;

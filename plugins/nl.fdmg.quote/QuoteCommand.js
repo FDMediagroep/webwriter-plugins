@@ -79,6 +79,4 @@ export default class QuoteCommand extends Command {
       context.api.document.insertBlockNode(data.type, data);
     }
   }
-
-
 }

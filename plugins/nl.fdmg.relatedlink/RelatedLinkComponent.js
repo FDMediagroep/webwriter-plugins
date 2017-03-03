@@ -1,28 +1,28 @@
 import {Component, FontAwesomeIcon, TextPropertyEditor} from 'substance';
-import './scss/relatedlink.scss'
+import './scss/relatedlink.scss';
 
 export default class RelatedLinkComponent extends Component {
 
   render($$) {
-    var prefix = $$(TextPropertyEditor, {
+    const prefix = $$(TextPropertyEditor, {
       tagName: 'div',
       name: 'prefix',
       path: [this.props.node.id, 'prefix']
     }).addClass('prefix').attr({'contentEditable' : true, "data-text" : this.getLabel('Also read')}).ref('prefix');
 
-    var leadText = $$(TextPropertyEditor, {
+    const leadText = $$(TextPropertyEditor, {
       tagName: 'div',
       name: 'leadtext',
       path: [this.props.node.id, 'leadtext']
     }).addClass('leadtext').attr({'contentEditable' : true, "data-text" : this.getLabel('Article title')}).ref('leadtext');
 
-    var relatedUrl = $$(TextPropertyEditor, {
+    const relatedUrl = $$(TextPropertyEditor, {
       tagName: 'div',
       name: 'relatedurl',
       path: [this.props.node.id, 'relatedurl']
     }).addClass('relatedurl').attr({'contentEditable' : true, "data-text" : "/"}).ref('relatedurl');
 
-    var el = $$('a').append([
+    const el = $$('a').append([
       $$('div').addClass('header').append([
         $$(FontAwesomeIcon, {icon: 'fa-angle-right'}).addClass('plugin-icon'),
         $$('div').addClass('plugin-title').append(this.getLabel("Related article"))
@@ -48,5 +48,4 @@ export default class RelatedLinkComponent extends Component {
     this.props.doc.set([this.props.node, 'leadtext'], this.props.node.leadtext);
     this.props.doc.set([this.props.node, 'relatedurl'], this.props.node.relatedurl);
   }
-
 }

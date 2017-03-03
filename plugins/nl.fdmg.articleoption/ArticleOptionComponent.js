@@ -223,6 +223,4 @@ export default class ArticleOptionComponent extends Component {
     api.events.off(this.name, api.getConfigValue(this.pluginId||this.id, 'optionsGroup') + ':enabled');
     api.events.off(this.name, api.getConfigValue(this.pluginId||this.id, 'optionsGroup') + ':disabled');
   }
-
-
 }

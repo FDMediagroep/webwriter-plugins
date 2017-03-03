@@ -1,4 +1,4 @@
-import ArticleOptionComponent from '../nl.fdmg.articleoption/ArticleOptionComponent'
+import ArticleOptionComponent from '../nl.fdmg.articleoption/ArticleOptionComponent';
 
 class FDPersonalComponent extends ArticleOptionComponent {
   constructor(...args) {
@@ -8,8 +8,8 @@ class FDPersonalComponent extends ArticleOptionComponent {
       label: "FD Personal",
       pluginId: 'nl.fdmg.fdpersonal',
       hasInput: false
-    }, ...args)
+    }, ...args);
   }
 }
 
-export default FDPersonalComponent
+export default FDPersonalComponent;

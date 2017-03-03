@@ -1,4 +1,4 @@
-import ArticleOptionComponent from '../nl.fdmg.articleoption/ArticleOptionComponent'
+import ArticleOptionComponent from '../nl.fdmg.articleoption/ArticleOptionComponent';
 
 class ShowRelatedArticlesComponent extends ArticleOptionComponent {
   constructor(...args) {
@@ -8,8 +8,8 @@ class ShowRelatedArticlesComponent extends ArticleOptionComponent {
       label: "Show related articles",
       pluginId: 'nl.fdmg.showrelatedarticles',
       hasInput: false,
-    }, ...args)
+    }, ...args);
   }
 }
 
-export default ShowRelatedArticlesComponent
+export default ShowRelatedArticlesComponent;

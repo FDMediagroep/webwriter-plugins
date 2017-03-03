@@ -1,9 +1,9 @@
-import BreakingarticlePackage from './BreakingarticlePackage'
-import {registerPlugin} from 'writer'
+import BreakingarticlePackage from './BreakingarticlePackage';
+import {registerPlugin} from 'writer';
 
 export default () => {
   if (registerPlugin) {
-    registerPlugin(BreakingarticlePackage)
+    registerPlugin(BreakingarticlePackage);
   } else {
     console.error("Register method not yet available");
   }

@@ -1,4 +1,4 @@
-import './scss/numberframe.scss'
+import './scss/numberframe.scss';
 import NumberFrameCommand from './NumberFrameCommand';
 import NumberFrameComponent from './NumberFrameComponent';
 import NumberFrameConverter from './NumberFrameConverter';

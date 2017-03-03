@@ -1,16 +1,16 @@
-import {Component, FontAwesomeIcon} from 'substance'
-import {api, idGenerator} from 'writer'
-import './scss/relatedarticles.scss'
+import { Component, FontAwesomeIcon } from 'substance';
+import { api, idGenerator } from 'writer';
+import './scss/relatedarticles.scss';
 
 class RelatedArticlesComponent extends Component {
   constructor(...args) {
-    super(...args)
+    super(...args);
   }
 
   getInitialState() {
     this.name = 'relatedarticle';
     this.type = 'fdmg/relatedarticle';
-    return this.readState()
+    return this.readState();
   }
 
   render($$) {
@@ -19,40 +19,40 @@ class RelatedArticlesComponent extends Component {
       .append(
         $$('h2').append(this.getLabel('Related articles')),
         $$('div')
-          .append(
-            [0, 1].map((i) =>
-              $$('div')
-                .append(
-                  $$('span')
-                    .append($$(FontAwesomeIcon, {icon: 'fa-times'}))
-                    .on('click', () => {
-                      const ref = this.refs['redirectarticleurl-' + i.toString()];
-                      ref.val('');
-                      this.save()
-                    }),
-                  $$('input')
-                    .addClass('form-control')
-                    .attr({type: 'text', placeholder: this.getLabel('Article url'), value: this.state.urls[i]})
-                    .ref('redirectarticleurl-' + i.toString())
-                    .on('blur', () => {
-                      this.save()
-                    })
-                )
+        .append(
+          [0, 1].map((i) =>
+            $$('div')
+            .append(
+              $$('span')
+              .append($$(FontAwesomeIcon, { icon: 'fa-times' }))
+              .on('click', () => {
+                const ref = this.refs['redirectarticleurl-' + i.toString()];
+                ref.val('');
+                this.save()
+              }),
+              $$('input')
+              .addClass('form-control')
+              .attr({ type: 'text', placeholder: this.getLabel('Article url'), value: this.state.urls[i] })
+              .ref('redirectarticleurl-' + i.toString())
+              .on('blur', () => {
+                this.save()
+              })
             )
           )
-          .append($$('hr'))
+        )
+        .append($$('hr'))
       );
 
     const urls = this.state.urls;
     if (this.refs['redirectarticleurl-0']) {
-      this.refs['redirectarticleurl-0'].val(urls.length >= 1 ? urls[0] : '')
+      this.refs['redirectarticleurl-0'].val(urls.length >= 1 ? urls[0] : '');
     }
 
     if (this.refs['redirectarticleurl-1']) {
-      this.refs['redirectarticleurl-1'].val(urls.length >= 2 ? urls[1] : '')
+      this.refs['redirectarticleurl-1'].val(urls.length >= 2 ? urls[1] : '');
     }
 
-    return el
+    return el;
   }
 
   save() {
@@ -78,11 +78,11 @@ class RelatedArticlesComponent extends Component {
       })
     );
 
-    this.reloadState()
+    this.reloadState();
   }
 
   reloadState() {
-    this.setState(this.readState())
+    this.setState(this.readState());
   }
 
   readState() {
@@ -100,8 +100,8 @@ class RelatedArticlesComponent extends Component {
 
     if (res && res.length === 2) return res[1];
 
-    return ''
+    return '';
   }
 }
 
-export default RelatedArticlesComponent
+export default RelatedArticlesComponent;

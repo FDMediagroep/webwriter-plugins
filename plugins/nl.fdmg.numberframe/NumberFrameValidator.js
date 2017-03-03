@@ -1,9 +1,9 @@
-import FDValidator from '../nl.fdmg.fdvalidator/FDValidator'
+import FDValidator from '../nl.fdmg.fdvalidator/FDValidator';
 
 class NumberFrameValidator extends FDValidator {
   validate() {
-    if (this.isShortArticle || this.isAdvertorial || this.isEvents || this.isRedirectArticle) return
-    
+    if (this.isShortArticle || this.isAdvertorial || this.isEvents || this.isRedirectArticle) return;
+
     if (this.submitted || this.published) {
       // Validate Numberframe
       const numberFrames = this.newsItem.querySelectorAll('object[type="fdmg/numberframe"]');
@@ -23,4 +23,4 @@ class NumberFrameValidator extends FDValidator {
   }
 }
 
-export default NumberFrameValidator
+export default NumberFrameValidator;

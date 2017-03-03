@@ -1,9 +1,9 @@
 import HeartbeatPackage from './HeartbeatPackage'
-const {registerPlugin} = writer
+const {registerPlugin} = writer;
 
 export default () => {
   if (registerPlugin) {
-    registerPlugin(HeartbeatPackage)
+    registerPlugin(HeartbeatPackage);
   }
   else {
     console.info("Register method not yet available");

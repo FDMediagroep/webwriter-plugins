@@ -1,5 +1,5 @@
 import {Component, FontAwesomeIcon} from 'substance';
-import {api} from 'writer'
+import {api} from 'writer';
 
 const pluginId = 'nl.fdmg.preview';
 

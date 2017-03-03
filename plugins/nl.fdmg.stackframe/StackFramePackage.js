@@ -1,4 +1,4 @@
-import './scss/stackframe.scss'
+import './scss/stackframe.scss';
 import StackFrameCommand from './StackFrameCommand';
 import StackFrameComponent from './StackFrameComponent';
 import StackFrameConverter from './StackFrameConverter';

@@ -1,29 +1,25 @@
-import {Tool} from 'substance'
-import {api} from 'writer'
+import { Tool } from 'substance'
+import { api } from 'writer'
 
 class XimteaserTool extends Tool {
 
   render($$) {
 
-    const el = $$('div')
-    el.attr('title', this.getLabel('Insert Teaser'))
+    const el = $$('div');
+    el.attr('title', this.getLabel('Insert Teaser'));
 
     el.append(
-        $$('button').addClass('se-tool').append(
-            $$('i').addClass('fa fa-newspaper-o')
-        )
-            .on('click', this.insertTeaser)
+      $$('button').addClass('se-tool').append(
+        $$('i').addClass('fa fa-newspaper-o')
+      ).on('click', this.insertTeaser)
     );
     return el;
 
   }
 
   insertTeaser() {
-
-    const commandName = this.getCommandName()
-    api.editorSession.executeCommand(commandName, {
-      test: "hello"
-    })
+    const commandName = this.getCommandName();
+    api.editorSession.executeCommand(commandName)
   }
 }
-export default XimteaserTool
+export default XimteaserTool;

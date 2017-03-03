@@ -1,32 +1,32 @@
-import PublishFlowManager from './PublishFlowManager'
-import './scss/publishflow.scss'
+import PublishFlowManager from './PublishFlowManager';
+import './scss/publishflow.scss';
 
-const {Component} = substance
-const {api, moment, event} = writer
-const pluginId = 'nl.fdmg.publishflow'
+const {Component} = substance;
+const {api, moment, event} = writer;
+const pluginId = 'nl.fdmg.publishflow';
 
 class PublishFlowComponent extends Component {
   constructor(...args) {
-    super(...args)
+    super(...args);
 
     api.events.on(pluginId, event.DOCUMENT_CHANGED, () => {
       this.props.popover.setButtonText(
         this.getLabel('Save *')
       )
-    })
+    });
 
     api.events.on(pluginId, event.DOCUMENT_SAVED, () => {
-      this._onDocumentSaved()
+      this._onDocumentSaved();
       window.location.reload();
-    })
+    });
 
     api.events.on(pluginId, event.DOCUMENT_SAVE_FAILED, () => {
       this._onDocumentSaveFailed()
-    })
+    });
 
     api.events.on(pluginId, event.USERACTION_CANCEL_SAVE, () => {
       this._onDocumentSaveFailed()
-    })
+    });
 
     api.events.on(pluginId, event.USERACTION_SAVE, () => {
       this.defaultAction()
@@ -34,13 +34,13 @@ class PublishFlowComponent extends Component {
   }
 
   dispose() {
-    api.events.off(pluginId, 'document:changed')
-    api.events.off(pluginId, 'document:saved')
+    api.events.off(pluginId, 'document:changed');
+    api.events.off(pluginId, 'document:saved');
   }
 
   getInitialState() {
-    let status = api.newsItem.getPubStatus()
-    this.publishFlowMgr = new PublishFlowManager(pluginId)
+    let status = api.newsItem.getPubStatus();
+    this.publishFlowMgr = new PublishFlowManager(pluginId);
 
     return {
       status: status,
@@ -53,26 +53,26 @@ class PublishFlowComponent extends Component {
   didMount() {
     this.props.popover.setButtonText(
       this.getLabel('Save')
-    )
+    );
 
-    this._updateStatus()
+    this._updateStatus();
 
     if (!api.browser.isSupported()) {
-      this.props.popover.disable()
+      this.props.popover.disable();
     }
   }
 
   render($$) {
-    var el = $$('div')
+    const el = $$('div')
       .addClass('sc-np-publishflow')
-      .append(this.renderBody($$))
+      .append(this.renderBody($$));
 
     return el
   }
 
   renderBody($$) {
     let el = $$('div').addClass('sc-np-publish-body'),
-      actions = this.renderAllowedActions($$)
+      actions = this.renderAllowedActions($$);
 
     switch (this.state.status.qcode) {
       case 'imext:draft':
@@ -83,9 +83,9 @@ class PublishFlowComponent extends Component {
           $$('p').append(
             this.getLabel('This article is currently an unpublished draft')
           )
-        ])
+        ]);
 
-        break
+        break;
 
       case 'imext:done':
         el.append([
@@ -95,9 +95,9 @@ class PublishFlowComponent extends Component {
           $$('p').append(
             this.getLabel('Article is currently pending approval')
           )
-        ])
+        ]);
 
-        break
+        break;
 
       case 'stat:withheld':
         el.append([
@@ -109,7 +109,7 @@ class PublishFlowComponent extends Component {
             ' ' +
             moment(this.state.pubStart.value).fromNow()
           )
-        ])
+        ]);
 
         var specEl = $$('p').addClass('dates').append([
           $$('span').append(
@@ -118,10 +118,10 @@ class PublishFlowComponent extends Component {
           $$('strong').append(
             moment(this.state.pubStart.value).format('ddd DD-MM-YYYY HH:mm')
           )
-        ])
+        ]);
 
         if (this.state.pubStop) {
-          let toObj = moment(this.state.pubStop.value)
+          let toObj = moment(this.state.pubStop.value);
           if (toObj.isValid()) {
             specEl.append([
               $$('br'),
@@ -135,9 +135,9 @@ class PublishFlowComponent extends Component {
           }
         }
 
-        el.append(specEl)
+        el.append(specEl);
 
-        break
+        break;
 
       case 'stat:usable':
         el.append([
@@ -149,9 +149,9 @@ class PublishFlowComponent extends Component {
             ' ' +
             moment(this.state.pubStart.value).format('ddd DD-MM-YYYY HH:mm')
           )
-        ])
+        ]);
 
-        break
+        break;
 
       case 'stat:canceled':
         el.append([
@@ -161,9 +161,9 @@ class PublishFlowComponent extends Component {
           $$('p').append(
             this.getLabel('Article has been canceled and is no longer published')
           )
-        ])
+        ]);
 
-        break
+        break;
 
       default:
         el.append([
@@ -173,11 +173,11 @@ class PublishFlowComponent extends Component {
           $$('p').append(
             this.getLabel('This article has an unknown, unsupported, status')
           )
-        ])
+        ]);
         break
     }
 
-    el.append(actions)
+    el.append(actions);
     el.append(
       $$('div')
         .css({'text-align': 'right'})
@@ -191,34 +191,34 @@ class PublishFlowComponent extends Component {
               this.props.popover.close()
             })
         )
-    )
+    );
     return el
   }
 
   renderAllowedActions($$) {
     let actionsEl = $$('div')
-      .addClass('sc-np-publish-actions')
+      .addClass('sc-np-publish-actions');
 
     this.publishFlowMgr.getAllowedActions(this.state.status.qcode).forEach(action => {
       switch (action) {
         case 'imext:draft':
-          actionsEl.append(this.renderActionDraft($$))
-          break
+          actionsEl.append(this.renderActionDraft($$));
+          break;
         case 'imext:done':
-          actionsEl.append(this.renderActionDone($$))
-          break
+          actionsEl.append(this.renderActionDone($$));
+          break;
         case 'stat:withheld':
-          actionsEl.append(this.renderActionWithheld($$))
-          break
+          actionsEl.append(this.renderActionWithheld($$));
+          break;
         case 'stat:usable':
-          actionsEl.append(this.renderActionUsable($$))
-          break
+          actionsEl.append(this.renderActionUsable($$));
+          break;
         case 'stat:canceled':
-          actionsEl.append(this.renderActionCanceled($$))
-          break
+          actionsEl.append(this.renderActionCanceled($$));
+          break;
         default:
       }
-    })
+    });
 
     return actionsEl
   }
@@ -255,7 +255,7 @@ class PublishFlowComponent extends Component {
   renderActionWithheld($$) {
     let el = $$('div')
       .addClass('sc-np-publish-action-section')
-      .ref('pfc-withheld')
+      .ref('pfc-withheld');
 
     el.append(
       $$('a').append([
@@ -305,7 +305,7 @@ class PublishFlowComponent extends Component {
             )
             .on('click', () => {
               try {
-                var fromVal = this.refs['pfc-lbl-withheld-from'].val()
+                var fromVal = this.refs['pfc-lbl-withheld-from'].val();
                 this._save(() => {
                   this.publishFlowMgr.setToWithheld(
                     fromVal
@@ -313,22 +313,22 @@ class PublishFlowComponent extends Component {
                 })
               }
               catch (ex) {
-                this.refs['pfc-lbl-withheld-from'].addClass('imc-flash')
+                this.refs['pfc-lbl-withheld-from'].addClass('imc-flash');
                 window.setTimeout(() => {
                   this.refs['pfc-lbl-withheld-from'].removeClass('imc-flash')
-                }, 500)
+                }, 500);
                 return false
               }
             })
 
         ])
-    )
+    );
 
     return el
   }
 
   renderActionUsable($$) {
-    let el = $$('a')
+    let el = $$('a');
 
     if (this.state.status.qcode === 'stat:usable') {
       el.append([
@@ -351,7 +351,7 @@ class PublishFlowComponent extends Component {
       this._save(() => {
         this.publishFlowMgr.setToUsable()
       })
-    })
+    });
 
     return el
   }
@@ -374,8 +374,8 @@ class PublishFlowComponent extends Component {
    * Default action called by default action in toolbar/popover
    */
   defaultAction() {
-    api.newsItem.save()
-    this.props.popover.disable()
+    api.newsItem.save();
+    this.props.popover.disable();
     this.props.popover.setIcon('fa-refresh fa-spin fa-fw')
   }
 
@@ -383,7 +383,7 @@ class PublishFlowComponent extends Component {
    * Save current status and handle status change and save
    */
   _save(beforeSaveFunc) {
-    this._saveState()
+    this._saveState();
 
     if (beforeSaveFunc) {
       beforeSaveFunc()
@@ -409,15 +409,15 @@ class PublishFlowComponent extends Component {
    * When save fails, restore previous state and update UI
    */
   _onDocumentSaveFailed() {
-    this.props.popover.setIcon('fa-ellipsis-h')
-    this.props.popover.enable()
+    this.props.popover.setIcon('fa-ellipsis-h');
+    this.props.popover.enable();
 
     if (!this.state.previousState) {
-      this._updateStatus(false)
+      this._updateStatus(false);
       return
     }
 
-    api.newsItem.setPubStatus(pluginId, this.state.previousState.pubStatus)
+    api.newsItem.setPubStatus(pluginId, this.state.previousState.pubStatus);
 
     if (this.state.previousState.pubStart) {
       api.newsItem.setPubStart(pluginId, this.state.previousState.pubStart)
@@ -438,7 +438,7 @@ class PublishFlowComponent extends Component {
       pubStart: api.newsItem.getPubStart(),
       pubStop: api.newsItem.getPubStop(),
       previousState: null
-    })
+    });
 
     this._updateStatus(false)
   }
@@ -447,14 +447,14 @@ class PublishFlowComponent extends Component {
    * When saved, update state and UI
    */
   _onDocumentSaved() {
-    this.props.popover.setIcon('fa-ellipsis-h')
-    this.props.popover.enable()
+    this.props.popover.setIcon('fa-ellipsis-h');
+    this.props.popover.enable();
 
     this.extendState({
       status: api.newsItem.getPubStatus(),
       pubStart: api.newsItem.getPubStart(),
       pubStop: api.newsItem.getPubStop()
-    })
+    });
 
     this._updateStatus(true)
   }
@@ -470,11 +470,11 @@ class PublishFlowComponent extends Component {
     }
 
     if (this.state.status.qcode === 'stat:usable') {
-      this.props.popover.setIcon('fa-check-circle-o status-orange')
+      this.props.popover.setIcon('fa-check-circle-o status-orange');
 
       this.props.popover.setStatusText(
         this.getLabel(this.state.status.qcode)
-      )
+      );
 
       this.props.popover.setStatusText(
         this.getLabel(this.state.status.qcode) +
@@ -484,7 +484,7 @@ class PublishFlowComponent extends Component {
     }
 
     else if (this.state.status.qcode === 'stat:withheld') {
-      this.props.popover.setIcon('fa-clock-o status-blue')
+      this.props.popover.setIcon('fa-clock-o status-blue');
 
       this.props.popover.setStatusText(
         this.getLabel(this.state.status.qcode) +
@@ -499,7 +499,7 @@ class PublishFlowComponent extends Component {
       this.props.popover.setIcon('fa-ban status-red')
 
     } else if (this.state.status.qcode === 'imext:done') {
-      this.props.popover.setIcon('fa-check-circle-o status-green')
+      this.props.popover.setIcon('fa-check-circle-o status-green');
 
       this.props.popover.setStatusText(
         this.getLabel(this.state.status.qcode)
@@ -507,7 +507,7 @@ class PublishFlowComponent extends Component {
     }
 
     else {
-      this.props.popover.setIcon('fa-pencil status-grey')
+      this.props.popover.setIcon('fa-pencil status-grey');
 
       this.props.popover.setStatusText(
         this.getLabel(this.state.status.qcode)
@@ -516,4 +516,4 @@ class PublishFlowComponent extends Component {
   }
 }
 
-export default PublishFlowComponent
+export default PublishFlowComponent;

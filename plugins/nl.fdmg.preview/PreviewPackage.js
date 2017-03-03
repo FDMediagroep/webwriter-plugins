@@ -1,4 +1,4 @@
-import './scss/preview.scss'
+import './scss/preview.scss';
 import PreviewComponent from './PreviewComponent';
 
 export default {

@@ -1,4 +1,4 @@
-import {EditInlineNodeCommand} from 'substance'
+import {EditInlineNodeCommand} from 'substance';
 
 export default class StocktickerInlineCommand extends EditInlineNodeCommand {
   getCommandState(params) {

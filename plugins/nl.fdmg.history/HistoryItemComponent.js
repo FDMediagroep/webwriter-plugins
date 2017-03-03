@@ -1,5 +1,5 @@
-import {Component} from 'substance'
-import {moment} from 'writer'
+import {Component} from 'substance';
+import {moment} from 'writer';
 
 class HistoryItemComponent extends Component {
 
@@ -42,4 +42,4 @@ class HistoryItemComponent extends Component {
   }
 
 }
-export default HistoryItemComponent
+export default HistoryItemComponent;

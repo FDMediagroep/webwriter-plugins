@@ -9,7 +9,6 @@ export default class NumberFrameCommand extends Command {
 
   execute(params, context) {
     var state = this.getCommandState();
-    console.info('Added numberframe "' + params.heading + '" with content: "' + params.content + '" to document');
     if (state.disabled) {
       return;
     }

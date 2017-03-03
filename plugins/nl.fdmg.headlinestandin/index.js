@@ -1,9 +1,9 @@
-import HeadlineStandinPackage from './HeadlineStandinPackage'
-import {registerPlugin} from 'writer'
+import HeadlineStandinPackage from './HeadlineStandinPackage';
+import {registerPlugin} from 'writer';
 
 export default () => {
   if (registerPlugin) {
-    registerPlugin(HeadlineStandinPackage)
+    registerPlugin(HeadlineStandinPackage);
   } else {
     console.error("Register method not yet available");
   }
