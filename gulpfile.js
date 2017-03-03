@@ -50,7 +50,7 @@ gulp.task('config-devbox-generate', function() {
   console.log('Creating config for devbox VM');
   writeConfig({
     'fdmg.source': 'writer-fd.json',
-    'infoMaker.plugins.base': 'https://s3-eu-west-1.amazonaws.com/writer-dev-plugins',
+    'infoMaker.plugins.base': 'https://plugins.writer.infomaker.io/dev',
     'fdmg.webwriter.plugins.base': 'https://webwriter-devbox.fdmg.org/plugins',
     'fdmg.newsItem.template.id': '819',
     'fdmg.services.baseUrl': 'https://webwriter-devbox.fdmg.org/fdmgapi/private',
@@ -69,7 +69,7 @@ gulp.task('local-config-fd-generate', function() {
   console.log('Creating "local" config for FD writer');
   writeConfig({
     'fdmg.source': 'writer-fd.json',
-    'infoMaker.plugins.base': 'https://s3-eu-west-1.amazonaws.com/writer-dev-plugins',
+    'infoMaker.plugins.base': 'https://plugins.writer.infomaker.io/dev',
     'fdmg.webwriter.plugins.base': 'http://localhost:3000',
     'fdmg.newsItem.template.id': '30eae1c0-c640-4053-b114-05c64e28bbe7',
     'fdmg.services.baseUrl': 'https://webwriter-dev.fd.nl/fdmgapi/private/fd',
@@ -103,7 +103,7 @@ gulp.task('local-config-esb-generate', function() {
   console.log('Creating "local" config for ESB writer');
   writeConfig({
     'fdmg.source': 'writer-esb.json',
-    'infoMaker.plugins.base': 'https://s3-eu-west-1.amazonaws.com/writer-dev-plugins',
+    'infoMaker.plugins.base': 'https://plugins.writer.infomaker.io/dev',
     'fdmg.webwriter.plugins.base': 'http://localhost:3000',
     'fdmg.newsItem.template.id': '20003109',
     'fdmg.services.baseUrl': 'https://webwriter-dev.esb.nu/fdmgapi/private/esb',

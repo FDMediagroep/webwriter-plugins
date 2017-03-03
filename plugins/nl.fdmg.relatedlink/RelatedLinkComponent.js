@@ -1,4 +1,4 @@
-import {Component, FontAwesomeIcon, TextPropertyEditor} from 'substance';
+import { Component, FontAwesomeIcon, TextPropertyEditor } from 'substance';
 import './scss/relatedlink.scss';
 
 export default class RelatedLinkComponent extends Component {
@@ -8,23 +8,23 @@ export default class RelatedLinkComponent extends Component {
       tagName: 'div',
       name: 'prefix',
       path: [this.props.node.id, 'prefix']
-    }).addClass('prefix').attr({'contentEditable' : true, "data-text" : this.getLabel('Also read')}).ref('prefix');
+    }).addClass('prefix').attr({ 'contentEditable': true, "data-text": this.getLabel('Also read') }).ref('prefix');
 
     const leadText = $$(TextPropertyEditor, {
       tagName: 'div',
       name: 'leadtext',
       path: [this.props.node.id, 'leadtext']
-    }).addClass('leadtext').attr({'contentEditable' : true, "data-text" : this.getLabel('Article title')}).ref('leadtext');
+    }).addClass('leadtext').attr({ 'contentEditable': true, "data-text": this.getLabel('Article title') }).ref('leadtext');
 
     const relatedUrl = $$(TextPropertyEditor, {
       tagName: 'div',
       name: 'relatedurl',
       path: [this.props.node.id, 'relatedurl']
-    }).addClass('relatedurl').attr({'contentEditable' : true, "data-text" : "/"}).ref('relatedurl');
+    }).addClass('relatedurl').attr({ 'contentEditable': true, "data-text": "" }).ref('relatedurl');
 
     const el = $$('a').append([
       $$('div').addClass('header').append([
-        $$(FontAwesomeIcon, {icon: 'fa-angle-right'}).addClass('plugin-icon'),
+        $$(FontAwesomeIcon, { icon: 'fa-angle-right' }).addClass('plugin-icon'),
         $$('div').addClass('plugin-title').append(this.getLabel("Related article"))
       ]),
       prefix,
@@ -38,7 +38,7 @@ export default class RelatedLinkComponent extends Component {
   }
 
   updateRelatedLink() {
-    if (typeof(this.props.node.prefix) !== 'undefined' && typeof(this.props.node.leadText)!== 'undefined' && typeof(this.props.node.relatedUrl)!== 'undefined' ) {
+    if (typeof(this.props.node.prefix) !== 'undefined' && typeof(this.props.node.leadText) !== 'undefined' && typeof(this.props.node.relatedUrl) !== 'undefined') {
       this.updateProps(this.refs.prefix.text(), this.refs.leadText.text(), this.refs.relatedUrl.text());
     }
   }

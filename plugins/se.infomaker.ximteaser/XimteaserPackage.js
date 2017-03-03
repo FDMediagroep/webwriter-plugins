@@ -7,11 +7,11 @@ import XimteaserCommand from './XimteaserCommand';
 import XimteaserInsertImageCommand from './XimteaserInsertImageCommand';
 import XimTeaserValidator from './XimTeaserValidator';
 
-import {platform} from 'substance';
+import { platform } from 'substance';
 export default {
   name: 'ximteaser',
   id: 'se.infomaker.ximteaser',
-  configure: function (config, pluginConfig) {
+  configure: function(config, pluginConfig) {
     config.addValidator(XimTeaserValidator);
     config.addNode(Ximteaser);
     config.addComponent(Ximteaser.type, XimteaserComponent);
@@ -32,19 +32,19 @@ export default {
     });
 
     config.addLabel('Missing teaser title', {
-      'nl': 'Teaser titel ontbreekt'
+      'nl': 'Intro voor de homepage titel ontbreekt'
     });
 
     config.addLabel('Missing teaser body', {
-      'nl': 'Teaser tekst ontbreekt'
+      'nl': 'Intro voor de homepage tekst ontbreekt (\u00B6)'
     });
 
     config.addLabel('Missing teaser', {
-      'nl': 'Teaser ontbreekt'
+      'nl': 'Intro voor de homepage ontbreekt'
     });
 
     config.addLabel('More than one teaser', {
-      'nl': 'Meerdere teasers'
+      'nl': "Meerdere Intro's voor de homepage"
     });
 
     if (platform.isMac) {

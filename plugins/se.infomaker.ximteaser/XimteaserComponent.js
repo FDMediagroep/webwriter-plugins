@@ -1,5 +1,5 @@
-import {Component, TextPropertyEditor, FontAwesomeIcon, documentHelpers} from 'substance';
-import {api} from 'writer';
+import { Component, TextPropertyEditor, FontAwesomeIcon, documentHelpers } from 'substance';
+import { api } from 'writer';
 
 import ImageSearchDialog from '../nl.fdmg.imagesearch/ImageSearchDialog';
 const pluginId = 'nl.fdmg.imagesearch';
@@ -73,26 +73,26 @@ class XimteaserComponent extends Component {
   renderHeader($$) {
     return $$('div')
       .append([
-        $$(FontAwesomeIcon, {icon: 'fa-newspaper-o'}),
+        $$(FontAwesomeIcon, { icon: 'fa-newspaper-o' }),
         $$('strong').append(this.getLabel('Teaser')),
         $$('button').addClass('inline-plugin-button')
-         .append(
-           $$('i').addClass('fa fa-picture-o'))
-          .attr('title', this.getLabel('Add/search image'))
-           .on('click', () => {
-             api.ui.showDialog(
-               ImageSearchDialog, {
-                 loadNextScrollThreshold: api.getConfigValue(pluginId, 'loadNextScrollThreshold', 100),
-                 insertImageFromUrlCommand: 'insert-image-from-url',
-                 insertImageCommand: 'ximteaserinsertimage',
-                 pluginNode: this.props.node,
-               }, {
-                 primary: false,
-                 center: true,
-                 title: 'Image search'
-               }
-             )
-           })
+        .append(
+          $$('i').addClass('fa fa-picture-o'))
+        .attr('title', this.getLabel('Add/search image'))
+        .on('click', () => {
+          api.ui.showDialog(
+            ImageSearchDialog, {
+              loadNextScrollThreshold: api.getConfigValue(pluginId, 'loadNextScrollThreshold', 100),
+              insertImageFromUrlCommand: 'insert-image-from-url',
+              insertImageCommand: 'ximteaserinsertimage',
+              pluginNode: this.props.node,
+            }, {
+              primary: false,
+              center: true,
+              title: 'Image search'
+            }
+          )
+        })
       ])
       .addClass('header');
   }
@@ -103,7 +103,7 @@ class XimteaserComponent extends Component {
     editorSession.executeCommand('ximteaserinsertimage', {
       type: 'file',
       data: ev.target.files,
-      context: {node: this.props.node}
+      context: { node: this.props.node }
     });
   }
 
@@ -116,7 +116,7 @@ class XimteaserComponent extends Component {
 
   renderContent($$, teaserFields) {
     const content = $$('div')
-        .addClass('im-blocknode__content full-width');
+      .addClass('im-blocknode__content full-width');
 
     // If 'subject' is specified in the config it should be rendered
     if (teaserFields.indexOf('subject') >= 0) {
@@ -148,7 +148,7 @@ class XimteaserComponent extends Component {
         path: [this.props.node.id, 'subject'],
         doc: this.props.doc
       }).ref('subject').addClass('x-im-teaser-subject');
-      const icon = $$(FontAwesomeIcon, {icon: 'fa-flag'});
+      const icon = $$(FontAwesomeIcon, { icon: 'fa-flag' });
 
       subjectContainer.append([icon, subjectEditor]);
       return subjectContainer;
@@ -163,7 +163,7 @@ class XimteaserComponent extends Component {
       doc: this.props.doc
     }).ref('title').addClass('x-im-teaser-title');
 
-    const icon = $$(FontAwesomeIcon, {icon: 'fa-header'});
+    const icon = $$(FontAwesomeIcon, { icon: 'fa-header' });
 
     titleContainer.append([icon, titleEditor]);
     return titleContainer;
@@ -177,7 +177,7 @@ class XimteaserComponent extends Component {
       doc: this.props.doc
     }).ref('text').addClass('x-im-teaser-text');
 
-    const icon = $$(FontAwesomeIcon, {icon: 'fa-paragraph'});
+    const icon = $$(FontAwesomeIcon, { icon: 'fa-paragraph' }).addClass('mandatory-icon');
 
     textContainer.append([icon, textEditor]);
     return textContainer;
@@ -186,16 +186,14 @@ class XimteaserComponent extends Component {
   /* Custom dropzone protocol */
   getDropzoneSpecs() {
     const label = this.props.node.imageFile ? 'teaser-replace-image' : 'teaser-add-image';
-    return [
-      {
-        component: this,
-        message: this.getLabel(label),
-        dropParams: {
-          action: 'replace-image',
-          nodeId: this.props.node.id,
-        }
+    return [{
+      component: this,
+      message: this.getLabel(label),
+      dropParams: {
+        action: 'replace-image',
+        nodeId: this.props.node.id,
       }
-    ]
+    }]
   }
 
   handleDrop(tx, dragState) {
@@ -298,7 +296,7 @@ class XimteaserComponent extends Component {
    * @param dragState
    */
   handleNewImage(tx, dragState) {
-    const file = dragState.data.files[0];// Teaser only supports one image, take the first one
+    const file = dragState.data.files[0]; // Teaser only supports one image, take the first one
     const teaserNode = this.props.node;
     // TODO: we need to get the file instance through to the
     // real document

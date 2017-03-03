@@ -1,63 +1,65 @@
 .under-range {
-	color: #000;
+    color: #000;
 }
 
 .in-range {
-	color: #05cc05;
+    color: #05cc05;
 }
 
 .over-range {
-	color: red;
+    color: red;
 }
 
 .perfect-range {
-	color: gold;
-	position: relative;
-	&:before {
-		content: "\f118";
-		font-size: 0.8em;
-		font-family: FontAwesome;
-	}
+    color: gold;
+    position: relative;
+    &:before {
+        content: "\f118";
+        font-size: 0.8em;
+        font-family: FontAwesome;
+    }
+}
+
+.size-indicator {
+    margin-right: 5px;
+    padding: 2px;
+    background-color: #f7f7f7;
 }
 
 .textanalyzer {
-	&.plugin {
-		padding: 0px 15px 0px 15px;
-		hr {
-			margin-top: 0px;
-		}
-
-
-		.number__container {
-			margin-top: 0;
-			margin-bottom: 15px;
-			display: flex;
-			justify-content: space-between;
-		}
-
-		.count-info {
-			width: auto;
-			margin-bottom: 0;
-			text-align: center;
-			flex-grow: 1;
-			p {
-				font-size: 0.8em;
-				margin: 0 10px;
-				line-height: 1.4;
-			}
-			select {
-				margin-bottom: 5px;
-			}
-
-			span {
-				min-height: 35px;
-				display: inline-block;
-			}
-		}
-	}
+    &.plugin {
+        padding: 0px 15px 0px 15px;
+        hr {
+            margin-top: 0px;
+        }
+        .number__container {
+            margin-top: 0;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .count-info {
+            width: auto;
+            margin-bottom: 0;
+            text-align: center;
+            flex-grow: 1;
+            p {
+                font-size: 0.8em;
+                margin: 0 10px;
+                line-height: 1.4;
+            }
+            select {
+                margin-bottom: 5px;
+            }
+            span {
+                min-height: 35px;
+                display: inline-block;
+            }
+        }
+    }
 }
 
 // Infomaker override
-.sc-np-popover .textanalyzer > div:last-child p {
-	margin-top: 0;
+.sc-np-popover .textanalyzer>div:last-child p {
+    margin-top: 0;
 }
