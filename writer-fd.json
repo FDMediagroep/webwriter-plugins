@@ -249,6 +249,7 @@
       "id": "se.infomaker.ximpdf",
       "name": "ximpdf",
       "url": "INFOMAKER_PLUGINS_BASE_URL/im-ximpdf.js",
+      "style": "INFOMAKER_PLUGINS_BASE_URL/im-ximpdf.css",
       "enabled": true,
       "mandatory": false
     },
