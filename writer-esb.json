@@ -466,7 +466,7 @@
       "enabled": true,
       "mandatory": true,
       "data": {
-        "domain": "esb.nu"
+        "domain": "FDMG_BASE_DOMAIN_URL"
       }
     },
     {

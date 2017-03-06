@@ -42,6 +42,7 @@ function writeConfig(data) {
     .pipe(replace(/HOLLANDSE_HOOGTE_TOKEN/g, data['hollandseHoogte.token']))
     .pipe(replace(/API_GATEWAY_BASE_URL/g, data['fdmg.apiGatewayBaseUrl']))
     .pipe(replace(/FDMG_PREVIEW_URL/g, data['fdmg.previewUrl']))
+    .pipe(replace(/FDMG_BASE_DOMAIN_URL/g, data['fdmg.baseDomainUrl']))
     .pipe(rename(data['fdmg.fileName']))
     .pipe(gulp.dest(data['fdmg.destination']));
 }
@@ -60,7 +61,8 @@ gulp.task('config-devbox-generate', function() {
     'fdmg.apiGatewayBaseUrl': 'https://apigateway-dev.fdmg.nl',
     'fdmg.previewUrl': 'https://dev.fd.nl',
     'fdmg.fileName': 'writer.json',
-    'fdmg.destination': '../NPWriter/dist/server/config/'
+    'fdmg.destination': '../NPWriter/dist/server/config/',
+    'fdmg.baseDomainUrl': 'dev.fd.nl'
   });
 });
 
@@ -79,7 +81,8 @@ gulp.task('local-config-fd-generate', function() {
     'fdmg.apiGatewayBaseUrl': 'https://apigateway-dev.fdmg.nl',
     'fdmg.previewUrl': 'https://dev.fd.nl',
     'fdmg.fileName': 'writer-fd.json',
-    'fdmg.destination': '../NPWriter/server/config/'
+    'fdmg.destination': '../NPWriter/server/config/',
+    'fdmg.baseDomainUrl': 'dev.fd.nl'
   });
 });
 
@@ -113,7 +116,8 @@ gulp.task('local-config-esb-generate', function() {
     'fdmg.apiGatewayBaseUrl': 'https://apigateway-dev.fdmg.nl',
     'fdmg.previewUrl': 'https://preview-dev.esb.nu',
     'fdmg.fileName': 'dev-writer-client.json',
-    'fdmg.destination': '../NPWriter/server/config/'
+    'fdmg.destination': '../NPWriter/server/config/',
+    'fdmg.baseDomainUrl': 'dev.esb.nu'
   });
 });
 
@@ -154,7 +158,8 @@ function initializeConfig() {
     'infoMaker.aws.secret': '',
     'infoMaker.aws.bucket': '',
     'infoMaker.aws.region': '',
-    'fdmg.previewUrl': ''
+    'fdmg.previewUrl': '',
+    'fdmg.baseDomainUrl': ''
   };
 }
 

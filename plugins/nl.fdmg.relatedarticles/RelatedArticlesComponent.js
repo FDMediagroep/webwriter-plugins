@@ -95,7 +95,7 @@ class RelatedArticlesComponent extends Component {
 
   static extractId(url) {
     const domain = api.getConfigValue('nl.fdmg.relatedarticles', 'domain');
-    const regex = new RegExp("^.*" + domain + ".*/(\\\d+).*", 'i');
+    const regex = new RegExp("^https?://" + domain + ".*/(\\\d+).*", 'i');
     const res = regex.exec(url);
 
     if (res && res.length === 2) return res[1];
