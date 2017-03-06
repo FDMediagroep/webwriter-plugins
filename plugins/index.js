@@ -42,7 +42,6 @@ import TextFrame from './nl.fdmg.textframe/index';
 import HtmlEmbed from './nl.fdmg.htmlembed/index';
 
 import Heartbeat from './nl.fdmg.heartbeat/index';
-import History from './nl.fdmg.history/index';
 import PublishFlow from './nl.fdmg.publishflow/index';
 import Planneddate from './nl.fdmg.planneddate/index';
 import Workinstructions from './nl.fdmg.workinstructions/index';
@@ -103,7 +102,6 @@ import Translations from './nl.fdmg.translations/index';
   HtmlEmbed();
 
   Heartbeat();
-  History();
   PublishFlow();
   Planneddate();
   Workinstructions();
