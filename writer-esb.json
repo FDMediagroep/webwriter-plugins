@@ -669,10 +669,13 @@
     {
       "id": "nl.fdmg.history",
       "name": "history",
-      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
-      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
+      "url": "INFOMAKER_PLUGINS_BASE_URL/im-history.js",
+      "style": "INFOMAKER_PLUGINS_BASE_URL/im-history.css",
       "enabled": true,
-      "mandatory": true
+      "mandatory": true,
+      "data": {
+        "timeFormat": "LTS"
+      }
     },
     {
       "id": "nl.fdmg.workinstructions",
