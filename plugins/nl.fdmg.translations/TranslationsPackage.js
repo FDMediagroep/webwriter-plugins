@@ -6,7 +6,7 @@
 export default {
   id: 'nl.fdmg.translations',
   name: 'translations',
-  configure: function (config) {
+  configure: function(config) {
     config.addLabel('Insert Teaser', {
       'nl': 'Intro voor de homepage invoegen'
     });
@@ -91,6 +91,15 @@ export default {
     config.addLabel('delete-link', {
       'nl': 'Link verwijderen'
     });
+    config.addLabel('open-link', {
+      'nl': 'URL openen'
+    })
+    config.addLabel('ALT+k to edit', {
+      'nl': 'ALT+K om te bewerken'
+    })
+    config.addLabel('delete-link', {
+      'nl': 'URL verwijderen'
+    })
     config.addLabel('Rechts uitlijnend', {
       'nl': 'Afbeelding rechts uitlijnend'
     });
