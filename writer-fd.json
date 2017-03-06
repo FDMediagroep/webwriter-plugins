@@ -779,7 +779,7 @@
       }
     },
     {
-      "id": "nl.fdmg.history",
+      "id": "se.infomaker.history",
       "name": "history",
       "url": "INFOMAKER_PLUGINS_BASE_URL/im-history.js",
       "style": "INFOMAKER_PLUGINS_BASE_URL/im-history.css",
