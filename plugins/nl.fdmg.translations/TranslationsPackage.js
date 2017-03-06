@@ -79,7 +79,13 @@ export default {
     config.addLabel('Create strong', {
       'nl': 'Vet'
     });
+    config.addLabel('create-strong', {
+      'nl': 'Vet'
+    });
     config.addLabel('Create emphasis', {
+      'nl': 'Cursief'
+    });
+    config.addLabel('create-emphasis', {
       'nl': 'Cursief'
     });
     config.addLabel('Create link', {
