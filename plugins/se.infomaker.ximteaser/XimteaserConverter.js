@@ -1,11 +1,11 @@
-import { idGenerator } from 'writer';
+import { idGenerator, api } from 'writer'
 
 
 export default {
   type: 'ximteaser',
   tagName: 'object',
 
-  matchElement: function (el) {
+  matchElement: function(el) {
     return el.is('object') && el.attr('type') === 'x-im/teaser'
   },
 
@@ -13,13 +13,13 @@ export default {
   /**
    * Import teaser xml structure
    */
-  import: function (el, node, converter) { // jshint ignore:line
-    const nodeId = el.attr('id');
-    node.title = el.attr('title');
-    node.dataType = el.attr('type');
+  import: function(el, node, converter) { // jshint ignore:line
+    const nodeId = el.attr('id')
+    node.title = el.attr('title') ? el.attr('title') : ''
+    node.dataType = el.attr('type')
 
     // Import teaser data
-    const dataEl = el.find('data');
+    const dataEl = el.find('data')
     if (dataEl) {
       dataEl.children.forEach(function(child) {
         if (child.tagName === 'text') {
@@ -34,16 +34,16 @@ export default {
     }
 
     // Handle image link in teaser
-    const linkEl = el.find('links > link');
+    const linkEl = el.find('links > link')
     if (linkEl) {
-      node.imageType = linkEl.attr('type');
+      node.imageType = linkEl.attr('type')
 
       let imageFile = {
         id: idGenerator(),
         type: 'npfile',
         imType: 'x-im/image',
-        parentNodeId:nodeId
-      };
+        parentNodeId: nodeId
+      }
 
       if (linkEl.attr('uuid')) {
         imageFile.uuid = linkEl.attr('uuid')
@@ -59,25 +59,24 @@ export default {
 
       // If image data like width, height, crops is not found here it's
       // the old depcrecated format with image data in the teaser data.
-      const linkDataEl = linkEl.find('data');
+      const linkDataEl = linkEl.find('data')
       if (linkDataEl) {
         // New format, image data is found correctly in link data element
         this.importImageLinkData(linkDataEl, node)
-      }
-      else {
+      } else {
         // Old, depcrecated format, image data is found in teaser data
         this.importImageLinkData(dataEl, node)
       }
 
-      converter.createNode(imageFile);
-      node.imageFile = imageFile.id;
-      node.uuid = linkEl.attr('uuid');
+      // Import softcrops if exists
+      this.importSoftcrops(linkEl, node)
+
+      converter.createNode(imageFile)
+      node.imageFile = imageFile.id
+      node.uuid = linkEl.attr('uuid')
     }
   },
 
-  /**
-   * Import the image link structure
-   */
   importImageLinkData: function(el, node) {
     el.children.forEach(function(child) {
       if (child.tagName === 'width') {
@@ -87,44 +86,23 @@ export default {
       if (child.tagName === 'height') {
         node.height = parseInt(child.text(), 10)
       }
-
-      if (child.tagName === 'crops' && child.children.length > 0) {
-        let crops = {
-          crops: []
-        };
-
-        child.children.forEach(function(crop) {
-          if (crop.children.length === 0) {
-            return
-          }
-
-          if (crop.tagName === 'width') {
-            crops.width = crop.text()
-          }
-          else if (crop.tagName === 'height') {
-            crops.height = crop.text()
-          }
-          else {
-            var x = crop.find('x'),
-              y = crop.find('y'),
-              width = crop.find('width'),
-              height = crop.find('height');
-
-            crops.crops.push({
-              name: crop.attr('name'),
-              x: x.text(),
-              y: y.text(),
-              width: width.text(),
-              height: height.text()
-            })
-          }
-        });
-
-        if (crops.crops.length) {
-          node.crops = crops
-        }
-      }
     })
+  },
+
+  /**
+   * Import the image link structure
+   */
+  importSoftcrops: function(el, node) {
+    let imageModule = api.getPluginModule('se.infomaker.ximimage', 'ximimagehandler')
+    let softcrops = imageModule.importSoftcropLinks(
+      el.find('links')
+    )
+
+    if (softcrops.length) {
+      node.crops = {
+        crops: softcrops
+      }
+    }
   },
 
   /**
@@ -155,21 +133,21 @@ export default {
    * @param converter
    */
 
-  export: function (node, el, converter) {
-    const $$ = converter.$$;
+  export: function(node, el, converter) {
+    const $$ = converter.$$
 
-    el.removeAttr('data-id');
+    el.removeAttr('data-id')
     el.attr({
       id: node.id,
       type: 'x-im/teaser'
-    });
+    })
 
-    if(node.title) {
+    if (node.title) {
       el.attr('title', converter.annotatedText([node.id, 'title']))
     }
 
     // Data element
-    const data = $$('data');
+    const data = $$('data')
     if (node.text) {
       data.append($$('text').append(
         converter.annotatedText([node.id, 'text'])
@@ -181,9 +159,9 @@ export default {
         converter.annotatedText([node.id, 'subject'])
       ))
     }
-    el.append(data);
+    el.append(data)
 
-    let fileNode = node.document.get(node.imageFile);
+    let fileNode = node.document.get(node.imageFile)
 
     // Links
     if (fileNode && fileNode.uuid !== '' && node.uri) {
@@ -192,18 +170,18 @@ export default {
         type: 'x-im/image',
         uri: node.uri,
         uuid: fileNode.uuid
-      });
-      const linkData = $$('data');
+      })
+      const linkData = $$('data')
 
       // Add image data and crops to data
-      if(node.width) {
+      if (node.width) {
         linkData.append(
           $$('width').append(
             String(node.width)
           )
         )
       }
-      if(node.height) {
+      if (node.height) {
         linkData.append(
           $$('height').append(
             String(node.height)
@@ -211,29 +189,19 @@ export default {
         )
       }
 
+      link.append(linkData)
+
       if (node.crops) {
-        let crops = $$('crops');
-
-        for (var x in node.crops.crops) { // eslint-disable-line
-          var origCrop = node.crops.crops[x];
-
-          crops.append(
-            $$('crop').attr('name', origCrop.name).append([
-              $$('x').append(origCrop.x),
-              $$('y').append(origCrop.y),
-              $$('width').append(origCrop.width),
-              $$('height').append(origCrop.height)
-            ])
-          )
-        }
-
-        linkData.append(crops);
-        link.append(linkData);
+        let cropLinks = $$('links')
+        let imageModule = api.getPluginModule('se.infomaker.ximimage', 'ximimagehandler')
+        imageModule.exportSoftcropLinks($$, cropLinks, node.crops.crops)
+        link.append(cropLinks)
       }
 
       el.append(
         $$('links').append(link)
-      );
+      )
     }
+
   }
 }

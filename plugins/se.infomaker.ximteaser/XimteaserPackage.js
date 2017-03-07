@@ -27,9 +27,14 @@ export default {
       'nl': 'Intro voor de homepage'
     });
 
+    config.addLabel('teaser-add-image', {
+      'en': 'Add image',
+      'nl': "Afbeelding toevoegen"
+    })
     config.addLabel('teaser-replace-image', {
-      'nl': "Kopieer afbeelding naar 'Intro voor de homepage'"
-    });
+      'en': 'Replace image',
+      'nl': "Huidige afbeelding vervangen"
+    })
 
     config.addLabel('Missing teaser title', {
       'nl': 'Intro voor de homepage titel ontbreekt'
