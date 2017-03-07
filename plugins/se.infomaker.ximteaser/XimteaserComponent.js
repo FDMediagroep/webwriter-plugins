@@ -1,5 +1,5 @@
 import { Component, TextPropertyEditor, FontAwesomeIcon, documentHelpers } from 'substance';
-import { api } from 'writer';
+import { api, idGenerator } from 'writer';
 
 import ImageSearchDialog from '../nl.fdmg.imagesearch/ImageSearchDialog';
 const pluginId = 'nl.fdmg.imagesearch';
@@ -266,7 +266,7 @@ class XimteaserComponent extends Component {
     this.shouldDownloadMetadataForImageUri = true
       // Fetch the image
     const uuid = dropData.uuid
-    const nodeId = idGenerator()
+      // const nodeId = idGenerator()
     const teaserNode = this.props.node
 
     if (!dropData.uuid) {
