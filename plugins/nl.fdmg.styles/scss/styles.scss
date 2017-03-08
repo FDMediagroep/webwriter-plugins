@@ -373,3 +373,28 @@ div {
         color: #7b7b7b;
     }
 }
+
+// Error message modal styling override for better readability
+.modal {
+    .modal-body {
+        .modal-messages {
+            ul {
+                li {
+                    margin: 5px 0 5px 30px;
+                    background-color: #fefefe;
+                    padding: 5px;
+                    border: 1px solid #f5f5f5;
+                }
+            }
+        }
+    }
+}
+
+// Override history plugin button styling
+.modal {
+    .modal-footer {
+        .btn {
+            margin-bottom: 15px;
+        }
+    }
+}
