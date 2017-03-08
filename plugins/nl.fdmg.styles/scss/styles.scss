@@ -389,3 +389,12 @@ div {
         }
     }
 }
+
+// Override history plugin button styling
+.modal {
+    .modal-footer {
+        .btn {
+            margin-bottom: 15px;
+        }
+    }
+}
