@@ -781,8 +781,8 @@
     {
       "id": "se.infomaker.history",
       "name": "history",
-      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
-      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
+      "url": "INFOMAKER_PLUGINS_BASE_URL/index.js",
+      "style": "INFOMAKER_PLUGINS_BASE_URL/style.css",
       "enabled": true,
       "mandatory": true,
       "data": {
