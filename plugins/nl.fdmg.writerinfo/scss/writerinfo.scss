@@ -1,0 +1,13 @@
+.writer-info {
+    .help-button {
+        float: right;
+        color: #888;
+        i {
+            font-size: 1.1em;
+            margin-left: 5px;
+        }
+        &:hover {
+            color: #222;
+        }
+    }
+}

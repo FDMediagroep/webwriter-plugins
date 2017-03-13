@@ -18,7 +18,8 @@ export default class PreviewComponent extends Component {
           this.getLabel('Preview'),
           ' ',
           $$(FontAwesomeIcon, { icon: 'fa-external-link-square' })
-        )
+        ),
+        $$('hr')
       )
   }
 

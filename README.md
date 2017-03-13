@@ -6,7 +6,8 @@
 1. Clone `NPWriter`: `https://github.com/Infomaker/NPWriter.git`
 1. Clone FDMediagroep `webwriter-plugins` A.K.A. `NPWriterDevKit`: `https://gitlab.fdmg.org/devops/webwriter-plugins`
 1. Use branch `develop` on `webwriter-plugins`
-1. Run `gulp local-config-generate` in the `webwriter-plugins` to generate the local config file. Make sure `NPWriter` folder is on the same level as `webwriter-plugins`.
+1. Run `gulp local-config-fd-generate` in the `webwriter-plugins` to generate the local config file for the FD writer. Make sure `NPWriter` folder is on the same level as `webwriter-plugins`.
+  1. Run `gulp local-config-esb-generate` to generate the local config file for ESB.
 1. Getting started guide: https://infomaker.github.io/NPWriterDevelopers/getting-started/
 1. Install NodeJS 6.9.1 or later
   1. For Windows: Install Visual Studio 2013 Express first
@@ -14,8 +15,8 @@
   1. npm install
   1. npm run build-dep
   1. npm run dev
-1. run `CONFIG_FILE=writer-fd-dev.json npm run dev` in `NPWriter/`
-  1. For Windows use `set CONFIG_FILE=writer-fd-dev.json&npm run dev` instead
+1. run `CONFIG_FILE=writer-fd.json npm run dev` in `NPWriter/`
+  1. For Windows use `set CONFIG_FILE=writer-fd.json&npm run dev` instead
 1. The `NPWriter/` should now be up and running.
 
 1. Navigate to `webwriter-plugins` and run `npm install`
@@ -24,7 +25,7 @@
 
 In other sessions you only need to:
 
-1. start Webwriter by calling `CONFIG_FILE=writer-fd-dev.json npm run dev` in `NPWriter/`
+1. start Webwriter by calling `CONFIG_FILE=writer-fd.json npm run dev` in `NPWriter/`
 1. and run `npm run dev` to start the `webwriter-plugins` A.K.A. `NPWriterDevKit` for plugin development and enable change watch
 
 # Rewrite plugin from Writer to Writer 3

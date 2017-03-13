@@ -114,8 +114,8 @@ gulp.task('local-config-esb-generate', function() {
     'fdmg.services.token': 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiI5MDA0Nzc2NDc3ODQyMDQ1ODAwIiwic3ViIjoiU2VydmljZXMiLCJyb2xlIjoiVVNFUiJ9.vRx7zG0lTInK6BCnoy25FRXNO6kGP8bi03eB1xviWjkM4xq-fQ6EoBR88yZPC4CAfdjpcNcQ_pxlJbvcISaAOw',
     'hollandseHoogte.token': '63401c89-63e9-35f9-9daa-a55ef26c3042',
     'fdmg.apiGatewayBaseUrl': 'https://apigateway-dev.fdmg.nl',
+    'fdmg.fileName': 'writer-fd.json',
     'fdmg.previewUrl': 'https://preview-dev.esb.nu',
-    'fdmg.fileName': 'dev-writer-client.json',
     'fdmg.destination': '../NPWriter/server/config/',
     'fdmg.baseDomainUrl': 'dev.esb.nu'
   });
