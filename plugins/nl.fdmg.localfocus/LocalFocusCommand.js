@@ -1,8 +1,8 @@
-import {Command} from 'substance';
+import { Command } from 'substance';
 
 class LocalFocusCommand extends Command {
   getCommandState() {
-    return {disabled: true}
+    return { disabled: true }
   }
 
   execute(params) {
