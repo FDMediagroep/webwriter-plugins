@@ -20,5 +20,4 @@ export default class WriterinfoComponent extends Component {
         )
       )
   }
-
 }

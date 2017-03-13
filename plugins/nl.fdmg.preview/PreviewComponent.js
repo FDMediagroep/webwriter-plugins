@@ -17,7 +17,7 @@ export default class PreviewComponent extends Component {
         .append(
           this.getLabel('Preview'),
           ' ',
-          $$(FontAwesomeIcon, { icon: 'fa-external-link-square' })
+          $$(FontAwesomeIcon, { icon: 'fa-eye' })
         )
       )
   }
