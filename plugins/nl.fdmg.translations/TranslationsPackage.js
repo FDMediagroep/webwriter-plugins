@@ -162,13 +162,12 @@ export default {
       en: 'Change history for this article.',
       'nl': 'Versiegeschiedenis voor dit artikel'
     })
+    config.addLabel('history-remove-all-button', {
+      'nl': 'Versiegeschiedenis verwijderen'
+    })
 
     config.addLabel('Identical with the current version', {
       'nl': 'Identiek met huidige versie'
-    })
-
-    config.addLabel('Clear this version history', {
-      'nl': 'Versiegeschiedenis verwijderen'
     })
   }
 }
