@@ -834,7 +834,10 @@
       "name": "writerinfo",
       "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
       "enabled": true,
-      "mandatory": true
+      "mandatory": true,
+      "data": {
+        "instructionsManualUrl": "FDMG_INSTRUCTIONS_MANUAL_URL"
+      }
     },
     {
       "id": "nl.fdmg.translations",

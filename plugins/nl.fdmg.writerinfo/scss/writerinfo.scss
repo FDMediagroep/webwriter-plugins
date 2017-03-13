@@ -1,13 +1,5 @@
-.writer-info {
-    .help-button {
+.plugin {
+    &.plugin-nl-fdmg-writerinfo {
         float: right;
-        color: #888;
-        i {
-            font-size: 1.1em;
-            margin-left: 5px;
-        }
-        &:hover {
-            color: #222;
-        }
     }
 }

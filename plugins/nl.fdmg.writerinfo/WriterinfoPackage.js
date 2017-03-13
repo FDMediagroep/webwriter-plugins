@@ -6,8 +6,8 @@ export default {
   name: 'writerinfo',
   configure: function(config) {
     config.addComponentToSidebarWithTabId(this.id, 'main', WriterinfoComponent);
-    config.addLabel('Writerinfo', {
-      'nl': 'Voorvertoning'
+    config.addLabel('writer-info-button', {
+      'nl': 'Instructies/Help'
     });
   }
 }

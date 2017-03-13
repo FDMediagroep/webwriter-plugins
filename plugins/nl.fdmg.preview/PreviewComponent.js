@@ -13,13 +13,12 @@ export default class PreviewComponent extends Component {
         .attr({
           'href': this.getPreviewUrl(),
           'target': '_blank'
-        })
+        }).addClass('btn preview-button btn-secondary')
         .append(
           this.getLabel('Preview'),
           ' ',
           $$(FontAwesomeIcon, { icon: 'fa-external-link-square' })
-        ),
-        $$('hr')
+        )
       )
   }
 
