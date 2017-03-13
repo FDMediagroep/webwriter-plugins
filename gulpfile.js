@@ -64,7 +64,7 @@ gulp.task('config-devbox-generate', function() {
     'fdmg.fileName': 'writer.json',
     'fdmg.destination': '../NPWriter/dist/server/config/',
     'fdmg.baseDomainUrl': 'dev.fd.nl',
-    'fdmg.instructionsManualUrl': '#'
+    'fdmg.instructionsManualUrl': 'http://static.fd.nl/webwriter-manual/fd-writer-manual.pdf'
   });
 });
 
@@ -85,7 +85,7 @@ gulp.task('local-config-fd-generate', function() {
     'fdmg.fileName': 'writer-fd.json',
     'fdmg.destination': '../NPWriter/server/config/',
     'fdmg.baseDomainUrl': 'dev.fd.nl',
-    'fdmg.instructionsManualUrl': '#'
+    'fdmg.instructionsManualUrl': 'http://static.fd.nl/webwriter-manual/fd-writer-manual.pdf'
   });
 });
 
@@ -121,7 +121,7 @@ gulp.task('local-config-esb-generate', function() {
     'fdmg.previewUrl': 'https://preview-dev.esb.nu',
     'fdmg.destination': '../NPWriter/server/config/',
     'fdmg.baseDomainUrl': 'dev.esb.nu',
-    'fdmg.instructionsManualUrl': '#'
+    'fdmg.instructionsManualUrl': 'http://static.fd.nl/webwriter-manual/fd-writer-manual.pdf'
   });
 });
 
