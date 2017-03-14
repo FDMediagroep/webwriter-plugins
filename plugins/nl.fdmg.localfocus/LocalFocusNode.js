@@ -1,7 +1,6 @@
-import {BlockNode} from 'substance';
+import { BlockNode } from 'substance';
 
-class LocalFocusNode extends BlockNode {
-}
+class LocalFocusNode extends BlockNode {}
 
 LocalFocusNode.define({
   type: 'localfocus',
