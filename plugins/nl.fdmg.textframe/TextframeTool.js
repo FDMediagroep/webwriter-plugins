@@ -10,7 +10,7 @@ class TextframeTool extends Tool {
 
     el.append(
       $$('button').addClass('se-tool').append(
-        $$('i').addClass('fa fa-tumblr')
+        $$('i').addClass('fa fa-text-height textframe-icon')
       )
       .on('click', this.insertTextframe)
     );

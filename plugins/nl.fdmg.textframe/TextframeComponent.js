@@ -78,7 +78,7 @@ class TextframeComponent extends Component {
   renderHeader($$) {
     return $$('div')
       .append([
-        $$(FontAwesomeIcon, { icon: 'fa-tumblr' }),
+        $$(FontAwesomeIcon, { icon: 'fa-text-height textframe-icon' }),
         $$('strong').append(this.getLabel('Textframe')),
         $$('button').addClass('inline-plugin-button')
         .append($$('i').addClass('fa fa-picture-o'))
