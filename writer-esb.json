@@ -177,10 +177,6 @@
             "label": "Afbeelding volledige breedte",
             "icon": "fa-align-justify"
           }
-        ],
-        "disableUseOfAnnotationToolsForFields": [
-          "title",
-          "text"
         ]
       }
     },
