@@ -71,7 +71,7 @@ export default class TextAnalyzerComponent extends Component {
         .append(
           $$('div')
           .addClass('count-info')
-          .append($$('span').append(documentSize.size))
+          .append($$('span').append(this.convertDocumentsize()))
           .append($$('p').append(this.getLabel('Document')))
           .attr({ title: this.getLabel('Document') }),
           $$('div')
