@@ -53,7 +53,6 @@ export default class TextAnalyzerComponent extends Component {
     const time = plannedDate.time;
     const date = plannedDate.date;
 
-    const documentSize = this.readDocumentSize();
     const el = $$('div').addClass('information');
 
     const plannedDatePlugin = $$('div')
@@ -71,7 +70,7 @@ export default class TextAnalyzerComponent extends Component {
         .append(
           $$('div')
           .addClass('count-info')
-          .append($$('span').append(this.convertDocumentsize()))
+          .append($$('span').append(this.getdocumentSizeCharacter()))
           .append($$('p').append(this.getLabel('Document')))
           .attr({ title: this.getLabel('Document') }),
           $$('div')
@@ -119,7 +118,7 @@ export default class TextAnalyzerComponent extends Component {
     };
   }
 
-  convertDocumentsize() {
+  getdocumentSizeCharacter() {
     const documentSize = this.readDocumentSize();
     if (documentSize.size === 'UNLIMITED') {
       return "∞"
@@ -130,7 +129,7 @@ export default class TextAnalyzerComponent extends Component {
 
   updateStatus() {
     const textLength = this.state.textLength;
-    const documentSize = this.convertDocumentsize();
+    const documentSize = this.getdocumentSizeCharacter();
 
     if (this.virtualElement) {
 
