@@ -35,9 +35,10 @@ export default class TextAnalyzerComponent extends Component {
     //TODO: Make the info popover into a general plugin and add textanalyzer and planneddate to that plugin
     const initialDate = api.newsItem
       .getLinkByType('planneddate', 'fdmg/planneddate');
+    const emptyDate = this.getLabel('no-date-specified')
 
     if (!initialDate || initialDate.length < 1) {
-      return { date: '--/--/----', time: ' --:--' };
+      return { date: emptyDate };
     } else {
       return initialDate.map(initialDate => {
         return { date: moment(initialDate['@date']).format('ll'), uuid: initialDate['@uuid'], time: initialDate['@time'] }

@@ -5,21 +5,42 @@ const pluginId = 'nl.fdmg.preview';
 
 export default class PreviewComponent extends Component {
 
+  getInitialState() {
+    return {
+      disabledClass: this.isNewArticle()
+    };
+  }
+
+  isNewArticle() {
+    let id = api.newsItem.getIdForArticle();
+
+    if (id.indexOf('-') > -1) {
+      id = id.substring(id.indexOf('-') + 1);
+    }
+    // When id can't be parsed to integer value it means it is a new article. In that case we disable the previewbutton.
+    if (isNaN(id)) {
+      return 'disabled';
+    }
+  }
+
   render($$) {
-    return $$('div')
+
+    const previewButton = $$('div')
       .addClass('fdmg-sidebar preview')
       .append(
         $$('a')
         .attr({
           'href': this.getPreviewUrl(),
           'target': '_blank'
-        }).addClass('btn preview-button btn-secondary')
+        }).addClass('btn preview-button btn-secondary ' + this.state.disabledClass)
         .append(
           this.getLabel('Preview'),
           ' ',
           $$(FontAwesomeIcon, { icon: 'fa-eye' })
         )
       )
+
+    return previewButton;
   }
 
   getPreviewUrl() {
@@ -42,6 +63,11 @@ export default class PreviewComponent extends Component {
 
     const previewBaseUrl = api.getConfigValue(pluginId, 'previewBaseUrl');
 
-    return previewBaseUrl.replace('${id}', id)
+    if (isNaN(id)) {
+      return;
+    } else {
+      return previewBaseUrl.replace('${id}', id);
+    }
+
   }
 }
