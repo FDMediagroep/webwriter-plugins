@@ -4,5 +4,14 @@
         .fa {
             color: #0098C7;
         }
+        .disabled-preview-button {
+            opacity: 0.5;
+            &:hover {
+                cursor: not-allowed;
+                color: #888;
+                background-color: #e6e6e6;
+                border-color: #adadad;
+            }
+        }
     }
 }

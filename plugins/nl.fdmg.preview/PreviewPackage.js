@@ -9,5 +9,11 @@ export default {
     config.addLabel('Preview', {
       'nl': 'Voorvertoning'
     });
+    config.addLabel('no-preview-notification-heading', {
+      'nl': 'Geen voorvertoning mogelijk'
+    });
+    config.addLabel('no-preview-notification-text', {
+      'nl': 'Artikel heeft nog geen artikel-id. Sla uw artikel eerst op.'
+    });
   }
 }

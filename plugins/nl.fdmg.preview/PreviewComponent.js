@@ -19,7 +19,15 @@ export default class PreviewComponent extends Component {
     }
     // When id can't be parsed to integer value it means it is a new article. In that case we disable the previewbutton.
     if (isNaN(id)) {
-      return 'disabled';
+      return 'disabled-preview-button';
+    }
+  }
+
+  getDisabled() {
+    if (this.state.disabledClass === 'disabled-preview-button') {
+      api.ui.showNotification('nl.fdmg.preview', api.getLabel('no-preview-notification-heading'), api.getLabel('no-preview-notification-text'))
+    } else {
+      return;
     }
   }
 
@@ -33,6 +41,9 @@ export default class PreviewComponent extends Component {
           'href': this.getPreviewUrl(),
           'target': '_blank'
         }).addClass('btn preview-button btn-secondary ' + this.state.disabledClass)
+        .on('click', () => {
+          this.getDisabled()
+        })
         .append(
           this.getLabel('Preview'),
           ' ',
