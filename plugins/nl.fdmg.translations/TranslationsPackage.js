@@ -160,5 +160,23 @@ export default {
     config.addLabel('history-remove-all-confirm', {
       'nl': 'Ok, verwijder alle versiegeschiedenis'
     })
+    config.addLabel('error-page-Error', {
+      'nl': 'Oops, er is iets misgegaan'
+    })
+    config.addLabel('error-page-human-readable-404', {
+      'nl': 'Het door u opgevraagde artikel kan niet worden gevonden '
+    })
+    config.addLabel('error-page-error-description', {
+      'nl': 'Foutomschrijving: '
+    })
+    config.addLabel('error-page-status-code', {
+      'nl': 'Statuscode: '
+    })
+    config.addLabel('error-page-status-url', {
+      'nl': 'Opgevraagde url: '
+    })
+    config.addLabel('A problem occurred', {
+      'nl': 'Er is een fout opgetreden'
+    })
   }
 }
