@@ -114,9 +114,8 @@ export default {
     });
     // History plugin
     config.addLabel('Unsaved articles found', {
-        'nl': 'Niet opgeslagen artikelen gevonden'
-      }) <<
-      << << < HEAD
+      'nl': 'Niet opgeslagen artikelen gevonden'
+    })
 
     config.addLabel('It looks like there are one or more unsaved articles. Do you want to restore an unsaved article?', {
       'nl': 'Er zijn een of meerdere niet opgeslagen artikelen gevonden. Wil je een niet opgeslagen artikel herstellen?'
