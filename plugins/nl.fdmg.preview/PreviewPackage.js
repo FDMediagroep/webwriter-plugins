@@ -13,7 +13,7 @@ export default {
       'nl': 'Geen voorvertoning mogelijk'
     });
     config.addLabel('no-preview-notification-text', {
-      'nl': 'Artikel heeft nog geen artikel-id. Sla uw artikel eerst op.'
+      'nl': 'Sla uw artikel eerst op: artikel heeft nog geen artikel-id. '
     });
   }
 }
