@@ -1,5 +1,5 @@
 import { Component, TextPropertyEditor, FontAwesomeIcon, documentHelpers } from 'substance';
-import { api } from 'writer';
+import { api, idGenerator } from 'writer';
 
 import ImageSearchDialog from '../nl.fdmg.imagesearch/ImageSearchDialog';
 const pluginId = 'nl.fdmg.imagesearch';
@@ -238,21 +238,21 @@ class XimteaserComponent extends Component {
    * @param dragState
    */
   handleNodeDrop(tx, dragState) {
-    const teaserNode = this.props.node;
+    const teaserNode = this.props.node
     if (dragState.sourceSelection) {
       try {
-        const draggedNodeId = dragState.sourceSelection.nodeId;
-        const doc = this.context.editorSession.getDocument();
-        const draggedNode = doc.get(draggedNodeId);
+        const draggedNodeId = dragState.sourceSelection.nodeId
+        const doc = this.context.editorSession.getDocument()
+        const draggedNode = doc.get(draggedNodeId)
         if (draggedNode && draggedNode.type === 'ximimage') {
-          const imageFile = draggedNode.imageFile;
-          const imageNode = doc.get(imageFile);
-          const newFileNode = documentHelpers.copyNode(imageNode)[0];
-          newFileNode.parentNodeId = teaserNode.id;
-          delete newFileNode.id;
-          let imageFileNode = tx.create(newFileNode);
-          tx.set([teaserNode.id, 'imageFile'], imageFileNode.id);
-          tx.set([teaserNode.id, 'uri'], draggedNode.uri);
+          const imageFile = draggedNode.imageFile
+          const imageNode = doc.get(imageFile)
+          const newFileNode = documentHelpers.copyNode(imageNode)[0]
+          newFileNode.parentNodeId = teaserNode.id
+          delete newFileNode.id
+          let imageFileNode = tx.create(newFileNode)
+          tx.set([teaserNode.id, 'imageFile'], imageFileNode.id)
+          tx.set([teaserNode.id, 'uri'], draggedNode.uri)
           tx.set([teaserNode.id, 'crops'], [])
         }
       } catch (_) {
@@ -263,29 +263,48 @@ class XimteaserComponent extends Component {
   }
 
   handleUriDrop(tx, dropData) {
-    this.shouldDownloadMetadataForImageUri = true;
-    // Fetch the image
-    const uuid = dropData.uuid;
-    const nodeId = writer.idGenerator();
-    const teaserNode = this.props.node;
+    this.shouldDownloadMetadataForImageUri = true
+      // Fetch the image
+    const uuid = dropData.uuid
+      // const nodeId = idGenerator()
+    const teaserNode = this.props.node
 
     if (!dropData.uuid) {
       throw new Error('Unsupported data. UUID must exist')
     }
 
     const imageFileNode = {
-      parentNodeId: nodeId,
+      parentNodeId: teaserNode.id,
       type: 'npfile',
       imType: 'x-im/image',
       uuid: uuid,
       sourceUUID: uuid,
-    };
+    }
 
     // Create file node for the image
-    let imageFile = tx.create(imageFileNode);
+    let imageFile = tx.create(imageFileNode)
 
     tx.set([teaserNode.id, 'imageFile'], imageFile.id)
 
+  }
+
+  handleUrlDrop(tx, uri) {
+    const nodeId = idGenerator()
+    const teaserNode = this.props.node
+
+    const imageFileNode = {
+      parentNodeId: teaserNode.id,
+      type: 'npfile',
+      imType: 'x-im/image'
+    }
+    imageFileNode['sourceUrl'] = uri
+
+    // Create file node for the image
+    let imageFile = tx.create(imageFileNode)
+
+    tx.set([teaserNode.id, 'imageFile'], imageFile.id)
+
+    return nodeId
   }
 
   /**
@@ -296,20 +315,20 @@ class XimteaserComponent extends Component {
    * @param dragState
    */
   handleNewImage(tx, dragState) {
-    const file = dragState.data.files[0]; // Teaser only supports one image, take the first one
-    const teaserNode = this.props.node;
-    // TODO: we need to get the file instance through to the
-    // real document
+    const file = dragState.data.files[0] // Teaser only supports one image, take the first one
+    const teaserNode = this.props.node
+      // TODO: we need to get the file instance through to the
+      // real document
     let imageFile = tx.create({
       parentNodeId: teaserNode.id,
       type: 'npfile',
       imType: 'x-im/image',
       mimeType: file.type,
       sourceFile: file
-    });
+    })
 
-    tx.set([teaserNode.id, 'imageFile'], imageFile.id);
-    // HACK: fileUpload will be done by CollabSession
+    tx.set([teaserNode.id, 'imageFile'], imageFile.id)
+      // HACK: fileUpload will be done by CollabSession
     setTimeout(() => {
       this.context.editorSession.fileManager.sync()
     }, 300)
@@ -317,17 +336,18 @@ class XimteaserComponent extends Component {
 
   isFileDrop(dragData) {
     if (dragData.files && dragData.files.length > 0) {
-      return true;
+      return true
     }
-    return false;
+    return false
   }
 
   isUriDrop(dragData) {
     if (dragData.uris && dragData.uris.length > 0) {
-      return true;
+      return true
     }
-    return false;
+    return false
   }
+
 }
 
-export default XimteaserComponent;
+export default XimteaserComponent

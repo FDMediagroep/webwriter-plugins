@@ -1,12 +1,10 @@
 .sc-textframe {
-
     .fileinput {
         display: none;
         .upload-button {
             cursor: pointer;
             float: right;
             font-size: 1rem;
-
             .fa {
                 color: #565656
             }
@@ -15,7 +13,6 @@
             display: none;
         }
     }
-
     .im-blocknode__content {
         div {
             margin-top: 10px;
@@ -28,17 +25,47 @@
             margin-right: 10px;
         }
     }
-
     .se-title {
         padding: 10px 20px;
         background: #eee;
         padding-bottom: 20px;
     }
 }
+
 .sm-textframe {
     &.sm-selected {
         .fileinput {
             display: inline;
+        }
+    }
+}
+
+.textframe-icon {
+    position: relative;
+    &:after {
+        position: absolute;
+        content: '';
+        right: 0;
+        bottom: 0;
+        background-color: white;
+        width: 8px;
+        height: 100%;
+    }
+}
+
+.sm-selected {
+    .textframe-icon {
+        &:after {
+            background-color: #edf5ff;
+        }
+    }
+}
+
+.se-tool {
+    .textframe-icon {
+        &:after {
+            width: 3px;
+            background-color: #f9f9f9;
         }
     }
 }

@@ -1,5 +1,5 @@
 import PreviewPackage from './PreviewPackage';
-import {registerPlugin} from 'writer';
+import { registerPlugin } from 'writer';
 
 export default () => {
   if (registerPlugin) {

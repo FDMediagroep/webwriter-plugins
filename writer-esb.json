@@ -718,6 +718,16 @@
       "mandatory": true
     },
     {
+      "id": "nl.fdmg.writerinfo",
+      "name": "writerinfo",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
+      "enabled": false,
+      "mandatory": false,
+      "data": {
+        "instructionsManualUrl": "FDMG_INSTRUCTIONS_MANUAL_URL"
+      }
+    },
+    {
       "id": "nl.fdmg.translations",
       "name": "translations",
       "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",

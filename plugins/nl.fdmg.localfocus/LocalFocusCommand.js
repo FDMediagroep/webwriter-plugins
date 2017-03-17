@@ -1,19 +1,25 @@
-import {Command} from 'substance';
+import { WriterCommand, api } from 'writer'
+import insertEmbed from './insertEmbed'
 
-class LocalFocusCommand extends Command {
+class LocalFocusCommand extends WriterCommand {
   getCommandState() {
-    return {disabled: true}
+    return { disabled: true }
   }
 
   execute(params) {
+    if (params.isPaste) {
+      const currentNode = params.selection.getPath()
+      if (!currentNode) {
+        return false
+      }
+      const doc = params.editorSession.getDocument()
+      api.document.deleteNode('localfocus', doc.get(currentNode[0]))
+    }
+
     params.editorSession.transaction((tx) => {
-      tx.insertBlockNode({
-        type: 'localfocus',
-        dataType: 'fdmg/localfocus',
-        url: params.url
-      })
-    });
-    return true;
+      insertEmbed(tx, params.url)
+    })
+    return true
   }
 }
 

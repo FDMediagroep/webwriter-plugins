@@ -25,7 +25,7 @@
             width: 100%;
             padding: 5px;
             color: black;
-            min-height: 150px;
+            min-height: 105px;
             resize: none;
             position: relative;
             overflow: hidden;
@@ -44,7 +44,7 @@
         cursor: pointer;
         text-indent: -18px;
         &.active {
-            background-color: #b10000;
+            background-color: #a41e39;
             color: white;
             font-size: 1em;
         }

@@ -126,6 +126,9 @@ a.fdmg-box {
                 vertical-align: middle;
                 font-size: 1.1em;
             }
+            &:hover {
+                cursor: pointer;
+            }
         }
         input[type="checkbox"] {
             vertical-align: middle;
@@ -215,6 +218,7 @@ a.fdmg-box {
 .sc-ximteaser,
 .sc-textframe {
     .sc-text-property {
+        margin-left: 25px;
         &:hover {
             margin-left: 25px;
         }
@@ -270,6 +274,10 @@ a.fdmg-box {
     .modal-body {
         textarea {
             min-height: 400px;
+            border-color: #eee;
+            &:focus {
+                border-color: rgba(0, 152, 199, 0.2);
+            }
         }
     }
 }
@@ -395,6 +403,31 @@ div {
     .modal-footer {
         .btn {
             margin-bottom: 15px;
+        }
+    }
+}
+
+.plugin {
+    &.plugin-nl-fdmg-preview,
+    &.plugin-nl-fdmg-writerinfo {
+        margin-bottom: 0;
+        margin-top: 5px;
+        width: 100%;
+        .fa {
+            color: #0098C7;
+        }
+        .btn {
+            padding: 5px;
+            color: #888;
+            width: 100%;
+            i {
+                font-size: 1.1em;
+                margin-left: 5px;
+                float: right;
+            }
+            &:hover {
+                color: #222;
+            }
         }
     }
 }

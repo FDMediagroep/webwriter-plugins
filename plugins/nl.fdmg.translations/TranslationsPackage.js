@@ -114,8 +114,9 @@ export default {
     });
     // History plugin
     config.addLabel('Unsaved articles found', {
-      'nl': 'Niet opgeslagen artikelen gevonden'
-    })
+        'nl': 'Niet opgeslagen artikelen gevonden'
+      }) <<
+      << << < HEAD
 
     config.addLabel('It looks like there are one or more unsaved articles. Do you want to restore an unsaved article?', {
       'nl': 'Er zijn een of meerdere niet opgeslagen artikelen gevonden. Wil je een niet opgeslagen artikel herstellen?'
@@ -157,18 +158,43 @@ export default {
       en: 'Change history',
       'nl': 'Geschiedenis'
     })
-
     config.addLabel('history-popover-description', {
       en: 'Change history for this article.',
       'nl': 'Versiegeschiedenis voor dit artikel'
     })
-
     config.addLabel('Identical with the current version', {
       'nl': 'Identiek met huidige versie'
     })
 
     config.addLabel('Clear this version history', {
       'nl': 'Versiegeschiedenis verwijderen'
+    })
+    config.addLabel('history-remove-all-button', {
+      'nl': 'Versiegeschiedenis verwijderen'
+    })
+    config.addLabel('Identical with the current version', {
+      'nl': 'Identiek met huidige versie'
+    })
+    config.addLabel('history-remove-all-confirm', {
+      'nl': 'Ok, verwijder alle versiegeschiedenis'
+    })
+    config.addLabel('error-page-Error', {
+      'nl': 'Oops, er is iets misgegaan'
+    })
+    config.addLabel('error-page-human-readable-404', {
+      'nl': 'Het door u opgevraagde artikel kan niet worden gevonden '
+    })
+    config.addLabel('error-page-error-description', {
+      'nl': 'Foutomschrijving: '
+    })
+    config.addLabel('error-page-status-code', {
+      'nl': 'Statuscode: '
+    })
+    config.addLabel('error-page-status-url', {
+      'nl': 'Opgevraagde url: '
+    })
+    config.addLabel('A problem occurred', {
+      'nl': 'Er is een fout opgetreden'
     })
   }
 }

@@ -43,6 +43,7 @@ function writeConfig(data) {
     .pipe(replace(/API_GATEWAY_BASE_URL/g, data['fdmg.apiGatewayBaseUrl']))
     .pipe(replace(/FDMG_PREVIEW_URL/g, data['fdmg.previewUrl']))
     .pipe(replace(/FDMG_BASE_DOMAIN_URL/g, data['fdmg.baseDomainUrl']))
+    .pipe(replace(/FDMG_INSTRUCTIONS_MANUAL_URL/g, data['fdmg.instructionsManualUrl']))
     .pipe(rename(data['fdmg.fileName']))
     .pipe(gulp.dest(data['fdmg.destination']));
 }
@@ -62,7 +63,8 @@ gulp.task('config-devbox-generate', function() {
     'fdmg.previewUrl': 'https://dev.fd.nl',
     'fdmg.fileName': 'writer.json',
     'fdmg.destination': '../NPWriter/dist/server/config/',
-    'fdmg.baseDomainUrl': 'dev.fd.nl'
+    'fdmg.baseDomainUrl': 'dev.fd.nl',
+    'fdmg.instructionsManualUrl': 'http://static.fd.nl/webwriter-manual/fd-writer-manual.pdf'
   });
 });
 
@@ -82,7 +84,8 @@ gulp.task('local-config-fd-generate', function() {
     'fdmg.previewUrl': 'https://dev.fd.nl',
     'fdmg.fileName': 'writer-fd.json',
     'fdmg.destination': '../NPWriter/server/config/',
-    'fdmg.baseDomainUrl': 'dev.fd.nl'
+    'fdmg.baseDomainUrl': 'dev.fd.nl',
+    'fdmg.instructionsManualUrl': 'http://static.fd.nl/webwriter-manual/fd-writer-manual.pdf'
   });
 });
 
@@ -114,10 +117,11 @@ gulp.task('local-config-esb-generate', function() {
     'fdmg.services.token': 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiI5MDA0Nzc2NDc3ODQyMDQ1ODAwIiwic3ViIjoiU2VydmljZXMiLCJyb2xlIjoiVVNFUiJ9.vRx7zG0lTInK6BCnoy25FRXNO6kGP8bi03eB1xviWjkM4xq-fQ6EoBR88yZPC4CAfdjpcNcQ_pxlJbvcISaAOw',
     'hollandseHoogte.token': '63401c89-63e9-35f9-9daa-a55ef26c3042',
     'fdmg.apiGatewayBaseUrl': 'https://apigateway-dev.fdmg.nl',
+    'fdmg.fileName': 'writer-fd.json',
     'fdmg.previewUrl': 'https://preview-dev.esb.nu',
-    'fdmg.fileName': 'dev-writer-client.json',
     'fdmg.destination': '../NPWriter/server/config/',
-    'fdmg.baseDomainUrl': 'dev.esb.nu'
+    'fdmg.baseDomainUrl': 'dev.esb.nu',
+    'fdmg.instructionsManualUrl': 'http://static.fd.nl/webwriter-manual/fd-writer-manual.pdf'
   });
 });
 
@@ -159,7 +163,8 @@ function initializeConfig() {
     'infoMaker.aws.bucket': '',
     'infoMaker.aws.region': '',
     'fdmg.previewUrl': '',
-    'fdmg.baseDomainUrl': ''
+    'fdmg.baseDomainUrl': '',
+    'fdmg.instructionsManualUrl': ''
   };
 }
 

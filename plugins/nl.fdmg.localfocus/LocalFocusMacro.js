@@ -1,21 +1,22 @@
 export default {
-
   execute: function(params, context) {
-    const editorSession = context.editorSession;
-    const text = params.text;
+    let editorSession = context.editorSession
+    let text = params.text
+      // only react on 'break' (as medium does)
+    if (params.action === 'break' || params.action === 'paste') {
+      // only react of we find a HTTP URL
+      let match = /^\s*(https?:\/\/([^\s]+))\s*$/.exec(text)
+      if (!match) return
+        // take the url, select the node, and run the localfocus command
+      let url = match[1]
 
-    if (params.action !== 'break') {
-      return;
+      if (url.indexOf('localfocus') > 0) {
+        editorSession.executeCommand('localfocus', {
+          url: url,
+          isPaste: true
+        })
+        return true
+      }
     }
-
-    let match = /^https:\/\/localfocus2\.appspot\.com\/.*$/.exec(text);
-
-    if (match) {
-      editorSession.executeCommand('localfocus', {
-        url: text
-      });
-      return true;
-    }
-    return false;
   }
 }

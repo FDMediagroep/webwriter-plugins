@@ -5,7 +5,7 @@ export default {
   type: 'textframe',
   tagName: 'object',
 
-  matchElement: function (el) {
+  matchElement: function(el) {
     return el.is('object') && el.attr('type') === 'fdmg/textframe'
   },
 
@@ -13,12 +13,13 @@ export default {
   /**
    * Import textframe xml structure
    */
-  import: function (el, node, converter) { // jshint ignore:line
+  import: function(el, node, converter) { // jshint ignore:line
     const nodeId = el.attr('id');
     node.title = el.attr('title');
     node.dataType = el.attr('type');
+    node.alignment = '';
 
-      // Import textframe data
+    // Import textframe data
     const dataEl = el.find('data');
     if (dataEl) {
       dataEl.children.forEach(function(child) {
@@ -30,10 +31,14 @@ export default {
           node.subject = converter.annotatedText(child, [node.id, 'subject'])
         }
 
+        if (child.tagName === 'alignment') {
+          node.alignment = child.text()
+        }
+
       })
     }
 
-      // Handle image link in textframe
+    // Handle image link in textframe
     const linkEl = el.find('links > link');
     if (linkEl) {
       node.imageType = linkEl.attr('type');
@@ -42,7 +47,7 @@ export default {
         id: idGenerator(),
         type: 'npfile',
         imType: 'x-im/image',
-        parentNodeId:nodeId
+        parentNodeId: nodeId
       };
 
       if (linkEl.attr('uuid')) {
@@ -63,9 +68,8 @@ export default {
       if (linkDataEl) {
         // New format, image data is found correctly in link data element
         this.importImageLinkData(linkDataEl, node);
-      }
-      else {
-          // Old, depcrecated format, image data is found in textframe data
+      } else {
+        // Old, depcrecated format, image data is found in textframe data
         this.importImageLinkData(dataEl, node);
       }
 
@@ -100,11 +104,9 @@ export default {
 
           if (crop.tagName === 'width') {
             crops.width = crop.text()
-          }
-          else if (crop.tagName === 'height') {
+          } else if (crop.tagName === 'height') {
             crops.height = crop.text()
-          }
-          else {
+          } else {
             var x = crop.find('x'),
               y = crop.find('y'),
               width = crop.find('width'),
@@ -155,7 +157,7 @@ export default {
    * @param converter
    */
 
-  export: function (node, el, converter) {
+  export: function(node, el, converter) {
     const $$ = converter.$$;
 
     el.removeAttr('data-id');
@@ -164,7 +166,7 @@ export default {
       type: 'fdmg/textframe'
     });
 
-    if(node.title) {
+    if (node.title) {
       el.attr('title', converter.annotatedText([node.id, 'title']))
     }
 
@@ -181,6 +183,13 @@ export default {
         converter.annotatedText([node.id, 'subject'])
       ))
     }
+
+    if (node.alignment) {
+      data.append($$('alignment').append(
+        converter.annotatedText([node.id, 'alignment'])
+      ))
+    }
+
     el.append(data);
 
     let fileNode = node.document.get(node.imageFile);
@@ -195,17 +204,17 @@ export default {
       });
       const linkData = $$('data');
 
-        // Add image data and crops to data
-      if(node.width) {
+      // Add image data and crops to data
+      if (node.width) {
         linkData.append(
           $$('width').append(
             String(node.width)
           )
         )
       }
-      if(node.height) {
+      if (node.height) {
         linkData.append(
-        $$('height').append(
+          $$('height').append(
             String(node.height)
           )
         )
@@ -214,22 +223,24 @@ export default {
       if (node.crops) {
         let crops = $$('crops');
 
-            for (var x in node.crops.crops) { // eslint-disable-line
-              var origCrop = node.crops.crops[x];
+        for (var x in node.crops.crops) { // eslint-disable-line
+          var origCrop = node.crops.crops[x];
 
-              crops.append(
-                $$('crop').attr('name', origCrop.name).append([
-                  $$('x').append(origCrop.x),
-                  $$('y').append(origCrop.y),
-                  $$('width').append(origCrop.width),
-                  $$('height').append(origCrop.height)
-                ])
-              )
-            }
+          crops.append(
+            $$('crop').attr('name', origCrop.name).append([
+              $$('x').append(origCrop.x),
+              $$('y').append(origCrop.y),
+              $$('width').append(origCrop.width),
+              $$('height').append(origCrop.height)
+            ])
+          )
+        }
 
         linkData.append(crops);
         link.append(linkData)
       }
+
+
 
       el.append(
         $$('links').append(link)
