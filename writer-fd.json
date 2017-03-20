@@ -261,7 +261,7 @@
       "enabled": true,
       "mandatory": true,
       "data": {
-        "softcrop": false,
+        "softcrop": true,
         "bylinesearch": false,
         "byline": false,
         "imageinfo": false,
