@@ -36,7 +36,6 @@ class TagsComponent extends Component {
       .then(response => api.router.checkForOKStatus(response))
       .then(response => api.router.toJson(response))
       .then(response => response.map(item => {
-        console.log(item);
         return {
           rel: 'tag',
           name: item.tag, // Used by FD4

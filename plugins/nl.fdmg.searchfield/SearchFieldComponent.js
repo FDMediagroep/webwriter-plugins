@@ -254,7 +254,6 @@ class SearchFieldComponent extends Component {
         item.exists = true;
       }
     });
-    console.log(items)
     return items;
   }
 }
