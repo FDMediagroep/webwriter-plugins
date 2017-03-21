@@ -235,7 +235,6 @@ class SearchFieldComponent extends Component {
 
   getItemsThatNotExisting(items) {
     const existingItems = this.props.existingItems;
-
     if (this.props.onCreate && this.props.createAllowed) {
       items.push({
         label: this.refs.searchInput.val(),
@@ -255,7 +254,7 @@ class SearchFieldComponent extends Component {
         item.exists = true;
       }
     });
-
+    console.log(items)
     return items;
   }
 }

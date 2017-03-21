@@ -1,5 +1,5 @@
-import {Component} from 'substance';
-import {api} from 'writer';
+import { Component } from 'substance';
+import { api } from 'writer';
 import TagsList from './TagsListComponent';
 import SearchField from '../nl.fdmg.searchfield/SearchFieldComponent';
 import './scss/tags.scss';
@@ -26,9 +26,8 @@ class TagsComponent extends Component {
   searchTags(query) {
     const endpoint = api.getConfigValue(pluginId, 'searchEndpoint');
     const token = api.getConfigValue(pluginId, 'token');
-    const url = endpoint + query;
 
-    return fetch(url, {
+    return fetch(endpoint + query, {
       method: 'GET',
       headers: {
         'x-access-token': `Bearer ${token}`
@@ -37,9 +36,10 @@ class TagsComponent extends Component {
       .then(response => api.router.checkForOKStatus(response))
       .then(response => api.router.toJson(response))
       .then(response => response.map(item => {
+        console.log(item);
         return {
           rel: 'tag',
-          name: item.tag,  // Used by FD4
+          name: item.tag, // Used by FD4
           title: item.tag, // Used by api.newsItem
           label: item.tag, // Used by SearchField
           type: 'x-im/category',
@@ -97,6 +97,7 @@ class TagsComponent extends Component {
 
     return tags.map(tag => {
       tag['name'] = tag.title;
+      tag['label'] = tag.title;
       return tag;
     })
   }
