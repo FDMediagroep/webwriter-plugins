@@ -1,7 +1,13 @@
 .plugin {
     &.plugin-nl-fdmg-writerinfo {
         float: right;
-        .help-button {
+        hr {
+            margin-bottom: 13px;
+        }
+        a {
+            margin-bottom: 5px;
+        }
+        &:last-child {
             margin-bottom: 50px;
         }
     }
