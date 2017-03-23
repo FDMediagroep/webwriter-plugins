@@ -17,8 +17,8 @@ build_dist:
     - yarn install
     - echo Running build for production
     - npm run build
-    - gulp --fdmg_services_config_url=http://spring-config-fd.fdmg.org:8088/webwriter --ci_commit_sha=${CI_COMMIT_SHA} --cachebust=${CI_BUILD_ID} generate-config-fd
-    - gulp --fdmg_services_config_url=http://spring-config-esb.fdmg.org:8088/webwriter --ci_commit_sha=${CI_COMMIT_SHA} --cachebust=${CI_BUILD_ID} generate-config-esb
+    - gulp --fdmg_services_config_url=http://spring-config-fd.fdmg.org:8088/webwriter --ci_commit_sha=${CI_COMMIT_SHA} generate-config-fd
+    - gulp --fdmg_services_config_url=http://spring-config-esb.fdmg.org:8088/webwriter --ci_commit_sha=${CI_COMMIT_SHA} generate-config-esb
   artifacts:
     name: "${CI_BUILD_ID}_${CI_PROJECT_NAME}_${CI_BUILD_REF_NAME}"
     expire_in: 1d
@@ -31,7 +31,7 @@ deploy_dev_fd:
   tags:
       - FDMG
   script:
-    - gulp --fdmg_services_config_url=http://spring-config-fd.fdmg.org:8088/webwriter --ci_commit_sha=${CI_COMMIT_SHA} --cachebust=${CI_BUILD_ID} dev-fd-deploy-webwriter-config
+    - gulp --fdmg_services_config_url=http://spring-config-fd.fdmg.org:8088/webwriter dev-fd-deploy-webwriter-config
   environment: webwriter-dev-fd
   only:
     - develop
@@ -41,7 +41,7 @@ deploy_dev_esb:
   tags:
       - FDMG
   script:
-    - gulp --fdmg_services_config_url=http://spring-config-esb.fdmg.org:8088/webwriter --ci_commit_sha=${CI_COMMIT_SHA} --cachebust=${CI_BUILD_ID} dev-esb-deploy-webwriter-config
+    - gulp --fdmg_services_config_url=http://spring-config-esb.fdmg.org:8088/webwriter dev-esb-deploy-webwriter-config
   environment: webwriter-dev-esb
   only:
     - develop
@@ -51,7 +51,7 @@ deploy_acc_fd:
   tags:
       - FDMG
   script:
-    - gulp --fdmg_services_config_url=http://spring-config-fd.fdmg.org:8088/webwriter --ci_commit_sha=${CI_COMMIT_SHA} --cachebust=${CI_BUILD_ID} acc-fd-deploy-webwriter-config
+    - gulp --fdmg_services_config_url=http://spring-config-fd.fdmg.org:8088/webwriter acc-fd-deploy-webwriter-config
   environment: webwriter-acc-fd
   only:
     - acceptance
@@ -61,7 +61,7 @@ deploy_acc_esb:
   tags:
       - FDMG
   script:
-    - gulp --fdmg_services_config_url=http://spring-config-esb.fdmg.org:8088/webwriter --ci_commit_sha=${CI_COMMIT_SHA} --cachebust=${CI_BUILD_ID} acc-esb-deploy-webwriter-config
+    - gulp --fdmg_services_config_url=http://spring-config-esb.fdmg.org:8088/webwriter acc-esb-deploy-webwriter-config
   environment: webwriter-acc-esb
   only:
     - acceptance
@@ -71,7 +71,7 @@ deploy_prod_fd:
   tags:
       - FDMG
   script:
-    - gulp --fdmg_services_config_url=http://spring-config-fd.fdmg.org:8088/webwriter --ci_commit_sha=${CI_COMMIT_SHA} --cachebust=${CI_BUILD_ID} prod-fd-deploy-webwriter-config
+    - gulp --fdmg_services_config_url=http://spring-config-fd.fdmg.org:8088/webwriter prod-fd-deploy-webwriter-config
   environment: webwriter-fd
   only:
     - production
@@ -81,7 +81,7 @@ deploy_prod_esb:
   tags:
       - FDMG
   script:
-    - gulp --fdmg_services_config_url=http://spring-config-esb.fdmg.org:8088/webwriter --ci_commit_sha=${CI_COMMIT_SHA} --cachebust=${CI_BUILD_ID} prod-esb-deploy-webwriter-config
+    - gulp --fdmg_services_config_url=http://spring-config-esb.fdmg.org:8088/webwriter prod-esb-deploy-webwriter-config
   environment: webwriter-esb
   only:
     - production
