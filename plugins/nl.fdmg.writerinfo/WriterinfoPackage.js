@@ -10,7 +10,7 @@ export default {
       'nl': 'Instructies/Help'
     });
     config.addLabel('writer-info-hotline-button', {
-      'nl': 'Hotline: '
+      'nl': 'Noodnummer: '
     });
   }
 }
