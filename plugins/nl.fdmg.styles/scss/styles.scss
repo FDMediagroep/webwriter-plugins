@@ -420,6 +420,8 @@ div {
             padding: 5px;
             color: #888;
             width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
             i {
                 font-size: 1.1em;
                 margin-left: 5px;

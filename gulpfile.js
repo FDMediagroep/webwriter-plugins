@@ -45,6 +45,8 @@ function writeConfig(data) {
     .pipe(replace(/FDMG_BASE_DOMAIN_URL/g, data['fdmg.baseDomainUrl']))
     .pipe(replace(/FDMG_INSTRUCTIONS_MANUAL_URL/g, data['fdmg.instructionsManualUrl']))
     .pipe(replace(/CACHEBUSTER/g, gutil.env.ci_commit_sha || 'SNAPSHOT'))
+    .pipe(replace(/FDMG_EMERGENCY_PHONE_NUMBER/g, data['fdmg.emergencyPhoneNumber']))
+    .pipe(replace(/FDMG_GROUP_MAIL_BOX/g, data['fdmg.groupMailBox']))
     .pipe(rename(data['fdmg.fileName']))
     .pipe(gulp.dest(data['fdmg.destination']));
 }
@@ -65,7 +67,9 @@ gulp.task('config-devbox-generate', function() {
     'fdmg.fileName': 'writer.json',
     'fdmg.destination': '../NPWriter/dist/server/config/',
     'fdmg.baseDomainUrl': 'dev.fd.nl',
-    'fdmg.instructionsManualUrl': 'http://static.fd.nl/webwriter-manual/fd-writer-manual.pdf'
+    'fdmg.instructionsManualUrl': 'http://static.fd.nl/webwriter-manual/fd-writer-manual.pdf',
+    'fdmg.emergencyPhoneNumber' : '+31 020 592 8553',
+    'fdmg.groupMailBox' : 'webwriter@fdmediagroep.nl'
   });
 });
 
@@ -86,7 +90,9 @@ gulp.task('local-config-fd-generate', function() {
     'fdmg.fileName': 'writer-fd.json',
     'fdmg.destination': '../NPWriter/server/config/',
     'fdmg.baseDomainUrl': 'dev.fd.nl',
-    'fdmg.instructionsManualUrl': 'http://static.fd.nl/webwriter-manual/fd-writer-manual.pdf'
+    'fdmg.instructionsManualUrl': 'http://static.fd.nl/webwriter-manual/fd-writer-manual.pdf',
+    'fdmg.emergencyPhoneNumber' : '+31 020 592 8553',
+    'fdmg.groupMailBox' : 'webwriter@fdmediagroep.nl'
   });
 });
 
@@ -122,7 +128,9 @@ gulp.task('local-config-esb-generate', function() {
     'fdmg.previewUrl': 'https://preview-dev.esb.nu',
     'fdmg.destination': '../NPWriter/server/config/',
     'fdmg.baseDomainUrl': 'dev.esb.nu',
-    'fdmg.instructionsManualUrl': 'http://static.fd.nl/webwriter-manual/fd-writer-manual.pdf'
+    'fdmg.instructionsManualUrl': 'http://static.fd.nl/webwriter-manual/fd-writer-manual.pdf',
+    'fdmg.emergencyPhoneNumber' : '+31 020 592 8553',
+    'fdmg.groupMailBox' : 'webwriter@fdmediagroep.nl'
   });
 });
 
@@ -165,7 +173,9 @@ function initializeConfig() {
     'infoMaker.aws.region': '',
     'fdmg.previewUrl': '',
     'fdmg.baseDomainUrl': '',
-    'fdmg.instructionsManualUrl': ''
+    'fdmg.instructionsManualUrl': '',
+    'fdmg.emergencyPhoneNumber' : '',
+    'fdmg.groupMailBox' : ''
   };
 }
 

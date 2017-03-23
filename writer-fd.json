@@ -836,7 +836,10 @@
       "enabled": true,
       "mandatory": true,
       "data": {
-        "instructionsManualUrl": "FDMG_INSTRUCTIONS_MANUAL_URL"
+        "instructionsManualUrl": "FDMG_INSTRUCTIONS_MANUAL_URL",
+        "showContactInformation" : true,
+        "hotlineNumber" : "FDMG_EMERGENCY_PHONE_NUMBER",
+        "groupMailbox" : "FDMG_GROUP_MAIL_BOX"
       }
     },
     {
