@@ -44,7 +44,7 @@ function writeConfig(data) {
     .pipe(replace(/FDMG_PREVIEW_URL/g, data['fdmg.previewUrl']))
     .pipe(replace(/FDMG_BASE_DOMAIN_URL/g, data['fdmg.baseDomainUrl']))
     .pipe(replace(/FDMG_INSTRUCTIONS_MANUAL_URL/g, data['fdmg.instructionsManualUrl']))
-    .pipe(replace(/CACHEBUSTER/g, gutil.env.ci_commit_sha || 'SNAPSHOT'))
+    .pipe(replace(/CACHEBUSTER/g, gutil.env.cachebust || 'SNAPSHOT'))
     .pipe(rename(data['fdmg.fileName']))
     .pipe(gulp.dest(data['fdmg.destination']));
 }
