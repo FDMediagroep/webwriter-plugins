@@ -18,8 +18,8 @@
     {
       "id": "nl.fdmg.styles",
       "name": "styles",
-      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
-      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
       "enabled": true,
       "mandatory": true
     },
@@ -132,8 +132,8 @@
     {
       "id": "nl.fdmg.imagesearch",
       "name": "imagesearch",
-      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
-      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
       "enabled": true,
       "mandatory": true,
       "data": {
@@ -147,8 +147,8 @@
     {
       "id": "nl.fdmg.stockticker",
       "name": "stockticker",
-      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
-      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
       "enabled": true,
       "mandatory": true,
       "data": {
@@ -158,8 +158,8 @@
     {
       "id": "nl.fdmg.textframe",
       "name": "textframe",
-      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
-      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
       "enabled": true,
       "mandatory": true,
       "data": {
@@ -187,8 +187,8 @@
     {
       "id": "nl.fdmg.quote",
       "name": "quote",
-      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
-      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
       "enabled": true,
       "mandatory": true,
       "data": {
@@ -201,8 +201,8 @@
     {
       "id": "nl.fdmg.numberframe",
       "name": "numberframe",
-      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
-      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
       "enabled": true,
       "mandatory": true,
       "data": {
@@ -212,8 +212,8 @@
     {
       "id": "nl.fdmg.stackframe",
       "name": "stackframe",
-      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
-      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
       "enabled": true,
       "mandatory": true,
       "data": {
@@ -226,8 +226,8 @@
     {
       "id": "nl.fdmg.relatedlink",
       "name": "relatedlink",
-      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
-      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
       "enabled": true,
       "mandatory": true,
       "data": {
@@ -241,7 +241,7 @@
     {
       "id": "nl.fdmg.localfocus",
       "name": "localfocus",
-      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
       "enabled": true,
       "mandatory": true
     },
@@ -256,8 +256,8 @@
     {
       "id": "se.infomaker.ximteaser",
       "name": "ximteaser",
-      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
-      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
       "enabled": true,
       "mandatory": true,
       "data": {
@@ -283,8 +283,8 @@
     {
       "id": "nl.fdmg.workflowstate",
       "name": "workflowstate",
-      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
-      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
       "enabled": true,
       "mandatory": true,
       "data": {
@@ -299,31 +299,31 @@
     {
       "id": "nl.fdmg.publishflow",
       "name": "publishflow",
-      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
-      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
       "enabled": true,
       "mandatory": true
     },
     {
       "id": "nl.fdmg.sidebartabs",
       "name": "sidebartabs",
-      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
       "enabled": true,
       "mandatory": true
     },
     {
       "id": "nl.fdmg.textcountselector",
       "name": "textcountselector",
-      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
-      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
       "enabled": true,
       "mandatory": true
     },
     {
       "id": "nl.fdmg.tags",
       "name": "tags",
-      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
-      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
       "enabled": true,
       "mandatory": true,
       "data": {
@@ -334,8 +334,8 @@
     {
       "id": "nl.fdmg.textanalyzer",
       "name": "textanalyzer",
-      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
-      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
       "enabled": true,
       "mandatory": true,
       "data": {
@@ -386,8 +386,8 @@
     {
       "id": "nl.fdmg.author",
       "name": "author",
-      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
-      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
       "enabled": true,
       "mandatory": true,
       "data": {
@@ -398,71 +398,71 @@
     {
       "id": "nl.fdmg.donotindex",
       "name": "donotindex",
-      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
       "enabled": true,
       "mandatory": true
     },
     {
       "id": "nl.fdmg.fdpersonal",
       "name": "fdpersonal",
-      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
       "enabled": true,
       "mandatory": true
     },
     {
       "id": "nl.fdmg.showrelatedarticles",
       "name": "showrelatedarticles",
-      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
       "enabled": true,
       "mandatory": true
     },
     {
       "id": "nl.fdmg.paywall",
       "name": "paywall",
-      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
       "enabled": true,
       "mandatory": true
     },
     {
       "id": "nl.fdmg.topstory",
       "name": "topstory",
-      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
       "enabled": true,
       "mandatory": true
     },
     {
       "id": "nl.fdmg.comments",
       "name": "comments",
-      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
       "enabled": true,
       "mandatory": true
     },
     {
       "id": "nl.fdmg.breakingarticle",
       "name": "breakingarticle",
-      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
       "enabled": true,
       "mandatory": true
     },
     {
       "id": "nl.fdmg.shortarticle",
       "name": "shortarticle",
-      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
       "enabled": true,
       "mandatory": true
     },
     {
       "id": "nl.fdmg.fullwidth",
       "name": "fullwidth",
-      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
       "enabled": true,
       "mandatory": false
     },
     {
       "id": "nl.fdmg.relatedarticles",
       "name": "relatedarticles",
-      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
-      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
       "enabled": true,
       "mandatory": true,
       "data": {
@@ -472,7 +472,7 @@
     {
       "id": "nl.fdmg.section",
       "name": "section",
-      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
       "enabled": true,
       "mandatory": true,
       "data": {
@@ -514,8 +514,8 @@
     {
       "id": "nl.fdmg.genre",
       "name": "genre",
-      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
-      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
       "enabled": true,
       "mandatory": true,
       "data": {
@@ -577,7 +577,7 @@
     {
       "id": "nl.fdmg.rubric",
       "name": "rubric",
-      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
       "enabled": true,
       "mandatory": true,
       "data": {
@@ -683,8 +683,8 @@
     {
       "id": "nl.fdmg.articletype",
       "name": "articletype",
-      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
-      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
       "enabled": true,
       "mandatory": true,
       "data": {
@@ -707,8 +707,8 @@
     {
       "id": "nl.fdmg.redirectlink",
       "name": "redirectlink",
-      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
-      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
       "enabled": true,
       "mandatory": true,
       "data": {
@@ -718,7 +718,7 @@
     {
       "id": "nl.fdmg.advertorial",
       "name": "advertorial",
-      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
       "enabled": true,
       "mandatory": true,
       "data": {
@@ -730,7 +730,7 @@
     {
       "id": "nl.fdmg.servicepage",
       "name": "servicepage",
-      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
       "enabled": true,
       "mandatory": true,
       "data": {
@@ -742,7 +742,7 @@
     {
       "id": "nl.fdmg.epic",
       "name": "epic",
-      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
       "enabled": true,
       "mandatory": true,
       "data": {
@@ -753,24 +753,24 @@
     {
       "id": "nl.fdmg.planneddate",
       "name": "planneddate",
-      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
-      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
       "enabled": true,
       "mandatory": true
     },
     {
       "id": "nl.fdmg.htmlembed",
       "name": "htmlembed",
-      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
-      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
       "enabled": true,
       "mandatory": true
     },
     {
       "id": "nl.fdmg.heartbeat",
       "name": "heartbeat",
-      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
-      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
       "enabled": true,
       "mandatory": true,
       "data": {
@@ -792,16 +792,16 @@
     {
       "id": "nl.fdmg.workinstructions",
       "name": "workinstructions",
-      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
-      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
       "enabled": true,
       "mandatory": true
     },
     {
       "id": "nl.fdmg.preview",
       "name": "preview",
-      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
-      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
       "enabled": true,
       "mandatory": true,
       "data": {
@@ -811,28 +811,28 @@
     {
       "id": "nl.fdmg.ximimagestandin",
       "name": "ximimagestandin",
-      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
       "enabled": true,
       "mandatory": true
     },
     {
       "id": "nl.fdmg.headlinestandin",
       "name": "headlinestandin",
-      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
       "enabled": true,
       "mandatory": true
     },
     {
       "id": "nl.fdmg.preamblestandin",
       "name": "preamblestandin",
-      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
       "enabled": true,
       "mandatory": true
     },
     {
       "id": "nl.fdmg.writerinfo",
       "name": "writerinfo",
-      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
       "enabled": true,
       "mandatory": true,
       "data": {
@@ -842,7 +842,7 @@
     {
       "id": "nl.fdmg.translations",
       "name": "translations",
-      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
       "enabled": true,
       "mandatory": true
     }
