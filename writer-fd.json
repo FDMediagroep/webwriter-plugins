@@ -838,8 +838,8 @@
       "data": {
         "instructionsManualUrl": "FDMG_INSTRUCTIONS_MANUAL_URL",
         "showContactInformation" : true,
-        "hotlineNumber" : "+31 00 0000 0000",
-        "groupMailbox" : "webwriter@fdmediagroep.nl"
+        "hotlineNumber" : "FDMG_EMERGENCY_PHONE_NUMBER",
+        "groupMailbox" : "FDMG_GROUP_MAIL_BOX"
       }
     },
     {
