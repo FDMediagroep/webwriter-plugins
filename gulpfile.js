@@ -31,7 +31,7 @@ function getConfig(url, cb) {
 }
 
 function writeConfig(data) {
-  console.log('Written ' + data['fdmg.fileName'] + ' to: ' + data['fdmg.destination'], gutil.env.ci_commit_sha);
+  console.log('Written ' + data['fdmg.fileName'] + ' to: ' + data['fdmg.destination']);
   return gulp.src([data['fdmg.source']])
     .pipe(replace(/INFOMAKER_PLUGINS_BASE_URL/g, data['infoMaker.plugins.base']))
     .pipe(replace(/WEBWRITER_PLUGINS_BASE_URL/g, data['fdmg.webwriter.plugins.base']))
