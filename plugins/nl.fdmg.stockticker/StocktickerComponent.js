@@ -16,14 +16,16 @@ export default class StocktickerComponent extends AnnotationComponent {
 
     this.context.editorSession.onRender('document', this._onDocumentChange, this, {path: [this.props.node.id]});
 
-    this.context.api.document.triggerFetchResourceNode(this.props.node);
+    // Use this for when we want to dynamically get the latest stock quote data when loadling the document
+    // this.context.api.document.triggerFetchResourceNode(this.props.node);
   }
 
   render($$) {
     const el = $$('span').addClass('sc-stockticker');
-
     const node = this.props.node;
-    if (node.symbol) {
+
+    if (node.name) {
+      const difference = node.difference.replace(',', '.');
       el
         .attr({
           'data-type': this.props.node.dataType,
@@ -31,9 +33,9 @@ export default class StocktickerComponent extends AnnotationComponent {
           'data-exchange': this.props.node.exchange
         })
         .append(
-          node.symbol,
+          node.name,
           $$('span')
-            .addClass(parseFloat(node.difference) >= 0 ? 'up' : 'down')
+            .addClass(parseFloat(difference) >= 0 ? 'up' : 'down')
             .append(`${node.currency} ${node.price} (${node.difference})`)
         );
     } else {

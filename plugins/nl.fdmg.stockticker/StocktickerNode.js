@@ -3,41 +3,42 @@ import {api} from 'writer';
 
 class StocktickerNode extends InlineNode {
 
-  fetchPayload(context, callback) {
+  // Use this for when we want to dynamically get the latest stock quote data when loadling the document
 
-    const endpoint = api.getConfigValue('nl.fdmg.stockticker', 'endpoint');
-    const url = endpoint + this.isin;
+  // fetchPayload(context, callback) {
 
-    return api.router.get('/api/resourceproxy', {
-      url: url
-    })
-      .then(response => response.text())
-      .then(xmlString => {
-        const parser = new DOMParser();
-        const xml = parser.parseFromString(xmlString, 'text/xml');
-        const quotes = Array.from(xml.querySelectorAll('quote'));
+  //   const endpoint = api.getConfigValue('nl.fdmg.stockticker', 'endpoint');
+  //   const url = endpoint + this.isin;
 
-        const quote = quotes.filter(q => q.querySelector('exchange').textContent === this.exchange).pop();
+  //   return api.router.get('/api/resourceproxy', {
+  //     url: url
+  //   })
+  //     .then(response => response.text())
+  //     .then(xmlString => {
+  //       const parser = new DOMParser();
+  //       const xml = parser.parseFromString(xmlString, 'text/xml');
+  //       const quotes = Array.from(xml.querySelectorAll('quote'));
 
-        callback(null, {
-          name: quote.querySelector('name').textContent,
-          symbol: quote.querySelector('ticker').textContent,
-          isin: quote.querySelector('isin').textContent,
-          exchange: quote.querySelector('exchange').textContent,
-          currency: quote.querySelector('currency').textContent,
-          price: quote.querySelector('price').textContent,
-          difference: quote.querySelector('difference').textContent
-        })
-      })
-      .catch(err => {
-        callback(err)
-      })
-  }
+  //       const quote = quotes.filter(q => q.querySelector('exchange').textContent === this.exchange).pop();
+  //       console.log('fetchpayload', quote);
+  //       callback(null, {
+  //         name: quote.querySelector('name').textContent,
+  //         symbol: quote.querySelector('ticker').textContent,
+  //         isin: quote.querySelector('isin').textContent,
+  //         exchange: quote.querySelector('exchange').textContent,
+  //         currency: quote.querySelector('currency').textContent,
+  //         price: quote.querySelector('price').textContent,
+  //         difference: quote.querySelector('difference').textContent
+  //       })
+  //     })
+  //     .catch(err => {
+  //       callback(err)
+  //     })
+  // }
 
   search(query) {
     const endpoint = api.getConfigValue('nl.fdmg.stockticker', 'endpoint');
     const url = endpoint + query;
-
     return api.router.get('/api/resourceproxy', {
       url: url
     })
@@ -46,7 +47,7 @@ class StocktickerNode extends InlineNode {
         const parser = new DOMParser();
         const xml = parser.parseFromString(xmlString, 'text/xml');
         const quotes = xml.querySelectorAll('quote');
-
+        
         return Array.prototype.map.call(quotes, quote => {
           return {
             id: `${quote.querySelector('exchange').textContent}${quote.querySelector('isin').textContent}`,
@@ -65,7 +66,7 @@ class StocktickerNode extends InlineNode {
   }
 }
 
-StocktickerNode.isResource = true;
+StocktickerNode.isResource = false;
 
 StocktickerNode.define({
   type: 'stockticker',
