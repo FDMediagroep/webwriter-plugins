@@ -242,8 +242,8 @@
       "id": "nl.fdmg.localfocus",
       "name": "localfocus",
       "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
-      "enabled": true,
-      "mandatory": true
+      "enabled": false,
+      "mandatory": false
     },
     {
       "id": "se.infomaker.ximpdf",

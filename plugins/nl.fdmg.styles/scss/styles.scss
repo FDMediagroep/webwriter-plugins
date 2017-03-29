@@ -363,6 +363,13 @@ div {
 // Do not display the open external link button
 .sc-edit-link-tool {
     .edit-link-btn {
+        .fa {
+            &.fa-times {
+                &:before {
+                    content: '\f1f8';
+                }
+            }
+        }
         &.visit {
             display: none;
         }

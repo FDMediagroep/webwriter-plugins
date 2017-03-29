@@ -4,16 +4,15 @@ import {api} from 'writer';
 class StocktickerTool extends Tool {
 
   render($$) {
-    return $$('button')
+    const el = $$('button')
       .addClass('se-tool')
       .attr('title', this.getLabel('Insert Stockticker'))
       .append($$('i').addClass('fa fa-line-chart'))
-      .on('click', this.insertStockticker);
+      .on('click',() => api.editorSession.executeCommand('stockticker'));
+
+    return el;
   }
 
-  insertStockticker() {
-    api.editorSession.executeCommand('stockticker');
-  }
 }
 
 export default StocktickerTool;
