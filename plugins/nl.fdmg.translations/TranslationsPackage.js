@@ -149,7 +149,7 @@ export default {
     })
     config.addLabel('history-popover-description', {
       en: 'Change history for this article.',
-      'nl': 'Versiegeschiedenis voor dit artikel'
+      'nl': 'Opgeslagen artikelen'
     })
     config.addLabel('history-remove-all-button', {
       'nl': 'Versiegeschiedenis verwijderen'
