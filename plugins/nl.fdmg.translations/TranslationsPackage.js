@@ -152,13 +152,13 @@ export default {
       'nl': 'Opgeslagen artikelen'
     })
     config.addLabel('history-remove-all-button', {
-      'nl': 'Versiegeschiedenis verwijderen'
+      'nl': 'Artikelgeschiedenis verwijderen'
     })
     config.addLabel('Identical with the current version', {
       'nl': 'Identiek met huidige versie'
     })
     config.addLabel('history-remove-all-confirm', {
-      'nl': 'Ok, verwijder alle versiegeschiedenis'
+      'nl': 'Ok, verwijder alle artikelgeschiedenis'
     })
     config.addLabel('error-page-Error', {
       'nl': 'Oops, er is iets misgegaan'
