@@ -24,7 +24,7 @@ export default {
 
     config.addIcon('ximteaser', { 'fontawesome': ' fa-newspaper-o' });
     config.addLabel('Teaser', {
-      'nl': 'Intro voor de homepage'
+      'nl': 'Ankeiler op home'
     });
 
     config.addLabel('teaser-add-image', {
@@ -37,19 +37,19 @@ export default {
     })
 
     config.addLabel('Missing teaser title', {
-      'nl': 'Intro voor de homepage titel ontbreekt'
+      'nl': 'Ankeiler op home titel ontbreekt'
     });
 
     config.addLabel('Missing teaser body', {
-      'nl': 'Intro voor de homepage tekst ontbreekt (\u00B6)'
+      'nl': 'Ankeiler op home tekst ontbreekt (\u00B6)'
     });
 
     config.addLabel('Missing teaser', {
-      'nl': 'Intro voor de homepage ontbreekt'
+      'nl': 'Ankeiler op home ontbreekt'
     });
 
     config.addLabel('More than one teaser', {
-      'nl': "Meerdere Intro's voor de homepage"
+      'nl': "Meerdere 'Ankeiler op home' gevonden"
     });
 
     if (platform.isMac) {

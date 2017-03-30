@@ -8,7 +8,7 @@ export default {
   name: 'translations',
   configure: function(config) {
     config.addLabel('Insert Teaser', {
-      'nl': 'Intro voor de homepage invoegen'
+      'nl': 'Ankeiler op home invoegen'
     });
     config.addLabel('Insert PDF document', {
       'nl': 'PDF invoegen'
@@ -53,10 +53,10 @@ export default {
       'nl': 'Alinea'
     });
     config.addLabel('A teaser already exist', {
-      'nl': 'Er bestaat al een intro voor de homepage'
+      'nl': 'Er bestaat al een Ankeiler op home'
     });
     config.addLabel('There is already a teaser in this document', {
-      'nl': 'Er bestaat al een intro voor de homepage in dit document'
+      'nl': 'Er bestaat al een Ankeiler op home in dit document'
     });
     config.addLabel('Remove', {
       'nl': 'Verwijderen'
