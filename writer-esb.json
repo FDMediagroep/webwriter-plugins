@@ -721,12 +721,14 @@
       "id": "nl.fdmg.writerinfo",
       "name": "writerinfo",
       "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
-      "enabled": false,
+      "enabled": true,
       "mandatory": false,
       "data": {
+        "showInstructionsManual" : false,
         "instructionsManualUrl": "FDMG_INSTRUCTIONS_MANUAL_URL",
-        "showContactInformation" : true,
+        "showHotlineNumber" : true,
         "hotlineNumber" : "FDMG_EMERGENCY_PHONE_NUMBER",
+        "showGroupMailBox" : true,
         "groupMailbox" : "FDMG_GROUP_MAIL_BOX"
       }
     },
