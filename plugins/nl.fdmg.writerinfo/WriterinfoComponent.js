@@ -7,7 +7,10 @@ export default class WriterinfoComponent extends Component {
     const documentUrl = api.getConfigValue("nl.fdmg.writerinfo", 'instructionsManualUrl');
     const hotlineNumber = api.getConfigValue("nl.fdmg.writerinfo", 'hotlineNumber');
     const mailAddress = api.getConfigValue("nl.fdmg.writerinfo", 'groupMailbox');
-    const showContactInformation = api.getConfigValue("nl.fdmg.writerinfo", 'showContactInformation');
+
+    const showInstructionsManual = api.getConfigValue("nl.fdmg.writerinfo", 'showInstructionsManual');
+    const showHotlineNumber = api.getConfigValue("nl.fdmg.writerinfo", 'showHotlineNumber');
+    const showGroupMailBox = api.getConfigValue("nl.fdmg.writerinfo", 'showGroupMailBox');
 
     const el = $$('div')
       .addClass('fdmg-sidebar writer-info');
@@ -21,6 +24,10 @@ export default class WriterinfoComponent extends Component {
           this.getLabel('writer-info-help-button'),
           $$(FontAwesomeIcon, { icon: 'fa-question-circle' })
         );
+      
+    if (showInstructionsManual === true) {
+      el.append(helpButton, $$('hr'));
+    }
 
     const hotlineButton = $$('a')
         .attr({
@@ -32,6 +39,12 @@ export default class WriterinfoComponent extends Component {
           $$(FontAwesomeIcon, { icon: 'fa-phone-square' })
         );
 
+    if (showHotlineNumber === true && showInstructionsManual === false) {
+      el.append($$('hr'), hotlineButton);
+    } else if (showHotlineNumber === true) {
+      el.append(hotlineButton);
+    }
+
     const mailButton = $$('a')
         .attr({
           'href': 'mailto:' + mailAddress
@@ -41,11 +54,11 @@ export default class WriterinfoComponent extends Component {
           $$(FontAwesomeIcon, { icon: 'fa-envelope-square' })
         );
       
-    if (showContactInformation === true) {
-      return el.append( helpButton, $$('hr'), hotlineButton, mailButton );
-    } else {
-      return el.append( helpButton );
+    if (showGroupMailBox === true) {
+      el.append(mailButton);
     }
+
+    return el;
     
   }
 }
