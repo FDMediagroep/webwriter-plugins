@@ -13,6 +13,7 @@ export default {
     node.price = el.attr('data-price');
     node.difference = el.attr('data-difference');
     node.name = el.attr('data-name');
+    node.currency = el.attr('data-currency');
   },
 
   export: (node, el) => {
@@ -22,7 +23,8 @@ export default {
       'data-exchange': node.exchange,
       'data-price': node.price,
       'data-difference': node.difference,
-      'data-name': node.name
+      'data-name': node.name,
+      'data-currency': node.currency
     });
   }
 }

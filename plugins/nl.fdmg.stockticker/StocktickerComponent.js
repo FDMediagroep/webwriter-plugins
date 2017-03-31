@@ -26,6 +26,7 @@ export default class StocktickerComponent extends AnnotationComponent {
 
     if (node.name) {
       const difference = node.difference.replace(',', '.');
+      const lineChartIcon = $$(FontAwesomeIcon, {icon: 'fa-line-chart'});
       el
         .attr({
           'data-type': this.props.node.dataType,
@@ -33,6 +34,7 @@ export default class StocktickerComponent extends AnnotationComponent {
           'data-exchange': this.props.node.exchange
         })
         .append(
+          lineChartIcon,
           node.name,
           $$('span')
             .addClass(parseFloat(difference) >= 0 ? 'up' : 'down')
