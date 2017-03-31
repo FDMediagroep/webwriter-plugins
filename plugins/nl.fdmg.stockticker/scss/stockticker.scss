@@ -80,6 +80,7 @@
             &.down {
                 color: #d9534f;
             }
+            
         }
         .description {
             font-size: 0.8rem;
@@ -112,6 +113,9 @@
     }
     .down {
         color: #d9534f;
+    }
+    .neutral {
+        color: #a9a9a9;
     }
     &.sm-highlighted {
     }

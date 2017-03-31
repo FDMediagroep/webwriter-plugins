@@ -20,13 +20,29 @@ export default class StocktickerComponent extends AnnotationComponent {
     // this.context.api.document.triggerFetchResourceNode(this.props.node);
   }
 
+  getDifferenceClass(difference) {
+
+    const differenceValue = difference.replace(',', '.');
+    let differenceClass = parseFloat(differenceValue);
+
+    if (differenceClass >= 0) {
+      return 'up';
+    } else if (differenceClass < 0) {
+      return 'down'
+    } 
+
+    return 'neutral';
+
+  }
+
   render($$) {
     const el = $$('span').addClass('sc-stockticker');
     const node = this.props.node;
 
     if (node.name) {
-      const difference = node.difference.replace(',', '.');
       const lineChartIcon = $$(FontAwesomeIcon, {icon: 'fa-line-chart'});
+      const differenceClass = this.getDifferenceClass(this.props.node.difference)
+
       el
         .attr({
           'data-type': this.props.node.dataType,
@@ -37,7 +53,7 @@ export default class StocktickerComponent extends AnnotationComponent {
           lineChartIcon,
           node.name,
           $$('span')
-            .addClass(parseFloat(difference) >= 0 ? 'up' : 'down')
+            .addClass(differenceClass)
             .append(`${node.currency} ${node.price} (${node.difference})`)
         );
     } else {
