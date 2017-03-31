@@ -363,6 +363,13 @@ div {
 // Do not display the open external link button
 .sc-edit-link-tool {
     .edit-link-btn {
+        .fa {
+            &.fa-times {
+                &:before {
+                    content: '\f1f8';
+                }
+            }
+        }
         &.visit {
             display: none;
         }
@@ -420,6 +427,8 @@ div {
             padding: 5px;
             color: #888;
             width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
             i {
                 font-size: 1.1em;
                 margin-left: 5px;
@@ -427,6 +436,21 @@ div {
             }
             &:hover {
                 color: #222;
+            }
+        }
+    }
+}
+
+// Tab styling override
+
+.sc-app {
+    .se-context-section {
+        .se-tabs {
+            .se-tab {
+                border-top: 1px solid #fff;
+                &.sm-active {
+                    border-top: 1px solid #ddd;
+                }
             }
         }
     }

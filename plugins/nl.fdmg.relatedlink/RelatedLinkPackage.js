@@ -24,6 +24,6 @@ export default {
 
     config.addLabel('No relatedlink prefix', { 'nl': 'Een of meerdere Linkblokken heeft geen voorvoegsel' });
     config.addLabel('No relatedlink leadtext', { 'nl': 'Een of meerdere Linkblokken heeft geen tekst' });
-    config.addLabel('No relatedlink relatedurl', { 'nl': 'Linkblok gerelateerd artikel url niet valide' });
+    config.addLabel('No relatedlink relatedurl', { 'nl': 'Linkblok artikel url niet valide' });
   }
 }

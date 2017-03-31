@@ -8,7 +8,7 @@ export default {
   name: 'translations',
   configure: function(config) {
     config.addLabel('Insert Teaser', {
-      'nl': 'Intro voor de homepage invoegen'
+      'nl': 'Ankeiler op home invoegen'
     });
     config.addLabel('Insert PDF document', {
       'nl': 'PDF invoegen'
@@ -53,10 +53,10 @@ export default {
       'nl': 'Alinea'
     });
     config.addLabel('A teaser already exist', {
-      'nl': 'Er bestaat al een intro voor de homepage'
+      'nl': 'Er bestaat al een Ankeiler op home'
     });
     config.addLabel('There is already a teaser in this document', {
-      'nl': 'Er bestaat al een intro voor de homepage in dit document'
+      'nl': 'Er bestaat al een Ankeiler op home in dit document'
     });
     config.addLabel('Remove', {
       'nl': 'Verwijderen'
@@ -159,7 +159,7 @@ export default {
     })
     config.addLabel('history-popover-description', {
       en: 'Change history for this article.',
-      'nl': 'Versiegeschiedenis voor dit artikel'
+      'nl': 'Opgeslagen artikelen'
     })
     config.addLabel('Identical with the current version', {
       'nl': 'Identiek met huidige versie'
@@ -169,13 +169,13 @@ export default {
       'nl': 'Versiegeschiedenis verwijderen'
     })
     config.addLabel('history-remove-all-button', {
-      'nl': 'Versiegeschiedenis verwijderen'
+      'nl': 'Artikelgeschiedenis verwijderen'
     })
     config.addLabel('Identical with the current version', {
       'nl': 'Identiek met huidige versie'
     })
     config.addLabel('history-remove-all-confirm', {
-      'nl': 'Ok, verwijder alle versiegeschiedenis'
+      'nl': 'Ok, verwijder alle artikelgeschiedenis'
     })
     config.addLabel('error-page-Error', {
       'nl': 'Oops, er is iets misgegaan'

@@ -7,7 +7,7 @@ export default {
     config.addComponentToSidebarWithTabId(this.id, 'adminTab', ShowRelatedArticlesComponent);
 
     config.addLabel('Show related articles', {
-      'nl': 'Gerelateerde artikelen niet tonen'
+      'nl': 'Gerelateerde artikelen tonen'
     });
   }
 }

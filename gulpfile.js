@@ -44,6 +44,9 @@ function writeConfig(data) {
     .pipe(replace(/FDMG_PREVIEW_URL/g, data['fdmg.previewUrl']))
     .pipe(replace(/FDMG_BASE_DOMAIN_URL/g, data['fdmg.baseDomainUrl']))
     .pipe(replace(/FDMG_INSTRUCTIONS_MANUAL_URL/g, data['fdmg.instructionsManualUrl']))
+    .pipe(replace(/CACHEBUSTER/g, gutil.env.ci_commit_sha || 'SNAPSHOT'))
+    .pipe(replace(/FDMG_EMERGENCY_PHONE_NUMBER/g, data['fdmg.emergencyPhoneNumber']))
+    .pipe(replace(/FDMG_GROUP_MAIL_BOX/g, data['fdmg.groupMailBox']))
     .pipe(rename(data['fdmg.fileName']))
     .pipe(gulp.dest(data['fdmg.destination']));
 }
@@ -60,11 +63,13 @@ gulp.task('config-devbox-generate', function() {
     'fdmg.services.token': 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIxMjMiLCJzdWIiOiJzdmVuIiwicm9sZSI6InVzZXIifQ.omGBEdLl3e_bxNFq83bsTUZnO5HU_c0gltDuTFWM_KlLJWtlZzDo1F7jGD6zPD54XmimTAWmD5XKIlhMQVmChQ',
     'hollandseHoogte.token': '63401c89-63e9-35f9-9daa-a55ef26c3042',
     'fdmg.apiGatewayBaseUrl': 'https://apigateway-dev.fdmg.nl',
-    'fdmg.previewUrl': 'https://dev.fd.nl',
+    'fdmg.previewUrl': 'https://preview-dev.fd.nl',
     'fdmg.fileName': 'writer.json',
     'fdmg.destination': '../NPWriter/dist/server/config/',
     'fdmg.baseDomainUrl': 'dev.fd.nl',
-    'fdmg.instructionsManualUrl': 'http://static.fd.nl/webwriter-manual/fd-writer-manual.pdf'
+    'fdmg.instructionsManualUrl': 'http://static.fd.nl/webwriter-manual/fd-writer-manual.pdf',
+    'fdmg.emergencyPhoneNumber' : '+31 020 592 8553',
+    'fdmg.groupMailBox' : 'webwriter@fdmediagroep.nl'
   });
 });
 
@@ -81,11 +86,13 @@ gulp.task('local-config-fd-generate', function() {
     'fdmg.services.token': 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIxMjMiLCJzdWIiOiJzdmVuIiwicm9sZSI6InVzZXIifQ.omGBEdLl3e_bxNFq83bsTUZnO5HU_c0gltDuTFWM_KlLJWtlZzDo1F7jGD6zPD54XmimTAWmD5XKIlhMQVmChQ',
     'hollandseHoogte.token': '63401c89-63e9-35f9-9daa-a55ef26c3042',
     'fdmg.apiGatewayBaseUrl': 'https://apigateway-dev.fdmg.nl',
-    'fdmg.previewUrl': 'https://dev.fd.nl',
+    'fdmg.previewUrl': 'https://preview-dev.fd.nl',
     'fdmg.fileName': 'writer-fd.json',
     'fdmg.destination': '../NPWriter/server/config/',
     'fdmg.baseDomainUrl': 'dev.fd.nl',
-    'fdmg.instructionsManualUrl': 'http://static.fd.nl/webwriter-manual/fd-writer-manual.pdf'
+    'fdmg.instructionsManualUrl': 'http://static.fd.nl/webwriter-manual/fd-writer-manual.pdf',
+    'fdmg.emergencyPhoneNumber' : '+31 020 592 8553',
+    'fdmg.groupMailBox' : 'webwriter@fdmediagroep.nl'
   });
 });
 
@@ -111,7 +118,7 @@ gulp.task('local-config-esb-generate', function() {
     'fdmg.source': 'writer-esb.json',
     'infoMaker.plugins.base': 'https://plugins.writer.infomaker.io/dev',
     'fdmg.webwriter.plugins.base': 'http://localhost:3000',
-    'fdmg.newsItem.template.id': '20003109',
+    'fdmg.newsItem.template.id': '30eae1c0-c640-4053-b114-05c64e28bbe7',
     'fdmg.services.baseUrl': 'https://webwriter-dev.esb.nu/fdmgapi/private/esb',
     'fdmg.services.noProxyBaseUrl': 'https://dev-api.fdmg.org/private/esb',
     'fdmg.services.token': 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiI5MDA0Nzc2NDc3ODQyMDQ1ODAwIiwic3ViIjoiU2VydmljZXMiLCJyb2xlIjoiVVNFUiJ9.vRx7zG0lTInK6BCnoy25FRXNO6kGP8bi03eB1xviWjkM4xq-fQ6EoBR88yZPC4CAfdjpcNcQ_pxlJbvcISaAOw',
@@ -121,7 +128,9 @@ gulp.task('local-config-esb-generate', function() {
     'fdmg.previewUrl': 'https://preview-dev.esb.nu',
     'fdmg.destination': '../NPWriter/server/config/',
     'fdmg.baseDomainUrl': 'dev.esb.nu',
-    'fdmg.instructionsManualUrl': 'http://static.fd.nl/webwriter-manual/fd-writer-manual.pdf'
+    'fdmg.instructionsManualUrl': 'http://static.fd.nl/webwriter-manual/fd-writer-manual.pdf',
+    'fdmg.emergencyPhoneNumber' : '+31 020 592 8553',
+    'fdmg.groupMailBox' : 'webwriter@fdmediagroep.nl'
   });
 });
 
@@ -164,7 +173,9 @@ function initializeConfig() {
     'infoMaker.aws.region': '',
     'fdmg.previewUrl': '',
     'fdmg.baseDomainUrl': '',
-    'fdmg.instructionsManualUrl': ''
+    'fdmg.instructionsManualUrl': '',
+    'fdmg.emergencyPhoneNumber' : '',
+    'fdmg.groupMailBox' : ''
   };
 }
 

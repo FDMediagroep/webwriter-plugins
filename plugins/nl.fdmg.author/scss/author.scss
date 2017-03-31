@@ -121,6 +121,17 @@
 .plugin-nl-fdmg-author, .plugin-nl-fdmg-tags {
       #searchResult {
         max-height: 300px;
+        .item__exists {
+            opacity: 1;
+            span {
+                display: inline-block;
+            }
+            .item__found {
+                padding: 0;
+                margin-right: 5px;
+                font-size: 1em;
+            }
+        }
         li {
           line-height: 1.1;
           border-bottom: 1px solid #e7e7e7;

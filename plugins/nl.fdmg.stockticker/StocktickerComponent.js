@@ -16,14 +16,33 @@ export default class StocktickerComponent extends AnnotationComponent {
 
     this.context.editorSession.onRender('document', this._onDocumentChange, this, {path: [this.props.node.id]});
 
-    this.context.api.document.triggerFetchResourceNode(this.props.node);
+    // Use this for when we want to dynamically get the latest stock quote data when loadling the document
+    // this.context.api.document.triggerFetchResourceNode(this.props.node);
+  }
+
+  getDifferenceClass(difference) {
+
+    const differenceValue = difference.replace(',', '.');
+    let differenceClass = parseFloat(differenceValue);
+
+    if (differenceClass >= 0) {
+      return 'up';
+    } else if (differenceClass < 0) {
+      return 'down'
+    } 
+
+    return 'neutral';
+
   }
 
   render($$) {
     const el = $$('span').addClass('sc-stockticker');
-
     const node = this.props.node;
-    if (node.symbol) {
+
+    if (node.name) {
+      const lineChartIcon = $$(FontAwesomeIcon, {icon: 'fa-line-chart'});
+      const differenceClass = this.getDifferenceClass(this.props.node.difference)
+
       el
         .attr({
           'data-type': this.props.node.dataType,
@@ -31,9 +50,10 @@ export default class StocktickerComponent extends AnnotationComponent {
           'data-exchange': this.props.node.exchange
         })
         .append(
-          node.symbol,
+          lineChartIcon,
+          node.name,
           $$('span')
-            .addClass(parseFloat(node.difference) >= 0 ? 'up' : 'down')
+            .addClass(differenceClass)
             .append(`${node.currency} ${node.price} (${node.difference})`)
         );
     } else {

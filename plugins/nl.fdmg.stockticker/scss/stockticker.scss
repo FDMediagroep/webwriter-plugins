@@ -80,6 +80,7 @@
             &.down {
                 color: #d9534f;
             }
+            
         }
         .description {
             font-size: 0.8rem;
@@ -100,6 +101,9 @@
       color: #c13a3a;
       margin-right: 10px;
     }
+    .fa-line-chart {
+        margin-right: 3px;
+    }
     span {
         margin-left: 5px;
         font-style: italic;
@@ -109,6 +113,9 @@
     }
     .down {
         color: #d9534f;
+    }
+    .neutral {
+        color: #a9a9a9;
     }
     &.sm-highlighted {
     }

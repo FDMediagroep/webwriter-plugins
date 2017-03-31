@@ -17,8 +17,8 @@ build_dist:
     - yarn install
     - echo Running build for production
     - npm run build
-    - gulp --fdmg_services_config_url=http://spring-config-fd.fdmg.org:8088/webwriter generate-config-fd
-    - gulp --fdmg_services_config_url=http://spring-config-esb.fdmg.org:8088/webwriter generate-config-esb
+    - gulp --fdmg_services_config_url=http://spring-config-fd.fdmg.org:8088/webwriter --ci_commit_sha=${CI_COMMIT_SHA} generate-config-fd
+    - gulp --fdmg_services_config_url=http://spring-config-esb.fdmg.org:8088/webwriter --ci_commit_sha=${CI_COMMIT_SHA} generate-config-esb
   artifacts:
     name: "${CI_BUILD_ID}_${CI_PROJECT_NAME}_${CI_BUILD_REF_NAME}"
     expire_in: 1d
