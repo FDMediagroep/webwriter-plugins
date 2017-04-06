@@ -17,6 +17,8 @@ export default class ArticleOptionComponent extends Component {
     this.type = plugin.type;
     this.label = plugin.label;
     this.hasinput = plugin.hasInput;
+    this.hascolorinput = plugin.hasColorInput;
+    this.defaultvalue = plugin.defaultValue;
     this.placeholder = plugin.placeholder;
     this.pluginId = plugin.pluginId;
     this.items = plugin.items;
@@ -81,7 +83,7 @@ export default class ArticleOptionComponent extends Component {
         $$('input')
           .attr({
             'type': 'text',
-            'value': this.state.value,
+            'value': this.state.value||this.defaultvalue,
             'id': this.name,
             'placeholder': this.getLabel(this.placeholder) || ''
           })
@@ -91,6 +93,46 @@ export default class ArticleOptionComponent extends Component {
           .ref('input'),
           $$('hr')
       );
+    }
+
+    // When component is configured to have a color input field and this checkbox is checked.
+    if (this.hascolorinput && this.state.checked) {
+      console.error('Default color! ', this.state.value, this.defaultvalue);
+      // Append an input field.
+      el.append(
+        $$('input')
+          .attr({
+            'list': 'fdColors',
+            'type': 'color',
+            'value': this.state.value||this.defaultvalue,
+            'id': this.name
+          })
+          .on('blur', () => {
+            this.setOptionChecked(true)
+          })
+          .ref('input'),
+          $$('hr')
+      );
+      // Preset color list
+      el.append(
+        $$('datalist')
+          .attr({
+            id: 'fdColors'
+          })
+          .append(
+            $$('option').attr({value: '#19577A'}),
+            $$('option').attr({value: '#2CCC94'}),
+            $$('option').attr({value: '#DE477F'}),
+            $$('option').attr({value: '#FF6066'}),
+            $$('option').attr({value: '#7C4DAD'}),
+            $$('option').attr({value: '#6086EB'}),
+            $$('option').attr({value: '#FF9090'}),
+            $$('option').attr({value: '#DEAC6C'}),
+            $$('option').attr({value: '#5C39F5'}),
+            $$('option').attr({value: '#36DCD7'})
+          )
+      );
+
     }
 
     // Render the items in the dropdown if there are any.
@@ -176,7 +218,7 @@ export default class ArticleOptionComponent extends Component {
       '@uuid': idGenerator()
     };
 
-    if (this.hasinput || this.hasSelect && checked) {
+    if (this.hasinput || this.hascolorinput || this.hasSelect && checked) {
       link['@value'] = value;
     }
 

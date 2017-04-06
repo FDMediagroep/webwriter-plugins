@@ -507,6 +507,18 @@
           {
             "id": "werk-geld",
             "label": "Werk & Geld"
+          },
+          {
+            "id": "fd4.focus",
+            "label": "FD Focus"
+          },
+          {
+            "id": "fd4.focus.algemeen",
+            "label": "FD Focus algemeen"
+          },
+          {
+            "id": "fd4.focus.tech_and_innovation",
+            "label": "FD Focus Tech & Innovation"
           }
         ]
       }
@@ -736,6 +748,17 @@
       "data": {
         "endpoint": "FDMG_SERVICES_NO_PROXY_BASE_URL/articles/section/fd4.service/allchildren",
         "token": "FDMG_SERVICES_TOKEN",
+        "optionsGroup": "articletype"
+      }
+    },
+    {
+      "id": "nl.fdmg.focuscolor",
+      "name": "focuscolor",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
+      "enabled": true,
+      "mandatory": true,
+      "data": {
         "optionsGroup": "articletype"
       }
     },

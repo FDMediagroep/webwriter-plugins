@@ -28,6 +28,7 @@ import ArticleType from './nl.fdmg.articletype/index';
 import RedirectLink from './nl.fdmg.redirectlink/index';
 import Advertorial from './nl.fdmg.advertorial/index';
 import ServicePage from './nl.fdmg.servicepage/index';
+import FocusColor from './nl.fdmg.focuscolor/index';
 import Epic from './nl.fdmg.epic/index';
 import Preview from './nl.fdmg.preview/index';
 
@@ -88,6 +89,7 @@ import Translations from './nl.fdmg.translations/index';
   RedirectLink();
   Advertorial();
   ServicePage();
+  FocusColor();
   Epic();
   Preview();
 
