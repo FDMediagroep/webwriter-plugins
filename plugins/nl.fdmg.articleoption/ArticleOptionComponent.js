@@ -97,7 +97,6 @@ export default class ArticleOptionComponent extends Component {
 
     // When component is configured to have a color input field and this checkbox is checked.
     if (this.hascolorinput && this.state.checked) {
-      console.error('Default color! ', this.state.value, this.defaultvalue);
       // Append an input field.
       el.append(
         $$('input')
