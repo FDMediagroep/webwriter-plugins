@@ -2,7 +2,7 @@ import FDValidator from '../nl.fdmg.fdvalidator/FDValidator';
 
 class RedirectLinkValidator extends FDValidator {
   validate() {
-    if (this.isShortArticle || this.isAdvertorial || this.isEvents || this.isRedirectArticle) return;
+    if (this.isShortArticle || this.isAdvertorial || this.isEvents) return;
 
     if (this.drafted || this.submitted || this.published) {
       const redirectlink = this.newsItem.querySelector('itemMeta > links link[type="fdmg/redirectlink"]');
