@@ -26,7 +26,7 @@ class TextcountSelectorComponent extends Component {
                 .attr({'data-id': size.size})
                 .attr(size.disabled ? {disabled: 'disabled'} : {})
                 .attr(size.disabled || this.state.documentSize.size === size.size ? {selected: 'selected'} : {})
-                .append((size.label !== '?' && size.label !== '∞') ? size.size + ' ( ' + size.count + ' )' : size.label)
+                .append((size.label !== '?' && size.label !== '∞') ? size.size + ' ( ' + size.label + ' )' : size.label)
             })
           )
           .ref('select')
