@@ -510,15 +510,19 @@
           },
           {
             "id": "fd4.focus",
-            "label": "FD Focus"
+            "label": "Focus - Intro"
           },
           {
-            "id": "fd4.focus.general",
-            "label": "FD Focus algemeen"
+            "id": "fd4.focus.fd.related",
+            "label": "Focus - Vandaag belangrijk"
+          },
+          {
+            "id": "fd4.focus.web.other",
+            "label": "Focus - Van het web"
           },
           {
             "id": "fd4.focus.tech_and_innovation",
-            "label": "FD Focus Tech & Innovation"
+            "label": "Focus - Tech & Innovatie"
           }
         ]
       }
