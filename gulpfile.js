@@ -80,7 +80,7 @@ gulp.task('local-config-fd-generate', function() {
     'fdmg.source': 'writer-fd.json',
     'infoMaker.plugins.base': 'https://plugins.writer.infomaker.io/dev',
     'fdmg.webwriter.plugins.base': 'http://localhost:3000',
-    'fdmg.newsItem.template.id': '30eae1c0-c640-4053-b114-05c64e28bbe7',
+    'fdmg.newsItem.template.id': '1156201',
     'fdmg.services.baseUrl': 'https://webwriter-dev.fd.nl/fdmgapi/private/fd',
     'fdmg.services.noProxyBaseUrl': 'https://dev-api.fdmg.org/private/fd',
     'fdmg.services.token': 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIxMjMiLCJzdWIiOiJzdmVuIiwicm9sZSI6InVzZXIifQ.omGBEdLl3e_bxNFq83bsTUZnO5HU_c0gltDuTFWM_KlLJWtlZzDo1F7jGD6zPD54XmimTAWmD5XKIlhMQVmChQ',
