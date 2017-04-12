@@ -505,6 +505,10 @@
             "label": "Profiel"
           },
           {
+            "id": "weekend",
+            "label": "Weekend"
+          },
+          {
             "id": "werk-geld",
             "label": "Werk & Geld"
           },
@@ -662,8 +666,8 @@
             "label": "Eyeopeners"
           },
           {
-            "id": "Nieuw Bronnen",
-            "label": "Nieuw Bronnen"
+            "id": "Nieuwe Bronnen",
+            "label": "Nieuwe Bronnen"
           },
           {
             "id": "Oude bronnen",
