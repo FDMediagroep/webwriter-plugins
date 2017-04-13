@@ -85,3 +85,22 @@ deploy_prod_esb:
   environment: webwriter-esb
   only:
     - production
+
+# Manual deployment of any branch
+manual_dev_fd:
+  stage: deploy
+  tags:
+      - FDMG
+  script:
+    - gulp --fdmg_services_config_url=http://spring-config-fd.fdmg.org:8088/webwriter dev-fd-deploy-webwriter-config
+  environment: webwriter-dev-fd
+  when: manual
+
+manual_dev_esb:
+  stage: deploy
+  tags:
+      - FDMG
+  script:
+    - gulp --fdmg_services_config_url=http://spring-config-esb.fdmg.org:8088/webwriter dev-esb-deploy-webwriter-config
+  environment: webwriter-dev-esb
+  when: manual
