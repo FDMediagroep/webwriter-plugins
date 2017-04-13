@@ -31,6 +31,7 @@ class PublishFlowComponent extends Component {
 
     api.events.on(pluginId, event.USERACTION_SAVE, () => {
       console.log('save')
+      document.onkeydown = function(){};
       this.defaultAction()
     });
   }
