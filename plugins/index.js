@@ -28,6 +28,7 @@ import ArticleType from './nl.fdmg.articletype/index';
 import RedirectLink from './nl.fdmg.redirectlink/index';
 import Advertorial from './nl.fdmg.advertorial/index';
 import ServicePage from './nl.fdmg.servicepage/index';
+import FocusColor from './nl.fdmg.focuscolor/index';
 import Epic from './nl.fdmg.epic/index';
 import Preview from './nl.fdmg.preview/index';
 
@@ -54,6 +55,7 @@ import Teaser from './se.infomaker.ximteaser/index';
 import HeadlineStandin from './nl.fdmg.headlinestandin/index';
 import PreambleStandin from './nl.fdmg.preamblestandin/index';
 import Writerinfo from './nl.fdmg.writerinfo/index';
+import SpecialCharacter from './nl.fdmg.specialcharacter/index';
 
 // Import this last!
 import Translations from './nl.fdmg.translations/index';
@@ -88,6 +90,7 @@ import Translations from './nl.fdmg.translations/index';
   RedirectLink();
   Advertorial();
   ServicePage();
+  FocusColor();
   Epic();
   Preview();
 
@@ -116,6 +119,8 @@ import Translations from './nl.fdmg.translations/index';
   PreambleStandin();
 
   Writerinfo();
+
+  SpecialCharacter();
 
   // Import this last!
   Translations();

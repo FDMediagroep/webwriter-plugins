@@ -320,6 +320,11 @@ div.x-im-teaser div.x-im-teaser-text::before {
         min-width: 130px;
     }
 }
+.sc-content-menu {
+    .sm-target-content-top-menu {
+        max-width: 200px
+    }
+}
 
 .inline-plugin-button {
     float: right;

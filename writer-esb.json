@@ -2,6 +2,7 @@
   "newsItemTemplateId": "NEWS_ITEM_TEMPLATE_ID",
   "language": "nl_NL",
   "labelLanguage": "nl",
+  "disableSpellcheck": false,
   "plugins": [{
       "id": "se.infomaker.charactertransformation",
       "name": "charactertransformation",
@@ -730,6 +731,21 @@
         "hotlineNumber" : "FDMG_EMERGENCY_PHONE_NUMBER",
         "showGroupMailBox" : true,
         "groupMailbox" : "FDMG_GROUP_MAIL_BOX"
+      }
+    },
+    {
+      "id": "nl.fdmg.specialcharacter",
+      "name": "specialcharacter",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "enabled": true,
+      "mandatory": true,
+      "data" : {
+        "specialCharacters": [
+          "—","€","£","¥","ƒ",
+          "⁰","¹","²","³","⁴","⁵","⁶","⁷","⁸","⁹","⁺","⁻","⁼","⁽","⁾","ⁿ",
+          "₀","₁","₂","₃","₄","₅","₆","₇","₈","₉","₊","₋","₌","₍","₎",
+          "ₐ","ₑ","ₒ","ₓ","ₔ","ₕ","ₖ","ₗ","ₘ","ₙ","ₚ","ₛ","ₜ"
+          ]
       }
     },
     {

@@ -1,0 +1,46 @@
+.special-characters {
+    display: inline-block;
+    width: 100%;
+    >button {
+        &.se-tool {
+            width: 100%;
+            i {
+                position: relative;
+                &:after {
+                    position: absolute;
+                    left: 12px;
+                    top: -2px;
+                    content:"\f0d7";
+                    color: rgba(0, 0, 0, 0.5);
+                    font-family: FontAwesome;
+                    font-weight: normal;
+                    font-style: normal;
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+    .special-characters-wrapper {
+        width: 100%;
+        background-color: rgba(128, 128, 128, 0.10);
+        border-radius: 5px;
+        button {
+            border: 1px solid white;
+            min-width: 36px;
+            i {
+                font-weight: bold;
+                font-size: 1.2em;
+            }
+            &:hover {
+                border-radius: 3px;
+                background-color: rgba(128, 128, 128, 0.16);
+            }
+        }
+        &[data-state="closed"] {
+            display: none;
+        }
+        &[data-state="opened"] {
+            display: inline-block;
+        }
+    }
+}

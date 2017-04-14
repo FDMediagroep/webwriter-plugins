@@ -13,6 +13,7 @@
   1. For Windows: Install Visual Studio 2013 Express first
   1. run the following commands in `NPWriter/`:
   1. npm install
+  1. npm run build-dep
   1. npm run dev
 1. run `CONFIG_FILE=writer-fd.json npm run dev` in `NPWriter/`
   1. For Windows use `set CONFIG_FILE=writer-fd.json&npm run dev` instead
@@ -21,6 +22,9 @@
 1. Navigate to `webwriter-plugins` and run `npm install`
 1. Then run `npm run dev` in `webwriter-plugins` to run the `NPWriterDevKit`
 1. Open `localhost:5000` in a browser
+  1. Or `localhost:5000/#demo` if you want to  use the demo article which is located in
+  `NPWriter/data/newsitem-text.xml`. You might want to replace the xml in this file by the
+  xml that is in our own template articles. 
 
 In other sessions you only need to:
 

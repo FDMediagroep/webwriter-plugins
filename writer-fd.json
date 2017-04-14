@@ -2,6 +2,7 @@
   "newsItemTemplateId": "NEWS_ITEM_TEMPLATE_ID",
   "language": "nl_NL",
   "labelLanguage": "nl",
+  "disableSpellcheck": true,
   "plugins": [{
       "id": "se.infomaker.charactertransformation",
       "name": "charactertransformation",
@@ -505,8 +506,28 @@
             "label": "Profiel"
           },
           {
+            "id": "weekend",
+            "label": "Weekend"
+          },
+          {
             "id": "werk-geld",
             "label": "Werk & Geld"
+          },
+          {
+            "id": "fd4.focus",
+            "label": "Focus - Intro"
+          },
+          {
+            "id": "fd4.focus.fd.related",
+            "label": "Focus - Vandaag belangrijk"
+          },
+          {
+            "id": "fd4.focus.web.other",
+            "label": "Focus - Van het web"
+          },
+          {
+            "id": "fd4.focus.tech_and_innovation",
+            "label": "Focus - Tech & Innovatie"
           }
         ]
       }
@@ -646,8 +667,8 @@
             "label": "Eyeopeners"
           },
           {
-            "id": "Nieuw Bronnen",
-            "label": "Nieuw Bronnen"
+            "id": "Nieuwe Bronnen",
+            "label": "Nieuwe Bronnen"
           },
           {
             "id": "Oude bronnen",
@@ -736,6 +757,17 @@
       "data": {
         "endpoint": "FDMG_SERVICES_NO_PROXY_BASE_URL/articles/section/fd4.service/allchildren",
         "token": "FDMG_SERVICES_TOKEN",
+        "optionsGroup": "articletype"
+      }
+    },
+    {
+      "id": "nl.fdmg.focuscolor",
+      "name": "focuscolor",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
+      "enabled": true,
+      "mandatory": true,
+      "data": {
         "optionsGroup": "articletype"
       }
     },
@@ -842,6 +874,21 @@
         "hotlineNumber" : "FDMG_EMERGENCY_PHONE_NUMBER",
         "showGroupMailBox" : true,
         "groupMailbox" : "FDMG_GROUP_MAIL_BOX"
+      }
+    },
+    {
+      "id": "nl.fdmg.specialcharacter",
+      "name": "specialcharacter",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "enabled": true,
+      "mandatory": true,
+      "data" : {
+        "specialCharacters": [
+          "—","€","£","¥","ƒ",
+          "⁰","¹","²","³","⁴","⁵","⁶","⁷","⁸","⁹","⁺","⁻","⁼","⁽","⁾","ⁿ",
+          "₀","₁","₂","₃","₄","₅","₆","₇","₈","₉","₊","₋","₌","₍","₎",
+          "ₐ","ₑ","ₒ","ₓ","ₔ","ₕ","ₖ","ₗ","ₘ","ₙ","ₚ","ₛ","ₜ"
+          ]
       }
     },
     {
