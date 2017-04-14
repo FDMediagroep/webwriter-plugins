@@ -22,16 +22,18 @@
     }
     .special-characters-wrapper {
         width: 100%;
-        background-color: rgba(128, 128, 128, 0.08);
+        background-color: rgba(128, 128, 128, 0.10);
         border-radius: 5px;
         button {
+            border: 1px solid white;
+            min-width: 36px;
             i {
                 font-weight: bold;
                 font-size: 1.2em;
             }
             &:hover {
                 border-radius: 3px;
-                background-color: rgba(128, 128, 128, 0.12);
+                background-color: rgba(128, 128, 128, 0.16);
             }
         }
         &[data-state="closed"] {
