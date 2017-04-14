@@ -740,7 +740,7 @@
       "enabled": true,
       "mandatory": true,
       "data" : {
-        "specialCharacters": ["¥", "ƒ", "—"]
+        "specialCharacters": ["¥", "£", "ƒ", "€", "—" ]
       }
     },
     {
