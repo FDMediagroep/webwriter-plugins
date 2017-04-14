@@ -11,7 +11,7 @@ export default {
       'nl': 'Aantal tekens (incl. spaties)'
     });
     config.addLabel('Missing text length', {
-      'nl': 'Tekstlengte is niet ingesteld'
+      'nl': 'Tekstlengte is niet ingesteld (zie tabblad: Geavanceerd)'
     });
   }
 }
