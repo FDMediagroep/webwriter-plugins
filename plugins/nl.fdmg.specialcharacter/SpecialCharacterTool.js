@@ -5,11 +5,14 @@ class SpecialCharacterTool extends Tool {
 
   render($$) {
     const characters = api.getConfigValue("nl.fdmg.specialcharacter", 'specialCharacters');
-    const el = $$('div').addClass('special-characters')
-                .append(
-                    $$('i').append($$(FontAwesomeIcon, {icon: 'fa-gbp'}))
-                );
 
+    const wrapperOpener = $$('button').addClass('se-tool').append(
+                    $$(FontAwesomeIcon, {icon: 'fa-gbp'}))
+                    .on('click',() => document.querySelector('.special-characters-wrapper').classList.add('open'));
+
+    const el = $$('div').addClass('special-characters')
+                .append(wrapperOpener);
+              
     const characterWrapper = $$('div').addClass('special-characters-wrapper');
 
     if (characters) {
