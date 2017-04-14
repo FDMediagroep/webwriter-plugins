@@ -3,19 +3,48 @@
     width: 100%;
     &:hover {
         .special-characters-wrapper {
-            display: block;
+            display: inline-block;
+        }
+        >i {
+            opacity: 1;
         }
     }
     >i {
+        position: relative;
         padding: 8px;
+        opacity: 0.5;
+        -webkit-transition: opacity 0.5s; 
+        -moz-transition: opacity 0.5s; 
+        -ms-transition: opacity 0.5s; 
+        -o-transition: opacity 0.5s; 
+        transition: opacity 0.5s;
+        &:after {
+            position: absolute;
+            right: 0;
+            top: 0;
+            content:"\f0d7";
+			color: rgba(0, 0, 0, 0.5);
+			font-family: FontAwesome;
+			font-weight: normal;
+			font-style: normal;
+            font-size: 12px;
+        }
     }
     .special-characters-wrapper {
         display: none;
-        i {
-            font-weight: bold;
-            font-size: 1em;
+        width: 100%;
+        background-color: rgba(128, 128, 128, 0.12);
+        border-radius: 5px;
+        button {
+            i {
+                font-weight: bold;
+                font-size: 1em;
+            }
+            &:hover {
+                border-radius: 2px;
+                background-color: rgba(128, 128, 128, 0.05);
+            }
         }
+        
     }
-    
-    
 }
