@@ -2,6 +2,7 @@
   "newsItemTemplateId": "NEWS_ITEM_TEMPLATE_ID",
   "language": "nl_NL",
   "labelLanguage": "nl",
+  "disableSpellcheck": true,
   "plugins": [{
       "id": "se.infomaker.charactertransformation",
       "name": "charactertransformation",
