@@ -16,7 +16,6 @@ class PublishFlowComponent extends Component {
     });
 
     api.events.on(pluginId, event.DOCUMENT_SAVED, () => {
-      api.events.off(pluginId, event.DOCUMENT_SAVED);
       this._onDocumentSaved();
       window.location.reload();
     });
@@ -30,7 +29,6 @@ class PublishFlowComponent extends Component {
     });
 
     api.events.on(pluginId, event.USERACTION_SAVE, () => {
-      console.log('save')
       this.defaultAction()
     });
   }

@@ -734,6 +734,16 @@
       }
     },
     {
+      "id": "nl.fdmg.specialcharacter",
+      "name": "specialcharacter",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "enabled": true,
+      "mandatory": true,
+      "data" : {
+        "specialCharacters": ["¥", "ƒ", "—"]
+      }
+    },
+    {
       "id": "nl.fdmg.translations",
       "name": "translations",
       "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",

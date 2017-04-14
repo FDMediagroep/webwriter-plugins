@@ -1,0 +1,21 @@
+.special-characters {
+    display: inline-block;
+    width: 100%;
+    &:hover {
+        .special-characters-wrapper {
+            display: block;
+        }
+    }
+    >i {
+        padding: 8px;
+    }
+    .special-characters-wrapper {
+        display: none;
+        i {
+            font-weight: bold;
+            font-size: 1em;
+        }
+    }
+    
+    
+}

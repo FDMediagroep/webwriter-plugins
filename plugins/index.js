@@ -55,6 +55,7 @@ import Teaser from './se.infomaker.ximteaser/index';
 import HeadlineStandin from './nl.fdmg.headlinestandin/index';
 import PreambleStandin from './nl.fdmg.preamblestandin/index';
 import Writerinfo from './nl.fdmg.writerinfo/index';
+import SpecialCharacter from './nl.fdmg.specialcharacter/index';
 
 // Import this last!
 import Translations from './nl.fdmg.translations/index';
@@ -118,6 +119,8 @@ import Translations from './nl.fdmg.translations/index';
   PreambleStandin();
 
   Writerinfo();
+
+  SpecialCharacter();
 
   // Import this last!
   Translations();
