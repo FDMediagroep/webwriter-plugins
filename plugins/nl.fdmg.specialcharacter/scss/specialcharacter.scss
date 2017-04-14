@@ -21,21 +21,23 @@
         }
     }
     .special-characters-wrapper {
-        display: none;
         width: 100%;
         background-color: rgba(128, 128, 128, 0.08);
         border-radius: 5px;
         button {
             i {
                 font-weight: bold;
-                font-size: 1.3em;
+                font-size: 1.2em;
             }
             &:hover {
                 border-radius: 3px;
                 background-color: rgba(128, 128, 128, 0.12);
             }
         }
-        &.open {
+        &[data-state="closed"] {
+            display: none;
+        }
+        &[data-state="opened"] {
             display: inline-block;
         }
     }

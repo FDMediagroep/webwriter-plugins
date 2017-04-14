@@ -6,15 +6,23 @@ class SpecialCharacterTool extends Tool {
   render($$) {
     const characters = api.getConfigValue("nl.fdmg.specialcharacter", 'specialCharacters');
 
-    const wrapperOpener = $$('button').addClass('se-tool').append(
-                    $$(FontAwesomeIcon, {icon: 'fa-gbp'}))
-                    .on('click',() => document.querySelector('.special-characters-wrapper').classList.add('open'));
+    const characterWrapper = $$('div').addClass('special-characters-wrapper').attr('data-state', 'closed');
+
+    const wrapperOpener = $$('button').addClass('se-tool')
+                .append(
+                  $$(FontAwesomeIcon, {icon: 'fa-gbp'}))
+                  .on('click', function() {
+                    const toggle = document.querySelector('.special-characters-wrapper').getAttribute('data-state');
+                    if( toggle === "closed") {
+                      document.querySelector('.special-characters-wrapper').setAttribute('data-state', 'opened')
+                    } else {
+                      document.querySelector('.special-characters-wrapper').setAttribute('data-state', 'closed')
+                    }
+                  });
 
     const el = $$('div').addClass('special-characters')
                 .append(wrapperOpener);
               
-    const characterWrapper = $$('div').addClass('special-characters-wrapper');
-
     if (characters) {
       for (let character of characters) {
 
@@ -32,6 +40,11 @@ class SpecialCharacterTool extends Tool {
     }
 
     return el.append(characterWrapper);
+  }
+
+  buttontoggle() {
+    
+
   }
 
 }
