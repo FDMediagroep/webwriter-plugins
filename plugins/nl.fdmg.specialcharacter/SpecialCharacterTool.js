@@ -41,12 +41,6 @@ class SpecialCharacterTool extends Tool {
 
     return el.append(characterWrapper);
   }
-
-  buttontoggle() {
-    
-
-  }
-
 }
 
 export default SpecialCharacterTool;
