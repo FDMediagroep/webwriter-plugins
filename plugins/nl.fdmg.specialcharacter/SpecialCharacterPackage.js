@@ -1,7 +1,6 @@
 import './scss/specialcharacter.scss';
 import SpecialCharacterCommand from './SpecialCharacterCommand';
 import specialCharacterTool from './SpecialCharacterTool';
-import { platform } from 'substance';
 
 export default {
   name: 'specialcharacter',
