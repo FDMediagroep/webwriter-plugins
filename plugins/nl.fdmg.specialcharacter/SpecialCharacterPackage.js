@@ -16,11 +16,5 @@ export default {
       'nl': 'invoegen'
     });
 
-    if (platform.isMac) {
-      config.addKeyboardShortcut('cmd+alt+y', { command: 'specialcharacter' });
-    } else {
-      config.addKeyboardShortcut('ctrl+alt+y', { command: 'specialcharacter' });
-    }
-
   }
 }
