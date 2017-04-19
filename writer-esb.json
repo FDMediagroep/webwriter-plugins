@@ -180,8 +180,7 @@
           }
         ],
         "disableUseOfAnnotationToolsForFields": [
-          "title",
-          "text"
+          "title"
         ]
       }
     },

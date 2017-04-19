@@ -214,7 +214,8 @@ class TextframeComponent extends Component {
     const textEditor = $$(TextPropertyEditor, {
       tagName: 'div',
       path: [this.props.node.id, 'text'],
-      doc: this.props.doc
+      doc: this.props.doc,
+      multiLine: true
     }).ref('text').addClass('x-im-teaser-text');
 
     const icon = $$(FontAwesomeIcon, { icon: 'fa-paragraph' });
