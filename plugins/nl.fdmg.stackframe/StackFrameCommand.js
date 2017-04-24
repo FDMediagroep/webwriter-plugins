@@ -16,7 +16,7 @@ export default class StackFrameCommand extends Command {
       type: 'stackframe',
       contentType: 'fdmg/stackframe',
       heading: params.heading,
-      content: params.content,
+      content: "",
       data: {
         type: 'stackframe',
         'data-type': 'stackframe'
