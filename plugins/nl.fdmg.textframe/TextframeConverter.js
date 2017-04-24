@@ -15,8 +15,6 @@ export default {
   import: function(el, node, converter) { // jshint ignore:line
     let oldPreserveValue;
 
-    oldPreserveValue = converter.state.preserveWhitespace;
-
     node.id = 'textframe';
     converter.state.preserveWhitespace = oldPreserveValue;
 
@@ -83,6 +81,7 @@ export default {
       converter.createNode(imageFile);
       node.imageFile = imageFile.id;
       node.uuid = linkEl.attr('uuid')
+      oldPreserveValue = converter.state.preserveWhitespace;
     }
   },
 
