@@ -16,7 +16,7 @@ function getConfig(url, cb) {
   let configObject = initializeConfig();
   console.log('Request config', url);
   request(url, function(error, response, body) {
-    if (!error && response.statusCode == 200) {
+    if (!error && response.statusCode === 200) {
       console.log('FDMG Services Config:', body);
       const jsonBody = JSON.parse(body);
       for (let key in configObject) {
@@ -25,6 +25,9 @@ function getConfig(url, cb) {
       }
       console.log('Configuration:', configObject);
       cb(configObject);
+    } else {
+      console.log("Could not retrieve FDMG services config");
+      return process.exit(2);
     }
   });
   return configObject;
