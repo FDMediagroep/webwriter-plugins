@@ -17,9 +17,9 @@ build_dist:
     - yarn install
     - echo Running build for production
     - npm run build
-    - gulp --fdmg_services_config_url=http://spring-config-fd.fdmg.org:8088/webwriter --ci_commit_sha=${CI_COMMIT_SHA} generate-config-fd
-    - gulp --fdmg_services_config_url=http://spring-config-esb.fdmg.org:8088/webwriter --ci_commit_sha=${CI_COMMIT_SHA} generate-config-esb
-    - gulp --fdmg_services_config_url=http://spring-config-esb.fdmg.org:8088/webwriter --ci_commit_sha=${CI_COMMIT_SHA} generate-config-pensioenpro
+    - gulp --fdmg_services_config_url=http://spring-config-acc-fd.fdmg.org:8088/webwriter --ci_commit_sha=${CI_COMMIT_SHA} generate-config-fd
+    - gulp --fdmg_services_config_url=http://spring-config-acc-esb.fdmg.org:8088/webwriter --ci_commit_sha=${CI_COMMIT_SHA} generate-config-esb
+    - gulp --fdmg_services_config_url=http://spring-config-acc-pensioenpro.fdmg.org:8088/webwriter --ci_commit_sha=${CI_COMMIT_SHA} generate-config-pensioenpro
   artifacts:
     name: "${CI_BUILD_ID}_${CI_PROJECT_NAME}_${CI_BUILD_REF_NAME}"
     expire_in: 1d
@@ -32,7 +32,7 @@ deploy_dev_fd:
   tags:
       - FDMG
   script:
-    - gulp --fdmg_services_config_url=http://spring-config-fd.fdmg.org:8088/webwriter dev-fd-deploy-webwriter-config
+    - gulp --fdmg_services_config_url=http://spring-config-acc-fd.fdmg.org:8088/webwriter dev-fd-deploy-webwriter-config
   environment: webwriter-dev-fd
   only:
     - develop
@@ -42,7 +42,7 @@ deploy_dev_esb:
   tags:
       - FDMG
   script:
-    - gulp --fdmg_services_config_url=http://spring-config-esb.fdmg.org:8088/webwriter dev-esb-deploy-webwriter-config
+    - gulp --fdmg_services_config_url=http://spring-config-acc-esb.fdmg.org:8088/webwriter dev-esb-deploy-webwriter-config
   environment: webwriter-dev-esb
   only:
     - develop
@@ -52,7 +52,7 @@ deploy_dev_pensioenpro:
   tags:
       - FDMG
   script:
-    - gulp --fdmg_services_config_url=http://spring-config-pensioenpro.fdmg.org:8088/webwriter dev-pensioenpro-deploy-webwriter-config
+    - gulp --fdmg_services_config_url=http://spring-config-acc-pensioenpro.fdmg.org:8088/webwriter dev-pensioenpro-deploy-webwriter-config
   environment: webwriter-dev-pensioenpro
   only:
     - develop
@@ -62,7 +62,7 @@ deploy_acc_fd:
   tags:
       - FDMG
   script:
-    - gulp --fdmg_services_config_url=http://spring-config-fd.fdmg.org:8088/webwriter acc-fd-deploy-webwriter-config
+    - gulp --fdmg_services_config_url=http://spring-config-acc-fd.fdmg.org:8088/webwriter acc-fd-deploy-webwriter-config
   environment: webwriter-acc-fd
   only:
     - acceptance
@@ -72,7 +72,7 @@ deploy_acc_esb:
   tags:
       - FDMG
   script:
-    - gulp --fdmg_services_config_url=http://spring-config-esb.fdmg.org:8088/webwriter acc-esb-deploy-webwriter-config
+    - gulp --fdmg_services_config_url=http://spring-config-acc-esb.fdmg.org:8088/webwriter acc-esb-deploy-webwriter-config
   environment: webwriter-acc-esb
   only:
     - acceptance
@@ -82,7 +82,7 @@ deploy_acc_pensioenpro:
   tags:
       - FDMG
   script:
-    - gulp --fdmg_services_config_url=http://spring-config-pensioenpro.fdmg.org:8088/webwriter acc-pensioenpro-deploy-webwriter-config
+    - gulp --fdmg_services_config_url=http://spring-config-acc-pensioenpro.fdmg.org:8088/webwriter acc-pensioenpro-deploy-webwriter-config
   environment: webwriter-acc-pensioenpro
   only:
     - acceptance
@@ -92,7 +92,7 @@ deploy_prod_fd:
   tags:
       - FDMG
   script:
-    - gulp --fdmg_services_config_url=http://spring-config-fd.fdmg.org:8088/webwriter prod-fd-deploy-webwriter-config
+    - gulp --fdmg_services_config_url=http://spring-config-acc-fd.fdmg.org:8088/webwriter prod-fd-deploy-webwriter-config
   environment: webwriter-fd
   only:
     - production
@@ -102,7 +102,7 @@ deploy_prod_esb:
   tags:
       - FDMG
   script:
-    - gulp --fdmg_services_config_url=http://spring-config-esb.fdmg.org:8088/webwriter prod-esb-deploy-webwriter-config
+    - gulp --fdmg_services_config_url=http://spring-config-acc-esb.fdmg.org:8088/webwriter prod-esb-deploy-webwriter-config
   environment: webwriter-esb
   only:
     - production
@@ -112,7 +112,7 @@ deploy_prod_pensioenpro:
   tags:
       - FDMG
   script:
-    - gulp --fdmg_services_config_url=http://spring-config-pensioenpro.fdmg.org:8088/webwriter prod-pensioenpro-deploy-webwriter-config
+    - gulp --fdmg_services_config_url=http://spring-config-acc-pensioenpro.fdmg.org:8088/webwriter prod-pensioenpro-deploy-webwriter-config
   environment: webwriter-pensioenpro
   only:
     - production
@@ -123,7 +123,7 @@ manual_dev_fd:
   tags:
       - FDMG
   script:
-    - gulp --fdmg_services_config_url=http://spring-config-fd.fdmg.org:8088/webwriter dev-fd-deploy-webwriter-config
+    - gulp --fdmg_services_config_url=http://spring-config-acc-fd.fdmg.org:8088/webwriter dev-fd-deploy-webwriter-config
   environment: webwriter-dev-fd
   when: manual
 
@@ -132,7 +132,7 @@ manual_dev_esb:
   tags:
       - FDMG
   script:
-    - gulp --fdmg_services_config_url=http://spring-config-esb.fdmg.org:8088/webwriter dev-esb-deploy-webwriter-config
+    - gulp --fdmg_services_config_url=http://spring-config-acc-esb.fdmg.org:8088/webwriter dev-esb-deploy-webwriter-config
   environment: webwriter-dev-esb
   when: manual
 
@@ -141,6 +141,6 @@ manual_dev_pensioenpro:
   tags:
       - FDMG
   script:
-    - gulp --fdmg_services_config_url=http://spring-config-pensioenpro.fdmg.org:8088/webwriter dev-pensioenpro-deploy-webwriter-config
+    - gulp --fdmg_services_config_url=http://spring-config-acc-pensioenpro.fdmg.org:8088/webwriter dev-pensioenpro-deploy-webwriter-config
   environment: webwriter-dev-pensioenpro
   when: manual
