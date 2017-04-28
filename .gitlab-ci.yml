@@ -46,6 +46,16 @@ deploy_dev_esb:
   only:
     - develop
 
+deploy_dev_pensioenpro:
+  stage: deploy
+  tags:
+      - FDMG
+  script:
+    - gulp --fdmg_services_config_url=http://spring-config-pensioenpro.fdmg.org:8088/webwriter dev-pensioenpro-deploy-webwriter-config
+  environment: webwriter-dev-pensioenpro
+  only:
+    - develop
+
 deploy_acc_fd:
   stage: deploy
   tags:
@@ -63,6 +73,16 @@ deploy_acc_esb:
   script:
     - gulp --fdmg_services_config_url=http://spring-config-esb.fdmg.org:8088/webwriter acc-esb-deploy-webwriter-config
   environment: webwriter-acc-esb
+  only:
+    - acceptance
+
+deploy_acc_pensioenpro:
+  stage: deploy
+  tags:
+      - FDMG
+  script:
+    - gulp --fdmg_services_config_url=http://spring-config-pensioenpro.fdmg.org:8088/webwriter acc-pensioenpro-deploy-webwriter-config
+  environment: webwriter-acc-pensioenpro
   only:
     - acceptance
 
@@ -86,6 +106,16 @@ deploy_prod_esb:
   only:
     - production
 
+deploy_prod_pensioenpro:
+  stage: deploy
+  tags:
+      - FDMG
+  script:
+    - gulp --fdmg_services_config_url=http://spring-config-pensioenpro.fdmg.org:8088/webwriter prod-pensioenpro-deploy-webwriter-config
+  environment: webwriter-pensioenpro
+  only:
+    - production
+
 # Manual deployment of any branch
 manual_dev_fd:
   stage: deploy
@@ -103,4 +133,13 @@ manual_dev_esb:
   script:
     - gulp --fdmg_services_config_url=http://spring-config-esb.fdmg.org:8088/webwriter dev-esb-deploy-webwriter-config
   environment: webwriter-dev-esb
+  when: manual
+
+manual_dev_pensioenpro:
+  stage: deploy
+  tags:
+      - FDMG
+  script:
+    - gulp --fdmg_services_config_url=http://spring-config-pensioenpro.fdmg.org:8088/webwriter dev-pensioenpro-deploy-webwriter-config
+  environment: webwriter-dev-pensioenpro
   when: manual

@@ -150,6 +150,45 @@ gulp.task('prod-config-esb-generate', function() {
   getConfig(gutil.env.fdmg_services_config_url + '-prod/esb', writeConfig);
 });
 
+/* PensioenPro Environments */
+gulp.task('local-config-pensioenpro-generate', function() {
+  console.log('Creating "local" config for PensioenPro writer');
+  writeConfig({
+    'fdmg.source': 'writer-pensioenpro.json',
+    'infoMaker.plugins.base': 'https://plugins.writer.infomaker.io/dev',
+    'fdmg.webwriter.plugins.base': 'http://localhost:3000',
+    'fdmg.newsItem.template.id': '30eae1c0-c640-4053-b114-05c64e28bbe7',
+    'fdmg.services.baseUrl': 'https://webwriter-dev.pensioenpro.nl/fdmgapi/private/pensioenpro',
+    'fdmg.services.noProxyBaseUrl': 'https://dev-api.fdmg.org/private/pensioenpro',
+    'fdmg.services.token': 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiI5MDA0Nzc2NDc3ODQyMDQ1ODAwIiwic3ViIjoiU2VydmljZXMiLCJyb2xlIjoiVVNFUiJ9.vRx7zG0lTInK6BCnoy25FRXNO6kGP8bi03eB1xviWjkM4xq-fQ6EoBR88yZPC4CAfdjpcNcQ_pxlJbvcISaAOw',
+    'hollandseHoogte.token': '63401c89-63e9-35f9-9daa-a55ef26c3042',
+    'fdmg.apiGatewayBaseUrl': 'https://apigateway-dev.fdmg.nl',
+    'fdmg.fileName': 'writer-fd.json',
+    'fdmg.previewUrl': 'https://preview-dev.pensioenpro.nl',
+    'fdmg.destination': '../NPWriter/server/config/',
+    'fdmg.baseDomainUrl': 'dev.pensioenpro.nl',
+    'fdmg.instructionsManualUrl': 'http://static.fd.nl/webwriter-manual/fd-writer-manual.pdf',
+    'fdmg.emergencyPhoneNumber' : '+31 020 592 8553',
+    'fdmg.groupMailBox' : 'webwriter@fdmediagroep.nl'
+  });
+});
+
+gulp.task('dev-config-pensioenpro-generate', function() {
+  console.log('Creating "development" config for ESB writer');
+  getConfig(gutil.env.fdmg_services_config_url + '-dev/pensioenpro', writeConfig);
+});
+
+gulp.task('acc-config-pensioenpro-generate', function() {
+  console.log('Creating "acceptance" config for ESB writer');
+  getConfig(gutil.env.fdmg_services_config_url + '-acc/pensioenpro', writeConfig);
+
+});
+
+gulp.task('prod-config-pensioenpro-generate', function() {
+  console.log('Creating "production" config for ESB writer');
+  getConfig(gutil.env.fdmg_services_config_url + '-prod/pensioenpro', writeConfig);
+});
+
 function initializeConfig() {
   return {
     'fdmg.source': '',
@@ -242,6 +281,16 @@ gulp.task('prod-esb-deploy-webwriter-config', [], function() {
   getConfig(gutil.env.fdmg_services_config_url + '-prod/esb', deploy);
 });
 
+gulp.task('dev-pensioenpro-deploy-webwriter-config', [], function() {
+  getConfig(gutil.env.fdmg_services_config_url + '-dev/pensioenpro', deploy);
+});
+gulp.task('acc-pensioenpro-deploy-webwriter-config', [], function() {
+  getConfig(gutil.env.fdmg_services_config_url + '-acc/pensioenpro', deploy);
+});
+gulp.task('prod-pensioenpro-deploy-webwriter-config', [], function() {
+  getConfig(gutil.env.fdmg_services_config_url + '-prod/pensioenpro', deploy);
+});
+
 // Clean
 gulp.task('clean', function() {
   return del([
@@ -252,4 +301,5 @@ gulp.task('clean', function() {
 // Default build development
 gulp.task('generate-config-fd', ['dev-config-fd-generate', 'acc-config-fd-generate', 'prod-config-fd-generate']);
 gulp.task('generate-config-esb', ['dev-config-esb-generate', 'acc-config-esb-generate', 'prod-config-esb-generate']);
+gulp.task('generate-config-pensioenpro', ['dev-config-pensioenpro-generate', 'acc-config-pensioenpro-generate', 'prod-config-pensioenpro-generate']);
 gulp.task('default', ['clean', 'local-config-fd-generate']);
