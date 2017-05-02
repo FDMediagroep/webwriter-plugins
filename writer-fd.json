@@ -242,7 +242,7 @@
       "id": "nl.fdmg.localfocus",
       "name": "localfocus",
       "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
-      "enabled": false,
+      "enabled": true,
       "mandatory": false
     },
     {
