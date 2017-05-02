@@ -9,11 +9,15 @@ export default {
     return el.is('object') && el.attr('type') === 'fdmg/textframe'
   },
 
-
   /**
    * Import textframe xml structure
    */
   import: function(el, node, converter) { // jshint ignore:line
+    let oldPreserveValue;
+
+    node.id = 'textframe';
+    converter.state.preserveWhitespace = oldPreserveValue;
+
     const nodeId = el.attr('id');
     node.title = el.attr('title');
     node.dataType = el.attr('type');
@@ -24,6 +28,7 @@ export default {
     if (dataEl) {
       dataEl.children.forEach(function(child) {
         if (child.tagName === 'text') {
+          converter.state.preserveWhitespace = true;
           node.text = converter.annotatedText(child, [node.id, 'text'])
         }
 
@@ -76,6 +81,7 @@ export default {
       converter.createNode(imageFile);
       node.imageFile = imageFile.id;
       node.uuid = linkEl.attr('uuid')
+      oldPreserveValue = converter.state.preserveWhitespace;
     }
   },
 
@@ -239,8 +245,6 @@ export default {
         linkData.append(crops);
         link.append(linkData)
       }
-
-
 
       el.append(
         $$('links').append(link)
