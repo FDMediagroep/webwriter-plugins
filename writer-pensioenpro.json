@@ -476,26 +476,65 @@
       "enabled": true,
       "mandatory": true,
       "data": {
-        "sections": [{
-            "id": "blog",
-            "label": "Blog"
-          },
-          {
-            "id": "esb",
-            "label": "ESB"
-          },
-          {
-            "id": "kort",
-            "label": "Kort"
-          },
-          {
-            "id": "kvs",
-            "label": "KVS"
-          },
-          {
-            "id": "overig",
-            "label": "Overig"
-          }
+        "sections": [
+          {"id":"agenda", "label":"Agenda"},
+          {"id":"agenda_detail", "label":"Detail"},
+          {"id":"archief", "label":"Archief"},
+          {"id":"Basis", "label":"Basis"},
+          {"id":"config", "label":"Config"},
+          {"id":"config.article", "label":"Config.article"},
+          {"id":"config.article.agenda", "label":"Config.article.agenda"},
+          {"id":"config.article.fd", "label":"Config.article.fd"},
+          {"id":"Config.article.ipn", "label":"Config.article.ipn"},
+          {"id":"Config.article.latestnews", "label":"Config.article.latestnews"},
+          {"id":"Config.article.magazine", "label":"Config.article.magazine"},
+          {"id":"config.article.mededeling", "label":"Config.article.mededeling"},
+          {"id":"config.article.nieuws", "label":"Config.article.nieuws"},
+          {"id":"config.article.pensioenfonds", "label":"Config.article.pensioenfonds"},
+          {"id":"config.article.redactieblog", "label":"config.article.redactieblog"},
+          {"id":"config.article.service", "label":"config.article.service"},
+          {"id":"config.section", "label":"Config.section"},
+          {"id":"config.section.agenda", "label":"Config.section.agenda"},
+          {"id":"config.section.archief", "label":"Config.section.archief"},
+          {"id":"config.section.dossier", "label":"Config.section.dossier"},
+          {"id":"config.section.dossiers", "label":"Config.section.dossiers"},
+          {"id":"config.section.ece_frontpage", "label":"config.section.ece_frontpage"},
+          {"id":"config.section.edities", "label":"config.section.edities"},
+          {"id":"config.section.login", "label":"Config.section.login"},
+          {"id":"Config.section.magazine", "label":"Config.section.magazine"},
+          {"id":"config.section.newsletter", "label":"Config.section.newsletter"},
+          {"id":"config.section.newsletter_breaking", "label":"Config.section.newsletter_breaking"},
+          {"id":"config.section.newsletter_daily", "label":"Config.section.newsletter_daily"},
+          {"id":"config.section.newsletter_weekly", "label":"Config.section.newsletter_weekly"},
+          {"id":"config.section.overons", "label":"config.section.overons"},
+          {"id":"config.section.pensioenfonds", "label":"Config.section.pensioenfonds"},
+          {"id":"config.section.securelogin", "label":"Config.section.securelogin"},
+          {"id":"config.section.zoeken", "label":"Config.section.zoeken"},
+          {"id":"dossier", "label":"Dossier"},
+          {"id":"dossiers", "label":"Dossiers"},
+          {"id":"ece_frontpage", "label":"Home"},
+          {"id":"ece_incoming", "label":"New Articles"},
+          {"id":"edities", "label":"Edities"},
+          {"id":"fd", "label":"FD"},
+          {"id":"fd4.focus", "label":"fd4.focus"},
+          {"id":"fd4.focus.fd.related", "label":"fd4.focus.fd.related"},
+          {"id":"fd4.focus.tech_and_innovation", "label":"fd4.focus.tech_and_innovation"},
+          {"id":"fd4.focus.web.other", "label":"fd4.focus.web.other"},
+          {"id":"ipn", "label":"IPN"},
+          {"id":"latestnews", "label":"Laatste nieuws"},
+          {"id":"login", "label":"Login"},
+          {"id":"magazine", "label":"Magazine"},
+          {"id":"mededeling", "label":"Mededeling"},
+          {"id":"newsletter", "label":"Nieuwsbrief"},
+          {"id":"newsletter_breaking", "label":"Breaking"},
+          {"id":"newsletter_daily", "label":"Dagelijks"},
+          {"id":"newsletter_weekly", "label":"Wekelijks"},
+          {"id":"nieuws", "label":"Nieuws"},
+          {"id":"overons", "label":"Over ons"},
+          {"id":"pensioenfonds", "label":"Pensioenfonds"},
+          {"id":"redactieblog", "label":"Redactie blog"},
+          {"id":"service", "label":"Service"},
+          {"id":"zoeken", "label":"Zoeken"}
         ]
       }
     },
