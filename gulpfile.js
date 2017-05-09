@@ -163,7 +163,7 @@ gulp.task('local-config-pensioenpro-generate', function() {
     'fdmg.newsItem.template.id': '30eae1c0-c640-4053-b114-05c64e28bbe7',
     'fdmg.services.baseUrl': 'https://webwriter-dev.pensioenpro.nl/fdmgapi/private/pensioenpro',
     'fdmg.services.noProxyBaseUrl': 'https://dev-api.fdmg.org/private/pensioenpro',
-    'fdmg.services.token': 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiI5MDA0Nzc2NDc3ODQyMDQ1ODAwIiwic3ViIjoiU2VydmljZXMiLCJyb2xlIjoiVVNFUiJ9.vRx7zG0lTInK6BCnoy25FRXNO6kGP8bi03eB1xviWjkM4xq-fQ6EoBR88yZPC4CAfdjpcNcQ_pxlJbvcISaAOw',
+    'fdmg.services.token': 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiItNDI2MzAzODcwMDAxODgyOTMzOCIsInN1YiI6IlNlcnZpY2VzIiwicm9sZSI6IlJPTEVfVVNFUiJ9.DTK154YTSJ6Hkf6bt2K-YsYnJPpQ30ci5Qa0aQZFkhwrpnpuHGXzeXDbWjbFK2B5diPYRruVtHl5oC8OV066qQ',
     'hollandseHoogte.token': '63401c89-63e9-35f9-9daa-a55ef26c3042',
     'fdmg.apiGatewayBaseUrl': 'https://apigateway-dev.fdmg.nl',
     'fdmg.fileName': 'writer-fd.json',
