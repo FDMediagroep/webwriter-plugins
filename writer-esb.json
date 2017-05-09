@@ -628,6 +628,17 @@
       }
     },
     {
+      "id": "nl.fdmg.focuscolor",
+      "name": "focuscolor",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
+      "enabled": false,
+      "mandatory": false,
+      "data": {
+        "optionsGroup": "articletype"
+      }
+    },
+    {
       "id": "nl.fdmg.epic",
       "name": "epic",
       "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
