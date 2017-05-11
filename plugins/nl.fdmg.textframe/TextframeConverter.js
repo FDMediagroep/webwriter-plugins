@@ -14,8 +14,6 @@ export default {
    */
   import: function(el, node, converter) { // jshint ignore:line
     let oldPreserveValue;
-
-    node.id = 'textframe';
     converter.state.preserveWhitespace = oldPreserveValue;
 
     const nodeId = el.attr('id');
