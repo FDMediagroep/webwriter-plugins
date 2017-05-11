@@ -24,7 +24,12 @@
 1. Open `localhost:5000` in a browser
   1. Or `localhost:5000/#demo` if you want to  use the demo article which is located in
   `NPWriter/data/newsitem-text.xml`. You might want to replace the xml in this file by the
-  xml that is in our own template articles. 
+  xml that is in our own template articles.
+  1. A full blown article has been created to cover most of the test scenario's. You can find
+  it in the root of the writer `fullblownarticle.xml`. Copy/paste the contents of this article
+  into `NPWriter/data/newsitem-text.xml` to do some extensive testing. The article can be found
+  at: https://preview-acc.fd.nl/economie-politiek/1238849/testartikel-redactie-langere-kop-met-meer-info
+  on `acceptance` ( https://webwriter-acc.fd.nl/#1238849 ).
 
 In other sessions you only need to:
 

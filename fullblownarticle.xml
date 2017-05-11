@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<newsItem xmlns="http://iptc.org/std/nar/2006-10-01/" conformance="power" guid="article-1238849" standard="NewsML-G2" standardversion="2.20" version="1">
+   <catalogRef href="http://www.iptc.org/std/catalog/catalog.IPTC-G2-Standards_27.xml" />
+   <catalogRef href="http://infomaker.se/spec/catalog/catalog.infomaker.g2.1_0.xml" />
+   <itemMeta>
+      <itemClass qcode="ninat:text" />
+      <versionCreated />
+      <firstCreated />
+      <pubStatus qcode="stat:usable" />
+      <title>Testartikel redactie - langere kop met meer info</title>
+      <itemMetaExtProperty type="imext:pubstart" value="2017-05-11T13:54:34+02:00" />
+      <itemMetaExtProperty type="imext:type" value="x-im/article" />
+      <links xmlns="http://www.infomaker.se/newsml/1.0">
+         <link rel="articleversion" type="fdmg/articleversion" uuid="articleversion-vPkhWMBdGWRA" value="27" />
+         <link rel="author" title="Deze auteur bestaat niet" type="x-im/author" uuid="author-65701" />
+         <link rel="author" title="Han Dirk Hekking" type="x-im/author" uuid="author-24102" />
+         <link rel="subject" title="Verenigde Staten" type="x-im/category" uuid="tag-589" />
+         <link rel="subject" title="Films" type="x-im/category" uuid="tag-3075" />
+         <link id="ARTICLE" rel="articletype" title="ARTICLE" type="fdmg/articletype" uuid="article-type-Cyu7I45g9qc9" />
+         <link rel="genre" title="Achtergrond" type="fdmg/genre" uuid="genre-shk0SFkFcz5Y" />
+         <link id="economie-politiek" rel="section" title="economie-politiek" type="fdmg/section" uuid="section-9FcDwfVd78yY" />
+         <link rel="rubric" title="Zelf ingevoerd" type="fdmg/rubric" uuid="rubric-U8sExhWerxbI" />
+         <link checked="false" rel="paywall" type="fdmg/paywall" uuid="paywall-IYXaEGP7mtIF" />
+         <link checked="false" rel="comments" type="fdmg/comments" uuid="comments-sJNtvvinWGC2" />
+         <link checked="false" rel="donotindex" type="fdmg/donotindex" uuid="do-not-index-jalm1YoqYKXz" />
+         <link checked="true" rel="showrelatedarticles" type="fdmg/showrelatedarticles" uuid="show-related-article-z4JucFFYvbqI" />
+         <link checked="false" rel="shortarticle" type="fdmg/shortarticle" uuid="short-article-2En0n84wowII" />
+         <link checked="false" rel="fullwidth" type="fdmg/fullwidth" uuid="full-width-No6HMl9UQn5s" />
+         <link checked="false" rel="breakingarticle" type="fdmg/breakingarticle" uuid="breaking-article-l7OsPJZhLaDC" />
+         <link checked="false" rel="redirectlink" type="fdmg/redirectlink" uuid="redirect-link-2By44VNoPlRW" />
+         <link checked="false" rel="topstory" type="fdmg/topstory" uuid="top-story-hc1V6kuJYvYL" />
+         <link id="35701" name="tijdelijke epic op acc" rel="epic" type="fdmg/epic" uuid="epic-a0cXolHkmsEv" />
+         <link id="1238944" rel="relatedarticle" type="fdmg/relatedarticle" url="https://acc.fd.nl/Print/krant/Pagina/Beursplein/1238944/wall-street-nagenoeg-onveranderd-de-handelsdag-uit" uuid="related-article-FaxFkYPJK1Gz" />
+         <link checked="false" rel="fdpersonal" type="fdmg/fdpersonal" uuid="fd-personal-WlYyfYwBpHz4" />
+         <link rel="textcount" size="XXL" type="fdmg/textcount" uuid="text-count-tEawfIPo00lx" />
+         <link label="EDIT" rel="workflowstate" type="fdmg/workflowstate" uuid="work-flow-state-rihxEdSwhrRM" />
+         <link date="2017-05-27" rel="planneddate" time="18:00" type="fdmg/planneddate" uuid="planned-date-3JHRIp59178B" />
+         <link checked="false" rel="advertorial" type="fdmg/advertorial" uuid="advertorial-bw93cMHCaWPY" />
+         <link checked="false" rel="servicepage" type="fdmg/servicepage" uuid="servicepage-LmS8rAKKCKtM" />
+         <link checked="false" rel="article-decoupled" type="fdmg/article-decoupled" uuid="article-decoupled-fhgPDMOsLo2n" />
+      </links>
+      <itemMetaExtProperty type="imext:uri" value="im://article/article-1238849" />
+   </itemMeta>
+   <contentMeta>
+      <contentCreated />
+      <contentModified />
+      <headline>Testartikel redactie - langere kop met meer info</headline>
+      <metadata xmlns="http://www.infomaker.se/newsml/1.0">
+         <object id="ODMsMjIwLDE3OSwyMjI" type="x-im/newsvalue">
+            <data>
+               <description>1D</description>
+               <end />
+               <format>lifetimecode</format>
+               <score>3</score>
+               <duration>84600</duration>
+            </data>
+         </object>
+         <object id="work-instructions-MRQbKKU4Nuvq" name="workinstructions" type="fdmg/workinstructions">
+            <data>
+               <text>Locatie enzo</text>
+            </data>
+         </object>
+         <object id="ODMsMjIwLDE3OSwyFdmg" type="x-im/teaser" title="Testartikel redactie - korte kop ">
+            <data>
+               <text>Korte inleiding die op home en laatste nieuws verschijnt.</text>
+            </data>
+            <links>
+               <link rel="image" type="x-im/image" uri="im://image/h9VcCko47NBlYuCNm0jOR7tKZqU.jpg" uuid="teaser-picture-125802">
+                  <data>
+                     <width>-1</width>
+                     <height>-1</height>
+                  </data>
+                  <links />
+               </link>
+            </links>
+         </object>
+      </metadata>
+   </contentMeta>
+   <contentSet>
+      <inlineXML>
+         <idf xmlns="http://www.infomaker.se/idf/1.0" xml:lang="nl">
+            <group type="body">
+               <element id="LBQOQ713dSE4" type="headline">Testartikel redactie - langere kop met meer info</element>
+               <element id="U16Jj1B8YJW1" type="preamble">Dit is een faketekst. Alles wat hier staat is slechts om een indruk te geven van het grafische effect van tekst op deze plek. Wat u hier leest is een voorbeeldtekst.</element>
+               <element id="paragraph-cZQwVqNJYm2v" type="body">Deze wordt later² vervangen door de £uiteindelijke tekst, $die nu nog ¥niet bekend is. — De faketekst is dus een tekst die eigenlijk nergens over gaat. Het grappige is, dat mensen deze toch vaak lezen. —Zelfs als men weet dat het om een faketekst gaat, ₂lezen ze toch door.</element>
+               <object id="inline-picture-3xSLT7f50m4q" type="x-im/image" uuid="inline-picture-125802">
+                  <links>
+                     <link rel="self" type="x-im/image" uri="im://image/h9VcCko47NBlYuCNm0jOR7tKZqU.jpg" uuid="inline-picture-125802">
+                        <data>
+                           <width>-1</width>
+                           <height>-1</height>
+                           <text>Foto volledige breedte</text>
+                           <credit>Fotocredit</credit>
+                           <alignment>block</alignment>
+                        </data>
+                     </link>
+                  </links>
+               </object>
+               <element id="paragraph-8c6Ki9c1H5cA" type="body">
+                  Dit is een faketekst. Alles wat hier staat is slechts om een indruk te geven van het grafische effect van tekst op deze plek
+                  <span id="stockticker-1" data-type="fdmg/stockticker" data-isin-code="US64066H1095" data-exchange="XNYS" data-price="--" data-difference="--" data-name="NEP Group Inc" data-currency="$">​</span>
+                  . Wat u hier leest is een voorbeeldtekst. Deze wordt later vervangen door de uiteindelijke tekst, die nu nog niet bekend is. De faketekst is dus een tekst
+                  <span id="stockticker-2" data-type="fdmg/stockticker" data-isin-code="US8832031012" data-exchange="FRAA" data-price="42,99" data-difference="-0,12%" data-name="Textron Inc" data-currency="€">​</span>
+                  die eigenlijk nergens over gaat. Het grappige is, dat mensen deze toch vaak lezen. Zelfs als men weet dat het om een faketekst gaat, lezen ze toch door.
+               </element>
+               <element id="subheadline-6AqEW43y1AYm" type="subheadline1" format="html">Tussenkop</element>
+               <object id="quote-SI2IgJ2DyHGE" type="fdmg/quote">
+                  <data>
+                     <message>Bob. I have eight different bosses right now!</message>
+                     <author>Iemand</author>
+                  </data>
+               </object>
+               <element id="paragraph-pb2horWhfz21" type="body">Dit is een faketekst. Alles wat hier staat is slechts om een indruk te geven van het grafische effect van tekst op deze plek. Wat u hier leest is een voorbeeldtekst. Deze wordt later vervangen door de uiteindelijke tekst, die nu nog niet bekend is. De faketekst is dus een tekst die eigenlijk nergens over gaat. Het grappige is, dat mensen deze toch vaak lezen. Zelfs als men weet dat het om een faketekst gaat, lezen ze toch door.</element>
+               <element id="subheadline-5ID4xfWyHgxu" type="subheadline1" format="html">Tussenkop</element>
+               <element id="paragraph-l4h6CPMtqNxU" type="body">Dit is een faketekst. Alles wat hier staat is slechts om een indruk te geven van het grafische effect van tekst op deze plek. Wat u hier leest is een voorbeeldtekst. Deze wordt later vervangen door de uiteindelijke tekst, die nu nog niet bekend is. De faketekst is dus een tekst die eigenlijk nergens over gaat. Het grappige is, dat mensen deze toch vaak lezen. Zelfs als men weet dat het om een faketekst gaat, lezen ze toch door.</element>
+               <object id="inline-picture-FyEiGdS0bB54" type="x-im/image" uuid="inline-picture-145901">
+                  <links>
+                     <link rel="self" type="x-im/image" uri="im://image/q1VxKjkVNZRtl6uvxrg_0JkLd4U.jpg" uuid="inline-picture-145901">
+                        <data>
+                           <width>307</width>
+                           <height>164</height>
+                           <text>Foto kleiner en rechtslijnend</text>
+                           <credit>Fotocredit</credit>
+                           <alignment />
+                        </data>
+                     </link>
+                  </links>
+               </object>
+               <element id="paragraph-It1tzNo9m8Zv" type="body">Dit is een faketekst. Alles wat hier staat is slechts om een indruk te geven van het grafische effect van tekst op deze plek. Wat u hier leest is een voorbeeldtekst. Deze wordt later vervangen door de uiteindelijke tekst, die nu nog niet bekend is. De faketekst is dus een tekst die eigenlijk nergens over gaat. Het grappige is, dat mensen deze toch vaak lezen. Zelfs als men weet dat het om een faketekst gaat, lezen ze toch door.</element>
+               <object id="textframe-NJ2JinZPd7m8" type="fdmg/textframe" title="Tekstkader 1 rechtslijnend">
+                  <data>
+                     <text>Eight, bob. So that means when I make a mistake, I have eight different people coming by to tell me about it. That's my real motivation - is not to be hassled. That and the fear of losing my job, but y'know, Bob, it will only make someone work hard enough not to get fired.</text>
+                     <alignment>right</alignment>
+                  </data>
+                  <links>
+                     <link rel="image" type="x-im/image" uri="im://image/bwTPbLDKAVCkJYxm0uEgUgLD7a0.jpg" uuid="image-146002">
+                        <data>
+                           <width>-1</width>
+                           <height>-1</height>
+                           <crops />
+                        </data>
+                     </link>
+                  </links>
+               </object>
+               <element id="paragraph-484uBcd3T06L" type="body">Dit is een faketekst. Alles wat hier staat is slechts om een indruk te geven van het grafische effect van tekst op deze plek. Wat u hier leest is een voorbeeldtekst. Deze wordt later vervangen door de uiteindelijke tekst, die nu nog niet bekend is. De faketekst is dus een tekst die eigenlijk nergens over gaat. Het grappige is, dat mensen deze toch vaak lezen. Zelfs als men weet dat het om een faketekst gaat, lezen ze toch door.</element>
+               <object id="textframe-KWEphy37ZLe1" type="fdmg/textframe" title="Tekstkader 2 volledige breedte met allerlei opmaak">
+                  <data>
+                     <text>
+                        Hieronder allerlei opmaak
+                        <a id="link-PXRZyofJCyN8" href="https://www.youtube.com/watch?v=Q-uUdIRKfQY">
+                           <strong id="strong-85xYUBONZKys">What do you think of a person who only does the bare minimum?</strong>
+                        </a>
+                        <strong id="strong-gkTjM9voFE38">JOANNA</strong>
+                        Huh. What do I think? Let me tell you what I think, Stan. If you want 
+me to wear thirty-seven pieces of flair like your pretty boy Brian over 
+there, then why don't you just make the minimum thirty-seven pieces of 
+flair?
+                        <strong id="strong-YYrNHa8dPlBm">STAN</strong>
+                        Well, I thought I remember you saying you wanted to express yourself.
+                        <strong id="strong-bWmY64tjkdxw">JOANNA</strong>
+                        Yeah. Yeah. Y'know what? I do. I do want to express myself. Ok? And I 
+don't need thirty-seven pieces of flair to do it. (gives him the 
+finger) All right? There's my flair! And this is me expressing myself. 
+(holds up her hand) There it is! I hate this job! I hate this goddamn 
+job and I don't need it!!
+                        <a id="link-0c8C03qvjy9d" href="http://www.imsdb.com/scripts/Office-Space.html">Lees verder</a>
+                     </text>
+                     <alignment>block</alignment>
+                  </data>
+                  <links>
+                     <link rel="image" type="x-im/image" uri="im://image/MmYqgViUZ31HUKccOqjIGDdfRLc.jpg" uuid="image-146001">
+                        <data>
+                           <width>-1</width>
+                           <height>-1</height>
+                           <crops />
+                        </data>
+                     </link>
+                  </links>
+               </object>
+               <element id="paragraph-IAxkyAjjpu8I" type="body">Dit is een faketekst. Alles wat hier staat is slechts om een indruk te geven van het grafische effect van tekst op deze plek. Wat u hier leest is een voorbeeldtekst. Deze wordt later vervangen door de uiteindelijke tekst, die nu nog niet bekend is. De faketekst is dus een tekst die eigenlijk nergens over gaat. Het grappige is, dat mensen deze toch vaak lezen. Zelfs als men weet dat het om een faketekst gaat, lezen ze toch door.</element>
+               <object id="numberframe-8rgV89mUaohd" type="fdmg/numberframe">
+                  <data>
+                     <heading>20</heading>
+                     <content>Aantal keer dat ik Office Space heb gezien</content>
+                  </data>
+               </object>
+               <element id="paragraph-rn0Xk1TGmVms" type="body">Dit is een faketekst. Alles wat hier staat is slechts om een indruk te geven van het grafische effect van tekst op deze plek. Wat u hier leest is een voorbeeldtekst. Deze wordt later vervangen door de uiteindelijke tekst, die nu nog niet bekend is. De faketekst is dus een tekst die eigenlijk nergens over gaat. Het grappige is, dat mensen deze toch vaak lezen. Zelfs als men weet dat het om een faketekst gaat, lezen ze toch door.</element>
+               <object id="numberframe-zMcvyzxZvfOp" type="fdmg/numberframe">
+                  <data>
+                     <heading>£20</heading>
+                     <content>Omdat er ook een cijfer in het cijferkader moet</content>
+                  </data>
+               </object>
+               <element id="paragraph-522jFcCNXshA" type="body">Dit is een faketekst. Alles wat hier staat is slechts om een indruk te geven van het grafische effect van tekst op deze plek. Wat u hier leest is een voorbeeldtekst. Deze wordt later vervangen door de uiteindelijke tekst, die nu nog niet bekend is. De faketekst is dus een tekst die eigenlijk nergens over gaat. Het grappige is, dat mensen deze toch vaak lezen. Zelfs als men weet dat het om een faketekst gaat, lezen ze toch door.</element>
+               <object id="inline-picture-GCnMe1SuyVoS" type="x-im/image" uuid="inline-picture-146003">
+                  <links>
+                     <link rel="self" type="x-im/image" uri="im://image/xPizwTQGp9H5xsHfQg09gIn9mzo.gif" uuid="inline-picture-146003">
+                        <data>
+                           <width>500</width>
+                           <height>269</height>
+                           <text>Een bewegende gif</text>
+                           <credit>Beeld: 't internet</credit>
+                           <alignment />
+                        </data>
+                     </link>
+                  </links>
+               </object>
+               <element id="paragraph-ICCZ1REBUS0H" type="body">Dit is een faketekst. Alles wat hier staat is slechts om een indruk te geven van het grafische effect van tekst op deze plek. Wat u hier leest is een voorbeeldtekst. Deze wordt later vervangen door de uiteindelijke tekst, die nu nog niet bekend is. De faketekst is dus een tekst die eigenlijk nergens over gaat. Het grappige is, dat mensen deze toch vaak lezen. Zelfs als men weet dat het om een faketekst gaat, lezen ze toch door.</element>
+               <element id="paragraph-2jTgUVdxiA8J" type="body" />
+               <element id="paragraph-arnSAb6hSZLF" type="body" />
+               <object id="inline-pdf-uAakeI3xzgYD" type="x-im/pdf" uuid="inline-pdf-392801">
+                  <links>
+                     <link rel="self" type="x-im/pdf" uri="im://pdf/0zzYZRd2tbzdNgbgV4BcQOZYZKg.pdf" uuid="inline-pdf-392801">
+                        <data>
+                           <text>Dit is een klein pdf'je</text>
+                        </data>
+                     </link>
+                  </links>
+               </object>
+               <element id="paragraph-4iAcVQkEeAdv" type="body">Dit is een faketekst. Alles wat hier staat is slechts om een indruk te geven van het grafische effect van tekst op deze plek. Wat u hier leest is een voorbeeldtekst. Deze wordt later vervangen door de uiteindelijke tekst, die nu nog niet bekend is. De faketekst is dus een tekst die eigenlijk nergens over gaat. Het grappige is, dat mensen deze toch vaak lezen. Zelfs als men weet dat het om een faketekst gaat, lezen ze toch door.</element>
+               <object id="stackframe-ypeKhJjhuMM0" type="fdmg/stackframe">
+                  <data>
+                     <heading>The usual deal</heading>
+                     <content>We're gonna bring in some entry level graduates for us to work in Singapore, that's the usual deal.</content>
+                  </data>
+               </object>
+               <object id="stackframe-C3DVRp4YryXR" type="fdmg/stackframe">
+                  <data>
+                     <heading>Excuse me.</heading>
+                     <content>I believe you have my stapler?</content>
+                  </data>
+               </object>
+               <object id="stackframe-lPytd2bAPFhC" type="fdmg/stackframe">
+                  <data>
+                     <heading>Excuse me?</heading>
+                     <content>Excuse me? Ok, that's the last straw.</content>
+                  </data>
+               </object>
+               <element id="paragraph-NoPxw84BgECz" type="body">Dit is een faketekst. Alles wat hier staat is slechts om een indruk te geven van het grafische effect van tekst op deze plek. Wat u hier leest is een voorbeeldtekst. Deze wordt later vervangen door de uiteindelijke tekst, die nu nog niet bekend is. De faketekst is dus een tekst die eigenlijk nergens over gaat. Het grappige is, dat mensen deze toch vaak lezen. Zelfs als men weet dat het om een faketekst gaat, lezen ze toch door.</element>
+               <object id="stackframe-8ex3ph2ArDR9" type="fdmg/stackframe">
+                  <data>
+                     <heading>Look, I'm sorry. I do not know anything about money laundering.</heading>
+                     <content />
+                  </data>
+               </object>
+               <element id="paragraph-DgOnHpcCa1ZE" type="body">Dit is een faketekst. Alles wat hier staat is slechts om een indruk te geven van het grafische effect van tekst op deze plek. Wat u hier leest is een voorbeeldtekst. Deze wordt later vervangen door de uiteindelijke tekst, die nu nog niet bekend is. De faketekst is dus een tekst die eigenlijk nergens over gaat. Het grappige is, dat mensen deze toch vaak lezen. Zelfs als men weet dat het om een faketekst gaat, lezen ze toch door.</element>
+               <object id="youtube-tIaJyVGw7HlJ" type="x-im/youtube" url="https://youtube.com/watch?v=Vsayg_S4pJg" uri="https://youtube.com/watch?v=Vsayg_S4pJg">
+                  <data>
+                     <start>0</start>
+                  </data>
+               </object>
+               <element id="paragraph-7gQEdjlJZYhS" type="body">Dit is een faketekst. Alles wat hier staat is slechts om een indruk te geven van het grafische effect van tekst op deze plek. Wat u hier leest is een voorbeeldtekst. Deze wordt later vervangen door de uiteindelijke tekst, die nu nog niet bekend is. De faketekst is dus een tekst die eigenlijk nergens over gaat. Het grappige is, dat mensen deze toch vaak lezen. Zelfs als men weet dat het om een faketekst gaat, lezen ze toch door.</element>
+               <element id="paragraph-AwhcqbORw9D4" type="body">Dit is een faketekst. Alles wat hier staat is slechts om een indruk te geven van het grafische effect van tekst op deze plek. Wat u hier leest is een voorbeeldtekst. Deze wordt later vervangen door de uiteindelijke tekst, die nu nog niet bekend is. De faketekst is dus een tekst die eigenlijk nergens over gaat. Het grappige is, dat mensen deze toch vaak lezen. Zelfs als men weet dat het om een faketekst gaat, lezen ze toch door.</element>
+               <object id="related-link-r3XpYA0Du6tC" type="fdmg/relatedlink">
+                  <data>
+                     <prefix>Lees ook</prefix>
+                     <leadtext>Dit allemaal</leadtext>
+                     <relatedurl>http://www.imsdb.com/scripts/Office-Space.html</relatedurl>
+                  </data>
+               </object>
+               <element id="paragraph-P763ftqxGHBs" type="body">Dit is een faketekst. Alles wat hier staat is slechts om een indruk te geven van het grafische effect van tekst op deze plek. Wat u hier leest is een voorbeeldtekst. Deze wordt later vervangen door de uiteindelijke tekst, die nu nog niet bekend is. De faketekst is dus een tekst die eigenlijk nergens over gaat. Het grappige is, dat mensen deze toch vaak lezen. Zelfs als men weet dat het om een faketekst gaat, lezen ze toch door.</element>
+               <object id="related-link-m3kIDqoKhb8s" type="fdmg/relatedlink">
+                  <data>
+                     <prefix>Lees ook</prefix>
+                     <leadtext>Nog meer lees ook plezier</leadtext>
+                     <relatedurl>https://www.youtube.com/watch?v=NnJzct7h3Dk</relatedurl>
+                  </data>
+               </object>
+               <object id="inline-pdf-zzriNItShgTQ" type="x-im/pdf" uuid="inline-pdf-392802">
+                  <links>
+                     <link rel="self" type="x-im/pdf" uri="im://pdf/Enu7MF1c4oezloXh6CEbxYUGXoM.pdf" uuid="inline-pdf-392802">
+                        <data>
+                           <text>Dit is een grote pdf met ook nog een rare bestandsnaam!</text>
+                        </data>
+                     </link>
+                  </links>
+               </object>
+               <element id="paragraph-ZvGcrYwwrv6U" type="body">Dit is een faketekst. Alles wat hier staat is slechts om een indruk te geven van het grafische effect van tekst op deze plek. Wat u hier leest is een voorbeeldtekst. Deze wordt later vervangen door de uiteindelijke tekst, die nu nog niet bekend is. De faketekst is dus een tekst die eigenlijk nergens over gaat. Het grappige is, dat mensen deze toch vaak lezen. Zelfs als men weet dat het om een faketekst gaat, lezen ze toch door.</element>
+               <object id="html-embed-eFCuLKL8IIS6" type="fdmg/htmlembed">
+                  <data>
+                     <text><![CDATA[<iframe class="localfocusvisual" frameborder="0" style="width:100%;height:600px;overflow:hidden" src="https://localfocus2.appspot.com/59144d0954031"></iframe>]]></text>
+                     <format>html</format>
+                  </data>
+               </object>
+               <element id="paragraph-mfXucHRD6Lez" type="body">Dit is een faketekst. Alles wat hier staat is slechts om een indruk te geven van het grafische effect van tekst op deze plek. Wat u hier leest is een voorbeeldtekst. Deze wordt later vervangen door de uiteindelijke tekst, die nu nog niet bekend is. De faketekst is dus een tekst die eigenlijk nergens over gaat. Het grappige is, dat mensen deze toch vaak lezen. Zelfs als men weet dat het om een faketekst gaat, lezen ze toch door.</element>
+               <object id="quote-febN1fTlHZY2" type="fdmg/quote">
+                  <data>
+                     <message>It's my stapler, the Swingline. It's been mine for a very long time.</message>
+                     <author>...</author>
+                  </data>
+               </object>
+               <element id="paragraph-1VFsMLChplPs" type="body">Dit is een faketekst. Alles wat hier staat is slechts om een indruk te geven van het grafische effect van tekst op deze plek. Wat u hier leest is een voorbeeldtekst. Deze wordt later vervangen door de uiteindelijke tekst, die nu nog niet bekend is. De faketekst is dus een tekst die eigenlijk nergens over gaat. Het grappige is, dat mensen deze toch vaak lezen. Zelfs als men weet dat het om een faketekst gaat, lezen ze toch door.</element>
+               <element id="subheadline-KXSCT25hSrCi" type="subheadline1" format="html">Een tijdlijn via Amazon</element>
+               <object id="html-embed-kbV1XbKcALLP" type="fdmg/htmlembed">
+                  <data>
+                     <text><![CDATA[<link rel="stylesheet" type="text/css" href="https://s3-eu-west-1.amazonaws.com/files2.fd.nl/infographics/11162_codes_style.css"><div class="graphicWrapper_scroller">     <img src="https://s3-eu-west-1.amazonaws.com/files2.fd.nl/Erwin/Tijdlijn+Trump-Comey/Tijdlijn-Comey.png" /> </div>]]></text>
+                     <format>html</format>
+                  </data>
+               </object>
+               <element id="paragraph-8jKnGnhoa3co" type="body">Dit is een faketekst. Alles wat hier staat is slechts om een indruk te geven van het grafische effect van tekst op deze plek. Wat u hier leest is een voorbeeldtekst. Deze wordt later vervangen door de uiteindelijke tekst, die nu nog niet bekend is. De faketekst is dus een tekst die eigenlijk nergens over gaat. Het grappige is, dat mensen deze toch vaak lezen. Zelfs als men weet dat het om een faketekst gaat, lezen ze toch door.</element>
+               <object id="textframe-CUVToYI1wcVx" type="fdmg/textframe" title="Nog een gifje">
+                  <data>
+                     <text>
+                        Nog een tekstkader met een
+                        <a id="link-zegvAkNYKFPF" href="https://fd.nl">link</a>
+                     </text>
+                     <alignment>right</alignment>
+                  </data>
+                  <links>
+                     <link rel="image" type="x-im/image" uri="im://image/W8KPAMXZFMI1rCNlrCBqMrxO_2E.gif" uuid="image-146004">
+                        <data>
+                           <width>-1</width>
+                           <height>-1</height>
+                           <crops />
+                        </data>
+                     </link>
+                  </links>
+               </object>
+               <element id="paragraph-e9E3WeDFL9lo" type="body">Dit is een faketekst. Alles wat hier staat is slechts om een indruk te geven van het grafische effect van tekst op deze plek. Wat u hier leest is een voorbeeldtekst. Deze wordt later vervangen door de uiteindelijke tekst, die nu nog niet bekend is. De faketekst is dus een tekst die eigenlijk nergens over gaat. Het grappige is, dat mensen deze toch vaak lezen. Zelfs als men weet dat het om een faketekst gaat, lezen ze toch door.</element>
+               <element id="paragraph-1xxvEZDGsvHp" type="body">Dit is een faketekst. Alles wat hier staat is slechts om een indruk te geven van het grafische effect van tekst op deze plek. Wat u hier leest is een voorbeeldtekst. Deze wordt later vervangen door de uiteindelijke tekst, die nu nog niet bekend is. De faketekst is dus een tekst die eigenlijk nergens over gaat. Het grappige is, dat mensen deze toch vaak lezen. Zelfs als men weet dat het om een faketekst gaat, lezen ze toch door.</element>
+               <object id="inline-picture-a9Oc4mRlR1Dj" type="x-im/image" uuid="inline-picture-146005">
+                  <links>
+                     <link rel="self" type="x-im/image" uri="im://image/298LWmcXbO_pLl5Ur0qDcnv3YW4.gif" uuid="inline-picture-146005">
+                        <data>
+                           <width>471</width>
+                           <height>265</height>
+                           <text>Wat ik vandaag heb gedaan</text>
+                           <credit />
+                           <alignment>block</alignment>
+                        </data>
+                     </link>
+                  </links>
+               </object>
+               <element id="paragraph-E6uhku61WhxX" type="body">
+                  Lees ook: Dit artikel
+                  <a id="link-q2hYYNLPGiZj" href="https://acc.fd.nl/Print/krant/Pagina/Beursplein/1238944/wall-street-nagenoeg-onveranderd-de-handelsdag-uit">intern</a>
+                  en
+                  <a id="link-fEE2e6m2qstq" href="https://www.linkedin.com/pulse/your-boss-really-trying-kill-you-anil-saxena">extern</a>
+               </element>
+               <element id="paragraph-P8cUI88rASlP" type="body">Dit is een faketekst. Alles wat hier staat is slechts om een indruk te geven van het grafische effect van tekst op deze plek. Wat u hier leest is een voorbeeldtekst. Deze wordt later vervangen door de uiteindelijke tekst, die nu nog niet bekend is. De faketekst is dus een tekst die eigenlijk nergens over gaat. Het grappige is, dat mensen deze toch vaak lezen. Zelfs als men weet dat het om een faketekst gaat, lezen ze toch door.</element>
+               <object id="inline-picture-HycAmZcaFoEq" type="x-im/image" uuid="inline-picture-145902">
+                  <links>
+                     <link rel="self" type="x-im/image" uri="im://image/MYMhlPX441Uy8dqGCcli7-HEGz8.png" uuid="inline-picture-145902">
+                        <data>
+                           <width>350</width>
+                           <height>120</height>
+                           <text>Een gifje met transparantie</text>
+                           <credit>credit</credit>
+                           <alignment />
+                        </data>
+                     </link>
+                  </links>
+               </object>
+               <element id="paragraph-FZyNA7cPN1q4" type="body">Dit is een faketekst. Alles wat hier staat is slechts om een indruk te geven van het grafische effect van tekst op deze plek. Wat u hier leest is een voorbeeldtekst. Deze wordt later vervangen door de uiteindelijke tekst, die nu nog niet bekend is. De faketekst is dus een tekst die eigenlijk nergens over gaat. Het grappige is, dat mensen deze toch vaak lezen. Zelfs als men weet dat het om een faketekst gaat, lezen ze toch door.</element>
+               <element id="paragraph-ThmCx4LX5mFU" type="body">Peiling....</element>
+               <object id="html-embed-XjM00pIoO7vI" type="fdmg/htmlembed">
+                  <data>
+                     <text><![CDATA[<iframe scrolling="no" frameborder="0" style="width:100%;height:537px;overflow:hidden" src="https://fd-apps-nl.appspot.com/poll/get/71c9b388-0a6b-47e9-81bd-e2bc92791805/"></iframe>]]></text>
+                     <format>html</format>
+                  </data>
+               </object>
+               <element id="paragraph-elUbGAHMoqPj" type="body" />
+               <element id="paragraph-tUUaNMOYUIPk" type="body" />
+            </group>
+         </idf>
+      </inlineXML>
+   </contentSet>
+</newsItem>
