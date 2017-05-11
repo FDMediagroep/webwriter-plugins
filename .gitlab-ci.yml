@@ -4,6 +4,10 @@ cache:
   paths:
     - node_modules/
 
+before_script:
+  - echo Installing dependencies
+  - yarn install
+
 stages:
   - build
   - deploy
@@ -13,8 +17,6 @@ build_dist:
   tags:
     - FDMG
   script:
-    - echo Installing dependencies
-    - yarn install
     - echo Running build for production
     - npm run build
     - gulp --fdmg_services_config_url=http://spring-config-acc-fd.fdmg.org:8088/webwriter --ci_commit_sha=${CI_COMMIT_SHA} generate-config-fd
@@ -66,6 +68,7 @@ deploy_acc_fd:
   environment: webwriter-acc-fd
   only:
     - acceptance
+  when: manual
 
 deploy_acc_esb:
   stage: deploy
@@ -76,6 +79,7 @@ deploy_acc_esb:
   environment: webwriter-acc-esb
   only:
     - acceptance
+  when: manual
 
 deploy_acc_pensioenpro:
   stage: deploy
@@ -86,6 +90,7 @@ deploy_acc_pensioenpro:
   environment: webwriter-acc-pensioenpro
   only:
     - acceptance
+  when: manual
 
 deploy_prod_fd:
   stage: deploy
@@ -96,6 +101,7 @@ deploy_prod_fd:
   environment: webwriter-fd
   only:
     - production
+  when: manual
 
 deploy_prod_esb:
   stage: deploy
@@ -106,6 +112,7 @@ deploy_prod_esb:
   environment: webwriter-esb
   only:
     - production
+  when: manual
 
 deploy_prod_pensioenpro:
   stage: deploy
@@ -116,8 +123,9 @@ deploy_prod_pensioenpro:
   environment: webwriter-pensioenpro
   only:
     - production
+  when: manual
 
-# Manual deployment of any branch
+# Manual deployment of any branch to dev
 manual_dev_fd:
   stage: deploy
   tags:
