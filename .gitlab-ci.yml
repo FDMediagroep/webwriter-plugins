@@ -58,6 +58,19 @@ deploy_dev_pensioenpro:
   environment: webwriter-dev-pensioenpro
   only:
     - develop
+    
+deploy_acc_all:
+  stage: deploy
+  tags:
+      - FDMG
+  script:
+    - gulp --fdmg_services_config_url=http://spring-config-acc-fd.fdmg.org:8088/webwriter acc-fd-deploy-webwriter-config
+    - gulp --fdmg_services_config_url=http://spring-config-acc-esb.fdmg.org:8088/webwriter acc-esb-deploy-webwriter-config
+    - gulp --fdmg_services_config_url=http://spring-config-acc-pensioenpro.fdmg.org:8088/webwriter acc-pensioenpro-deploy-webwriter-config
+  environment: acc-all
+  only:
+    - acceptance
+  when: manual  
 
 deploy_acc_fd:
   stage: deploy
@@ -91,6 +104,19 @@ deploy_acc_pensioenpro:
   only:
     - acceptance
   when: manual
+
+deploy_prod_all:
+  stage: deploy
+  tags:
+      - FDMG
+  script:
+    - gulp --fdmg_services_config_url=http://spring-config-acc-fd.fdmg.org:8088/webwriter prod-fd-deploy-webwriter-config
+    - gulp --fdmg_services_config_url=http://spring-config-acc-esb.fdmg.org:8088/webwriter prod-esb-deploy-webwriter-config    
+    - gulp --fdmg_services_config_url=http://spring-config-acc-pensioenpro.fdmg.org:8088/webwriter prod-pensioenpro-deploy-webwriter-config    
+  environment: prod-all
+  only:
+    - production
+  when: manual 
 
 deploy_prod_fd:
   stage: deploy
