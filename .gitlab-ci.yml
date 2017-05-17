@@ -39,6 +39,16 @@ deploy_dev_fd:
   only:
     - develop
 
+deploy_dev_bnr:
+  stage: deploy
+  tags:
+      - FDMG
+  script:
+    - gulp --fdmg_services_config_url=http://spring-config-acc-bnr.fdmg.org:8088/webwriter dev-bnr-deploy-webwriter-config
+  environment: webwriter-dev-bnr
+  only:
+    - develop
+
 deploy_dev_esb:
   stage: deploy
   tags:
@@ -65,6 +75,7 @@ deploy_acc_all:
       - FDMG
   script:
     - gulp --fdmg_services_config_url=http://spring-config-acc-fd.fdmg.org:8088/webwriter acc-fd-deploy-webwriter-config
+    - gulp --fdmg_services_config_url=http://spring-config-acc-bnr.fdmg.org:8088/webwriter acc-bnr-deploy-webwriter-config
     - gulp --fdmg_services_config_url=http://spring-config-acc-esb.fdmg.org:8088/webwriter acc-esb-deploy-webwriter-config
     - gulp --fdmg_services_config_url=http://spring-config-acc-pensioenpro.fdmg.org:8088/webwriter acc-pensioenpro-deploy-webwriter-config
   environment: acc-all
@@ -79,6 +90,17 @@ deploy_acc_fd:
   script:
     - gulp --fdmg_services_config_url=http://spring-config-acc-fd.fdmg.org:8088/webwriter acc-fd-deploy-webwriter-config
   environment: webwriter-acc-fd
+  only:
+    - acceptance
+  when: manual
+
+deploy_acc_bnr:
+  stage: deploy
+  tags:
+      - FDMG
+  script:
+    - gulp --fdmg_services_config_url=http://spring-config-acc-bnr.fdmg.org:8088/webwriter acc-bnr-deploy-webwriter-config
+  environment: webwriter-acc-bnr
   only:
     - acceptance
   when: manual
@@ -111,6 +133,7 @@ deploy_prod_all:
       - FDMG
   script:
     - gulp --fdmg_services_config_url=http://spring-config-acc-fd.fdmg.org:8088/webwriter prod-fd-deploy-webwriter-config
+    - gulp --fdmg_services_config_url=http://spring-config-acc-bnr.fdmg.org:8088/webwriter prod-bnr-deploy-webwriter-config
     - gulp --fdmg_services_config_url=http://spring-config-acc-esb.fdmg.org:8088/webwriter prod-esb-deploy-webwriter-config    
     - gulp --fdmg_services_config_url=http://spring-config-acc-pensioenpro.fdmg.org:8088/webwriter prod-pensioenpro-deploy-webwriter-config    
   environment: prod-all
@@ -125,6 +148,17 @@ deploy_prod_fd:
   script:
     - gulp --fdmg_services_config_url=http://spring-config-acc-fd.fdmg.org:8088/webwriter prod-fd-deploy-webwriter-config
   environment: webwriter-fd
+  only:
+    - production
+  when: manual
+
+deploy_prod_bnr:
+  stage: deploy
+  tags:
+      - FDMG
+  script:
+    - gulp --fdmg_services_config_url=http://spring-config-bnr.fdmg.org:8088/webwriter prod-bnr-deploy-webwriter-config
+  environment: webwriter-bnr
   only:
     - production
   when: manual
