@@ -312,6 +312,16 @@ gulp.task('prod-fd-deploy-webwriter-config', [], function() {
   getConfig(gutil.env.fdmg_services_config_url + '-prod/fd', deploy);
 });
 
+gulp.task('dev-bnr-deploy-webwriter-config', [], function() {
+  getConfig(gutil.env.fdmg_services_config_url + '-dev/bnr', deploy);
+});
+gulp.task('acc-bnr-deploy-webwriter-config', [], function() {
+  getConfig(gutil.env.fdmg_services_config_url + '-acc/bnr', deploy);
+});
+gulp.task('prod-bnr-deploy-webwriter-config', [], function() {
+  getConfig(gutil.env.fdmg_services_config_url + '-prod/bnr', deploy);
+});
+
 gulp.task('dev-esb-deploy-webwriter-config', [], function() {
   getConfig(gutil.env.fdmg_services_config_url + '-dev/esb', deploy);
 });
@@ -341,6 +351,7 @@ gulp.task('clean', function() {
 
 // Default build development
 gulp.task('generate-config-fd', ['dev-config-fd-generate', 'acc-config-fd-generate', 'prod-config-fd-generate']);
+gulp.task('generate-config-bnr', ['dev-config-bnr-generate', 'acc-config-bnr-generate', 'prod-config-bnr-generate']);
 gulp.task('generate-config-esb', ['dev-config-esb-generate', 'acc-config-esb-generate', 'prod-config-esb-generate']);
 gulp.task('generate-config-pensioenpro', ['dev-config-pensioenpro-generate', 'acc-config-pensioenpro-generate', 'prod-config-pensioenpro-generate']);
 gulp.task('default', ['clean', 'local-config-fd-generate']);
