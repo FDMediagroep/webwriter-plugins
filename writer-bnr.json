@@ -1,0 +1,853 @@
+{
+  "newsItemTemplateId": "NEWS_ITEM_TEMPLATE_ID",
+  "language": "nl_NL",
+  "labelLanguage": "nl",
+  "disableSpellcheck": false,
+  "plugins": [{
+      "id": "se.infomaker.charactertransformation",
+      "name": "charactertransformation",
+      "url": "INFOMAKER_PLUGINS_BASE_URL/im-charactertransformation.js",
+      "enabled": true,
+      "mandatory": false,
+      "data": {
+        "rules": [{
+          "char": "\"",
+          "to": ["“", "”"]
+        }]
+      }
+    },
+    {
+      "id": "nl.fdmg.styles",
+      "name": "styles",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
+      "enabled": true,
+      "mandatory": true
+    },
+    {
+      "id": "se.infomaker.headline",
+      "name": "headline",
+      "url": "INFOMAKER_PLUGINS_BASE_URL/im-textstyle-headline.js",
+      "style": "INFOMAKER_PLUGINS_BASE_URL/im-textstyle-headline.css",
+      "enabled": true,
+      "mandatory": true
+    },
+    {
+      "id": "se.infomaker.preamble",
+      "name": "preamble",
+      "url": "INFOMAKER_PLUGINS_BASE_URL/im-textstyle-preamble.js",
+      "style": "INFOMAKER_PLUGINS_BASE_URL/im-textstyle-preamble.css",
+      "enabled": true,
+      "mandatory": true
+    },
+    {
+      "id": "se.infomaker.subheadline",
+      "name": "subheadline",
+      "url": "INFOMAKER_PLUGINS_BASE_URL/im-textstyle-subheadline.js",
+      "style": "INFOMAKER_PLUGINS_BASE_URL/im-textstyle-subheadline.css",
+      "enabled": true,
+      "mandatory": true
+    },
+    {
+      "id": "se.infomaker.paragraph",
+      "name": "paragraph",
+      "url": "INFOMAKER_PLUGINS_BASE_URL/im-textstyle-paragraph.js",
+      "style": "INFOMAKER_PLUGINS_BASE_URL/im-textstyle-paragraph.css",
+      "enabled": true,
+      "mandatory": true
+    },
+    {
+      "id": "se.infomaker.headereditor",
+      "name": "headereditor",
+      "url": "INFOMAKER_PLUGINS_BASE_URL/im-headereditor.js",
+      "style": "INFOMAKER_PLUGINS_BASE_URL/im-headereditor.css",
+      "mandatory": false,
+      "enabled": true,
+      "data": {
+        "elements": [
+          "headline",
+          "leadin"
+        ]
+      }
+    },
+    {
+      "id": "se.infomaker.youtubeembed",
+      "name": "youtubeembed",
+      "url": "INFOMAKER_PLUGINS_BASE_URL/im-youtubeembed.js",
+      "style": "INFOMAKER_PLUGINS_BASE_URL/im-youtubeembed.css",
+      "enabled": true,
+      "mandatory": true
+    },
+    {
+      "id": "se.infomaker.socialembed",
+      "name": "socialembed",
+      "url": "INFOMAKER_PLUGINS_BASE_URL/im-socialembed.js",
+      "style": "INFOMAKER_PLUGINS_BASE_URL/im-socialembed.css",
+      "enabled": true,
+      "mandatory": true
+    },
+    {
+      "id": "se.infomaker.ximimage",
+      "name": "ximimage",
+      "url": "INFOMAKER_PLUGINS_BASE_URL/im-ximimage.js",
+      "style": "INFOMAKER_PLUGINS_BASE_URL/im-ximimage.css",
+      "enabled": true,
+      "mandatory": true,
+      "data": {
+        "softcrop": false,
+        "bylinesearch": false,
+        "byline": false,
+        "imageinfo": false,
+        "fields": [{
+            "name": "caption",
+            "label": "Bijschrift",
+            "type": "text"
+          },
+          {
+            "name": "credit",
+            "label": "Credit",
+            "type": "text"
+          },
+          {
+            "name": "alignment",
+            "label": "Alignment",
+            "type": "option",
+            "options": [{
+                "name": "right",
+                "label": "Afbeelding rechts uitlijnend",
+                "icon": "fa-align-right"
+              },
+              {
+                "name": "block",
+                "label": "Afbeelding volledige breedte",
+                "icon": "fa-align-justify"
+              }
+            ]
+          }
+        ],
+        "disableUseOfAnnotationToolsForFields": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "nl.fdmg.imagesearch",
+      "name": "imagesearch",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
+      "enabled": true,
+      "mandatory": true,
+      "data": {
+        "loadNextScrollThreshold": 100,
+        "resultsPerPage": 25,
+        "searchEndpoint": "API_GATEWAY_BASE_URL/image/search/v1.0/hollandse-hoogte",
+        "fetchEndpoint": "API_GATEWAY_BASE_URL/image/v1.0/download",
+        "token": "HOLLANDSE_HOOGTE_TOKEN"
+      }
+    },
+    {
+      "id": "nl.fdmg.stockticker",
+      "name": "stockticker",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
+      "enabled": true,
+      "mandatory": true,
+      "data": {
+        "endpoint": "https://beurs.fd.nl/webservices/fd/quicksearch?query="
+      }
+    },
+    {
+      "id": "nl.fdmg.textframe",
+      "name": "textframe",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
+      "enabled": true,
+      "mandatory": true,
+      "data": {
+        "softcrop": false,
+        "fields": [
+          "text"
+        ],
+        "alignments": [{
+            "name": "right",
+            "label": "Afbeelding rechts uitlijnend",
+            "icon": "fa-align-right"
+          },
+          {
+            "name": "block",
+            "label": "Afbeelding volledige breedte",
+            "icon": "fa-align-justify"
+          }
+        ],
+        "disableUseOfAnnotationToolsForFields": [
+          "title"
+        ]
+      }
+    },
+    {
+      "id": "nl.fdmg.quote",
+      "name": "quote",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
+      "enabled": true,
+      "mandatory": true,
+      "data": {
+        "disableUseOfAnnotationToolsForFields": [
+          "message",
+          "author"
+        ]
+      }
+    },
+    {
+      "id": "nl.fdmg.numberframe",
+      "name": "numberframe",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
+      "enabled": true,
+      "mandatory": true,
+      "data": {
+        "disableUseOfAnnotationTools": true
+      }
+    },
+    {
+      "id": "nl.fdmg.stackframe",
+      "name": "stackframe",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
+      "enabled": true,
+      "mandatory": true,
+      "data": {
+        "disableUseOfAnnotationToolsForFields": [
+          "heading",
+          "content"
+        ]
+      }
+    },
+    {
+      "id": "nl.fdmg.relatedlink",
+      "name": "relatedlink",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
+      "enabled": true,
+      "mandatory": true,
+      "data": {
+        "disableUseOfAnnotationToolsForFields": [
+          "prefix",
+          "leadtext",
+          "relatedurl"
+        ]
+      }
+    },
+    {
+      "id": "nl.fdmg.localfocus",
+      "name": "localfocus",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "enabled": true,
+      "mandatory": false
+    },
+    {
+      "id": "se.infomaker.ximpdf",
+      "name": "ximpdf",
+      "url": "INFOMAKER_PLUGINS_BASE_URL/im-ximpdf.js",
+      "style": "INFOMAKER_PLUGINS_BASE_URL/im-ximpdf.css",
+      "enabled": true,
+      "mandatory": false
+    },
+    {
+      "id": "se.infomaker.ximteaser",
+      "name": "ximteaser",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
+      "enabled": true,
+      "mandatory": true,
+      "data": {
+        "softcrop": true,
+        "bylinesearch": false,
+        "byline": false,
+        "imageinfo": false,
+        "crops": {
+          "NORMAL": [1.7778, 1],
+          "SQUARE": [1, 1],
+          "WIDE": [3, 1]
+        },
+        "fields": [
+          "text"
+        ],
+        "disableUseOfAnnotationToolsForFields": [
+          "title",
+          "text"
+        ],
+        "teaserPosition": "top"
+      }
+    },
+    {
+      "id": "nl.fdmg.workflowstate",
+      "name": "workflowstate",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
+      "enabled": true,
+      "mandatory": true,
+      "data": {
+        "options": [
+          { "label": "PREPARE", "text": "In voorbereiding", "color": "#cdcdcd" },
+          { "label": "EDIT", "text": "In bewerking", "color": "#cbbb62" },
+          { "label": "VERIFY", "text": "Klaar voor eindredactie", "color": "#03c6c7" },
+          { "label": "READY", "text": "Geredigeerd", "color": "#a207a2" }
+        ]
+      }
+    },
+    {
+      "id": "nl.fdmg.publishflow",
+      "name": "publishflow",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
+      "enabled": true,
+      "mandatory": true
+    },
+    {
+      "id": "nl.fdmg.sidebartabs",
+      "name": "sidebartabs",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "enabled": true,
+      "mandatory": true
+    },
+    {
+      "id": "nl.fdmg.textcountselector",
+      "name": "textcountselector",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
+      "enabled": true,
+      "mandatory": true
+    },
+    {
+      "id": "nl.fdmg.tags",
+      "name": "tags",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
+      "enabled": true,
+      "mandatory": true,
+      "data": {
+        "searchEndpoint": "FDMG_SERVICES_NO_PROXY_BASE_URL/search/tag?q=",
+        "token": "FDMG_SERVICES_TOKEN"
+      }
+    },
+    {
+      "id": "nl.fdmg.textanalyzer",
+      "name": "textanalyzer",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
+      "enabled": true,
+      "mandatory": true,
+      "data": {
+        "counting": [
+          "paragraph",
+          "subheadline"
+        ],
+        "marginPct": 10,
+        "sizes": [{
+            "size": "?",
+            "label": "?",
+            "count": -1,
+            "disabled": true
+          },
+          {
+            "size": "S",
+            "label": "1810",
+            "count": 1810
+          },
+          {
+            "size": "M",
+            "label": "2450",
+            "count": 2450
+          },
+          {
+            "size": "L",
+            "label": "3600",
+            "count": 3600
+          },
+          {
+            "size": "XL",
+            "label": "5300 excl. kader (1050)",
+            "count": 5300
+          },
+          {
+            "size": "XXL",
+            "label": "7200 excl. kaders (2x1050)",
+            "count": 7200
+          },
+          {
+            "size": "UNLIMITED",
+            "label": "∞",
+            "count": -1
+          }
+        ]
+      }
+    },
+    {
+      "id": "nl.fdmg.author",
+      "name": "author",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
+      "enabled": true,
+      "mandatory": true,
+      "data": {
+        "endpoint": "FDMG_SERVICES_NO_PROXY_BASE_URL/search/author?q=",
+        "token": "FDMG_SERVICES_TOKEN"
+      }
+    },
+    {
+      "id": "nl.fdmg.donotindex",
+      "name": "donotindex",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "enabled": true,
+      "mandatory": true
+    },
+    {
+      "id": "nl.fdmg.fdpersonal",
+      "name": "fdpersonal",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "enabled": true,
+      "mandatory": true
+    },
+    {
+      "id": "nl.fdmg.showrelatedarticles",
+      "name": "showrelatedarticles",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "enabled": true,
+      "mandatory": true
+    },
+    {
+      "id": "nl.fdmg.paywall",
+      "name": "paywall",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "enabled": true,
+      "mandatory": true
+    },
+    {
+      "id": "nl.fdmg.topstory",
+      "name": "topstory",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "enabled": true,
+      "mandatory": true
+    },
+    {
+      "id": "nl.fdmg.comments",
+      "name": "comments",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "enabled": true,
+      "mandatory": true
+    },
+    {
+      "id": "nl.fdmg.breakingarticle",
+      "name": "breakingarticle",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "enabled": true,
+      "mandatory": true
+    },
+    {
+      "id": "nl.fdmg.shortarticle",
+      "name": "shortarticle",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "enabled": true,
+      "mandatory": true
+    },
+    {
+      "id": "nl.fdmg.fullwidth",
+      "name": "fullwidth",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "enabled": true,
+      "mandatory": false
+    },
+    {
+      "id": "nl.fdmg.relatedarticles",
+      "name": "relatedarticles",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
+      "enabled": true,
+      "mandatory": true,
+      "data": {
+        "domain": "FDMG_BASE_DOMAIN_URL"
+      }
+    },
+    {
+      "id": "nl.fdmg.section",
+      "name": "section",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "enabled": true,
+      "mandatory": true,
+      "data": {
+        "sections": [{
+            "id": "politiek",
+            "label": "Politiek"
+          }
+        ]
+      }
+    },
+    {
+      "id": "nl.fdmg.genre",
+      "name": "genre",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
+      "enabled": true,
+      "mandatory": true,
+      "data": {
+        "genres": [{
+            "id": "Achtergrond",
+            "label": "Achtergrond"
+          },
+          {
+            "id": "Analyse",
+            "label": "Analyse"
+          },
+          {
+            "id": "Audio",
+            "label": "Audio"
+          },
+          {
+            "id": "Blog",
+            "label": "Blog"
+          },
+          {
+            "id": "Column",
+            "label": "Column"
+          },
+          {
+            "id": "Fotoserie",
+            "label": "Fotoserie"
+          },
+          {
+            "id": "Interview",
+            "label": "Interview"
+          },
+          {
+            "id": "Liveblog",
+            "label": "Liveblog"
+          },
+          {
+            "id": "Opinie",
+            "label": "Opinie"
+          },
+          {
+            "id": "Opnieuw relevant",
+            "label": "Opnieuw relevant"
+          },
+          {
+            "id": "Uitgelicht",
+            "label": "Uitgelicht"
+          },
+          {
+            "id": "Update",
+            "label": "Update"
+          },
+          {
+            "id": "Video",
+            "label": "Video"
+          }
+        ]
+      }
+    },
+    {
+      "id": "nl.fdmg.rubric",
+      "name": "rubric",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "enabled": true,
+      "mandatory": true,
+      "data": {
+        "rubrics": [{
+            "id": "Beursverslag",
+            "label": "Beursverslag"
+          },
+          {
+            "id": "Boardroom",
+            "label": "Boardroom"
+          },
+          {
+            "id": "Commentaar",
+            "label": "Commentaar"
+          },
+          {
+            "id": "Gazellen",
+            "label": "Gazellen"
+          },
+          {
+            "id": "Het Raderwerk",
+            "label": "Het Raderwerk"
+          },
+          {
+            "id": "Kantelpunt",
+            "label": "Kantelpunt"
+          },
+          {
+            "id": "Marktmeesters",
+            "label": "Marktmeesters"
+          },
+          {
+            "id": "Nieuws in beeld",
+            "label": "Nieuws in beeld"
+          },
+          {
+            "id": "Black Book",
+            "label": "Black Book"
+          },
+          {
+            "id": "Droomweekend",
+            "label": "Droomweekend"
+          },
+          {
+            "id": "Eten & Drinken",
+            "label": "Eten & Drinken"
+          },
+          {
+            "id": "Go!",
+            "label": "Go!"
+          },
+          {
+            "id": "Huis te koop",
+            "label": "Huis te koop"
+          },
+          {
+            "id": "Man van de wereld",
+            "label": "Man van de wereld"
+          },
+          {
+            "id": "Oog voor…",
+            "label": "Oog voor…"
+          },
+          {
+            "id": "Eyeopeners",
+            "label": "Eyeopeners"
+          },
+          {
+            "id": "Nieuwe Bronnen",
+            "label": "Nieuwe Bronnen"
+          },
+          {
+            "id": "Oude bronnen",
+            "label": "Oude bronnen"
+          },
+          {
+            "id": "Start-up Insights",
+            "label": "Start-up Insights"
+          },
+          {
+            "id": "Start-up Kitchen",
+            "label": "Start-up Kitchen"
+          },
+          {
+            "id": "Slimme Stekken",
+            "label": "Slimme Stekken"
+          },
+          {
+            "id": "TechTeam",
+            "label": "TechTeam"
+          },
+          {
+            "id": "Eerste baas",
+            "label": "Eerste baas"
+          },
+          {
+            "id": "Zakenauto",
+            "label": "Zakenauto"
+          }
+        ]
+      }
+    },
+    {
+      "id": "nl.fdmg.articletype",
+      "name": "articletype",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
+      "enabled": true,
+      "mandatory": true,
+      "data": {
+        "articletypes": [{
+            "id": "ARTICLE",
+            "label": "Artikel"
+          },
+          {
+            "id": "PHOTO_SERIES",
+            "label": "Fotoserie"
+          },
+          {
+            "id": "EVENT",
+            "label": "Event"
+          }
+        ],
+        "optionsGroup": "articletype"
+      }
+    },
+    {
+      "id": "nl.fdmg.redirectlink",
+      "name": "redirectlink",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
+      "enabled": true,
+      "mandatory": true,
+      "data": {
+        "optionsGroup": "articletype"
+      }
+    },
+    {
+      "id": "nl.fdmg.advertorial",
+      "name": "advertorial",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "enabled": true,
+      "mandatory": true,
+      "data": {
+        "endpoint": "FDMG_SERVICES_NO_PROXY_BASE_URL/articles/section/fd4.advertorial/children",
+        "token": "FDMG_SERVICES_TOKEN",
+        "optionsGroup": "articletype"
+      }
+    },
+    {
+      "id": "nl.fdmg.servicepage",
+      "name": "servicepage",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "enabled": true,
+      "mandatory": true,
+      "data": {
+        "endpoint": "FDMG_SERVICES_NO_PROXY_BASE_URL/articles/section/fd4.service/allchildren",
+        "token": "FDMG_SERVICES_TOKEN",
+        "optionsGroup": "articletype"
+      }
+    },
+    {
+      "id": "nl.fdmg.focuscolor",
+      "name": "focuscolor",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
+      "enabled": true,
+      "mandatory": true,
+      "data": {
+        "optionsGroup": "articletype"
+      }
+    },
+    {
+      "id": "nl.fdmg.epic",
+      "name": "epic",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "enabled": true,
+      "mandatory": true,
+      "data": {
+        "endpoint": "FDMG_SERVICES_NO_PROXY_BASE_URL/search/epic?q=",
+        "token": "FDMG_SERVICES_TOKEN"
+      }
+    },
+    {
+      "id": "nl.fdmg.planneddate",
+      "name": "planneddate",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
+      "enabled": true,
+      "mandatory": true
+    },
+    {
+      "id": "nl.fdmg.htmlembed",
+      "name": "htmlembed",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
+      "enabled": true,
+      "mandatory": true
+    },
+    {
+      "id": "nl.fdmg.heartbeat",
+      "name": "heartbeat",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
+      "enabled": true,
+      "mandatory": true,
+      "data": {
+        "endpoint": "FDMG_SERVICES_BASE_URL/articles/lock/",
+        "token": "FDMG_SERVICES_TOKEN"
+      }
+    },
+    {
+      "id": "se.infomaker.history",
+      "name": "history",
+      "url": "INFOMAKER_PLUGINS_BASE_URL/im-history.js",
+      "style": "INFOMAKER_PLUGINS_BASE_URL/im-history.css",
+      "enabled": true,
+      "mandatory": true,
+      "data": {
+        "timeFormat": "LTS"
+      }
+    },
+    {
+      "id": "nl.fdmg.workinstructions",
+      "name": "workinstructions",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
+      "enabled": true,
+      "mandatory": true
+    },
+    {
+      "id": "nl.fdmg.preview",
+      "name": "preview",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
+      "enabled": true,
+      "mandatory": true,
+      "data": {
+        "previewBaseUrl": "FDMG_PREVIEW_URL/${id}"
+      }
+    },
+    {
+      "id": "nl.fdmg.ximimagestandin",
+      "name": "ximimagestandin",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "enabled": true,
+      "mandatory": true
+    },
+    {
+      "id": "nl.fdmg.headlinestandin",
+      "name": "headlinestandin",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "enabled": true,
+      "mandatory": true
+    },
+    {
+      "id": "nl.fdmg.preamblestandin",
+      "name": "preamblestandin",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "enabled": true,
+      "mandatory": true
+    },
+    {
+      "id": "nl.fdmg.writerinfo",
+      "name": "writerinfo",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "enabled": true,
+      "mandatory": true,
+      "data": {
+        "showInstructionsManual" : true,
+        "instructionsManualUrl": "FDMG_INSTRUCTIONS_MANUAL_URL",
+        "showHotlineNumber" : true,
+        "hotlineNumber" : "FDMG_EMERGENCY_PHONE_NUMBER",
+        "showGroupMailBox" : true,
+        "groupMailbox" : "FDMG_GROUP_MAIL_BOX"
+      }
+    },
+    {
+      "id": "nl.fdmg.specialcharacter",
+      "name": "specialcharacter",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "enabled": true,
+      "mandatory": true,
+      "data" : {
+        "specialCharacters": [
+          "—","€","$","£","¥","ƒ",
+          "⁰","¹","²","³","⁴","⁵","⁶","⁷","⁸","⁹","⁺","⁻","⁼","⁽","⁾","ⁿ",
+          "₀","₁","₂","₃","₄","₅","₆","₇","₈","₉","₊","₋","₌","₍","₎",
+          "ₐ","ₑ","ₒ","ₓ","ₔ","ₕ","ₖ","ₗ","ₘ","ₙ","ₚ","ₛ","ₜ"
+          ]
+      }
+    },
+    {
+      "id": "nl.fdmg.translations",
+      "name": "translations",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "enabled": true,
+      "mandatory": true
+    }
+  ]
+}

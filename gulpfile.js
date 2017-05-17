@@ -114,6 +114,44 @@ gulp.task('prod-config-fd-generate', function() {
   getConfig(gutil.env.fdmg_services_config_url + '-prod/fd', writeConfig);
 });
 
+/* BNR Environments */
+gulp.task('local-config-bnr-generate', function() {
+  console.log('Creating "local" config for BNR writer');
+  writeConfig({
+    'fdmg.source': 'writer-bnr.json',
+    'infoMaker.plugins.base': 'https://plugins.writer.infomaker.io/dev',
+    'fdmg.webwriter.plugins.base': 'http://localhost:3000',
+    'fdmg.newsItem.template.id': '10018543',
+    'fdmg.services.baseUrl': 'https://webwriter-dev.bnr.nl/fdmgapi/private/fd',
+    'fdmg.services.noProxyBaseUrl': 'https://dev-api.fdmg.org/private/bnr',
+    'fdmg.services.token': 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiItMzg0NTQzMDA3ODQ3ODM0NDA1NCIsInN1YiI6ImJuci1mZG1nLXNlcnZpY2VzIiwicm9sZSI6IlJPTEVfQUxMIn0.mjtyjf2OJtdfQB3j3MNjE2sfmy0gwaE_HxglwXMZZmf2ZLw2gNcYFE75TTwOQ5mTa9ZNiWI6jDpC-I_Byjydtg',
+    'hollandseHoogte.token': '63401c89-63e9-35f9-9daa-a55ef26c3042',
+    'fdmg.apiGatewayBaseUrl': 'https://apigateway-dev.fdmg.nl',
+    'fdmg.previewUrl': 'https://preview-dev.bnr.nl',
+    'fdmg.fileName': 'writer-bnr.json',
+    'fdmg.destination': '../NPWriter/server/config/',
+    'fdmg.baseDomainUrl': 'dev.bnr.nl',
+    'fdmg.instructionsManualUrl': 'http://static.fd.nl/webwriter-manual/fd-writer-manual.pdf',
+    'fdmg.emergencyPhoneNumber' : '+31 020 592 8553',
+    'fdmg.groupMailBox' : 'webwriter@fdmediagroep.nl'
+  });
+});
+
+gulp.task('dev-config-bnr-generate', function() {
+  console.log('Creating "development" config for BNR writer');
+  getConfig(gutil.env.fdmg_services_config_url + '-dev/bnr', writeConfig);
+});
+
+gulp.task('acc-config-bnr-generate', function() {
+  console.log('Creating "acceptance" config for BNR writer');
+  getConfig(gutil.env.fdmg_services_config_url + '-acc/bnr', writeConfig);
+});
+
+gulp.task('prod-config-bnr-generate', function() {
+  console.log('Creating "production" config for BNR writer');
+  getConfig(gutil.env.fdmg_services_config_url + '-prod/bnr', writeConfig);
+});
+
 /* ESB Environments */
 gulp.task('local-config-esb-generate', function() {
   console.log('Creating "local" config for ESB writer');
