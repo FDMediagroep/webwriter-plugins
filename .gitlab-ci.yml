@@ -20,6 +20,7 @@ build_dist:
     - echo Running build for production
     - npm run build
     - gulp --fdmg_services_config_url=http://spring-config-acc-fd.fdmg.org:8088/webwriter --ci_commit_sha=${CI_COMMIT_SHA} generate-config-fd
+    - gulp --fdmg_services_config_url=http://spring-config-acc-bnr.fdmg.org:8088/webwriter --ci_commit_sha=${CI_COMMIT_SHA} generate-config-bnr
     - gulp --fdmg_services_config_url=http://spring-config-acc-esb.fdmg.org:8088/webwriter --ci_commit_sha=${CI_COMMIT_SHA} generate-config-esb
     - gulp --fdmg_services_config_url=http://spring-config-acc-pensioenpro.fdmg.org:8088/webwriter --ci_commit_sha=${CI_COMMIT_SHA} generate-config-pensioenpro
   artifacts:
@@ -193,6 +194,15 @@ manual_dev_fd:
   script:
     - gulp --fdmg_services_config_url=http://spring-config-acc-fd.fdmg.org:8088/webwriter dev-fd-deploy-webwriter-config
   environment: webwriter-dev-fd
+  when: manual
+
+manual_dev_bnr:
+  stage: deploy
+  tags:
+      - FDMG
+  script:
+    - gulp --fdmg_services_config_url=http://spring-config-acc-bnr.fdmg.org:8088/webwriter dev-bnr-deploy-webwriter-config
+  environment: webwriter-dev-bnr
   when: manual
 
 manual_dev_esb:
