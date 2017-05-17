@@ -157,7 +157,7 @@ deploy_prod_bnr:
   tags:
       - FDMG
   script:
-    - gulp --fdmg_services_config_url=http://spring-config-bnr.fdmg.org:8088/webwriter prod-bnr-deploy-webwriter-config
+    - gulp --fdmg_services_config_url=http://spring-config-acc-bnr.fdmg.org:8088/webwriter prod-bnr-deploy-webwriter-config
   environment: webwriter-bnr
   only:
     - production
