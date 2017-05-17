@@ -124,7 +124,7 @@ gulp.task('local-config-bnr-generate', function() {
     'fdmg.newsItem.template.id': '10018543',
     'fdmg.services.baseUrl': 'https://webwriter-dev.bnr.nl/fdmgapi/private/bnr',
     'fdmg.services.noProxyBaseUrl': 'https://dev-api.fdmg.org/private/bnr',
-    'fdmg.services.token': 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiItMzg0NTQzMDA3ODQ3ODM0NDA1NCIsInN1YiI6ImJuci1mZG1nLXNlcnZpY2VzIiwicm9sZSI6IlJPTEVfQUxMIn0.mjtyjf2OJtdfQB3j3MNjE2sfmy0gwaE_HxglwXMZZmf2ZLw2gNcYFE75TTwOQ5mTa9ZNiWI6jDpC-I_Byjydtg',
+    'fdmg.services.token': 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiI3OTgwNjk3MjIyOTI1MzUwNzYzIiwic3ViIjoiYm5yLWZkbWctc2VydmljZXMiLCJyb2xlIjoiUk9MRV9BTEwifQ.mcA6ZJWBBx88zNbHSclhNxqGZhnKcGvJ9_DA7xWBRJQL9YtFSxEtZtwJ7dXmCSkNlq2fUEb9-0mtoXj18nIiuw',
     'hollandseHoogte.token': '63401c89-63e9-35f9-9daa-a55ef26c3042',
     'fdmg.apiGatewayBaseUrl': 'https://apigateway-dev.fdmg.nl',
     'fdmg.previewUrl': 'https://preview-dev.bnr.nl',
