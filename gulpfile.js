@@ -122,7 +122,7 @@ gulp.task('local-config-bnr-generate', function() {
     'infoMaker.plugins.base': 'https://plugins.writer.infomaker.io/dev',
     'fdmg.webwriter.plugins.base': 'http://localhost:3000',
     'fdmg.newsItem.template.id': '10018543',
-    'fdmg.services.baseUrl': 'https://webwriter-dev.bnr.nl/fdmgapi/private/fd',
+    'fdmg.services.baseUrl': 'https://webwriter-dev.bnr.nl/fdmgapi/private/bnr',
     'fdmg.services.noProxyBaseUrl': 'https://dev-api.fdmg.org/private/bnr',
     'fdmg.services.token': 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiItMzg0NTQzMDA3ODQ3ODM0NDA1NCIsInN1YiI6ImJuci1mZG1nLXNlcnZpY2VzIiwicm9sZSI6IlJPTEVfQUxMIn0.mjtyjf2OJtdfQB3j3MNjE2sfmy0gwaE_HxglwXMZZmf2ZLw2gNcYFE75TTwOQ5mTa9ZNiWI6jDpC-I_Byjydtg',
     'hollandseHoogte.token': '63401c89-63e9-35f9-9daa-a55ef26c3042',
