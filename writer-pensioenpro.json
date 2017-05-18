@@ -655,6 +655,18 @@
       }
     },
     {
+      "id": "nl.fdmg.program",
+      "name": "program",
+      "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
+      "enabled": false,
+      "mandatory": false,
+      "data": {
+        "endpoint": "FDMG_SERVICES_NO_PROXY_BASE_URL/articles/programs",
+        "token": "FDMG_SERVICES_TOKEN",
+        "optionsGroup": "program"
+      }
+    },
+    {
       "id": "nl.fdmg.servicepage",
       "name": "servicepage",
       "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
