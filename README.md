@@ -15,8 +15,8 @@
   1. npm install
   1. npm run build-dep
   1. npm run dev
-1. run `CONFIG_FILE=writer-fd.json npm run dev` in `NPWriter/`
-  1. For Windows use `set CONFIG_FILE=writer-fd.json&npm run dev` instead
+1. run `CONFIG_FILE=writer.json npm run dev` in `NPWriter/`
+  1. For Windows use `set CONFIG_FILE=writer.json&npm run dev` instead
 1. The `NPWriter/` should now be up and running.
 
 1. Navigate to `webwriter-plugins` and run `npm install`
