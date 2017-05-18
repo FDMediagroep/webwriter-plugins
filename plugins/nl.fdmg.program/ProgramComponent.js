@@ -21,7 +21,6 @@ export default class ProgramComponent extends ArticleOption {
   didMount(){
     const endpoint = api.getConfigValue(this.pluginId, 'endpoint');
     const token = api.getConfigValue(this.pluginId, 'token');
-
     // Makes call to webservice to populate the dropdown.
     fetch(endpoint, {
       method: 'GET',
@@ -31,7 +30,7 @@ export default class ProgramComponent extends ArticleOption {
     })
     .then(response => api.router.checkForOKStatus(response))
     .then(response => api.router.toJson(response))
-    .then(response => response.map(x => {return {id: x, label: x}}))
+    .then(response => response.map(x => {return {id: x.id, label: x.title}}))
     .then(response => { this.extendState({items: response}) });
 
     // Important to call `super` and not `this`. `this` would return the wrong instance. The effect would be the sames

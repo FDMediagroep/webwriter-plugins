@@ -145,7 +145,7 @@ export default class ArticleOptionComponent extends Component {
           return {id: i.id, label: label};
         })
         .pop();
-
+      console.log(selection, 'selection')
       el.append(
         $$(DropdownComponent, {
           onSelect: this.update.bind(this),
