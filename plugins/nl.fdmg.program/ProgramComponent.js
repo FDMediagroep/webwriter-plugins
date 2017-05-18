@@ -1,7 +1,7 @@
 import ArticleOption from '../nl.fdmg.articleoption/ArticleOptionComponent';
 import {api} from 'writer';
 
-export default class AdvertorialComponent extends ArticleOption {
+export default class ProgramComponent extends ArticleOption {
 
   constructor(...args) {
     super({

@@ -1,9 +1,9 @@
-import AdvertorialPackage from './AdvertorialPackage';
+import ProgramPackage from './ProgramPackage';
 import {registerPlugin} from 'writer';
 
 export default () => {
   if (registerPlugin) {
-    registerPlugin(AdvertorialPackage);
+    registerPlugin(ProgramPackage);
   } else {
     console.error("Register method not yet available");
   }
