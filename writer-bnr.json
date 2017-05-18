@@ -694,7 +694,7 @@
       "enabled": true,
       "mandatory": true,
       "data": {
-        "endpoint": "FDMG_SERVICES_NO_PROXY_BASE_URL/articles/section/fd4.advertorial/children",
+        "endpoint": "FDMG_SERVICES_NO_PROXY_BASE_URL/articles/section/advertorial/children",
         "token": "FDMG_SERVICES_TOKEN",
         "optionsGroup": "articletype"
       }
@@ -718,7 +718,7 @@
       "enabled": true,
       "mandatory": true,
       "data": {
-        "endpoint": "FDMG_SERVICES_NO_PROXY_BASE_URL/articles/section/fd4.service/allchildren",
+        "endpoint": "FDMG_SERVICES_NO_PROXY_BASE_URL/articles/section/service/allchildren",
         "token": "FDMG_SERVICES_TOKEN",
         "optionsGroup": "articletype"
       }
