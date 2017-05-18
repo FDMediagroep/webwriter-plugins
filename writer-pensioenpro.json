@@ -663,7 +663,7 @@
       "data": {
         "endpoint": "FDMG_SERVICES_NO_PROXY_BASE_URL/articles/programs",
         "token": "FDMG_SERVICES_TOKEN",
-        "optionsGroup": "program"
+        "optionsGroup": "articletype"
       }
     },
     {
