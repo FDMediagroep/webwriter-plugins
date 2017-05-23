@@ -32,7 +32,7 @@ export default class ProgramComponent extends ArticleOption {
     .then(response => api.router.toJson(response))
     // The id has to be a string in order for the articleoptions component
     // to make a match.
-    .then(response => response.map(x => {return {id: "'" + x.id + "'", label: x.title}}))
+    .then(response => response.map(x => {return {id: x.id, label: x.title}}))
     .then(response => { this.extendState({items: response}) });
 
     // Important to call `super` and not `this`. `this` would return the wrong instance. The effect would be the sames
