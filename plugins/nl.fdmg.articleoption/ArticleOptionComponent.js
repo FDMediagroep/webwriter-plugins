@@ -140,7 +140,7 @@ export default class ArticleOptionComponent extends Component {
         .getLinkByType(this.name, this.type)
         .map(l => { return {id: l['@value']}; })
         .map(i => {
-          const match = this.state.items.find(item => item.id === i.id);
+          const match = this.state.items.find(item => item.id.toString() === i.id.toString());
           const label = (match !== undefined) ? match.label : i.id;
           return {id: i.id, label: label};
         })
