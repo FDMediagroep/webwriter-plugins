@@ -341,7 +341,8 @@
       "data": {
         "counting": [
           "paragraph",
-          "subheadline"
+          "subheadline",
+          "preamble"
         ],
         "marginPct": 10,
         "sizes": [{
