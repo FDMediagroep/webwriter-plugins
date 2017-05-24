@@ -4,6 +4,7 @@ import './scss/articleoption.scss';
 const {Component} = substance;
 const {api, idGenerator} = writer;
 
+
 /**
  * Base class for Checkbox components.
  *
@@ -42,7 +43,7 @@ export default class ArticleOptionComponent extends Component {
   getInitialState() {
     return {
       name : this.name,
-      checked: this.getOptionChecked(),
+      mytoggleValue: this.getOptionChecked(),
       enabled: true
     };
   }
@@ -55,24 +56,40 @@ export default class ArticleOptionComponent extends Component {
    * @returns {void|ServerResponse|*}
    */
   render($$) {
+    const Toggle = this.getComponent('toggle') 
     // Construct the checkbox
     const el = $$('div')
+    
     .addClass('fdmg-sidebar').append(
       $$('div')
       .addClass('checkbox form-group')
       .append(
         $$('label')
           .append(
-            $$('input')
-              .attr('type', 'checkbox')
-              .attr(!this.state.enabled ? {'disabled': 'disabled'} : {})
-              .attr(this.state.checked ? {'checked': 'checked'} : {})
-              .on('change', () => {
-                this.setOptionChecked(!this.state.checked)
-              }),
-              $$('span').append(this.getLabel(this.label))
+            // $$('input')
+              // .attr('type', 'checkbox')
+              // .attr(!this.state.enabled ? {'disabled': 'disabled'} : {})
+              // .attr(this.state.checked ? {'checked': 'checked'} : {})
+              // .on('change', () => {
+              //   this.setOptionChecked(!this.state.checked)
+              // }),
+              // $$('span').append(this.getLabel(this.label))
+              $$(Toggle, {
+                id: this.pluginId,
+                label: this.getLabel(this.label),
+                checked: this.state.checked ? {'checked': 'checked'} : {}, // Inital, true/false
+                onToggle: (checked) => {
+                  this.setOptionChecked(!this.state.checked);
+                  this.extendState({
+                    mytoggleValue: checked
+                  });
+                }
+              })
+              
           )
+          
       ),
+      console.log(this.state.mytoggleValue),
       $$('hr').addClass('options-hr')
     );
 
