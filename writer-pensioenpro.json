@@ -481,7 +481,8 @@
           {"id":"english", "label":"English"},
           {"id":"magazine", "label":"Magazine"},
           {"id": "blog", "label": "Blog"}, 
-          {"id": "column", "label": "Column"}
+          {"id": "column", "label": "Column"},
+          {"id": "fd","label": "FD"}
         ]
       }
     },
