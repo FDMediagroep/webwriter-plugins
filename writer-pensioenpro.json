@@ -478,10 +478,10 @@
       "mandatory": true,
       "data": {
         "sections": [
-          {"id":"pensioenpro", "label":"PensioenPro"},
-          {"id":"fd", "label":"FD"},
           {"id":"english", "label":"English"},
-          {"id":"magazine", "label":"Magazine"}
+          {"id":"magazine", "label":"Magazine"},
+          {"id": "blog", "label": "Blog"}, 
+          {"id": "column", "label": "Column"}
         ]
       }
     },
@@ -493,22 +493,9 @@
       "enabled": true,
       "mandatory": true,
       "data": {
-        "genres": [{
-            "id": "pp_article",
-            "label": "PP Artikel"
-          },
-          {
-            "id": "fd_article",
-            "label": "FD Artikel"
-          },
-          {
-            "id": "blog",
-            "label": "Blog"
-          },
-          {
-            "id": "column",
-            "label": "Column"
-          }
+        "genres": [
+          {"id": "pensioenpro","label": "PP Artikel"},
+          {"id": "fd","label": "FD Artikel"}
         ]
       }
     },
