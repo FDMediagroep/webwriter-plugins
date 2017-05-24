@@ -64,32 +64,18 @@ export default class ArticleOptionComponent extends Component {
       $$('div')
       .addClass('checkbox form-group')
       .append(
-        $$('label')
-          .append(
-            // $$('input')
-              // .attr('type', 'checkbox')
-              // .attr(!this.state.enabled ? {'disabled': 'disabled'} : {})
-              // .attr(this.state.checked ? {'checked': 'checked'} : {})
-              // .on('change', () => {
-              //   this.setOptionChecked(!this.state.checked)
-              // }),
-              // $$('span').append(this.getLabel(this.label))
-              $$(Toggle, {
-                id: this.pluginId,
-                label: this.getLabel(this.label),
-                checked: this.state.checked ? {'checked': 'checked'} : {}, // Inital, true/false
-                onToggle: (checked) => {
-                  this.setOptionChecked(!this.state.checked);
-                  this.extendState({
-                    mytoggleValue: checked
-                  });
-                }
-              })
-              
-          )
-          
+        $$(Toggle, {
+          id: this.pluginId,
+          label: this.getLabel(this.label),
+          checked: this.state.mytoggleValue, // Inital, true/false
+          onToggle: (checked) => {
+            this.setOptionChecked(checked);
+            this.extendState({
+              mytoggleValue: checked
+            });
+          }
+        }).addClass(!this.state.enabled ? 'disabled' : '')
       ),
-      console.log(this.state.mytoggleValue),
       $$('hr').addClass('options-hr')
     );
 
