@@ -494,8 +494,8 @@
       "mandatory": true,
       "data": {
         "genres": [
-          {"id": "pensioenpro","label": "PP Artikel"},
-          {"id": "fd","label": "FD Artikel"}
+          {"id": "pp","label": "PP"},
+          {"id": "fd","label": "FD"}
         ]
       }
     },
