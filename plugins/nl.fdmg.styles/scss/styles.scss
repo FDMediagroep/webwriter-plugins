@@ -111,8 +111,11 @@ a.fdmg-box {
     }
     .np-toggle {
         &.disabled {
-            opacity: 0.3;
+            opacity: 0.8;
             pointer-events: none;
+            .toggle-btn-label:before {
+                display:none;
+            }
         }
         .toggle-btn-fake-label {
             font-size: 0.9em;
