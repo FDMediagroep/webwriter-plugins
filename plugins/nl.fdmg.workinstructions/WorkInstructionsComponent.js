@@ -27,11 +27,56 @@ class WorkinstructionsComponent extends Component {
   }
 
   render($$) {
+    const renderDecoupledComponent = api.getConfigValue('nl.fdmg.workinstructions', 'showDecoupled');
+    const Toggle = this.getComponent('toggle')
+
     var decoupledLabel = this.getLabel('Article coupled');
 
     if (this.state.decoupled === true) {
       decoupledLabel = this.getLabel('Article decoupled');
     }
+
+    const decoupledComponent = $$('div').addClass('checkbox form-group')
+        .append(
+        $$('label')
+          .addClass('decoupled')
+          .addClass(this.state.decoupled ? 'active' : '')
+          .append(
+            // $$('input')
+            //   .attr('type', 'checkbox')
+            //   .attr(this.state.decoupled ? {'checked': 'checked'} : {})
+            //   .on('change', () => {
+            //     this.extendState({decoupled: !this.state.decoupled});
+            //     this.updateDecoupled();
+            //   }),
+            // decoupledLabel
+            
+            $$(Toggle, {
+              id: 'decoupled',
+              label: decoupledLabel,
+              checked: this.state.decoupled, // Inital, true/false
+              onToggle: (checked) => {
+                this.extendState({
+                  decoupled: checked
+                })
+                this.updateDecoupled();
+              }
+            })
+          )
+        )
+
+    const instructionsComponent = $$('div')
+      .addClass('workinstructions-wrapper')
+      .append(
+        $$('textarea')
+          .addClass('workinstructions-textarea')
+          .attr({
+            spellcheck: false,
+            disabled: 'disabled',
+            placeholder: this.getLabel('Workinstructions placeholder')
+          })
+          .setValue(this.state.workInstructions)
+      ).on('click', this.editWorkInstructions)
 
     const el = $$('div')
       .addClass('plugin workinstructions')
@@ -40,40 +85,16 @@ class WorkinstructionsComponent extends Component {
         $$('div').addClass('header')
         .append($$('h2')
           .append(this.getLabel('Workinstructions'))
-        ),
-        $$('div').addClass('checkbox form-group')
-        .append(
-        $$('label')
-          .addClass('decoupled')
-          .addClass(this.state.decoupled ? 'active' : '')
-          .append(
-            $$('input')
-              .attr('type', 'checkbox')
-              .attr(this.state.decoupled ? {'checked': 'checked'} : {})
-              .on('change', () => {
-                this.extendState({decoupled: !this.state.decoupled});
-                this.updateDecoupled();
-              }),
-            decoupledLabel
-          )),
-        $$('div')
-          .addClass('workinstructions-wrapper')
-          .append(
-            $$('textarea')
-              .addClass('workinstructions-textarea')
-              .attr({
-                spellcheck: false,
-                disabled: 'disabled',
-                placeholder: this.getLabel('Workinstructions placeholder')
-              })
-              .setValue(this.state.workInstructions)
-          )
-          .on('click', this.editWorkInstructions)
-      ),
-      $$('hr')
-    );
+        )
+      )
+    )
 
-    return el;
+    if(renderDecoupledComponent) {
+      return el.append(decoupledComponent, instructionsComponent, $$('hr'))
+    } else {
+      return el.append(instructionsComponent, $$('hr'))
+    }
+    
   }
 
   editWorkInstructions() {

@@ -37,15 +37,18 @@
             }
         }
     }
-    input[type=checkbox] {
-        min-height: initial;
+    .toggle-btn:checked + .toggle-btn-label {
+        background: #c70000;
+        -webkit-box-shadow: inset 0 0 0 16px #c70000, 0 0 0 2px #c70000;
+        -moz-box-shadow: inset 0 0 0 16px #c70000, 0 0 0 2px #c70000;
+        box-shadow: inset 0 0 0 16px #c70000, 0 0 0 2px #c70000;
+    }
+    .np-toggle .toggle-btn-fake-label {
+        font-size: 1em;
     }
     label.decoupled {
-        cursor: pointer;
-        text-indent: -18px;
+        font-size: 1em;
         &.active {
-            background-color: #a41e39;
-            color: white;
             font-size: 1em;
         }
     }

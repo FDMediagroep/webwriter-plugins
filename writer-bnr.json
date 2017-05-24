@@ -791,7 +791,10 @@
       "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
       "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
       "enabled": true,
-      "mandatory": true
+      "mandatory": true,
+      "data": {
+        "showDecoupled": false
+      }
     },
     {
       "id": "nl.fdmg.preview",
