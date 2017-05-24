@@ -6,7 +6,7 @@ export default {
   name: 'program',
 
   configure: function(config) {
-    config.addComponentToSidebarWithTabId(this.id, 'adminTab', ProgramComponent);
+    config.addComponentToSidebarWithTabId(this.id, 'main', ProgramComponent);
     config.addValidator(ProgramValidator);
 
 
