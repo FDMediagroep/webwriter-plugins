@@ -43,7 +43,7 @@ export default class ArticleOptionComponent extends Component {
   getInitialState() {
     return {
       name : this.name,
-      mytoggleValue: this.getOptionChecked(),
+      checked: this.getOptionChecked(),
       enabled: true
     };
   }
@@ -67,11 +67,11 @@ export default class ArticleOptionComponent extends Component {
         $$(Toggle, {
           id: this.pluginId,
           label: this.getLabel(this.label),
-          checked: this.state.mytoggleValue, // Inital, true/false
+          checked: this.state.checked, // Inital, true/false
           onToggle: (checked) => {
             this.setOptionChecked(checked);
             this.extendState({
-              mytoggleValue: checked
+              checked: checked
             });
           }
         }).addClass(!this.state.enabled ? 'disabled' : '')
@@ -80,7 +80,7 @@ export default class ArticleOptionComponent extends Component {
     );
 
     // When component is configured to have an input field and this checkbox is checked.
-    if (this.hasinput && this.state.mytoggleValue) {
+    if (this.hasinput && this.state.checked) {
       // Append an input field.
       el.append(
         $$('input')
@@ -99,7 +99,7 @@ export default class ArticleOptionComponent extends Component {
     }
 
     // When component is configured to have a color input field and this checkbox is checked.
-    if (this.hascolorinput && this.state.mytoggleValue) {
+    if (this.hascolorinput && this.state.checked) {
       // Append an input field.
       el.append(
         $$('input')
@@ -138,13 +138,14 @@ export default class ArticleOptionComponent extends Component {
     }
 
     // Render the items in the dropdown if there are any.
-    if (this.hasSelect && this.state.mytoggleValue && this.state.items) {
+    if (this.hasSelect && this.state.checked && this.state.items) {
       const selection = api.newsItem
         .getLinkByType(this.name, this.type)
         .map(l => { return {id: l['@value']}; })
         .map(i => {
           const match = this.state.items.find(item => item.id.toString() === i.id.toString());
           const label = (match !== undefined) ? match.label : i.id;
+
           return {id: i.id, label: label};
         })
         .pop();
@@ -240,7 +241,7 @@ export default class ArticleOptionComponent extends Component {
    * Determine current state and use that to update other components in the same `optionsGroup`.
    */
   updateOtherOptions() {
-    const eventState = this.state.mytoggleValue ? 'disabled' : 'enabled';
+    const eventState = this.state.checked ? 'disabled' : 'enabled';
     api.events.triggerEvent('', api.getConfigValue(this.pluginId||this.id, 'optionsGroup') + `:${eventState}`, this.name);
   }
 
