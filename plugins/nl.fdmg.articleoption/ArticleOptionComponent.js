@@ -80,7 +80,7 @@ export default class ArticleOptionComponent extends Component {
     );
 
     // When component is configured to have an input field and this checkbox is checked.
-    if (this.hasinput && this.state.checked) {
+    if (this.hasinput && this.state.mytoggleValue) {
       // Append an input field.
       el.append(
         $$('input')
@@ -99,7 +99,7 @@ export default class ArticleOptionComponent extends Component {
     }
 
     // When component is configured to have a color input field and this checkbox is checked.
-    if (this.hascolorinput && this.state.checked) {
+    if (this.hascolorinput && this.state.mytoggleValue) {
       // Append an input field.
       el.append(
         $$('input')
@@ -138,7 +138,7 @@ export default class ArticleOptionComponent extends Component {
     }
 
     // Render the items in the dropdown if there are any.
-    if (this.hasSelect && this.state.checked && this.state.items) {
+    if (this.hasSelect && this.state.mytoggleValue && this.state.items) {
       const selection = api.newsItem
         .getLinkByType(this.name, this.type)
         .map(l => { return {id: l['@value']}; })
@@ -159,6 +159,7 @@ export default class ArticleOptionComponent extends Component {
         $$('hr')
       );
     }
+
     return el;
   }
 
@@ -239,7 +240,7 @@ export default class ArticleOptionComponent extends Component {
    * Determine current state and use that to update other components in the same `optionsGroup`.
    */
   updateOtherOptions() {
-    const eventState = this.state.checked ? 'disabled' : 'enabled';
+    const eventState = this.state.mytoggleValue ? 'disabled' : 'enabled';
     api.events.triggerEvent('', api.getConfigValue(this.pluginId||this.id, 'optionsGroup') + `:${eventState}`, this.name);
   }
 
