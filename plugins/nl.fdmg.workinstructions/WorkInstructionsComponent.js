@@ -38,19 +38,10 @@ class WorkinstructionsComponent extends Component {
 
     const decoupledComponent = $$('div').addClass('checkbox form-group')
         .append(
-        $$('label')
+        $$('div')
           .addClass('decoupled')
           .addClass(this.state.decoupled ? 'active' : '')
           .append(
-            // $$('input')
-            //   .attr('type', 'checkbox')
-            //   .attr(this.state.decoupled ? {'checked': 'checked'} : {})
-            //   .on('change', () => {
-            //     this.extendState({decoupled: !this.state.decoupled});
-            //     this.updateDecoupled();
-            //   }),
-            // decoupledLabel
-            
             $$(Toggle, {
               id: 'decoupled',
               label: decoupledLabel,
