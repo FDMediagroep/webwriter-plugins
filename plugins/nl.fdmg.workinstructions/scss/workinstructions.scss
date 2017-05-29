@@ -37,6 +37,21 @@
             }
         }
     }
+    .decoupled {
+        .toggle-btn-fake-label {
+            padding: 5px;
+        }
+        &.active {
+            .toggle-btn-fake-label {
+                padding: 5px;
+                color: white;
+                background-color: #c70000;
+                border-radius: 5px;
+                width: 100%;
+                text-align: center;
+            }
+        }
+    }
     .toggle-btn:checked + .toggle-btn-label {
         background: #c70000;
         -webkit-box-shadow: inset 0 0 0 16px #c70000, 0 0 0 2px #c70000;
