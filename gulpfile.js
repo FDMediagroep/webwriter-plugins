@@ -50,6 +50,7 @@ function writeConfig(data) {
     .pipe(replace(/CACHEBUSTER/g, gutil.env.ci_commit_sha || 'SNAPSHOT'))
     .pipe(replace(/FDMG_EMERGENCY_PHONE_NUMBER/g, data['fdmg.emergencyPhoneNumber']))
     .pipe(replace(/FDMG_GROUP_MAIL_BOX/g, data['fdmg.groupMailBox']))
+    .pipe(replace(/FDMG_PUBLICATION_NAME/g, data['fdmg.publicationName']))
     .pipe(rename(data['fdmg.fileName']))
     .pipe(gulp.dest(data['fdmg.destination']));
 }
@@ -72,7 +73,9 @@ gulp.task('config-devbox-generate', function() {
     'fdmg.baseDomainUrl': 'dev.fd.nl',
     'fdmg.instructionsManualUrl': 'http://static.fd.nl/webwriter-manual/fd-writer-manual.pdf',
     'fdmg.emergencyPhoneNumber' : '+31 020 592 8553',
-    'fdmg.groupMailBox' : 'webwriter@fdmediagroep.nl'
+    'fdmg.groupMailBox' : 'webwriter@fdmediagroep.nl',
+    'fdmg.publicationName' : 'fd'
+    
   });
 });
 

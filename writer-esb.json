@@ -142,7 +142,8 @@
         "resultsPerPage": 25,
         "searchEndpoint": "API_GATEWAY_BASE_URL/image/search/v1.0/hollandse-hoogte",
         "fetchEndpoint": "API_GATEWAY_BASE_URL/image/v1.0/download",
-        "token": "HOLLANDSE_HOOGTE_TOKEN"
+        "token": "HOLLANDSE_HOOGTE_TOKEN",
+        "publicationName" : "FDMG_PUBLICATION_NAME"
       }
     },
     {
