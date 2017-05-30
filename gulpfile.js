@@ -50,6 +50,7 @@ function writeConfig(data) {
     .pipe(replace(/CACHEBUSTER/g, gutil.env.ci_commit_sha || 'SNAPSHOT'))
     .pipe(replace(/FDMG_EMERGENCY_PHONE_NUMBER/g, data['fdmg.emergencyPhoneNumber']))
     .pipe(replace(/FDMG_GROUP_MAIL_BOX/g, data['fdmg.groupMailBox']))
+    .pipe(replace(/FDMG_PUBLICATION_NAME/g, data['fdmg.publicationName']))
     .pipe(rename(data['fdmg.fileName']))
     .pipe(gulp.dest(data['fdmg.destination']));
 }
@@ -72,7 +73,9 @@ gulp.task('config-devbox-generate', function() {
     'fdmg.baseDomainUrl': 'dev.fd.nl',
     'fdmg.instructionsManualUrl': 'http://static.fd.nl/webwriter-manual/fd-writer-manual.pdf',
     'fdmg.emergencyPhoneNumber' : '+31 020 592 8553',
-    'fdmg.groupMailBox' : 'webwriter@fdmediagroep.nl'
+    'fdmg.groupMailBox' : 'webwriter@fdmediagroep.nl',
+    'fdmg.publicationName' : 'fd'
+    
   });
 });
 
@@ -95,7 +98,8 @@ gulp.task('local-config-fd-generate', function() {
     'fdmg.baseDomainUrl': 'dev.fd.nl',
     'fdmg.instructionsManualUrl': 'http://static.fd.nl/webwriter-manual/fd-writer-manual.pdf',
     'fdmg.emergencyPhoneNumber' : '+31 020 592 8553',
-    'fdmg.groupMailBox' : 'webwriter@fdmediagroep.nl'
+    'fdmg.groupMailBox' : 'webwriter@fdmediagroep.nl',
+    'fdmg.publicationName': 'fd'
   });
 });
 
@@ -133,7 +137,8 @@ gulp.task('local-config-bnr-generate', function() {
     'fdmg.baseDomainUrl': 'dev.bnr.nl',
     'fdmg.instructionsManualUrl': 'http://static.fd.nl/webwriter-manual/fd-writer-manual.pdf',
     'fdmg.emergencyPhoneNumber' : '+31 020 592 8553',
-    'fdmg.groupMailBox' : 'webwriter@fdmediagroep.nl'
+    'fdmg.groupMailBox' : 'webwriter@fdmediagroep.nl',
+    'fdmg.publicationName': 'bnr'
   });
 });
 
@@ -171,7 +176,8 @@ gulp.task('local-config-esb-generate', function() {
     'fdmg.baseDomainUrl': 'dev.esb.nu',
     'fdmg.instructionsManualUrl': 'http://static.fd.nl/webwriter-manual/fd-writer-manual.pdf',
     'fdmg.emergencyPhoneNumber' : '+31 020 592 8553',
-    'fdmg.groupMailBox' : 'webwriter@fdmediagroep.nl'
+    'fdmg.groupMailBox' : 'webwriter@fdmediagroep.nl',
+    'fdmg.publicationName': 'esb'
   });
 });
 
@@ -210,7 +216,8 @@ gulp.task('local-config-pensioenpro-generate', function() {
     'fdmg.baseDomainUrl': 'dev.pensioenpro.nl',
     'fdmg.instructionsManualUrl': 'http://static.fd.nl/webwriter-manual/fd-writer-manual.pdf',
     'fdmg.emergencyPhoneNumber' : '+31 020 592 8553',
-    'fdmg.groupMailBox' : 'webwriter@fdmediagroep.nl'
+    'fdmg.groupMailBox' : 'webwriter@fdmediagroep.nl',
+    'fdmg.publicationName': 'pensioenpro'
   });
 });
 
@@ -255,7 +262,8 @@ function initializeConfig() {
     'fdmg.baseDomainUrl': '',
     'fdmg.instructionsManualUrl': '',
     'fdmg.emergencyPhoneNumber' : '',
-    'fdmg.groupMailBox' : ''
+    'fdmg.groupMailBox' : '',
+    'fdmg.publicationName' : ''
   };
 }
 

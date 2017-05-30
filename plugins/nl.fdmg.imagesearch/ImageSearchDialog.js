@@ -216,7 +216,8 @@ class ImageSearchDialog extends Component {
   _performSearch(query, pageIndex) {
     const resultsPerPage = api.getConfigValue(pluginId, 'resultsPerPage', 25);
     const endpoint = api.getConfigValue(pluginId, 'searchEndpoint');
-    const url = `${endpoint}?q=${query}&page=${pageIndex + 1}&result=${resultsPerPage}`;
+    const publicationName = api.getConfigValue(pluginId, 'publicationName');
+    const url = `${endpoint}?q=${query}&page=${pageIndex + 1}&result=${resultsPerPage}&product=${publicationName}`;
     const token = api.getConfigValue(pluginId, 'token');
 
     return fetch(url, {
@@ -247,7 +248,8 @@ class ImageSearchDialog extends Component {
 
   _retrieveDownloadUrl(imageId) {
     const endpoint = api.getConfigValue(pluginId, 'fetchEndpoint');
-    const url = `${endpoint}?id=${imageId}`;
+    const publicationName = api.getConfigValue(pluginId, 'publicationName');
+    const url = `${endpoint}?id=${imageId}&product=${publicationName}`;
     const token = api.getConfigValue(pluginId, 'token');
 
     return fetch(url, {
