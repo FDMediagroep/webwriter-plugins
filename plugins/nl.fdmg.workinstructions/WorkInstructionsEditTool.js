@@ -14,7 +14,8 @@ class WorkInstructionEditTool extends Tool {
           .addClass('textarea')
           .attr({
             spellcheck: false,
-            placeholder: this.getLabel('Workinstructions placeholder')
+            placeholder: this.getLabel('Workinstructions placeholder'),
+            maxlength: '4000'
           })
           .append(this.props.text)
           .ref('textarea')
