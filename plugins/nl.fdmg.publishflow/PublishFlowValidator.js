@@ -3,8 +3,6 @@ import {moment} from 'writer';
 
 class PublishFlowValidator extends FDValidator {
   validate() {
-    console.log('validate')
-
     // Check if the withheld date is in the future, else throw error and stop save.
     if (this.withheld) {
       const now = moment();
