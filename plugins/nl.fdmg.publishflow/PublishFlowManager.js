@@ -64,7 +64,6 @@ class PublishFlowConfiguration {
 
   setToWithheld(from) {
     let fromObj = moment(from);
-
     if (!fromObj.isValid()) {
       throw new Error('Invalid from date and time');
     }

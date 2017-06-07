@@ -1,4 +1,5 @@
 import PublishFlowComponent from './PublishFlowComponent';
+import PublishFlowValidator from './PublishFlowValidator.js';
 
 export default {
   name: 'publishflow',
@@ -14,6 +15,13 @@ export default {
       },
       PublishFlowComponent
     );
+
+    config.addValidator(PublishFlowValidator);
+
+    config.addLabel('Embargo date must be in the future', {
+      'nl': 'Tijdklok datum/tijd ligt niet in de toekomst',
+      'en' : 'Embargo date is not in the future'
+    });
 
     config.addLabel('Save', {
       'nl': 'Opslaan',

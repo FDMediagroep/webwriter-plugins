@@ -13,6 +13,10 @@ class FDValidator extends Validator {
     return this.qcode === 'stat:withheld' || this.qcode === 'imext:done'
   }
 
+  get withheld() {
+    return this.qcode === 'stat:withheld'
+  }
+
   get published() {
     return this.qcode === 'stat:usable'
   }
