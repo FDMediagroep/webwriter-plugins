@@ -262,7 +262,7 @@
       "enabled": true,
       "mandatory": true,
       "data": {
-        "softcrop": true,
+        "softcrop": false,
         "bylinesearch": false,
         "byline": false,
         "imageinfo": false,
