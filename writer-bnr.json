@@ -151,8 +151,8 @@
       "name": "stockticker",
       "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
       "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
-      "enabled": true,
-      "mandatory": true,
+      "enabled": false,
+      "mandatory": false,
       "data": {
         "endpoint": "https://beurs.fd.nl/webservices/fd/quicksearch?query="
       }
@@ -162,8 +162,8 @@
       "name": "textframe",
       "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
       "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
-      "enabled": true,
-      "mandatory": true,
+      "enabled": false,
+      "mandatory": false,
       "data": {
         "softcrop": false,
         "fields": [
@@ -190,8 +190,8 @@
       "name": "quote",
       "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
       "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
-      "enabled": true,
-      "mandatory": true,
+      "enabled": false,
+      "mandatory": false,
       "data": {
         "disableUseOfAnnotationToolsForFields": [
           "message",
@@ -204,8 +204,8 @@
       "name": "numberframe",
       "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
       "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
-      "enabled": true,
-      "mandatory": true,
+      "enabled": false,
+      "mandatory": false,
       "data": {
         "disableUseOfAnnotationTools": true
       }
@@ -215,8 +215,8 @@
       "name": "stackframe",
       "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
       "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
-      "enabled": true,
-      "mandatory": true,
+      "enabled": false,
+      "mandatory": false,
       "data": {
         "disableUseOfAnnotationToolsForFields": [
           "heading",
@@ -229,8 +229,8 @@
       "name": "relatedlink",
       "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
       "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
-      "enabled": true,
-      "mandatory": true,
+      "enabled": false,
+      "mandatory": false,
       "data": {
         "disableUseOfAnnotationToolsForFields": [
           "prefix",
@@ -317,8 +317,8 @@
       "name": "textcountselector",
       "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
       "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
-      "enabled": true,
-      "mandatory": true
+      "enabled": false,
+      "mandatory": false
     },
     {
       "id": "nl.fdmg.tags",
@@ -408,15 +408,15 @@
       "id": "nl.fdmg.fdpersonal",
       "name": "fdpersonal",
       "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
-      "enabled": true,
-      "mandatory": true
+      "enabled": false,
+      "mandatory": false
     },
     {
       "id": "nl.fdmg.showrelatedarticles",
       "name": "showrelatedarticles",
       "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
-      "enabled": true,
-      "mandatory": true
+      "enabled": false,
+      "mandatory": false
     },
     {
       "id": "nl.fdmg.paywall",
@@ -429,15 +429,15 @@
       "id": "nl.fdmg.topstory",
       "name": "topstory",
       "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
-      "enabled": true,
-      "mandatory": true
+      "enabled": false,
+      "mandatory": false
     },
     {
       "id": "nl.fdmg.comments",
       "name": "comments",
       "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
-      "enabled": true,
-      "mandatory": true
+      "enabled": false,
+      "mandatory": false
     },
     {
       "id": "nl.fdmg.breakingarticle",
@@ -450,14 +450,14 @@
       "id": "nl.fdmg.shortarticle",
       "name": "shortarticle",
       "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
-      "enabled": true,
-      "mandatory": true
+      "enabled": false,
+      "mandatory": false
     },
     {
       "id": "nl.fdmg.fullwidth",
       "name": "fullwidth",
       "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
-      "enabled": true,
+      "enabled": false,
       "mandatory": false
     },
     {
@@ -465,8 +465,8 @@
       "name": "relatedarticles",
       "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
       "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
-      "enabled": true,
-      "mandatory": true,
+      "enabled": false,
+      "mandatory": false,
       "data": {
         "domain": "FDMG_BASE_DOMAIN_URL"
       }
@@ -490,8 +490,8 @@
       "name": "genre",
       "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
       "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
-      "enabled": true,
-      "mandatory": true,
+      "enabled": false,
+      "mandatory": false,
       "data": {
         "genres": [{
             "id": "Achtergrond",
@@ -500,50 +500,6 @@
           {
             "id": "Analyse",
             "label": "Analyse"
-          },
-          {
-            "id": "Audio",
-            "label": "Audio"
-          },
-          {
-            "id": "Blog",
-            "label": "Blog"
-          },
-          {
-            "id": "Column",
-            "label": "Column"
-          },
-          {
-            "id": "Fotoserie",
-            "label": "Fotoserie"
-          },
-          {
-            "id": "Interview",
-            "label": "Interview"
-          },
-          {
-            "id": "Liveblog",
-            "label": "Liveblog"
-          },
-          {
-            "id": "Opinie",
-            "label": "Opinie"
-          },
-          {
-            "id": "Opnieuw relevant",
-            "label": "Opnieuw relevant"
-          },
-          {
-            "id": "Uitgelicht",
-            "label": "Uitgelicht"
-          },
-          {
-            "id": "Update",
-            "label": "Update"
-          },
-          {
-            "id": "Video",
-            "label": "Video"
           }
         ]
       }
@@ -552,8 +508,8 @@
       "id": "nl.fdmg.rubric",
       "name": "rubric",
       "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
-      "enabled": true,
-      "mandatory": true,
+      "enabled": false,
+      "mandatory": false,
       "data": {
         "rubrics": [{
             "id": "Beursverslag",
@@ -562,94 +518,6 @@
           {
             "id": "Boardroom",
             "label": "Boardroom"
-          },
-          {
-            "id": "Commentaar",
-            "label": "Commentaar"
-          },
-          {
-            "id": "Gazellen",
-            "label": "Gazellen"
-          },
-          {
-            "id": "Het Raderwerk",
-            "label": "Het Raderwerk"
-          },
-          {
-            "id": "Kantelpunt",
-            "label": "Kantelpunt"
-          },
-          {
-            "id": "Marktmeesters",
-            "label": "Marktmeesters"
-          },
-          {
-            "id": "Nieuws in beeld",
-            "label": "Nieuws in beeld"
-          },
-          {
-            "id": "Black Book",
-            "label": "Black Book"
-          },
-          {
-            "id": "Droomweekend",
-            "label": "Droomweekend"
-          },
-          {
-            "id": "Eten & Drinken",
-            "label": "Eten & Drinken"
-          },
-          {
-            "id": "Go!",
-            "label": "Go!"
-          },
-          {
-            "id": "Huis te koop",
-            "label": "Huis te koop"
-          },
-          {
-            "id": "Man van de wereld",
-            "label": "Man van de wereld"
-          },
-          {
-            "id": "Oog voor…",
-            "label": "Oog voor…"
-          },
-          {
-            "id": "Eyeopeners",
-            "label": "Eyeopeners"
-          },
-          {
-            "id": "Nieuwe Bronnen",
-            "label": "Nieuwe Bronnen"
-          },
-          {
-            "id": "Oude bronnen",
-            "label": "Oude bronnen"
-          },
-          {
-            "id": "Start-up Insights",
-            "label": "Start-up Insights"
-          },
-          {
-            "id": "Start-up Kitchen",
-            "label": "Start-up Kitchen"
-          },
-          {
-            "id": "Slimme Stekken",
-            "label": "Slimme Stekken"
-          },
-          {
-            "id": "TechTeam",
-            "label": "TechTeam"
-          },
-          {
-            "id": "Eerste baas",
-            "label": "Eerste baas"
-          },
-          {
-            "id": "Zakenauto",
-            "label": "Zakenauto"
           }
         ]
       }
@@ -665,10 +533,6 @@
         "articletypes": [{
             "id": "ARTICLE",
             "label": "Artikel"
-          },
-          {
-            "id": "PHOTO_SERIES",
-            "label": "Fotoserie"
           },
           {
             "id": "EVENT",
@@ -693,8 +557,8 @@
       "id": "nl.fdmg.advertorial",
       "name": "advertorial",
       "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
-      "enabled": true,
-      "mandatory": true,
+      "enabled": false,
+      "mandatory": false,
       "data": {
         "endpoint": "FDMG_SERVICES_NO_PROXY_BASE_URL/articles/section/advertorial/children",
         "token": "FDMG_SERVICES_TOKEN",
@@ -730,8 +594,8 @@
       "name": "focuscolor",
       "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
       "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
-      "enabled": true,
-      "mandatory": true,
+      "enabled": false,
+      "mandatory": false,
       "data": {
         "optionsGroup": "articletype"
       }
@@ -740,8 +604,8 @@
       "id": "nl.fdmg.epic",
       "name": "epic",
       "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
-      "enabled": true,
-      "mandatory": true,
+      "enabled": false,
+      "mandatory": false,
       "data": {
         "endpoint": "FDMG_SERVICES_NO_PROXY_BASE_URL/search/epic?q=",
         "token": "FDMG_SERVICES_TOKEN"
@@ -752,8 +616,8 @@
       "name": "planneddate",
       "url": "WEBWRITER_PLUGINS_BASE_URL/index.js?CACHEBUSTER",
       "style": "WEBWRITER_PLUGINS_BASE_URL/style.css?CACHEBUSTER",
-      "enabled": true,
-      "mandatory": true
+      "enabled": false,
+      "mandatory": false
     },
     {
       "id": "nl.fdmg.htmlembed",
